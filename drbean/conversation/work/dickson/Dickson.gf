@@ -47,7 +47,6 @@ fun
 	eighty	: CN;
 	end	: CN;
 	experience	: CN;
-	families.	: CN;
 	family	: CN;
 	graduation	: CN;
 	guy	: CN;

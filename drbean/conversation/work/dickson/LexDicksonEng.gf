@@ -24,7 +24,6 @@ oper
 	80_N	= mkN "80";
 	end_N	= mkN "end";
 	experience_N	= mkN "experience";
-	families_N	= mkN "families";
 	family_N	= mkN "family";
 	graduation_N	= mkN "graduation";
 	guy_N	= mkN "guy";
