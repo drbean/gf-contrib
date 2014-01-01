@@ -84,8 +84,7 @@ oper
 	-- want_NP_to	: V2V;
 	-- want_to	: VV;
 
-	become_V2	= mkV2 "become";
-	become_V2	= mkV2 (mkV "become");
+	become_V2	= mkV2 (IrregEng.become_V);
 	can_VV	= SyntaxEng.can_VV;
 	could_VV	= SyntaxEng.could_VV;
 	get_along_V2	= mkV2 "get" "along_with";
