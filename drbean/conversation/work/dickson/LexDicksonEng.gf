@@ -59,27 +59,6 @@ oper
 	alf_PN	= mkPN "alf";
 	dee_PN	= mkPN "dee";
 
-	become	: V2;
-	can	: VV;
-	get	: V2;
-	go	: V;
-	have	: V2;
-	hire	: V2;
-	interview	: V2;
-	know	: VS;
-	laugh	: V;
-	-- let	: V2;
-	lift	: V2;
-	like	: V;
-	look	: V;
-	-- make	: V2
-	need	: VV;
-	prove	: V;
-	start	: V;
-	take	: V;
-	tell	: V;
-	think	: VS;
-
 	become_V2	= mkV2 (IrregEng.become_V);
 	can_VV	= SyntaxEng.can_VV;
 	get_along_V2	= mkV2 "get" "along_with";
