@@ -57,25 +57,25 @@ oper
 	dee_PN	: PN;
 	monday_PN	: PN;
 
-	allow_V2V	: V2V;
-	apply_V2	: V2;
-	can_VV	: VV;
 	become_V2	: V2;
-	choose_V2	: V2;
-	enjoy_V2	: V2;
-	expand_V	: V;
-	feel_VS	: VS;
-	improve_V2	: V2;
-	increase_V2	: V2;
-	go_V	: V;
+	can_VV	: VV;
+	get_along_V2	: V2;
+	get_V2	: V2;
+	go_V2	: V2;
 	have_V2	: V2;
-	help_V2	: V2;
-	know_VS	: VS;
-	lead_V2	: V2;
-	must_VV	: VV;
+	hire_V2	: V2;
+	interview_V2	: V2;
+	know_V	: V;
+	laugh_V	: V;
+	lift_V2	: V2;
+	like_V2	: V2;
+	look_V2	: V2;
+	need_VV	: VV;
+	need_V2	: V2;
+	prove_V2	: V2;
+	start_ing_VV	: VV;
+	take_V2V	: V2V;
+	tell_V2S	: V2S;
 	think_VS	: VS;
-	want_VV	: VV;
-	-- want_NP_to_V	: V;
-	-- want_to_V	: V;
 
 }
