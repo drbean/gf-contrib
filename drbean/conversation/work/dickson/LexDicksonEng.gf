@@ -79,9 +79,6 @@ oper
 	take	: V;
 	tell	: V;
 	think	: VS;
-	want	: VV;
-	-- want_NP_to	: V2V;
-	-- want_to	: VV;
 
 	become_V2	= mkV2 (IrregEng.become_V);
 	can_VV	= SyntaxEng.can_VV;

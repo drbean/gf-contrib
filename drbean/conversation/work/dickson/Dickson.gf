@@ -101,8 +101,5 @@ fun
 	take	: V;
 	tell	: V;
 	think	: VS;
-	want	: VV;
-	-- want_NP_to	: V2V;
-	-- want_to	: VV;
 
 }
