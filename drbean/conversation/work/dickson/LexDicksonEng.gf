@@ -87,20 +87,21 @@ oper
 	can_VV	= SyntaxEng.can_VV;
 	get_along_V2	= mkV2 "get" "along_with";
 	get_V2	= mkV2 "get";
-	go_V2	= mkV2 "go" "to";
-	hire_V2	= mkV2 "hire";
-	feel_VS	= mkVS (mkV "feel");
-	improve_V2	= mkV2 "improve";
-	increase_V2	= mkV2 "increase";
-	go_V	= IrregEng.go_V;
+	go_V2	= mkV2 IrregEng.go_V "to";
 	have_V2	= mkV2 (IrregEng.have_V);
-	help_V2	= mkV2 "help";
-	know_VS	= mkVS know_V;
-	lead_V2	= mkV2 "lead";
-	must_VV	= SyntaxEng.must_VV;
-	think_VS	= mkVS (mkV "think");
-	want_VV	= SyntaxEng.want_VV;
-
-	find_V2V	= mkV2V (mkV "find") noPrep to_Prep;
+	hire_V2	= mkV2 "hire";
+	interview_V2	= mkV2 "interview";
+	know_V	= IrregEng.know_V;
+	laugh_V	= mkV2 "laugh";
+	lift_V2	= mkV2 "lift";
+	like_V2	= mkV2 "like";
+	look_V2	= mkV2 "look";
+	need_VV = mkVV "need";
+	need_V2 = mkV2 "need";
+	prove_V2	= mkV2 "prove";
+	start_ing_VV = ingVV (mkV "start" "starts" "started" "started" "starting");
+	take_V2V = mkV2V (IrregEng.take_V) noPrep to_Prep;
+	tell_V2S = mkV2S (IrregEng.tell_V) noPrep;
+	think_VS = mkVS (IrregEng.think_V);
 
 }
