@@ -90,7 +90,6 @@ oper
 	get_along_V2	= mkV2 "get" "along_with";
 	get_V2	= mkV2 "get";
 	go_V2	= mkV2 "go" "to";
-	have_V2	= mkV2 "have";
 	hire_V2	= mkV2 "hire";
 	feel_VS	= mkVS (mkV "feel");
 	improve_V2	= mkV2 "improve";
