@@ -61,7 +61,6 @@ oper
 
 	become	: V2;
 	can	: VV;
-	could	: VV;
 	get	: V2;
 	go	: V;
 	have	: V2;
@@ -86,7 +85,6 @@ oper
 
 	become_V2	= mkV2 (IrregEng.become_V);
 	can_VV	= SyntaxEng.can_VV;
-	could_VV	= SyntaxEng.could_VV;
 	get_along_V2	= mkV2 "get" "along_with";
 	get_V2	= mkV2 "get";
 	go_V2	= mkV2 "go" "to";

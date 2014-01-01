@@ -155,7 +155,7 @@ v = [
 	, "been"
 	, "become"
 	, "can"
-	, "couldn't"
+	-- , "couldn't"
 	, "did"
 	, "didn't"
 	, "do"

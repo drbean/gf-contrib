@@ -83,7 +83,6 @@ fun
 
 	become	: V2;
 	can	: VV;
-	could	: VV;
 	get	: V2;
 	go	: V;
 	have	: V2;
