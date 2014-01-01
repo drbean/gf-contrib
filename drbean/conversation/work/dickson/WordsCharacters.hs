@@ -76,7 +76,7 @@ det = [
 n = [
 	"apprentice"
 	, "dad"
-	, "80"
+	, "80" -- eighty
 	, "end"
 	, "families."
 	, "family"

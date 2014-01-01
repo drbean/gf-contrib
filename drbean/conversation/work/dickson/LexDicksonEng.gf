@@ -21,7 +21,7 @@ oper
 
 	apprentice_N	=mkN "apprentice";
 	dad_N	= mkN "dad";
-	80_N	= mkN "80";
+	eighty_N	= mkN "eighty";
 	end_N	= mkN "end";
 	experience_N	= mkN "experience";
 	family_N	= mkN "family";
