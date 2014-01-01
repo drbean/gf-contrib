@@ -95,7 +95,7 @@ fun
 	lift	: V2;
 	like	: V;
 	look	: V;
-	make	: V2
+	-- make	: V2
 	need	: VV;
 	prove	: V;
 	start	: V;

@@ -69,11 +69,11 @@ oper
 	interview	: V2;
 	know	: VS;
 	laugh	: V;
-	let	: V2;
+	-- let	: V2;
 	lift	: V2;
 	like	: V;
 	look	: V;
-	make	: V2
+	-- make	: V2
 	need	: VV;
 	prove	: V;
 	start	: V;
