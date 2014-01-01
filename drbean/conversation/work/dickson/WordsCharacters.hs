@@ -174,7 +174,7 @@ v = [
 	, "is"
 	, "know"
 	, "laughs"
-	, "let"
+	-- , "let"
 	, "lift"
 	, "like"
 	, "look"
