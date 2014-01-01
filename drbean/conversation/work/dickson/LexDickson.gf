@@ -22,7 +22,6 @@ oper
 	eighty_N	: N;
 	end_N	: N;
 	experience_N	: N;
-	families_N	: N;
 	family_N	: N;
 	graduation_N	: N;
 	guy_N	: N;

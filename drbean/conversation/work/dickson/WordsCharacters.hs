@@ -78,7 +78,7 @@ n = [
 	, "dad"
 	, "80" -- eighty
 	, "end"
-	, "families."
+	-- , "families."
 	, "family"
 	, "graduation"
 	, "guy"
