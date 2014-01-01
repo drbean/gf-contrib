@@ -92,7 +92,7 @@ oper
 	hire_V2	= mkV2 "hire";
 	interview_V2	= mkV2 "interview";
 	know_V	= IrregEng.know_V;
-	laugh_V	= mkV2 "laugh";
+	laugh_V	= mkV "laugh";
 	lift_V2	= mkV2 "lift";
 	like_V2	= mkV2 "like";
 	look_V2	= mkV2 "look";
