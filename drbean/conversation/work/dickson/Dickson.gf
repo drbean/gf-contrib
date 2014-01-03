@@ -50,13 +50,11 @@ fun
 	family	: CN;
 	graduation	: CN;
 	guy	: CN;
-	guys	: CN;
 	jobs	: CN;
 	kind	: CN;
 	knack	: CN;
 	life	: CN;
 	man	: CN;
-	men	: CN;
 	money	: CN;
 	nights	: CN;
 	position	: CN;
@@ -73,7 +71,6 @@ fun
 	uncle	: CN;
 	way	: CN;
 	week	: CN;
-	weeks	: CN;
 	word	: CN;
 	work	: CN;
 

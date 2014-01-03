@@ -27,14 +27,11 @@ oper
 	family_N	= mkN "family";
 	graduation_N	= mkN "graduation";
 	guy_N	= mkN "guy";
-	guys_N	= mkN "guys";
 	jobs_N	= mkN "jobs";
 	kind_N	= mkN "kind";
 	knack_N	= mkN "knack";
 	life_N	= mkN "life";
 	man_N	= mkN "man";
-	men_N	= mkN "men";
-	men's_N	= mkN "men";
 	monday_N	= mkN "monday";
 	money_N	= mkN "money";
 	nights_N	= mkN "nights";
@@ -52,7 +49,6 @@ oper
 	uncle_N	= mkN "uncle";
 	way_N	= mkN "way";
 	week_N	= mkN "week";
-	weeks_N	= mkN "weeks";
 	word_N	= mkN "word";
 	work_N	= mkN "work";
 
