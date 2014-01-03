@@ -25,13 +25,11 @@ oper
 	family_N	: N;
 	graduation_N	: N;
 	guy_N	: N;
-	guys_N	: N;
 	jobs_N	: N;
 	kind_N	: N;
 	knack_N	: N;
 	life_N	: N;
 	man_N	: N;
-	men_N	: N;
 	money_N	: N;
 	nights_N	: N;
 	position_N	: N;
@@ -48,7 +46,6 @@ oper
 	uncle_N	: N;
 	way_N	: N;
 	week_N	: N;
-	weeks_N	: N;
 	word_N	: N;
 	work_N	: N;
 
