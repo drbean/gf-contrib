@@ -56,8 +56,8 @@ oper
 	word_N	= mkN "word";
 	work_N	= mkN "work";
 
-	alf_PN	= mkPN "alf";
-	dee_PN	= mkPN "dee";
+	alf_PN	= mkPN "Alf";
+	dee_PN	= mkPN "Dee";
 	monday_PN = mkPN "Monday";
 
 	become_V2	= mkV2 (IrregEng.become_V);
