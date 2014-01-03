@@ -56,13 +56,11 @@ lin
 	family	= mkCN family_N;
 	graduation	= mkCN graduation_N;
 	guy	= mkCN guy_N;
-	guys	= mkCN guys_N;
 	jobs	= mkCN jobs_N;
 	kind	= mkCN kind_N;
 	knack	= mkCN knack_N;
 	life	= mkCN life_N;
 	man	= mkCN man_N;
-	men	= mkCN men_N;
 	money	= mkCN money_N;
 	nights	= mkCN nights_N;
 	position	= mkCN position_N;
@@ -79,13 +77,33 @@ lin
 	uncle	= mkCN uncle_N;
 	way	= mkCN way_N;
 	week	= mkCN week_N;
-	weeks	= mkCN weeks_N;
 	word	= mkCN word_N;
 	work	= mkCN work_N;
 
 	alf	= mkNP alf_PN;
 	dee	= mkNP dee_PN;
 	monday	= mkNP monday_PN;
+
+	become	= become_V2;
+	can	= can_VV;
+	get_along	= get_along_V2;
+	get	= get_V2;
+	go	= go_V2;
+	have	= have_V2;
+	hire	= hire_V2;
+	interview	= interview_V2;
+	know	= know_V;
+	laugh	= laugh_V;
+	lift	= lift_V2;
+	like	= like_V2;
+	look	= look_V2;
+	need	= need_VV;
+	-- need	= need_V2;
+	prove	= prove_V2;
+	start	= start_ing_VV;
+	take	= take_V2V;
+	tell	= tell_V2S;
+	think	= think_VS;
 
 }
 
