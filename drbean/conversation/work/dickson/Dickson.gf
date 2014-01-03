@@ -96,7 +96,7 @@ fun
 	need	: VV;
 	prove	: V2;
 	start	: VV;
-	-- take	: V;
+	take	: V2V;
 	-- tell	: V;
 	think	: VS;
 
