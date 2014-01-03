@@ -74,4 +74,25 @@ oper
 	tell_V2S	: V2S;
 	think_VS	: VS;
 
+	allow_V2V	: V2V;
+	apply_V2	: V2;
+	can_VV	: VV;
+	become_V2	: V2;
+	choose_V2	: V2;
+	enjoy_V2	: V2;
+	expand_V	: V;
+	feel_VS	: VS;
+	improve_V2	: V2;
+	increase_V2	: V2;
+	go_V	: V;
+	-- have_V2	: V2;
+	help_V2	: V2;
+	know_VS	: VS;
+	lead_V2	: V2;
+	must_VV	: VV;
+	think_VS	: VS;
+	want_VV	: VV;
+	-- want_NP_to_V	: V;
+	-- want_to_V	: V;
+
 }

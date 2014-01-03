@@ -105,5 +105,26 @@ lin
 	tell	= tell_V2S;
 	think	= think_VS;
 
+	allow	= allow_V2V;
+	apply	= apply_V2;
+	become	= become_V2;
+	choose	= choose_V2;
+	can	= can_VV;
+	enjoy	= enjoy_V2;
+	expand	= expand_V;
+	feel	= feel_VS;
+	-- go	= go_V;
+	-- have	= have_V2;
+	help	= help_V2;
+	improve	= improve_V2;
+	increase	= increase_V2;
+	-- know	= know_VS;
+	lead	= lead_V2;
+	must	= must_VV;
+	think	= think_VS;
+	want	= want_VV;
+	---- want_NP_to	= mkVP want_V;
+	---- want_to	= want_VV;
+
 }
 
