@@ -100,7 +100,7 @@ lin
 	need	= need_VV;
 	-- need	= need_V2;
 	prove	= prove_V2;
-	-- start	= start_ing_VV;
+	start	= start_ing_VV;
 	-- take	= take_V2V;
 	-- tell	= tell_V2S;
 	think	= think_VS;

@@ -71,7 +71,7 @@ oper
 	need_VV = mkVV (mkV "need" "needs" "needed" "needed" "needing") ;
 	need_V2 = mkV2 (mkV "need" "needs" "needed" "needed" "needing");
 	prove_V2	= mkV2 "prove";
-	-- start_ing_VV = ingVV (mkV "start" "starts" "started" "started" "starting");
+	start_ing_VV = ingVV (mkV "start" "starts" "started" "started" "starting");
 	-- take_V2V = mkV2V (IrregEng.take_V) noPrep to_Prep;
 	-- tell_V2S = mkV2S (IrregEng.tell_V) noPrep;
 	think_VS = mkVS (IrregEng.think_V);
