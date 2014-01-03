@@ -32,7 +32,6 @@ oper
 	knack_N	= mkN "knack";
 	life_N	= mkN "life";
 	man_N	= mkN "man";
-	monday_N	= mkN "monday";
 	money_N	= mkN "money";
 	nights_N	= mkN "nights";
 	position_N	= mkN "position";
