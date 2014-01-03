@@ -81,11 +81,12 @@ fun
 	become	: V2;
 	can	: VV;
 	get	: V2;
+	get_along	: V2;
 	go	: V;
 	have	: V2;
 	hire	: V2;
 	interview	: V2;
-	know	: VS;
+	know	: V;
 	laugh	: V;
 	-- let	: V2;
 	lift	: V2;
