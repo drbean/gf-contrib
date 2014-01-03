@@ -87,7 +87,7 @@ oper
 	improve_V2	= mkV2 "improve";
 	increase_V2	= mkV2 "increase";
 	go_V	= IrregEng.go_V;
-	have_V2	= mkV2 (IrregEng.have_V);
+	-- have_V2	= mkV2 (IrregEng.have_V);
 	help_V2	= mkV2 "help";
 	know_VS	= mkVS know_V;
 	lead_V2	= mkV2 "lead";
