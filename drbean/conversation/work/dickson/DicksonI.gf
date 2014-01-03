@@ -99,10 +99,10 @@ lin
 	look	= look_V2;
 	need	= need_VV;
 	-- need	= need_V2;
-	prove	= prove_V2;
-	start	= start_ing_VV;
-	take	= take_V2V;
-	tell	= tell_V2S;
+	-- prove	= prove_V2;
+	-- start	= start_ing_VV;
+	-- take	= take_V2V;
+	-- tell	= tell_V2S;
 	think	= think_VS;
 
 	allow	= allow_V2V;

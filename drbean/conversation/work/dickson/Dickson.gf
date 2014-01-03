@@ -94,10 +94,10 @@ fun
 	look	: V;
 	-- make	: V2
 	need	: VV;
-	prove	: V;
-	start	: V;
-	take	: V;
-	tell	: V;
+	-- prove	: V;
+	-- start	: V;
+	-- take	: V;
+	-- tell	: V;
 	think	: VS;
 
 	allow	: V2V;
