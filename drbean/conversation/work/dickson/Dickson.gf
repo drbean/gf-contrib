@@ -94,7 +94,7 @@ fun
 	look	: V;
 	-- make	: V2
 	need	: VV;
-	-- prove	: V;
+	prove	: V2;
 	-- start	: V;
 	-- take	: V;
 	-- tell	: V;

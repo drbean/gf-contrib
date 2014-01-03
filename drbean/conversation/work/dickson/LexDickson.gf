@@ -68,7 +68,7 @@ oper
 	look_V2	: V2;
 	need_VV	: VV;
 	need_V2	: V2;
-	-- prove_V2	: V2;
+	prove_V2	: V2;
 	-- start_ing_VV	: VV;
 	-- take_V2V	: V2V;
 	-- tell_V2S	: V2S;
