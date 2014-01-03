@@ -97,7 +97,7 @@ fun
 	prove	: V2;
 	start	: VV;
 	take	: V2V;
-	-- tell	: V;
+	tell	: V2S;
 	think	: VS;
 
 	allow	: V2V;

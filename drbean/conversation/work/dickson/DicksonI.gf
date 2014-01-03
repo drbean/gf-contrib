@@ -102,7 +102,7 @@ lin
 	prove	= prove_V2;
 	start	= start_ing_VV;
 	take	= take_V2V;
-	-- tell	= tell_V2S;
+	tell	= tell_V2S;
 	think	= think_VS;
 
 	allow	= allow_V2V;

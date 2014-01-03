@@ -71,7 +71,7 @@ oper
 	prove_V2	: V2;
 	start_ing_VV	: VV;
 	take_V2V	: V2V;
-	-- tell_V2S	: V2S;
+	tell_V2S	: V2S;
 	think_VS	: VS;
 
 	allow_V2V	: V2V;
