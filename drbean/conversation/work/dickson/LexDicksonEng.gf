@@ -76,23 +76,4 @@ oper
 	tell_V2S = mkV2S IrregEng.tell_V noPrep;
 	think_VS = mkVS (IrregEng.think_V);
 
-	allow_V2V	= mkV2V (mkV "allow") noPrep to_Prep;
-	apply_V2	= mkV2 "apply" "for";
-	can_VV	= SyntaxEng.can_VV;
-	-- become_V2	= mkV2 (mkV "become");
-	choose_V2	= mkV2 "choose";
-	enjoy_V2	= mkV2 "enjoy";
-	expand_V	= mkV "expand";
-	feel_VS	= mkVS (mkV "feel");
-	improve_V2	= mkV2 "improve";
-	increase_V2	= mkV2 "increase";
-	go_V	= IrregEng.go_V;
-	-- have_V2	= mkV2 (IrregEng.have_V);
-	help_V2	= mkV2 "help";
-	know_VS	= mkVS know_V;
-	lead_V2	= mkV2 "lead";
-	must_VV	= SyntaxEng.must_VV;
-	-- think_VS	= mkVS (mkV "think");
-	want_VV	= SyntaxEng.want_VV;
-
 }

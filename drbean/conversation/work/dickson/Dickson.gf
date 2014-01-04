@@ -100,25 +100,4 @@ fun
 	tell	: V2S;
 	think	: VS;
 
-	allow	: V2V;
-	apply	: V2;
-	become	: V2;
-	can	: VV;
-	choose	: V2;
-	enjoy	: V2;
-	expand	: V;
-	go	: V;
-	feel	: VS;
-	-- have	: V2;
-	help	: V2;
-	improve	: V2;
-	increase	: V2;
-	lead	: V2;
-	-- know	: VS;
-	must	: VV;
-	think	: VS;
-	want	: VV;
-	-- want_NP_to	: V2V;
-	-- want_to	: VV;
-
 }
