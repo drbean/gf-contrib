@@ -73,6 +73,7 @@ oper
 	prove_V2	= mkV2 "prove";
 	say_VS	= mkVS IrregEng.say_V;
 	see_V2	= mkV2 IrregEng.see_V;
+	slow_down_V	= partV (mkV "slow") "down";
 	start_ing_VV = ingVV (mkV "start");
 	take_V2V = mkV2V (IrregEng.take_V) noPrep to_Prep;
 	tell_V2S = mkV2S IrregEng.tell_V noPrep;

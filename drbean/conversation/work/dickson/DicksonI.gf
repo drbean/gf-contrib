@@ -40,7 +40,6 @@ lin
 	next	= mkAP next_A;
 	none	= mkAP none_A;
 	several	= mkAP several_A;
-	slow	= mkAP slow_A;
 	two	= mkAP two_A;
 	hard	= mkAP hard_A;
 	right	= mkAP right_A;
@@ -103,6 +102,7 @@ lin
 	prove	= prove_V2;
 	say	= say_VS;
 	see	= see_V2;
+	slow_down	= slow_down_V;
 	start	= start_ing_VV;
 	take	= take_V2V;
 	tell	= tell_V2S;

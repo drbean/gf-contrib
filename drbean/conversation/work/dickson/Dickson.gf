@@ -33,7 +33,6 @@ fun
 	next	: AP;
 	none	: AP;
 	several	: AP;
-	slow	: AP;
 	two	: AP;
 	hard	: AP;
 	right	: AP;
@@ -98,6 +97,7 @@ fun
 	prove	: V2;
 	say	: VS;
 	see	: V2;
+	slow_down	: V;
 	start	: VV;
 	take	: V2V;
 	tell	: V2S;

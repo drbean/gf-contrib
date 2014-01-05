@@ -8,7 +8,6 @@ oper
 	next_A	: A;
 	none_A	: A;
 	several_A	: A;
-	slow_A	: A;
 	two_A	: A;
 	hard_A	: A;
 	right_A	: A;
@@ -71,6 +70,7 @@ oper
 	prove_V2	: V2;
 	say_VS	: VS;
 	see_V2	: V2;
+	slow_down_V	: V;
 	start_ing_VV	: VV;
 	take_V2V	: V2V;
 	tell_V2S	: V2S;
