@@ -14,6 +14,7 @@ fun
 	Causative:	V2V -> NP -> VP -> VP;
 	Intens:	VV -> VP -> VP;
 	Positing:	VS -> Cl -> VP;
+	Informing:	V2S -> NP -> Cl -> VP;
 	UttS	: NP -> VP -> Cl;
 	-- PN2NP:	PN -> NP;
 	-- Str2PN:	Str -> PN_;
