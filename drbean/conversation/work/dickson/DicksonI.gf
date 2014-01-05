@@ -22,6 +22,7 @@ lin
 	Causative causal patient predicate	= mkVP causal patient predicate;
 	Intens attitude predicate	= mkVP attitude predicate;
 	Positing posit event	= mkVP posit (mkS event);
+	Informing posit patient event	= mkVP posit patient (mkSC event);
 	UttS subject predicate	= mkCl subject predicate;
 	-- Item det noun	= ConstructorsEng.mkNP det noun;
 	Item det noun	= mkNP det noun;
