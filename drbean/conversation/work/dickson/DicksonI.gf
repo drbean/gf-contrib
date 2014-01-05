@@ -8,6 +8,7 @@ lincat
 	VP	= Syntax.VP; 
 	V2	= Syntax.V2; 
 	V2V	= Syntax.V2V;
+	V2S	= Syntax.V2S;
 	VV	= Syntax.VV;
 	VS	= Syntax.VS;
 	Det	= Syntax.Det;
