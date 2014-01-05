@@ -82,7 +82,7 @@ fun
 	can	: VV;
 	get	: V2;
 	get_along	: V2;
-	go	: V;
+	go	: V2;
 	have	: V2;
 	hire	: V2;
 	interview	: V2;
@@ -90,8 +90,8 @@ fun
 	laugh	: V;
 	-- let	: V2;
 	lift	: V2;
-	like	: V;
-	look	: V;
+	like	: V2;
+	look	: V2;
 	-- make	: V2
 	need	: VV;
 	prove	: V2;
