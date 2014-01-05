@@ -4,6 +4,8 @@ lincat
 	NP	= Syntax.NP;
 	AP	= Syntax.AP;
 	Cl	= Syntax.Cl;
+	S	= Syntax.S;
+	SC	= Syntax.SC;
 	V	= Syntax.V; 
 	VP	= Syntax.VP; 
 	V2	= Syntax.V2; 

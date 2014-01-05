@@ -13,8 +13,8 @@ fun
 	Changing	: V2 -> NP -> VP;
 	Causative:	V2V -> NP -> VP -> VP;
 	Intens:	VV -> VP -> VP;
-	Positing:	VS -> S -> VP;
-	Informing:	V2S -> NP -> S -> VP;
+	Positing:	VS -> SC -> VP;
+	Informing:	V2S -> NP -> SC -> VP;
 	UttS	: NP -> VP -> Cl;
 	-- PN2NP:	PN -> NP;
 	-- Str2PN:	Str -> PN_;
