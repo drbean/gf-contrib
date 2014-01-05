@@ -95,6 +95,8 @@ fun
 	-- make	: V2
 	need	: VV;
 	prove	: V2;
+	say	: VS;
+	see	: V2;
 	start	: VV;
 	take	: V2V;
 	tell	: V2S;

@@ -101,6 +101,8 @@ lin
 	need	= need_VV;
 	-- need	= need_V2;
 	prove	= prove_V2;
+	say	= say_VS;
+	see	= see_V2;
 	start	= start_ing_VV;
 	take	= take_V2V;
 	tell	= tell_V2S;
