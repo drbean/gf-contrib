@@ -48,8 +48,8 @@ lin
 	right	= mkAP right_A;
 	same	= mkAP same_A;
 
-	a_Det = a_Det;
-	the_Det = the_Det;
+	a_Det	= LexDickson.a_Det;
+	the_Det	= LexDickson.the_Det;
 
 	apprentice	= mkCN apprentice_N;
 	dad	= mkCN dad_N;
@@ -88,11 +88,11 @@ lin
 	monday	= mkNP monday_PN;
 
 	become	= become_V2;
-	can	= can_VV;
+	can	= LexDickson.can_VV;
 	get_along	= get_along_V2;
 	get	= get_V2;
 	go	= go_V2;
-	have	= have_V2;
+	have	= LexDickson.have_V2;
 	hire	= hire_V2;
 	interview	= interview_V2;
 	know	= know_V;
