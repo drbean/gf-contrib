@@ -87,7 +87,7 @@ fun
 	hire	: V2;
 	interview	: V2;
 	know	: V;
-	know_VS	: VS;
+	know_VP	: VP;
 	laugh	: V;
 	-- let	: V2;
 	lift	: V2;

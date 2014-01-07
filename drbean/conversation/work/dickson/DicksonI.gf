@@ -96,7 +96,7 @@ lin
 	hire	= hire_V2;
 	interview	= interview_V2;
 	know	= know_V;
-	know_VS	= know_VS;
+	know_VP	= know_VP;
 	laugh	= laugh_V;
 	lift	= lift_V2;
 	like	= like_V2;
