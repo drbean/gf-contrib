@@ -61,7 +61,7 @@ oper
 	hire_V2	: V2;
 	interview_V2	: V2;
 	know_V	: V;
-	know_VP	: VP;
+	know_VS	: VS;
 	laugh_V	: V;
 	lift_V2	: V2;
 	like_V2	: V2;
