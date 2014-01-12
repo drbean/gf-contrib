@@ -1,7 +1,7 @@
 module Main where
 
 import PGF
-import Candidate
+import Dickson
 import WordsCharacters
 
 import Data.List
@@ -12,7 +12,7 @@ import System.Environment.FindBin
 main :: IO () 
 main = do
   path <- getProgPath
-  gr <- readPGF ( path ++ "/Candidate.pgf" )
+  gr <- readPGF ( path ++ "/Dickson.pgf" )
   s <- getLine
   let l = (chomp . lc_first) s
   putStrLn ("Unknown_words: " ++ (unknown l) )
