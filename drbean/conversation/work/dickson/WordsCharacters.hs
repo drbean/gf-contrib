@@ -18,7 +18,7 @@ posMap = Map.fromList [
 	]
 
 a = [
-	"bad",
+	"bad"
 	, "better"
 	, "first"
 	, "little"
@@ -55,14 +55,16 @@ adv = [
 	, "there"
 	, "too"
 	, "well"
+	]
 
 conj = [
 	"and"
 	, "if"
+	]
 
 
 det = [
-	"a",
+	"a"
 	, "an"
 	, "my"
 	, "no"
@@ -132,6 +134,7 @@ pron = [
 	, "you"
 	, "you're"
 	, "who"
+	]
 
 prep = [
 	"about"
@@ -143,7 +146,7 @@ prep = [
 	, "than"
 	, "to"
 	, "with"
-]
+	]
 
 rel = [
 	"that"
