@@ -24,13 +24,13 @@ oper
 	family_N	: N;
 	graduation_N	: N;
 	guy_N	: N;
-	jobs_N	: N;
+	job_N	: N;
 	kind_N	: N;
 	knack_N	: N;
 	life_N	: N;
 	man_N	: N;
 	money_N	: N;
-	nights_N	: N;
+	night_N	: N;
 	position_N	: N;
 	pound_N	: N;
 	school_N	: N;
@@ -38,7 +38,7 @@ oper
 	stuff_N	: N;
 	superintendent_N	: N;
 	supervisor_N	: N;
-	things_N	: N;
+	-- things_N	: N;
 	time_N	: N;
 	top_N	: N;
 	transformer_N	: N;

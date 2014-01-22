@@ -51,13 +51,13 @@ fun
 	family	: CN;
 	graduation	: CN;
 	guy	: CN;
-	jobs	: CN;
+	job	: CN;
 	kind	: CN;
 	knack	: CN;
 	life	: CN;
 	man	: CN;
 	money	: CN;
-	nights	: CN;
+	night	: CN;
 	position	: CN;
 	pound	: CN;
 	school	: CN;
@@ -65,7 +65,7 @@ fun
 	stuff	: CN;
 	superintendent	: CN;
 	supervisor	: CN;
-	things	: CN;
+	thing	: CN;
 	time	: CN;
 	top	: CN;
 	transformer	: CN;

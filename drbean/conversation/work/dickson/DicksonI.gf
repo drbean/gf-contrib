@@ -60,13 +60,13 @@ lin
 	family	= mkCN family_N;
 	graduation	= mkCN graduation_N;
 	guy	= mkCN guy_N;
-	jobs	= mkCN jobs_N;
+	job	= mkCN job_N;
 	kind	= mkCN kind_N;
 	knack	= mkCN knack_N;
 	life	= mkCN life_N;
 	man	= mkCN man_N;
 	money	= mkCN money_N;
-	nights	= mkCN nights_N;
+	night	= mkCN night_N;
 	position	= mkCN position_N;
 	pound	= mkCN pound_N;
 	school	= mkCN school_N;
@@ -74,7 +74,7 @@ lin
 	stuff	= mkCN stuff_N;
 	superintendent	= mkCN superintendent_N;
 	supervisor	= mkCN supervisor_N;
-	things	= mkCN things_N;
+	thing	= mkCN thing_N;
 	time	= mkCN time_N;
 	top	= mkCN top_N;
 	transformer	= mkCN transformer_N;

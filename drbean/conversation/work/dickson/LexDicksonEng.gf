@@ -27,13 +27,13 @@ oper
 	family_N	= mkN "family";
 	graduation_N	= mkN "graduation";
 	guy_N	= mkN "guy";
-	jobs_N	= mkN "jobs";
+	job_N	= mkN "jobs";
 	kind_N	= mkN "kind";
 	knack_N	= mkN "knack";
 	life_N	= mkN "life";
 	man_N	= mkN "man";
 	money_N	= mkN "money";
-	nights_N	= mkN "nights";
+	night_N	= mkN "nights";
 	position_N	= mkN "position";
 	pound_N	= mkN "pound";
 	school_N	= mkN "school";
@@ -41,7 +41,7 @@ oper
 	stuff_N	= mkN "stuff";
 	superintendent_N	= mkN "superintendent";
 	supervisor_N	= mkN "supervisor";
-	things_N	= mkN "things";
+	thing_N	= mkN "things";
 	time_N	= mkN "time";
 	top_N	= mkN "top";
 	transformer_N	= mkN "transformer";
