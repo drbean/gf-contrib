@@ -5,7 +5,9 @@ lincat
 	NP	= Syntax.NP;
 	AP	= Syntax.AP;
 	Cl	= Syntax.Cl;
+	QCl	= Syntax.QCl;
 	S	= Syntax.S;
+	QS	= Syntax.QS;
 	SC	= Syntax.SC;
 	V	= Syntax.V; 
 	VP	= Syntax.VP; 
@@ -28,7 +30,11 @@ lin
 	Positing posit event	= mkVP posit event;
 	Informing posit patient event	= mkVP posit patient event;
 	Cl2S cl	= mkS cl;
+	YNCl2QS cl	= mkQS cl;
+	WH_Cop ip np	= mkQCl ip np;
+	WHCl2QS cl	= mkQS cl;
 	S2Utt s	= mkUtt s;
+	QS2Utt q	= mkUtt q;
 	UttS subject predicate	= mkCl subject predicate;
 	Sentencing clause	= mkS clause;
 	-- Item det noun	= ConstructorsEng.mkNP det noun;

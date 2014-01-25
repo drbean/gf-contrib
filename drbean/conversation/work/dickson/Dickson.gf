@@ -16,7 +16,11 @@ fun
 	Positing:	VS -> S -> VP;
 	Informing:	V2S -> NP -> S -> VP;
 	Cl2S	: Cl -> S;
+	YNCl2QS	: Cl -> QS;
+	WH_Cop	: IP -> NP -> QCl;
+	WHCl2QS	: QCl -> QS;
 	S2Utt	: S -> Utt;
+	QS2Utt	: QS -> Utt;
 	UttS	: NP -> VP -> Cl;
 	Sentencing	: Cl -> S;
 	-- PN2NP:	PN -> NP;
