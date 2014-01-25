@@ -16,6 +16,7 @@ lincat
 	V2S	= Syntax.V2S;
 	VV	= Syntax.VV;
 	VS	= Syntax.VS;
+	VA	= Syntax.VA;
 	Det	= Syntax.Det;
  	CN	= Syntax.CN;
 	IP	= Syntax.IP;
@@ -23,6 +24,7 @@ lincat
 lin
 	Is item quality	=	mkCl item quality;
 	Cop item1 item2	= mkCl item1 item2;
+	Look_bad verb adj	= mkVP verb adj;
 	Happening action	=	mkVP action;
 	Changing action patient	= mkVP action patient;
 	Causative causal patient predicate	= mkVP causal patient predicate;
@@ -116,7 +118,8 @@ lin
 	laugh	= laugh_V;
 	lift	= lift_V2;
 	like	= like_V2;
-	look	= look_V2;
+	look_here	= look_V;
+	look	= look_VA;
 	need	= need_VV;
 	-- need	= need_V2;
 	prove	= prove_V2;

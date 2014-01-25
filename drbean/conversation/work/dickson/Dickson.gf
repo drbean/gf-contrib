@@ -9,6 +9,7 @@ abstract Dickson = Cat ** {
 fun
 	Is	: NP -> AP -> Cl;
 	Cop		: NP -> NP -> Cl;
+	Look_bad	: VA -> AP -> VP;
 	Happening	: V -> VP ;
 	Changing	: V2 -> NP -> VP;
 	Causative:	V2V -> NP -> VP -> VP;
@@ -103,7 +104,8 @@ fun
 	-- let	: V2;
 	lift	: V2;
 	like	: V2;
-	look	: V2;
+	look_here	: V;
+	look	: VA;
 	-- make	: V2
 	need	: VV;
 	prove	: V2;

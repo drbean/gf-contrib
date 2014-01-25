@@ -70,7 +70,8 @@ oper
 	laugh_V	: V;
 	lift_V2	: V2;
 	like_V2	: V2;
-	look_V2	: V2;
+	look_V	: V;
+	look_VA	: VA;
 	need_VV	: VV;
 	need_V2	: V2;
 	prove_V2	: V2;

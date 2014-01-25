@@ -73,7 +73,8 @@ oper
 	laugh_V	= mkV "laugh";
 	lift_V2	= mkV2 "lift";
 	like_V2	= mkV2 "like";
-	look_V2	= mkV2 "look";
+	look_V	= mkV "look";
+	look_VA	= mkVA look_V;
 	need_VV = mkVV (mkV "need" "needs" "needed" "needed" "needing") ;
 	need_V2 = mkV2 (mkV "need" "needs" "needed" "needed" "needing");
 	prove_V2	= mkV2 "prove";
