@@ -118,9 +118,9 @@ n = [
 	]
 
 pn = [
-	"alf"
-	, "dee"
-	, "monday"
+	"Alf"
+	, "Dee"
+	, "Monday"
 	]
 
 pron = [
