@@ -29,7 +29,7 @@ oper
 	family_N	= mkN "family";
 	graduation_N	= mkN "graduation";
 	guy_N	= mkN "guy";
-	job_N	= mkN "jobs";
+	job_N	= mkN "job";
 	kind_N	= mkN "kind";
 	knack_N	= mkN "knack";
 	life_N	= mkN "life";
