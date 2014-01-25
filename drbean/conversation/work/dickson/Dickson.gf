@@ -16,6 +16,7 @@ fun
 	Positing:	VS -> S -> VP;
 	Informing:	V2S -> NP -> S -> VP;
 	UttS	: NP -> VP -> Cl;
+	UttIP	: IP -> Utt;
 	Sentencing	: Cl -> S;
 	-- PN2NP:	PN -> NP;
 	-- Str2PN:	Str -> PN_;
@@ -43,6 +44,8 @@ fun
 	zero_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
 	the_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
 	thePlural_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
+
+	who_WH	: IP;
 
 	apprentice	: CN;
 	dad	: CN;

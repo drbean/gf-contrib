@@ -18,6 +18,8 @@ oper
 	the_Det	: Det;
 	thePlural_Det	: Det;
 
+	who_WH	: IP;
+
 	apprentice_N	: N;
 	dad_N	: N;
 	eighty_N	: N;

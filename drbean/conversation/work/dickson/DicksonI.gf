@@ -1,6 +1,7 @@
 incomplete concrete DicksonI of Dickson = open Syntax, LexDickson in {
 
 lincat
+	Utt	= Syntax.Utt;
 	NP	= Syntax.NP;
 	AP	= Syntax.AP;
 	Cl	= Syntax.Cl;
@@ -15,6 +16,7 @@ lincat
 	VS	= Syntax.VS;
 	Det	= Syntax.Det;
  	CN	= Syntax.CN;
+	IP	= Syntax.IP;
 
 lin
 	Is item quality	=	mkCl item quality;
@@ -26,6 +28,7 @@ lin
 	Positing posit event	= mkVP posit event;
 	Informing posit patient event	= mkVP posit patient event;
 	UttS subject predicate	= mkCl subject predicate;
+	UttIP wh	= mkUtt wh;
 	Sentencing clause	= mkS clause;
 	-- Item det noun	= ConstructorsEng.mkNP det noun;
 	Item det noun	= mkNP det noun;
@@ -53,6 +56,8 @@ lin
 	zero_Det	= LexDickson.zero_Det;
 	the_Det	= LexDickson.the_Det;
 	thePlural_Det = LexDickson.thePlural_Det;
+
+	who_WH	= LexDickson.who_WH;
 
 	apprentice	= mkCN apprentice_N;
 	dad	= mkCN dad_N;
