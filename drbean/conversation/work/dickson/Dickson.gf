@@ -40,8 +40,9 @@ fun
 	same	: AP;
 
 	a_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
+	zero_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
 	the_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
-	-- thePlural_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
+	thePlural_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
 
 	apprentice	: CN;
 	dad	: CN;

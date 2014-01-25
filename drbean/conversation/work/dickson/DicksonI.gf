@@ -50,7 +50,9 @@ lin
 	same	= mkAP same_A;
 
 	a_Det	= LexDickson.a_Det;
+	zero_Det	= LexDickson.zero_Det;
 	the_Det	= LexDickson.the_Det;
+	thePlural_Det = LexDickson.thePlural_Det;
 
 	apprentice	= mkCN apprentice_N;
 	dad	= mkCN dad_N;

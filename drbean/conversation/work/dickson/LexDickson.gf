@@ -14,7 +14,9 @@ oper
 	same_A	: A;
 
 	a_Det	: Det;
+	zero_Det	: Det;
 	the_Det	: Det;
+	thePlural_Det	: Det;
 
 	apprentice_N	: N;
 	dad_N	: N;

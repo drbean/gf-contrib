@@ -17,7 +17,9 @@ oper
 	same_A	= mkA "same";
 
 	a_Det	= aSg_Det;
+	zero_Det	= aPl_Det;
 	the_Det	= theSg_Det;
+	thePlural_Det	= thePl_Det;
 
 	apprentice_N	=mkN "apprentice";
 	dad_N	= mkN "dad";
