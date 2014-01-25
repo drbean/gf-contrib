@@ -51,6 +51,7 @@ fun
 	thePlural_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
 
 	who_WH	: IP;
+	what_WH	: IP;
 
 	apprentice	: CN;
 	dad	: CN;

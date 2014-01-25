@@ -65,6 +65,7 @@ lin
 	thePlural_Det = LexDickson.thePlural_Det;
 
 	who_WH	= LexDickson.who_WH;
+	what_WH	= LexDickson.what_WH;
 
 	apprentice	= mkCN apprentice_N;
 	dad	= mkCN dad_N;

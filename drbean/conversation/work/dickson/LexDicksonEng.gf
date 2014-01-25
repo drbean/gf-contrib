@@ -22,6 +22,7 @@ oper
 	thePlural_Det	= thePl_Det;
 
 	who_WH	= whoSg_IP;
+	what_WH	= whatSg_IP;
 
 	apprentice_N	=mkN "apprentice";
 	dad_N	= mkN "dad";

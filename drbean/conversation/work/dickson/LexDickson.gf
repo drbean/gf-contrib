@@ -19,6 +19,7 @@ oper
 	thePlural_Det	: Det;
 
 	who_WH	: IP;
+	what_WH	: IP;
 
 	apprentice_N	: N;
 	dad_N	: N;
