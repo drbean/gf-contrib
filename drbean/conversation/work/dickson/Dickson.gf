@@ -1,7 +1,7 @@
 abstract Dickson = Cat ** {
 
 
-  flags startcat = Cl ;
+  flags startcat = Utt ;
 
 --cat
 --	NP; AP; Cl; V; VP; V2; V2V; VV; VS; Det; CN;
@@ -15,6 +15,8 @@ fun
 	Intens:	VV -> VP -> VP;
 	Positing:	VS -> S -> VP;
 	Informing:	V2S -> NP -> S -> VP;
+	Cl2S	: Cl -> S;
+	S2Utt	: S -> Utt;
 	UttS	: NP -> VP -> Cl;
 	UttIP	: IP -> Utt;
 	Sentencing	: Cl -> S;

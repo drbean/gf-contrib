@@ -27,6 +27,8 @@ lin
 	Intens attitude predicate	= mkVP attitude predicate;
 	Positing posit event	= mkVP posit event;
 	Informing posit patient event	= mkVP posit patient event;
+	Cl2S cl	= mkS cl;
+	S2Utt s	= mkUtt s;
 	UttS subject predicate	= mkCl subject predicate;
 	UttIP wh	= mkUtt wh;
 	Sentencing clause	= mkS clause;
