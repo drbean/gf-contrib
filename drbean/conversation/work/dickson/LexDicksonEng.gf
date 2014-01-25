@@ -38,7 +38,7 @@ oper
 	life_N	= mkN "life";
 	man_N	= mkN masculine (mkN "man" "men");
 	money_N	= mkN "money";
-	night_N	= mkN "nights";
+	night_N	= mkN "night";
 	position_N	= mkN "position";
 	pound_N	= mkN "pound";
 	school_N	= mkN "school";
