@@ -31,7 +31,7 @@ oper
 	kind_N	= mkN "kind";
 	knack_N	= mkN "knack";
 	life_N	= mkN "life";
-	man_N	= mkN "man";
+	man_N	= mkN masculine (mkN "man" "men");
 	money_N	= mkN "money";
 	night_N	= mkN "nights";
 	position_N	= mkN "position";
@@ -41,7 +41,7 @@ oper
 	stuff_N	= mkN "stuff";
 	superintendent_N	= mkN "superintendent";
 	supervisor_N	= mkN "supervisor";
-	thing_N	= mkN "things";
+	thing_N	= mkN "thing";
 	time_N	= mkN "time";
 	top_N	= mkN "top";
 	transformer_N	= mkN "transformer";
@@ -51,8 +51,8 @@ oper
 	word_N	= mkN "word";
 	work_N	= mkN "work";
 
-	alf_PN	= mkPN "Alf";
-	dee_PN	= mkPN "Dee";
+	alf_PN	= mkPN (mkN masculine (mkN "Alf") );
+	dee_PN	= mkPN (mkN feminine (mkN "Dee") );
 	monday_PN = mkPN "Monday";
 
 	become_V2	= mkV2 (IrregEng.become_V);
