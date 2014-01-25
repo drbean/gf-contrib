@@ -30,7 +30,6 @@ lin
 	Cl2S cl	= mkS cl;
 	S2Utt s	= mkUtt s;
 	UttS subject predicate	= mkCl subject predicate;
-	UttIP wh	= mkUtt wh;
 	Sentencing clause	= mkS clause;
 	-- Item det noun	= ConstructorsEng.mkNP det noun;
 	Item det noun	= mkNP det noun;

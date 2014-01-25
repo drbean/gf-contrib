@@ -18,7 +18,6 @@ fun
 	Cl2S	: Cl -> S;
 	S2Utt	: S -> Utt;
 	UttS	: NP -> VP -> Cl;
-	UttIP	: IP -> Utt;
 	Sentencing	: Cl -> S;
 	-- PN2NP:	PN -> NP;
 	-- Str2PN:	Str -> PN_;
