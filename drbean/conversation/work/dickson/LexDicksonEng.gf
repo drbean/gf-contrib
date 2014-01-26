@@ -28,7 +28,6 @@ oper
 	dad_N	= mkN "dad";
 	eighty_N	= mkN "eighty";
 	end_N	= mkN "end";
-	experience_N	= mkN "experience";
 	family_N	= mkN "family";
 	graduation_N	= mkN "graduation";
 	guy_N	= mkN "guy";

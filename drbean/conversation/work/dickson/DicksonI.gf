@@ -64,7 +64,6 @@ lin
 	dad	= mkCN dad_N;
 	eighty	= mkCN eighty_N;
 	end	= mkCN end_N;
-	experience	= mkCN experience_N;
 	family	= mkCN family_N;
 	graduation	= mkCN graduation_N;
 	guy	= mkCN guy_N;

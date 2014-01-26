@@ -49,7 +49,6 @@ fun
 	dad	: CN;
 	eighty	: CN;
 	end	: CN;
-	experience	: CN;
 	family	: CN;
 	graduation	: CN;
 	guy	: CN;
