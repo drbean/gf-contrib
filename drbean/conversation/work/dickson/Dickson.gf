@@ -21,14 +21,8 @@ fun
 	WHCl2QS	: QCl -> QS;
 	QS2Utt	: QS -> Utt;
 	UttS	: NP -> VP -> Cl;
-	-- PN2NP:	PN -> NP;
-	-- Str2PN:	Str -> PN_;
 
 	Item	: Det -> CN -> NP;
-	-- An	: CN -> NP;
-	-- The	: CN -> NP;
-	-- QCN	: AP -> CN -> CN;
-	-- Very	: AP -> AP;
 
 	bad	: AP;
 	better	: AP;

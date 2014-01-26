@@ -36,14 +36,8 @@ lin
 	WHCl2QS cl	= mkQS cl;
 	QS2Utt q	= mkUtt q;
 	UttS subject predicate	= mkCl subject predicate;
-	-- Item det noun	= ConstructorsEng.mkNP det noun;
+
 	Item det noun	= mkNP det noun;
-
-	-- An kind	= mkNP aSg_Det kind ;
-	-- The kind	= mkNP the_Det kind ;
-	-- QCN quality kind	= mkCN quality kind ;
-	-- Very quality	= mkAP very_AdA quality ;
-
 
 	bad	= mkAP bad_A;
 	better	= mkAP better_A;
