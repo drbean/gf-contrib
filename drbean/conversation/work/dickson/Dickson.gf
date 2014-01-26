@@ -18,6 +18,7 @@ fun
 	Informing:	V2S -> NP -> S -> VP;
 	YNCl2QS	: Cl -> QS;
 	WH_Cop	: IP -> NP -> QCl;
+	WH_Pred	: IP -> VP -> QCl;
 	WHCl2QS	: QCl -> QS;
 	QS2Utt	: QS -> Utt;
 	Sentence	: NP -> VP -> Cl;

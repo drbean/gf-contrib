@@ -33,6 +33,7 @@ lin
 	Informing posit patient event	= mkVP posit patient event;
 	YNCl2QS cl	= mkQS cl;
 	WH_Cop ip np	= mkQCl ip np;
+	WH_Pred ip vp	= mkQCl ip vp;
 	WHCl2QS cl	= mkQS cl;
 	QS2Utt q	= mkUtt q;
 	Sentence subject predicate	= mkCl subject predicate;
