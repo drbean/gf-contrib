@@ -35,7 +35,7 @@ lin
 	WH_Cop ip np	= mkQCl ip np;
 	WHCl2QS cl	= mkQS cl;
 	QS2Utt q	= mkUtt q;
-	UttS subject predicate	= mkCl subject predicate;
+	Sentence subject predicate	= mkCl subject predicate;
 
 	Item det noun	= mkNP det noun;
 

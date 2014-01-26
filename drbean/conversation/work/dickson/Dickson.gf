@@ -20,7 +20,7 @@ fun
 	WH_Cop	: IP -> NP -> QCl;
 	WHCl2QS	: QCl -> QS;
 	QS2Utt	: QS -> Utt;
-	UttS	: NP -> VP -> Cl;
+	Sentence	: NP -> VP -> Cl;
 
 	Item	: Det -> CN -> NP;
 
