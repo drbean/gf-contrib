@@ -35,7 +35,7 @@ oper
 	job_N	= mkN "job";
 	kind_N	= mkN "kind";
 	knack_N	= mkN "knack";
-	life_N	= mkN "life";
+	life_N	= mkN "life" "lives";
 	man_N	= mkN masculine (mkN "man" "men");
 	money_N	= mkN "money";
 	night_N	= mkN "night";
