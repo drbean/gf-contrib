@@ -79,18 +79,18 @@ lin
 	pound	= mkCN pound_N;
 	school	= mkCN school_N;
 	ship	= mkCN ship_N;
-	stuff	= mkCN stuff_N;
+	stuff	= mkNP stuff_N;
 	superintendent	= mkCN superintendent_N;
 	supervisor	= mkCN supervisor_N;
 	thing	= mkCN thing_N;
-	time	= mkCN time_N;
+	time	= mkNP time_N;
 	top	= mkCN top_N;
 	transformer	= mkCN transformer_N;
 	uncle	= mkCN uncle_N;
 	way	= mkCN way_N;
 	week	= mkCN week_N;
 	word	= mkCN word_N;
-	work	= mkCN work_N;
+	work	= mkNP work_N;
 
 	alf	= mkNP alf_PN;
 	dee	= mkNP dee_PN;

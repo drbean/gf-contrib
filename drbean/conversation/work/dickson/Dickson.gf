@@ -64,18 +64,18 @@ fun
 	pound	: CN;
 	school	: CN;
 	ship	: CN;
-	stuff	: CN;
+	stuff	: NP;
 	superintendent	: CN;
 	supervisor	: CN;
 	thing	: CN;
-	time	: CN;
+	time	: NP;
 	top	: CN;
 	transformer	: CN;
 	uncle	: CN;
 	way	: CN;
 	week	: CN;
 	word	: CN;
-	work	: CN;
+	work	: NP;
 
 	alf	: NP;
 	dee	: NP;
