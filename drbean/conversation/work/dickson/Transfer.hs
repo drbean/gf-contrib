@@ -43,4 +43,5 @@ chomp :: String -> String
 chomp str = let rev@(c:cs) = reverse str
 		in case (c:cs) of
 			'.':_ -> reverse cs
+			'?':_ -> reverse cs
 			otherwise -> reverse rev
