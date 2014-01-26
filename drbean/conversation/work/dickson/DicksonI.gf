@@ -72,7 +72,7 @@ lin
 	knack	= mkCN knack_N;
 	life	= mkCN life_N;
 	man	= mkCN man_N;
-	money	= mkCN money_N;
+	money	= mkNP money_N;
 	night	= mkCN night_N;
 	position	= mkCN position_N;
 	pound	= mkCN pound_N;

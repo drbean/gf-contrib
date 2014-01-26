@@ -57,7 +57,7 @@ fun
 	knack	: CN;
 	life	: CN;
 	man	: CN;
-	money	: CN;
+	money	: NP;
 	night	: CN;
 	position	: CN;
 	pound	: CN;
