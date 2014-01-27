@@ -30,6 +30,7 @@ oper
 	guy_N	: N;
 	job_N	: N;
 	kind_N	: N;
+	knack_N	: N;
 	life_N	: N;
 	man_N	: N;
 	money_N	: N;
