@@ -44,6 +44,7 @@ fun
 	thePlural_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
 
 	who_WH	: IP;
+	who_IP	: IP;
 	what_WH	: IP;
 
 	apprentice	: CN;
