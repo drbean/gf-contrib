@@ -70,6 +70,7 @@ lin
 	guy	= mkCN guy_N;
 	job	= mkCN job_N;
 	kind	= mkCN kind_N;
+	knack	= mkCN knack_N;
 	life	= mkCN life_N;
 	man	= mkCN man_N;
 	money	= mkNP money_N;
