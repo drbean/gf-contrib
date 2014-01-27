@@ -33,7 +33,6 @@ oper
 	guy_N	= mkN "guy";
 	job_N	= mkN "job";
 	kind_N	= mkN "kind";
-	knack_N	= mkN "knack" nonExist;
 	life_N	= mkN "life" "lives";
 	man_N	= mkN masculine (mkN "man" "men");
 	money_N	= mkN "money";
