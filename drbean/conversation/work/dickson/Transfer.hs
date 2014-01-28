@@ -28,8 +28,9 @@ parses s gr = concat ( parseAll gr (startCat gr) s )
 transform :: Tree -> Tree
 transform = gf . answer . fg
 
-answer :: GCl -> GCl
-answer = id
+answer :: GUtt -> GNP
+answer (GUt (GWH (GWH_Pred Gwho_WH (GChanging Ghire Galf)))) = (GItem Ga_Det Gknack)
+answer _	= Gdee
 
 linear :: (Tree -> Tree) -> PGF -> [Tree] -> [ String ]
 linear tr gr ps = concat $ map ((linearizeAll gr) . tr) ps
