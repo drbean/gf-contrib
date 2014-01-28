@@ -31,11 +31,11 @@ lin
 	Intens attitude predicate	= mkVP attitude predicate;
 	Positing posit event	= mkVP posit event;
 	Informing posit patient event	= mkVP posit patient event;
-	YNCl2QS cl	= mkQS cl;
+	YN cl	= mkQS cl;
 	WH_Cop ip np	= mkQCl ip np;
 	WH_Pred ip vp	= mkQCl ip vp;
-	WHCl2QS cl	= mkQS cl;
-	QS2Utt q	= mkUtt q;
+	WH cl	= mkQS cl;
+	Ut q	= mkUtt q;
 	Sentence subject predicate	= mkCl subject predicate;
 
 	Item det noun	= mkNP det noun;

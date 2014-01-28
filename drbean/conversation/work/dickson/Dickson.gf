@@ -16,11 +16,11 @@ fun
 	Intens:	VV -> VP -> VP;
 	Positing:	VS -> S -> VP;
 	Informing:	V2S -> NP -> S -> VP;
-	YNCl2QS	: Cl -> QS;
+	YN	: Cl -> QS;
 	WH_Cop	: IP -> NP -> QCl;
 	WH_Pred	: IP -> VP -> QCl;
-	WHCl2QS	: QCl -> QS;
-	QS2Utt	: QS -> Utt;
+	WH	: QCl -> QS;
+	Ut	: QS -> Utt;
 	Sentence	: NP -> VP -> Cl;
 
 	Yes, No, Unknown	: Response;
