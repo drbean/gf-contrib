@@ -8,6 +8,7 @@ concrete DicksonEng of Dickson = DicksonI with
 	lin TagQ cl	=
 		let tag : Str = "doesn't she" in
 		{s = table QForm
-				[cl.s ! Pres ! Simul ! CPos ! ODir ++ ", " ++ tag];
+				[cl.s ! Pres ! Simul ! CPos ! ODir ++ tag];
+		lock_QS = <>;
 			};
 	}
