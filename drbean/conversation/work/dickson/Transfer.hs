@@ -29,8 +29,12 @@ transform :: Tree -> Tree
 transform = gf . answer . fg
 
 answer :: GUtt -> GNP
-answer (GUt (GWH (GWH_Pred Gwho_WH (GChanging Ghire Galf)))) = (GItem Ga_Det Gknack)
-answer _	= Gdee
+answer (GUt (GWH (GWH_Cop Gwho_WH np)))	= np
+answer (GUt (GWH (GWH_Pred Gwho_WH (GChanging v np)))) = np
+answer (GUt (GYN (GCop np1 np2)))  = np1
+
+adjectives :: [GAP]
+adjectives = [ minBound .. maxBound ]
 
 linear :: (Tree -> Tree) -> PGF -> [Tree] -> [ String ]
 linear tr gr ps = concat $ map ((linearizeAll gr) . tr) ps
