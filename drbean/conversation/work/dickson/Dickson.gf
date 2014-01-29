@@ -25,6 +25,8 @@ fun
 
 	Yes, No, Unknown	: Response;
 
+	TagQ	: Cl -> QS;
+
 	Item	: Det -> CN -> NP;
 
 	bad	: AP;
