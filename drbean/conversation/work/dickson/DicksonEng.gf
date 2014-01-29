@@ -3,10 +3,18 @@
 concrete DicksonEng of Dickson = DicksonI with
 	(Syntax = SyntaxEng),
 	(LexDickson = LexDicksonEng) **
-	open ResEng, Prelude in {
+	open ResEng in {
 
-	lin TagQ cl	=
-		let tag : Str = "doesn't she" in
+	lincat
+		Tense	= Syntax.Tense;
+		Ant	= Syntax.Ant;
+		Pol	= Syntax.Pol;
+	lin TagQ ant pol cl	=
+		let tag : Str = case pol of {
+			positivePol	=> "doesn't it"
+			negativePol	=> "does it"
+			}
+			in
 		{s = table QForm
 				[cl.s ! Pres ! Simul ! CPos ! ODir ++ tag];
 		lock_QS = <>;

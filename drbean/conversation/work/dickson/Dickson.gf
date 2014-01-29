@@ -17,6 +17,7 @@ fun
 	Positing:	VS -> S -> VP;
 	Informing:	V2S -> NP -> S -> VP;
 	YN	: Cl -> QS;
+	TagQ	: Ant -> Pol -> Cl -> QS;
 	WH_Cop	: IP -> NP -> QCl;
 	WH_Pred	: IP -> VP -> QCl;
 	WH	: QCl -> QS;
@@ -24,8 +25,6 @@ fun
 	Sentence	: NP -> VP -> Cl;
 
 	Yes, No, Unknown	: Response;
-
-	TagQ	: Cl -> QS;
 
 	Item	: Det -> CN -> NP;
 
