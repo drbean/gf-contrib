@@ -1,4 +1,4 @@
---# -path=.:./gf-contrib/drbean/conversation/work/dickson:./lib/alltenses
+--# -path=.:./gf-contrib/drbean/conversation/work/dickson
 
 concrete DicksonEng of Dickson = DicksonI with
 	(Syntax = SyntaxEng),
@@ -9,14 +9,8 @@ concrete DicksonEng of Dickson = DicksonI with
 		Tense	= Syntax.Tense;
 		Ant	= Syntax.Ant;
 		Pol	= Syntax.Pol;
-	lin TagQ tense ant pol cl	=
-		let tag : Str = case pol of {
-			positivePol	=> "doesn't it"
-			negativePol	=> "does it"
-			}
-			in
-		{s = table QForm
-				[cl.s ! Pres ! Simul ! CPos ! ODir ++ tag];
-		lock_QS = <>;
+	lin TagQ np cl	= 
+		{s = cl.s ;
+		lock_Cl = <>;
 			};
 	}

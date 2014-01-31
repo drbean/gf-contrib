@@ -17,7 +17,7 @@ fun
 	Positing:	VS -> S -> VP;
 	Informing:	V2S -> NP -> S -> VP;
 	YN	: Cl -> QS;
-	TagQ	: Tense -> Ant -> Pol -> Cl -> QS;
+	TagQ	: NP -> Cl -> Cl;
 	WH_Cop	: IP -> NP -> QCl;
 	WH_Pred	: IP -> VP -> QCl;
 	WH	: QCl -> QS;
