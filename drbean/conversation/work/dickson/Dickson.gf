@@ -5,6 +5,7 @@ abstract Dickson = Cat ** {
 
 cat
 	Response;
+	Aux ; Tag;
 
 fun
 	Is	: NP -> AP -> Cl;
@@ -17,6 +18,7 @@ fun
 	Positing:	VS -> S -> VP;
 	Informing:	V2S -> NP -> S -> VP;
 	YN	: Cl -> QS;
+	Isnt_he	: Aux -> Pron -> Tag;
 	TagQ	: NP -> VP -> Cl;
 	WH_Cop	: IP -> NP -> QCl;
 	WH_Pred	: IP -> VP -> QCl;
