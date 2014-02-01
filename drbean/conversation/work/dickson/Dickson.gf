@@ -18,7 +18,7 @@ fun
 	Positing:	VS -> S -> VP;
 	Informing:	V2S -> NP -> S -> VP;
 	YN	: Cl -> QS;
-	Isnt_he	: Aux -> Pron -> Tag;
+	Isnt_he	: Pron -> Aux -> Tag;
 	TagQ	: NP -> VP -> Cl;
 	WH_Cop	: IP -> NP -> QCl;
 	WH_Pred	: IP -> VP -> QCl;
