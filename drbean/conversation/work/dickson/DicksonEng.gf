@@ -6,10 +6,30 @@ concrete DicksonEng of Dickson = DicksonI with
 	open ResEng,Prelude in {
 
 	lincat
-		Tense	= Syntax.Tense;
-		Ant	= Syntax.Ant;
-		Pol	= Syntax.Pol;
-	lin TagQ np vp	= let cl = mkCl np vp
+		Tag	= {s : Str};
+		Aux	= {s : Str};
+		Pron	= Syntax.Pron;
+	param
+		Auxiliary	= Do | Be;
+
+	lin	Isnt_he pron aux = let tags = table { -- P3 => table {
+				Sg => table { Fem => table { Pos => table { Do => "doesn't she"; Be => "isn't she"};
+								Neg => table { Do => "does she"; Be => "is she" }};
+						Masc => table { Pos => table { Do => "doesn't he"; Be => "isn't he"};
+								Neg => table { Do => "does he"; Be => "is he" }};
+						Neutr => table { Pos => table { Do => "doesn't it"; Be => "isn't it"};
+								Neg => table { Do => "does it"; Be => "is it" }}};
+				Pl => table { Fem => table { Pos => table { Do => "don't they"; Be => "aren't they"};
+								Neg => table { Do => "do they"; Be => "are they" }};
+						Masc => table { Pos => table { Do => "don't they"; Be => "aren't they"};
+								Neg => table { Do => "do they"; Be => "are they" }};
+						Neutr => table { Pos => table { Do => "don't they"; Be => "aren't they"};
+								Neg => table { Do => "do they"; Be => "are they" }}}
+						-- }
+			} in
+			{s = tags ! (fromAgr pron.a).n ! (fromAgr pron.a).g  ! Neg ! Do };
+
+		TagQ np vp	= let cl = mkCl np vp
 		in
 		{s = table { Pres => table {
 			Simul => table { CPos => table { ODir => cl.s ! Pres ! Simul ! CPos ! ODir; OQuest => nonExist };
