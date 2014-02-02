@@ -66,4 +66,4 @@ lin	Isnt_he pron aux = let tags = table { -- P3 => table {
 	  };
 	}
 
-# vim: set ts=8 sts=2 sw=2 noet:
+-- vim: set ts=8 sts=2 sw=2 noet:
