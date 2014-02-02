@@ -34,7 +34,7 @@ lin
 	YN cl	= mkQS cl;
 	WH_Cop ip np	= mkQCl ip np;
 	WH_Pred ip vp	= mkQCl ip vp;
-	WH qcl	= mkQS conditionalTense anteriorAnt negativePol qcl;
+	WH qcl	= mkQS negativePol qcl;
 	Ut q	= mkUtt q;
 	Sentence subject predicate	= mkCl subject predicate;
 

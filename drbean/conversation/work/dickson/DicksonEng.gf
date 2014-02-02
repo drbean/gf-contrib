@@ -1,4 +1,4 @@
---# -path=.:./gf-contrib/drbean/conversation/work/dickson:alltenses
+--# -path=.:./gf-contrib/drbean/conversation/work/dickson:present
 
 concrete DicksonEng of Dickson = DicksonI with
 	(Syntax = SyntaxEng),
