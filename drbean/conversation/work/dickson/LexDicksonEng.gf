@@ -24,13 +24,13 @@ oper
 	who_WH	= whoSg_IP;
 	what_WH	= whatSg_IP;
 
-	apprentice_N	=mkN "apprentice";
-	dad_N	= mkN "dad";
+	apprentice_N	= mkN human (mkN "apprentice");
+	dad_N	= mkN masculine (mkN "dad");
 	eighty_N	= mkN "eighty";
 	end_N	= mkN "end";
 	family_N	= mkN "family";
 	graduation_N	= mkN "graduation";
-	guy_N	= mkN "guy";
+	guy_N	= mkN masculine (mkN "guy");
 	job_N	= mkN "job";
 	kind_N	= mkN "kind";
 	knack_N	= mkN "knack" nonExist;
@@ -43,13 +43,13 @@ oper
 	school_N	= mkN "school";
 	ship_N	= mkN "ship";
 	stuff_N	= mkN "stuff";
-	superintendent_N	= mkN "superintendent";
-	supervisor_N	= mkN "supervisor";
+	superintendent_N	= mkN human (mkN "superintendent");
+	supervisor_N	= mkN human (mkN "supervisor");
 	thing_N	= mkN "thing";
 	time_N	= mkN "time";
 	top_N	= mkN "top";
 	transformer_N	= mkN "transformer";
-	uncle_N	= mkN "uncle";
+	uncle_N	= mkN masculine (mkN "uncle");
 	way_N	= mkN "way";
 	week_N	= mkN "week";
 	word_N	= mkN "word";
