@@ -5,10 +5,6 @@ concrete DicksonEng of Dickson = DicksonI with
   (LexDickson = LexDicksonEng) **
   open ResEng,Prelude in {
 
-lincat
-  Tag	= {s : Str};
-  Aux	= {s : Str};
-  Pron	= Syntax.Pron;
 param
   Auxiliary	= Do ; -- | Be;
 
