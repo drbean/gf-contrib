@@ -17,12 +17,13 @@ fun
 	Intens:	VV -> VP -> VP;
 	Positing:	VS -> S -> VP;
 	Informing:	V2S -> NP -> S -> VP;
-	YN	: Cl -> QS;
+	YN	: Cl -> QCl;
 	Isnt_he	: Pron -> Aux -> Tag;
 	TagQ	: NP -> VP -> QCl;
 	WH_Cop	: IP -> NP -> QCl;
 	WH_Pred	: IP -> VP -> QCl;
-	WH	: QCl -> QS;
+	PosQ	: QCl -> QS;
+	NegQ	: QCl -> QS;
 	Ut	: QS -> Utt;
 	Sentence	: NP -> VP -> Cl;
 
