@@ -19,7 +19,7 @@ fun
 	Informing:	V2S -> NP -> S -> VP;
 	YN	: Cl -> QS;
 	Isnt_he	: Pron -> Aux -> Tag;
-	TagQ	: NP -> VP -> Cl;
+	TagQ	: NP -> VP -> QCl;
 	WH_Cop	: IP -> NP -> QCl;
 	WH_Pred	: IP -> VP -> QCl;
 	WH	: QCl -> QS;
