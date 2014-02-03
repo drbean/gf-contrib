@@ -30,13 +30,13 @@ lin
       Simul => table {
 	CPos => table {
 	  QDir => cl.s ! Pres ! Simul ! CPos ! ODir ++ (tag np).s ! Pos;
-	  QIndir => nonExist };
+	  QIndir => "nonExist" };
 	CNeg True => table {
 	  QDir => cl.s ! Pres ! Simul ! CNeg True ! ODir ++ (tag np).s ! Neg;
-	  QIndir => nonExist };
+	  QIndir => "nonExist" };
 	CNeg False => table {
 	  QDir => cl.s ! Pres ! Simul ! CNeg False ! ODir ++ (tag np).s ! Neg;
-	  QIndir => nonExist }
+	  QIndir => "nonExist" }
 	  }
 	}
      };
