@@ -40,6 +40,7 @@ entity_check =  [
     , (W, "" )
     , (X, "" )
     , (Y, "" )	-- story , (Z, "" )
+    ]
 
 
 characters :: [ (String, Entity) ]
@@ -103,6 +104,12 @@ onePlacers = [
 	, ("female",	 pred1 [D] )
 	]
 
+predid1 "father"  = predid1 "dad"
+predid1 name = lookup1 name onePlacers where
+        lookup1 name [] = error $ "no '" ++ name ++ "' one-place predicate."
+        lookup1 name ((n,p):_) | n == name      = p
+        lookup1 name (i:is) = lookup1 name is
+
 type OnePlacePred	= Entity -> Bool
 type TwoPlacePred	= Entity -> Entity -> Bool
 type ThreePlacePred	= Entity -> Entity -> Entity -> Bool
@@ -115,21 +122,21 @@ list2OnePlacePred xs	= \ x -> elem x xs
 pred1 :: [Entity] -> OnePlacePred
 pred1	= flip elem
 
-person, things :: OnePlacePred
+person, thing :: OnePlacePred
 
-person	= \ x -> (male x || female x || predid1 "role" x || x == Someone)
-things	= \ x -> (x == Unspec || x == Something || not ( person x ) )
+person	= \ x -> (predid1 "male" x || predid1 "female" x || predid1 "role" x || x == Someone)
+thing	= \ x -> (x == Unspec || x == Something || not ( person x ) )
 
-boy	= \x -> male x && child x
-isMan	= \x -> ( not $ boy x ) && male x
-isGirl	= \x -> ( female x && child x )
-isWoman	= \x -> ( not $ isGirl x ) && female x
+boy	= \x -> predid1 "male" x && predid1 "child" x
+isMan	= \x -> ( not $ boy x ) && predid1 "male" x
+isGirl	= \x -> ( predid1 "female" x && predid1 "child" x )
+isWoman	= \x -> ( not $ isGirl x ) && predid1 "female" x
 isParent	= pred1 $ map fst parenting
 isOffspring	= pred1 $ map snd parenting
-isMother	= \x -> ( female x && isParent x )
-father	= \x -> ( male x && isParent x )
-daughter	= \x -> ( female x && isOffspring x )
-son	= \x -> ( male x && isOffspring x )
+isMother	= \x -> ( predid1 "female" x && isParent x )
+father	= \x -> ( predid1 "male" x && isParent x )
+daughter	= \x -> ( predid1 "female" x && isOffspring x )
+son	= \x -> ( predid1 "male" x && isOffspring x )
 
 pred2 :: [(Entity,Entity)] -> TwoPlacePred
 pred3 :: [(Entity,Entity,Entity)] -> ThreePlacePred
@@ -150,13 +157,11 @@ separations	= [ (H,D) ]
 -- unmarried_couples	= []
 --(contacter,contactee)
 possessions	= [ (D,J) ]
-appreciation	= [ (D,A),(D,F) ]
+appreciation	= [ (D,Unspec,A),(D,Unspec,F) ]
 conflict	= []
 supervision	= []
 isBoss	= pred1 $ map fst supervision
 isWorker	= pred1 $ map snd supervision
-
-appreciation	= []
 
 supervisor	= pred1 $ map fst supervision
 boss	= supervisor
@@ -171,24 +176,22 @@ have	= pred2 $ possessions ++ marriages ++ parenting
 		++ ( map swap $ marriages ++ parenting )
 		++ ( map (\x->(recipient x, theme x) ) giving )
 
+knowledge	= []
 acquaintances	= []
 help	= pred2 $ supervision
 
 twoPlacers :: [(String, TwoPlacePred)]
 twoPlacers = [
     ("know",    pred2 $ knowledge ++ acquaintances ++ map swap acquaintances)
-    , ("have",  pred2 $ possessions ++ (foldl  (\hs (t,_,_,s,d) -> (t,s): (s,+t): (s,d): hs )
+    , ("have",  pred2 $ possessions ++ (foldl  (\hs (t,_,_,s) -> (t,s): (s,t): hs )
                         [] schooling )
         )
     , ("like",  pred2 $ map (\(a,t,r) -> (a,r)) appreciation)
-    , ("live",  pred2 residents )
     , ("work",  pred2 $ [(a,c) | (a,p,c) <- working] )
-    , ("kind",  pred2 $ [(student, H) | (_,_,_,student,_) <- schooling ])
-    , ("placing",       pred2 $ [(student, school) | (_,school,_,student,_)  +<- schooling ]
-                ++ [(worker, place) | (worker,period,place) <- careers,
-                                                    period == Present ]
-                ++ residents )
-    , ("studied", pred2 $ foldl (\hs (_,school,subject,student,_) ->
+    , ("kind",  pred2 $ [(student, H) | (_,_,_,student) <- schooling ])
+    , ("placing",       pred2 $ [(student, school) | (_,school,_,student) <- schooling ]
+                ++ [(worker, place) | (worker,period,place) <- working ])
+    , ("studied", pred2 $ foldl (\hs (_,school,subject,student) ->
                     (student,subject): (student,school) : hs) [] schooling )
     ]
 
@@ -198,9 +201,8 @@ curry4 f x y z w	= f (x,y,z,w)
 
 threePlacers = [
     ("liked", pred3 appreciation )
-    , ("work_as_on",        pred3 $ [(a,a,c) | (a,p,c) <- careers,
-                                            p == Future ] )
-    , ("studied_subj_at", pred3 $ map (\(_,school,subject,student,_) ->
+    , ("work_as_on",        pred3 $ [(a,a,c) | (a,p,c) <- working ] )
+    , ("studied_subj_at", pred3 $ map (\(_,school,subject,student) ->
                     (student,subject,school) ) schooling )
     ]
 
@@ -231,7 +233,6 @@ seeing	= []
 
 work_where	= pred2 $ map (\x -> (agent x, location x) ) working
 work_as = pred2 $ map (\x -> (agent x, theme x) ) working
-volunteer_at	= pred2 $ map (\x -> (agent x, location x) ) volunteering
 look_back	= pred1 $ map agent looking_back
 look_back_on	= pred2 $ map (\x->(agent x, theme x) ) looking_back
 said	= pred2 $ map (\x->(agent x, theme x) ) comms
@@ -240,14 +241,9 @@ ask_about = pred3 $ map (\x->(agent x, recipient x, theme x) ) comms
 talked	= pred2 $ map (\x->(agent x, recipient x) ) comms
               ++  map (\(agent,theme,recipient)->(recipient, agent) ) comms
 talk_about = pred3 $ map (\x->(agent x, recipient x, theme x) ) comms
-go_to	= pred2 $ map (\x->(agent x, destination x) ) immigration ++
-			map (\x->(recipient4 x,location4 x) ) schooling
+go_to	= pred2 $ map (\x->(recipient4 x,location4 x) ) schooling
 
 -- (teacher,school(location),subject,student,degree)
-schooling   = map (\s -> (B,H,E,s,Unspec) ) afld_students ++
-                [(VM,Unspec,Unspec,Unspec,Unspec)] ++
-                map (\s -> (Unspec,Unspec,Unspec,s,Unspec) ) other_students
--- (teacher,school(location),subject,student)
 schooling = [(Unspec,S,N,D)]
 studied = pred3 $ map ( \x -> (recipient4 x, theme4 x, location4 x) )
 				schooling
@@ -266,9 +262,6 @@ told	= pred3 comms
 recite = pred2 $ map ( \x -> (agent x, theme x) ) comms
 
 fourPlacers = [
-    ("born",    pred4 $ foldl (\cc (a,r,l,t) -> (a,r,l,t): (a,r,t,l): cc) [] +births)
-    , ("held", pred4 $ map (\(_,school,subject,student,degree) ->
-                                (student,degree,subject,school) ) schooling )
         ]
 
 
@@ -278,9 +271,9 @@ location4 (_,l,_,_) = l
 theme4 (_,_,t,_) = t
 recipient4 (_,_,_,r) = r
 provider4       = recipient4
-location4 (_,_,_,l)     = l
-mode4   = location4
-purpose4        = location4
+location4' (_,_,_,l)     = l
+mode4   = location4'
+purpose4        = location4'
 aim4    = purpose4
 result4 = recipient4
 
@@ -288,7 +281,7 @@ fivePlacers = [
         ]
 
 
-agent5, theme5, recipient5, location5 :: (Entity,Entity,Entity,Entity,       +Entity) -> Entity
+agent5, theme5, recipient5, location5 :: (Entity,Entity,Entity,Entity, Entity) -> Entity
 agent5 (a,_,_,_,_)      = a
 theme5 (_,t,_,_,_)      = t
 destination5 = theme5
