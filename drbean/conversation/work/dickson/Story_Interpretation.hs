@@ -2,7 +2,7 @@ module Story_Interpretation where
 
 import Model
 
-story_objects = [
+objects = [
 	( "superintendent",	\[x] -> predid1 "superintendent" x	),
 	( "supervisor",	\[x] -> predid1 "supervisor" x	),
 	( "husband",	\[x] -> predid1 "husband" x	),
@@ -20,10 +20,10 @@ story_objects = [
 	( "job",	\[x] -> predid1 "job" x	)
 	]
 
-story_inflections = [
+inflections = [
 	]
 
-story_relations = [
+relations = [
 	]
 
 
