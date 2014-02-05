@@ -1,7 +1,10 @@
 module Tests where
 
 import LogicalForm
-import Parsing
+import PGF
+import Dickson
+
+import Model
 
 test_text = [
 	"Dee's son spoke English.",
