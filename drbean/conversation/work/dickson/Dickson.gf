@@ -24,7 +24,6 @@ fun
 	NegQ	: QCl -> QS;
 	Ut	: QS -> Utt;
 	Sentence	: NP -> VP -> Cl;
-	Naming	: PN -> NP;
 
 	Yes, No, Unknown	: Response;
 
@@ -82,9 +81,9 @@ fun
 	word	: CN;
 	work	: NP;
 
-	alf	: PN;
-	dee	: PN;
-	monday	: PN;
+	alf	: NP;
+	dee	: NP;
+	monday	: NP;
 
 	become	: V2;
 	can	: VV;

@@ -55,9 +55,9 @@ oper
 	word_N	= mkN "word";
 	work_N	= mkN "work";
 
-	alf_PN	= regGenPN  "Alf" masculine;
-	dee_PN	= regGenPN  "Dee" feminine;
-	monday_PN = regGenPN "Monday" nonhuman;
+	alf_PN	= mkPN (mkN masculine (mkN "Alf") );
+	dee_PN	= mkPN (mkN feminine (mkN "Dee") );
+	monday_PN = mkPN (mkN nonhuman (mkN "Monday") );
 
 	become_V2	= mkV2 (IrregEng.become_V);
 	can_VV	= SyntaxEng.can_VV;
