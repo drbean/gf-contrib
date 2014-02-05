@@ -38,6 +38,7 @@ lin
 	NegQ qcl	= mkQS negativePol qcl;
 	Ut q	= mkUtt q;
 	Sentence subject predicate	= mkCl subject predicate;
+	Naming pn	= mkNP pn;
 
 	Item det noun	= mkNP det noun;
 
@@ -93,9 +94,9 @@ lin
 	word	= mkCN word_N;
 	work	= mkNP work_N;
 
-	alf	= mkNP alf_PN;
-	dee	= mkNP dee_PN;
-	monday	= mkNP monday_PN;
+	alf	= alf_PN;
+	dee	= dee_PN;
+	monday	= monday_PN;
 
 	become	= become_V2;
 	can	= LexDickson.can_VV;
