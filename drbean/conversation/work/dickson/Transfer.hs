@@ -2,6 +2,9 @@ module Main where
 
 import PGF
 import Dickson
+import Parsing
+
+import Model
 import WordsCharacters
 
 import Data.List
@@ -29,9 +32,11 @@ transform :: Tree -> Tree
 transform = gf . answer . fg
 
 answer :: GUtt -> GNP
-answer (GUt (GWH (GWH_Cop Gwho_WH np)))	= np
-answer (GUt (GWH (GWH_Pred Gwho_WH (GChanging v np)))) = np
-answer (GUt (GYN (GCop np1 np2)))  = np1
+answer (GUt (GPosQ (GWH_Cop Gwho_WH np)))	= np
+answer (GUt (GPosQ (GWH_Pred Gwho_WH (GChanging v np)))) = np
+answer (GUt (GPosQ (GWH_Pred Gwho_WH (GHappening vp)))) = Gdee
+answer (GUt (GPosQ (GYN (GCop np1 np2))))  = np1
+answer (GUt (GPosQ (GTagQ np _)))  = np
 
 adjectives :: [GAP]
 adjectives = [ minBound .. maxBound ]
@@ -50,3 +55,8 @@ chomp str = let rev@(c:cs) = reverse str
 			'.':_ -> reverse cs
 			'?':_ -> reverse cs
 			otherwise -> reverse rev
+
+--ided :: GNP -> Entity
+ided name = lookup  ( linearize gr (mkCId "DicksonEng") (gf name) ) namelist
+
+
