@@ -29,11 +29,11 @@ adjectives = [ minBound .. maxBound ]
 --	where unknownWord = [Cat "" "" [] []]
 --
 --parses :: String -> [ParseTree Cat Cat]
---parses str = let ws = lexer str 
---             in  [ s | catlist   <- collectCats lexicon ws, 
---                       (s,[],[]) <- prsWH [] catlist  
---                                 ++ prsYN  [] catlist   
---                                 ++ prsTXT  [] catlist   
+--parses str = let ws = lexer str
+--             in  [ s | catlist   <- collectCats lexicon ws,
+--                       (s,[],[]) <- prsWH [] catlist
+--                                 ++ prsYN  [] catlist
+--                                 ++ prsTXT  [] catlist
 --                                 ++ prsTAG  [] catlist
 --				 ]
 --
@@ -41,13 +41,13 @@ type Interp a	= String -> [a] -> Bool
 
 inttuples = objects ++ relations ++ Story.objects ++ Story.relations
 			    ++ Topic.objects ++ Topic.relations
-infltuples = inflections ++ Topic.inflections ++ Story.inflections 
+infltuples = inflections ++ Topic.inflections ++ Story.inflections
 
 int :: Interp Entity
 
-int word = int' word inttuples infltuples where 
+int word = int' word inttuples infltuples where
 	int' w [] []	= error $ "'" ++ w ++ "'" ++ " has no interpretation"
-	int' w [] ((infl,word):infls) | w == infl	=  int' word inttuples [] 
+	int' w [] ((infl,word):infls) | w == infl	=  int' word inttuples []
 	int' w [] (i:is)	= int' w [] is
 	int' w ((word,interpretation):is) infls | w == word	= interpretation
 	int' w (i:is) infls	= int' w is infls
@@ -56,13 +56,13 @@ data Term = Const Entity | Var Int | Struct String [Term]
 	deriving (Eq)
 
 data LF = NonProposition
-	| Rel String [Term] 
+	| Rel String [Term]
         | Eq   Term Term
-        | Neg  LF 
-        | Impl LF LF 
-        | Equi LF LF 
+        | Neg  LF
+        | Impl LF LF
+        | Equi LF LF
         | Conj [LF]
-        | Disj [LF] 
+        | Disj [LF]
         | Forall (Term -> LF)
         | Exists (Term -> LF)
         | Single (Term -> LF)
@@ -74,7 +74,7 @@ data LF = NonProposition
 --	deriving Eq
 
 instance Show Term where
-  show (Const name) = show name 
+  show (Const name) = show name
   show (Var i)      = 'x': show i
   show (Struct s []) = s
   show (Struct s ts) = s ++ show ts
@@ -85,13 +85,13 @@ ishow NonProposition i = "NonProposition"
 ishow (Rel r args) i  = r ++ show args
 ishow (Eq t1 t2) i    = show t1 ++ "==" ++ show t2
 ishow (Neg lf) i      = '~': (ishow lf i)
-ishow (Impl lf1 lf2) i = "(" ++ ishow lf1 i ++ "==>" 
+ishow (Impl lf1 lf2) i = "(" ++ ishow lf1 i ++ "==>"
 		     ++ ishow lf2 i ++ ")"
-ishow (Equi lf1 lf2) i = "(" ++ ishow lf1 i ++ "<=>" 
+ishow (Equi lf1 lf2) i = "(" ++ ishow lf1 i ++ "<=>"
 		     ++ ishow lf2 i ++ ")"
-ishow (Conj []) i     = "true" 
+ishow (Conj []) i     = "true"
 ishow (Conj lfs) i    = "conj" ++ "[" ++ ishowForms lfs i ++ "]"
-ishow (Disj []) i     = "false" 
+ishow (Disj []) i     = "false"
 ishow (Disj lfs) i    = "disj" ++ "[" ++ ishowForms lfs i ++ "]"
 ishow (Forall scope) i = "Forall x" ++ show i ++ (' ' :
 			(ishow (scope (Var i)) (i+1)))
@@ -147,15 +147,15 @@ transS (Just (GUt (GNegQ (GTagQ np vp)))) = Neg ((transNP np) (transVP vp))
 --transS (Just (Branch (Cat _ "AT" _ _) [np,att])) =
 --  (transNP np) (transAT att)
 --
---transS (Just (Branch (Cat _ "YN" _ _) 
+--transS (Just (Branch (Cat _ "YN" _ _)
 --       [Leaf (Cat "could"    "AUX" _ []),s])) = transS (Just s)
---transS (Just (Branch (Cat _ "YN" _ _) 
+--transS (Just (Branch (Cat _ "YN" _ _)
 --       [Leaf (Cat "couldn't" "AUX" _ []),s])) = transS (Just s)
 --
---transS (Just (Branch (Cat _ "YN" _ _) 
+--transS (Just (Branch (Cat _ "YN" _ _)
 --       [Leaf (Cat _ "AUX" _ []),s])) = transS (Just s)
 --
---transS (Just (Branch (Cat _ "YN" _ _) 
+--transS (Just (Branch (Cat _ "YN" _ _)
 --       [Leaf (Cat _ "COP" _ _),s])) = transS (Just s)
 transS _ = NonProposition
 --
@@ -213,7 +213,7 @@ transS _ = NonProposition
 --			( \recipient -> Rel (att++"_to_"++act) [subj,agent,theme,recipient] ))))
 --transAT _ = \x -> NonProposition
 --
---transNPorPP :: ParseTree Cat Cat -> 
+--transNPorPP :: ParseTree Cat Cat ->
 --                (Term -> LF) -> LF
 --transNPorPP obj = case ( catLabel (t2c obj) ) of
 --    "NP" -> transNP obj
@@ -228,7 +228,7 @@ transNP name
     | otherwise = \p -> Exists ( \v -> Conj [ p v, Rel "work" [v] ] )
 --transNP (Branch (Cat _ "NP" _ _) [np,Leaf (Cat "'s" "APOS" _ _),cn]) =
 --    \p -> Exists (\thing -> Conj [ p thing, transCN cn thing, transNP np (\owner -> (Rel "had" [owner,thing]))])
---transNP (Branch (Cat _ "NP" _ _) [det,Leaf (Cat a "ADJ" _ _),cn]) = 
+--transNP (Branch (Cat _ "NP" _ _) [det,Leaf (Cat a "ADJ" _ _),cn]) =
 --    (transDET det) (\n -> Conj [transCN cn n, Rel a [n]])
 --transNP _ = \x -> NonProposition
 --
@@ -236,28 +236,28 @@ transDet :: GDet -> (Term -> LF) -> (Term -> LF) -> LF
 --transDet (Branch (Cat _ "DET" _ _) [np,Leaf (Cat "'s" "APOS" _ _) ]) =
 --    \ p q -> Exists (\v -> Conj [ Single p, p v, q v, transNP np
 --	(\mod -> Rel "had" [mod, v] )])
---transDet (Leaf (Cat "the" "DET" _ _)) = 
+--transDet (Leaf (Cat "the" "DET" _ _)) =
 --  \ p q -> Exists (\v -> Conj [Single p, p v, q v] )
 --transDet (Leaf (Cat "every" "DET" _ _)) =
 --  \ p q -> Forall (\v -> Impl (p v) (q v) )
---transDet (Leaf (Cat "all" "DET" _ _)) = 
+--transDet (Leaf (Cat "all" "DET" _ _)) =
 --  \ p q -> Forall (\v -> Impl (p v) (q v) )
---transDet (Leaf (Cat "some" "DET" _ _)) = 
+--transDet (Leaf (Cat "some" "DET" _ _)) =
 --  \ p q -> Exists (\v -> Conj [p v, q v] )
 transDet a_Det = \ p q -> Exists (\v -> Conj [p v, q v] )
---transDet (Leaf (Cat "zero" "DET" _ _)) = 
+--transDet (Leaf (Cat "zero" "DET" _ _)) =
 --  \ p q -> Exists (\v -> Conj [p v, q v] )
---transDet (Leaf (Cat "several" "DET" _ _)) = 
+--transDet (Leaf (Cat "several" "DET" _ _)) =
 --  \ p q -> Several (\v -> Conj [p v, q v] )
---transDet (Leaf (Cat "no" "DET" _ _)) = 
+--transDet (Leaf (Cat "no" "DET" _ _)) =
 --  \ p q -> Neg (Exists (\v -> Conj [p v, q v]))
---transDet (Leaf (Cat "most" "DET" _ _)) = 
+--transDet (Leaf (Cat "most" "DET" _ _)) =
 --  \ p q -> Most (\v -> Impl (p v) (q v) )
---transDet (Leaf (Cat "many" "DET" _ _)) = 
+--transDet (Leaf (Cat "many" "DET" _ _)) =
 --  \ p q -> Many (\v -> Conj [p v, q v] )
---transDet (Leaf (Cat "few" "DET" _ _)) = 
+--transDet (Leaf (Cat "few" "DET" _ _)) =
 --  \ p q -> Neg $ Many (\v -> Impl (p v) (q v) )
---transDet (Leaf (Cat "which" "DET" _ _)) = 
+--transDet (Leaf (Cat "which" "DET" _ _)) =
 --  \ p q -> WH (\v1 -> Conj
 --  		[Forall (\v2 -> Equi (p v2) (Eq v1 v2)),
 --		q v1])
@@ -292,17 +292,17 @@ transCN name          = \ x -> Rel (kind_list name) [x]
 --	    (Branch (Cat _ "VP" _ _) [Leaf (Cat name "V" _ _),Leaf (Cat "#" "NP" _ _)])
 --		-> \x -> Conj [transCN cn x, transNP np (\agent -> Rel name [agent,x])]
 --    (Branch (Cat _ "MOD" _ _) [Branch (Cat _ "PP" _ _)
---	[Leaf (Cat "with" "PREP" [With] _),np]]) -> 
+--	[Leaf (Cat "with" "PREP" [With] _),np]]) ->
 --	\x -> Conj [transCN cn x, transNP np (\patient -> Rel "had" [x, patient])]
 --    (Branch (Cat _ "MOD" _ _) [Branch (Cat _ "PP" _ _)
---	[Leaf (Cat "in" "PREP" [In] _),np]]) -> 
+--	[Leaf (Cat "in" "PREP" [In] _),np]]) ->
 --	\x -> Conj [transCN cn x, transNP np (\field -> Rel "kind" [x, field])]
 --    _ ->	\ x -> Conj [transCN cn x, transREL rel x]
 --
 --transREL :: ParseTree Cat Cat -> Term -> LF
---transREL (Branch (Cat _ "MOD" _ _ ) [rel,s]) = 
+--transREL (Branch (Cat _ "MOD" _ _ ) [rel,s]) =
 --  \ x -> (transS (Just s))
---transREL (Branch (Cat _ "MOD" _ _ ) [s])     = 
+--transREL (Branch (Cat _ "MOD" _ _ ) [s])     =
 --  \ x -> (transS (Just s))
 --
 --transPP :: ParseTree Cat Cat -> (Term -> LF) -> LF
@@ -312,11 +312,11 @@ transCN name          = \ x -> Rel (kind_list name) [x]
 transVP :: GVP -> Term -> LF
 ----transVP (Branch (Cat "_" "VP" [Part] _) [Leaf (Cat part "V" _ _), obj] ) =
 ----	\x -> Exists( \agent -> transPP obj (\cond -> Rel part [agent, x, cond] ) )
---transVP (Branch vp@(Cat _ "VP" _ _) 
---                [Leaf (Cat "wasn't" label fs subcats),pred]) = 
+--transVP (Branch vp@(Cat _ "VP" _ _)
+--                [Leaf (Cat "wasn't" label fs subcats),pred]) =
 --        \x -> Neg ((transVP (Branch vp [Leaf (Cat "was" label fs subcats),pred])) x)
---transVP (Branch vp@(Cat _ "VP" _ _) 
---                [Leaf (Cat "weren't" label fs subcats),pred]) = 
+--transVP (Branch vp@(Cat _ "VP" _ _)
+--                [Leaf (Cat "weren't" label fs subcats),pred]) =
 --        \x -> Neg ((transVP (Branch vp [Leaf (Cat "were" label fs subcats),pred])) x)
 --transVP (Branch (Cat _ "VP" _ _) [Leaf (Cat _ "AUX" _ _),
 --    Branch (Cat "_" "VP" [Part] _) [Leaf (Cat part "V" _ _)] ]) =
@@ -325,14 +325,14 @@ transVP :: GVP -> Term -> LF
 --    Branch (Cat "_" "VP" [Part] _) [Leaf (Cat part "V" _ _), obj] ]) =
 --	\x -> Exists( \agent -> transPP obj (\cond -> Rel part [agent, x, cond] ) )
 --transVP (Branch (Cat "_" "VP" [Part] _) [Leaf (Cat part "V" _ [_,_]), obj1, obj2] ) =
---	\x -> Exists( \agent -> transPP obj1 
---	    (\cond1 -> transPP obj2 
+--	\x -> Exists( \agent -> transPP obj1
+--	    (\cond1 -> transPP obj2
 --		(\cond2 -> Rel part [agent, x, cond1, cond2] ) ) )
 --transVP (Branch (Cat _ "VP" _ _) [Leaf (Cat _ "AUX" _ _),
 --    Branch (Cat "_" "VP" [Part] _) [Leaf (Cat part "V" _ [_,_]), obj1, obj2] ])
 --	| ( elem By (fs (t2c obj1)) ) =
---	    \x -> transPP obj1 
---		    (\agent -> transPP obj2 
+--	    \x -> transPP obj1
+--		    (\agent -> transPP obj2
 --			(\cond -> Rel part [agent, x, cond] ) )
 --transVP (Branch (Cat _ "VP" _ _) [Leaf (Cat _ "AUX" _ _),
 --    Branch (Cat "_" "VP" [Part] _) [Leaf (Cat part "V" _ [_,_]), obj1, obj2] ])
@@ -347,20 +347,20 @@ transVP :: GVP -> Term -> LF
 --		(\cond1 -> transPP obj2
 --		    (\cond2 -> Rel part [agent, x, cond1, cond2] ) ) )
 --
---transVP (Branch (Cat _ "VP" _ _) 
---                [Leaf (Cat "could" "AUX" _ []),vp]) = 
---        transVP vp 
---transVP (Branch (Cat _ "VP" _ _) 
---                [Leaf (Cat "couldn't" "AUX" _ []),vp]) = 
+--transVP (Branch (Cat _ "VP" _ _)
+--                [Leaf (Cat "could" "AUX" _ []),vp]) =
+--        transVP vp
+--transVP (Branch (Cat _ "VP" _ _)
+--                [Leaf (Cat "couldn't" "AUX" _ []),vp]) =
 --        \x -> Neg ((transVP vp) x)
---transVP (Branch (Cat _ "VP" _ _) 
---                [Leaf (Cat "did" "AUX" _ []),vp]) = 
---        transVP vp 
---transVP (Branch (Cat _ "VP" _ _) 
---                [Leaf (Cat "#" "AUX" _ []),vp]) = 
---        transVP vp 
+--transVP (Branch (Cat _ "VP" _ _)
+--                [Leaf (Cat "did" "AUX" _ []),vp]) =
+--        transVP vp
+--transVP (Branch (Cat _ "VP" _ _)
+--                [Leaf (Cat "#" "AUX" _ []),vp]) =
+--        transVP vp
 --
-transVP (GHappening v) = 
+transVP (GHappening v) =
         \ t -> ( Rel (relation_list v) [t] )
 --transVP (Branch (Cat _ "VP" _ _) [Leaf (Cat _ "COP" _ _),
 --    Branch (Cat "_" "COMP" [] []) [comp]]) = case (catLabel (t2c comp)) of
@@ -381,17 +381,17 @@ transVP (GHappening v) =
 --	--	(\owner -> Conj [Rel name [x], Rel "had" [owner,x] ] )
 --	--Branch (Cat _ "NP" _ _) [det,Leaf (Cat qual "ADJ" _ _),cn] -> \subj
 --	--    -> Conj [ transCN cn subj, Rel qual [subj] ]
---transVP (Branch (Cat _ "VP" _ _) [Leaf (Cat name "V" _ [_]),obj1]) = 
+--transVP (Branch (Cat _ "VP" _ _) [Leaf (Cat name "V" _ [_]),obj1]) =
 --	case (catLabel ( t2c obj1 )) of
 --		"PP" -> \subj -> transPP obj1 (\adv -> Rel name [subj,adv])
 --		"NP" -> \subj -> transNP obj1 (\ obj -> Rel name [subj,obj])
 --
---transVP (Branch (Cat _ "VP" _ _) [Leaf (Cat name "V" _ [_,_]),obj1,obj2]) = 
+--transVP (Branch (Cat _ "VP" _ _) [Leaf (Cat name "V" _ [_,_]),obj1,obj2]) =
 --    case (catLabel ( t2c obj1 )) of
 --	"NP" ->
 --	    case (catLabel ( t2c obj2 )) of
 --		"PP" ->
---		    \ agent   -> transNP obj1 
+--		    \ agent   -> transNP obj1
 --		    (\ theme   -> transPP obj2
 --		     (\ recipient -> Rel name [agent,theme,recipient]))
 --		"NP" ->
@@ -401,8 +401,8 @@ transVP (GHappening v) =
 --	"PP" -> \agent -> transPP obj1 (\theme -> transPP obj2 (\instrument
 --		-> Rel name [agent,theme,instrument]))
 --	_ -> undefined
---transVP (Branch (Cat _ "VP" _ _) [Leaf (Cat name "V" _ [_,_,_]),obj1,obj2,obj3]) = 
---    \ agent   -> transNPorPP obj1 
+--transVP (Branch (Cat _ "VP" _ _) [Leaf (Cat name "V" _ [_,_,_]),obj1,obj2,obj3]) =
+--    \ agent   -> transNPorPP obj1
 --    (\ location   -> transNPorPP obj2
 --    (\ theme   -> transNPorPP obj3
 --     (\ recipient -> Rel name [agent,location,theme,recipient])))
@@ -478,7 +478,7 @@ transVP (GHappening v) =
 --	    "NP" -> WH (\x -> Conj [transW wh x,
 --				transNP np (\agent ->
 --					Rel two_ple [agent,x])])
---	    "PP" -> case (fs (t2c vp)) of 
+--	    "PP" -> case (fs (t2c vp)) of
 --			[Part] -> WH (\x -> Exists (\agent -> Conj [transW wh x, transNP np (\patient -> Rel two_ple [agent, patient, x] ) ] ) )
 --			_ -> WH (\x -> Conj [transW wh x,
 --				transNP np (\agent ->
@@ -490,7 +490,7 @@ transVP (GHappening v) =
 --			(Cat _ "VP" _ _) [_,vp@(Branch
 --				(Cat _ "VP" _ _) [Leaf (Cat three_ple "V" _ _),obj1,obj2]
 --						)])])])])) =
---	case (obj1,obj2) of 
+--	case (obj1,obj2) of
 --		(_,Branch (Cat _ "PP" _ _) [Leaf (Cat _ "PREP" _ _),
 --						Leaf (Cat "#" "NP" _ _)]) ->
 --			WH (\x -> Conj [transW wh x,
@@ -503,7 +503,7 @@ transVP (GHappening v) =
 --transWH _ = NonProposition
 --
 transW :: GIP -> (Term -> LF)
---transW (Branch (Cat _ "NP" fs _) [det,cn]) = 
+--transW (Branch (Cat _ "NP" fs _) [det,cn]) =
 --                            \e -> transCN cn e
 transW Gwho_WH	= \e -> Rel "person"    [e]
 transW Gwhat_WH	= \e -> Rel "thing"    [e]
@@ -579,9 +579,9 @@ realents = entities
 --evl _ = False
 --
 --bool2Maybe :: Bool -> Maybe Bool
---bool2Maybe = \x -> case x of False -> Nothing; True -> Just True 
+--bool2Maybe = \x -> case x of False -> Nothing; True -> Just True
 --testents :: (Term -> LF) -> [Bool]
---testents scope = map ( \e -> evl (scope (Const e)) ) realents 
+--testents scope = map ( \e -> evl (scope (Const e)) ) realents
 --
 --ent2Maybe :: (Term -> LF) -> Entity -> Maybe Entity
 --ent2Maybe scope = \e -> case evl (scope (Const e)) of
@@ -619,7 +619,7 @@ realents = entities
 --parentN = length ( mapMaybe ( \y -> bool2Maybe( evl ((\x->Rel "parent" [Const x] ) y)) ) ents) -- 2
 --
 --lf0 = Rel "worked" [ Const(ents!!17) ]
---lf00 = (Conj [(Rel "person" [Var 0]), (Rel "worked" [Var 0]) ] ) 
+--lf00 = (Conj [(Rel "person" [Var 0]), (Rel "worked" [Var 0]) ] )
 ---- lf000 = (Exists (Conj [(Rel "person" [Var 0]), (Rel "worked" [Var 0]) ] )) (Const(ents)!!17)
 --
 --lf1 = (Equi  (Rel "married" [ Const(ents!!9), Const(ents!!1) ]) (Neg (Rel "married" [ Const(ents!!8), Const(ents!!17)]) ) )
