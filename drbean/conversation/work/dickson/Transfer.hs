@@ -55,8 +55,3 @@ chomp str = let rev@(c:cs) = reverse str
 			'.':_ -> reverse cs
 			'?':_ -> reverse cs
 			otherwise -> reverse rev
-
---ided :: GNP -> Entity
-ided name = lookup  ( linearize gr (mkCId "DicksonEng") (gf name) ) namelist
-
-
