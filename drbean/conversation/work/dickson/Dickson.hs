@@ -62,10 +62,6 @@ ided name list@(c:cs) = let
 	ided' name (c:cs) = ided' name cs
 	in ided' name list
 
---relation_list :: GV -> String
---relation_list Gwork_V	= "work"
---relation_list Glaugh	= "laugh"
-
 data GAP =
    Gbad 
  | Gbetter 
@@ -109,6 +105,34 @@ data GCN =
  | Gweek 
  | Gword 
   deriving (Show,Bounded,Enum,Eq)
+
+kind_list :: GCN -> String
+kind_list Gapprentice	= "Gapprentice"
+kind_list Gdad	= "Gdad"
+kind_list Geighty	= "Geighty"
+kind_list Gend	= "Gend"
+kind_list Gfamily	= "Gfamily"
+kind_list Ggraduation	= "Ggraduation"
+kind_list Gguy	= "Gguy"
+kind_list Gjob	= "Gjob"
+kind_list Gkind	= "Gkind"
+kind_list Gknack	= "Gknack"
+kind_list Glife	= "Glife"
+kind_list Gman	= "Gman"
+kind_list Gnight	= "Gnight"
+kind_list Gposition	= "Gposition"
+kind_list Gpound	= "Gpound"
+kind_list Gschool	= "Gschool"
+kind_list Gship	= "Gship"
+kind_list Gsuperintendent	= "Gsuperintendent"
+kind_list Gsupervisor	= "Gsupervisor"
+kind_list Gthing	= "Gthing"
+kind_list Gtop	= "Gtop"
+kind_list Gtransformer	= "Gtransformer"
+kind_list Guncle	= "Guncle"
+kind_list Gway	= "Gway"
+kind_list Gweek	= "Gweek"
+kind_list Gword	= "Gword"
 
 data GCl =
    GCop GNP GNP 
@@ -165,7 +189,15 @@ data GV =
  | Glaugh 
  | Glook_here 
  | Gslow_down 
+ | Gwork_V
   deriving (Show,Bounded,Enum)
+
+relation_list :: GV -> String
+relation_list Gwork_V	= "work"
+relation_list Glaugh	= "laugh"
+relation_list Gknow	= "know"
+relation_list Glook_here	= "look_here"
+relation_list Gslow_down	= "slow_down"
 
 data GV2 =
    Gbecome 
@@ -526,6 +558,7 @@ instance Gf GV where
   gf Glaugh = mkApp (mkCId "laugh") []
   gf Glook_here = mkApp (mkCId "look_here") []
   gf Gslow_down = mkApp (mkCId "slow_down") []
+  gf Gwork_V = mkApp (mkCId "work_V") []
 
   fg t =
     case unApp t of
@@ -533,6 +566,7 @@ instance Gf GV where
       Just (i,[]) | i == mkCId "laugh" -> Glaugh 
       Just (i,[]) | i == mkCId "look_here" -> Glook_here 
       Just (i,[]) | i == mkCId "slow_down" -> Gslow_down 
+      Just (i,[]) | i == mkCId "work_V" -> Gwork_V 
 
 
       _ -> error ("no V " ++ show t)
