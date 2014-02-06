@@ -221,8 +221,9 @@ transS (Just (GUt (GPosQ (GYN (GSentence np vp))))) =
 transNP :: GNP -> (Term -> LF) -> LF
 transNP name
 --    | name `elem` interrolist = \ p -> NonProposition
-    | (ided name) `elem` namelist = \ p -> p (Const (ided name))
-    | otherwise = \p -> Exists ( \v -> Conj [ p v, Rel name [v] ] )
+    | entity <- (ided name gnp_list) , entity `elem` entities =
+	\ p -> p (Const entity)
+    | otherwise = \p -> Exists ( \v -> Conj [ p v, Rel "work" [v] ] )
 --transNP (Branch (Cat _ "NP" _ _) [det,cn]) = (transDET det) (transCN cn) 
 --transNP (Branch (Cat _ "NP" _ _) [np,Leaf (Cat "'s" "APOS" _ _),cn]) =
 --    \p -> Exists (\thing -> Conj [ p thing, transCN cn thing, transNP np (\owner -> (Rel "had" [owner,thing]))])
@@ -540,9 +541,9 @@ transVP (GHappening _) =
 --fint :: FInterp
 --fint name [] =	maybe (entities!!26) id $ lookup name characters
 --
---ents = entities
----- realents = filter ( not . flip elem [Unspec,Someone,Something] ) ents
---realents = ents
+realents :: [Entity]
+-- realents = filter ( not . flip elem [Unspec,Someone,Something] ) entities
+realents = entities
 --
 --ided :: GNP -> Entity
 --ided name = let linearized = maybe undefined id $ linearize (mkCId "DicksonEng") (gf name)
