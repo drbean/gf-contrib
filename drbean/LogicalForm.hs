@@ -236,15 +236,14 @@ transDet :: GDet -> (Term -> LF) -> (Term -> LF) -> LF
 --transDet (Branch (Cat _ "DET" _ _) [np,Leaf (Cat "'s" "APOS" _ _) ]) =
 --    \ p q -> Exists (\v -> Conj [ Single p, p v, q v, transNP np
 --	(\mod -> Rel "had" [mod, v] )])
---transDet (Leaf (Cat "the" "DET" _ _)) =
---  \ p q -> Exists (\v -> Conj [Single p, p v, q v] )
+transDet Gthe_Det =  \ p q -> Exists (\v -> Conj [Single p, p v, q v] )
 --transDet (Leaf (Cat "every" "DET" _ _)) =
 --  \ p q -> Forall (\v -> Impl (p v) (q v) )
 --transDet (Leaf (Cat "all" "DET" _ _)) =
 --  \ p q -> Forall (\v -> Impl (p v) (q v) )
 --transDet (Leaf (Cat "some" "DET" _ _)) =
 --  \ p q -> Exists (\v -> Conj [p v, q v] )
-transDet a_Det = \ p q -> Exists (\v -> Conj [p v, q v] )
+transDet Ga_Det = \ p q -> Exists (\v -> Conj [p v, q v] )
 --transDet (Leaf (Cat "zero" "DET" _ _)) =
 --  \ p q -> Exists (\v -> Conj [p v, q v] )
 --transDet (Leaf (Cat "several" "DET" _ _)) =
