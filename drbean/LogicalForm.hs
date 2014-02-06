@@ -133,15 +133,17 @@ relname lf = error ( (show lf) ++ " not a relation" )
 --	s2@(Branch (Cat _ "TXT" _ _) _)])) =
 --	    Conj [ transS (Just s), transTXT (Just s2) ]
 --
---transTAG :: Maybe (ParseTree Cat Cat) -> LF
---transTAG (Just t) | isNg t = Neg (transS (Just (subtree t [0])))
---transTAG (Just t) = transS (Just (subtree t [0]))
---
 transS :: Maybe GUtt -> LF
 --transS (Just Ep) = NonProposition
-transS (Just (GUt (GPosQ (GYN (GSentence np vp))))) =
-  (transNP np) (transVP vp)
---
+transS (Just (GUt (GPosQ (GWH_Pred wh vp)))) =
+	WH (\x -> Conj [ transW wh x, transVP vp x ])
+transS (Just (GUt (GNegQ (GWH_Pred wh vp)))) =
+	WH (\x -> Conj [ transW wh x, Neg (transVP vp x)])
+transS (Just (GUt (GPosQ (GYN (GSentence np vp))))) = (transNP np) (transVP vp)
+transS (Just (GUt (GNegQ (GYN (GSentence np vp))))) =
+  Neg ((transNP np) (transVP vp))
+transS (Just (GUt (GPosQ (GTagQ np vp)))) = (transNP np) (transVP vp)
+transS (Just (GUt (GNegQ (GTagQ np vp)))) = Neg ((transNP np) (transVP vp))
 --transS (Just (Branch (Cat _ "AT" _ _) [np,att])) =
 --  (transNP np) (transAT att)
 --
@@ -155,8 +157,7 @@ transS (Just (GUt (GPosQ (GYN (GSentence np vp))))) =
 --
 --transS (Just (Branch (Cat _ "YN" _ _) 
 --       [Leaf (Cat _ "COP" _ _),s])) = transS (Just s)
---
---transS _ = NonProposition
+transS _ = NonProposition
 --
 --transAT :: ParseTree Cat Cat -> Term -> LF
 --transAT (Branch (Cat _ "AV" _ _)
@@ -219,53 +220,50 @@ transS (Just (GUt (GPosQ (GYN (GSentence np vp))))) =
 --    "PP" -> transPP obj
 --
 transNP :: GNP -> (Term -> LF) -> LF
+transNP (GItem det cn) = (transDet det) (transCN cn)
 transNP name
 --    | name `elem` interrolist = \ p -> NonProposition
     | entity <- (ided name gnp_list) , entity `elem` entities =
 	\ p -> p (Const entity)
     | otherwise = \p -> Exists ( \v -> Conj [ p v, Rel "work" [v] ] )
---transNP (Branch (Cat _ "NP" _ _) [det,cn]) = (transDET det) (transCN cn) 
 --transNP (Branch (Cat _ "NP" _ _) [np,Leaf (Cat "'s" "APOS" _ _),cn]) =
 --    \p -> Exists (\thing -> Conj [ p thing, transCN cn thing, transNP np (\owner -> (Rel "had" [owner,thing]))])
 --transNP (Branch (Cat _ "NP" _ _) [det,Leaf (Cat a "ADJ" _ _),cn]) = 
 --    (transDET det) (\n -> Conj [transCN cn n, Rel a [n]])
 --transNP _ = \x -> NonProposition
 --
---transDET :: ParseTree Cat Cat -> (Term -> LF)
---                              -> (Term -> LF)
---                              -> LF
---transDET (Branch (Cat _ "DET" _ _) [np,Leaf (Cat "'s" "APOS" _ _) ]) =
+transDet :: GDet -> (Term -> LF) -> (Term -> LF) -> LF
+--transDet (Branch (Cat _ "DET" _ _) [np,Leaf (Cat "'s" "APOS" _ _) ]) =
 --    \ p q -> Exists (\v -> Conj [ Single p, p v, q v, transNP np
 --	(\mod -> Rel "had" [mod, v] )])
---transDET (Leaf (Cat "the" "DET" _ _)) = 
+--transDet (Leaf (Cat "the" "DET" _ _)) = 
 --  \ p q -> Exists (\v -> Conj [Single p, p v, q v] )
---transDET (Leaf (Cat "every" "DET" _ _)) = 
+--transDet (Leaf (Cat "every" "DET" _ _)) =
 --  \ p q -> Forall (\v -> Impl (p v) (q v) )
---transDET (Leaf (Cat "all" "DET" _ _)) = 
+--transDet (Leaf (Cat "all" "DET" _ _)) = 
 --  \ p q -> Forall (\v -> Impl (p v) (q v) )
---transDET (Leaf (Cat "some" "DET" _ _)) = 
+--transDet (Leaf (Cat "some" "DET" _ _)) = 
 --  \ p q -> Exists (\v -> Conj [p v, q v] )
---transDET (Leaf (Cat "a" "DET" _ _)) = 
+transDet a_Det = \ p q -> Exists (\v -> Conj [p v, q v] )
+--transDet (Leaf (Cat "zero" "DET" _ _)) = 
 --  \ p q -> Exists (\v -> Conj [p v, q v] )
---transDET (Leaf (Cat "zero" "DET" _ _)) = 
---  \ p q -> Exists (\v -> Conj [p v, q v] )
---transDET (Leaf (Cat "several" "DET" _ _)) = 
+--transDet (Leaf (Cat "several" "DET" _ _)) = 
 --  \ p q -> Several (\v -> Conj [p v, q v] )
---transDET (Leaf (Cat "no" "DET" _ _)) = 
+--transDet (Leaf (Cat "no" "DET" _ _)) = 
 --  \ p q -> Neg (Exists (\v -> Conj [p v, q v]))
---transDET (Leaf (Cat "most" "DET" _ _)) = 
+--transDet (Leaf (Cat "most" "DET" _ _)) = 
 --  \ p q -> Most (\v -> Impl (p v) (q v) )
---transDET (Leaf (Cat "many" "DET" _ _)) = 
+--transDet (Leaf (Cat "many" "DET" _ _)) = 
 --  \ p q -> Many (\v -> Conj [p v, q v] )
---transDET (Leaf (Cat "few" "DET" _ _)) = 
+--transDet (Leaf (Cat "few" "DET" _ _)) = 
 --  \ p q -> Neg $ Many (\v -> Impl (p v) (q v) )
---transDET (Leaf (Cat "which" "DET" _ _)) = 
+--transDet (Leaf (Cat "which" "DET" _ _)) = 
 --  \ p q -> WH (\v1 -> Conj
 --  		[Forall (\v2 -> Equi (p v2) (Eq v1 v2)),
 --		q v1])
 --
---transCN :: ParseTree Cat Cat -> Term -> LF
---transCN (Leaf   (Cat name "CN" _ _))          = \ x -> Rel name [x]
+transCN :: GCN -> Term -> LF
+transCN name          = \ x -> Rel (kind_list name) [x]
 --transCN (Branch (Cat _    "RCN" _ _) [cn,ofpos,np]) =
 --    \owner -> Conj [(transCN cn owner), (transNP np (\thing -> Rel "had" [owner, thing]))]
 --transCN (Branch (Cat _    "RCN" _ _) [cn,rel]) = case (rel) of
@@ -359,14 +357,11 @@ transVP :: GVP -> Term -> LF
 --                [Leaf (Cat "did" "AUX" _ []),vp]) = 
 --        transVP vp 
 --transVP (Branch (Cat _ "VP" _ _) 
---                [Leaf (Cat "didn't" "AUX" _ []),vp]) = 
---        \x -> Neg ((transVP vp) x)
---transVP (Branch (Cat _ "VP" _ _) 
 --                [Leaf (Cat "#" "AUX" _ []),vp]) = 
 --        transVP vp 
 --
-transVP (GHappening _) = 
-        \ t -> ( Rel "work" [t] )
+transVP (GHappening v) = 
+        \ t -> ( Rel (relation_list v) [t] )
 --transVP (Branch (Cat _ "VP" _ _) [Leaf (Cat _ "COP" _ _),
 --    Branch (Cat "_" "COMP" [] []) [comp]]) = case (catLabel (t2c comp)) of
 --	"ADJ" -> \subj -> (Rel (phon (t2c comp)) [subj] )
@@ -467,10 +462,6 @@ transVP (GHappening _) =
 --transVP _ = \x -> NonProposition
 --
 --transWH :: Maybe (ParseTree Cat Cat) -> LF
---transWH (Just (Branch (Cat _ "WH" _ _ ) [wh,Branch (Cat _ "S" _ _)
---	[Leaf (Cat "#" "NP" _ _),vp]])) =
---	WH (\x -> Conj [ transW wh x, transVP vp x ])
---
 --transWH (Just (Branch (Cat _ "WH" _ _ )
 --	[wh,(Branch (Cat _ "YN" _ _) [_,(Branch
 --		(Cat _ "S" _ _) [np,(Branch
@@ -511,15 +502,11 @@ transVP (GHappening _) =
 --					( \recipient -> Rel three_ple [agent,x,recipient]))])
 --transWH _ = NonProposition
 --
---transW :: ParseTree Cat Cat -> (Term -> LF)
+transW :: GIP -> (Term -> LF)
 --transW (Branch (Cat _ "NP" fs _) [det,cn]) = 
 --                            \e -> transCN cn e
---transW (Leaf (Cat _ "NP" fs _))
---      | Masc      `elem` fs = \e -> Rel "man"    [e]
---      | Fem       `elem` fs = \e -> Rel "woman"  [e]
---      | MascOrFem `elem` fs = \e -> Rel "person" [e]
---      | otherwise           = \e -> Rel "thing"  [e]
---
+transW Gwho_WH	= \e -> Rel "person"    [e]
+transW Gwhat_WH	= \e -> Rel "thing"    [e]
 --transW (Branch (Cat _ "PP" fs _) [prep,np])
 --      | Masc      `elem` fs = \e -> Rel "man"    [e]
 --      | Fem       `elem` fs = \e -> Rel "woman"  [e]
