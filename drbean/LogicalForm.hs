@@ -144,6 +144,8 @@ transS (Just (GUt (GNegQ (GYN (GSentence np vp))))) =
   Neg ((transNP np) (transVP vp))
 transS (Just (GUt (GPosQ (GTagQ np vp)))) = (transNP np) (transVP vp)
 transS (Just (GUt (GNegQ (GTagQ np vp)))) = Neg ((transNP np) (transVP vp))
+transS (Just (GUt (GPosQ (GYN (GIs subj ap))))) = (transNP subj) (\x -> Rel (adjective_list ap) [x])
+transS (Just (GUt (GNegQ (GYN (GIs subj ap))))) = (transNP subj) (\x -> (Neg (Rel (adjective_list ap) [x])))
 --transS (Just (Branch (Cat _ "AT" _ _) [np,att])) =
 --  (transNP np) (transAT att)
 --
@@ -357,7 +359,6 @@ transVP (GHappening v) =
         \ t -> ( Rel (relation_list v) [t] )
 --transVP (Branch (Cat _ "VP" _ _) [Leaf (Cat _ "COP" _ _),
 --    Branch (Cat "_" "COMP" [] []) [comp]]) = case (catLabel (t2c comp)) of
---	"ADJ" -> \subj -> (Rel (phon (t2c comp)) [subj] )
 --	"NP" -> \subj -> (transNP comp (\pred -> Eq pred subj ))
 --	"PP" -> \subj -> transPP comp (\place -> Rel "resident" [subj,place])
 --transVP (Branch (Cat _ "VP" _ _) [Leaf (Cat _ "COP" _ _),
