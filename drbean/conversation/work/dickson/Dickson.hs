@@ -49,8 +49,8 @@ instance Gf GFloat where
 -- drbean
 --
 
-namelist :: [(GNP,Entity)]
-namelist = [
+gnp_list :: [(GNP,Entity)]
+gnp_list = [
 	(Gdee, D)
 	,(Galf, A)
 	]
@@ -60,7 +60,11 @@ ided name list@(c:cs) = let
 	ided' name []	= error "Can't find named entity in namelist"
 	ided' name (c:_) | fst c == name = snd c
 	ided' name (c:cs) = ided' name cs
-	in ided' name Dickson.namelist
+	in ided' name list
+
+--relation_list :: GV -> String
+--relation_list Gwork_V	= "work"
+--relation_list Glaugh	= "laugh"
 
 data GAP =
    Gbad 
