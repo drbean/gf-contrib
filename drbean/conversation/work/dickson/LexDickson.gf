@@ -81,5 +81,6 @@ oper
 	take_V2V	: V2V;
 	tell_V2S	: V2S;
 	think_VS	: VS;
+	work_V	: V;
 
 }

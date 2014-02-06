@@ -122,6 +122,7 @@ lin
 	take	= take_V2V;
 	tell	= tell_V2S;
 	think	= think_VS;
+	work_V	= LexDicksonEng.work_V;
 
 }
 

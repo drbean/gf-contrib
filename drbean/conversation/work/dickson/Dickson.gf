@@ -111,5 +111,6 @@ fun
 	take	: V2V;
 	tell	: V2S;
 	think	: VS;
+	work_V	: V;
 
 }

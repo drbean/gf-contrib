@@ -6,6 +6,19 @@ import Dickson
 
 import Model
 
+working_test = [
+
+	"does Dee work"
+	, "does Dee have work"
+	, "does Dee have a job"
+	, "who works"
+	, "who has work"
+	, "who has a job"
+	, "Dee works doesn't she"
+	, "Dee has work doesn't she"
+	, "Dee has a job doesn't she"
+	]
+
 test_text = [
 	"Dee's son spoke English.",
 	"Dee's son's brother spoke English.",

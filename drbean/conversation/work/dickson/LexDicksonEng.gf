@@ -84,5 +84,6 @@ oper
 	take_V2V = mkV2V (IrregEng.take_V) noPrep to_Prep;
 	tell_V2S = mkV2S IrregEng.tell_V noPrep;
 	think_VS = mkVS (IrregEng.think_V);
+	work_V	 = mkV "work";
 
 }
