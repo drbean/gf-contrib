@@ -352,12 +352,6 @@ transVP :: GVP -> Term -> LF
 --transVP (Branch (Cat _ "VP" _ _)
 --                [Leaf (Cat "couldn't" "AUX" _ []),vp]) =
 --        \x -> Neg ((transVP vp) x)
---transVP (Branch (Cat _ "VP" _ _)
---                [Leaf (Cat "did" "AUX" _ []),vp]) =
---        transVP vp
---transVP (Branch (Cat _ "VP" _ _)
---                [Leaf (Cat "#" "AUX" _ []),vp]) =
---        transVP vp
 --
 transVP (GHappening v) =
         \ t -> ( Rel (relation_list v) [t] )
