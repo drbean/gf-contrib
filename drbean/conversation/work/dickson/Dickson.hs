@@ -77,6 +77,20 @@ data GAP =
  | Gtwo 
   deriving (Show,Bounded,Enum)
 
+adjective_list :: GAP -> String
+adjective_list Gbad     = "Gbad"
+adjective_list Gbetter  = "Gbetter"
+adjective_list Gfirst   = "Gfirst"
+adjective_list Ghard    = "Ghard"
+adjective_list Glittle  = "Glittle"
+adjective_list Gmad     = "Gmad"
+adjective_list Gnext    = "Gnext"
+adjective_list Gnone    = "Gnone"
+adjective_list Gright   = "Gright"
+adjective_list Gsame    = "Gsame"
+adjective_list Gseveral = "Gseveral"
+adjective_list Gtwo     = "Gtwo"
+
 data GCN =
    Gapprentice 
  | Gdad 
