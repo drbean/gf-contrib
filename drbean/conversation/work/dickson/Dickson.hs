@@ -213,6 +213,19 @@ data GV2 =
  | Gsee 
   deriving (Show,Bounded,Enum)
 
+changing_list :: GV2 -> String
+changing_list Gbecome	= "Gbecome"
+changing_list Gget  	= "Gget"
+changing_list Gget_along	= "Gget_along"
+changing_list Ggo   	= "Ggo"
+changing_list Ghave 	= "Ghave"
+changing_list Ghire 	= "Ghire"
+changing_list Ginterview	= "Ginterview"
+changing_list Glift 	= "Glift"
+changing_list Glike 	= "Glike"
+changing_list Gprove	= "Gprove"
+changing_list Gsee  	= "Gsee"
+
 data GV2S = Gtell 
   deriving (Show,Bounded,Enum)
 

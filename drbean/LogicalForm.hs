@@ -374,10 +374,10 @@ transVP (GHappening v) =
 --	--	(\owner -> Conj [Rel name [x], Rel "had" [owner,x] ] )
 --	--Branch (Cat _ "NP" _ _) [det,Leaf (Cat qual "ADJ" _ _),cn] -> \subj
 --	--    -> Conj [ transCN cn subj, Rel qual [subj] ]
+transVP (GChanging v obj) = \subj -> transNP obj (\ obj -> Rel (changing_list v) [subj,obj])
 --transVP (Branch (Cat _ "VP" _ _) [Leaf (Cat name "V" _ [_]),obj1]) =
 --	case (catLabel ( t2c obj1 )) of
 --		"PP" -> \subj -> transPP obj1 (\adv -> Rel name [subj,adv])
---		"NP" -> \subj -> transNP obj1 (\ obj -> Rel name [subj,obj])
 --
 --transVP (Branch (Cat _ "VP" _ _) [Leaf (Cat name "V" _ [_,_]),obj1,obj2]) =
 --    case (catLabel ( t2c obj1 )) of
