@@ -274,6 +274,11 @@ data GVV =
  | Gstart 
   deriving Show
 
+intens_list :: GVV -> String
+intens_list Gcan	= "can"
+intens_list Gneed	= "need"
+intens_list Gstart	= "start"
+
 data GA
 
 data GA2
