@@ -3,8 +3,8 @@ module LogicalForm where
 import Transfer
 import Dickson
 import Model
-import Interpretation
-import qualified Story_Interpretation as Story
+-- import Interpretation
+import Story_Interpretation
 import qualified Topic_Interpretation as Topic
 
 import Data.Maybe
@@ -37,20 +37,20 @@ adjectives = [ minBound .. maxBound ]
 --                                 ++ prsTAG  [] catlist
 --				 ]
 --
-type Interp a	= String -> [a] -> Bool
-
-inttuples = objects ++ relations ++ Story.objects ++ Story.relations
-			    ++ Topic.objects ++ Topic.relations
-infltuples = inflections ++ Topic.inflections ++ Story.inflections
-
-int :: Interp Entity
-
-int word = int' word inttuples infltuples where
-	int' w [] []	= error $ "'" ++ w ++ "'" ++ " has no interpretation"
-	int' w [] ((infl,word):infls) | w == infl	=  int' word inttuples []
-	int' w [] (i:is)	= int' w [] is
-	int' w ((word,interpretation):is) infls | w == word	= interpretation
-	int' w (i:is) infls	= int' w is infls
+-- type Interp a	= String -> [a] -> Bool
+-- 
+-- inttuples = objects ++ relations ++ Story.objects ++ Story.relations
+-- 			    ++ Topic.objects ++ Topic.relations
+-- infltuples = inflections ++ Topic.inflections ++ Story.inflections
+-- 
+-- int :: Interp Entity
+-- 
+-- int word = int' word inttuples infltuples where
+-- 	int' w [] []	= error $ "'" ++ w ++ "'" ++ " has no interpretation"
+-- 	int' w [] ((infl,word):infls) | w == infl	=  int' word inttuples []
+-- 	int' w [] (i:is)	= int' w [] is
+-- 	int' w ((word,interpretation):is) infls | w == word	= interpretation
+-- 	int' w (i:is) infls	= int' w is infls
 
 data Term = Const Entity | Var Int | Struct String [Term]
 	deriving (Eq)
@@ -463,7 +463,7 @@ transVP (GCausative v0 obj0 vp) = case vp of
 --		(\agent -> transNP obj1
 --		    (\theme -> transPP obj2
 --			( \recipient -> Rel (att++"_to_"++act) [subj,agent,theme,recipient] ))))
---transVP _ = \x -> NonProposition
+transVP _ = \x -> NonProposition
 --
 --transWH :: Maybe (ParseTree Cat Cat) -> LF
 --transWH (Just (Branch (Cat _ "WH" _ _ )
