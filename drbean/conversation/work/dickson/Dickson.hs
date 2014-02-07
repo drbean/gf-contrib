@@ -206,12 +206,12 @@ data GV =
  | Gwork_V
   deriving (Show,Bounded,Enum)
 
-relation_list :: GV -> String
-relation_list Gwork_V	= "work"
-relation_list Glaugh	= "laugh"
-relation_list Gknow	= "know"
-relation_list Glook_here	= "look_here"
-relation_list Gslow_down	= "slow_down"
+happening_list :: GV -> String
+happening_list Gwork_V	= "work"
+happening_list Glaugh	= "laugh"
+happening_list Gknow	= "know"
+happening_list Glook_here	= "look_here"
+happening_list Gslow_down	= "slow_down"
 
 data GV2 =
    Gbecome 
@@ -245,6 +245,9 @@ data GV2S = Gtell
 
 data GV2V = Gtake 
   deriving (Show,Bounded,Enum)
+
+causative_list :: GV2V -> String
+causative_list Gtake	= "take"
 
 data GVA = Glook 
   deriving (Show,Bounded,Enum)
