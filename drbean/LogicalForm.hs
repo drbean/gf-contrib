@@ -361,7 +361,7 @@ transVP :: GVP -> Term -> LF
 --        \x -> Neg ((transVP vp) x)
 --
 transVP (GHappening v) =
-        \ t -> ( Rel (relation_list v) [t] )
+        \ t -> ( Rel (happening_list v) [t] )
 --transVP (Branch (Cat _ "VP" _ _) [Leaf (Cat _ "COP" _ _),
 --    Branch (Cat "_" "COMP" [] []) [comp]]) = case (catLabel (t2c comp)) of
 --	"PP" -> \subj -> transPP comp (\place -> Rel "resident" [subj,place])
@@ -431,6 +431,9 @@ transVP (GChanging v obj) = \subj -> transNP obj (\ obj -> Rel (changing_list v)
 --	    (\subj -> transNP obj1
 --		(\theme -> transPP obj2
 --		    ( \recipient -> Rel (att++"_to_"++act) [subj,subj,theme,recipient] )))
+transVP (GCausative v0 obj0 vp) = case vp of
+	    GHappening v -> \subj -> transNP obj0
+		(\agent -> Rel ((causative_list v0) ++ "_" ++ (happening_list v)) [subj,agent])
 --transVP (Branch (Cat _ "AT" _ _)
 --    [Leaf (Cat att "V" _ [_]), obj0, Leaf (Cat "to" "TO" [ToInf] []),
 --       (Branch (Cat _ "VP" _ _) [Leaf (Cat act "V" _ _),obj])]) =
