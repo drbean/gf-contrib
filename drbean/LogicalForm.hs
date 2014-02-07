@@ -434,14 +434,15 @@ transVP (GChanging v obj) = \subj -> transNP obj (\ obj -> Rel (changing_list v)
 transVP (GCausative v0 obj0 vp) = case vp of
 	    GHappening v -> \subj -> transNP obj0
 		(\agent -> Rel ((causative_list v0) ++ "_" ++ (happening_list v)) [subj,agent])
+	    GChanging v obj1 ->
+		(\subj -> transNP obj0
+		    (\agent -> transNP obj1
+			( \theme -> Rel ((causative_list v0) ++"_to_"++
+					(changing_list v)) [subj,agent,theme] )))
 --transVP (Branch (Cat _ "AT" _ _)
 --    [Leaf (Cat att "V" _ [_]), obj0, Leaf (Cat "to" "TO" [ToInf] []),
 --       (Branch (Cat _ "VP" _ _) [Leaf (Cat act "V" _ _),obj])]) =
 --	   case(catLabel (t2c obj)) of
---	"NP" ->
---	    (\subj -> transNP obj0
---		(\agent -> transNP obj
---		    ( \theme -> Rel (att++"_to_"++act) [subj,agent,theme] )))
 --	"PP" ->
 --	    (\subj -> transNP obj0
 --		(\agent -> transPP obj
