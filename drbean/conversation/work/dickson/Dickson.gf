@@ -22,6 +22,8 @@ fun
 	WH_Pred	: IP -> VP -> QCl;
 	PosQ	: QCl -> QS;
 	NegQ	: QCl -> QS;
+	PosS	: Cl -> S;
+	NegS	: Cl -> S;
 	Ut	: QS -> Utt;
 	Sentence	: NP -> VP -> Cl;
 

@@ -36,6 +36,8 @@ lin
 	WH_Pred ip vp	= mkQCl ip vp;
 	PosQ qcl	= mkQS qcl;
 	NegQ qcl	= mkQS negativePol qcl;
+	PosS cl	= mkS cl;
+	NegS cl	= mkS negativePol cl;
 	Ut q	= mkUtt q;
 	Sentence subject predicate	= mkCl subject predicate;
 

@@ -2,7 +2,6 @@ module Dickson where
 
 import PGF hiding (Tree)
 import qualified PGF
-
 ----------------------------------------------------
 -- automatic translation from GF to Haskell
 ----------------------------------------------------
@@ -133,6 +132,11 @@ data GResponse =
  | GYes 
   deriving Show
 
+data GS =
+   GNegS GCl 
+ | GPosS GCl 
+  deriving Show
+
 data GUtt = GUt GQS 
   deriving Show
 
@@ -141,7 +145,7 @@ data GV =
  | Glaugh 
  | Glook_here 
  | Gslow_down 
- | Gwork_V
+ | Gwork_V 
   deriving (Show,Bounded,Enum)
 
 data GV2 =
@@ -260,8 +264,6 @@ data GRCl
 data GRP
 
 data GRS
-
-data GS
 
 data GSC
 
@@ -487,6 +489,18 @@ instance Gf GResponse where
 
 
       _ -> error ("no Response " ++ show t)
+
+instance Gf GS where
+  gf (GNegS x1) = mkApp (mkCId "NegS") [gf x1]
+  gf (GPosS x1) = mkApp (mkCId "PosS") [gf x1]
+
+  fg t =
+    case unApp t of
+      Just (i,[x1]) | i == mkCId "NegS" -> GNegS (fg x1)
+      Just (i,[x1]) | i == mkCId "PosS" -> GPosS (fg x1)
+
+
+      _ -> error ("no S " ++ show t)
 
 instance Gf GUtt where
   gf (GUt x1) = mkApp (mkCId "Ut") [gf x1]
@@ -909,14 +923,6 @@ instance Gf GRP where
 instance Show GRS
 
 instance Gf GRS where
-  gf _ = undefined
-  fg _ = undefined
-
-
-
-instance Show GS
-
-instance Gf GS where
   gf _ = undefined
   fg _ = undefined
 
