@@ -405,10 +405,9 @@ transVP (GChanging v obj) = \subj -> transNP obj (\ obj -> Rel (changing_list v)
 --    (\ theme   -> transNPorPP obj3
 --     (\ recipient -> Rel name [agent,location,theme,recipient])))
 --
---transVP (Branch (Cat _ "AT" _ _)
---    [Leaf (Cat att "V" _ _), Leaf (Cat "to" "TO" [ToInf] []),
---       (Branch (Cat _ "VP" _ _) [Leaf (Cat act "V" _ _)])]) =
---	    (\subj -> Rel (att++"_to_"++act) [subj,subj] )
+transVP (GIntens v0 vp) = case vp of
+    GHappening v ->
+	\subj -> Rel ((intens_list v0) ++"_to_"++ (happening_list v)) [subj]
 --transVP (Branch (Cat _ "AT" _ _)
 --    [Leaf (Cat att "V" _ _), Leaf (Cat "to" "TO" [ToInf] []),
 --       (Branch (Cat _ "VP" _ _) [Leaf (Cat act "V" _ _),obj])]) =
