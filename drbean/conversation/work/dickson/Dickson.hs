@@ -228,17 +228,17 @@ data GV2 =
   deriving (Show,Bounded,Enum)
 
 changing_list :: GV2 -> String
-changing_list Gbecome	= "Gbecome"
-changing_list Gget  	= "Gget"
-changing_list Gget_along	= "Gget_along"
-changing_list Ggo   	= "Ggo"
-changing_list Ghave 	= "Ghave"
-changing_list Ghire 	= "Ghire"
-changing_list Ginterview	= "Ginterview"
-changing_list Glift 	= "Glift"
-changing_list Glike 	= "Glike"
-changing_list Gprove	= "Gprove"
-changing_list Gsee  	= "Gsee"
+changing_list Gbecome	= "become"
+changing_list Gget  	= "get"
+changing_list Gget_along	= "get_along"
+changing_list Ggo   	= "go"
+changing_list Ghave 	= "have"
+changing_list Ghire 	= "hire"
+changing_list Ginterview	= "interview"
+changing_list Glift 	= "lift"
+changing_list Glike 	= "like"
+changing_list Gprove	= "prove"
+changing_list Gsee  	= "see"
 
 data GV2S = Gtell 
   deriving (Show,Bounded,Enum)
