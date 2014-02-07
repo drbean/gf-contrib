@@ -463,6 +463,10 @@ transVP (GCausative v0 obj0 vp) = case vp of
 --		(\agent -> transNP obj1
 --		    (\theme -> transPP obj2
 --			( \recipient -> Rel (att++"_to_"++act) [subj,agent,theme,recipient] ))))
+transVP (GPositing v0 s) = case s of 
+    GPosS (GIs np ap) ->
+	(\positer -> transNP np 
+	    (\subj -> Rel ((positing_list v0) ++"_is_"++ (adjective_list ap)) [positer, subj]))
 transVP _ = \x -> NonProposition
 --
 --transWH :: Maybe (ParseTree Cat Cat) -> LF
