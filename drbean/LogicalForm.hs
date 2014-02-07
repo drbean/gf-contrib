@@ -432,8 +432,10 @@ transVP (GChanging v obj) = \subj -> transNP obj (\ obj -> Rel (changing_list v)
 --		(\theme -> transPP obj2
 --		    ( \recipient -> Rel (att++"_to_"++act) [subj,subj,theme,recipient] )))
 transVP (GCausative v0 obj0 vp) = case vp of
-	    GHappening v -> \subj -> transNP obj0
-		(\agent -> Rel ((causative_list v0) ++ "_" ++ (happening_list v)) [subj,agent])
+	    GHappening v ->
+		\subj -> transNP obj0
+		    (\agent -> Rel ((causative_list v0) ++ "_to_" ++
+				    (happening_list v)) [subj,agent])
 	    GChanging v obj1 ->
 		(\subj -> transNP obj0
 		    (\agent -> transNP obj1
