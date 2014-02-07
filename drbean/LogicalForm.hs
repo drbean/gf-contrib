@@ -467,6 +467,12 @@ transVP (GPositing v0 s) = case s of
     GPosS (GIs np ap) ->
 	(\positer -> transNP np 
 	    (\subj -> Rel ((positing_list v0) ++"_is_"++ (adjective_list ap)) [positer, subj]))
+    GPosS (GCop item comp) ->
+	(\positer -> transNP item 
+	    (\subj -> transNP comp (\x -> Rel ((positing_list v0) ++"_is") [positer, subj, x])))
+    GNegS (GCop item comp) ->
+	(\positer -> transNP item 
+	    (\subj -> transNP comp (\x -> Neg (Rel ((positing_list v0) ++"_is") [positer, subj, x]))))
 transVP _ = \x -> NonProposition
 --
 --transWH :: Maybe (ParseTree Cat Cat) -> LF
