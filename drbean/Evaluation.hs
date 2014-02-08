@@ -2,15 +2,6 @@ module Evaluation where
 
 import Interpretation
 
---process :: String -> [LF]
---process string = map (\x -> transS $ Just x) (parses string)
---
----- processW :: String -> [ LF ]
----- processW string = map transWH (parses string)
---
---pick ps x = [ ps !! x ]
---
---
 --type FInterp = String -> [Entity] -> Entity
 --
 --fint :: FInterp
@@ -92,13 +83,3 @@ realents = entities
 --bigN [] = False
 --bigN [_] = False
 --bigN xs = not . smallN $ xs
---
---handler core tests = putStr $ unlines $ map (\(x,y) -> x++show y) $ zip (map (++"\t") tests ) ( map (\string -> map (\x -> core ( Just x) ) (parses string)) tests )
---
---evals = handler (eval . transS)
---
---forms tests = putStr $ unlines $ map (\(x,y)->x++show y) $ zip (map (++"\t") tests ) ( map process tests )
---
---parentN = length ( mapMaybe ( \y -> bool2Maybe( evl ((\x->Rel "parent" [Const x] ) y)) ) ents) -- 2
---
-

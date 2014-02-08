@@ -384,6 +384,25 @@ relclauses = [
 	 \that left Cuba a ship?"
 	]
 
+--process :: String -> [LF]
+--process string = map (\x -> transS $ Just x) (parses string)
+--
+---- processW :: String -> [ LF ]
+---- processW string = map transWH (parses string)
+--
+--pick ps x = [ ps !! x ]
+--
+--
+--
+--handler core tests = putStr $ unlines $ map (\(x,y) -> x++show y) $ zip (map (++"\t") tests ) ( map (\string -> map (\x -> core ( Just x) ) (parses string)) tests )
+--
+--evals = handler (eval . transS)
+--
+--forms tests = putStr $ unlines $ map (\(x,y)->x++show y) $ zip (map (++"\t") tests ) ( map process tests )
+--
+--parentN = length ( mapMaybe ( \y -> bool2Maybe( evl ((\x->Rel "parent" [Const x] ) y)) ) ents) -- 2
+--
+
 
 
 lf0 = Rel "worked" [ Const(realents!!17) ]
