@@ -14,29 +14,6 @@ import Data.Tuple
 adjectives :: [GAP]
 adjectives = [ minBound .. maxBound ]
 
---lexicon :: String -> [Cat]
---
---lexicon lexeme = maybe unknownWord id $
---	find (\x -> phon (head x) == lexeme ) $
---	Story.names ++ Story.nouns ++ Story.verbs ++ Story.aux ++ Story.adjs ++
---	    Story.advs ++
---	Topic.nouns ++ Topic.intransitives ++ Topic.transitives ++
---	class_names ++ interrogatives ++
---	cops ++ aux ++
---	transitives ++ ditransitives ++ -- intransitives ++
---	possessives ++ preps ++ determiners ++ conjuncts
---	++ prons ++ reflexives
---	where unknownWord = [Cat "" "" [] []]
---
---parses :: String -> [ParseTree Cat Cat]
---parses str = let ws = lexer str
---             in  [ s | catlist   <- collectCats lexicon ws,
---                       (s,[],[]) <- prsWH [] catlist
---                                 ++ prsYN  [] catlist
---                                 ++ prsTXT  [] catlist
---                                 ++ prsTAG  [] catlist
---				 ]
---
 -- type Interp a	= String -> [a] -> Bool
 -- 
 -- inttuples = objects ++ relations ++ Story.objects ++ Story.relations
