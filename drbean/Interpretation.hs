@@ -3,22 +3,23 @@ module Interpretation where
 import Data.List
 
 import Model
--- import Story_Interpretation
+import qualified Topic_Interpretation as Topic
+import qualified Story_Interpretation as Story
 
--- type Interp a	= String -> [a] -> Bool
--- 
--- inttuples = objects ++ relations ++ Story.objects ++ Story.relations
--- 			    ++ Topic.objects ++ Topic.relations
--- infltuples = inflections ++ Topic.inflections ++ Story.inflections
--- 
--- int :: Interp Entity
--- 
--- int word = int' word inttuples infltuples where
--- 	int' w [] []	= error $ "'" ++ w ++ "'" ++ " has no interpretation"
--- 	int' w [] ((infl,word):infls) | w == infl	=  int' word inttuples []
--- 	int' w [] (i:is)	= int' w [] is
--- 	int' w ((word,interpretation):is) infls | w == word	= interpretation
--- 	int' w (i:is) infls	= int' w is infls
+type Interp a	= String -> [a] -> Bool
+
+inttuples = objects ++ relations ++ Story.objects ++ Story.relations
+			    ++ Topic.objects ++ Topic.relations
+infltuples = inflections ++ Topic.inflections ++ Story.inflections
+
+int :: Interp Entity
+
+int word = int' word inttuples infltuples where
+	int' w [] []	= error $ "'" ++ w ++ "'" ++ " has no interpretation"
+	int' w [] ((infl,word):infls) | w == infl	=  int' word inttuples []
+	int' w [] (i:is)	= int' w [] is
+	int' w ((word,interpretation):is) infls | w == word	= interpretation
+	int' w (i:is) infls	= int' w is infls
 
 objects, relations :: [( String, [Entity] -> Bool)]
 objects = [
