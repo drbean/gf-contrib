@@ -1,3 +1,7 @@
+module Evaluation where
+
+import Interpretation
+
 --process :: String -> [LF]
 --process string = map (\x -> transS $ Just x) (parses string)
 --
@@ -15,11 +19,6 @@
 realents :: [Entity]
 -- realents = filter ( not . flip elem [Unspec,Someone,Something] ) entities
 realents = entities
---
---ided :: GNP -> Entity
---ided name = let linearized = maybe undefined id $ linearize (mkCId "DicksonEng") (gf name)
---    in characters linearized
---named entity = maybe "NoName" id $ lookup entity $ map swap characters
 --
 --type TVal = Term -> Entity
 --
