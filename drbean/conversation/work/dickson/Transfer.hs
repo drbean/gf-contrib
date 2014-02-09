@@ -2,7 +2,8 @@ module Main where
 
 import PGF
 import Dickson
---import Parsing
+import LogicalForm
+import Evaluation
 
 --import Model
 import WordsCharacters
@@ -36,7 +37,8 @@ answer :: GUtt -> GUtt
 -- answer (GUt (GPosQ (GWH_Pred Gwho_WH (GChanging v np)))) = (GUt (GNegQ (GTagQ np (GHappening Glaugh))))
 -- answer (GUt (GPosQ (GWH_Pred Gwho_WH (GHappening vp)))) = Gdee
 -- answer (GUt (GPosQ (GYN (GCop np1 np2))))  = np1
-answer (GUt (GPosQ (GYN (GSentence np vp))))  = GUt (GNegQ (GTagQ np vp))
+answer utt	| (eval . transS) utt == True = GYes
+		| (eval . transS) utt == False = GNo
 
 adjectives :: [GAP]
 adjectives = [ minBound .. maxBound ]
