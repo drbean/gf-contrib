@@ -3,9 +3,6 @@ abstract Dickson = Cat ** {
 
   flags startcat = Utt ;
 
-cat
-	Response;
-
 fun
 	Is	: NP -> AP -> Cl;
 	Cop		: NP -> NP -> Cl;
@@ -27,7 +24,7 @@ fun
 	Ut	: QS -> Utt;
 	Sentence	: NP -> VP -> Cl;
 
-	Yes, No, Unknown	: Response;
+	Yes, No	: Utt;
 
 	Item	: Det -> CN -> NP;
 

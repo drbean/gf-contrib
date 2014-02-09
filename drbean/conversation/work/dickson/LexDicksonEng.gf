@@ -24,6 +24,9 @@ oper
 	who_WH	= whoSg_IP;
 	what_WH	= whatSg_IP;
 
+	yes_Utt	= SyntaxEng.yes_Utt;
+	no_Utt	= SyntaxEng.no_Utt;
+
 	apprentice_N	= mkN human (mkN "apprentice");
 	dad_N	= mkN masculine (mkN "dad");
 	eighty_N	= mkN "eighty";

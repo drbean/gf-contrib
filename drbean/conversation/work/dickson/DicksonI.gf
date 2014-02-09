@@ -41,6 +41,9 @@ lin
 	Ut q	= mkUtt q;
 	Sentence subject predicate	= mkCl subject predicate;
 
+	Yes	= LexDickson.yes_Utt;
+	No	= LexDickson.no_Utt;
+
 	Item det noun	= mkNP det noun;
 
 	bad	= mkAP bad_A;

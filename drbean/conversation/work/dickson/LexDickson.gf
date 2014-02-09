@@ -21,6 +21,9 @@ oper
 	who_WH	: IP;
 	what_WH	: IP;
 
+	yes_Utt	: Utt;
+	no_Utt	: Utt;
+
 	apprentice_N	: N;
 	dad_N	: N;
 	eighty_N	: N;
