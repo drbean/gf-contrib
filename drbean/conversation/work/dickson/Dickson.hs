@@ -126,18 +126,15 @@ data GQS =
  | GPosQ GQCl 
   deriving Show
 
-data GResponse =
-   GNo 
- | GUnknown 
- | GYes 
-  deriving Show
-
 data GS =
    GNegS GCl 
  | GPosS GCl 
   deriving Show
 
-data GUtt = GUt GQS 
+data GUtt =
+   GNo 
+ | GUt GQS 
+ | GYes 
   deriving Show
 
 data GV =
@@ -476,20 +473,6 @@ instance Gf GQS where
 
       _ -> error ("no QS " ++ show t)
 
-instance Gf GResponse where
-  gf GNo = mkApp (mkCId "No") []
-  gf GUnknown = mkApp (mkCId "Unknown") []
-  gf GYes = mkApp (mkCId "Yes") []
-
-  fg t =
-    case unApp t of
-      Just (i,[]) | i == mkCId "No" -> GNo 
-      Just (i,[]) | i == mkCId "Unknown" -> GUnknown 
-      Just (i,[]) | i == mkCId "Yes" -> GYes 
-
-
-      _ -> error ("no Response " ++ show t)
-
 instance Gf GS where
   gf (GNegS x1) = mkApp (mkCId "NegS") [gf x1]
   gf (GPosS x1) = mkApp (mkCId "PosS") [gf x1]
@@ -503,11 +486,15 @@ instance Gf GS where
       _ -> error ("no S " ++ show t)
 
 instance Gf GUtt where
+  gf GNo = mkApp (mkCId "No") []
   gf (GUt x1) = mkApp (mkCId "Ut") [gf x1]
+  gf GYes = mkApp (mkCId "Yes") []
 
   fg t =
     case unApp t of
+      Just (i,[]) | i == mkCId "No" -> GNo 
       Just (i,[x1]) | i == mkCId "Ut" -> GUt (fg x1)
+      Just (i,[]) | i == mkCId "Yes" -> GYes 
 
 
       _ -> error ("no Utt " ++ show t)
