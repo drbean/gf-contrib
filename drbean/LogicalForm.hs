@@ -1,13 +1,11 @@
 module LogicalForm where
 
-import Transfer
 import Dickson
 import Model
 -- import Interpretation
 import Story_Interpretation
 import qualified Topic_Interpretation as Topic
 
-import Data.Maybe
 import Data.List
 import Data.Tuple
 
