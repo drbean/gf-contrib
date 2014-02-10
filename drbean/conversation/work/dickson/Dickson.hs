@@ -57,11 +57,13 @@ data GAP =
   deriving (Show,Bounded,Enum)
 
 data GCN =
-   Gapprentice 
+   GOfpos GN2 GNP 
+ | Gapprentice 
  | Gdad 
  | Geighty 
  | Gend 
  | Gfamily 
+ | Gfather 
  | Ggraduation 
  | Gguy 
  | Gjob 
@@ -83,7 +85,7 @@ data GCN =
  | Gway 
  | Gweek 
  | Gword 
-  deriving (Show,Bounded,Enum,Eq)
+  deriving (Show,Eq)
 
 data GCl =
    GCop GNP GNP 
@@ -103,6 +105,11 @@ data GIP =
  | Gwho_WH 
   deriving Show
 
+data GN2 =
+   Gfather_N2 
+ | Guncle_N2 
+  deriving (Show,Bounded,Enum,Eq)
+
 data GNP =
    GItem GDet GCN 
  | Galf 
@@ -113,6 +120,9 @@ data GNP =
  | Gtime 
  | Gwork 
   deriving (Show,Eq)
+
+data GPrep = Gof_prep 
+  deriving Show
 
 data GQCl =
    GTagQ GNP GVP 
@@ -230,8 +240,6 @@ data GInterj
 
 data GN
 
-data GN2
-
 data GN3
 
 data GNum
@@ -249,8 +257,6 @@ data GPhr
 data GPol
 
 data GPredet
-
-data GPrep
 
 data GPron
 
@@ -320,11 +326,13 @@ instance Gf GAP where
       _ -> error ("no AP " ++ show t)
 
 instance Gf GCN where
+  gf (GOfpos x1 x2) = mkApp (mkCId "Ofpos") [gf x1, gf x2]
   gf Gapprentice = mkApp (mkCId "apprentice") []
   gf Gdad = mkApp (mkCId "dad") []
   gf Geighty = mkApp (mkCId "eighty") []
   gf Gend = mkApp (mkCId "end") []
   gf Gfamily = mkApp (mkCId "family") []
+  gf Gfather = mkApp (mkCId "father") []
   gf Ggraduation = mkApp (mkCId "graduation") []
   gf Gguy = mkApp (mkCId "guy") []
   gf Gjob = mkApp (mkCId "job") []
@@ -349,11 +357,13 @@ instance Gf GCN where
 
   fg t =
     case unApp t of
+      Just (i,[x1,x2]) | i == mkCId "Ofpos" -> GOfpos (fg x1) (fg x2)
       Just (i,[]) | i == mkCId "apprentice" -> Gapprentice 
       Just (i,[]) | i == mkCId "dad" -> Gdad 
       Just (i,[]) | i == mkCId "eighty" -> Geighty 
       Just (i,[]) | i == mkCId "end" -> Gend 
       Just (i,[]) | i == mkCId "family" -> Gfamily 
+      Just (i,[]) | i == mkCId "father" -> Gfather 
       Just (i,[]) | i == mkCId "graduation" -> Ggraduation 
       Just (i,[]) | i == mkCId "guy" -> Gguy 
       Just (i,[]) | i == mkCId "job" -> Gjob 
@@ -421,6 +431,18 @@ instance Gf GIP where
 
       _ -> error ("no IP " ++ show t)
 
+instance Gf GN2 where
+  gf Gfather_N2 = mkApp (mkCId "father_N2") []
+  gf Guncle_N2 = mkApp (mkCId "uncle_N2") []
+
+  fg t =
+    case unApp t of
+      Just (i,[]) | i == mkCId "father_N2" -> Gfather_N2 
+      Just (i,[]) | i == mkCId "uncle_N2" -> Guncle_N2 
+
+
+      _ -> error ("no N2 " ++ show t)
+
 instance Gf GNP where
   gf (GItem x1 x2) = mkApp (mkCId "Item") [gf x1, gf x2]
   gf Galf = mkApp (mkCId "alf") []
@@ -444,6 +466,16 @@ instance Gf GNP where
 
 
       _ -> error ("no NP " ++ show t)
+
+instance Gf GPrep where
+  gf Gof_prep = mkApp (mkCId "of_prep") []
+
+  fg t =
+    case unApp t of
+      Just (i,[]) | i == mkCId "of_prep" -> Gof_prep 
+
+
+      _ -> error ("no Prep " ++ show t)
 
 instance Gf GQCl where
   gf (GTagQ x1 x2) = mkApp (mkCId "TagQ") [gf x1, gf x2]
@@ -787,14 +819,6 @@ instance Gf GN where
 
 
 
-instance Show GN2
-
-instance Gf GN2 where
-  gf _ = undefined
-  fg _ = undefined
-
-
-
 instance Show GN3
 
 instance Gf GN3 where
@@ -862,14 +886,6 @@ instance Gf GPol where
 instance Show GPredet
 
 instance Gf GPredet where
-  gf _ = undefined
-  fg _ = undefined
-
-
-
-instance Show GPrep
-
-instance Gf GPrep where
   gf _ = undefined
   fg _ = undefined
 
