@@ -228,10 +228,13 @@ transDet Ga_Det = \ p q -> Exists (\v -> Conj [p v, q v] )
 --  		[Forall (\v2 -> Equi (p v2) (Eq v1 v2)),
 --		q v1])
 --
+transN2 :: GN2 -> Term -> LF
+transN2 name	= \x -> Rel (n2_kind_list name) [x]
 transCN :: GCN -> Term -> LF
+transCN (GOfpos cn np) =
+    \owner -> Conj [(transN2 cn owner), (transNP np 
+	(\thing -> Rel "had" [owner, thing]))]
 transCN name          = \ x -> Rel (kind_list name) [x]
---transCN (Branch (Cat _    "RCN" _ _) [cn,ofpos,np]) =
---    \owner -> Conj [(transCN cn owner), (transNP np (\thing -> Rel "had" [owner, thing]))]
 --transCN (Branch (Cat _    "RCN" _ _) [cn,rel]) = case (rel) of
 --    (Branch (Cat _ "MOD" _ _) [Leaf (Cat _ "REL"  _ _), Branch (Cat _ "S" _ _) [np,vp]]) ->
 --	case (np,vp) of
