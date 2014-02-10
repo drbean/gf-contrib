@@ -1,4 +1,4 @@
-incomplete concrete DicksonI of Dickson = open Syntax, LexDickson in {
+incomplete concrete DicksonI of Dickson = open Syntax, ParadigmsEng, LexDickson in {
 
 lincat
 	Utt	= Syntax.Utt;
@@ -109,9 +109,9 @@ lin
 	word	= mkCN word_N;
 	work	= mkNP work_N;
 
-	alf	= alf_PN;
-	dee	= dee_PN;
-	monday	= monday_PN;
+	alf	= mkPN alf_N;
+	dee	= mkPN dee_N;
+	monday	= mkPN monday_N;
 
 	become	= become_V2;
 	can	= LexDickson.can_VV;

@@ -88,9 +88,9 @@ fun
 	word	: CN;
 	work	: NP;
 
-	alf	: NP;
-	dee	: NP;
-	monday	: NP;
+	alf	: PN;
+	dee	: PN;
+	monday	: PN;
 
 	become	: V2;
 	can	: VV;

@@ -59,9 +59,9 @@ oper
 	word_N	: N;
 	work_N	: N;
 
-	alf_PN	: PN;
-	dee_PN	: PN;
-	monday_PN	: PN;
+	alf_N	: N;
+	dee_N	: N;
+	monday_N	: N;
 
 	become_V2	: V2;
 	can_VV	: VV;
