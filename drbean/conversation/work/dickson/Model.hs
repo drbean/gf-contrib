@@ -78,8 +78,9 @@ onePlacers = [
         , ("false",     pred1 [] )
         , ("role",      pred1 [] )
 
-	, ("child",	 pred1 [C1,C2] )
-	, ("dad",	 father )
+	, ("child",	pred1 [C1,C2] )
+	, ("dad",	father )
+	, ("uncle",	pred1 [A] )
 	, ("superintendent",	 pred1 [A] )
 	, ("supervisor",	 pred1 [D] )
 	, ("apprentice",	 pred1 [D] )

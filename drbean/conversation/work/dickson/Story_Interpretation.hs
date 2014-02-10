@@ -7,6 +7,7 @@ gnp_list :: [(GNP,Entity)]
 gnp_list = [
 	(Gdee, D)
 	,(Galf, A)
+	,(Gwork, J)
 	]
 
 ided :: GNP -> [(GNP,Entity)] -> Entity
@@ -30,8 +31,14 @@ adjective_list Gsame    = "same"
 adjective_list Gseveral = "several"
 adjective_list Gtwo     = "two"
 
+n2_kind_list :: GN2 -> String
+n2_kind_list Gfather_N2	= "father"
+n2_kind_list Guncle_N2	= "uncle"
+
 kind_list :: GCN -> String
 kind_list Gapprentice	= "apprentice"
+kind_list Gchild	= "child"
+kind_list Gchildren	= "children"
 kind_list Gdad	= "dad"
 kind_list Geighty	= "eighty"
 kind_list Gend	= "end"
@@ -92,24 +99,27 @@ intens_list Gneed	= "need"
 intens_list Gstart	= "start"
 
 objects = [
-	( "superintendent",	\[x] -> predid1 "superintendent" x	),
-	( "supervisor",	\[x] -> predid1 "supervisor" x	),
-	( "husband",	\[x] -> predid1 "husband" x	),
-	( "vocational_school",	\[x] -> predid1 "vocational_school" x	),
-	( "construction",	\[x] -> predid1 "construction" x	),
-	( "electrician",	\[x] -> predid1 "electrician" x	),
-	( "interviewer",	\[x] -> predid1 "interviewer" x	),
-	( "transformer",	\[x] -> predid1 "transformer" x	),
-	( "ship",	\[x] -> predid1 "ship" x	),
-	( "shipyard",	\[x] -> predid1 "shipyard" x	),
-	( "disappointment",	\[x] -> predid1 "disappointment" x	),
-	( "money",	\[x] -> predid1 "money" x	),
-	( "upbringing",	\[x] -> predid1 "upbringing" x	),
-	( "story",	\[x] -> predid1 "story" x	),
-	( "job",	\[x] -> predid1 "job" x	)
+	( "superintendent",	\[x] -> predid1 "superintendent" x	)
+	, ( "supervisor",	\[x] -> predid1 "supervisor" x	)
+	, ( "husband",	\[x] -> predid1 "husband" x	)
+	, ( "father",	\[x]	-> predid1 "father" x	)
+	, ( "uncle",	\[x]	-> predid1 "uncle" x	)
+	, ( "child",	\[x]	-> predid1 "child" x	)
+	, ( "construction",	\[x] -> predid1 "construction" x	)
+	, ( "electrician",	\[x] -> predid1 "electrician" x	)
+	, ( "interviewer",	\[x] -> predid1 "interviewer" x	)
+	, ( "transformer",	\[x] -> predid1 "transformer" x	)
+	, ( "ship",	\[x] -> predid1 "ship" x	)
+	, ( "shipyard",	\[x] -> predid1 "shipyard" x	)
+	, ( "disappointment",	\[x] -> predid1 "disappointment" x	)
+	, ( "money",	\[x] -> predid1 "money" x	)
+	, ( "upbringing",	\[x] -> predid1 "upbringing" x	)
+	, ( "story",	\[x] -> predid1 "story" x	)
+	, ( "job",	\[x] -> predid1 "job" x	)
 	]
 
 inflections = [
+	( "children",	"child")
 	]
 
 relations = [
