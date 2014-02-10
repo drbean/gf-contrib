@@ -113,6 +113,7 @@ inflections = [
 	]
 
 relations = [
+	( "laugh",	\[x] -> predid1 "laugh" x	)
 	]
 
 
