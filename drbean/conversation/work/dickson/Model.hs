@@ -27,7 +27,7 @@ entity_check =  [
     , (J, "" )
     , (K, "" )	-- disappointment
     , (L, "" )
-    , (M, "" )	-- money
+    , (M, "money" )	-- money
     , (N, "" )	-- construction
     , (O, "" )
     , (P, "" )
@@ -79,6 +79,7 @@ onePlacers = [
         , ("role",      pred1 [] )
 
 	, ("child",	 pred1 [C1,C2] )
+	, ("dad",	 father )
 	, ("superintendent",	 pred1 [A] )
 	, ("supervisor",	 pred1 [D] )
 	, ("apprentice",	 pred1 [D] )
@@ -102,6 +103,8 @@ onePlacers = [
 
 	, ("male",	 pred1 [A,F,W1,W2,W3,W4,W5,W6,I,C1,C2, GGF, GF] )
 	, ("female",	 pred1 [D] )
+
+	, ("laugh", pred1 [D] )
 	]
 
 predid1 "father"  = predid1 "dad"
@@ -201,7 +204,7 @@ curry4 f x y z w	= f (x,y,z,w)
 
 threePlacers = [
     ("liked", pred3 appreciation )
-    , ("work_as_on",        pred3 $ [(a,a,c) | (a,p,c) <- working ] )
+    , ("work",        pred3 $ [(a,a,c) | (a,p,c) <- working ] )
     , ("studied_subj_at", pred3 $ map (\(_,school,subject,student) ->
                     (student,subject,school) ) schooling )
     ]
