@@ -2,6 +2,7 @@ incomplete concrete DicksonI of Dickson = open Syntax, LexDickson in {
 
 lincat
 	Utt	= Syntax.Utt;
+	PN	= Syntax.PN;
 	NP	= Syntax.NP;
 	AP	= Syntax.AP;
 	Cl	= Syntax.Cl;
@@ -46,6 +47,7 @@ lin
 	Yes	= LexDickson.yes_Utt;
 	No	= LexDickson.no_Utt;
 
+	Entity pn	= mkNP pn;
 	Item det noun	= mkNP det noun;
 	Ofpos n2 np	= mkCN n2 np;
 
@@ -107,9 +109,9 @@ lin
 	word	= mkCN word_N;
 	work	= mkNP work_N;
 
-	alf	= mkNP alf_PN;
-	dee	= mkNP dee_PN;
-	monday	= mkNP monday_PN;
+	alf	= alf_PN;
+	dee	= dee_PN;
+	monday	= monday_PN;
 
 	become	= become_V2;
 	can	= LexDickson.can_VV;

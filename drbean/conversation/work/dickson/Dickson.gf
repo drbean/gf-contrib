@@ -26,6 +26,7 @@ fun
 
 	Yes, No	: Utt;
 
+	Entity	: PN -> NP;
 	Item	: Det -> CN -> NP;
 	Ofpos	: N2 -> NP -> CN;
 
