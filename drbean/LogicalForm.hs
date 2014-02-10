@@ -93,24 +93,24 @@ relname lf = error ( (show lf) ++ " not a relation" )
 --	s2@(Branch (Cat _ "TXT" _ _) _)])) =
 --	    Conj [ transS (Just s), transTXT (Just s2) ]
 --
-transS :: Maybe GUtt -> LF
+transS :: GUtt -> LF
 --transS (Just Ep) = NonProposition
-transS (Just (GUt (GPosQ (GWH_Pred wh vp)))) =
+transS ((GUt (GPosQ (GWH_Pred wh vp)))) =
 	WH (\x -> Conj [ transW wh x, transVP vp x ])
-transS (Just (GUt (GNegQ (GWH_Pred wh vp)))) =
+transS ((GUt (GNegQ (GWH_Pred wh vp)))) =
 	WH (\x -> Conj [ transW wh x, Neg (transVP vp x)])
-transS (Just (GUt (GPosQ (GYN (GSentence np vp))))) = (transNP np) (transVP vp)
-transS (Just (GUt (GNegQ (GYN (GSentence np vp))))) =
+transS ((GUt (GPosQ (GYN (GSentence np vp))))) = (transNP np) (transVP vp)
+transS ((GUt (GNegQ (GYN (GSentence np vp))))) =
   Neg ((transNP np) (transVP vp))
-transS (Just (GUt (GPosQ (GTagQ np vp)))) = (transNP np) (transVP vp)
-transS (Just (GUt (GNegQ (GTagQ np vp)))) = Neg ((transNP np) (transVP vp))
-transS (Just (GUt (GPosQ (GYN (GIs subj ap))))) = (transNP subj)
+transS ((GUt (GPosQ (GTagQ np vp)))) = (transNP np) (transVP vp)
+transS ((GUt (GNegQ (GTagQ np vp)))) = Neg ((transNP np) (transVP vp))
+transS ((GUt (GPosQ (GYN (GIs subj ap))))) = (transNP subj)
 					    (\x -> Rel (adjective_list ap) [x])
-transS (Just (GUt (GNegQ (GYN (GIs subj ap))))) = (transNP subj)
+transS ((GUt (GNegQ (GYN (GIs subj ap))))) = (transNP subj)
 				    (\x -> (Neg (Rel (adjective_list ap) [x])))
-transS (Just (GUt (GPosQ (GYN (GCop subj comp))))) =  (transNP subj)
+transS ((GUt (GPosQ (GYN (GCop subj comp))))) =  (transNP subj)
 				    (\x -> transNP comp (\pred -> Eq pred x))
-transS (Just (GUt (GNegQ (GYN (GCop subj comp))))) =  (transNP subj)
+transS ((GUt (GNegQ (GYN (GCop subj comp))))) =  (transNP subj)
 				    (\x -> transNP comp (\pred -> Neg (Eq pred x)))
 
 --transS (Just (Branch (Cat _ "AT" _ _) [np,att])) =
