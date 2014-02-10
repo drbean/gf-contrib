@@ -34,6 +34,7 @@ oper
 	eighty_N	= mkN "eighty";
 	end_N	= mkN "end";
 	family_N	= mkN "family";
+	father_N2	= mkN2 (mkN masculine (mkN "father")) of_prep;
 	graduation_N	= mkN "graduation";
 	guy_N	= mkN masculine (mkN "guy");
 	job_N	= mkN "job";
@@ -54,7 +55,7 @@ oper
 	time_N	= mkN "time";
 	top_N	= mkN "top";
 	transformer_N	= mkN "transformer";
-	uncle_N	= mkN masculine (mkN "uncle");
+	uncle_N2	= mkN2 (mkN masculine (mkN "uncle")) of_prep;
 	way_N	= mkN "way";
 	week_N	= mkN "week";
 	word_N	= mkN "word";

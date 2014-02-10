@@ -32,6 +32,7 @@ oper
 	end_N	: N;
 	family_N	: N;
 	graduation_N	: N;
+	father_N2	: N2;
 	guy_N	: N;
 	job_N	: N;
 	kind_N	: N;
@@ -51,7 +52,7 @@ oper
 	time_N	: N;
 	top_N	: N;
 	transformer_N	: N;
-	uncle_N	: N;
+	uncle_N2	: N2;
 	way_N	: N;
 	week_N	: N;
 	word_N	: N;

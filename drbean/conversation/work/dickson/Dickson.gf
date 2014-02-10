@@ -27,6 +27,7 @@ fun
 	Yes, No	: Utt;
 
 	Item	: Det -> CN -> NP;
+	Ofpos	: N2 -> NP -> CN;
 
 	bad	: AP;
 	better	: AP;
@@ -56,6 +57,8 @@ fun
 	eighty	: CN;
 	end	: CN;
 	family	: CN;
+	father	: CN;
+	father_N2	: N2;
 	graduation	: CN;
 	guy	: CN;
 	job	: CN;
@@ -77,6 +80,7 @@ fun
 	top	: CN;
 	transformer	: CN;
 	uncle	: CN;
+	uncle_N2	: N2;
 	way	: CN;
 	week	: CN;
 	word	: CN;
