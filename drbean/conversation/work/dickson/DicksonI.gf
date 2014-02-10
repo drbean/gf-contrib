@@ -81,7 +81,7 @@ lin
 	end	= mkCN end_N;
 	family	= mkCN family_N;
 	graduation	= mkCN graduation_N;
-	father_N2	= LexDickson.father_N2;
+	father_2	= father_N2;
 	father	= mkCN father_N2;
 	guy	= mkCN guy_N;
 	job	= mkCN job_N;
@@ -102,7 +102,7 @@ lin
 	time	= mkNP time_N;
 	top	= mkCN top_N;
 	transformer	= mkCN transformer_N;
-	uncle_N2	= LexDickson.uncle_N2;
+	uncle_2	= uncle_N2;
 	uncle	= mkCN uncle_N2;
 	way	= mkCN way_N;
 	week	= mkCN week_N;

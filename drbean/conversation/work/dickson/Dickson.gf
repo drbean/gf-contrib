@@ -60,7 +60,7 @@ fun
 	end	: CN;
 	family	: CN;
 	father	: CN;
-	father_N2	: N2;
+	father_2	: N2;
 	graduation	: CN;
 	guy	: CN;
 	job	: CN;
@@ -82,7 +82,7 @@ fun
 	top	: CN;
 	transformer	: CN;
 	uncle	: CN;
-	uncle_N2	: N2;
+	uncle_2	: N2;
 	way	: CN;
 	week	: CN;
 	word	: CN;
