@@ -24,6 +24,8 @@ oper
 	who_WH	= whoSg_IP;
 	what_WH	= whatSg_IP;
 
+	of_prep	=  possess_Prep;
+
 	yes_Utt	= SyntaxEng.yes_Utt;
 	no_Utt	= SyntaxEng.no_Utt;
 

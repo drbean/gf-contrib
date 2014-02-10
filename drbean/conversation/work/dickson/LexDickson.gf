@@ -21,6 +21,8 @@ oper
 	who_WH	: IP;
 	what_WH	: IP;
 
+	of_prep	: Prep;
+
 	yes_Utt	: Utt;
 	no_Utt	: Utt;
 

@@ -20,6 +20,7 @@ lincat
 	Det	= Syntax.Det;
  	CN	= Syntax.CN;
 	IP	= Syntax.IP;
+	Prep	= Syntax.Prep;
 
 lin
 	Is item quality	=	mkCl item quality;
@@ -66,6 +67,8 @@ lin
 
 	who_WH	= LexDickson.who_WH;
 	what_WH	= LexDickson.what_WH;
+
+	of_prep	= LexDickson.of_prep;
 
 	apprentice	= mkCN apprentice_N;
 	dad	= mkCN dad_N;

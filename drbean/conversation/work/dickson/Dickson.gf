@@ -49,6 +49,8 @@ fun
 	who_WH	: IP;
 	what_WH	: IP;
 
+	of_prep	: Prep;
+
 	apprentice	: CN;
 	dad	: CN;
 	eighty	: CN;
