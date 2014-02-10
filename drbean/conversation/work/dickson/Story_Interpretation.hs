@@ -38,7 +38,6 @@ n2_kind_list Guncle_N2	= "uncle"
 kind_list :: GCN -> String
 kind_list Gapprentice	= "apprentice"
 kind_list Gchild	= "child"
-kind_list Gchildren	= "children"
 kind_list Gdad	= "dad"
 kind_list Geighty	= "eighty"
 kind_list Gend	= "end"

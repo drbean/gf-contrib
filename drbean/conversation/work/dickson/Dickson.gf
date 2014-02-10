@@ -53,6 +53,7 @@ fun
 	of_prep	: Prep;
 
 	apprentice	: CN;
+	child	: CN;
 	dad	: CN;
 	eighty	: CN;
 	end	: CN;

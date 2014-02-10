@@ -27,6 +27,7 @@ oper
 	no_Utt	: Utt;
 
 	apprentice_N	: N;
+	child_N	: N;
 	dad_N	: N;
 	eighty_N	: N;
 	end_N	: N;

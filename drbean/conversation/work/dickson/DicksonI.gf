@@ -73,6 +73,7 @@ lin
 	of_prep	= LexDickson.of_prep;
 
 	apprentice	= mkCN apprentice_N;
+	child	= mkCN child_N;
 	dad	= mkCN dad_N;
 	eighty	= mkCN eighty_N;
 	end	= mkCN end_N;

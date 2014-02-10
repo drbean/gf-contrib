@@ -30,6 +30,7 @@ oper
 	no_Utt	= SyntaxEng.no_Utt;
 
 	apprentice_N	= mkN human (mkN "apprentice");
+	child_N = mkN human (mkN "child" "children");
 	dad_N	= mkN masculine (mkN "dad");
 	eighty_N	= mkN "eighty";
 	end_N	= mkN "end";
