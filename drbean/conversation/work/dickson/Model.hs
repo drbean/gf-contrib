@@ -29,7 +29,7 @@ entity_check =  [
     , (L, "" )
     , (M, "money" )	-- money
     , (N, "" )	-- construction
-    , (O, "" )
+    , (O, "Monday" )
     , (P, "" )
     , (Q, "" )
     , (R, "" )

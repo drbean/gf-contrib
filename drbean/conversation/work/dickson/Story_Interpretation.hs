@@ -3,14 +3,14 @@ module Story_Interpretation where
 import Model
 import Dickson
 
-gnp_list :: [(GNP,Entity)]
-gnp_list = [
+entity_list :: [(GPN,Entity)]
+entity_list = [
 	(Gdee, D)
-	,(Galf, A)
-	,(Gwork, J)
+	, (Galf, A)
+	, (Gmonday, O)
 	]
 
-ided :: GNP -> [(GNP,Entity)] -> Entity
+ided :: GPN -> [(GPN,Entity)] -> Entity
 ided name list@(c:cs) = let
 	ided' name []	= error "Can't find named entity in namelist"
 	ided' name (c:_) | fst c == name = snd c
@@ -32,8 +32,8 @@ adjective_list Gseveral = "several"
 adjective_list Gtwo     = "two"
 
 n2_kind_list :: GN2 -> String
-n2_kind_list Gfather_N2	= "father"
-n2_kind_list Guncle_N2	= "uncle"
+n2_kind_list Gfather_2	= "father"
+n2_kind_list Guncle_2	= "uncle"
 
 kind_list :: GCN -> String
 kind_list Gapprentice	= "apprentice"

@@ -188,9 +188,9 @@ transS _ = NonProposition
 --
 transNP :: GNP -> (Term -> LF) -> LF
 transNP (GItem det cn) = (transDet det) (transCN cn)
-transNP name
+transNP (GEntity name)
 --    | name `elem` interrolist = \ p -> NonProposition
-    | entity <- (ided name gnp_list) , entity `elem` entities =
+    | entity <- (ided name entity_list) , entity `elem` entities =
 	\ p -> p (Const entity)
     | otherwise = \p -> Exists ( \v -> Conj [ p v, Rel "work" [v] ] )
 --transNP (Branch (Cat _ "NP" _ _) [np,Leaf (Cat "'s" "APOS" _ _),cn]) =
