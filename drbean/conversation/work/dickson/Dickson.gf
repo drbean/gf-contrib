@@ -7,6 +7,9 @@ fun
 	Is	: NP -> AP -> Cl;
 	Cop		: NP -> NP -> Cl;
 	Look_bad	: VA -> AP -> VP;
+	Be_bad	: AP -> Comp;
+	Be_dee	: NP -> Comp;
+	Be_vp	: Comp -> VP;
 	Happening	: V -> VP ;
 	Changing	: V2 -> NP -> VP;
 	Causative:	V2V -> NP -> VP -> VP;
@@ -14,6 +17,7 @@ fun
 	Positing:	VS -> S -> VP;
 	Informing:	V2S -> NP -> S -> VP;
 	YN	: Cl -> QCl;
+	TagComp	: NP -> Comp -> QCl;
 	TagQ	: NP -> VP -> QCl;
 	WH_Cop	: IP -> NP -> QCl;
 	WH_Pred	: IP -> VP -> QCl;
