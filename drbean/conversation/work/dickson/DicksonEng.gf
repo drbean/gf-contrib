@@ -6,15 +6,27 @@ concrete DicksonEng of Dickson = DicksonI with
   open ResEng,Prelude in {
 
 param
-  Auxiliary	= Do ; -- | Be;
+  Auxiliary	= Do | Be;
 
 oper
-  tag : NP -> {s : Polarity => Str} =
-    \subj -> { s = case <(fromAgr subj.a).n, (fromAgr subj.a).g,Do> of {
-      <Sg,Fem,Do> => table { Pos => "doesn't she"; Neg => "does she" };
-      <Sg,Masc,Do>  => table { Pos => "doesn't he"; Neg => "does he" };
-      <Sg,Neutr,Do> => table { Pos => "doesn't it"; Neg => "does it" };
-      <Pl,_,Do>	=> table { Pos => "don't they"; Neg => "do they" }
+  tag : NP -> {s : Auxiliary => Polarity => Str} =
+    \subj -> { s = case <(fromAgr subj.a).n, (fromAgr subj.a).g> of {
+      <Sg,Fem> => table {
+		      Do => table {Pos => "doesn't she"; Neg => "does she" };
+		      Be => table {Pos => "isn't she"; Neg => "is she" }
+		      };
+      <Sg,Masc>  => table {
+		      Do => table { Pos => "doesn't he"; Neg => "does he" };
+		      Be => table {Pos => "isn't he"; Neg => "is he" }
+		      };
+      <Sg,Neutr> => table {
+		      Do => table { Pos => "doesn't it"; Neg => "does it" };
+		      Be => table {Pos => "isn't it"; Neg => "is it" }
+		      };
+      <Pl,_>	=> table {
+		      Do => table { Pos => "don't they"; Neg => "do they" };
+		      Be => table {Pos => "aren't they"; Neg => "are they" }
+		      }
     }
   };
 
@@ -25,13 +37,13 @@ lin
     Pres => table {
       Simul => table {
 	CPos => table {
-	  QDir => cl.s ! Pres ! Simul ! CPos ! ODir ++ (tag np).s ! Pos;
+	  QDir => cl.s ! Pres ! Simul ! CPos ! ODir ++ (tag np).s ! Do ! Pos;
 	  QIndir => "nonExist" };
 	CNeg True => table {
-	  QDir => cl.s ! Pres ! Simul ! CNeg True ! ODir ++ (tag np).s ! Neg;
+	  QDir => cl.s ! Pres ! Simul ! CNeg True ! ODir ++ (tag np).s ! Do ! Neg;
 	  QIndir => "nonExist" };
 	CNeg False => table {
-	  QDir => cl.s ! Pres ! Simul ! CNeg False ! ODir ++ (tag np).s ! Neg;
+	  QDir => cl.s ! Pres ! Simul ! CNeg False ! ODir ++ (tag np).s ! Do ! Neg;
 	  QIndir => "nonExist" }
 	  }
 	}
