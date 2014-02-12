@@ -7,6 +7,7 @@ wordlist = concat ( map (gfWords Map.!) (Map.keys gfWords) )
 posMap = Map.fromList [
 	("A","Adjective")
 	, ("ADV","Adverb")
+	, ("Aux","Auxiliary")
 	, ("CONJ","Conjunction")
 	, ("Det","Determiner")
 	, ("N","Noun")
@@ -14,6 +15,7 @@ posMap = Map.fromList [
 	, ("Pron","Pronoun")
 	, ("Prep","Preposition")
 	, ("Rel","Relative Pronoun")
+	, ("Tag","Question Tag"
 	, ("V","Verb")
 	]
 
@@ -56,6 +58,18 @@ adv = [
 	, "too"
 	, "well"
 	]
+
+aux = [
+	"doesn't"
+	, "don't"
+	, "does"
+	, "do"
+	, "is"
+	, "are"
+	, "isn't"
+	, "aren't"
+	]
+	
 
 conj = [
 	"and"
@@ -153,6 +167,17 @@ prep = [
 
 rel = [
 	"that"
+	]
+
+tag = [
+	"doesn't he"
+	, "doesn't she"
+	, "doesn't it"
+	, "don't they"
+	, "does he"
+	, "does she"
+	, "does it"
+	, "do they"
 	]
 
 v = [
