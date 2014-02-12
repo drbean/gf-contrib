@@ -104,14 +104,14 @@ transS ((GUt (GNegQ (GYN (GSentence np vp))))) =
   Neg ((transNP np) (transVP vp))
 transS ((GUt (GPosQ (GTagQ np vp)))) = (transNP np) (transVP vp)
 transS ((GUt (GNegQ (GTagQ np vp)))) = Neg ((transNP np) (transVP vp))
-transS ((GUt (GPosQ (GYN (GIs subj ap))))) = (transNP subj)
-					    (\x -> Rel (adjective_list ap) [x])
-transS ((GUt (GNegQ (GYN (GIs subj ap))))) = (transNP subj)
-				    (\x -> (Neg (Rel (adjective_list ap) [x])))
-transS ((GUt (GPosQ (GYN (GCop subj comp))))) =  (transNP subj)
-				    (\x -> transNP comp (\pred -> Eq pred x))
-transS ((GUt (GNegQ (GYN (GCop subj comp))))) =  (transNP subj)
-				    (\x -> transNP comp (\pred -> Neg (Eq pred x)))
+--transS ((GUt (GPosQ (GYN (GIs subj ap))))) = (transNP subj)
+--					    (\x -> Rel (adjective_list ap) [x])
+--transS ((GUt (GNegQ (GYN (GIs subj ap))))) = (transNP subj)
+--				    (\x -> (Neg (Rel (adjective_list ap) [x])))
+--transS ((GUt (GPosQ (GYN (GCop subj comp))))) =  (transNP subj)
+--				    (\x -> transNP comp (\pred -> Eq pred x))
+--transS ((GUt (GNegQ (GYN (GCop subj comp))))) =  (transNP subj)
+--				    (\x -> transNP comp (\pred -> Neg (Eq pred x)))
 
 --transS (Just (Branch (Cat _ "AT" _ _) [np,att])) =
 --  (transNP np) (transAT att)
@@ -323,6 +323,9 @@ transVP :: GVP -> Term -> LF
 --                [Leaf (Cat "couldn't" "AUX" _ []),vp]) =
 --        \x -> Neg ((transVP vp) x)
 --
+transVP (GBe_vp comp) = case comp of
+    GBe_dee np -> \x -> transNP np (\pred -> Eq pred x)
+    GBe_bad ap -> \x -> Rel (adjective_list ap) [x]
 transVP (GHappening v) =
         \ t -> ( Rel (happening_list v) [t] )
 --transVP (Branch (Cat _ "VP" _ _) [Leaf (Cat _ "COP" _ _),
@@ -426,16 +429,16 @@ transVP (GCausative v0 obj0 vp) = case vp of
 --		(\agent -> transNP obj1
 --		    (\theme -> transPP obj2
 --			( \recipient -> Rel (att++"_to_"++act) [subj,agent,theme,recipient] ))))
-transVP (GPositing v0 s) = case s of 
-    GPosS (GIs np ap) ->
-	(\positer -> transNP np 
-	    (\subj -> Rel ((positing_list v0) ++"_is_"++ (adjective_list ap)) [positer, subj]))
-    GPosS (GCop item comp) ->
-	(\positer -> transNP item 
-	    (\subj -> transNP comp (\x -> Rel ((positing_list v0) ++"_is") [positer, subj, x])))
-    GNegS (GCop item comp) ->
-	(\positer -> transNP item 
-	    (\subj -> transNP comp (\x -> Rel ((positing_list v0) ++"_isn't") [positer, subj, x])))
+--transVP (GPositing v0 s) = case s of 
+--    GPosS (GIs np ap) ->
+--	(\positer -> transNP np 
+--	    (\subj -> Rel ((positing_list v0) ++"_is_"++ (adjective_list ap)) [positer, subj]))
+--    GPosS (GCop item comp) ->
+--	(\positer -> transNP item 
+--	    (\subj -> transNP comp (\x -> Rel ((positing_list v0) ++"_is") [positer, subj, x])))
+--    GNegS (GCop item comp) ->
+--	(\positer -> transNP item 
+--	    (\subj -> transNP comp (\x -> Rel ((positing_list v0) ++"_isn't") [positer, subj, x])))
 transVP _ = \x -> NonProposition
 --
 --transWH :: Maybe (ParseTree Cat Cat) -> LF
