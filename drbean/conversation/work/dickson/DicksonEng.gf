@@ -30,18 +30,17 @@ oper
     }
   };
 
-  auxiliary : VP -> Str =
-    \vp -> { s = case vp.inf of {
-      "be" => "Be";
-      _	=> "Do"
-    }
-  };
+  auxiliary : VP -> Auxiliary =
+    \vp -> case vp of {
+      vp => Be;
+      _	=> Do
+    };
 
 lin
  TagQ np vp	= let
    cl = mkCl np vp;
  in
- {s = case ( auxiliary vp) of {
+ {s = case Do of {
    Be =>
    table {
      Pres => table {
