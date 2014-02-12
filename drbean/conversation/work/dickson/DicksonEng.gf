@@ -30,9 +30,9 @@ oper
     }
   };
 
-  auxiliary : VP -> {s : Tense => Anteriority => CPolarity => Order => Agr => Str} =
-    \vp -> { s = case <vp.s ! Pres ! Simul ! CPos ! ODir False ! AgP3Sg Neutr> of {
-      <adv = _ ; aux = "is" ; fin = _ ; inf = _ > => "Be";
+  auxiliary : VP -> Str =
+    \vp -> { s = case vp.inf of {
+      "be" => "Be";
       _	=> "Do"
     }
   };
