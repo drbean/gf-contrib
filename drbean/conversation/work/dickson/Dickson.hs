@@ -59,6 +59,7 @@ data GAP =
 data GCN =
    GOfpos GN2 GNP 
  | Gapprentice 
+ | Gchild 
  | Gdad 
  | Geighty 
  | Gend 
@@ -85,7 +86,7 @@ data GCN =
  | Gway 
  | Gweek 
  | Gword 
-  deriving (Show,Eq)
+  deriving Show
 
 data GCl =
    GCop GNP GNP 
@@ -98,7 +99,7 @@ data GDet =
  | GthePlural_Det 
  | Gthe_Det 
  | Gzero_Det 
-  deriving (Show,Eq)
+  deriving Show
 
 data GIP =
    Gwhat_WH 
@@ -106,19 +107,23 @@ data GIP =
   deriving Show
 
 data GN2 =
-   Gfather_N2 
- | Guncle_N2 
-  deriving (Show,Bounded,Enum,Eq)
+   Gfather_2 
+ | Guncle_2 
+  deriving Show
 
 data GNP =
-   GItem GDet GCN 
- | Galf 
- | Gdee 
- | Gmonday 
+   GEntity GPN 
+ | GItem GDet GCN 
  | Gmoney 
  | Gstuff 
  | Gtime 
  | Gwork 
+  deriving Show
+
+data GPN =
+   Galf 
+ | Gdee 
+ | Gmonday 
   deriving (Show,Eq)
 
 data GPrep = Gof_prep 
@@ -153,7 +158,7 @@ data GV =
  | Glook_here 
  | Gslow_down 
  | Gwork_V 
-  deriving (Show,Bounded,Enum)
+  deriving Show
 
 data GV2 =
    Gbecome 
@@ -167,16 +172,16 @@ data GV2 =
  | Glike 
  | Gprove 
  | Gsee 
-  deriving (Show,Bounded,Enum)
+  deriving Show
 
 data GV2S = Gtell 
-  deriving (Show,Bounded,Enum)
+  deriving Show
 
 data GV2V = Gtake 
-  deriving (Show,Bounded,Enum)
+  deriving Show
 
 data GVA = Glook 
-  deriving (Show,Bounded,Enum)
+  deriving Show
 
 data GVP =
    GCausative GV2V GNP GVP 
@@ -249,8 +254,6 @@ data GNumeral
 data GOrd
 
 data GPConj
-
-data GPN
 
 data GPhr
 
@@ -328,6 +331,7 @@ instance Gf GAP where
 instance Gf GCN where
   gf (GOfpos x1 x2) = mkApp (mkCId "Ofpos") [gf x1, gf x2]
   gf Gapprentice = mkApp (mkCId "apprentice") []
+  gf Gchild = mkApp (mkCId "child") []
   gf Gdad = mkApp (mkCId "dad") []
   gf Geighty = mkApp (mkCId "eighty") []
   gf Gend = mkApp (mkCId "end") []
@@ -359,6 +363,7 @@ instance Gf GCN where
     case unApp t of
       Just (i,[x1,x2]) | i == mkCId "Ofpos" -> GOfpos (fg x1) (fg x2)
       Just (i,[]) | i == mkCId "apprentice" -> Gapprentice 
+      Just (i,[]) | i == mkCId "child" -> Gchild 
       Just (i,[]) | i == mkCId "dad" -> Gdad 
       Just (i,[]) | i == mkCId "eighty" -> Geighty 
       Just (i,[]) | i == mkCId "end" -> Gend 
@@ -432,22 +437,20 @@ instance Gf GIP where
       _ -> error ("no IP " ++ show t)
 
 instance Gf GN2 where
-  gf Gfather_N2 = mkApp (mkCId "father_N2") []
-  gf Guncle_N2 = mkApp (mkCId "uncle_N2") []
+  gf Gfather_2 = mkApp (mkCId "father_2") []
+  gf Guncle_2 = mkApp (mkCId "uncle_2") []
 
   fg t =
     case unApp t of
-      Just (i,[]) | i == mkCId "father_N2" -> Gfather_N2 
-      Just (i,[]) | i == mkCId "uncle_N2" -> Guncle_N2 
+      Just (i,[]) | i == mkCId "father_2" -> Gfather_2 
+      Just (i,[]) | i == mkCId "uncle_2" -> Guncle_2 
 
 
       _ -> error ("no N2 " ++ show t)
 
 instance Gf GNP where
+  gf (GEntity x1) = mkApp (mkCId "Entity") [gf x1]
   gf (GItem x1 x2) = mkApp (mkCId "Item") [gf x1, gf x2]
-  gf Galf = mkApp (mkCId "alf") []
-  gf Gdee = mkApp (mkCId "dee") []
-  gf Gmonday = mkApp (mkCId "monday") []
   gf Gmoney = mkApp (mkCId "money") []
   gf Gstuff = mkApp (mkCId "stuff") []
   gf Gtime = mkApp (mkCId "time") []
@@ -455,10 +458,8 @@ instance Gf GNP where
 
   fg t =
     case unApp t of
+      Just (i,[x1]) | i == mkCId "Entity" -> GEntity (fg x1)
       Just (i,[x1,x2]) | i == mkCId "Item" -> GItem (fg x1) (fg x2)
-      Just (i,[]) | i == mkCId "alf" -> Galf 
-      Just (i,[]) | i == mkCId "dee" -> Gdee 
-      Just (i,[]) | i == mkCId "monday" -> Gmonday 
       Just (i,[]) | i == mkCId "money" -> Gmoney 
       Just (i,[]) | i == mkCId "stuff" -> Gstuff 
       Just (i,[]) | i == mkCId "time" -> Gtime 
@@ -466,6 +467,20 @@ instance Gf GNP where
 
 
       _ -> error ("no NP " ++ show t)
+
+instance Gf GPN where
+  gf Galf = mkApp (mkCId "alf") []
+  gf Gdee = mkApp (mkCId "dee") []
+  gf Gmonday = mkApp (mkCId "monday") []
+
+  fg t =
+    case unApp t of
+      Just (i,[]) | i == mkCId "alf" -> Galf 
+      Just (i,[]) | i == mkCId "dee" -> Gdee 
+      Just (i,[]) | i == mkCId "monday" -> Gmonday 
+
+
+      _ -> error ("no PN " ++ show t)
 
 instance Gf GPrep where
   gf Gof_prep = mkApp (mkCId "of_prep") []
@@ -854,14 +869,6 @@ instance Gf GOrd where
 instance Show GPConj
 
 instance Gf GPConj where
-  gf _ = undefined
-  fg _ = undefined
-
-
-
-instance Show GPN
-
-instance Gf GPN where
   gf _ = undefined
   fg _ = undefined
 
