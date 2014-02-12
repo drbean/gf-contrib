@@ -4,8 +4,8 @@ abstract Dickson = Cat ** {
   flags startcat = Utt ;
 
 fun
-	Is	: NP -> AP -> Cl;
-	Cop		: NP -> NP -> Cl;
+	-- Is	: NP -> AP -> Cl;
+	-- Cop		: NP -> NP -> Cl;
 	Look_bad	: VA -> AP -> VP;
 	Be_bad	: AP -> Comp;
 	Be_dee	: NP -> Comp;
@@ -17,7 +17,7 @@ fun
 	Positing:	VS -> S -> VP;
 	Informing:	V2S -> NP -> S -> VP;
 	YN	: Cl -> QCl;
-	TagComp	: NP -> Comp -> QCl;
+	-- TagComp	: NP -> Comp -> QCl;
 	TagQ	: NP -> VP -> QCl;
 	WH_Cop	: IP -> NP -> QCl;
 	WH_Pred	: IP -> VP -> QCl;

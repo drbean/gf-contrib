@@ -26,8 +26,8 @@ lincat
 	Prep	= Syntax.Prep;
 
 lin
-	Is item quality	=	mkCl item quality;
-	Cop item1 item2	= mkCl item1 item2;
+	-- Is item quality	=	mkCl item quality;
+	-- Cop item1 item2	= mkCl item1 item2;
 	Be_bad ap	= mkComp ap;
 	Be_dee np	= mkComp np;
 	Be_vp comp	= mkVP comp;
