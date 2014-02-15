@@ -20,8 +20,11 @@ main = do
   s <- getLine
   let l = (chomp . lc_first) s
   putStrLn ("Unknown_words: " ++ (unknown l) )
-  let ls = linear transform gr (parses l gr)
+  let ps = parses l gr
+  let ls = linear transform gr ps
   putStrLn ("Parsed: " ++ (concat ls) )
+  let courses = map (label . fg) ps
+  putStrLn ("Course: " ++ foldl takeCourse "Unparseable" courses )
 
 unknown :: String -> String
 unknown str = unwords ( filter (\x -> not (elem x wordlist)) (words str) )
@@ -57,3 +60,23 @@ chomp str = let rev@(c:cs) = reverse str
 			'.':_ -> reverse cs
 			'?':_ -> reverse cs
 			otherwise -> reverse rev
+
+label :: GUtt -> String
+label (GUt (GPosQ (GWH_Cop _ _)))	= "WH"
+label (GUt (GPosQ (GWH_Pred _ _)))	= "WH"
+label (GUt (GPosQ (GYN _)))	= "YN"
+label (GUt (GPosQ (GTagQ _ _)))	= "Tag"
+label _				= "Unparseable"
+
+takeCourse :: String -> String -> String
+takeCourse _ "WH" = "WH"
+takeCourse "WH" _ = "WH"
+takeCourse _ "YN" = "YN"
+takeCourse "YN" _ = "YN"
+takeCourse _ "Tag"  = "Tag"
+takeCourse "Tag" _  = "Tag"
+takeCourse _ "S"  = "S"
+takeCourse "S" _  = "S"
+takeCourse "Unparseable" _  = "Unparseable"
+takeCourse _  _   = error "undefined course, not WH, YN, S, or Unparseable"
+
