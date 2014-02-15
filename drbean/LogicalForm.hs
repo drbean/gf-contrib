@@ -211,8 +211,7 @@ transDet Gthe_Det =  \ p q -> Exists (\v -> Conj [Single p, p v, q v] )
 --transDet (Leaf (Cat "some" "DET" _ _)) =
 --  \ p q -> Exists (\v -> Conj [p v, q v] )
 transDet Ga_Det = \ p q -> Exists (\v -> Conj [p v, q v] )
---transDet (Leaf (Cat "zero" "DET" _ _)) =
---  \ p q -> Exists (\v -> Conj [p v, q v] )
+transDet Gzero_Det = \ p q -> Exists (\v -> Conj [p v, q v] )
 --transDet (Leaf (Cat "several" "DET" _ _)) =
 --  \ p q -> Several (\v -> Conj [p v, q v] )
 --transDet (Leaf (Cat "no" "DET" _ _)) =
