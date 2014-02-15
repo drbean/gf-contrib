@@ -22,7 +22,7 @@ entity_check =  [
     , (E, "" )
     , (F, "" )
     , (G, "" )	-- upbringing
-    , (H, "Dee's husband" )
+    , (H, "Dee's ex-husband" )
     , (I, "" )	-- interviewer
     , (J, "" )
     , (K, "" )	-- disappointment
@@ -45,7 +45,9 @@ entity_check =  [
 
 characters :: [ (String, Entity) ]
 
-characters = [(string,entity) | (entity,string) <- entity_check ]
+characters = [(string,entity) | (entity,string) <- entity_check,
+				string /= ""
+				]
 
 namelist :: [String]
 namelist = map fst characters
