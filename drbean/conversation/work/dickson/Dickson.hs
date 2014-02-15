@@ -88,10 +88,12 @@ data GCN =
  | Gword 
   deriving Show
 
-data GCl =
-   GCop GNP GNP 
- | GIs GNP GAP 
- | GSentence GNP GVP 
+data GCl = GSentence GNP GVP 
+  deriving Show
+
+data GComp =
+   GBe_bad GAP 
+ | GBe_dee GNP 
   deriving Show
 
 data GDet =
@@ -184,7 +186,8 @@ data GVA = Glook
   deriving Show
 
 data GVP =
-   GCausative GV2V GNP GVP 
+   GBe_vp GComp 
+ | GCausative GV2V GNP GVP 
  | GChanging GV2 GNP 
  | GHappening GV 
  | GInforming GV2S GNP GS 
@@ -224,8 +227,6 @@ data GCAdv
 data GCard
 
 data GClSlash
-
-data GComp
 
 data GConj
 
@@ -395,18 +396,26 @@ instance Gf GCN where
       _ -> error ("no CN " ++ show t)
 
 instance Gf GCl where
-  gf (GCop x1 x2) = mkApp (mkCId "Cop") [gf x1, gf x2]
-  gf (GIs x1 x2) = mkApp (mkCId "Is") [gf x1, gf x2]
   gf (GSentence x1 x2) = mkApp (mkCId "Sentence") [gf x1, gf x2]
 
   fg t =
     case unApp t of
-      Just (i,[x1,x2]) | i == mkCId "Cop" -> GCop (fg x1) (fg x2)
-      Just (i,[x1,x2]) | i == mkCId "Is" -> GIs (fg x1) (fg x2)
       Just (i,[x1,x2]) | i == mkCId "Sentence" -> GSentence (fg x1) (fg x2)
 
 
       _ -> error ("no Cl " ++ show t)
+
+instance Gf GComp where
+  gf (GBe_bad x1) = mkApp (mkCId "Be_bad") [gf x1]
+  gf (GBe_dee x1) = mkApp (mkCId "Be_dee") [gf x1]
+
+  fg t =
+    case unApp t of
+      Just (i,[x1]) | i == mkCId "Be_bad" -> GBe_bad (fg x1)
+      Just (i,[x1]) | i == mkCId "Be_dee" -> GBe_dee (fg x1)
+
+
+      _ -> error ("no Comp " ++ show t)
 
 instance Gf GDet where
   gf Ga_Det = mkApp (mkCId "a_Det") []
@@ -625,6 +634,7 @@ instance Gf GVA where
       _ -> error ("no VA " ++ show t)
 
 instance Gf GVP where
+  gf (GBe_vp x1) = mkApp (mkCId "Be_vp") [gf x1]
   gf (GCausative x1 x2 x3) = mkApp (mkCId "Causative") [gf x1, gf x2, gf x3]
   gf (GChanging x1 x2) = mkApp (mkCId "Changing") [gf x1, gf x2]
   gf (GHappening x1) = mkApp (mkCId "Happening") [gf x1]
@@ -635,6 +645,7 @@ instance Gf GVP where
 
   fg t =
     case unApp t of
+      Just (i,[x1]) | i == mkCId "Be_vp" -> GBe_vp (fg x1)
       Just (i,[x1,x2,x3]) | i == mkCId "Causative" -> GCausative (fg x1) (fg x2) (fg x3)
       Just (i,[x1,x2]) | i == mkCId "Changing" -> GChanging (fg x1) (fg x2)
       Just (i,[x1]) | i == mkCId "Happening" -> GHappening (fg x1)
@@ -749,14 +760,6 @@ instance Gf GCard where
 instance Show GClSlash
 
 instance Gf GClSlash where
-  gf _ = undefined
-  fg _ = undefined
-
-
-
-instance Show GComp
-
-instance Gf GComp where
   gf _ = undefined
   fg _ = undefined
 
