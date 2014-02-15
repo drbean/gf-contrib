@@ -2,7 +2,7 @@ module WordsCharacters where
 
 import qualified Data.Map as Map
 
-gfWords = Map.fromList [("A",a), ("ADV",adv), ("CONJ",conj), ("Det",det), ("N",n), ("PN",pn), ("Pron",pron), ("Prep",prep), ("Rel",rel), ("V",v) ]
+gfWords = Map.fromList [("A",a), ("ADV",adv), ("Aux",aux), ("CONJ",conj), ("Det",det), ("N",n), ("PN",pn), ("Pron",pron), ("Prep",prep), ("Rel",rel), ("Tag",tag), ("V",v) ]
 wordlist = concat ( map (gfWords Map.!) (Map.keys gfWords) )
 posMap = Map.fromList [
 	("A","Adjective")
@@ -15,7 +15,7 @@ posMap = Map.fromList [
 	, ("Pron","Pronoun")
 	, ("Prep","Preposition")
 	, ("Rel","Relative Pronoun")
-	, ("Tag","Question Tag"
+	, ("Tag","Question Tag")
 	, ("V","Verb")
 	]
 
