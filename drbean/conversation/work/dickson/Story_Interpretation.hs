@@ -106,6 +106,8 @@ objects = [
 	, ( "week",	\[x]	-> predid1 "week" x	)
 	, ( "word",	\[x]	-> predid1 "word" x	)
 
+	, ( "woman",	\[x]	-> predid1 "woman" x	)
+	, ( "man",	\[x]	-> predid1 "man" x	)
 	, ( "husband",	\[x] -> predid1 "husband" x	)
 	, ( "father",	\[x]	-> predid1 "father" x	)
 	, ( "construction",	\[x] -> predid1 "construction" x	)
