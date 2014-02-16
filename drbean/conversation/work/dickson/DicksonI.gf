@@ -94,7 +94,6 @@ lin
 	money	= mkNP money_N;
 	night	= mkCN night_N;
 	position	= mkCN position_N;
-	pound	= mkCN pound_N;
 	school	= mkCN school_N;
 	ship	= mkCN ship_N;
 	stuff	= mkNP stuff_N;

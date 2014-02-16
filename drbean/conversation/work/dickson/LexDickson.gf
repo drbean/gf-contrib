@@ -41,7 +41,6 @@ oper
 	money_N	: N;
 	night_N	: N;
 	position_N	: N;
-	pound_N	: N;
 	school_N	: N;
 	ship_N	: N;
 	stuff_N	: N;

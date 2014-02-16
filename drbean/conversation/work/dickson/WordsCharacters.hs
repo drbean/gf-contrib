@@ -109,7 +109,6 @@ n = [
 	, "night"
 	-- , "nights"
 	, "position"
-	, "pound"
 	, "raise"
 	, "school"
 	, "ship"

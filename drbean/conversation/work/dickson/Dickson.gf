@@ -73,7 +73,6 @@ fun
 	money	: NP;
 	night	: CN;
 	position	: CN;
-	pound	: CN;
 	school	: CN;
 	ship	: CN;
 	stuff	: NP;

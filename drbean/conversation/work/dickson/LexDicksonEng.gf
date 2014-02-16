@@ -44,7 +44,6 @@ oper
 	money_N	= mkN "money";
 	night_N	= mkN "night";
 	position_N	= mkN "position";
-	pound_N	= mkN "pound";
 	school_N	= mkN "school";
 	ship_N	= mkN "ship";
 	stuff_N	= mkN "stuff";
