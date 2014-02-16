@@ -42,7 +42,6 @@ fun
 	next	: AP;
 	none	: AP;
 	several	: AP;
-	two	: AP;
 	hard	: AP;
 	right	: AP;
 	same	: AP;
@@ -60,7 +59,6 @@ fun
 	apprentice	: CN;
 	child	: CN;
 	dad	: CN;
-	eighty	: CN;
 	end	: CN;
 	family	: CN;
 	father	: CN;

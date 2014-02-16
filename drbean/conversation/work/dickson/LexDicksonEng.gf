@@ -11,7 +11,6 @@ oper
 	none_A	= mkA "none";
 	several_A	= mkA "several";
 	slow_A	= mkA "slow";
-	two_A	= mkA "two";
 	hard_A	= mkA "hard";
 	right_A	= mkA "right";
 	same_A	= mkA "same";
@@ -32,7 +31,6 @@ oper
 	apprentice_N	= mkN human (mkN "apprentice");
 	child_N = mkN human (mkN "child" "children");
 	dad_N	= mkN masculine (mkN "dad");
-	eighty_N	= mkN "eighty";
 	end_N	= mkN "end";
 	family_N	= mkN "family";
 	father_N2	= mkN2 (mkN masculine (mkN "father")) of_prep;

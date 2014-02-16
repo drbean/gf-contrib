@@ -29,7 +29,6 @@ adjective_list Gnone    = "none"
 adjective_list Gright   = "right"
 adjective_list Gsame    = "same"
 adjective_list Gseveral = "several"
-adjective_list Gtwo     = "two"
 
 n2_kind_list :: GN2 -> String
 n2_kind_list Gfather_2	= "father"
@@ -39,7 +38,6 @@ kind_list :: GCN -> String
 kind_list Gapprentice	= "apprentice"
 kind_list Gchild	= "child"
 kind_list Gdad	= "dad"
-kind_list Geighty	= "eighty"
 kind_list Gend	= "end"
 kind_list Gfamily	= "family"
 kind_list Ggraduation	= "graduation"

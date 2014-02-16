@@ -63,7 +63,6 @@ lin
 	next	= mkAP next_A;
 	none	= mkAP none_A;
 	several	= mkAP several_A;
-	two	= mkAP two_A;
 	hard	= mkAP hard_A;
 	right	= mkAP right_A;
 	same	= mkAP same_A;
@@ -81,7 +80,6 @@ lin
 	apprentice	= mkCN apprentice_N;
 	child	= mkCN child_N;
 	dad	= mkCN dad_N;
-	eighty	= mkCN eighty_N;
 	end	= mkCN end_N;
 	family	= mkCN family_N;
 	graduation	= mkCN graduation_N;

@@ -29,7 +29,6 @@ a = [
 	, "none"
 	, "several"
 	, "slow"
-	, "two"
 	, "hard"
 	, "right"
 	, "same"
@@ -92,7 +91,6 @@ det = [
 n = [
 	"apprentice"
 	, "dad"
-	, "80" -- eighty
 	, "end"
 	-- , "families."
 	, "family"

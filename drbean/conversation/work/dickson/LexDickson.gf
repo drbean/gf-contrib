@@ -8,7 +8,6 @@ oper
 	next_A	: A;
 	none_A	: A;
 	several_A	: A;
-	two_A	: A;
 	hard_A	: A;
 	right_A	: A;
 	same_A	: A;
@@ -29,7 +28,6 @@ oper
 	apprentice_N	: N;
 	child_N	: N;
 	dad_N	: N;
-	eighty_N	: N;
 	end_N	: N;
 	family_N	: N;
 	graduation_N	: N;
