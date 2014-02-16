@@ -48,11 +48,6 @@ data GAP =
  | Ghard 
  | Glittle 
  | Gmad 
- | Gnext 
- | Gnone 
- | Gright 
- | Gsame 
- | Gseveral 
   deriving Show
 
 data GCN =
@@ -301,11 +296,6 @@ instance Gf GAP where
   gf Ghard = mkApp (mkCId "hard") []
   gf Glittle = mkApp (mkCId "little") []
   gf Gmad = mkApp (mkCId "mad") []
-  gf Gnext = mkApp (mkCId "next") []
-  gf Gnone = mkApp (mkCId "none") []
-  gf Gright = mkApp (mkCId "right") []
-  gf Gsame = mkApp (mkCId "same") []
-  gf Gseveral = mkApp (mkCId "several") []
 
   fg t =
     case unApp t of
@@ -315,11 +305,6 @@ instance Gf GAP where
       Just (i,[]) | i == mkCId "hard" -> Ghard 
       Just (i,[]) | i == mkCId "little" -> Glittle 
       Just (i,[]) | i == mkCId "mad" -> Gmad 
-      Just (i,[]) | i == mkCId "next" -> Gnext 
-      Just (i,[]) | i == mkCId "none" -> Gnone 
-      Just (i,[]) | i == mkCId "right" -> Gright 
-      Just (i,[]) | i == mkCId "same" -> Gsame 
-      Just (i,[]) | i == mkCId "several" -> Gseveral 
 
 
       _ -> error ("no AP " ++ show t)
