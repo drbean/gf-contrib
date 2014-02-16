@@ -53,7 +53,6 @@ data GAP =
  | Gright 
  | Gsame 
  | Gseveral 
- | Gtwo 
   deriving Show
 
 data GCN =
@@ -61,7 +60,6 @@ data GCN =
  | Gapprentice 
  | Gchild 
  | Gdad 
- | Geighty 
  | Gend 
  | Gfamily 
  | Gfather 
@@ -74,7 +72,6 @@ data GCN =
  | Gman 
  | Gnight 
  | Gposition 
- | Gpound 
  | Gschool 
  | Gship 
  | Gsuperintendent 
@@ -309,7 +306,6 @@ instance Gf GAP where
   gf Gright = mkApp (mkCId "right") []
   gf Gsame = mkApp (mkCId "same") []
   gf Gseveral = mkApp (mkCId "several") []
-  gf Gtwo = mkApp (mkCId "two") []
 
   fg t =
     case unApp t of
@@ -324,7 +320,6 @@ instance Gf GAP where
       Just (i,[]) | i == mkCId "right" -> Gright 
       Just (i,[]) | i == mkCId "same" -> Gsame 
       Just (i,[]) | i == mkCId "several" -> Gseveral 
-      Just (i,[]) | i == mkCId "two" -> Gtwo 
 
 
       _ -> error ("no AP " ++ show t)
@@ -334,7 +329,6 @@ instance Gf GCN where
   gf Gapprentice = mkApp (mkCId "apprentice") []
   gf Gchild = mkApp (mkCId "child") []
   gf Gdad = mkApp (mkCId "dad") []
-  gf Geighty = mkApp (mkCId "eighty") []
   gf Gend = mkApp (mkCId "end") []
   gf Gfamily = mkApp (mkCId "family") []
   gf Gfather = mkApp (mkCId "father") []
@@ -347,7 +341,6 @@ instance Gf GCN where
   gf Gman = mkApp (mkCId "man") []
   gf Gnight = mkApp (mkCId "night") []
   gf Gposition = mkApp (mkCId "position") []
-  gf Gpound = mkApp (mkCId "pound") []
   gf Gschool = mkApp (mkCId "school") []
   gf Gship = mkApp (mkCId "ship") []
   gf Gsuperintendent = mkApp (mkCId "superintendent") []
@@ -366,7 +359,6 @@ instance Gf GCN where
       Just (i,[]) | i == mkCId "apprentice" -> Gapprentice 
       Just (i,[]) | i == mkCId "child" -> Gchild 
       Just (i,[]) | i == mkCId "dad" -> Gdad 
-      Just (i,[]) | i == mkCId "eighty" -> Geighty 
       Just (i,[]) | i == mkCId "end" -> Gend 
       Just (i,[]) | i == mkCId "family" -> Gfamily 
       Just (i,[]) | i == mkCId "father" -> Gfather 
@@ -379,7 +371,6 @@ instance Gf GCN where
       Just (i,[]) | i == mkCId "man" -> Gman 
       Just (i,[]) | i == mkCId "night" -> Gnight 
       Just (i,[]) | i == mkCId "position" -> Gposition 
-      Just (i,[]) | i == mkCId "pound" -> Gpound 
       Just (i,[]) | i == mkCId "school" -> Gschool 
       Just (i,[]) | i == mkCId "ship" -> Gship 
       Just (i,[]) | i == mkCId "superintendent" -> Gsuperintendent 
