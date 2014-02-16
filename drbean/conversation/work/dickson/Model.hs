@@ -43,14 +43,17 @@ entity_check =  [
     ]
 
 
-characters :: [ (String, Entity) ]
-
-characters = [(string,entity) | (entity,string) <- entity_check,
+ent_ided :: String -> Entity
+ent_ided string = head [entity | (entity,string) <- entity_check,
 				string /= ""
 				]
 
+characters :: [(String,Entity)]
+characters = [(string,entity) | (entity,string) <- entity_check,
+				string /= ""
+				]
 namelist :: [String]
-namelist = map fst characters
+namelist = [string | (entity,string) <- entity_check, string /= "" ]
 
 predid1 :: String -> OnePlacePred
 predid2 :: String -> TwoPlacePred

@@ -3,19 +3,10 @@ module Story_Interpretation where
 import Model
 import Dickson
 
-entity_list :: [(GPN,Entity)]
-entity_list = [
-	(Gdee, D)
-	, (Galf, A)
-	, (Gmonday, O)
-	]
-
-ided :: GPN -> [(GPN,Entity)] -> Entity
-ided name list@(c:cs) = let
-	ided' name []	= error "Can't find named entity in namelist"
-	ided' name (c:_) | fst c == name = snd c
-	ided' name (c:cs) = ided' name cs
-	in ided' name list
+entity_list :: GPN -> Entity
+entity_list Gdee	 = ent_ided "Dee"
+entity_list Galf	 = ent_ided "Alf"
+entity_list Gmonday	 = ent_ided "Monday"
 
 adjective_list :: GAP -> String
 adjective_list Gbad     = "bad"
