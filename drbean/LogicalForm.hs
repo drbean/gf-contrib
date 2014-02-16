@@ -9,9 +9,6 @@ import qualified Topic_Interpretation as Topic
 import Data.List
 import Data.Tuple
 
-adjectives :: [GAP]
-adjectives = [ minBound .. maxBound ]
-
 data Term = Const Entity | Var Int | Struct String [Term]
 	deriving (Eq)
 

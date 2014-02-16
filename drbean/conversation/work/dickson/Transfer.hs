@@ -43,9 +43,6 @@ answer :: GUtt -> GUtt
 answer utt	| (eval . transS) utt == Boolean True = GYes
 		| (eval . transS) utt == Boolean False = GNo
 
-adjectives :: [GAP]
-adjectives = [ minBound .. maxBound ]
-
 linear :: (Tree -> Tree) -> PGF -> [Tree] -> [ String ]
 linear tr gr ps = concat $ map ((linearizeAll gr) . tr) ps
 
