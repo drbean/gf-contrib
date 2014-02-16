@@ -15,11 +15,6 @@ adjective_list Gfirst   = "first"
 adjective_list Ghard    = "hard"
 adjective_list Glittle  = "little"
 adjective_list Gmad     = "mad"
-adjective_list Gnext    = "next"
-adjective_list Gnone    = "none"
-adjective_list Gright   = "right"
-adjective_list Gsame    = "same"
-adjective_list Gseveral = "several"
 
 n2_kind_list :: GN2 -> String
 n2_kind_list Gfather_2	= "father"
@@ -86,23 +81,41 @@ intens_list Gneed	= "need"
 intens_list Gstart	= "start"
 
 objects = [
-	( "superintendent",	\[x] -> predid1 "superintendent" x	)
+	( "apprentice",	\[x]	-> predid1 "apprentice" x	)
+	, ( "child",	\[x]	-> predid1 "child" x	)
+	, ( "dad",	\[x]	-> predid1 "dad" x	)
+	, ( "end",	\[x]	-> predid1 "end" x	)
+	, ( "family",	\[x]	-> predid1 "family" x	)
+	, ( "graduation",	\[x]	-> predid1 "graduation" x	)
+	, ( "guy",	\[x]	-> predid1 "guy" x	)
+	, ( "job",	\[x]	-> predid1 "job" x	)
+	, ( "kind",	\[x]	-> predid1 "kind" x	)
+	, ( "life",	\[x]	-> predid1 "life" x	)
+	, ( "man",	\[x]	-> predid1 "man" x	)
+	, ( "night",	\[x]	-> predid1 "night" x	)
+	, ( "position",	\[x]	-> predid1 "position" x	)
+	, ( "school",	\[x]	-> predid1 "school" x	)
+	, ( "ship",	\[x]	-> predid1 "ship" x	)
+	, ( "superintendent",	\[x] -> predid1 "superintendent" x	)
 	, ( "supervisor",	\[x] -> predid1 "supervisor" x	)
+	, ( "thing",	\[x]	-> predid1 "thing" x	)
+	, ( "top",	\[x]	-> predid1 "top" x	)
+	, ( "transformer",	\[x]	-> predid1 "transformer" x	)
+	, ( "uncle",	\[x]	-> predid1 "uncle" x	)
+	, ( "way",	\[x]	-> predid1 "way" x	)
+	, ( "week",	\[x]	-> predid1 "week" x	)
+	, ( "word",	\[x]	-> predid1 "word" x	)
+
 	, ( "husband",	\[x] -> predid1 "husband" x	)
 	, ( "father",	\[x]	-> predid1 "father" x	)
-	, ( "uncle",	\[x]	-> predid1 "uncle" x	)
-	, ( "child",	\[x]	-> predid1 "child" x	)
 	, ( "construction",	\[x] -> predid1 "construction" x	)
 	, ( "electrician",	\[x] -> predid1 "electrician" x	)
 	, ( "interviewer",	\[x] -> predid1 "interviewer" x	)
-	, ( "transformer",	\[x] -> predid1 "transformer" x	)
-	, ( "ship",	\[x] -> predid1 "ship" x	)
 	, ( "shipyard",	\[x] -> predid1 "shipyard" x	)
 	, ( "disappointment",	\[x] -> predid1 "disappointment" x	)
 	, ( "money",	\[x] -> predid1 "money" x	)
 	, ( "upbringing",	\[x] -> predid1 "upbringing" x	)
 	, ( "story",	\[x] -> predid1 "story" x	)
-	, ( "job",	\[x] -> predid1 "job" x	)
 	]
 
 inflections = [
@@ -110,7 +123,19 @@ inflections = [
 	]
 
 relations = [
-	( "laugh",	\[x] -> predid1 "laugh" x	)
+	( "bad",	\[x]	-> predid1 "bad" x	)
+	, ( "better",	\[x]	-> predid1 "better" x	)
+	, ( "first",	\[x]	-> predid1 "first" x	)
+	, ( "hard",	\[x]	-> predid1 "hard" x	)
+	, ( "little",	\[x]	-> predid1 "little" x	)
+	, ( "mad",	\[x]	-> predid1 "mad" x	)
+
+	, ( "work",	\[x]	-> predid1 "work" x	)
+	, ( "laugh",	\[x] -> predid1 "laugh" x	)
+	, ( "know",	\[x]	-> predid1 "know" x	)
+	, ( "look_here",	\[x]	-> predid1 "look_here" x	)
+	, ( "slow_down",	\[x]	-> predid1 "slow_down" x	)
+
 	]
 
 
