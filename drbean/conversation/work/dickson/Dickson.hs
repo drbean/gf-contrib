@@ -54,7 +54,7 @@ data GAP =
  | Gsame 
  | Gseveral 
  | Gtwo 
-  deriving (Show,Bounded,Enum)
+  deriving Show
 
 data GCN =
    GOfpos GN2 GNP 
@@ -126,7 +126,7 @@ data GPN =
    Galf 
  | Gdee 
  | Gmonday 
-  deriving (Show,Eq)
+  deriving Show
 
 data GPrep = Gof_prep 
   deriving Show
