@@ -22,6 +22,7 @@ main = do
   putStrLn ("Unknown_words: " ++ (unknown l) )
   let ps = parses l gr
   let ls = linear transform gr ps
+  putStrLn ("Parsed: " ++ (map (show . gf) ps) )
   putStrLn ("Answer: " ++ (concat ls) )
   let courses = map (label . fg) ps
   putStrLn ("Course: " ++ foldl takeCourse "Unparseable" courses )
