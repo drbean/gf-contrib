@@ -60,12 +60,7 @@ lin
 	first	= mkAP first_A;
 	little	= mkAP little_A;
 	mad	= mkAP mad_A;
-	next	= mkAP next_A;
-	none	= mkAP none_A;
-	several	= mkAP several_A;
 	hard	= mkAP hard_A;
-	right	= mkAP right_A;
-	same	= mkAP same_A;
 
 	a_Det	= LexDickson.a_Det;
 	zero_Det	= LexDickson.zero_Det;

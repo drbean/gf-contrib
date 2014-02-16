@@ -25,13 +25,8 @@ a = [
 	, "first"
 	, "little"
 	, "mad"
-	, "next"
-	, "none"
-	, "several"
 	, "slow"
 	, "hard"
-	, "right"
-	, "same"
 
 	]
 

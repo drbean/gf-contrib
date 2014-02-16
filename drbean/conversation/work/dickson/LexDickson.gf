@@ -5,12 +5,7 @@ oper
 	first_A	: A;
 	little_A	: A;
 	mad_A	: A;
-	next_A	: A;
-	none_A	: A;
-	several_A	: A;
 	hard_A	: A;
-	right_A	: A;
-	same_A	: A;
 
 	a_Det	: Det;
 	zero_Det	: Det;

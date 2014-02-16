@@ -7,13 +7,8 @@ oper
 	first_A	= mkA "first";
 	little_A	= mkA "little";
 	mad_A	= mkA "mad";
-	next_A	= mkA "next";
-	none_A	= mkA "none";
-	several_A	= mkA "several";
 	slow_A	= mkA "slow";
 	hard_A	= mkA "hard";
-	right_A	= mkA "right";
-	same_A	= mkA "same";
 
 	a_Det	= aSg_Det;
 	zero_Det	= aPl_Det;

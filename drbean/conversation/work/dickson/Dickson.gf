@@ -39,12 +39,7 @@ fun
 	first	: AP;
 	little	: AP;
 	mad	: AP;
-	next	: AP;
-	none	: AP;
-	several	: AP;
 	hard	: AP;
-	right	: AP;
-	same	: AP;
 
 	a_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
 	zero_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
