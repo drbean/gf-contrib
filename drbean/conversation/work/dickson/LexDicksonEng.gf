@@ -22,6 +22,7 @@ oper
 
 	yes_Utt	= SyntaxEng.yes_Utt;
 	no_Utt	= SyntaxEng.no_Utt;
+	no_answer_Utt = ss "No answer";
 
 	apprentice_N	= mkN human (mkN "apprentice");
 	child_N = mkN human (mkN "child" "children");

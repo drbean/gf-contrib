@@ -28,7 +28,7 @@ fun
 	Ut	: QS -> Utt;
 	Sentence	: NP -> VP -> Cl;
 
-	Yes, No	: Utt;
+	Yes, No, NoAnswer	: Utt;
 
 	Entity	: PN -> NP;
 	Item	: Det -> CN -> NP;

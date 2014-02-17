@@ -19,6 +19,7 @@ oper
 
 	yes_Utt	: Utt;
 	no_Utt	: Utt;
+	no_answer_Utt	: Utt;
 
 	apprentice_N	: N;
 	child_N	: N;

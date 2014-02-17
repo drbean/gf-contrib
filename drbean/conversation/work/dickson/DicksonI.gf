@@ -50,6 +50,7 @@ lin
 
 	Yes	= LexDickson.yes_Utt;
 	No	= LexDickson.no_Utt;
+	NoAnswer	= LexDickson.no_answer_Utt;
 
 	Entity pn	= mkNP pn;
 	Item det noun	= mkNP det noun;
