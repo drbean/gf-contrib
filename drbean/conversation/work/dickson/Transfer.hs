@@ -22,7 +22,7 @@ main = do
   putStrLn ("Unknown_words: " ++ (unknown l) )
   let ps = parses l gr
   let ls = linear transform gr ps
-  putStrLn ("Parsed: " ++ (map (show . gf) ps) )
+  putStrLn ("Parsed: " ++ (show ps) )
   putStrLn ("Answer: " ++ (concat ls) )
   let courses = map (label . fg) ps
   putStrLn ("Course: " ++ foldl takeCourse "Unparseable" courses )
@@ -43,6 +43,7 @@ answer :: GUtt -> GUtt
 -- answer (GUt (GPosQ (GYN (GCop np1 np2))))  = np1
 answer utt	| (eval . transS) utt == Boolean True = GYes
 		| (eval . transS) utt == Boolean False = GNo
+		| (eval . transS) utt == NoAnswer = GNoAnswer
 
 linear :: (Tree -> Tree) -> PGF -> [Tree] -> [ String ]
 linear tr gr ps = concat $ map ((linearizeAll gr) . tr) ps
