@@ -116,10 +116,9 @@ predid1 "father"  = predid1 "dad"
 predid1 "guy"  = predid1 "male"
 predid1 "woman"  = predid1 "female"
 predid1 "man"  = predid1 "male"
-predid1 name = lookup1 name onePlacers where
-        lookup1 name [] = error $ "no '" ++ name ++ "' one-place predicate."
-        lookup1 name ((n,p):_) | n == name      = p
-        lookup1 name (i:is) = lookup1 name is
+predid1 name
+	| Just pred <- lookup name onePlacers = pred
+        | otherwise    = error $ "no '" ++ name ++ "' one-place predicate."
 
 type OnePlacePred	= Entity -> Bool
 type TwoPlacePred	= Entity -> Entity -> Bool
