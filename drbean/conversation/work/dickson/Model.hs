@@ -60,10 +60,9 @@ predid2 :: String -> TwoPlacePred
 predid3 :: String -> ThreePlacePred
 predid4 :: String -> FourPlacePred
 
-predid2 name = lookup2 name twoPlacers where
-        lookup2 n []    = error $ "no '" ++ name ++ "' two-place predicate."
-        lookup2 n ((name,pred):is) | n == name  = pred
-        lookup2 n (i:is) = lookup2 name is
+predid2 name 
+	| Just pred <- lookup name twoPlacers = pred
+        | otherwise    = error $ "no '" ++ name ++ "' two-place predicate."
 predid3 name = lookupPred name threePlacers where
         lookupPred n [] = error $ "no '" ++ name ++ "' three-place predicate.+"
         lookupPred n ((name,pred):is) | n == name      = pred
