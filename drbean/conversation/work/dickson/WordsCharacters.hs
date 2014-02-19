@@ -162,14 +162,14 @@ rel = [
 	]
 
 tag = [
-	"doesn't he"
-	, "doesn't she"
-	, "doesn't it"
-	, "don't they"
-	, "does he"
-	, "does she"
-	, "does it"
-	, "do they"
+	"doesn't he,"
+	, "doesn't she,"
+	, "doesn't it,"
+	, "don't they,"
+	, "does he,"
+	, "does she,"
+	, "does it,"
+	, "do they,"
 	]
 
 v = [
@@ -196,6 +196,7 @@ v = [
 	-- , "had"
 	, "has"
 	, "have"
+	, "hire"
 	-- , "hired"
 	, "interview"
 	, "is"
