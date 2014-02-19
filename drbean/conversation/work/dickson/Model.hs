@@ -63,18 +63,15 @@ predid4 :: String -> FourPlacePred
 predid2 name 
 	| Just pred <- lookup name twoPlacers = pred
         | otherwise    = error $ "no '" ++ name ++ "' two-place predicate."
-predid3 name = lookupPred name threePlacers where
-        lookupPred n [] = error $ "no '" ++ name ++ "' three-place predicate.+"
-        lookupPred n ((name,pred):is) | n == name      = pred
-        lookupPred n (i:is) = lookupPred name is
-predid4 name = lookupPred name fourPlacers where
-        lookupPred n [] = error $ "no '" ++ name ++ "' four-place predicate."
-        lookupPred n ((name,pred):is) | n == name     = pred
-        lookupPred n (i:is) = lookupPred name is
-predid5 name = lookupPred name fivePlacers where
-        lookupPred n [] = error $ "no '" ++ name ++ "' five-place predicate."
-        lookupPred n ((name,pred):is) | n == name       = pred
-        lookupPred n (i:is) = lookupPred name is
+predid3 name
+	| Just pred <- lookup name threePlacers = pred
+        | otherwise    = error $ "no '" ++ name ++ "' three-place predicate."
+predid4 name 
+	| Just pred <- lookup name fourPlacers = pred
+        | otherwise    = error $ "no '" ++ name ++ "' four-place predicate."
+predid5 name 
+	| Just pred <- lookup name fivePlacers = pred
+        | otherwise    = error $ "no '" ++ name ++ "' five-place predicate."
 
 onePlacers :: [(String, OnePlacePred)]
 onePlacers = [
