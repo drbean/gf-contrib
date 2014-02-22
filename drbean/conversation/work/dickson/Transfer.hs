@@ -10,6 +10,8 @@ import WordsCharacters
 
 import Data.List
 import Data.Char
+import GHC.IO.Handle
+import System.IO
 
 import System.Environment.FindBin
 
@@ -17,6 +19,8 @@ main :: IO ()
 main = do
   path <- getProgPath
   gr <- readPGF ( path ++ "/Dickson.pgf" )
+  hClose stderr
+  hDuplicateTo stdout stderr
   s <- getLine
   let l = (chomp . lc_first) s
   putStrLn ("Unknown_words: " ++ (unknown l) )
