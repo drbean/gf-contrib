@@ -1,6 +1,6 @@
 concrete CandidateEng of Candidate = DicksonI with
   (Syntax = SyntaxEng),
-  (LexDickson = LexDicksonEng) **
+  (LexCandidate = LexCandidateEng) **
   open ResEng,Prelude in {
 
 param
