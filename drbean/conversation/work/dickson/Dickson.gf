@@ -34,13 +34,6 @@ fun
 	Item	: Det -> CN -> NP;
 	Ofpos	: N2 -> NP -> CN;
 
-	bad	: AP;
-	better	: AP;
-	first	: AP;
-	little	: AP;
-	mad	: AP;
-	hard	: AP;
-
 	a_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
 	zero_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
 	the_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
@@ -50,6 +43,41 @@ fun
 	what_WH	: IP;
 
 	of_prep	: Prep;
+
+	become	: V2;
+	can	: VV;
+	get	: V2;
+	get_along	: V2;
+	go	: V2;
+	have	: V2;
+	hire	: V2;
+	interview	: V2;
+	know	: V;
+	know_VS	: VS;
+	laugh	: V;
+	-- let	: V2;
+	lift	: V2;
+	like	: V2;
+	look_here	: V;
+	look	: VA;
+	-- make	: V2
+	need	: VV;
+	prove	: V2;
+	say	: VS;
+	see	: V2;
+	slow_down	: V;
+	start	: VV;
+	take	: V2V;
+	tell	: V2S;
+	think	: VS;
+	work_V	: V;
+
+	bad	: AP;
+	better	: AP;
+	first	: AP;
+	little	: AP;
+	mad	: AP;
+	hard	: AP;
 
 	apprentice	: CN;
 	child	: CN;
@@ -87,33 +115,5 @@ fun
 	alf	: PN;
 	dee	: PN;
 	monday	: PN;
-
-	become	: V2;
-	can	: VV;
-	get	: V2;
-	get_along	: V2;
-	go	: V2;
-	have	: V2;
-	hire	: V2;
-	interview	: V2;
-	know	: V;
-	know_VS	: VS;
-	laugh	: V;
-	-- let	: V2;
-	lift	: V2;
-	like	: V2;
-	look_here	: V;
-	look	: VA;
-	-- make	: V2
-	need	: VV;
-	prove	: V2;
-	say	: VS;
-	see	: V2;
-	slow_down	: V;
-	start	: VV;
-	take	: V2V;
-	tell	: V2S;
-	think	: VS;
-	work_V	: V;
 
 }
