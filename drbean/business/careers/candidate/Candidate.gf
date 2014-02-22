@@ -1,14 +1,48 @@
 abstract Candidate = Cat ** {
 
-  cat
-    Quality ;
-    Kind;
-    Phrase;
 
-  flags startcat = Quality ;
+  flags startcat = Utt ;
 
 fun
-	Is : Quality -> Kind -> Phrase ;
+	-- Is	: NP -> AP -> Cl;
+	-- Cop		: NP -> NP -> Cl;
+	Look_bad	: VA -> AP -> VP;
+	Be_bad	: AP -> Comp;
+	Be_dee	: NP -> Comp;
+	Be_vp	: Comp -> VP;
+	Happening	: V -> VP ;
+	Changing	: V2 -> NP -> VP;
+	Causative:	V2V -> NP -> VP -> VP;
+	Intens:	VV -> VP -> VP;
+	Positing:	VS -> S -> VP;
+	Informing:	V2S -> NP -> S -> VP;
+	YN	: Cl -> QCl;
+	-- TagComp	: NP -> Comp -> QCl;
+	TagQ	: NP -> VP -> QCl;
+	WH_Cop	: IP -> NP -> QCl;
+	WH_Pred	: IP -> VP -> QCl;
+	PosQ	: QCl -> QS;
+	NegQ	: QCl -> QS;
+	PosS	: Cl -> S;
+	NegS	: Cl -> S;
+	Ut	: QS -> Utt;
+	Sentence	: NP -> VP -> Cl;
+
+	Yes, No, NoAnswer	: Utt;
+
+	Entity	: PN -> NP;
+	Item	: Det -> CN -> NP;
+	Ofpos	: N2 -> NP -> CN;
+
+	a_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
+	zero_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
+	the_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
+	thePlural_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
+
+	who_WH	: IP;
+	what_WH	: IP;
+
+	of_prep	: Prep;
 
 	ambitious :	Quality;
 	bad :	Quality;
