@@ -37,27 +37,11 @@ oper
     };
 
 lin
+
  TagQ np vp	= let
    cl = mkCl np vp;
  in
- {s = case Do of {
-   Be =>
-   table {
-     Pres => table {
-       Simul => table {
-         CPos => table {
-           QDir => (cl.s ! Pres ! Simul ! CPos ! ODir False) ++ ((tag np).s ! Be ! Pos );
-           QIndir => "nonExist" };
-         CNeg True => table {
-           QDir => (cl.s ! Pres ! Simul ! (CNeg True) ! ODir False) ++ ((tag np).s ! Be ! Neg );
-           QIndir => "nonExist" };
-         CNeg False => table {
-           QDir => (cl.s ! Pres ! Simul ! (CNeg False) ! ODir False) ++ ((tag np).s ! Be ! Neg );
-           QIndir => "nonExist" }
-           }
-         }
-       };
-   _ => table {
+ {s = table {
      Pres => table {
        Simul => table {
          CPos => table {
@@ -71,30 +55,72 @@ lin
            QIndir => "nonExist" }
            }
          }
-       }
    };
  lock_QCl = <>;
  };
 
-  --TagQ np comp	= let cl = mkCl np comp
-  --in
-  --{s = table {
-  --  Pres => table {
-  --    Simul => table {
-  --      CPos => table {
-  --        QDir => cl.s ! Pres ! Simul ! CPos ! ODir ; -- ++ (tag np).s ! Be ! Pos;
-  --        QIndir => "nonExist" };
-  --      CNeg True => table {
-  --        QDir => cl.s ! Pres ! Simul ! CNeg True ! ODir ; -- ++ (tag np).s ! Be ! Neg;
-  --        QIndir => "nonExist" };
-  --      CNeg False => table {
-  --        QDir => cl.s ! Pres ! Simul ! CNeg False ! ODir ; -- ++ (tag np).s ! Be ! Neg;
-  --        QIndir => "nonExist" }
-  --        }
-  --      }
-  --   };
-  --lock_QCl = <>;
-  --};
+ --TagNP np1 np2	= let
+ --  cl = mkCl np1 np2;
+ --in
+ --{s = table {
+ --    Pres => table {
+ --      Simul => table {
+ --        CPos => table {
+ --          QDir => (cl.s ! Pres ! Simul ! CPos ! ODir False) ++ ((tag np1).s ! Be ! Pos );
+ --          QIndir => "nonExist" };
+ --        CNeg True => table {
+ --          QDir => (cl.s ! Pres ! Simul ! (CNeg True) ! ODir False) ++ ((tag np1).s ! Be ! Neg );
+ --          QIndir => "nonExist" };
+ --        CNeg False => table {
+ --          QDir => (cl.s ! Pres ! Simul ! (CNeg False) ! ODir False) ++ ((tag np1).s ! Be ! Neg );
+ --          QIndir => "nonExist" }
+ --          }
+ --        }
+ --  };
+ --lock_QCl = <>;
+ --};
+
+ --TagAP np ap	= let
+ --  cl = mkCl np ap;
+ --in
+ --{s = table {
+ --    Pres => table {
+ --      Simul => table {
+ --        CPos => table {
+ --          QDir => (cl.s ! Pres ! Simul ! CPos ! ODir False) ++ ((tag np).s ! Be ! Pos );
+ --          QIndir => "nonExist" };
+ --        CNeg True => table {
+ --          QDir => (cl.s ! Pres ! Simul ! (CNeg True) ! ODir False) ++ ((tag np).s ! Be ! Neg );
+ --          QIndir => "nonExist" };
+ --        CNeg False => table {
+ --          QDir => (cl.s ! Pres ! Simul ! (CNeg False) ! ODir False) ++ ((tag np).s ! Be ! Neg );
+ --          QIndir => "nonExist" }
+ --          }
+ --        }
+ --  };
+ --lock_QCl = <>;
+ --};
+
+  TagComp np comp	= let cl = mkCl np (mkVP comp)
+  in
+  {s = table {
+    Pres => table {
+      Simul => table {
+        CPos => table {
+          QDir => (cl.s ! Pres ! Simul ! CPos ! ODir False) ++ ((tag np).s ! Be ! Pos );
+          QIndir => "nonExist" };
+        CNeg True => table {
+          QDir => (cl.s ! Pres ! Simul ! CNeg True ! ODir False) ++ ((tag np).s ! Be ! Neg );
+          QIndir => "nonExist" };
+        CNeg False => table {
+          QDir => (cl.s ! Pres ! Simul ! CNeg False ! ODir False) ++ ((tag np).s ! Be ! Neg );
+          QIndir => "nonExist" }
+          }
+        }
+     };
+  lock_QCl = <>;
+  };
+
 }
 
 -- vim: set ts=8 sts=2 sw=2 noet:
