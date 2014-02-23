@@ -201,6 +201,7 @@ transDet :: GDet -> (Term -> LF) -> (Term -> LF) -> LF
 --    \ p q -> Exists (\v -> Conj [ Single p, p v, q v, transNP np
 --	(\mod -> Rel "had" [mod, v] )])
 transDet Gthe_Det =  \ p q -> Exists (\v -> Conj [Single p, p v, q v] )
+transDet GthePlural_Det =  \ p q -> Several (\v -> Conj [p v, q v] )
 --transDet (Leaf (Cat "every" "DET" _ _)) =
 --  \ p q -> Forall (\v -> Impl (p v) (q v) )
 --transDet (Leaf (Cat "all" "DET" _ _)) =
