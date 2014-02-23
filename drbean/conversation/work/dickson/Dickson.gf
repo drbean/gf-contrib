@@ -19,7 +19,9 @@ fun
 	YN	: Cl -> QCl;
 	-- TagComp	: NP -> Comp -> QCl;
 	TagQ	: NP -> VP -> QCl;
-	WH_Cop	: IP -> NP -> QCl;
+	-- WH_Cop	: IP -> Comp -> QCl;
+	WH_NP	: IP -> NP -> QCl;
+	WH_AP	: IP -> AP -> QCl;
 	WH_Pred	: IP -> VP -> QCl;
 	PosQ	: QCl -> QS;
 	NegQ	: QCl -> QS;

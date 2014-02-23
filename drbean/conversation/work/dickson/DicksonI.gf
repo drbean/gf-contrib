@@ -39,7 +39,9 @@ lin
 	Positing posit event	= mkVP posit event;
 	Informing posit patient event	= mkVP posit patient event;
 	YN cl	= mkQCl cl;
-	WH_Cop ip np	= mkQCl ip np;
+	-- WH_Cop ip comp	= mkQCl ip comp;
+	WH_NP ip np	= mkQCl ip np;
+	WH_AP ip ap	= mkQCl ip ap;
 	WH_Pred ip vp	= mkQCl ip vp;
 	PosQ qcl	= mkQS qcl;
 	NegQ qcl	= mkQS negativePol qcl;
