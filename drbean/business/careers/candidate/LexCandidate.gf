@@ -1,11 +1,5 @@
 interface LexCandidate = open Syntax in {
 oper
-	bad_A	: A;
-	better_A	: A;
-	first_A	: A;
-	little_A	: A;
-	mad_A	: A;
-	hard_A	: A;
 
 	a_Det	: Det;
 	zero_Det	: Det;
@@ -20,6 +14,63 @@ oper
 	yes_Utt	: Utt;
 	no_Utt	: Utt;
 	no_answer_Utt	: Utt;
+
+	become_V2	: V2;
+	can_VV	: VV;
+	get_along_V2	: V2;
+	get_V2	: V2;
+	go_V2	: V2;
+	have_V2	: V2;
+	hire_V2	: V2;
+	interview_V2	: V2;
+	know_V	: V;
+	know_VS	: VS;
+	laugh_V	: V;
+	lift_V2	: V2;
+	like_V2	: V2;
+	look_V	: V;
+	look_VA	: VA;
+	need_VV	: VV;
+	need_V2	: V2;
+	prove_V2	: V2;
+	say_VS	: VS;
+	see_V2	: V2;
+	slow_down_V	: V;
+	start_ing_VV	: VV;
+	take_V2V	: V2V;
+	tell_V2S	: V2S;
+	think_VS	: VS;
+	work_V	: V;
+
+	ambitious	= mkAP ambitious_A;
+	bad_A	:	A;
+	competitive_A	:	A;
+	confident_A	:	A;
+	difficult_A	:	A;
+	each_A	:	A;
+	fast_A	:	A;
+	few_A	:	A;
+	five_A	:	A;
+	good_A	:	A;
+	hard_A	:	A;
+	honest_A	:	A;
+	local_A	:	A;
+	long_A	:	A;
+	next_A	:	A;
+	other_A	:	A;
+	outgoing_A	:	A;
+	past_A	:	A;
+	patient_A	:	A;
+	Polish_A	:	A;
+	poor_A	:	A;
+	possible_A	:	A;
+	realistic_A	:	A;
+	safe_A	:	A;
+	soon_A	:	A;
+	successful_A	:	A;
+	true_A	:	A;
+	unable_A	:	A;
+	various_A	:	A;
 
 	apprentice_N	: N;
 	child_N	: N;
@@ -52,35 +103,10 @@ oper
 	word_N	: N;
 	work_N	: N;
 
-	alf_N	: N;
-	dee_N	: N;
-	monday_N	: N;
-
-	become_V2	: V2;
-	can_VV	: VV;
-	get_along_V2	: V2;
-	get_V2	: V2;
-	go_V2	: V2;
-	have_V2	: V2;
-	hire_V2	: V2;
-	interview_V2	: V2;
-	know_V	: V;
-	know_VS	: VS;
-	laugh_V	: V;
-	lift_V2	: V2;
-	like_V2	: V2;
-	look_V	: V;
-	look_VA	: VA;
-	need_VV	: VV;
-	need_V2	: V2;
-	prove_V2	: V2;
-	say_VS	: VS;
-	see_V2	: V2;
-	slow_down_V	: V;
-	start_ing_VV	: VV;
-	take_V2V	: V2V;
-	tell_V2S	: V2S;
-	think_VS	: VS;
-	work_V	: V;
+	barbara_N	: N;
+	tadeusz_N	: N;
+	eva_N	: N;
+	fast-track_N	: N;
+	dr_bean_N	: N;
 
 }
