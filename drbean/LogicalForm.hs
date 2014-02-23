@@ -319,6 +319,9 @@ transVP :: GVP -> Term -> LF
 --                [Leaf (Cat "couldn't" "AUX" _ []),vp]) =
 --        \x -> Neg ((transVP vp) x)
 --
+transVP (GBe_vp comp) = case comp of
+    GBe_dee np -> \x -> transNP np (\pred -> Eq pred x)
+    GBe_bad ap -> \x -> Rel (adjective_list ap) [x]
 transVP (GHappening v) =
         \ t -> ( Rel (happening_list v) [t] )
 transVP (GChanging v obj) = \subj -> transNP obj (\ obj -> Rel (changing_list v) [subj,obj])

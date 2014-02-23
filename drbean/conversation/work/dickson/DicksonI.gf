@@ -30,7 +30,7 @@ lin
 	-- Cop item1 item2	= mkCl item1 item2;
 	Be_bad ap	= mkComp ap;
 	Be_dee np	= mkComp np;
-	-- Be_vp comp	= mkVP comp;
+	Be_vp comp	= mkVP comp;
 	Look_bad verb adj	= mkVP verb adj;
 	Happening action	=	mkVP action;
 	Changing action patient	= mkVP action patient;

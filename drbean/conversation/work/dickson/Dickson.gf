@@ -9,7 +9,7 @@ fun
 	Look_bad	: VA -> AP -> VP;
 	Be_bad	: AP -> Comp;
 	Be_dee	: NP -> Comp;
-	-- Be_vp	: Comp -> VP;
+	Be_vp	: Comp -> VP;
 	Happening	: V -> VP ;
 	Changing	: V2 -> NP -> VP;
 	Causative:	V2V -> NP -> VP -> VP;
