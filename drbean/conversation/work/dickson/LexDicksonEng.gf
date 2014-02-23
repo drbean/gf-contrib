@@ -2,14 +2,6 @@ instance LexDicksonEng of LexDickson = open SyntaxEng, ParadigmsEng, Prelude, Ir
 
 oper
 
-	bad_A	= mkA "bad";
-	better_A	= mkA "better";
-	first_A	= mkA "first";
-	little_A	= mkA "little";
-	mad_A	= mkA "mad";
-	slow_A	= mkA "slow";
-	hard_A	= mkA "hard";
-
 	a_Det	= aSg_Det;
 	zero_Det	= aPl_Det;
 	the_Det	= theSg_Det;
@@ -23,6 +15,41 @@ oper
 	yes_Utt	= SyntaxEng.yes_Utt;
 	no_Utt	= SyntaxEng.no_Utt;
 	no_answer_Utt = ss "No answer";
+
+	become_V2	= mkV2 (IrregEng.become_V);
+	can_VV	= SyntaxEng.can_VV;
+	get_along_V2	= mkV2 "get" "along_with";
+	get_V2	= mkV2 "get";
+	go_V2	= mkV2 IrregEng.go_V "to";
+	have_V2	= mkV2 (IrregEng.have_V);
+	hire_V2	= mkV2 "hire";
+	interview_V2	= mkV2 "interview";
+	know_V	= IrregEng.know_V;
+	know_VS	= mkVS know_V;
+	laugh_V	= mkV "laugh";
+	lift_V2	= mkV2 "lift";
+	like_V2	= mkV2 "like";
+	look_V	= mkV "look";
+	look_VA	= mkVA look_V;
+	need_VV = mkVV (mkV "need" "needs" "needed" "needed" "needing") ;
+	need_V2 = mkV2 (mkV "need" "needs" "needed" "needed" "needing");
+	prove_V2	= mkV2 "prove";
+	say_VS	= mkVS IrregEng.say_V;
+	see_V2	= mkV2 IrregEng.see_V;
+	slow_down_V	= partV (mkV "slow") "down";
+	start_ing_VV = ingVV (mkV "start");
+	take_V2V = mkV2V (IrregEng.take_V) noPrep to_Prep;
+	tell_V2S = mkV2S IrregEng.tell_V noPrep;
+	think_VS = mkVS (IrregEng.think_V);
+	work_V	 = mkV "work";
+
+	bad_A	= mkA "bad";
+	better_A	= mkA "better";
+	first_A	= mkA "first";
+	little_A	= mkA "little";
+	mad_A	= mkA "mad";
+	slow_A	= mkA "slow";
+	hard_A	= mkA "hard";
 
 	apprentice_N	= mkN human (mkN "apprentice");
 	child_N = mkN human (mkN "child" "children");
@@ -59,32 +86,5 @@ oper
 	alf_N	= mkN masculine (mkN "Alf");
 	dee_N	= mkN feminine (mkN "Dee");
 	monday_N = mkN nonhuman (mkN "Monday");
-
-	become_V2	= mkV2 (IrregEng.become_V);
-	can_VV	= SyntaxEng.can_VV;
-	get_along_V2	= mkV2 "get" "along_with";
-	get_V2	= mkV2 "get";
-	go_V2	= mkV2 IrregEng.go_V "to";
-	have_V2	= mkV2 (IrregEng.have_V);
-	hire_V2	= mkV2 "hire";
-	interview_V2	= mkV2 "interview";
-	know_V	= IrregEng.know_V;
-	know_VS	= mkVS know_V;
-	laugh_V	= mkV "laugh";
-	lift_V2	= mkV2 "lift";
-	like_V2	= mkV2 "like";
-	look_V	= mkV "look";
-	look_VA	= mkVA look_V;
-	need_VV = mkVV (mkV "need" "needs" "needed" "needed" "needing") ;
-	need_V2 = mkV2 (mkV "need" "needs" "needed" "needed" "needing");
-	prove_V2	= mkV2 "prove";
-	say_VS	= mkVS IrregEng.say_V;
-	see_V2	= mkV2 IrregEng.see_V;
-	slow_down_V	= partV (mkV "slow") "down";
-	start_ing_VV = ingVV (mkV "start");
-	take_V2V = mkV2V (IrregEng.take_V) noPrep to_Prep;
-	tell_V2S = mkV2S IrregEng.tell_V noPrep;
-	think_VS = mkVS (IrregEng.think_V);
-	work_V	 = mkV "work";
 
 }
