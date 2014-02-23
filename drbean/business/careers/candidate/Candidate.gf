@@ -17,11 +17,15 @@ fun
 	Positing:	VS -> S -> VP;
 	Informing:	V2S -> NP -> S -> VP;
 	YN	: Cl -> QCl;
+
 	TagQ	: NP -> VP -> QCl;
-	-- TagComp	: NP -> Comp -> QCl;
-	TagNP	: NP -> NP -> QCl;
-	TagAP	: NP -> AP -> QCl;
-	WH_Cop	: IP -> NP -> QCl;
+	TagComp	: NP -> Comp -> QCl;
+	-- TagNP	: NP -> NP -> QCl;
+	-- TagAP	: NP -> AP -> QCl;
+
+	-- WH_Cop	: IP -> Comp -> QCl;
+	WH_NP	: IP -> NP -> QCl;
+	WH_AP	: IP -> AP -> QCl;
 	WH_Pred	: IP -> VP -> QCl;
 	PosQ	: QCl -> QS;
 	NegQ	: QCl -> QS;
@@ -45,6 +49,34 @@ fun
 	what_WH	: IP;
 
 	of_prep	: Prep;
+
+	become	: V2;
+	can	: VV;
+	get	: V2;
+	get_along	: V2;
+	go	: V2;
+	have	: V2;
+	hire	: V2;
+	interview	: V2;
+	know	: V;
+	know_VS	: VS;
+	laugh	: V;
+	-- let	: V2;
+	lift	: V2;
+	like	: V2;
+	look_here	: V;
+	look	: VA;
+	-- make	: V2
+	need	: VV;
+	prove	: V2;
+	say	: VS;
+	see	: V2;
+	slow_down	: V;
+	start	: VV;
+	take	: V2V;
+	tell	: V2S;
+	think	: VS;
+	work_V	: V;
 
 	ambitious :	AP;
 	bad :	AP;
