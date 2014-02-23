@@ -100,6 +100,7 @@ transS ((GUt (GPosQ (GYN (GSentence np vp))))) = (transNP np) (transVP vp)
 transS ((GUt (GNegQ (GYN (GSentence np vp))))) = (transNP np) (transVP vp)
 transS ((GUt (GPosQ (GTagQ np vp)))) = (transNP np) (transVP vp)
 transS ((GUt (GNegQ (GTagQ np vp)))) = (transNP np) (transVP vp)
+transS ((GUt (GPosQ (GTagComp np comp)))) = (transNP np) (transCOMP comp)
 --transS ((GUt (GPosQ (GYN (GIs subj ap))))) = (transNP subj)
 --					    (\x -> Rel (adjective_list ap) [x])
 --transS ((GUt (GNegQ (GYN (GIs subj ap))))) = (transNP subj)
@@ -318,28 +319,8 @@ transVP :: GVP -> Term -> LF
 --                [Leaf (Cat "couldn't" "AUX" _ []),vp]) =
 --        \x -> Neg ((transVP vp) x)
 --
-transVP (GBe_vp comp) = case comp of
-    GBe_dee np -> \x -> transNP np (\pred -> Eq pred x)
-    GBe_bad ap -> \x -> Rel (adjective_list ap) [x]
 transVP (GHappening v) =
         \ t -> ( Rel (happening_list v) [t] )
---transVP (Branch (Cat _ "VP" _ _) [Leaf (Cat _ "COP" _ _),
---    Branch (Cat "_" "COMP" [] []) [comp]]) = case (catLabel (t2c comp)) of
---	"PP" -> \subj -> transPP comp (\place -> Rel "resident" [subj,place])
---transVP (Branch (Cat _ "VP" _ _) [Leaf (Cat _ "COP" _ _),
---    Branch (Cat "_" "COMP" [] []) [comp1,place]]) = case (catLabel (t2c comp1)) of
---	"NP" ->
---	    case (catLabel (t2c place)) of
---		"PP" -> \subj -> Conj [(transNP comp1 (\pred -> Eq pred subj )),
---		    (transPP place (\place -> Rel "resident" [subj,place]) )]
---	--Leaf (Cat name "NP" _ _ ) -> \t -> (Rel name [t] )
---	--Branch (Cat _ "NP" _ _) [det,cn] -> case (cn) of
---	--    Leaf (Cat name "CN" _ _) -> \t -> Rel name [t]
---	--Branch (Cat _ "NP" _ _) [np,Leaf (Cat _ "APOS" _ _),cn] -> case (cn) of
---	--    Leaf (Cat name "CN" _ _) -> \x -> transNP np
---	--	(\owner -> Conj [Rel name [x], Rel "had" [owner,x] ] )
---	--Branch (Cat _ "NP" _ _) [det,Leaf (Cat qual "ADJ" _ _),cn] -> \subj
---	--    -> Conj [ transCN cn subj, Rel qual [subj] ]
 transVP (GChanging v obj) = \subj -> transNP obj (\ obj -> Rel (changing_list v) [subj,obj])
 --transVP (Branch (Cat _ "VP" _ _) [Leaf (Cat name "V" _ [_]),obj1]) =
 --	case (catLabel ( t2c obj1 )) of
@@ -435,6 +416,27 @@ transVP (GCausative v0 obj0 vp) = case vp of
 --	(\positer -> transNP item 
 --	    (\subj -> transNP comp (\x -> Rel ((positing_list v0) ++"_isn't") [positer, subj, x])))
 transVP _ = \x -> NonProposition
+--
+transCOMP :: GComp -> Term -> LF
+transCOMP (GBe_dee np) = \x -> transNP np (\pred -> Eq pred x)
+transCOMP (GBe_bad ap) = \x -> Rel (adjective_list ap) [x]
+--transVP (Branch (Cat _ "VP" _ _) [Leaf (Cat _ "COP" _ _),
+--    Branch (Cat "_" "COMP" [] []) [comp]]) = case (catLabel (t2c comp)) of
+--	"PP" -> \subj -> transPP comp (\place -> Rel "resident" [subj,place])
+--transVP (Branch (Cat _ "VP" _ _) [Leaf (Cat _ "COP" _ _),
+--    Branch (Cat "_" "COMP" [] []) [comp1,place]]) = case (catLabel (t2c comp1)) of
+--	"NP" ->
+--	    case (catLabel (t2c place)) of
+--		"PP" -> \subj -> Conj [(transNP comp1 (\pred -> Eq pred subj )),
+--		    (transPP place (\place -> Rel "resident" [subj,place]) )]
+--	--Leaf (Cat name "NP" _ _ ) -> \t -> (Rel name [t] )
+--	--Branch (Cat _ "NP" _ _) [det,cn] -> case (cn) of
+--	--    Leaf (Cat name "CN" _ _) -> \t -> Rel name [t]
+--	--Branch (Cat _ "NP" _ _) [np,Leaf (Cat _ "APOS" _ _),cn] -> case (cn) of
+--	--    Leaf (Cat name "CN" _ _) -> \x -> transNP np
+--	--	(\owner -> Conj [Rel name [x], Rel "had" [owner,x] ] )
+--	--Branch (Cat _ "NP" _ _) [det,Leaf (Cat qual "ADJ" _ _),cn] -> \subj
+--	--    -> Conj [ transCN cn subj, Rel qual [subj] ]
 --
 --transWH :: Maybe (ParseTree Cat Cat) -> LF
 --transWH (Just (Branch (Cat _ "WH" _ _ )
