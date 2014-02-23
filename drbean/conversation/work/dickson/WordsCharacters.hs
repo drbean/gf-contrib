@@ -10,7 +10,7 @@ gfWords = Map.fromList [("A",a),
 	("N",n),
 	("PN",pn),
 	-- ("Pron",pron),
-	-- ("Prep",prep),
+	("Prep",prep),
 	-- ("Rel",rel),
 	("Tag",tag),
 	("V",v) ]
@@ -162,15 +162,15 @@ pron = [
 	]
 
 prep = [
-	"about"
-	, "at"
-	, "for"
-	, "from"
-	, "like"
-	, "of"
-	, "than"
-	, "to"
-	, "with"
+	"of"
+	-- , "about"
+	-- , "at"
+	-- , "for"
+	-- , "from"
+	-- , "like"
+	-- , "than"
+	-- , "to"
+	-- , "with"
 	]
 
 rel = [
