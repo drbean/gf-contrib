@@ -97,10 +97,9 @@ transS ((GUt (GPosQ (GWH_Pred wh vp)))) =
 transS ((GUt (GNegQ (GWH_Pred wh vp)))) =
 	WH (\x -> Conj [ transW wh x, Neg (transVP vp x)])
 transS ((GUt (GPosQ (GYN (GSentence np vp))))) = (transNP np) (transVP vp)
-transS ((GUt (GNegQ (GYN (GSentence np vp))))) =
-  Neg ((transNP np) (transVP vp))
+transS ((GUt (GNegQ (GYN (GSentence np vp))))) = (transNP np) (transVP vp)
 transS ((GUt (GPosQ (GTagQ np vp)))) = (transNP np) (transVP vp)
-transS ((GUt (GNegQ (GTagQ np vp)))) = Neg ((transNP np) (transVP vp))
+transS ((GUt (GNegQ (GTagQ np vp)))) = (transNP np) (transVP vp)
 --transS ((GUt (GPosQ (GYN (GIs subj ap))))) = (transNP subj)
 --					    (\x -> Rel (adjective_list ap) [x])
 --transS ((GUt (GNegQ (GYN (GIs subj ap))))) = (transNP subj)
