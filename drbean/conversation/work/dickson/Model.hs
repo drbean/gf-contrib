@@ -190,9 +190,8 @@ help	= pred2 $ supervision
 twoPlacers :: [(String, TwoPlacePred)]
 twoPlacers = [
     ("know",    pred2 $ knowledge ++ acquaintances ++ map swap acquaintances)
-    , ("have",  pred2 $ possessions ++ (foldl  (\hs (t,_,_,s) -> (t,s): (s,t): hs )
-                        [] schooling )
-        )
+    , ("have",  pred2 $ possessions ++ parenting ++
+					map (\(_,l,_,r) ->(r,l) ) schooling)
     , ("like",  pred2 $ map (\(a,t,r) -> (a,r)) appreciation)
     , ("work",  pred2 $ [(a,c) | (a,p,c) <- working] )
     , ("kind",  pred2 $ [(student, H) | (_,_,_,student) <- schooling ])
