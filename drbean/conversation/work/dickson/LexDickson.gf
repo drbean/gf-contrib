@@ -1,11 +1,5 @@
 interface LexDickson = open Syntax in {
 oper
-	bad_A	: A;
-	better_A	: A;
-	first_A	: A;
-	little_A	: A;
-	mad_A	: A;
-	hard_A	: A;
 
 	a_Det	: Det;
 	zero_Det	: Det;
@@ -20,6 +14,40 @@ oper
 	yes_Utt	: Utt;
 	no_Utt	: Utt;
 	no_answer_Utt	: Utt;
+
+	become_V2	: V2;
+	can_VV	: VV;
+	get_along_V2	: V2;
+	get_V2	: V2;
+	go_V2	: V2;
+	have_V2	: V2;
+	hire_V2	: V2;
+	interview_V2	: V2;
+	know_V	: V;
+	know_VS	: VS;
+	laugh_V	: V;
+	lift_V2	: V2;
+	like_V2	: V2;
+	look_V	: V;
+	look_VA	: VA;
+	need_VV	: VV;
+	need_V2	: V2;
+	prove_V2	: V2;
+	say_VS	: VS;
+	see_V2	: V2;
+	slow_down_V	: V;
+	start_ing_VV	: VV;
+	take_V2V	: V2V;
+	tell_V2S	: V2S;
+	think_VS	: VS;
+	work_V	: V;
+
+	bad_A	: A;
+	better_A	: A;
+	first_A	: A;
+	little_A	: A;
+	mad_A	: A;
+	hard_A	: A;
 
 	apprentice_N	: N;
 	child_N	: N;
@@ -56,32 +84,5 @@ oper
 	alf_N	: N;
 	dee_N	: N;
 	monday_N	: N;
-
-	become_V2	: V2;
-	can_VV	: VV;
-	get_along_V2	: V2;
-	get_V2	: V2;
-	go_V2	: V2;
-	have_V2	: V2;
-	hire_V2	: V2;
-	interview_V2	: V2;
-	know_V	: V;
-	know_VS	: VS;
-	laugh_V	: V;
-	lift_V2	: V2;
-	like_V2	: V2;
-	look_V	: V;
-	look_VA	: VA;
-	need_VV	: VV;
-	need_V2	: V2;
-	prove_V2	: V2;
-	say_VS	: VS;
-	see_V2	: V2;
-	slow_down_V	: V;
-	start_ing_VV	: VV;
-	take_V2V	: V2V;
-	tell_V2S	: V2S;
-	think_VS	: VS;
-	work_V	: V;
 
 }
