@@ -100,8 +100,8 @@ onePlacers = [
 	, ("job",	 pred1 [J] )
 	, ("worker",	 pred1 $ map agent working )
 
-	, ("angry",	 pred1 [Q,V] )
-	, ("useful",	 pred1 [K] )
+	, ("mad",	 pred1 [D,H,W1,W2,W3,W4] )
+	, ("bad",	 pred1 [H,W1,W2,W3,W4] )
 
 	, ("male",	 pred1 [A,F,W1,W2,W3,W4,W5,W6,I,C1,C2, GGF, GF] )
 	, ("female",	 pred1 [D] )
