@@ -106,7 +106,7 @@ oper
 	barbara_N	: N;
 	tadeusz_N	: N;
 	eva_N	: N;
-	fast-track_N	: N;
+	fast_track_N	: N;
 	dr_bean_N	: N;
 
 }

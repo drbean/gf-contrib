@@ -42,26 +42,26 @@ oper
 	think_VS = mkVS (IrregEng.think_V);
 	work_V	 = mkV "work";
 
-	allow_V = mkV "allow"
-	apply_V = mkV "apply"
-	choose_V = mkV "choose"
-	could_V = mkV "could"
-	couldn't_V = mkV "couldn"
-	enjoy_V = mkV "enjoy"
-	expand_V = mkV "expand"
-	feel_V = mkV "feel"
-	help_V = mkV "help"
-	improve_V = mkV "improve"
-	increase_V = mkV "increase"
-	lead_V = mkV "lead"
-	motivate_V = mkV "motivate"
-	offer_V = mkV "offer"
-	organize_V = mkV "organize"
-	sell_V = mkV "sell"
-	set_V = mkV "set"
-	try_V = mkV "try"
-	want_V = mkV "want"
-	win_V = mkV "win"
+	allow_V = mkV "allow";
+	apply_V = mkV "apply";
+	choose_V = mkV "choose";
+	could_V = mkV "could";
+	couldn't_V = mkV "couldn";
+	enjoy_V = mkV "enjoy";
+	expand_V = mkV "expand";
+	feel_V = mkV "feel";
+	help_V = mkV "help";
+	improve_V = mkV "improve";
+	increase_V = mkV "increase";
+	lead_V = mkV "lead";
+	motivate_V = mkV "motivate";
+	offer_V = mkV "offer";
+	organize_V = mkV "organize";
+	sell_V = mkV "sell";
+	set_V = mkV "set";
+	try_V = mkV "try";
+	want_V = mkV "want";
+	win_V = mkV "win";
 
 	ambitious_A	= mkA "ambitious";
 	bad_A	= mkA "bad";
@@ -134,7 +134,7 @@ oper
 	barbara_N = mkN feminine (mkN "Barbara");
 	dr_bean_N = mkN masculine (mkN "Dr Bean");
 	eva_N = mkN feminine (mkN "Eva");
-	fast-track_N = mkN nonhuman (mkN "Fast-track");
+	fast_track_N = mkN nonhuman (mkN "Fast-track");
 	tadeusz_N = mkN masculine (mkN "Tadeusz");
 
 	--although_Adv = mkAdv "although";
