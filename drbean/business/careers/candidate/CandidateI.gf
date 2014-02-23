@@ -39,7 +39,9 @@ lin
 	Positing posit event	= mkVP posit event;
 	Informing posit patient event	= mkVP posit patient event;
 	YN cl	= mkQCl cl;
-	WH_Cop ip np	= mkQCl ip np;
+	-- WH_Cop ip comp	= mkQCl ip comp;
+	WH_NP ip np	= mkQCl ip np;
+	WH_AP ip ap	= mkQCl ip ap;
 	WH_Pred ip vp	= mkQCl ip vp;
 	PosQ qcl	= mkQS qcl;
 	NegQ qcl	= mkQS negativePol qcl;
@@ -56,13 +58,6 @@ lin
 	Item det noun	= mkNP det noun;
 	Ofpos n2 np	= mkCN n2 np;
 
-	bad	= mkAP bad_A;
-	better	= mkAP better_A;
-	first	= mkAP first_A;
-	little	= mkAP little_A;
-	mad	= mkAP mad_A;
-	hard	= mkAP hard_A;
-
 	a_Det	= LexCandidate.a_Det;
 	zero_Det	= LexCandidate.zero_Det;
 	the_Det	= LexCandidate.the_Det;
@@ -72,43 +67,6 @@ lin
 	what_WH	= LexCandidate.what_WH;
 
 	of_prep	= LexCandidate.of_prep;
-
-	apprentice	= mkCN apprentice_N;
-	child	= mkCN child_N;
-	dad	= mkCN dad_N;
-	end	= mkCN end_N;
-	family	= mkCN family_N;
-	graduation	= mkCN graduation_N;
-	father_2	= father_N2;
-	father	= mkCN father_N2;
-	guy	= mkCN guy_N;
-	job	= mkCN job_N;
-	kind	= mkCN kind_N;
-	knack	= mkCN knack_N;
-	life	= mkCN life_N;
-	man	= mkCN man_N;
-	money	= mkNP money_N;
-	night	= mkCN night_N;
-	position	= mkCN position_N;
-	school	= mkCN school_N;
-	ship	= mkCN ship_N;
-	stuff	= mkNP stuff_N;
-	superintendent	= mkCN superintendent_N;
-	supervisor	= mkCN supervisor_N;
-	thing	= mkCN thing_N;
-	time	= mkNP time_N;
-	top	= mkCN top_N;
-	transformer	= mkCN transformer_N;
-	uncle_2	= uncle_N2;
-	uncle	= mkCN uncle_N2;
-	way	= mkCN way_N;
-	week	= mkCN week_N;
-	word	= mkCN word_N;
-	work	= mkNP work_N;
-
-	alf	= mkPN alf_N;
-	dee	= mkPN dee_N;
-	monday	= mkPN monday_N;
 
 	become	= become_V2;
 	can	= LexCandidate.can_VV;
@@ -136,6 +94,48 @@ lin
 	tell	= tell_V2S;
 	think	= think_VS;
 	work_V	= LexCandidateEng.work_V;
+
+	bad	= mkAP bad_A;
+	better	= mkAP better_A;
+	first	= mkAP first_A;
+	little	= mkAP little_A;
+	mad	= mkAP mad_A;
+	hard	= mkAP hard_A;
+
+	ambitious	= mkAP ambitious_A;
+	bad	= mkAP bad_A;
+	competitive	= mkAP competitive_A;
+	confident	= mkAP confident_A;
+	difficult	= mkAP difficult_A;
+	each	= mkAP each_A;
+	fast	= mkAP fast_A;
+	few	= mkAP few_A;
+	five	= mkAP five_A;
+	good	= mkAP good_A;
+	hard	= mkAP hard_A;
+	honest	= mkAP honest_A;
+	local	= mkAP local_A;
+	long	= mkAP long_A;
+	next	= mkAP next_A;
+	other	= mkAP other_A;
+	outgoing	= mkAP outgoing_A;
+	past	= mkAP past_A;
+	patient	= mkAP patient_A;
+	Polish	= mkAP Polish_A;
+	poor	= mkAP poor_A;
+	possible	= mkAP possible_A;
+	realistic	= mkAP realistic_A;
+	safe	= mkAP safe_A;
+	soon	= mkAP soon_A;
+	successful	= mkAP successful_A;
+	true	= mkAP true_A;
+	unable	= mkAP unable_A;
+	various	= mkAP various_A;
+
+	barbara	= mkPN barbara_N;
+	tadeusz	= mkPN tadeusz_N;
+	eva	= mkPN eva_N;
+	dr_bean	= mkPN dr_bean_N;
 
 }
 
