@@ -58,13 +58,6 @@ lin
 	Item det noun	= mkNP det noun;
 	Ofpos n2 np	= mkCN n2 np;
 
-	bad	= mkAP bad_A;
-	better	= mkAP better_A;
-	first	= mkAP first_A;
-	little	= mkAP little_A;
-	mad	= mkAP mad_A;
-	hard	= mkAP hard_A;
-
 	a_Det	= LexDickson.a_Det;
 	zero_Det	= LexDickson.zero_Det;
 	the_Det	= LexDickson.the_Det;
@@ -74,6 +67,40 @@ lin
 	what_WH	= LexDickson.what_WH;
 
 	of_prep	= LexDickson.of_prep;
+
+	become	= become_V2;
+	can	= LexDickson.can_VV;
+	get_along	= get_along_V2;
+	get	= get_V2;
+	go	= go_V2;
+	have	= LexDickson.have_V2;
+	hire	= hire_V2;
+	interview	= interview_V2;
+	know	= know_V;
+	know_VS	= LexDickson.know_VS;
+	laugh	= laugh_V;
+	lift	= lift_V2;
+	like	= like_V2;
+	look_here	= look_V;
+	look	= look_VA;
+	need	= need_VV;
+	-- need	= need_V2;
+	prove	= prove_V2;
+	say	= say_VS;
+	see	= see_V2;
+	slow_down	= slow_down_V;
+	start	= start_ing_VV;
+	take	= take_V2V;
+	tell	= tell_V2S;
+	think	= think_VS;
+	work_V	= LexDicksonEng.work_V;
+
+	bad	= mkAP bad_A;
+	better	= mkAP better_A;
+	first	= mkAP first_A;
+	little	= mkAP little_A;
+	mad	= mkAP mad_A;
+	hard	= mkAP hard_A;
 
 	apprentice	= mkCN apprentice_N;
 	child	= mkCN child_N;
@@ -112,33 +139,6 @@ lin
 	alf	= mkPN alf_N;
 	dee	= mkPN dee_N;
 	monday	= mkPN monday_N;
-
-	become	= become_V2;
-	can	= LexDickson.can_VV;
-	get_along	= get_along_V2;
-	get	= get_V2;
-	go	= go_V2;
-	have	= LexDickson.have_V2;
-	hire	= hire_V2;
-	interview	= interview_V2;
-	know	= know_V;
-	know_VS	= LexDickson.know_VS;
-	laugh	= laugh_V;
-	lift	= lift_V2;
-	like	= like_V2;
-	look_here	= look_V;
-	look	= look_VA;
-	need	= need_VV;
-	-- need	= need_V2;
-	prove	= prove_V2;
-	say	= say_VS;
-	see	= see_V2;
-	slow_down	= slow_down_V;
-	start	= start_ing_VV;
-	take	= take_V2V;
-	tell	= tell_V2S;
-	think	= think_VS;
-	work_V	= LexDicksonEng.work_V;
 
 }
 
