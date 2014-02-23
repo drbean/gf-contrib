@@ -65,10 +65,13 @@ chomp str = let rev@(c:cs) = reverse str
 			otherwise -> reverse rev
 
 label :: GUtt -> String
-label (GUt (GPosQ (GWH_Cop _ _)))	= "WH"
+-- label (GUt (GPosQ (GWH_Cop _ _)))	= "WH"
+label (GUt (GPosQ (GWH_NP _ _)))	= "WH"
+label (GUt (GPosQ (GWH_AP _ _)))	= "WH"
 label (GUt (GPosQ (GWH_Pred _ _)))	= "WH"
 label (GUt (GPosQ (GYN _)))	= "YN"
 label (GUt (GPosQ (GTagQ _ _)))	= "Tag"
+label (GUt (GPosQ (GTagComp _ _)))	= "Tag"
 label _				= "Unparseable"
 
 takeCourse :: String -> String -> String
