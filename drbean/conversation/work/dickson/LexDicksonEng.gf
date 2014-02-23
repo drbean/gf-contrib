@@ -32,6 +32,7 @@ oper
 	father_N2	= mkN2 (mkN masculine (mkN "father")) of_prep;
 	graduation_N	= mkN "graduation";
 	guy_N	= mkN masculine (mkN "guy");
+	husband_N2	= mkN2 (mkN masculine (mkN "husband")) of_prep;
 	job_N	= mkN "job";
 	kind_N	= mkN "kind";
 	knack_N	= mkN "knack" nonExist;

@@ -85,6 +85,7 @@ lin
 	father	= mkCN father_N2;
 	guy	= mkCN guy_N;
 	job	= mkCN job_N;
+	husband_2	= husband_N2;
 	kind	= mkCN kind_N;
 	knack	= mkCN knack_N;
 	life	= mkCN life_N;

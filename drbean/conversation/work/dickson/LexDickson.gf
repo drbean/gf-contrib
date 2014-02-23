@@ -29,6 +29,7 @@ oper
 	graduation_N	: N;
 	father_N2	: N2;
 	guy_N	: N;
+	husband_N2	: N2;
 	job_N	: N;
 	kind_N	: N;
 	knack_N	: N;

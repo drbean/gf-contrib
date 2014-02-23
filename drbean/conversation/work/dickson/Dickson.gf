@@ -94,6 +94,7 @@ fun
 	father_2	: N2;
 	graduation	: CN;
 	guy	: CN;
+	husband_2	: N2;
 	job	: CN;
 	kind	: CN;
 	knack	: CN;
