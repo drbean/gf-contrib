@@ -98,6 +98,7 @@ onePlacers = [
 	, ("upbringing",	 pred1 [G] )
 	, ("story",	 pred1 [Y] )
 	, ("job",	 pred1 [J] )
+	, ("work",	 pred1 $ map agent working )
 	, ("worker",	 pred1 $ map agent working )
 
 	, ("mad",	 pred1 [D,H,W1,W2,W3,W4] )
