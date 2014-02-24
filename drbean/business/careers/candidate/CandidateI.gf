@@ -95,13 +95,6 @@ lin
 	think	= think_VS;
 	work_V	= LexCandidateEng.work_V;
 
-	bad	= mkAP bad_A;
-	better	= mkAP better_A;
-	first	= mkAP first_A;
-	little	= mkAP little_A;
-	mad	= mkAP mad_A;
-	hard	= mkAP hard_A;
-
 	ambitious	= mkAP ambitious_A;
 	bad	= mkAP bad_A;
 	competitive	= mkAP competitive_A;
@@ -121,7 +114,7 @@ lin
 	outgoing	= mkAP outgoing_A;
 	past	= mkAP past_A;
 	patient	= mkAP patient_A;
-	Polish	= mkAP Polish_A;
+	polish	= mkAP polish_A;
 	poor	= mkAP poor_A;
 	possible	= mkAP possible_A;
 	realistic	= mkAP realistic_A;
@@ -132,9 +125,50 @@ lin
 	unable	= mkAP unable_A;
 	various	= mkAP various_A;
 
+	ability	= mkCN ability_N;
+	administration	= mkCN administration_N;
+	aim	= mkCN aim_N;
+	business	= mkCN business_N;
+	club	= mkCN club_N;
+	company	= mkCN company_N;
+	course	= mkCN course_N;
+	department	= mkCN department_N;
+	director	= mkCN director_N;
+	director_2	= director_N2;
+	effort	= mkCN effort_N;
+	experience	= mkCN experience_N;
+	hand	= mkCN hand_N;
+	head	= mkCN head_N;
+	job	= mkCN job_N;
+	judgement	= mkCN judgement_N;
+	learner	= mkCN learner_N;
+	lot	= mkCN lot_N;
+	main	= mkCN main_N;
+	market	= mkCN market_N;
+	material	= mkCN material_N;
+	pair	= mkCN pair_N;
+	people	= mkCN people_N;
+	personality	= mkCN personality_N;
+	polish_N	= mkCN LexCandidate.polish_N;
+	respect	= mkCN respect_N;
+	result	= mkCN result_N;
+	risk	= mkCN risk_N;
+	sales	= mkCN sales_N;
+	share	= mkCN share_N;
+	system	= mkCN system_N;
+	team	= mkCN team_N;
+	term	= mkCN term_N;
+	thing	= mkCN thing_N;
+	time	= mkCN time_N;
+	top	= mkCN top_N;
+	training	= mkCN training_N;
+	way	= mkCN way_N;
+	year	= mkCN year_N;
+
 	barbara	= mkPN barbara_N;
 	tadeusz	= mkPN tadeusz_N;
 	eva	= mkPN eva_N;
+	fast_track	= mkPN fast_track_N;
 	dr_bean	= mkPN dr_bean_N;
 
 }
