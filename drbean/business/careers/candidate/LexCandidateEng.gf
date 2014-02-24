@@ -72,7 +72,7 @@ oper
 	fast_A	= mkA "fast";
 	few_A	= mkA "few";
 	five_A	= mkA "five";
-	good_A	= mkA "good";
+	good_A	= mkA "good" "better" "best" "well";
 	hard_A	= mkA "hard";
 	honest_A	= mkA "honest";
 	local_A	= mkA "local";
@@ -82,7 +82,7 @@ oper
 	outgoing_A	= mkA "outgoing";
 	past_A	= mkA "past";
 	patient_A	= mkA "patient";
-	Polish_A	= mkA "Polish";
+	polish_A	= mkA "Polish";
 	poor_A	= mkA "poor";
 	possible_A	= mkA "possible";
 	realistic_A	= mkA "realistic";
@@ -102,6 +102,7 @@ oper
 	course_N	= mkN "course";
 	department_N	= mkN "department";
 	director_N	= mkN "director";
+	director_N2	= mkN2 (mkN human (mkN "director")) of_prep;
 	effort_N	= mkN "effort";
 	experience_N	= mkN "experience";
 	hand_N	= mkN "hand";
@@ -116,6 +117,7 @@ oper
 	pair_N	= mkN "pair";
 	people_N	= mkN "people";
 	personality_N	= mkN "personality";
+	polish_N	= mkN "Polish";
 	respect_N	= mkN "respect";
 	result_N	= mkN "result";
 	risk_N	= mkN "risk";
