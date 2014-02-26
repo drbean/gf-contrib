@@ -192,8 +192,6 @@ transNP (GEntity name)
     | otherwise = \p -> Exists ( \v -> Conj [ p v, Rel "work" [v] ] )
 --transNP (Branch (Cat _ "NP" _ _) [np,Leaf (Cat "'s" "APOS" _ _),cn]) =
 --    \p -> Exists (\thing -> Conj [ p thing, transCN cn thing, transNP np (\owner -> (Rel "had" [owner,thing]))])
---transNP (Branch (Cat _ "NP" _ _) [det,Leaf (Cat a "ADJ" _ _),cn]) =
---    (transDET det) (\n -> Conj [transCN cn n, Rel a [n]])
 transNP _ = \x -> NonProposition
 --
 transDet :: GDet -> (Term -> LF) -> (Term -> LF) -> LF
@@ -228,6 +226,7 @@ transDet Gzero_Det = \ p q -> Exists (\v -> Conj [p v, q v] )
 transN2 :: GN2 -> Term -> LF
 transN2 name	= \x -> Rel (n2_kind_list name) [x]
 transCN :: GCN -> Term -> LF
+transCN (GKind ap cn) = \x -> Conj [ transCN cn x, Rel (adjective_list ap) [x] ]
 transCN (GOfpos cn np) =
     \owner -> Conj [(transN2 cn owner), (transNP np 
 	(\thing -> Rel "had" [owner, thing]))]
@@ -439,8 +438,6 @@ transCOMP (GBe_bad ap) = \x -> Rel (adjective_list ap) [x]
 --	--Branch (Cat _ "NP" _ _) [np,Leaf (Cat _ "APOS" _ _),cn] -> case (cn) of
 --	--    Leaf (Cat name "CN" _ _) -> \x -> transNP np
 --	--	(\owner -> Conj [Rel name [x], Rel "had" [owner,x] ] )
---	--Branch (Cat _ "NP" _ _) [det,Leaf (Cat qual "ADJ" _ _),cn] -> \subj
---	--    -> Conj [ transCN cn subj, Rel qual [subj] ]
 --
 --transWH :: Maybe (ParseTree Cat Cat) -> LF
 --transWH (Just (Branch (Cat _ "WH" _ _ )
