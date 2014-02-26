@@ -88,7 +88,7 @@ onePlacers = [
 	, ("husband",	 pred1 [H] )
 	, ("vocational_school",	 pred1 [S] )
 	, ("construction",	 pred1 [N] )
-	, ("electrician",	 pred1 [R] )
+	, ("electrician",	 pred1 [D,W,W1,W2,W3] )
 	, ("interviewer",	 pred1 [I] )
 	, ("transformer",	 pred1 [T] )
 	, ("ship",	 pred1 [B] )
@@ -193,6 +193,7 @@ twoPlacers = [
     ("know",    pred2 $ knowledge ++ acquaintances ++ map swap acquaintances)
     , ("have",  pred2 $ possessions ++ parenting ++
 					map (\(_,l,_,r) ->(r,l) ) schooling)
+    , ("hire",  pred2 $ map (\(a,_,_) -> (V,a)) working)
     , ("like",  pred2 $ map (\(a,t,r) -> (a,r)) appreciation)
     , ("work",  pred2 $ [(a,c) | (a,p,c) <- working] )
     , ("kind",  pred2 $ [(student, H) | (_,_,_,student) <- schooling ])
@@ -231,6 +232,7 @@ working	= [(A,Unspec,V),
 	(D,R,V),(W1,R,V),(W2,R,V),(W3,R,V),(W4,R,V),(W5,R,V),(W6,R,V),
 -- ship
 	(W1,R,B),(W2,R,B),(W3,R,B),(W4,R,B),(W5,R,B),(W6,R,B)]
+
 comms	= [ (I,Unspec,D),(F,Unspec,D),(F,Unspec,A),(A,Unspec,D),(A,Unspec,I) ]
 giving	= [ (I,J,D) ]
 --(agent,theme,location)

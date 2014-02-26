@@ -24,6 +24,7 @@ kind_list :: GCN -> String
 kind_list Gapprentice	= "apprentice"
 kind_list Gchild	= "child"
 kind_list Gdad	= "dad"
+kind_list Gelectrician	= "electrician"
 kind_list Gend	= "end"
 kind_list Gfamily	= "family"
 kind_list Ggraduation	= "graduation"
@@ -37,6 +38,7 @@ kind_list Gnight	= "night"
 kind_list Gposition	= "position"
 kind_list Gschool	= "school"
 kind_list Gship	= "ship"
+kind_list Gshipyard	= "shipyard"
 kind_list Gsuperintendent	= "superintendent"
 kind_list Gsupervisor	= "supervisor"
 kind_list Gthing	= "thing"
@@ -84,6 +86,7 @@ objects = [
 	( "apprentice",	\[x]	-> predid1 "apprentice" x	)
 	, ( "child",	\[x]	-> predid1 "child" x	)
 	, ( "dad",	\[x]	-> predid1 "dad" x	)
+	, ( "electrician",	\[x]	-> predid1 "electrician" x	)
 	, ( "end",	\[x]	-> predid1 "end" x	)
 	, ( "family",	\[x]	-> predid1 "family" x	)
 	, ( "graduation",	\[x]	-> predid1 "graduation" x	)
@@ -96,6 +99,7 @@ objects = [
 	, ( "position",	\[x]	-> predid1 "position" x	)
 	, ( "school",	\[x]	-> predid1 "school" x	)
 	, ( "ship",	\[x]	-> predid1 "ship" x	)
+	, ( "shipyard",	\[x]	-> predid1 "shipyard" x	)
 	, ( "superintendent",	\[x] -> predid1 "superintendent" x	)
 	, ( "supervisor",	\[x] -> predid1 "supervisor" x	)
 	, ( "thing",	\[x]	-> predid1 "thing" x	)
@@ -137,6 +141,8 @@ relations = [
 	, ( "know",	\[x]	-> predid1 "know" x	)
 	, ( "look_here",	\[x]	-> predid1 "look_here" x	)
 	, ( "slow_down",	\[x]	-> predid1 "slow_down" x	)
+
+	, ( "hire",	\[x,y]	-> predid2 "hire" y x	)
 
 	]
 

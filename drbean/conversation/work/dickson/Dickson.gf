@@ -88,6 +88,7 @@ fun
 	apprentice	: CN;
 	child	: CN;
 	dad	: CN;
+	electrician	: CN;
 	end	: CN;
 	family	: CN;
 	father	: CN;
@@ -105,6 +106,7 @@ fun
 	position	: CN;
 	school	: CN;
 	ship	: CN;
+	shipyard	: CN;
 	stuff	: NP;
 	superintendent	: CN;
 	supervisor	: CN;

@@ -52,6 +52,7 @@ oper
 	apprentice_N	: N;
 	child_N	: N;
 	dad_N	: N;
+	electrician_N	: N;
 	end_N	: N;
 	family_N	: N;
 	graduation_N	: N;
@@ -68,6 +69,7 @@ oper
 	position_N	: N;
 	school_N	: N;
 	ship_N	: N;
+	shipyard_N	: N;
 	stuff_N	: N;
 	superintendent_N	: N;
 	supervisor_N	: N;

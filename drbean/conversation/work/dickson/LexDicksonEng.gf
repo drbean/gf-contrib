@@ -54,6 +54,7 @@ oper
 	apprentice_N	= mkN human (mkN "apprentice");
 	child_N = mkN human (mkN "child" "children");
 	dad_N	= mkN masculine (mkN "dad");
+	electrician_N	=mkN human (mkN "electrician");
 	end_N	= mkN "end";
 	family_N	= mkN "family";
 	father_N2	= mkN2 (mkN masculine (mkN "father")) of_prep;
@@ -70,6 +71,7 @@ oper
 	position_N	= mkN "position";
 	school_N	= mkN "school";
 	ship_N	= mkN "ship";
+	shipyard_N	= mkN "shipyard";
 	stuff_N	= mkN "stuff";
 	superintendent_N	= mkN human (mkN "superintendent");
 	supervisor_N	= mkN human (mkN "supervisor");

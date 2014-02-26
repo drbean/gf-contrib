@@ -105,6 +105,7 @@ lin
 	apprentice	= mkCN apprentice_N;
 	child	= mkCN child_N;
 	dad	= mkCN dad_N;
+	electrician	= mkCN electrician_N;
 	end	= mkCN end_N;
 	family	= mkCN family_N;
 	graduation	= mkCN graduation_N;
@@ -122,6 +123,7 @@ lin
 	position	= mkCN position_N;
 	school	= mkCN school_N;
 	ship	= mkCN ship_N;
+	shipyard	= mkCN shipyard_N;
 	stuff	= mkNP stuff_N;
 	superintendent	= mkCN superintendent_N;
 	supervisor	= mkCN supervisor_N;
