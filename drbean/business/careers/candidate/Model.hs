@@ -20,7 +20,7 @@ entity_check =  [
     , (D, "degree" )
     , (E, "Eva" )
     , (F, "Fast-Track" )
-    , (G, "" )
+    , (G, "judgement" )
     , (H, "high_school" )
     , (I, "" )
     , (J, "job" )
@@ -133,6 +133,7 @@ pred4 xs	= curry4 ( `elem` xs )
 
 possessions	= []
 appreciation	= [ (D,Unspec,A),(D,Unspec,F) ]
+qualities	= [ (T,J) ]
 conflict	= []
 supervision	= []
 isBoss	= pred1 $ map fst supervision
@@ -157,7 +158,7 @@ help	= pred2 $ supervision
 twoPlacers :: [(String, TwoPlacePred)]
 twoPlacers = [
     ("know",    pred2 $ knowledge ++ acquaintances ++ map swap acquaintances)
-    , ("have",  pred2 $ possessions ++
+    , ("have",  pred2 $ possessions ++ qualities ++
 					map (\(_,l,_,r,_) ->(r,l) ) schooling)
     , ("like",  pred2 $ map (\(a,t,r) -> (a,r)) appreciation)
     , ("work",  pred2 $ [(a,c) | (a,p,c) <- working] )
