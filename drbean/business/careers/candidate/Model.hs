@@ -92,6 +92,7 @@ onePlacers = [
 	, ("confident",	 pred1 [B] )
 	, ("difficult",	 pred1 [B] )
 	, ("polish",	 pred1 [B,T] )
+	, ("successful",	 pred1 [B,T,E] )
 
 	, ("male",	 pred1 [T] )
 	, ("female",	 pred1 [B,E] )
