@@ -127,6 +127,7 @@ fun
 	learner	: CN;
 	lot	: CN;
 	main	: CN;
+	man	: CN;
 	market	: CN;
 	material	: CN;
 	pair	: CN;
@@ -146,6 +147,7 @@ fun
 	top	: CN;
 	training	: CN;
 	way	: CN;
+	woman	: CN;
 	year	: CN;
 
 	barbara	: PN;

@@ -91,6 +91,7 @@ oper
 	learner_N	: N;
 	lot_N	: N;
 	main_N	: N;
+	man_N	: N;
 	market_N	: N;
 	material_N	: N;
 	pair_N	: N;
@@ -110,6 +111,7 @@ oper
 	top_N	: N;
 	training_N	: N;
 	way_N	: N;
+	woman_N	: N;
 	year_N	: N;
 
 	barbara_N	: N;

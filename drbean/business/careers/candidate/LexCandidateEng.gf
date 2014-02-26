@@ -112,6 +112,7 @@ oper
 	learner_N	= mkN "learner";
 	lot_N	= mkN "lot";
 	main_N	= mkN "main";
+	man_N	= mkN "man" "men";
 	market_N	= mkN "market";
 	material_N	= mkN "material";
 	pair_N	= mkN "pair";
@@ -131,6 +132,7 @@ oper
 	top_N	= mkN "top";
 	training_N	= mkN "training";
 	way_N	= mkN "way";
+	woman_N	= mkN "woman" "women";
 	year_N	= mkN "year";
 
 	barbara_N = mkN feminine (mkN "Barbara");

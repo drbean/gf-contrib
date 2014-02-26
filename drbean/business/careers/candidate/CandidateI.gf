@@ -144,6 +144,7 @@ lin
 	learner	= mkCN learner_N;
 	lot	= mkCN lot_N;
 	main	= mkCN main_N;
+	man	= mkCN man_N;
 	market	= mkCN market_N;
 	material	= mkCN material_N;
 	pair	= mkCN pair_N;
@@ -163,6 +164,7 @@ lin
 	top	= mkCN top_N;
 	training	= mkCN training_N;
 	way	= mkCN way_N;
+	woman	= mkCN woman_N;
 	year	= mkCN year_N;
 
 	barbara	= mkPN barbara_N;
