@@ -94,6 +94,8 @@ onePlacers = [
 	, ("polish",	 pred1 [B,T] )
 	, ("successful",	 pred1 [B,T,E] )
 
+	, ("realistic",	 pred1 [T,E] )
+
 	, ("male",	 pred1 [T] )
 	, ("female",	 pred1 [B,E] )
 	]
