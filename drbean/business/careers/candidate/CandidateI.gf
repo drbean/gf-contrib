@@ -141,7 +141,7 @@ lin
 	hand	= mkCN hand_N;
 	head	= mkCN head_N;
 	job	= mkCN job_N;
-	judgement	= mkCN judgement_N;
+	judgement	= mkNP judgement_N;
 	learner	= mkCN learner_N;
 	lot	= mkCN lot_N;
 	main	= mkCN main_N;

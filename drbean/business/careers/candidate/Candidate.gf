@@ -124,7 +124,7 @@ fun
 	hand	: CN;
 	head	: CN;
 	job	: CN;
-	judgement	: CN;
+	judgement	: NP;
 	learner	: CN;
 	lot	: CN;
 	main	: CN;
