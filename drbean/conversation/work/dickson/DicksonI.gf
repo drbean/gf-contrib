@@ -55,8 +55,9 @@ lin
 	NoAnswer	= LexDickson.no_answer_Utt;
 
 	Entity pn	= mkNP pn;
-	Item det noun	= mkNP det noun;
+	Kind ap cn	= mkCN ap cn;
 	Ofpos n2 np	= mkCN n2 np;
+	Item det noun	= mkNP det noun;
 
 	a_Det	= LexDickson.a_Det;
 	zero_Det	= LexDickson.zero_Det;
