@@ -44,6 +44,9 @@ adjective_list Gvarious	= "various"
 n2_kind_list :: GN2 -> String
 n2_kind_list Gdirector_2	= "director"
 
+np_list :: GNP -> String
+np_list Gjudgement	= "judgement"
+
 kind_list :: GCN -> String
 kind_list Gability	= "ability"
 kind_list Gadministration	= "administration"
@@ -59,7 +62,6 @@ kind_list Gexperience	= "experience"
 kind_list Ghand	= "hand"
 kind_list Ghead	= "head"
 kind_list Gjob	= "job"
-kind_list Gjudgement	= "judgement"
 kind_list Glearner	= "learner"
 kind_list Glot	= "lot"
 kind_list Gmain	= "main"

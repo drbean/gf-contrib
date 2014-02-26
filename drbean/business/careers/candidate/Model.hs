@@ -96,6 +96,7 @@ onePlacers = [
 	, ("successful",	 pred1 [B,T,E] )
 
 	, ("realistic",	 pred1 [T,E] )
+	, ("judgement",	 pred1 [G] )
 
 	, ("fast",	 pred1 [B,E] )
 
@@ -131,9 +132,9 @@ pred2 xs	= curry ( `elem` xs )
 pred3 xs	= curry3 ( `elem` xs )
 pred4 xs	= curry4 ( `elem` xs )
 
-possessions	= []
+possessions	= [(B,J),(T,J),(E,J)]
 appreciation	= [ (D,Unspec,A),(D,Unspec,F) ]
-qualities	= [ (T,J) ]
+qualities	= [ (T,G) ]
 conflict	= []
 supervision	= []
 isBoss	= pred1 $ map fst supervision
