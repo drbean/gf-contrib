@@ -19,7 +19,7 @@ entity_check =  [
     , (C, "" )
     , (D, "" )
     , (E, "Eva" )
-    , (F, "Fast Track" )
+    , (F, "Fast-Track" )
     , (G, "" )
     , (H, "high_school" )
     , (I, "" )
@@ -97,7 +97,7 @@ onePlacers = [
 
 	, ("realistic",	 pred1 [T,E] )
 
-	, ("fast",	 pred1 [E] )
+	, ("fast",	 pred1 [B,E] )
 
 	, ("male",	 pred1 [T] )
 	, ("female",	 pred1 [B,E] )
