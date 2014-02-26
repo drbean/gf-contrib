@@ -37,6 +37,7 @@ fun
 	Yes, No, NoAnswer	: Utt;
 
 	Entity	: PN -> NP;
+	Kind	: AP -> CN -> CN;
 	Item	: Det -> CN -> NP;
 	Ofpos	: N2 -> NP -> CN;
 
