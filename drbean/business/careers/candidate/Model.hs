@@ -86,6 +86,7 @@ onePlacers = [
 	, ("story",	 pred1 [Y] )
 	, ("job",	 pred1 [J] )
 	, ("worker",	 pred1 $ map agent working )
+	, ("learner",	 pred1 $ map recipient5 schooling )
 
 	, ("ambitious",	 pred1 [B] )
 	, ("competitive",	 pred1 [B] )
@@ -93,6 +94,10 @@ onePlacers = [
 	, ("difficult",	 pred1 [B] )
 	, ("polish",	 pred1 [B,T] )
 	, ("successful",	 pred1 [B,T,E] )
+
+	, ("realistic",	 pred1 [T,E] )
+
+	, ("fast",	 pred1 [E] )
 
 	, ("male",	 pred1 [T] )
 	, ("female",	 pred1 [B,E] )
@@ -253,6 +258,7 @@ fivePlacers = [
 
 
 agent5, theme5, recipient5, location5 :: (Entity,Entity,Entity,Entity, Entity) -> Entity
+<<<<<<< HEAD
 agent5 (a,_,_,_,_)      = a
 theme5 (_,t,_,_,_)      = t
 destination5 = theme5
@@ -263,6 +269,19 @@ style5  = recipient5
 feature5 (_,_,_,f,_)    = f
 location5 (_,_,_,_,l)   = l
 purpose5        = location5
+=======
+-- for schooling
+agent5		(a,_,_,_,_) = a
+location5	(_,l,_,_,_) = l
+theme5		(_,_,t,_,_) = t
+destination5 = theme5
+recipient5	(_,_,_,r,_) = r
+feature5	(_,_,_,_,f) = f
+provider5       = location5
+result5 = feature5
+style5  = recipient5
+purpose5        = feature5
+>>>>>>> careers
 aim5    = purpose5
 vehicle5        = location5
 
