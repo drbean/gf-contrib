@@ -14,7 +14,7 @@ entities	=  [minBound..maxBound]
 
 entity_check :: [ (Entity, String) ]
 entity_check =  [
-    (A, "" )
+    (A, "" )	-- aim
     , (B, "Barbara" )
     , (C, "" )
     , (D, "degree" )
@@ -82,6 +82,7 @@ onePlacers = [
 	, ("college",	 pred1 [U] )
 	, ("diploma",	 pred1 [P] )
 	, ("degree",	 pred1 [D] )
+	, ("aim",	 pred1 [A] )
 	, ("company",	 pred1 [F] )
 	, ("story",	 pred1 [Y] )
 	, ("job",	 pred1 [J] )
@@ -99,6 +100,7 @@ onePlacers = [
 	, ("judgement",	 pred1 [G] )
 
 	, ("fast",	 pred1 [B,E] )
+	, ("good",	 pred1 [T,E] )
 
 	, ("male",	 pred1 [T] )
 	, ("female",	 pred1 [B,E] )
@@ -134,7 +136,7 @@ pred4 xs	= curry4 ( `elem` xs )
 
 possessions	= [(B,J),(T,J),(E,J)]
 appreciation	= [ (D,Unspec,A),(D,Unspec,F) ]
-qualities	= [ (T,G) ]
+qualities	= [ (B,A),(T,G) ]
 conflict	= []
 supervision	= []
 isBoss	= pred1 $ map fst supervision
