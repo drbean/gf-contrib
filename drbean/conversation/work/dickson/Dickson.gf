@@ -119,6 +119,7 @@ fun
 	uncle_2	: N2;
 	way	: CN;
 	week	: CN;
+	woman	: CN;
 	word	: CN;
 	work	: NP;
 

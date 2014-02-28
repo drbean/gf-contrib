@@ -82,6 +82,7 @@ oper
 	uncle_N2	= mkN2 (mkN masculine (mkN "uncle")) of_prep;
 	way_N	= mkN "way";
 	week_N	= mkN "week";
+	woman_N	= mkN feminine (mkN "woman" "women");
 	word_N	= mkN "word";
 	work_N	= mkN "work";
 
