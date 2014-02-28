@@ -58,20 +58,26 @@ lc_first str@(s:ss) = case ( or $ map (flip isPrefixOf str) ["Alf", "Dee"] ) of
 	False -> ((toLower s):ss)
 
 chomp :: String -> String
-chomp str = let rev@(c:cs) = reverse str
-		in case (c:cs) of
-			'.':_ -> reverse cs
-			'?':_ -> reverse cs
-			otherwise -> reverse rev
+chomp []                      = []
+chomp ('\'':'s':xs)           = " 's" ++ chomp xs
+chomp ('s':'\'':xs)           = "s 's" ++ chomp xs
+chomp (x:xs) | x `elem` ".,?" = chomp xs
+            | otherwise      =     x:chomp xs
 
 label :: GUtt -> String
 -- label (GUt (GPosQ (GWH_Cop _ _)))	= "WH"
 label (GUt (GPosQ (GWH_NP _ _)))	= "WH"
+label (GUt (GNegQ (GWH_NP _ _)))	= "WH"
 label (GUt (GPosQ (GWH_AP _ _)))	= "WH"
+label (GUt (GNegQ (GWH_AP _ _)))	= "WH"
 label (GUt (GPosQ (GWH_Pred _ _)))	= "WH"
+label (GUt (GNegQ (GWH_Pred _ _)))	= "WH"
 label (GUt (GPosQ (GYN _)))	= "YN"
+label (GUt (GNegQ (GYN _)))	= "YN"
 label (GUt (GPosQ (GTagQ _ _)))	= "Tag"
+label (GUt (GNegQ (GTagQ _ _)))	= "Tag"
 label (GUt (GPosQ (GTagComp _ _)))	= "Tag"
+label (GUt (GNegQ (GTagComp _ _)))	= "Tag"
 label _				= "Unparseable"
 
 takeCourse :: String -> String -> String
