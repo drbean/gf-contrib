@@ -37,6 +37,7 @@ fun
 	Yes, No, NoAnswer	: Utt;
 
 	Entity	: PN -> NP;
+	MassN	: A -> N -> NP;
 	Kind	: AP -> CN -> CN;
 	Item	: Det -> CN -> NP;
 	Ofpos	: N2 -> NP -> CN;
@@ -124,6 +125,7 @@ fun
 	hand	: CN;
 	head	: CN;
 	job	: CN;
+	good_judgement	: NP;
 	judgement	: NP;
 	learner	: CN;
 	lot	: CN;
