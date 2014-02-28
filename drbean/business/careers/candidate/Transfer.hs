@@ -59,10 +59,10 @@ lc_first str@(s:ss) = case ( or $ map (flip isPrefixOf str) ["Barbara", "Tadeusz
 
 chomp :: String -> String
 chomp []                      = []
-chomp ('\'':'s':xs)           = " 's" ++ scan xs
-chomp ('s':'\'':xs)           = "s 's" ++ scan xs
-chomp (x:xs) | x `elem` ".,?" = ' ':x:scan xs
-            | otherwise      =     x:scan xs
+chomp ('\'':'s':xs)           = " 's" ++ chomp xs
+chomp ('s':'\'':xs)           = "s 's" ++ chomp xs
+chomp (x:xs) | x `elem` ".,?" = chomp xs
+            | otherwise      =     x:chomp xs
 
 label :: GUtt -> String
 -- label (GUt (GPosQ (GWH_Cop _ _)))	= "WH"
