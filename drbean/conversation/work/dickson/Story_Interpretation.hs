@@ -47,6 +47,7 @@ kind_list Gtransformer	= "transformer"
 kind_list Guncle	= "uncle"
 kind_list Gway	= "way"
 kind_list Gweek	= "week"
+kind_list Gwoman	= "woman"
 kind_list Gword	= "word"
 
 happening_list :: GV -> String

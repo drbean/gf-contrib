@@ -136,6 +136,7 @@ lin
 	uncle	= mkCN uncle_N2;
 	way	= mkCN way_N;
 	week	= mkCN week_N;
+	woman	= mkCN woman_N;
 	word	= mkCN word_N;
 	work	= mkNP work_N;
 

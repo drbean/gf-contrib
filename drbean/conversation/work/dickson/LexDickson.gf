@@ -80,6 +80,7 @@ oper
 	uncle_N2	: N2;
 	way_N	: N;
 	week_N	: N;
+	woman_N	: N;
 	word_N	: N;
 	work_N	: N;
 

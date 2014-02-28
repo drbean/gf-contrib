@@ -137,6 +137,7 @@ n = [
 	, "way"
 	, "week"
 	, "weeks"
+	, "woman"
 	, "word"
 	, "work"
 	]
