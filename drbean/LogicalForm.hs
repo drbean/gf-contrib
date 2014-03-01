@@ -1,6 +1,6 @@
 module LogicalForm where
 
-import Dickson
+import Candidate
 import Model
 -- import Interpretation
 import Story_Interpretation
@@ -190,7 +190,7 @@ transNP (GEntity name)
     | entity <- (entity_list name) , entity `elem` entities =
 	\ p -> p (Const entity)
     | otherwise = \p -> Exists ( \v -> Conj [ p v, Rel "work" [v] ] )
--- transNP Gjudgement = \p -> Exists ( \v -> Conj [ p v, Rel "judgement" [v] ] )
+transNP Ggood_judgement = \p -> Exists ( \v -> Conj [ p v, Rel "good_judgement" [v] ] )
 --transNP (Branch (Cat _ "NP" _ _) [np,Leaf (Cat "'s" "APOS" _ _),cn]) =
 --    \p -> Exists (\thing -> Conj [ p thing, transCN cn thing, transNP np (\owner -> (Rel "had" [owner,thing]))])
 transNP _ = \x -> NonProposition

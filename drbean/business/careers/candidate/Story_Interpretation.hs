@@ -45,7 +45,7 @@ n2_kind_list :: GN2 -> String
 n2_kind_list Gdirector_2	= "director"
 
 np_list :: GNP -> String
-np_list Gjudgement	= "judgement"
+np_list Ggood_judgement	= "good judgement"
 
 kind_list :: GCN -> String
 kind_list Gability	= "ability"
@@ -171,6 +171,7 @@ objects = [
 
 inflections = [
 	( "children",	"child")
+	, ( "good_judgement",	"judgement")
 	]
 
 relations = [
