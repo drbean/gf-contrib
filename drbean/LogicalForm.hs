@@ -1,6 +1,6 @@
 module LogicalForm where
 
-import Candidate
+import Dickson
 import Model
 -- import Interpretation
 import Story_Interpretation
