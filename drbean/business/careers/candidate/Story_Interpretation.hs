@@ -44,8 +44,12 @@ adjective_list Gvarious	= "various"
 n2_kind_list :: GN2 -> String
 n2_kind_list Gdirector_2	= "director"
 
-np_list :: GNP -> String
-np_list Ggood_judgement	= "good judgement"
+uncount_list :: GNP -> String
+-- uncount_list Gmoney	= "money"
+-- uncount_list Gstuff	= "stuff"
+-- uncount_list Gtime	= "time"
+-- uncount_list Gwork	= "work"
+uncount_list Ggood_judgement	= "good judgement"
 
 kind_list :: GCN -> String
 kind_list Gability	= "ability"
