@@ -98,7 +98,7 @@ onePlacers = [
 	, ("upbringing",	 pred1 [G] )
 	, ("story",	 pred1 [Y] )
 	, ("job",	 pred1 [J] )
-	, ("work",	 pred1 $ map agent working )
+	, ("work",	 pred1 $ [J] ++ map agent working )
 	, ("worker",	 pred1 $ map agent working )
 
 	, ("mad",	 pred1 [D,H,W1,W2,W3,W4] )
@@ -192,7 +192,8 @@ twoPlacers :: [(String, TwoPlacePred)]
 twoPlacers = [
     ("know",    pred2 $ knowledge ++ acquaintances ++ map swap acquaintances)
     , ("have",  pred2 $ possessions ++ parenting ++
-					map (\(_,l,_,r) ->(r,l) ) schooling)
+			  [(a,J) | (a,_,_) <- working] ++
+			  map (\(_,l,_,r) ->(r,l) ) schooling)
     , ("hire",  pred2 $ map (\(a,_,_) -> (V,a)) working)
     , ("like",  pred2 $ map (\(a,t,r) -> (a,r)) appreciation)
     , ("work",  pred2 $ [(a,c) | (a,p,c) <- working] )
@@ -327,4 +328,4 @@ passivize4 r = \x y z -> or ( map (\u -> r u x y z ) entities )
 self ::  (a -> a -> b) -> a -> b
 self p  = \ x -> p x x
 
--- vim: set ts=8 sts=4 sw=4 noet:
+-- vim: set ts=8 sts=2 sw=2 noet:
