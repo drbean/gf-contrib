@@ -189,12 +189,12 @@ transNP (GEntity name)
 --    | name `elem` interrolist = \ p -> NonProposition
     | entity <- (entity_list name) , entity `elem` entities =
 	\ p -> p (Const entity)
-    | otherwise = \p -> Exists ( \v -> Conj [ p v, Rel "work" [v] ] )
-transNP Ggood_judgement = \p -> Exists ( \v -> Conj [ p v, Rel "good_judgement" [v] ] )
+    | otherwise = \p -> NonProposition
+transNP thing	| rel <- uncount_list thing = \p -> Exists ( \v -> Conj [ p v, Rel rel [v] ] )
+		| otherwise = \p -> NonProposition
 --transNP (Branch (Cat _ "NP" _ _) [np,Leaf (Cat "'s" "APOS" _ _),cn]) =
 --    \p -> Exists (\thing -> Conj [ p thing, transCN cn thing, transNP np (\owner -> (Rel "had" [owner,thing]))])
-transNP _ = \x -> NonProposition
---
+
 transDet :: GDet -> (Term -> LF) -> (Term -> LF) -> LF
 --transDet (Branch (Cat _ "DET" _ _) [np,Leaf (Cat "'s" "APOS" _ _) ]) =
 --    \ p q -> Exists (\v -> Conj [ Single p, p v, q v, transNP np
