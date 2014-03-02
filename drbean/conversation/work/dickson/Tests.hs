@@ -100,6 +100,11 @@ test_text = [
 	\Dee's son asked the interviewer about Vietnam."
 	]
 
+alf_test = [
+ "Does the uncle of the father of Dee have work?"
+ , "Is the uncle of the father of Dee Alf?"
+ ]
+
 test_possessives = [
 	"the interviewer looked back.",
 	"the interviewer's daughter looked back.",
