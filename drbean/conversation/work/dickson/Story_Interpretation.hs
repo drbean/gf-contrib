@@ -20,6 +20,12 @@ n2_kind_list :: GN2 -> String
 n2_kind_list Gfather_2	= "father"
 n2_kind_list Guncle_2	= "uncle"
 
+uncount_list :: GNP -> String
+uncount_list Gmoney	= "money"
+uncount_list Gstuff	= "stuff"
+uncount_list Gtime	= "time"
+uncount_list Gwork	= "work"
+
 kind_list :: GCN -> String
 kind_list Gapprentice	= "apprentice"
 kind_list Gchild	= "child"
