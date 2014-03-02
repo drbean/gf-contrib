@@ -15,7 +15,7 @@ import Data.Char
 -- import System.Environment.FindBin
 
 ans tests = do
-  gr	<- readPGF ( "./Dickson.pgf" )
+  gr	<- readPGF ( "./Candidate.pgf" )
   let ss = map (chomp . lc_first) tests
   let ps = map ( parses gr ) ss
   let ls = map ( map ( linear transform gr ) ) ps
@@ -31,7 +31,7 @@ ans tests = do
 --  putStrLn (unlines (map (\(x,y) -> x ++ (show (concat y ) ) ) zs) )
 
 logic tests = do
-  gr	<- readPGF ( "./Dickson.pgf" )
+  gr	<- readPGF ( "./Candidate.pgf" )
   let ss = map (chomp . lc_first) tests
   let ps = map ( parses gr ) ss
   let ts = map (map (map lf)) ps
@@ -81,10 +81,10 @@ all_tests =
 
 student_tag_tests = [
 	-- "Eva had been with Fast-Track for one year, hadn't she?"
-	"Barbara wasn't a good team-player, was she?",
-	"Barbara was a good team-player, wasn't she?",
-	"Barbara was a confident person, wasn't she?",
-	"Barbara was thirty years old, wasn't she?"
+	"Barbara isn't a good team-player, is she?",
+	"Barbara is a good team-player, isn't she?",
+	"Barbara is a confident person, isn't she?",
+	"Barbara is thirty years old, isn't she?"
 	]
 
 student_yn_tests = [
