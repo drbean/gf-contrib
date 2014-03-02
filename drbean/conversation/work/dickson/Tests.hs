@@ -1,27 +1,86 @@
 module Tests where
 
-import Evaluation
-
 import Control.Monad
 
 import PGF
 import Dickson
-
+import LogicalForm
+import Evaluation
 import Model
+import WordsCharacters
 
---do
---	path <- getProgPath
---	gr <- readPGF ( path ++ "/Dickson.pgf" )
-handler gr core tests = putStr $ unlines $ map (\(x,y) -> x++show y) $ zip (map (++"\t") tests ) ( map (\string -> map (\x -> core ( x) ) (parse gr (mkCId "DicksonEng") (startCat gr) string)) tests )
+import Data.List
+import Data.Char
+
+-- handler gr core tests = putStr $ unlines $ map (\(x,y) -> x++show y) $ zip (map (++"\t") tests ) ( map (\string -> map (\x -> core ( x) ) (parse gr (mkCId "DicksonEng") (startCat gr) string)) tests )
+
+-- import System.Environment.FindBin
+
+ans tests = do
+  gr	<- readPGF ( "./Dickson.pgf" )
+  let ss = map (chomp . lc_first) tests
+  let ps = map ( parses gr ) ss
+  let ls = map ( map ( linear transform gr ) ) ps
+  let zs = zip (map (++"\t") tests) ls
+  putStrLn (unlines (map (\(x,y) -> x ++ (show $ concat y)) zs) )
+
+--trans tests = do
+--  gr	<- readPGF ( "./Dickson.pgf" )
+--  let ss = map (chomp . lc_first) tests
+--  let ps = map ( parses gr ) ss
+--  let ls = map id ps
+--  let zs = zip (map (++"\t") tests) ps
+--  putStrLn (unlines (map (\(x,y) -> x ++ (show (concat y ) ) ) zs) )
+
+logic tests = do
+  gr	<- readPGF ( "./Dickson.pgf" )
+  let ss = map (chomp . lc_first) tests
+  let ps = map ( parses gr ) ss
+  let ts = map (map (map lf)) ps
+  let zs = zip (map (++"\t") tests) ts
+  putStrLn (unlines (map (\(x,y) -> x ++ (show $ concat y ) ) zs) )
+
+parses :: PGF -> String -> [[Tree]]
+parses gr s = ( parseAll gr (startCat gr) s )
+
+transform :: Tree -> Tree
+transform = gf . answer . fg
+
+lf :: Tree -> LF
+lf =  transS . fg
+
+answer :: GUtt -> GUtt
+-- answer (GUt (GPosQ (GWH_Cop Gwho_WH np)))	= (GUt (GNegQ (GTagQ np (GHappening Glaugh))))
+-- answer (GUt (GPosQ (GWH_Pred Gwho_WH (GChanging v np)))) = (GUt (GNegQ (GTagQ np (GHappening Glaugh))))
+-- answer (GUt (GPosQ (GWH_Pred Gwho_WH (GHappening vp)))) = Gdee
+-- answer (GUt (GPosQ (GYN (GCop np1 np2))))  = np1
+answer utt	| (eval . transS) utt == Boolean True = GYes
+		| (eval . transS) utt == Boolean False = GNo
+		| (eval . transS) utt == NoAnswer = GNoAnswer
+
+linear :: (Tree -> Tree) -> PGF -> [Tree] -> [ String ]
+linear tr gr ps = concat $ map ((linearizeAll gr) . tr) ps
+
+lc_first :: String -> String
+lc_first str@(s:ss) = case ( or $ map (flip isPrefixOf str) ["Alf", "Dee"] ) of
+	True  -> (s:ss)
+	False -> ((toLower s):ss)
+
+chomp :: String -> String
+chomp []                      = []
+chomp ('\'':'s':xs)           = " 's" ++ chomp xs
+chomp ('s':'\'':xs)           = "s 's" ++ chomp xs
+chomp (x:xs) | x `elem` ".,?" = chomp xs
+            | otherwise      =     x:chomp xs
 
 working_test = [
 
-	"does Dee work"
-	, "does Dee have work"
-	, "does Dee have a job"
-	, "who works"
-	, "who has work"
-	, "who has a job"
+	"Does Dee work"
+	, "Does Dee have work"
+	, "Does Dee have a job"
+	, "Who works"
+	, "Who has work"
+	, "Who has a job"
 	, "Dee works doesn't she"
 	, "Dee has work doesn't she"
 	, "Dee has a job doesn't she"
@@ -68,55 +127,54 @@ test_possessives = [
 	"Did the sister of Dee's son know English?"
 	]
 haves = [
-	"Did Dee have Dee's father?",
-	"Did Dee have Alf?",
-	"Did Dee have a mother?",
-	"Did Dee have a son?",
-	"Did Dee have a daughter?",
-	"Did Dee's father have a mother?",
-	-- "Did Dee have work?",
-	"Did Dee have a job?",
-	"Did Dee have some job?",
-	"Did Dee have money?",
-	"Did Dee's father have money?",
-	"Did Alf have money?",
-	"Did Dee have a parent?",
-	"Did Dee have some parents?",
-	"Did Dee have parents?",
-	"Did Dee's father have a parent?",
-	"Did Dee's father have some parents?",
-	"Did Dee's father have parents?",
-	"Did Dee have work?",
-	"Did Alf have work?",
-	"Did Dee's father have work?",
-	"Did the interviewer have the job?",
-	"Did the interviewer have Dee's son?",
-	"Did the interviewer have a mother?",
-	"Did the interviewer have a son?",
-	"Did the interviewer have a daughter?",
-	"Did the job have a mother?",
-	"Did the interviewer have ships?",
-	"Did the interviewer have some ships?",
-	"Did the interviewer's daughter have some ships?",
-	"Did the interviewer's daughter have a ship?",
-	"Did the daughter have some ships?",
-	"Did the daughter have no ships?",
-	-- "Dee's son had many ships in Cuba.",
-	"Did the parent have some ships?",
-	"Did the parent have no ships?",
-	"Did the interviewer have money?",
-	"Did the job have money?",
-	"Did Dee's son have money?",
-	"Did the interviewer have a parent?",
-	"Did the interviewer have some parents?",
-	"Did the interviewer have parents?",
-	"Did the job have a parent?",
-	"Did the job have some parents?",
-	"Did the job have parents?",
-	"Did the interviewer have a boat?",
-	"Did Dee's son have a boat?",
-	"Did the job have a boat?",
-	"Did someone have a boat?"
+	"Does Dee have Dee's father?",
+	"Does Dee have Alf?",
+	"Does Dee have a mother?",
+	"Does Dee have a son?",
+	"Does Dee have a daughter?",
+	"Does Dee's father have a mother?",
+	"Does Dee have work?",
+	"Does Dee have a job?",
+	"Does Dee have some job?",
+	"Does Dee have money?",
+	"Does Dee's father have money?",
+	"Does Alf have money?",
+	"Does Dee have a parent?",
+	"Does Dee have some parents?",
+	"Does Dee have parents?",
+	"Does Dee's father have a parent?",
+	"Does Dee's father have some parents?",
+	"Does Dee's father have parents?",
+	"Does Dee have work?",
+	"Does Alf have work?",
+	"Does Dee's father have work?",
+	"Does the interviewer have the job?",
+	"Does the interviewer have Dee's son?",
+	"Does the interviewer have a mother?",
+	"Does the interviewer have a son?",
+	"Does the interviewer have a daughter?",
+	"Does the job have a mother?",
+	"Does the interviewer have ships?",
+	"Does the interviewer have some ships?",
+	"Does the interviewer's daughter have some ships?",
+	"Does the interviewer's daughter have a ship?",
+	"Does the daughter have some ships?",
+	"Does the daughter have no ships?",
+	"Does the parent have some ships?",
+	"Does the parent have no ships?",
+	"Does the interviewer have money?",
+	"Does the job have money?",
+	"Does Dee's son have money?",
+	"Does the interviewer have a parent?",
+	"Does the interviewer have some parents?",
+	"Does the interviewer have parents?",
+	"Does the job have a parent?",
+	"Does the job have some parents?",
+	"Does the job have parents?",
+	"Does the interviewer have a boat?",
+	"Does Dee's son have a boat?",
+	"Does the job have a boat?",
+	"Does someone have a boat?"
 	]
 
 ungrammatical = [
@@ -431,3 +489,5 @@ relclauses = [
 --lf73 = \x -> Conj [ (Rel "son" [x]), (Rel "have" [x, Const (realents !! 17)]) ]
 --lf74 = ( \x -> ( Conj [ (Rel "daughter" [x]), (Rel "have" [x, Const (realents !! 17)]) ] ) )
 --lf75 = \x -> Impl (Rel "son" [x]) (Rel "have" [x, Const (realents !! 17)])
+
+-- vim: set ts=8 sts=2 sw=2 noet:
