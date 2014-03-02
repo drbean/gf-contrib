@@ -44,8 +44,8 @@ entity_check =  [
 
 
 ent_ided :: String -> Entity
-ent_ided string = head [entity | (entity,string) <- entity_check,
-				string /= ""
+ent_ided name = head [entity | (entity,string) <- entity_check ,
+				name == string
 				]
 
 characters :: [(String,Entity)]
