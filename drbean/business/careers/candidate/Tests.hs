@@ -1,7 +1,7 @@
 module Tests where
 
 import PGF
-import Dickson
+import Candidate
 import LogicalForm
 import Evaluation
 import Model
