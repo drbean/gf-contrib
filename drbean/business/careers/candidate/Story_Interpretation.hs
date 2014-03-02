@@ -17,6 +17,7 @@ adjective_list Gcompetitive  = "competitive"
 adjective_list Gconfident     = "confident"
 adjective_list Gdifficult     = "difficult"
 adjective_list Geach	= "each"
+adjective_list Gexperienced	= "experienced"
 adjective_list Gfast	= "fast"
 adjective_list Gfew	= "few"
 adjective_list Gfive	= "five"
@@ -48,8 +49,9 @@ uncount_list :: GNP -> String
 -- uncount_list Gmoney	= "money"
 -- uncount_list Gstuff	= "stuff"
 -- uncount_list Gtime	= "time"
--- uncount_list Gwork	= "work"
+uncount_list Gwork	= "work"
 uncount_list Ggood_judgement	= "good judgement"
+uncount_list Gexperience	= "experience"
 
 kind_list :: GCN -> String
 kind_list Gability	= "ability"
@@ -62,7 +64,6 @@ kind_list Gcourse	= "course"
 kind_list Gdepartment	= "department"
 kind_list Gdirector 	= "director"
 kind_list Geffort	= "effort"
-kind_list Gexperience	= "experience"
 kind_list Ghand	= "hand"
 kind_list Ghead	= "head"
 kind_list Gjob	= "job"
@@ -190,6 +191,8 @@ relations = [
 	, ( "competitive",	\[x]	-> predid1 "competitive" x	)
 	, ( "confident",	\[x]	-> predid1 "confident" x	)
 	, ( "difficult",	\[x]	-> predid1 "difficult" x	)
+	, ( "experienced",	\[x]	-> predid1 "experienced" x	)
+
 	, ( "fast",	\[x]	-> predid1 "fast" x	)
 	, ( "hard",	\[x]	-> predid1 "hard" x	)
 	, ( "honest",	\[x]	-> predid1 "honest" x	)

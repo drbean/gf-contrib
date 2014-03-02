@@ -39,6 +39,7 @@ a = [
 	, "confident"
 	, "difficult"
 	, "each"
+	, "experienced"
 	, "fast"
 	, "few"
 	, "five"
@@ -157,6 +158,7 @@ n = [
 	, "top"
 	, "training"
 	, "way"
+	, "work"
 	, "year"
 
 	]

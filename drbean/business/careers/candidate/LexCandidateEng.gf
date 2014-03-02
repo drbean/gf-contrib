@@ -69,6 +69,7 @@ oper
 	confident_A	= mkA "confident";
 	difficult_A	= mkA "difficult";
 	each_A	= mkA "each";
+	experienced_A	= mkA "experienced";
 	fast_A	= mkA "fast";
 	few_A	= mkA "few";
 	five_A	= mkA "five";
@@ -133,6 +134,7 @@ oper
 	training_N	= mkN "training";
 	way_N	= mkN "way";
 	woman_N	= mkN "woman" "women";
+	work_N	= mkN "work";
 	year_N	= mkN "year";
 
 	barbara_N = mkN feminine (mkN "Barbara");

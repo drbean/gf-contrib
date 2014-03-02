@@ -86,6 +86,7 @@ onePlacers = [
 	, ("company",	 pred1 [F] )
 	, ("story",	 pred1 [Y] )
 	, ("job",	 pred1 [J] )
+	, ("work",	 pred1 $ [J] ++ map agent working )
 	, ("worker",	 pred1 $ map agent working )
 	, ("learner",	 pred1 $ map recipient5 schooling )
 
@@ -93,11 +94,13 @@ onePlacers = [
 	, ("competitive",	 pred1 [B] )
 	, ("confident",	 pred1 [B] )
 	, ("difficult",	 pred1 [B] )
+	, ("experienced",	 pred1 [B,T,E] )
 	, ("polish",	 pred1 [B,T] )
 	, ("successful",	 pred1 [B,T,E] )
 
 	, ("realistic",	 pred1 [T,E] )
 	, ("judgement",	 pred1 [G] )
+	, ("experience",	 pred1 [X] )
 
 	, ("fast",	 pred1 [B,E] )
 	, ("good",	 pred1 [T,E] )
@@ -137,7 +140,7 @@ pred4 xs	= curry4 ( `elem` xs )
 
 possessions	= [(B,J),(T,J),(E,J)]
 appreciation	= [ (D,Unspec,A),(D,Unspec,F) ]
-qualities	= [ (B,A),(T,G) ]
+qualities	= [ (B,A),(T,G),(B,X),(T,X),(E,X) ]
 conflict	= []
 supervision	= []
 isBoss	= pred1 $ map fst supervision

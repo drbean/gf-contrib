@@ -78,6 +78,29 @@ all_tests =
 		ditransitive_tests ++ relclauses ++ relppR_test
 		-- ++ wh_questions ++ comp_wh_questions
 		-- ++ ungrammatical
+quality_test = [
+  "Does Eva have experience?"
+  , "Is Eva experienced?"
+  , "Does Barbara have ambition?"
+  , "Is Barbara ambitious?"
+  , "Does Barbara have experience?"
+  , "Is Barbara experienced?"
+  , "Does Tadeusz have good judgement?"
+  , "Is Tadeusz experienced?"
+  ]
+
+working_test = [
+
+	"Does Barbara work?"
+	, "Does Tadeusz have work?"
+	, "Does Eva have a job?"
+	, "Who works?"
+	, "Who has work?"
+	, "Who has a job?"
+	, "Barbara works doesn't she?"
+	, "Eva has work doesn't she?"
+	, "Eva has a job doesn't she?"
+	]
 
 student_tag_tests = [
 	-- "Eva had been with Fast-Track for one year, hadn't she?"
@@ -88,20 +111,20 @@ student_tag_tests = [
 	]
 
 student_yn_tests = [
-	"Did Barbara want to improve her English?",
-	"Was Barbara a good team-player?",
-	"Did Eva have a college degree?",
-	"Was Tadeusz a hard worker?",
-	"Did Tadeuszs have successful sales experience?",
-	"Did Barbara have confidence?",
-	"Was Tadeusz a sales manager?",
+	"Does Barbara want to improve her English?",
+	"Is Barbara a good team-player?",
+	"Does Eva have a college degree?",
+	"Is Tadeusz a hard worker?",
+	"Does Tadeuszs have successful sales experience?",
+	"Does Barbara have confidence?",
+	"Is Tadeusz a sales manager?",
+	"Is Tadeusz thirty-years-old?",
+	"Does Barbara feel nervous?",
 	"Could Barbara speak German?",
 	"Were the three people comfortable when they faced difficulties?",
 	"Were they all Polish?",
-	"Did Barbara feel nervous?",
 	"Could Eva speak Polish?",
-	"Could Barbara speak Polish?",
-	"Was Tadeusz thirty-years-old?"
+	"Could Barbara speak Polish?"
 	]
 
 student_tests_wh = [
@@ -167,50 +190,53 @@ test_text = [
 	]
 
 comp_test1 = [
-	"Barbara was strong.",
-	"Barbara was aggressive.",
-	"Barbara was a sales representative.",
-	"Barbara was Eva's co-worker.",
-	"Barbara was a successful woman.",
-	"Barbara was a man.",
-	"Barbara was a woman.",
-	"Barbara was a sales manager",
-	"A man was Tadeusz.",
-	"A woman was Eva.",
-	"The woman was Eva.",
-	"Barbara was a German woman.",
-	"Barbara was the German woman.",
-	"A German woman was Barbara.",
-	"A ambitious woman was Barbara.",
-	"The ambitious woman was Barbara.",
-	"The German woman was Barbara.",
-	-- "The successful German woman was Barbara.",
-	-- "Barbara was the successful German woman.",
-	"Dr Bean was the German woman's co-worker.",
-	"Dr Bean was the German woman's boss.",
-	"Dr Bean was a German woman's boss.",
-	"Dr Bean was an ambitious woman's boss.",
-	"Dr Bean was an ambitious woman's co-worker.",
-	"Dr Bean was the ambitious women's co-worker.",
-	"Eva was the ambitious women's co-worker.",
-	"Eva was an ambitious woman's co-worker.",
-	"Eva was the German woman's co-worker.",
-	"Eva was a German woman's co-worker.",
-	"Eva was Barbara's co-worker.",
-	"Dr Bean was Barbara's co-worker.",
-	"Dr Bean was Tadeusz's co-worker.",
-	"Dr Bean was Barbara's boss.",
-	"Dr Bean was Eva's boss.",
-	"Barbara was Eva's boss.",
-	"Barbara was Eva's co-worker.",
-	"Barbara was Dr Bean's co-worker.",
-	"Some women were ambitious.",
-	"Dr Bean was a co-worker and Eva was a co-worker.",
-	"Dr Bean was a woman and Eva was a woman",
-	"Some co-workers were women.",
-	"Some women were co-workers.",
-	"All co-workers were women.",
-	"All women were co-workers.",
+	"Is Eva Polish?",
+	"Eva is Polish, isn't she?",
+	"Barbara is strong, isn't she?",
+	"Barbara is aggressive, isn't she?",
+	"Barbara is a sales representative, isn't she?",
+	"Barbara is Eva's co-worker, isn't she?",
+	"Is Barbara a successful woman?",
+	"Barbara is a successful woman, isn't she?",
+	"Barbara is a man, isn't she?",
+	"Barbara is a woman, isn't she?",
+	"Barbara is a sales manage, isn't she?",
+	"A man is Tadeusz, isn't he?",
+	"A woman is Eva, isn't she?",
+	"The woman is Eva, isn't she?",
+	"Barbara is a German woman, isn't she?",
+	"Barbara is the German woman, isn't she?",
+	"A German woman is Barbara, isn't she?",
+	"A ambitious woman is Barbara, isn't she?",
+	"The ambitious woman is Barbara, isn't she?",
+	"The German woman is Barbara, isn't she?",
+	-- "The successful German woman is Barbara, isn't she?",
+	-- "Barbara is the successful German woman, isn't she?",
+	"Dr Bean is the German woman's co-worker, isn't he?",
+	"Dr Bean is the German woman's boss, isn't he?",
+	"Dr Bean is a German woman's boss, isn't he?",
+	"Dr Bean is an ambitious woman's boss, isn't he?",
+	"Dr Bean is an ambitious woman's co-worker, isn't he?",
+	"Dr Bean is the ambitious women's co-worker, isn't he?",
+	"Eva is the ambitious women's co-worker, isn't she?",
+	"Eva is an ambitious woman's co-worker, isn't she?",
+	"Eva is the German woman's co-worker, isn't she?",
+	"Eva is a German woman's co-worker, isn't she?",
+	"Eva is Barbara's co-worker, isn't she?",
+	"Dr Bean is Barbara's co-worker, isn't he?",
+	"Dr Bean is Tadeusz's co-worker, isn't he?",
+	"Dr Bean is Barbara's boss, isn't he?",
+	"Dr Bean is Eva's boss, isn't he?",
+	"Barbara is Eva's boss, isn't she?",
+	"Barbara is Eva's co-worker, isn't she?",
+	"Barbara is Dr Bean's co-worker, isn't she?",
+	"Some women were ambitious, isn't she?",
+	"Dr Bean is a co-worker and Eva is a co-worker, isn't he?",
+	"Dr Bean is a woman and Eva is a woma, isn't he?",
+	"Some co-workers were women, isn't she?",
+	"Some women were co-workers, isn't she?",
+	"All co-workers were women, isn't she?",
+	"All women were co-workers, isn't she?",
 	"All ambitious women were successful."
 	]
 
@@ -702,3 +728,5 @@ to_inf_test = [
 -- lf73 = \x -> Conj [ (Rel "boss" [x]), (Rel "have" [x, Const (ents !! 17)]) ]
 -- lf74 = ( \x -> ( Conj [ (Rel "boss" [x]), (Rel "have" [x, Const (ents !! 17)]) ] ) )
 -- lf75 = \x -> Impl (Rel "boss" [x]) (Rel "have" [x, Const (ents !! 17)])
+
+-- vim: set ts=8 sts=2 sw=2 noet:

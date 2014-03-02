@@ -37,7 +37,6 @@ fun
 	Yes, No, NoAnswer	: Utt;
 
 	Entity	: PN -> NP;
-	MassN	: A -> N -> NP;
 	Kind	: AP -> CN -> CN;
 	Item	: Det -> CN -> NP;
 	Ofpos	: N2 -> NP -> CN;
@@ -86,6 +85,7 @@ fun
 	confident	: AP;
 	difficult	: AP;
 	each	: AP;
+	experienced	: AP;
 	fast	: AP;
 	few	: AP;
 	five	: AP;
@@ -121,7 +121,7 @@ fun
 	director	: CN;
 	director_2	: N2;
 	effort	: CN;
-	experience	: CN;
+	experience	: NP;
 	hand	: CN;
 	head	: CN;
 	job	: CN;
@@ -151,6 +151,7 @@ fun
 	training	: CN;
 	way	: CN;
 	woman	: CN;
+	work  : NP;
 	year	: CN;
 
 	barbara	: PN;

@@ -48,6 +48,7 @@ oper
 	confident_A	: A;
 	difficult_A	: A;
 	each_A	: A;
+	experienced_A	: A;
 	fast_A	: A;
 	few_A	: A;
 	five_A	: A;
@@ -112,6 +113,7 @@ oper
 	training_N	: N;
 	way_N	: N;
 	woman_N	: N;
+	work_N	: N;
 	year_N	: N;
 
 	barbara_N	: N;

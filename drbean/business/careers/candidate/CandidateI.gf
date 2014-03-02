@@ -102,6 +102,7 @@ lin
 	confident	= mkAP confident_A;
 	difficult	= mkAP difficult_A;
 	each	= mkAP each_A;
+	experienced	= mkAP experienced_A;
 	fast	= mkAP fast_A;
 	few	= mkAP few_A;
 	five	= mkAP five_A;
@@ -137,7 +138,7 @@ lin
 	director	= mkCN director_N;
 	director_2	= director_N2;
 	effort	= mkCN effort_N;
-	experience	= mkCN experience_N;
+	experience	= mkNP experience_N;
 	hand	= mkCN hand_N;
 	head	= mkCN head_N;
 	job	= mkCN job_N;
@@ -166,6 +167,7 @@ lin
 	training	= mkCN training_N;
 	way	= mkCN way_N;
 	woman	= mkCN woman_N;
+	work	= mkNP work_N;
 	year	= mkCN year_N;
 
 	barbara	= mkPN barbara_N;
