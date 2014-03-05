@@ -1,4 +1,4 @@
-incomplete concrete CandidateI of Candidate = open Syntax, ParadigmsEng, LexCandidate in {
+incomplete concrete CandidateI of Candidate = open Syntax, ParadigmsEng, ExtraEng, LexCandidate in {
 
 lincat
 	Utt	= Syntax.Utt;
@@ -57,6 +57,7 @@ lin
 	Entity pn	= mkNP pn;
 	Kind ap cn	= mkCN ap cn;
 	Ofpos n2 np	= mkCN n2 np;
+	Apos np	= mkDet (GenNP np);
 	Item det noun	= mkNP det noun;
 
 	a_Det	= LexCandidate.a_Det;
@@ -95,6 +96,7 @@ lin
 	tell	= tell_V2S;
 	think	= think_VS;
 	work_V	= LexCandidateEng.work_V;
+	work_in	= work_in_V;
 
 	ambitious	= mkAP ambitious_A;
 	bad	= mkAP bad_A;
@@ -156,7 +158,8 @@ lin
 	respect	= mkCN respect_N;
 	result	= mkCN result_N;
 	risk	= mkCN risk_N;
-	sales	= mkCN sales_N;
+	sales_department	= mkCN sales_A department;
+	sales_experience	= mkNP (mkCN sales_A experience_N);
 	share	= mkCN share_N;
 	system	= mkCN system_N;
 	team	= mkCN team_N;

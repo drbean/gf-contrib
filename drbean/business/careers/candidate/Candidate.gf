@@ -45,6 +45,7 @@ fun
 	zero_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
 	the_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
 	thePlural_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
+	Apos  : NP -> Det;
 
 	who_WH	: IP;
 	what_WH	: IP;
@@ -78,6 +79,7 @@ fun
 	tell	: V2S;
 	think	: VS;
 	work_V	: V;
+	work_in	: V2;
 
 	ambitious	: AP;
 	bad	: AP;
@@ -140,7 +142,8 @@ fun
 	respect	: CN;
 	result	: CN;
 	risk	: CN;
-	sales	: CN;
+	sales_department	: CN;
+	sales_experience	: NP;
 	share	: CN;
 	system	: CN;
 	team	: CN;
