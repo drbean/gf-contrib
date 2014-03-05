@@ -41,6 +41,7 @@ oper
 	tell_V2S	: V2S;
 	think_VS	: VS;
 	work_V	: V;
+	work_in_V	: V2;
 
 	ambitious	= mkAP ambitious_A;
 	bad_A	: A;
@@ -67,6 +68,7 @@ oper
 	possible_A	: A;
 	realistic_A	: A;
 	safe_A	: A;
+	sales_A	: A;
 	soon_A	: A;
 	successful_A	: A;
 	true_A	: A;
@@ -102,7 +104,6 @@ oper
 	respect_N	: N;
 	result_N	: N;
 	risk_N	: N;
-	sales_N	: N;
 	share_N	: N;
 	system_N	: N;
 	team_N	: N;

@@ -9,7 +9,8 @@ oper
 	who_WH	= whoSg_IP;
 	what_WH	= whatSg_IP;
 
-	of_prep	=  possess_Prep;
+	of_prep	= possess_Prep;
+	in_prep = in_Prep;
 
 	yes_Utt	= SyntaxEng.yes_Utt;
 	no_Utt	= SyntaxEng.no_Utt;
@@ -41,6 +42,7 @@ oper
 	tell_V2S = mkV2S IrregEng.tell_V noPrep;
 	think_VS = mkVS (IrregEng.think_V);
 	work_V	 = mkV "work";
+	work_in_V	 = mkV2 work_V in_prep;
 
 	allow_V = mkV "allow";
 	apply_V = mkV "apply";
@@ -88,6 +90,7 @@ oper
 	possible_A	= mkA "possible";
 	realistic_A	= mkA "realistic";
 	safe_A	= mkA "safe";
+	sales_A	= mkA "sales";
 	soon_A	= mkA "soon";
 	successful_A	= mkA "successful";
 	true_A	= mkA "true";
@@ -123,7 +126,6 @@ oper
 	respect_N	= mkN "respect";
 	result_N	= mkN "result";
 	risk_N	= mkN "risk";
-	sales_N	= mkN "sales";
 	share_N	= mkN "share";
 	system_N	= mkN "system";
 	team_N	= mkN "team";
