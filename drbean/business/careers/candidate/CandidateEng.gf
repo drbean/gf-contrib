@@ -1,4 +1,4 @@
---# -path=.:./gf-contrib/drbean/conversation/work/dickson:present
+--# -path=.:./gf-contrib/drbean/business/careers/candidate:present
 
 concrete CandidateEng of Candidate = CandidateI with
   (Syntax = SyntaxEng),
@@ -37,6 +37,9 @@ oper
     };
 
 lin
+
+-- Apos np = let n = npNumber np
+--   in {s = ( np.n ! genitive ) ++ "'s" };
 
  TagQ np vp	= let
    cl = mkCl np vp;
