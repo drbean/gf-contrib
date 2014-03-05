@@ -60,7 +60,7 @@ linear :: (Tree -> Tree) -> PGF -> [Tree] -> [ String ]
 linear tr gr ps = concat $ map ((linearizeAll gr) . tr) ps
 
 lc_first :: String -> String
-lc_first str@(s:ss) = case ( or $ map (flip isPrefixOf str) ["Alf", "Dee"] ) of
+lc_first str@(s:ss) = case ( or $ map (flip isPrefixOf str) ["Barbara", "Tadeusz", "Eva", "Fast-Track", "Dr Bean"] ) of
 	True  -> (s:ss)
 	False -> ((toLower s):ss)
 
@@ -78,6 +78,17 @@ all_tests =
 		ditransitive_tests ++ relclauses ++ relppR_test
 		-- ++ wh_questions ++ comp_wh_questions
 		-- ++ ungrammatical
+fast_track = [
+  "Is Fast-Track a company?"
+  , "Does Eva work in Fast-Track?"
+  ]
+
+sales_test = [
+  "Eva has sales experience doesn't she?"
+  , "Does Eva work in the sales department?"
+  , "Does Eva have sales experience?"
+  ]
+
 quality_test = [
   "Does Eva have experience?"
   , "Is Eva experienced?"
