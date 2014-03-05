@@ -1,4 +1,4 @@
-incomplete concrete DicksonI of Dickson = open Syntax, ParadigmsEng, LexDickson in {
+incomplete concrete DicksonI of Dickson = open Syntax, ParadigmsEng, ExtraEng, LexDickson in {
 
 lincat
 	Utt	= Syntax.Utt;
@@ -57,6 +57,7 @@ lin
 	Entity pn	= mkNP pn;
 	Kind ap cn	= mkCN ap cn;
 	Ofpos n2 np	= mkCN n2 np;
+	Apos np	= mkDet (GenNP np);
 	Item det noun	= mkNP det noun;
 
 	a_Det	= LexDickson.a_Det;

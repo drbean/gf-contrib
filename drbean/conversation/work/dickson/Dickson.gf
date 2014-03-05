@@ -45,6 +45,7 @@ fun
 	zero_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
 	the_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
 	thePlural_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
+	Apos  : NP -> Det;
 
 	who_WH	: IP;
 	what_WH	: IP;
