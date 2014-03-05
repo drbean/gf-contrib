@@ -81,9 +81,9 @@ working_test = [
 	, "Who works?"
 	, "Who has work?"
 	, "Who has a job?"
-	, "Dee works doesn't she?"
-	, "Dee has work doesn't she?"
-	, "Dee has a job doesn't she?"
+	, "Dee works, doesn't she?"
+	, "Dee has work, doesn't she?"
+	, "Dee has a job, doesn't she?"
 	]
 
 test_text = [
