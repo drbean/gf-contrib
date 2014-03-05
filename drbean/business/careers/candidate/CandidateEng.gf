@@ -38,9 +38,6 @@ oper
 
 lin
 
--- Apos np = let n = npNumber np
---   in {s = ( np.n ! genitive ) ++ "'s" };
-
  TagQ np vp	= let
    cl = mkCl np vp;
  in
