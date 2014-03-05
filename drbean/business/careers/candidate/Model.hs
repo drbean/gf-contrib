@@ -84,6 +84,7 @@ onePlacers = [
 	, ("degree",	 pred1 [D] )
 	, ("aim",	 pred1 [A] )
 	, ("company",	 pred1 [F] )
+	, ("department",	 pred1 [F] )
 	, ("story",	 pred1 [Y] )
 	, ("job",	 pred1 [J] )
 	, ("work",	 pred1 $ [J] ++ map agent working )

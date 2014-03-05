@@ -52,6 +52,7 @@ uncount_list :: GNP -> String
 uncount_list Gwork	= "work"
 uncount_list Ggood_judgement	= "good judgement"
 uncount_list Gexperience	= "experience"
+uncount_list Gsales_experience	= "experience"
 
 kind_list :: GCN -> String
 kind_list Gability	= "ability"
@@ -80,7 +81,7 @@ kind_list Gpolish_N	= "Polish"
 kind_list Grespect	= "respect"
 kind_list Gresult	= "result"
 kind_list Grisk	= "risk"
-kind_list Gsales	= "sales"
+kind_list Gsales_department	= "department"
 kind_list Gshare	= "share"
 kind_list Gsystem	= "system"
 kind_list Gteam	= "team"
@@ -112,6 +113,7 @@ changing_list Glift 	= "lift"
 changing_list Glike 	= "like"
 changing_list Gprove	= "prove"
 changing_list Gsee  	= "see"
+changing_list Gwork_in  	= "work"
 
 causative_list :: GV2V -> String
 causative_list Gtake	= "take"
@@ -205,7 +207,6 @@ relations = [
 
 
 
-	, ( "work",	\[x]	-> predid1 "work" x	)
 	, ( "laugh",	\[x] -> predid1 "laugh" x	)
 	, ( "know",	\[x]	-> predid1 "know" x	)
 	, ( "look_here",	\[x]	-> predid1 "look_here" x	)
