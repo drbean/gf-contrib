@@ -1,6 +1,6 @@
 module LogicalForm where
 
-import Candidate
+import Dickson
 import Model
 -- import Interpretation
 import Story_Interpretation
@@ -196,9 +196,9 @@ transNP thing	| rel <- uncount_list thing = \p -> Exists ( \v -> Conj [ p v, Rel
 --    \p -> Exists (\thing -> Conj [ p thing, transCN cn thing, transNP np (\owner -> (Rel "had" [owner,thing]))])
 
 transDet :: GDet -> (Term -> LF) -> (Term -> LF) -> LF
---transDet (Branch (Cat _ "DET" _ _) [np,Leaf (Cat "'s" "APOS" _ _) ]) =
---    \ p q -> Exists (\v -> Conj [ Single p, p v, q v, transNP np
---	(\mod -> Rel "had" [mod, v] )])
+transDet (GApos owner) =
+    \ p q -> Exists (\v -> Conj [ Single p, p v, q v, transNP owner
+	(\mod -> Rel "have" [mod, v] )])
 transDet Gthe_Det =  \ p q -> Exists (\v -> Conj [Single p, p v, q v] )
 transDet GthePlural_Det =  \ p q -> Several (\v -> Conj [p v, q v] )
 --transDet (Leaf (Cat "every" "DET" _ _)) =
