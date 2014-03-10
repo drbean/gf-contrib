@@ -94,6 +94,7 @@ onePlacers = [
 	, ("ambitious",	 pred1 [B] )
 	, ("competitive",	 pred1 [B] )
 	, ("confident",	 pred1 [B] )
+	, ("outgoing",	 pred1 [B] )
 	, ("difficult",	 pred1 [B] )
 	, ("experienced",	 pred1 [B,T,E] )
 	, ("polish",	 pred1 [B,T] )
