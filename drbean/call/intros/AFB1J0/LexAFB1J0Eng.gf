@@ -1,4 +1,4 @@
-instance LexDicksonEng of LexDickson = open SyntaxEng, ParadigmsEng, Prelude, IrregEng in {
+instance LexAFB1J0Eng of LexAFB1J0 = open SyntaxEng, ParadigmsEng, Prelude, IrregEng in {
 
 oper
 
@@ -21,6 +21,7 @@ oper
 	get_along_V2	= mkV2 "get" "along_with";
 	get_V2	= mkV2 "get";
 	go_V2	= mkV2 IrregEng.go_V "to";
+	graduate_V2	= mkV2 "graduate" "from";
 	have_V2	= mkV2 (IrregEng.have_V);
 	hire_V2	= mkV2 "hire";
 	interview_V2	= mkV2 "interview";

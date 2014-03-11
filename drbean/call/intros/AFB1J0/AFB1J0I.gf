@@ -1,4 +1,4 @@
-incomplete concrete DicksonI of Dickson = open Syntax, ParadigmsEng, ExtraEng, LexDickson in {
+incomplete concrete AFB1J0I of AFB1J0 = open Syntax, ParadigmsEng, ExtraEng, LexAFB1J0 in {
 
 lincat
 	Utt	= Syntax.Utt;
@@ -50,9 +50,9 @@ lin
 	Ut q	= mkUtt q;
 	Sentence subject predicate	= mkCl subject predicate;
 
-	Yes	= LexDickson.yes_Utt;
-	No	= LexDickson.no_Utt;
-	NoAnswer	= LexDickson.no_answer_Utt;
+	Yes	= LexAFB1J0.yes_Utt;
+	No	= LexAFB1J0.no_Utt;
+	NoAnswer	= LexAFB1J0.no_answer_Utt;
 
 	Entity pn	= mkNP pn;
 	Kind ap cn	= mkCN ap cn;
@@ -60,26 +60,27 @@ lin
 	Apos np	= mkDet (GenNP np);
 	Item det noun	= mkNP det noun;
 
-	a_Det	= LexDickson.a_Det;
-	zero_Det	= LexDickson.zero_Det;
-	the_Det	= LexDickson.the_Det;
-	thePlural_Det = LexDickson.thePlural_Det;
+	a_Det	= LexAFB1J0.a_Det;
+	zero_Det	= LexAFB1J0.zero_Det;
+	the_Det	= LexAFB1J0.the_Det;
+	thePlural_Det = LexAFB1J0.thePlural_Det;
 
-	who_WH	= LexDickson.who_WH;
-	what_WH	= LexDickson.what_WH;
+	who_WH	= LexAFB1J0.who_WH;
+	what_WH	= LexAFB1J0.what_WH;
 
-	of_prep	= LexDickson.of_prep;
+	of_prep	= LexAFB1J0.of_prep;
 
 	become	= become_V2;
-	can	= LexDickson.can_VV;
+	can	= LexAFB1J0.can_VV;
 	get_along	= get_along_V2;
 	get	= get_V2;
 	go	= go_V2;
-	have	= LexDickson.have_V2;
+	graduate	= graduate_V2;
+	have	= LexAFB1J0.have_V2;
 	hire	= hire_V2;
 	interview	= interview_V2;
 	know	= know_V;
-	know_VS	= LexDickson.know_VS;
+	know_VS	= LexAFB1J0.know_VS;
 	laugh	= laugh_V;
 	lift	= lift_V2;
 	like	= like_V2;
@@ -95,7 +96,7 @@ lin
 	take	= take_V2V;
 	tell	= tell_V2S;
 	think	= think_VS;
-	work_V	= LexDicksonEng.work_V;
+	work_V	= LexAFB1J0Eng.work_V;
 
 	bad	= mkAP bad_A;
 	better	= mkAP better_A;

@@ -1,4 +1,4 @@
-interface LexDickson = open Syntax in {
+interface LexAFB1J0 = open Syntax in {
 oper
 
 	a_Det	: Det;
@@ -20,6 +20,7 @@ oper
 	get_along_V2	: V2;
 	get_V2	: V2;
 	go_V2	: V2;
+	graduate_V2	: V2;
 	have_V2	: V2;
 	hire_V2	: V2;
 	interview_V2	: V2;

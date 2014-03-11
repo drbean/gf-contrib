@@ -1,4 +1,4 @@
-abstract Dickson = Cat ** {
+abstract AFB1J0 = Cat ** {
 
 
   flags startcat = Utt ;
@@ -57,6 +57,7 @@ fun
 	get	: V2;
 	get_along	: V2;
 	go	: V2;
+	graduate  : V2;
 	have	: V2;
 	hire	: V2;
 	interview	: V2;
