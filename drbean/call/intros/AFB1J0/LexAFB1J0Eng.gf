@@ -12,6 +12,7 @@ oper
 
 	of_prep	=  possess_Prep;
 	in_prep	=  in_Prep;
+	from_prep	=  from_Prep;
 
 	yes_Utt	= SyntaxEng.yes_Utt;
 	no_Utt	= SyntaxEng.no_Utt;
@@ -90,7 +91,10 @@ oper
 	work_N	= mkN "work";
 
 	oliver_N	= mkN masculine (mkN "Oliver");
-	jeremy_N	= mkN feminine (mkN "Jeremy");
-	may_N = mkN nonhuman (mkN "May");
+	jeremy_N	= mkN masculine (mkN "Jeremy");
+	may_N = mkN feminine (mkN "May");
+	taoyuan_N	= mkN nonhuman (mkN "Taoyuan");
 
 }
+
+-- vim: set ts=8 sts=2 sw=2 noet:

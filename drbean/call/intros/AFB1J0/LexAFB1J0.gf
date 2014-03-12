@@ -11,6 +11,7 @@ oper
 
 	of_prep	: Prep;
 	in_prep	: Prep;
+	from_prep	: Prep;
 
 	yes_Utt	: Utt;
 	no_Utt	: Utt;
@@ -90,5 +91,8 @@ oper
 	oliver_N	: N;
 	jeremy_N	: N;
 	may_N	: N;
+	taoyuan_N	: N;
 
 }
+
+-- vim: set ts=8 sts=2 sw=2 noet:
