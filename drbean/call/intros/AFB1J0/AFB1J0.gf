@@ -10,6 +10,9 @@ fun
 	Be_bad	: AP -> Comp;
 	Be_dee	: NP -> Comp;
 	Be_vp	: Comp -> VP;
+
+	Location:   Prep -> NP -> Adv;
+
 	Happening	: V -> VP ;
 	Changing	: V2 -> NP -> VP;
 	Causative:	V2V -> NP -> VP -> VP;
@@ -51,9 +54,11 @@ fun
 	what_WH	: IP;
 
 	of_prep	: Prep;
+	in_prep	: Prep;
 
 	become	: V2;
 	can	: VV;
+	be_born	: VP;
 	get	: V2;
 	get_along	: V2;
 	go	: V2;
@@ -125,9 +130,10 @@ fun
 	word	: CN;
 	work	: NP;
 
-	alf	: PN;
-	dee	: PN;
-	monday	: PN;
+	oliver	: PN;
+	jeremy	: PN;
+	may	: PN;
+	taoyuan	: PN;
 
 }
 

@@ -5,6 +5,7 @@ lincat
 	PN	= Syntax.PN;
 	NP	= Syntax.NP;
 	AP	= Syntax.AP;
+	Adv	= Syntax.Adv;
 	Comp	= Syntax.Comp;
 	Cl	= Syntax.Cl;
 	QCl	= Syntax.QCl;
@@ -32,6 +33,8 @@ lin
 	Be_dee np	= mkComp np;
 	Be_vp comp	= mkVP comp;
 	Look_bad verb adj	= mkVP verb adj;
+
+	Location prep item	= mkAdv prep item;
 	Happening action	=	mkVP action;
 	Changing action patient	= mkVP action patient;
 	Causative causal patient predicate	= mkVP causal patient predicate;
@@ -69,9 +72,11 @@ lin
 	what_WH	= LexAFB1J0.what_WH;
 
 	of_prep	= LexAFB1J0.of_prep;
+	in_prep	= LexAFB1J0.in_prep;
 
 	become	= become_V2;
 	can	= LexAFB1J0.can_VV;
+	be_born	= be_born_VP;
 	get_along	= get_along_V2;
 	get	= get_V2;
 	go	= go_V2;
@@ -142,9 +147,10 @@ lin
 	word	= mkCN word_N;
 	work	= mkNP work_N;
 
-	alf	= mkPN alf_N;
-	dee	= mkPN dee_N;
-	monday	= mkPN monday_N;
+	oliver	= mkPN oliver_N;
+	jeremy	= mkPN jeremy_N;
+	may	= mkPN may_N;
 
 }
 
+-- vim: set ts=8 sts=2 sw=2 noet:

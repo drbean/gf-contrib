@@ -10,6 +10,7 @@ oper
 	what_WH	: IP;
 
 	of_prep	: Prep;
+	in_prep	: Prep;
 
 	yes_Utt	: Utt;
 	no_Utt	: Utt;
@@ -17,6 +18,7 @@ oper
 
 	become_V2	: V2;
 	can_VV	: VV;
+	be_born_VP	: VP;
 	get_along_V2	: V2;
 	get_V2	: V2;
 	go_V2	: V2;
@@ -85,8 +87,8 @@ oper
 	word_N	: N;
 	work_N	: N;
 
-	alf_N	: N;
-	dee_N	: N;
-	monday_N	: N;
+	oliver_N	: N;
+	jeremy_N	: N;
+	may_N	: N;
 
 }

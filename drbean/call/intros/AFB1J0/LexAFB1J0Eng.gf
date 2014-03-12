@@ -11,6 +11,7 @@ oper
 	what_WH	= whatSg_IP;
 
 	of_prep	=  possess_Prep;
+	in_prep	=  in_Prep;
 
 	yes_Utt	= SyntaxEng.yes_Utt;
 	no_Utt	= SyntaxEng.no_Utt;
@@ -18,6 +19,7 @@ oper
 
 	become_V2	= mkV2 (IrregEng.become_V);
 	can_VV	= SyntaxEng.can_VV;
+	be_born_VP	= passiveVP (mkV2 IrregEng.bear_V);
 	get_along_V2	= mkV2 "get" "along_with";
 	get_V2	= mkV2 "get";
 	go_V2	= mkV2 IrregEng.go_V "to";
@@ -87,8 +89,8 @@ oper
 	word_N	= mkN "word";
 	work_N	= mkN "work";
 
-	alf_N	= mkN masculine (mkN "Alf");
-	dee_N	= mkN feminine (mkN "Dee");
-	monday_N = mkN nonhuman (mkN "Monday");
+	oliver_N	= mkN masculine (mkN "Oliver");
+	jeremy_N	= mkN feminine (mkN "Jeremy");
+	may_N = mkN nonhuman (mkN "May");
 
 }
