@@ -63,6 +63,7 @@ fun
 
 	become	: V2;
 	can	: VV;
+	come  : V;
 	get	: V2;
 	get_along	: V2;
 	go	: V2;

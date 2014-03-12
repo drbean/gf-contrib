@@ -80,6 +80,7 @@ lin
 
 	become	= become_V2;
 	can	= LexAFB1J0.can_VV;
+	come  = come_V;
 	get_along	= get_along_V2;
 	get	= get_V2;
 	go	= go_V2;
