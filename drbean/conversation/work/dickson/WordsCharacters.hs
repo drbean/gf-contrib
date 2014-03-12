@@ -85,7 +85,8 @@ conj = [
 
 
 det = [
-	"a"
+	"'s"
+	, "a"
 	, "an"
 	, "my"
 	, "no"
@@ -105,6 +106,7 @@ n = [
 	, "end"
 	, "families"
 	, "family"
+	, "father"
 	, "graduation"
 	, "guy"
 	, "guys"
