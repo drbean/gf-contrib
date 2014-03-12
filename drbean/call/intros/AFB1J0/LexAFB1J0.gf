@@ -19,7 +19,6 @@ oper
 
 	become_V2	: V2;
 	can_VV	: VV;
-	be_born_VP	: VP;
 	get_along_V2	: V2;
 	get_V2	: V2;
 	go_V2	: V2;

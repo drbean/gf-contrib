@@ -20,7 +20,6 @@ oper
 
 	become_V2	= mkV2 (IrregEng.become_V);
 	can_VV	= SyntaxEng.can_VV;
-	be_born_VP	= passiveVP (mkV2 IrregEng.bear_V);
 	get_along_V2	= mkV2 "get" "along_with";
 	get_V2	= mkV2 "get";
 	go_V2	= mkV2 IrregEng.go_V "to";

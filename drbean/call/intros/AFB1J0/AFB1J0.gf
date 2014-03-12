@@ -63,7 +63,6 @@ fun
 
 	become	: V2;
 	can	: VV;
-	be_born	: VP;
 	get	: V2;
 	get_along	: V2;
 	go	: V2;
