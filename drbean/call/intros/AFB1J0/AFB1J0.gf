@@ -11,6 +11,7 @@ fun
 	Be_dee	: NP -> Comp;
 	Be_vp	: Comp -> VP;
 
+
 	Location:   Prep -> NP -> Adv;
 
 	Happening	: V -> VP ;
@@ -19,6 +20,7 @@ fun
 	Intens:	VV -> VP -> VP;
 	Positing:	VS -> S -> VP;
 	Informing:	V2S -> NP -> S -> VP;
+	Located:  VP -> Adv -> VP;
 	YN	: Cl -> QCl;
 
 	TagQ	: NP -> VP -> QCl;
@@ -41,6 +43,7 @@ fun
 
 	Entity	: PN -> NP;
 	Kind	: AP -> CN -> CN;
+	KindOfKind  : CN -> Adv -> CN;
 	Item	: Det -> CN -> NP;
 	Ofpos	: N2 -> NP -> CN;
 
@@ -55,6 +58,7 @@ fun
 
 	of_prep	: Prep;
 	in_prep	: Prep;
+	from_prep	: Prep;
 
 	become	: V2;
 	can	: VV;

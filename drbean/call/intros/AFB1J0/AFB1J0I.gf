@@ -41,6 +41,7 @@ lin
 	Intens attitude predicate	= mkVP attitude predicate;
 	Positing posit event	= mkVP posit event;
 	Informing posit patient event	= mkVP posit patient event;
+	Located action location	= mkVP action location;
 	YN cl	= mkQCl cl;
 	-- WH_Cop ip comp	= mkQCl ip comp;
 	WH_NP ip np	= mkQCl ip np;
@@ -59,6 +60,7 @@ lin
 
 	Entity pn	= mkNP pn;
 	Kind ap cn	= mkCN ap cn;
+	KindOfKind cn adv	= mkCN cn adv;
 	Ofpos n2 np	= mkCN n2 np;
 	Apos np	= mkDet (GenNP np);
 	Item det noun	= mkNP det noun;
@@ -73,6 +75,7 @@ lin
 
 	of_prep	= LexAFB1J0.of_prep;
 	in_prep	= LexAFB1J0.in_prep;
+	from_prep	= LexAFB1J0.from_prep;
 
 	become	= become_V2;
 	can	= LexAFB1J0.can_VV;
@@ -150,6 +153,7 @@ lin
 	oliver	= mkPN oliver_N;
 	jeremy	= mkPN jeremy_N;
 	may	= mkPN may_N;
+	taoyuan	= mkPN taoyuan_N;
 
 }
 
