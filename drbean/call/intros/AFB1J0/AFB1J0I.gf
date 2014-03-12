@@ -30,6 +30,7 @@ lin
 	-- Is item quality	=	mkCl item quality;
 	-- Cop item1 item2	= mkCl item1 item2;
 	Be_bad ap	= mkComp ap;
+	Be_mod located	= mkComp located;
 	Be_someone np	= mkComp np;
 	Be_vp comp	= mkVP comp;
 	Look_bad verb adj	= mkVP verb adj;
