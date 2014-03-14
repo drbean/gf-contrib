@@ -73,6 +73,10 @@ chomp []                      = []
 chomp (x:xs) | x `elem` ".,?" = chomp xs
             | otherwise      =     x:chomp xs
 
+likes_test = [
+  "Does Dee like the job?"
+
+  ]
 working_test = [
 
 	"Does Dee work?"
@@ -146,6 +150,15 @@ test_possessives = [
 	, "Does the sister of Dee's son know English?"
 	]
 
+child_test = [
+  "Is Dee a child?"
+  , "Does Dee have a mother?"
+  , "Does Dee have a son?"
+  , "Does Dee have a daughter?"
+  , "Does Dee's father have children?"
+  , "Does the father of Dee have children?"
+  ] 
+
 haves = [
   "Does Dee have Dee's father?"
   , "Does Dee's father have money?"
@@ -156,9 +169,6 @@ haves = [
   , "Does Dee's father have Dee?"
   , "Does Dee have Dee's father?"
   , "Does Dee have Alf?"
-  , "Does Dee have a mother?"
-  , "Does Dee have a son?"
-  , "Does Dee have a daughter?"
   , "Does Dee's father have a mother?"
   , "Does Dee have work?"
   , "Does Dee have a job?"
@@ -166,6 +176,8 @@ haves = [
   , "Does Dee have money?"
   , "Does Dee's father have money?"
   , "Does Alf have money?"
+  , "Does Alf have a family?"
+  , "Does Dee have a family?"
   , "Does Dee have a parent?"
   , "Does Dee have some parents?"
   , "Does Dee have parents?"

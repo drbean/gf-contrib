@@ -151,6 +151,7 @@ relations = [
 	, ( "slow_down",	\[x]	-> predid1 "slow_down" x	)
 
 	, ( "hire",	\[x,y]	-> predid2 "hire" y x	)
+	, ( "like",	\[x,y]	-> predid2 "like" y x	)
 
 	]
 
