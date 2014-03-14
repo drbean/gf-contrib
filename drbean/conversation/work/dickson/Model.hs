@@ -24,7 +24,7 @@ entity_check =  [
     , (G, "" )	-- upbringing
     , (H, "Dee's ex-husband" )
     , (I, "" )	-- interviewer
-    , (J, "" )
+    , (J, "" )	-- job
     , (K, "" )	-- disappointment
     , (L, "" )
     , (M, "money" )	-- money
@@ -79,7 +79,7 @@ onePlacers = [
         , ("false",     pred1 [] )
         , ("role",      pred1 [] )
 
-	, ("child",	pred1 [C1,C2] )
+	, ("child",	pred1 $ map snd parenting )
 	, ("dad",	father )
 	, ("uncle",	pred1 [A] )
 	, ("superintendent",	 pred1 [A] )
@@ -106,8 +106,10 @@ onePlacers = [
 
 	, ("male",	 pred1 [A,F,W1,W2,W3,W4,W5,W6,I,C1,C2, GGF, GF] )
 	, ("female",	 pred1 [D] )
+	, ("family",  \x -> isParent x || isOffspring x )
 
 	, ("laugh", pred1 [D] )
+
 	]
 
 predid1 "father"  = predid1 "dad"
@@ -164,8 +166,8 @@ separations	= [ (H,D) ]
 --(boyfriend,girlfriend)
 -- unmarried_couples	= []
 --(contacter,contactee)
-possessions	= [ (D,J) ]
-appreciation	= [ (D,Unspec,A),(D,Unspec,F) ]
+possessions	= [ (A,M),(D,J) ]
+appreciation	= [ (D,Unspec,J),(D,Unspec,A),(D,Unspec,F) ]
 conflict	= []
 supervision	= []
 isBoss	= pred1 $ map fst supervision
