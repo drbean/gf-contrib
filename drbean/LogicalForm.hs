@@ -325,7 +325,6 @@ transVP (GBe_vp comp) = case comp of
     GBe_bad ap -> \x -> Rel (adjective_list ap) [x]
 transVP (GHappening v) =
         \ t -> ( Rel (happening_list v) [t] )
-transVP (GChanging Gbecome obj) = \subj -> transNP obj (\ obj -> Eq subj obj)
 transVP (GChanging v obj) = \subj -> transNP obj (\ obj -> Rel (changing_list v) [subj,obj])
 --transVP (Branch (Cat _ "VP" _ _) [Leaf (Cat name "V" _ [_]),obj1]) =
 --	case (catLabel ( t2c obj1 )) of
