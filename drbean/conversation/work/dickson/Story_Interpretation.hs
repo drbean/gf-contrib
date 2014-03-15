@@ -75,6 +75,7 @@ changing_list Ghire 	= "hire"
 changing_list Ginterview	= "interview"
 changing_list Glift 	= "lift"
 changing_list Glike 	= "like"
+changing_list Gneed 	= "need"
 changing_list Gprove	= "prove"
 changing_list Gsee  	= "see"
 
@@ -88,7 +89,7 @@ positing_list Gthink	= "think"
 
 intens_list :: GVV -> String
 intens_list Gcan	= "can"
-intens_list Gneed	= "need"
+intens_list Gneed_V	= "need"
 intens_list Gstart	= "start"
 
 objects = [
@@ -150,7 +151,10 @@ relations = [
 	, ( "know",	\[x]	-> predid1 "know" x	)
 	, ( "look_here",	\[x]	-> predid1 "look_here" x	)
 	, ( "slow_down",	\[x]	-> predid1 "slow_down" x	)
+	, ( "need_to_slow_down",	\[x]	-> predid1 "need_to_slow_down" x	)
 
+	, ( "say_need_to_slow_down",	\[x,y]	-> predid2 "say_need_to_slow_down" y x	)
+	, ( "need",	\[x,y]	-> predid2 "need" y x	)
 	, ( "become",	\[x,y]	-> predid2 "become" y x	)
 	, ( "can_to_lift",	\[x,y]	-> predid2 "can_to_lift" y x	)
 

@@ -103,6 +103,8 @@ onePlacers = [
   , ("superior",	pred1 $ map fst supervision )
   , ("subordinate",	pred1 $ map snd supervision )
 
+  , ("need_to_slow_down", pred1 [D] )
+
 	, ("little",	 pred1 [D] )
 	, ("mad",	 pred1 [D,H,W1,W2,W3,W4] )
 	, ("bad",	 pred1 [H,W1,W2,W3,W4] )
@@ -189,6 +191,8 @@ acquaintances	= []
 help	= pred2 $ supervision
 becoming  = [(D,R),(D,D)]
 can_to_lift = [(W1,T),(W3,T),(W5,T)]
+going = [(D,B)]
+needing = [(D,M),(D,J)]
 
 twoPlacers :: [(String, TwoPlacePred)]
 twoPlacers = [
@@ -207,6 +211,12 @@ twoPlacers = [
                 ++ [(worker, place) | (worker,period,place) <- working ])
     , ("studied", pred2 $ foldl (\hs (_,school,subject,student) ->
                     (student,subject): (student,school) : hs) [] schooling )
+    , ("go_to",	pred2 $ going ++ map (\x->(recipient4 x,location4 x) ) schooling )
+    , ("need",	pred2 needing )
+    , ("say_need_to_slow_down",        pred2 $ [ (s,r) | (s, (pred, r) ,_) <- comms,
+					      pred == "need_to_slow_down",
+					      r == D ] )
+
     ]
 
 curry3 :: ((a,b,c) -> d) -> a -> b -> c -> d
@@ -239,7 +249,10 @@ working	= [(A,Unspec,V),(I,Unspec,V),
 -- ship
 	(W1,R,B),(W2,R,B),(W3,R,B),(W4,R,B),(W5,R,B),(W6,R,B)]
 
-comms	= [ (I,Unspec,D),(F,Unspec,D),(F,Unspec,A),(A,Unspec,D),(A,Unspec,I) ]
+-- (speaker, content, referent)
+comms	= [ (W1, ("need_to_slow_down",D), D),(W2, ("need_to_slow_down",D), D)
+	    -- ,(I,Unspec,D),(F,Unspec,D),(F,Unspec,A),(A,Unspec,D),(A,Unspec,I)
+	    ]
 giving	= [ (V,J,D) ]
 --(agent,theme,location)
 looking_back	= [(D,C,V),(I,C,V)]
@@ -250,13 +263,12 @@ work_where	= pred2 $ map (\x -> (agent x, location x) ) working
 work_as = pred2 $ map (\x -> (agent x, theme x) ) working
 look_back	= pred1 $ map agent looking_back
 look_back_on	= pred2 $ map (\x->(agent x, theme x) ) looking_back
-said	= pred2 $ map (\x->(agent x, theme x) ) comms
-asked	= pred2 $ map (\x->(agent x, recipient x) ) comms
-ask_about = pred3 $ map (\x->(agent x, recipient x, theme x) ) comms
-talked	= pred2 $ map (\x->(agent x, recipient x) ) comms
-              ++  map (\(agent,theme,recipient)->(recipient, agent) ) comms
-talk_about = pred3 $ map (\x->(agent x, recipient x, theme x) ) comms
-go_to	= pred2 $ map (\x->(recipient4 x,location4 x) ) schooling
+-- say	= pred2 $ map (\x->(agent x, theme x) ) comms
+-- asked	= pred2 $ map (\x->(agent x, recipient x) ) comms
+-- ask_about = pred3 $ map (\x->(agent x, recipient x, theme x) ) comms
+-- talked	= pred2 $ map (\x->(agent x, recipient x) ) comms
+--               ++  map (\(agent,theme,recipient)->(recipient, agent) ) comms
+-- talk_about = pred3 $ map (\x->(agent x, recipient x, theme x) ) comms
 
 -- (teacher,school(location),subject,student,degree)
 schooling = [(Unspec,S,N,D)]
@@ -272,9 +284,9 @@ gave	= pred3 giving
 got	= pred2 $ map (\x -> (recipient x, patient x) ) giving
 got_from	= pred3 $ map (\x -> (recipient x, patient x, agent x) ) giving
 
-told	= pred3 comms
+-- told	= pred3 comms
 
-recite = pred2 $ map ( \x -> (agent x, theme x) ) comms
+-- recite = pred2 $ map ( \x -> (agent x, theme x) ) comms
 
 fourPlacers = [
         ]

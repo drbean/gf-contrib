@@ -85,8 +85,8 @@ lin
 	like	= like_V2;
 	look_here	= look_V;
 	look	= look_VA;
-	need	= need_VV;
-	-- need	= need_V2;
+	need_V	= need_VV;
+	need	= need_V2;
 	prove	= prove_V2;
 	say	= say_VS;
 	see	= see_V2;
@@ -147,3 +147,5 @@ lin
 	monday	= mkPN monday_N;
 
 }
+
+-- vim: set ts=8 sts=2 sw=2 noet:

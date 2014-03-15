@@ -69,7 +69,8 @@ fun
 	look_here	: V;
 	look	: VA;
 	-- make	: V2
-	need	: VV;
+	need_V	: VV;
+	need	: V2;
 	prove	: V2;
 	say	: VS;
 	see	: V2;
