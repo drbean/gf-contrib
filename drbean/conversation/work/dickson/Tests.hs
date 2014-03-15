@@ -168,6 +168,9 @@ becoming_test = [
 supervisor_test = [
   "Is Dee a supervisor?"
   , "Does Dee become a supervisor?"
+  , "Is Alf a supervisor?"
+  , "Is the interviewer a supervisor?"
+  , "Is the superintendent a supervisor?"
   ]
 
 interview_test = [
