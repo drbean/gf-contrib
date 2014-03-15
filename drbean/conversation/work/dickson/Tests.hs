@@ -75,8 +75,16 @@ chomp (x:xs) | x `elem` ".,?" = chomp xs
 
 likes_test = [
   "Does Dee like the job?"
+  , "No guys like Dee, do they?"
+  , "No guys like to work with Dee, do they?"
 
   ]
+
+needs_test  = [
+  "Dee needs money, doesn't she?"
+  , "Dee needs to slow down, doesn't she?"
+  ]
+
 working_test = [
 
 	"Does Dee work?"
@@ -115,6 +123,7 @@ test_possessives = [
   , "Dee's job is good, isn't it?"
   , "Is Dee's job good?"
   , "Is Dee's job a job?"
+  , "Is Dee's job the job?"
   , "Is Dee's job Dee?"
   , "Is Dee Dee's job"
   , "Is Dee's lob Dee?"
@@ -123,7 +132,17 @@ test_possessives = [
   , "Is Dee's job Dee's father"
   , "Is Dee Dee's job"
   , "Is Dee's job Dee"
-
+  , "Is Dee's uncle a superintendent?"
+  , "Is Dee's uncle Alf?"
+  , "Is Dee's father's uncle a superintendent?"
+  , "Is the uncle of Dee's father a superintendent?"
+  , "Is the uncle of the father of Dee a superintendent?"
+  , "Is Dee's father's uncle Alf?"
+  , "Is the uncle of Dee's father Alf?"
+  , "Is the uncle of the father of Dee Alf?"
+  , "Is the father of Dee a man?"
+  , "Is Dee's father a man?"
+  , "Does Dee's father have children?"
 	, "Does Dee's son's father work."
 	, "Dee's son's father works on Dee's son's upbringing, doesn't he."
 	, "Does Dee's son's father work on Dee's son's upbringing?"
@@ -179,6 +198,11 @@ lifting_test = [
   , "Can the guys lift a transformer?"
   ]
 
+going_test = [
+  "Does Dee go to the ship?"
+  , "Does Dee go to school?"
+  ]
+
 positing_test = [
   "Does the guy think that Dee is little?"
   , "Does a guy think that Dee is little?"
@@ -187,6 +211,12 @@ positing_test = [
   , "Does the interviewer say that Dee is little?"
   , "Does the interviewer know that Dee is little?"
   , "Does the interviewer know that Dee is the interviewer?"
+  , "Does Dee's father say that Alf is the superintendent?"
+  , "Does the father of Dee say that Alf is the superintendent?"
+  , "Does Dee know that Alf is the superintendent?"
+  , "Does the interviewer know that Alf is the superintendent?"
+  , "The guys say that Dee needs to slow down, don't they?"
+  , "The guys say that Dee needs to laugh, don't they?"
   ]
 
 interview_test = [
