@@ -173,6 +173,22 @@ supervisor_test = [
   , "Is the superintendent a supervisor?"
   ]
 
+lifting_test = [
+  "Can Dee lift a transformer?"
+  , "Can some guys lift a transformer?"
+  , "Can the guys lift a transformer?"
+  ]
+
+positing_test = [
+  "Does the guy think that Dee is little?"
+  , "Does a guy think that Dee is little?"
+  , "Does the interviewer think that Dee is little?"
+  , "Is Dee little?"
+  , "Does the interviewer say that Dee is little?"
+  , "Does the interviewer know that Dee is little?"
+  , "Does the interviewer know that Dee is the interviewer?"
+  ]
+
 interview_test = [
   "Does the interviewer interview Dee?"
   , "Does the interviewer work."
