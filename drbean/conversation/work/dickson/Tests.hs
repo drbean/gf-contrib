@@ -124,11 +124,7 @@ test_possessives = [
   , "Is Dee Dee's job"
   , "Is Dee's job Dee"
 
-	, "Does the interviewer work."
-	, "Do the interviewer's children work."
 	, "Does Dee's son's father work."
-	, "Does the interviewer's family work on Dee's son's upbringing."
-	-- , "the interviewer's daughter work on the interviewer's daughter's upbringing."
 	, "Dee's son's father works on Dee's son's upbringing, doesn't he."
 	, "Does Dee's son's father work on Dee's son's upbringing?"
 	, "Does Dee's son's brother work on Dee's son's upbringing?"
@@ -137,8 +133,6 @@ test_possessives = [
 	, "Does Dee's son's brother know English?"
 	, "Does Dee's son's mother speak English?"
 	, "Does Dee's son's mother speak English?"
-	, "the interviewer's daughter appreciated Dee's son's father."
-	, "Dee's son's father  appreciated the interviewer's daughter."
 	, "Does the sister of Dee's son know English?"
 	, "Does the father of Dee's son work on Dee's son's upbringing?"
 	, "Does the brother of Dee's son work on Dee's son's upbringing?"
@@ -152,12 +146,79 @@ test_possessives = [
 
 child_test = [
   "Is Dee a child?"
+  , "Is the interviewer a child?"
   , "Does Dee have a mother?"
   , "Does Dee have a son?"
   , "Does Dee have a daughter?"
   , "Does Dee's father have children?"
   , "Does the father of Dee have children?"
   ] 
+
+supervisor_test = [
+  "Is Dee a supervisor?"
+  , "Does Dee become a supervisor?"
+  ]
+
+interview_test = [
+  "Does the interviewer interview Dee?"
+  , "Does the interviewer work."
+  , "Do the interviewer's children work."
+  , "Does the interviewer's family work on Dee's son's upbringing."
+  -- , "the interviewer's daughter work on the interviewer's daughter's upbringing."
+  , "the interviewer's daughter appreciated Dee's son's father."
+  , "Dee's son's father  appreciated the interviewer's daughter."
+  , "Does the interviewer have a job?"
+  , "The interviewer has a job, doesn't he?"
+  , "Does the interviewer have Dee's son?"
+  , "Does the interviewer have a mother?"
+  , "Does the interviewer have a son?"
+  , "Does the interviewer have a daughter?"
+  , "Does the interviewer have ships?"
+  , "Does the interviewer have some ships?"
+  , "Does the interviewer's daughter have some ships?"
+  , "Does the interviewer's daughter have a ship?"
+  , "Does the interviewer have money?"
+  , "Does the interviewer have a parent?"
+  , "Does the interviewer have some parents?"
+  , "Does the interviewer have parents?"
+  , "Does the interviewer have a boat?"
+  , "Does the interviewer leave?"
+  , "Does the interviewer look back?"
+  , "Does the interviewer work in Cuba?"
+  , "Does the interviewer work in the fields?"
+  , "the interviewer work on the fields?"
+  , "the interviewer work at the fields?"
+  , "Does the interviewer work at a motel?"
+  , "the interviewer work on a motel?"
+  , "the interviewer work in a motel?"
+  , "the interviewer work as a doctor."
+  , "Does the job disappoint the interviewer?"
+  , "the interviewer studied medicine."
+  , "Does the interviewer study in the United States?"
+  , "the interviewer studied medicine at a motel."
+  , "the interviewer studied medicine at vocational school"
+  , "Does the interviewer go to vocational school."
+  , "Some man raised the interviewer."
+  , "Does the interviewer come from Cuba?"
+  , "Does the interviewer immigrate to the United States?"
+  , "the interviewer told a story."
+  , "the interviewer told the job a story."
+  , "the interviewer told a story to the job."
+  , "the interviewer told a story to Dee's son"
+  , "the interviewer gave some ships to Dee's son."
+  , "Does the interviewer give some ships to Dee's son."
+  , "Does the interviewer give the ships to Dee's son?"
+  , "Does the interviewer give the ships to someone?"
+  , "the interviewer gave several ships to Dee's son."
+  , "the interviewer gave Dee's son some ships."
+  , "Does the interviewer give Dee's son some ships?"
+  , "Does the interviewer give Dee's son the ships?"
+  , "Does the interviewer give someone the ships?"
+  , "the interviewer gave Dee's son several ships."
+  , "Does the interviewer work at a motel?"
+  , "the interviewer did cleaning at a motel."
+  ]
+  
 
 haves = [
   "Does Dee have Dee's father?"
@@ -188,30 +249,16 @@ haves = [
   , "Does Dee have work?"
   , "Does Alf have work?"
   , "Does Dee's father have work?"
-  , "Does the interviewer have the job?"
-  , "Does the interviewer have Dee's son?"
-  , "Does the interviewer have a mother?"
-  , "Does the interviewer have a son?"
-  , "Does the interviewer have a daughter?"
   , "Does the job have a mother?"
-  , "Does the interviewer have ships?"
-  , "Does the interviewer have some ships?"
-  , "Does the interviewer's daughter have some ships?"
-  , "Does the interviewer's daughter have a ship?"
   , "Does the daughter have some ships?"
   , "Does the daughter have no ships?"
   , "Does the parent have some ships?"
   , "Does the parent have no ships?"
-  , "Does the interviewer have money?"
   , "Does the job have money?"
   , "Does Dee's son have money?"
-  , "Does the interviewer have a parent?"
-  , "Does the interviewer have some parents?"
-  , "Does the interviewer have parents?"
   , "Does the job have a parent?"
   , "Does the job have some parents?"
   , "Does the job have parents?"
-  , "Does the interviewer have a boat?"
   , "Does Dee's son have a boat?"
   , "Does the job have a boat?"
   , "Does someone have a boat?"
@@ -268,7 +315,6 @@ intransitives = [
 	"Dee's father work in a farm?",
 	"Dee's son got married.",
 	"Does Dee's son leave?",
-	"Does the interviewer leave?",
 	"Does Dee's son's father leave?",
 	"A man left.",
 	"Some man left.",
@@ -291,7 +337,6 @@ intransitives = [
 	"Several persons left.",
 	"Several persons didn't leave.",
 	"Does Dee's son look back?",
-	"Does the interviewer look back?",
 	"Does Dee's son's father look back?",
 	"A man looked back.",
 	"Some man looked back.",
@@ -330,34 +375,17 @@ transitives = [
 	"Some man parented Dee.",
 	"A man parented Alf",
 	"Some woman told a story.",
-	"Does the interviewer work in Cuba?",
-	"Does the interviewer work in the fields?",
-	"the interviewer work on the fields?",
-	"the interviewer work at the fields?",
-	"Does the interviewer work at a motel?",
-	"the interviewer work on a motel?",
-	"the interviewer work in a motel?",
-	"the interviewer work as a doctor.",
 	"Does the job work at a motel?",
 	"the job work on a motel?",
 	"the job work in a motel?",
-	"Does the job disappoint the interviewer?",
 	"Does Dee's son study medicine?",
 	"Dee's son studied medicine.",
-	"the interviewer studied medicine.",
-	"Does the interviewer study in the United States?",
-	"the interviewer studied medicine at a motel.",
-	"the interviewer studied medicine at vocational school",
-	"Does the interviewer go to vocational school.",
 	"Some woman went to vocational school.",
 	"Some man went to vocational school.",
 	"Some boy went to vocational school.",
-	"Some man raised the interviewer.",
 	"A man raised Dee's son",
 	"Some woman told a story.",
-	"Does the interviewer come from Cuba?",
 	"Does Ofelia immigrate?",
-	"Does the interviewer immigrate to the United States?",
 	"Does Ofelia go to the United States?",
 	"Does Ofelia come from Cuba?",
 	"Does Dee's son come to the United States?"
@@ -390,25 +418,11 @@ ditransitive_tests = [
 	"A man gave someone the job.",
 	"A man gave someone something.",
 	"Someone gave someone something.",
-	"the interviewer told a story.",
-	"the interviewer told the job a story.",
-	"the interviewer told a story to the job.",
-	"the interviewer told a story to Dee's son",
-	"the interviewer gave some ships to Dee's son.",
-	"Does the interviewer give some ships to Dee's son.",
-	"Does the interviewer give the ships to Dee's son?",
-	"Does the interviewer give the ships to someone?",
-	"the interviewer gave several ships to Dee's son.",
 	"Does someone give something to Dee's son?",
 	"A woman gave the ships to Dee's son.",
 	"A woman gave the ships to someone.",
 	"A woman gave something to someone.",
 	"Someone gave something to someone.",
-	"the interviewer gave Dee's son some ships.",
-	"Does the interviewer give Dee's son some ships?",
-	"Does the interviewer give Dee's son the ships?",
-	"Does the interviewer give someone the ships?",
-	"the interviewer gave Dee's son several ships.",
 	"Does someone give Dee's son something?",
 	"A man gave Dee's son the ships.",
 	"A man gave Dee's son some ships.",
@@ -417,8 +431,6 @@ ditransitive_tests = [
 	"A man gave someone the ships.",
 	"A man gave someone something.",
 	"Someone gave someone something.",
-	"Does the interviewer work at a motel?",
-	"the interviewer did cleaning at a motel.",
 	"Does Dee's son pick tomatoes in the fields?"
 	]
 
