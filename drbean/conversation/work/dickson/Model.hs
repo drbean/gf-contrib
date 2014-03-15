@@ -32,7 +32,7 @@ entity_check =  [
     , (O, "Monday" )
     , (P, "" )
     , (Q, "" )
-    , (R, "" )
+    , (R, "" )	-- electrician job
     , (S, "" )	-- vocational school
     , (T, "" )	-- transformer
     , (U, "" )
@@ -100,6 +100,8 @@ onePlacers = [
 	, ("job",	 pred1 [J] )
 	, ("work",	 pred1 $ [J] ++ map agent working )
 	, ("worker",	 pred1 $ map agent working )
+  , ("superior",	pred1 $ map fst supervision )
+  , ("subordinate",	pred1 $ map snd supervision )
 
 	, ("mad",	 pred1 [D,H,W1,W2,W3,W4] )
 	, ("bad",	 pred1 [H,W1,W2,W3,W4] )
@@ -111,6 +113,9 @@ onePlacers = [
 	, ("laugh", pred1 [D] )
 
 	]
+predid1 "boss"	= predid1 "superior"
+predid1 "employee"  = predid1 "subordinate"
+predid1 "manager" = predid1 "boss"
 
 predid1 "father"  = predid1 "dad"
 predid1 "guy"  = predid1 "male"
@@ -169,15 +174,7 @@ separations	= [ (H,D) ]
 possessions	= [ (A,M),(D,J) ]
 appreciation	= [ (D,Unspec,J),(D,Unspec,A),(D,Unspec,F) ]
 conflict	= []
-supervision	= []
-isBoss	= pred1 $ map fst supervision
-isWorker	= pred1 $ map snd supervision
-
-supervisor	= pred1 $ map fst supervision
-boss	= supervisor
-subordinate	= pred1 $ map snd supervision
-employee	= subordinate
-manager = boss
+supervision	= [(D,W),(D,W1),(D,W2),(D,W3)]
 
 disappointments = [(W1,D), (W2,D), (W3,D), (W4,D), (W5,D) ]
 disappoint	= pred2 $ disappointments
@@ -197,6 +194,7 @@ twoPlacers = [
 			  [(a,J) | (a,_,_) <- working] ++
 			  map (\(_,l,_,r) ->(r,l) ) schooling)
     , ("hire",  pred2 $ map (\(a,_,_) -> (V,a)) working)
+    , ("interview",  pred2 [(I,D)] )
     , ("like",  pred2 $ map (\(a,t,r) -> (a,r)) appreciation)
     , ("work",  pred2 $ [(a,c) | (a,p,c) <- working] )
     , ("kind",  pred2 $ [(student, H) | (_,_,_,student) <- schooling ])
@@ -230,14 +228,14 @@ origin	= theme
 destination = recipient
 
 --(worker,job,site)
-working	= [(A,Unspec,V),
+working	= [(A,Unspec,V),(I,Unspec,V),
 -- shipyard
 	(D,R,V),(W1,R,V),(W2,R,V),(W3,R,V),(W4,R,V),(W5,R,V),(W6,R,V),
 -- ship
 	(W1,R,B),(W2,R,B),(W3,R,B),(W4,R,B),(W5,R,B),(W6,R,B)]
 
 comms	= [ (I,Unspec,D),(F,Unspec,D),(F,Unspec,A),(A,Unspec,D),(A,Unspec,I) ]
-giving	= [ (I,J,D) ]
+giving	= [ (V,J,D) ]
 --(agent,theme,location)
 looking_back	= [(D,C,V),(I,C,V)]
 seeing	= []
