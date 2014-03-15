@@ -152,6 +152,7 @@ relations = [
 	, ( "slow_down",	\[x]	-> predid1 "slow_down" x	)
 
 	, ( "become",	\[x,y]	-> predid2 "become" y x	)
+	, ( "can_to_lift",	\[x,y]	-> predid2 "can_to_lift" y x	)
 
 	, ( "hire",	\[x,y]	-> predid2 "hire" y x	)
 	, ( "interview",	\[x,y]	-> predid2 "interview" y x	)

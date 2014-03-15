@@ -103,6 +103,7 @@ onePlacers = [
   , ("superior",	pred1 $ map fst supervision )
   , ("subordinate",	pred1 $ map snd supervision )
 
+	, ("little",	 pred1 [D] )
 	, ("mad",	 pred1 [D,H,W1,W2,W3,W4] )
 	, ("bad",	 pred1 [H,W1,W2,W3,W4] )
 
@@ -187,6 +188,7 @@ knowledge	= []
 acquaintances	= []
 help	= pred2 $ supervision
 becoming  = [(D,R),(D,D)]
+can_to_lift = [(W1,T),(W3,T),(W5,T)]
 
 twoPlacers :: [(String, TwoPlacePred)]
 twoPlacers = [
@@ -195,6 +197,7 @@ twoPlacers = [
 			  [(a,J) | (a,_,_) <- working] ++
 			  map (\(_,l,_,r) ->(r,l) ) schooling)
     , ("become",  pred2 becoming )
+    , ("can_to_lift",  pred2 can_to_lift )
     , ("hire",  pred2 $ map (\(a,_,_) -> (V,a)) working)
     , ("interview",  pred2 [(I,D)] )
     , ("like",  pred2 $ map (\(a,t,r) -> (a,r)) appreciation)
