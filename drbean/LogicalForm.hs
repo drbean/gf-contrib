@@ -96,11 +96,11 @@ transS ((GUt (GPosQ (GWH_Pred wh vp)))) =
 	WH (\x -> Conj [ transW wh x, transVP vp x ])
 transS ((GUt (GNegQ (GWH_Pred wh vp)))) =
 	WH (\x -> Conj [ transW wh x, Neg (transVP vp x)])
-transS ((GUt (GPosQ (GYN (GSentence np vp))))) = (transNP np) (transVP vp)
-transS ((GUt (GNegQ (GYN (GSentence np vp))))) = (transNP np) (transVP vp)
-transS ((GUt (GPosQ (GTagQ np vp)))) = (transNP np) (transVP vp)
-transS ((GUt (GNegQ (GTagQ np vp)))) = (transNP np) (transVP vp)
-transS ((GUt (GPosQ (GTagComp np comp)))) = (transNP np) (transCOMP comp)
+transS (GUt (GPosQ (GYN (GSentence np vp)))) = (transNP np) (transVP vp)
+transS (GUt (GNegQ (GYN (GSentence np vp)))) = (transNP np) (transVP vp)
+transS (GUt (GPosQ (GTagQ np vp))) = (transNP np) (transVP vp)
+transS (GUt (GNegQ (GTagQ np vp))) = (transNP np) (transVP vp)
+transS (GUt (GPosQ (GTagComp np comp))) = (transNP np) (transCOMP comp)
 --transS ((GUt (GPosQ (GYN (GIs subj ap))))) = (transNP subj)
 --					    (\x -> Rel (adjective_list ap) [x])
 --transS ((GUt (GNegQ (GYN (GIs subj ap))))) = (transNP subj)
@@ -409,13 +409,13 @@ transVP (GCausative v0 obj0 vp) = case vp of
 --		(\agent -> transNP obj1
 --		    (\theme -> transPP obj2
 --			( \recipient -> Rel (att++"_to_"++act) [subj,agent,theme,recipient] ))))
---transVP (GPositing v0 s) = case s of 
+transVP (GPositing v0 s) = case s of 
 --    GPosS (GIs np ap) ->
 --	(\positer -> transNP np 
 --	    (\subj -> Rel ((positing_list v0) ++"_is_"++ (adjective_list ap)) [positer, subj]))
---    GPosS (GCop item comp) ->
---	(\positer -> transNP item 
---	    (\subj -> transNP comp (\x -> Rel ((positing_list v0) ++"_is") [positer, subj, x])))
+    GPosS (GSentence referent (GBe_vp comp)) ->
+	(\positer -> transNP referent 
+	    (\subj -> (transCOMP comp subj )))
 --    GNegS (GCop item comp) ->
 --	(\positer -> transNP item 
 --	    (\subj -> transNP comp (\x -> Rel ((positing_list v0) ++"_isn't") [positer, subj, x])))
