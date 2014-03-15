@@ -416,6 +416,10 @@ transVP (GPositing v0 s) = case s of
     GPosS (GSentence referent (GBe_vp comp)) ->
 	(\positer -> transNP referent 
 	    (\subj -> (transCOMP comp subj )))
+    GPosS (GSentence referent (GIntens vv (GHappening v))) ->
+	(\positer -> transNP referent 
+	    (\subj -> Rel ((positing_list v0) ++ "_" ++ (intens_list vv) ++ "_to_"
+		++ (happening_list v)) [positer, subj] ))
 --    GNegS (GCop item comp) ->
 --	(\positer -> transNP item 
 --	    (\subj -> transNP comp (\x -> Rel ((positing_list v0) ++"_isn't") [positer, subj, x])))
