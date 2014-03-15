@@ -186,6 +186,7 @@ have	= pred2 $ possessions ++ marriages ++ parenting
 knowledge	= []
 acquaintances	= []
 help	= pred2 $ supervision
+becoming  = [(D,R),(D,D)]
 
 twoPlacers :: [(String, TwoPlacePred)]
 twoPlacers = [
@@ -193,6 +194,7 @@ twoPlacers = [
     , ("have",  pred2 $ possessions ++ parenting ++
 			  [(a,J) | (a,_,_) <- working] ++
 			  map (\(_,l,_,r) ->(r,l) ) schooling)
+    , ("become",  pred2 becoming )
     , ("hire",  pred2 $ map (\(a,_,_) -> (V,a)) working)
     , ("interview",  pred2 [(I,D)] )
     , ("like",  pred2 $ map (\(a,t,r) -> (a,r)) appreciation)

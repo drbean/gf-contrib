@@ -151,6 +151,8 @@ relations = [
 	, ( "look_here",	\[x]	-> predid1 "look_here" x	)
 	, ( "slow_down",	\[x]	-> predid1 "slow_down" x	)
 
+	, ( "become",	\[x,y]	-> predid2 "become" y x	)
+
 	, ( "hire",	\[x,y]	-> predid2 "hire" y x	)
 	, ( "interview",	\[x,y]	-> predid2 "interview" y x	)
 	, ( "like",	\[x,y]	-> predid2 "like" y x	)

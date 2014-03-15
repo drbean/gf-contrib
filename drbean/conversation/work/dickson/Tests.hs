@@ -154,6 +154,17 @@ child_test = [
   , "Does the father of Dee have children?"
   ] 
 
+becoming_test = [
+  "Does Dee become a supervisor?"
+  , "Does Dee become Dee?"
+  , "Does Dee become an electrician?"
+  , "Does Dee become an apprentice?"
+  , "Does Dee become a worker?"
+  , "Does Dee become a superintendent?"
+  , "Does Alf become a superintendent?"
+  , "Is Alf a superintendent?"
+  ]
+
 supervisor_test = [
   "Is Dee a supervisor?"
   , "Does Dee become a supervisor?"
