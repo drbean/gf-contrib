@@ -36,6 +36,7 @@ kind_list Gfamily	= "family"
 kind_list Gfather	= "father"
 kind_list Ggraduation	= "graduation"
 kind_list Gguy	= "guy"
+kind_list Ginterviewer	= "interviewer"
 kind_list Gjob	= "job"
 kind_list Gkind	= "kind"
 kind_list Gknack	= "knack"
@@ -151,6 +152,7 @@ relations = [
 	, ( "slow_down",	\[x]	-> predid1 "slow_down" x	)
 
 	, ( "hire",	\[x,y]	-> predid2 "hire" y x	)
+	, ( "interview",	\[x,y]	-> predid2 "interview" y x	)
 	, ( "like",	\[x,y]	-> predid2 "like" y x	)
 
 	]

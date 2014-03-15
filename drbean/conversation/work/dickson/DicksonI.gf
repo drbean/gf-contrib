@@ -116,6 +116,7 @@ lin
 	guy	= mkCN guy_N;
 	job	= mkCN job_N;
 	husband_2	= husband_N2;
+	interviewer	= mkCN interviewer_N;
 	kind	= mkCN kind_N;
 	knack	= mkCN knack_N;
 	life	= mkCN life_N;
@@ -146,4 +147,3 @@ lin
 	monday	= mkPN monday_N;
 
 }
-

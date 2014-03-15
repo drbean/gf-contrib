@@ -59,6 +59,7 @@ oper
 	father_N2	: N2;
 	guy_N	: N;
 	husband_N2	: N2;
+	interviewer_N	: N;
 	job_N	: N;
 	kind_N	: N;
 	knack_N	: N;

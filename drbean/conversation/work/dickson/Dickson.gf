@@ -98,6 +98,7 @@ fun
 	graduation	: CN;
 	guy	: CN;
 	husband_2	: N2;
+	interviewer : CN;
 	job	: CN;
 	kind	: CN;
 	knack	: CN;

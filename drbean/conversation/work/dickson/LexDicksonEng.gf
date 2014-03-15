@@ -61,6 +61,7 @@ oper
 	graduation_N	= mkN "graduation";
 	guy_N	= mkN masculine (mkN "guy");
 	husband_N2	= mkN2 (mkN masculine (mkN "husband")) of_prep;
+	interviewer_N	= mkN human (mkN "interviewer");
 	job_N	= mkN "job";
 	kind_N	= mkN "kind";
 	knack_N	= mkN "knack" nonExist;
@@ -91,3 +92,4 @@ oper
 	monday_N = mkN nonhuman (mkN "Monday");
 
 }
+
