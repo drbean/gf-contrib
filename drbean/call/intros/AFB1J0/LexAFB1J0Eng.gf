@@ -26,8 +26,10 @@ oper
 	like_V2	= mkV2 "like";
 	want_VV	= mkVV (mkV "want");
 
+	brother_N2	= mkN2 (mkN masculine (mkN "brother")) of_prep;
 	child_N = mkN human (mkN "child" "children");
 	family_N	= mkN "family";
+	dream_N	= mkN "dream";
 	fashion_designer_N  = mkN "fashion designer";
 	father_N2	= mkN2 (mkN masculine (mkN "father")) of_prep;
 	graduation_N	= mkN "graduation";
@@ -35,7 +37,9 @@ oper
 	life_N	= mkN "life" "lives";
 	man_N	= mkN masculine (mkN "man" "men");
 	money_N	= mkN "money";
+	mother_N2	= mkN2 (mkN feminine (mkN "mother")) of_prep;
 	school_N	= mkN "school";
+	sister_N2	= mkN2 (mkN feminine (mkN "sister")) of_prep;
 	thing_N	= mkN "thing";
 	time_N	= mkN "time";
 	way_N	= mkN "way";

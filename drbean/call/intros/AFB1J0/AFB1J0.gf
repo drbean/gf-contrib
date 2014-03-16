@@ -69,7 +69,10 @@ fun
 	like	: V2;
 	want  : VV;
 
+	brother	: CN;
+	brother_2	: N2;
 	child	: CN;
+	dream  : CN;
 	fashion_designer  : CN;
 	family	: CN;
 	father	: CN;
@@ -79,7 +82,11 @@ fun
 	life	: CN;
 	man	: CN;
 	money	: NP;
+	mother	: CN;
+	mother_2	: N2;
 	school	: CN;
+	sister	: CN;
+	sister_2	: N2;
 	thing	: CN;
 	time	: NP;
 	way	: CN;

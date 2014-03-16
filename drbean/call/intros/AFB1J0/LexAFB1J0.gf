@@ -25,7 +25,9 @@ oper
 	like_V2	: V2;
 	want_VV	: VV;
 
+	brother_N2	: N2;
 	child_N	: N;
+	dream_N	: N;
 	fashion_designer_N	: N;
 	father_N2	: N2;
 	family_N	: N;
@@ -34,7 +36,9 @@ oper
 	life_N	: N;
 	man_N	: N;
 	money_N	: N;
+	mother_N2	: N2;
 	school_N	: N;
+	sister_N2	: N2;
 	thing_N	: N;
 	time_N	: N;
 	way_N	: N;

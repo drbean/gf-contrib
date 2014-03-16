@@ -86,7 +86,10 @@ lin
 	like	= like_V2;
 	want  = want_VV;
 
+	brother_2	= brother_N2;
+	brother	= mkCN brother_N2;
 	child	= mkCN child_N;
+	dream  = mkCN dream_N;
 	fashion_designer  = mkCN fashion_designer_N;
 	family	= mkCN family_N;
 	father_2	= father_N2;
@@ -96,7 +99,11 @@ lin
 	life	= mkCN life_N;
 	man	= mkCN man_N;
 	money	= mkNP money_N;
+	mother_2	= mother_N2;
+	mother	= mkCN mother_N2;
 	school	= mkCN school_N;
+	sister_2	= sister_N2;
+	sister	= mkCN sister_N2;
 	thing	= mkCN thing_N;
 	time	= mkNP time_N;
 	way	= mkCN way_N;
