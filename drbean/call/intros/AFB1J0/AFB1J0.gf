@@ -63,7 +63,7 @@ fun
 
 	become	: V2;
 	can	: VV;
-	come  : V;
+	come  : V2;
 	graduate  : V2;
 	have	: V2;
 	like	: V2;
@@ -92,11 +92,31 @@ fun
 	way	: CN;
 	woman	: CN;
 	work	: NP;
+-- betty
+  watching_action_movies  : NP;
+  watching_scary_movies	: NP;
+  playing_with_her_nephews  : NP;
+  fast_and_furious  : NP;
+  21  : NP;
+  dogs_and_cats	: NP;
+  nephew  : CN;
+  cute	: AP;
+  senior  : CN;
 
-	oliver	: PN;
-	jeremy	: PN;
-	may	: PN;
-	taoyuan	: PN;
+-- emily2
+  difficult : AP;
+  friend : CN;
+  london  : NP;
+  freshman  : CN;
+  new_york  : NP;
+
+  oliver	: PN;
+  jeremy	: PN;
+  may	: PN;
+  betty	: PN;
+  emily2  : PN;
+  taoyuan	: PN;
+
 
 }
 
