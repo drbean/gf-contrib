@@ -11,45 +11,15 @@ data Entity	=
 		| O | P | Q | R | S | T | U
 		| V | W | X | Y | Z
 
-		| RK | RL
-		| RP | RQ | RU
-
-		| JB | JE | JF | JG
-		| JH | JM | JN
+		| JC | JD | JE | JF | JG
+		| JM
 		| JS | JT
-		| JY
+		| JW | JY
 
-		| AB | AD
-		| AH | AJ | AL
-		| AS | AT
+		| MH | MP
 
-		| CF
-		| CJ | CM
-		| CS
-
-		| VD | VE | VF | VG
-		| VM
-		| VS | VT
-		| VW
-
-		| MB | MD | MF | MG
-		| MI | MM
-		| MP | MS
-
-		| KD | KF
-		| KL | KM
-		| KS | KT
-
-		| NA | NB | NF
-		| NI | NJ | NM | NN
-		| NO | NS | NT
-
-		| SC | SF | SG
-		| SH | SJ | SM | SN
-		| SS | ST
-
-		| DB | DF
-		| DK | DM
+		| OF | OM | ON
+		| OP | OS | OT
 
 		| Someone | Something | Unspec
 		deriving (Eq,Show,Bounded,Enum,Ord)
@@ -59,133 +29,70 @@ entities	=  [minBound..maxBound]
 
 entity_check :: [ (Entity, String) ]
 entity_check =  [
-    (A, "alex" )
-    , (B, "dr_bean" )
-    , (C, "cindy" )
-    , (D, "dave" )
-    , (E, "applied_foreign_languages" )
-    , (F, "japanese" )
+    (A, "" )
+    , (B, "Dr Bean" )
+    , (C, "playing computer games" )
+    , (D, "dream" )
+    , (E, "English" )
+    , (F, "Japanese" )
     , (G, "" )
-    , (H, "minghsin_university" )
-    , (I, "reading" )
-    , (J, "jeff" )
-    , (K, "kelly" )
-    , (L, "basketball" )
-    , (M, "mindy" )
-    , (N, "neil" )
-    , (O, "" )
-    , (P, "playing_the_piano" )
+    , (H, "Minghsin University" )
+    , (I, "" )
+    , (J, "Jeremy" )
+    , (K, "basketball" )
+    , (L, "" )
+    , (M, "May" )
+    , (N, "" )
+    , (O, "Oliver" )
+    , (P, "" )
     , (Q, "" )
-    , (R, "rena" )
-    , (S, "shane" )
+    , (R, "reading" )
+    , (S, "going_shopping")
     , (T, "" )
     , (U, "listening_to_music" )
-    , (V, "vicky" )
-    , (W, "taiwan" )
-    , (X, "hsinchu" )
+    , (V, "watching_TV")
+    , (W, "Taiwan" )
+    , (X, "Hsinchu" )
     , (Y, "" )
     , (Z, "" )
 
--- rena
-    , (RK, "hello_kitty")
-    , (RL, "avril_lavigne")
-    , (RP, "the_color_pink")
-    , (RQ, "mi_mi")
-    , (RU, "america")
-
-    , (JB, "basketball")
-    , (JE, "exercise")
-    , (JF, "Jeff's father")
-    , (JG, "Jeff's grandmother")
-    , (JH, "Huang Che-Yu")
-    , (JM, "Jeff's mother")
-    , (JN, "April 30th, 1994")
-    , (JS, "Jeff's 2 siblings")
-    , (JT, "taoyuan")
+-- jeremy
+    , (JC, "chatting")
+    , (JD, "fashion designer")
+    , (JE, "soccer player")
+    , (JF, "playing soccer")
+    , (JG, "dream")
+    , (JM, "Jeremy's mother")
+    , (JS, "Jeremy's younger sister")
+    , (JT, "Tucheng")
+    , (JW, "travel")
     , (JY, "1994")
 
-    , (AB, "Alex's brother")
-    , (AD, "drawing")
-    , (AH, "Alex's hobbies")
-    , (AJ, "Alex's job")
-    , (AL, "sleeping")
-    , (AS, "Alex's sister")
-    , (AT, "travel")
+-- may
+    , (MH, "XinXing High School")
+    , (MP, "playing_computer_games")
 
-    , (CF, "Cindy's father")
-    , (CJ, "jiayi")
-    , (CM, "Cindy's mom")
-    , (CS, "Cindy's sister")
+-- oliver
+    , (OF, "Oliver's father")
+    , (OM, "Oliver's mother")
+    , (ON, "Pan YanMin")
+    , (OP, "PingZhen")
+    , (OS, "Oliver's older sister")
+    , (OT, "Taipei")
 
-    , (VD, "drug_store")
-    , (VE, "exercising")
-    , (VF, "Vicky's father")
-    , (VG, "shopping")
-    , (VM, "Vicky's mother")
-    , (VS, "Vicky's first sister")
-    , (VT, "Vicky's second sister")
-    , (VW, "weekends")
-       
-    , (MB, "Mindy's younger brother")
-    , (MD, "the_tv_program_discovery")
-    , (MF, "Mindy's father")
-    , (MG, "going_to_the_movies")
-    , (MI, "a_japanese_interpreter")
-    , (MM, "Mindy's mother")
-    , (MP, "pizza")
-    , (MS, "the_song,_memory")
-
-    , (KD, "a_dietitian")
-    , (KF, "Kelly's father")
-    , (KL, "lextar")
-    , (KM, "Kelly's mother")
-    , (KS, "Kelly's sister")
-    , (KT, "watching_tv")
-
--- neil
-    , (NA, "the_military")
-    , (NB, "Neil's brother")
-    , (NF, "Neil's father")
-    , (NI, "swimming")
-    , (NJ, "jogging")
-    , (NM, "Neil's mother")
-    , (NN, "nantou")
-    , (NO, "non-commissioned_officer")
-    , (NS, "Neil's first sister")
-    , (NT, "Neil's second sister")
-
--- shane
-    , (SC, "hsiao_ching-teng")
-    , (SF, "Shane's father")
-    , (SG, "gemitek")
-    , (SH, "hukou")
-    , (SJ, "jeremy_lin")
-    , (SM, "Shane's mother")
-    , (SN, "singing")
-    , (SS, "Shane's first sister")
-    , (ST, "Shane's second sister")
-
--- dave
-    , (DB, "Dave's brother")
-    , (DF, "Dave's father")
-    , (DK, "making_friends")
-    , (DM, "Dave's mother")
 	]
 
-characters :: [ (String, Entity) ]
+ent_ided :: String -> Entity
+ent_ided string = head [entity | (entity,string) <- entity_check,
+				string /= ""
+				]
 
-characters = [(string,entity) | (entity,string) <- entity_check ]
-
-classes :: [String]
-classes = []
-
-context :: [Entity]
-context = []
-
+characters :: [(String,Entity)]
+characters = [(string,entity) | (entity,string) <- entity_check,
+				string /= ""
+				]
 namelist :: [String]
-namelist = map fst characters
-names :: [(Entity, String)]
-names = map swap characters
+namelist = [string | (entity,string) <- entity_check, string /= "" ]
 
 predid1 :: String -> OnePlacePred
 predid2 :: String -> TwoPlacePred
@@ -209,8 +116,8 @@ predid5 name = lookupPred name fivePlacers where
 	lookupPred n ((name,pred):is) | n == name	= pred
 	lookupPred n (i:is) = lookupPred name is
 
-afld_students    = [A,C,D,J,K,M,N,R,S,V]
-other_students = [JS,VS,VT,DB]
+afld_students    = [J,M,O]
+other_students = [JS,OS]
 students = afld_students ++ other_students
 
 onePlacers :: [(String, OnePlacePred)]
@@ -223,52 +130,30 @@ onePlacers = [
 	, ("student",	pred1 students )
 	, ("worker",	pred1 [ w | (w,period,_) <- careers,
 				    period == Present ] )
-	, ("father",	pred1 [JF,CF,VF,MF,KF,NF,SF,DF] )
+	, ("father",	pred1 [OF] )
 	, ("mother",	pred1 [ m | (m,_,_,_) <- births,
 				    m /= Unspec ] )
-	, ("grandmother", pred1 [JG] )
-	, ("brother", pred1 [AB,MB,NB,DB] )
-	, ("sister", pred1 [AS,CS,VS,VT,KS,NS,NT,SS,ST] )
-	, ("sibling", pred1 [JS,AB,CS] )
+	, ("dream", pred1 [D] )
+	, ("grandmother", pred1 [] )
+	, ("brother", pred1 [] )
+	, ("sister", pred1 [JS,OS] )
 
-	, ("male",	pred1 [B,A,D,J,N,S,JF] )
-	, ("female",	pred1 [C,K,M,R,V,JM] )
+	, ("male",	pred1 [J,O] )
+	, ("female",	pred1 [M] )
 	, ("thing",	thing )
-	, ("cat",	pred1 [RQ] )
 
 	, ("old",	pred1 [B] )
-	, ("reserved",	pred1 [M,R] )
-	, ("outgoing",	pred1 [R,J] )
-	, ("polite",	pred1 [R,J] )
+	, ("reserved",	pred1 [] )
+	, ("outgoing",	pred1 [] )
+	, ("polite",	pred1 [] )
+	, ("humorous",	pred1 [O] )
+	, ("optimistic",	pred1 [O] )
 
-	, ("farmer",	pred1 [JG] )
-	, ("career_woman",	pred1 [JM] )
-	, ("truck_driver",	pred1 [JF] )
-
-	, ("design_assistant",	pred1 [A] )
-	, ("applied_foreign_languages",	pred1 [E])
-
-	, ("24",	pred1 [C])
-
-	, ("babysitter",	pred1 [VM])
-
--- neil
-	, ("non-commissioned_officer",	pred1 [N])
-	, ("27",	pred1 [N])
-
---shane
-	, ("21",	pred1 [S,D])
-	, ("christian", pred1 [S,SJ])
-
--- dave
-	, ("good", pred1 [DF])
-	, ("nice", pred1 [DM])
-	, ("busy", pred1 [D])
 	]
 
 -- predid1 "sibling"   = or [(pred1 [JS]) (predid1 "brother") (predid1 "sister")]
 predid1 "english"	= predid1 "applied_foreign_languages"
-predid1 "optimistic"	= predid1 "outgoing"
+predid1 "positive"	= predid1 "optimistic"
 predid1 "shy"	= predid1 "reserved"
 predid1 "well-behaved"	= predid1 "polite"
 predid1 name = lookup1 name onePlacers where
@@ -305,10 +190,11 @@ services    = []
 
 knowledge	= []
 acquaintances	= []
-residents   = [(A,X),(M,X),(K,X),(S,SH)]
-family	= [(R,RQ), (J,JG),(J,JF),(J,JM),(J,JS),(C,CF),(C,CM),(C,CS),(V,VF),(V,VM),(V,VS),(V,VT),(M,MF),(M,MM),(M,MB),(K,KF),(K,KM),(K,KS),(N,NF),(N,NM),(N,B),(N,NS),(N,NT),(S,SF),(S,SM),(S,SS),(S,ST),(D,DF),(D,DM),(D,DB)]
+residents   = [(O,OP)]
+family	= [(O,OF),(O,OM),(O,OS),(J,JM),(J,JS)]
+dream = [(J,JD),(J,JE),(J,JW)]
 -- see births
-possessions = family
+possessions = family ++ [(J,D)]
 
 twoPlacers :: [(String, TwoPlacePred)]
 twoPlacers = [
@@ -316,7 +202,7 @@ twoPlacers = [
     , ("have",	pred2 $ possessions ++ (foldl  (\hs (t,_,_,s,d) -> (t,s): (s,t): (s,d): hs )
 			[] schooling )
 	)
-    , ("like",	pred2 $ map (\(a,t,r) -> (a,r)) appreciation)
+    , ("like",	pred2 appreciation)
     , ("live",	pred2 residents )
     , ("work",	pred2 $ [(a,c) | (a,p,c) <- careers, p == Present ] )
     , ("kind",	pred2 $ [(student, H) | (_,_,_,student,_) <- schooling ])
@@ -333,29 +219,21 @@ curry3 f x y z	= f (x,y,z)
 curry4 f x y z w	= f (x,y,z,w)
 curry5 f x y z w v	= f (x,y,z,w,v)
 
--- (appreciator, performance, actor)
+-- was (appreciator, performance, actor)
 appreciation	= [
-    (R,Unspec,U),(R,Unspec,RP),(R,Unspec,RK),(R,Unspec,RQ),(R,Unspec,RL)
-    ,(J,Unspec,JB),(J,Unspec,JE),(J,Unspec,JE)
-    , (A,Unspec,AL),(A,Unspec,U),(A,Unspec,AD),(A,Unspec,I),(A,Unspec,AT)
-    , (C,Unspec,P),(C,Unspec,I),(C,Unspec,U)
-    , (V,Unspec,VG),(V,Unspec,VE),(V,Unspec,I)
-    , (M,Unspec,F),(M,Unspec,MG),(M,Unspec,U),(M,Unspec,MP),(M,Unspec,MS),(M,Unspec,MD)
-    , (K,Unspec,F),(K,Unspec,KT),(K,Unspec,P)
-    , (N,Unspec,NJ),(N,Unspec,NI)
-    , (S,Unspec,L),(S,Unspec,SN),(S,Unspec,SJ),(S,Unspec,SC)
-    , (D,Unspec,DK)
-    ]
+  (J,U),(J,JC),(J,JF)
+  ,(M,V),(M,R),(M,S),(M,C)
+  ,(O,U),(O,B)
+  ]
 data Period	= Present | Future
 		deriving (Eq,Show,Bounded,Enum,Ord)
 periods :: [Period]
 periods	=  [minBound..maxBound]
 -- (agent, status, ie present or future, career)
-careers	    = [(A,Present,Unspec),(R,Future,RU),(M,Future,MI),(K,Present,KL),(K,Future,KD),(N,Present,NA),(S,Present,SG)]
+careers	    = [(O,Future,JE),(J,Future,JD)]
 
 threePlacers = [
-    ("liked", pred3 appreciation )
-    , ("wanted_to_work",	pred3 $ [(a,a,c) | (a,p,c) <- careers,
+    ("wanted_to_become",	pred3 $ [(a,a,c) | (a,p,c) <- careers,
 					    p == Future ] )
     , ("studied_subj_at", pred3 $ map (\(_,school,subject,student,_) ->
 		    (student,subject,school) ) schooling )
@@ -387,7 +265,6 @@ talk_about = pred3 $ map (\x->(agent4 x, recipient4 x, theme4 x) ) comms
 
 -- (teacher,school(location),subject,student,degree)
 schooling   = map (\s -> (B,H,E,s,Unspec) ) afld_students ++
-		[(VM,Unspec,Unspec,Unspec,Unspec)] ++
 		map (\s -> (Unspec,Unspec,Unspec,s,Unspec) ) other_students
 
 recite = pred2 $ map ( \x -> (agent4 x, theme4 x) ) comms
@@ -399,7 +276,7 @@ directives  = []
 -- (planner,situation,achiever,goal)
 goals	= []
 -- (mother,baby,place,year)
-births	= [(Unspec,A,X,Unspec),(JM,J,JT,JY),(Unspec,K,X,Unspec),(MM,M,X,Unspec),(CM,C,CJ,Unspec),(VM,V,Unspec,Unspec),(MM,M,X,Unspec),(KM,K,X,Unspec),(NM,N,NN,Unspec),(SM,S,Unspec,Unspec),(DM,D,Unspec,Unspec)]
+births	= [(JM,J,JT,JY),(Unspec,M,Unspec,Unspec),(OM,O,OT,Unspec)]
 
 fourPlacers = [
     ("born",	pred4 $ foldl (\cc (a,r,l,t) -> (a,r,l,t): (a,r,t,l): cc) [] births)
@@ -461,4 +338,4 @@ passivize4 r = \x y z -> or ( map (\u -> r u x y z ) entities )
 self ::  (a -> a -> b) -> a -> b
 self p	= \ x -> p x x
 
--- vim: set ts=8 sts=4 sw=4 noet:
+-- vim: set ts=8 sts=2 sw=2 noet:
