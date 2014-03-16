@@ -321,7 +321,7 @@ transVP :: GVP -> Term -> LF
 --        \x -> Neg ((transVP vp) x)
 --
 transVP (GBe_vp comp) = case comp of
-    GBe_dee np -> \x -> transNP np (\pred -> Eq pred x)
+    GBe_someone np -> \x -> transNP np (\pred -> Eq pred x)
     GBe_bad ap -> \x -> Rel (adjective_list ap) [x]
 transVP (GHappening v) =
         \ t -> ( Rel (happening_list v) [t] )
@@ -426,7 +426,7 @@ transVP (GPositing v0 s) = case s of
 transVP _ = \x -> NonProposition
 --
 transCOMP :: GComp -> Term -> LF
-transCOMP (GBe_dee np) = \x -> transNP np (\pred -> Eq pred x)
+transCOMP (GBe_someone np) = \x -> transNP np (\pred -> Eq pred x)
 transCOMP (GBe_bad ap) = \x -> Rel (adjective_list ap) [x]
 --transVP (Branch (Cat _ "VP" _ _) [Leaf (Cat _ "COP" _ _),
 --    Branch (Cat "_" "COMP" [] []) [comp]]) = case (catLabel (t2c comp)) of
