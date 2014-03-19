@@ -34,7 +34,7 @@ ans tests = do
 --  putStrLn (unlines (map (\(x,y) -> x ++ (show (concat y ) ) ) zs) )
 
 logic tests = do
-  gr	<- readPGF ( "./Dickson.pgf" )
+  gr	<- readPGF ( "./AFB1J0.pgf" )
   let ss = map (chomp . lc_first) tests
   let ps = map ( parses gr ) ss
   let ts = map (map (map lf)) ps
@@ -88,8 +88,8 @@ roger_test = [
 	]
 
 birth	= [
-	"Does Betty come from Taipei?"
-	, "Does Bruce2 come from Taoyuan?"
+	"Does Bruce2 come from Taipei?"
+	, "Does Betty come from Taoyuan?"
 	, "Does Emily2 come from Taoyuan?"
 	, "Does Oliver come from Tucheng?"
 	, "Does Iris come from Taoyuan?"
