@@ -24,6 +24,8 @@ oper
   graduate_V2	= mkV2 "graduate" "from";
   have_V2	= mkV2 (IrregEng.have_V);
   like_V2	= mkV2 "like";
+  make_V2V	= mkV2V IrregEng.make_V noPrep noPrep;
+  study_V	= mkV "study";
   want_VV	= mkVV (mkV "want");
 
   brother_N2	= mkN2 (mkN masculine (mkN "brother")) of_prep;
@@ -50,8 +52,7 @@ oper
   watching_scary_movies_N	= mkN "watching scary movies";
   dogs_and_cats_N = mkN "dogs and cats";
   playing_with_her_nephews_N  = mkN "playing_with_her_nephews";
-  Fast_and_Furious_N  = mkN "Fast_and_Furious";
-  21_N	= mkN "21";
+  twenty_one_N	= mkN "21";
   nephew_N  = mkN masculine (mkN "nephew");
   cute_A  = mkA "cute";
   senior_N  = mkN "senior";
@@ -59,16 +60,43 @@ oper
 -- emily2
   difficult_A = mkA "difficult";
   friend_N = mkN "friend";
+  japanese_N = mkN "Japanese";
   london_N  = mkN "London";
   freshman_N  = mkN "freshman";
   new_york_N  = mkN "New York";
+  go_V2	= mkV2 IrregEng.go_V "to";
+  say_VS	= mkVS IrregEng.say_V;
+  think_VS = mkVS (IrregEng.think_V);
+
+-- silvi
+  pet_N	= mkN "pet";
+
 
   oliver_N	= mkN masculine (mkN "Oliver");
   jeremy_N	= mkN masculine (mkN "Jeremy");
   may_N = mkN feminine (mkN "May");
   betty_N = mkN feminine (mkN "Betty");
   emily2_N  = mkN "Emily2";
+  silvi_N  = mkN "Silvi";
+  bruce2_N	= mkN "Bruce2";
+  iris_N	= mkN "Iris";
+  roger_N	= mkN "Roger";
+
   taoyuan_N	= mkN nonhuman (mkN "Taoyuan");
+  minghsin_N  = mkN "Minghsin University";
+  taiwan_N  = mkN "Taiwan";
+  hsinchu_N = mkN "Hsinchu";
+  fast_and_furious_N  = mkN "Fast and Furious";
+  tucheng_N = mkN "Tucheng";
+  pingzhen_N  = mkN "PingZhen";
+  taipei_N  = mkN "Taipei";
+  london_N  = mkN "London";
+  new_york_N  = mkN "New York";
+  gucci_N	= mkN "Gucci";
+  omo_N = mkN "Omo";
+  taichung_N  = mkN "Taichung";
+  yilan_N	= mkN "YiLan";
+  dwyane_wade_N  = mkN "Dwyane Wade";
 
 }
 

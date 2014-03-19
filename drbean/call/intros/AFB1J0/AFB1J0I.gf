@@ -84,6 +84,8 @@ lin
   graduate	= graduate_V2;
   have	= LexAFB1J0.have_V2;
   like	= like_V2;
+  make	= make_V2V;
+  study	= study_V;
   want  = want_VV;
 
   brother_2	= brother_N2;
@@ -109,31 +111,57 @@ lin
   way	= mkCN way_N;
   woman	= mkCN woman_N;
   work	= mkNP work_N;
+
   -- betty
   watching_action_movies  = mkNP watching_action_movies_N;
   watching_scary_movies	= mkNP watching_scary_movies_N;
   dogs_and_cats	= mkNP dogs_and_cats_N;
   playing_with_her_nephews  = mkNP playing_with_her_nephews_N;
-  Fast_and_Furious  = mkNP Fast_and_Furious_N;
-  21  = mkNP 21_N;
+  twenty_one  = mkNP twenty_one_N;
   senior  = mkCN senior_N;
 
   nephew  = mkCN nephew_N;
   cute  = mkAP cute_A;
 
 -- emily2
-  difficult = mkNP difficult_N;
+  difficult = mkAP difficult_A;
   friend = mkCN friend_N;
+  japanese = mkPN japanese_N;
   london  = mkPN london_N;
   freshman  = mkCN freshman_N;
   new_york  = mkPN new_york_N;
+  go	= go_V2;
+  say	= say_VS;
+  think	= think_VS;
+
+-- silvi
+  pet	= mkCN pet_N;
 
   oliver	= mkPN oliver_N;
   jeremy	= mkPN jeremy_N;
   may	= mkPN may_N;
   betty	= mkPN betty_N;
   emily2  = mkPN emily2_N;
+  silvi  = mkPN silvi_N;
+  bruce2	= mkPN bruce2_N;
+  iris	= mkPN iris_N;
+  roger	= mkPN roger_N;
+
   taoyuan	= mkPN taoyuan_N;
+  minghsin  = mkPN minghsin_N;
+  taiwan  = mkPN taiwan_N;
+  hsinchu = mkPN hsinchu_N;
+  fast_and_furious  = mkPN fast_and_furious_N;
+  tucheng = mkPN tucheng_N;
+  pingzhen  = mkPN pingzhen_N;
+  taipei  = mkPN taipei_N;
+  london  = mkPN london_N;
+  new_york  = mkPN new_york_N;
+  gucci	= mkPN gucci_N;
+  omo = mkPN omo_N;
+  taichung  = mkPN taichung_N;
+  yilan	= mkPN yilan_N;
+  dwyane_wade  = mkPN dwyane_wade_N;
 
 }
 

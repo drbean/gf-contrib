@@ -67,6 +67,8 @@ fun
 	graduate  : V2;
 	have	: V2;
 	like	: V2;
+	make	: V2V;
+	study	: V;
 	want  : VV;
 
 	brother	: CN;
@@ -92,12 +94,12 @@ fun
 	way	: CN;
 	woman	: CN;
 	work	: NP;
+
 -- betty
   watching_action_movies  : NP;
   watching_scary_movies	: NP;
   playing_with_her_nephews  : NP;
-  fast_and_furious  : NP;
-  21  : NP;
+  twenty_one  : NP;
   dogs_and_cats	: NP;
   nephew  : CN;
   cute	: AP;
@@ -106,16 +108,43 @@ fun
 -- emily2
   difficult : AP;
   friend : CN;
-  london  : NP;
+  japanese : PN;
+  london  : PN;
   freshman  : CN;
-  new_york  : NP;
+  new_york  : PN;
+  go	: V2;
+  say	: VS;
+  think	: VS;
+
+-- silvi
+  pet	: CN;
 
   oliver	: PN;
   jeremy	: PN;
   may	: PN;
   betty	: PN;
   emily2  : PN;
+  silvi	: PN;
+  bruce2	: PN;
+  iris	: PN;
+  roger	: PN;
+
   taoyuan	: PN;
+  taiwan  : PN;
+  minghsin : PN;
+  hsinchu : PN;
+  fast_and_furious  : PN;
+  tucheng : PN;
+  pingzhen  : PN;
+  taipei  : PN;
+  london  : PN;
+  new_york  : PN;
+  gucci	: PN;
+  omo : PN;
+  taichung  : PN;
+  yilan	: PN;
+  dwyane_wade  : PN;
+
 
 
 }

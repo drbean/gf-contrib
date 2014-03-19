@@ -23,6 +23,8 @@ oper
   graduate_V2	: V2;
   have_V2	: V2;
   like_V2	: V2;
+  make_V2V	: V2V;
+  study_V	: V;
   want_VV	: VV;
 
   brother_N2	: N2;
@@ -49,26 +51,51 @@ oper
   watching_scary_movies_N	: N;
   dogs_and_cats_N : N;
   playing_with_her_nephews_N  : N;
-  Fast_and_Furious_N  : N;
-  21_N	: N;
+  twenty_one_N	: N;
   nephew_N  : N;
   cute_A  : A;
   senior_N  : N;
   
 -- emily2
-  difficult_N : N;
+  difficult_A : A;
   friend_N : N;
+  japanese_N : N;
   london_N  : N;
   freshman_N  : N;
   new_york_N  : N;
+  go_V2	: V2;
+  say_VS	: VS;
+  think_VS	: VS;
   
+-- silvi
+  pet_N	: N;
+
 
   oliver_N	: N;
   jeremy_N	: N;
   may_N	: N;
   betty_N	: N;
   emily2_N  : N;
+  silvi_N  : N;
+  bruce2_N	: N;
+  iris_N	: N;
+  roger_N	: N;
+
   taoyuan_N	: N;
+  minghsin_N  : N;
+  taiwan_N  : N;
+  hsinchu_N : N;
+  fast_and_furious_N  : N;
+  tucheng_N : N;
+  pingzhen_N  : N;
+  taipei_N  : N;
+  london_N  : N;
+  new_york_N  : N;
+  gucci_N : N;
+  omo_N	: N;
+  taichung_N  : N;
+  yilan_N : N;
+  dwyane_wade_N  : N;
 
 }
 
