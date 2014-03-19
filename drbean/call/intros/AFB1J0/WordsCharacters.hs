@@ -34,6 +34,7 @@ posMap = Map.fromList [
 
 a = [
   "cute"
+  , "difficult"
 	]
 
 adv = [
@@ -72,10 +73,13 @@ n = [
 	"child"
 	, "children"
 	, "brother"
+	, "dogs_and_cats"
 	, "dream"
 	, "family"
 	, "fashion_designer"
 	, "father"
+	, "friend"
+	, "freshman"
 	, "graduation"
 	, "job"
 	, "jobs"
@@ -84,21 +88,56 @@ n = [
 	, "money"
 	, "mother"
 	, "nephew"
+  , "pet"
+
+	, "playing_with_her_nephews"
 	, "school"
+	, "senior"
 	, "sister"
 	, "time"
 	, "thing"
 	, "things"
+	, "21"
+	, "watching_action_movies"
+	, "watching_scary_movies"
 	, "way"
 	, "woman"
 	, "work"
+	, "senior"
 
 	]
 
 pn = [
-	"Oliver"
-	, "Jeremy"
-	, "May"
+  "Oliver"
+  , "Japanese"
+  , "Jeremy"
+  , "London"
+  , "May"
+  , "New York"
+  , "Tucheng"
+  , "Taoyuan"
+  , "Taichung"
+  , "Minghsin University"
+  , "Taiwan"
+  , "Hsinchu"
+  , "Fast and Furious"
+  , "Tucheng"
+  , "PingZhen"
+  , "Taipei"
+  , "London"
+  , "New York"
+  , "Gucci"
+  , "Omo"
+  , "Taichung"
+  , "YiLan"
+  , "Dwyane Wade"
+
+  , "Omo"
+  , "Gucci"
+  , "Bruce2"
+  , "Iris"
+  , "Roger"
+
 	]
 
 pron = [
@@ -112,7 +151,7 @@ prep = [
 	, "from"
 	-- , "like"
 	-- , "than"
-	-- , "to"
+	, "to"
 	-- , "with"
 	]
 
@@ -145,13 +184,14 @@ v = [
 	, "become"
 	, "can"
 	, "come"
-	, "comes"
-	, "has"
+	, "go"
 	, "have"
 	, "like"
-	, "likes"
+	, "live"
+	, "say"
+	, "study"
+	, "think"
 	, "want"
-	, "wants"
 
 	]
 
