@@ -1,6 +1,6 @@
 module LogicalForm where
 
-import Dickson
+import AFB1J0
 import Model
 -- import Interpretation
 import Story_Interpretation
@@ -325,7 +325,7 @@ transVP (GBe_vp comp) = case comp of
     GBe_bad ap -> \x -> Rel (adjective_list ap) [x]
 transVP (GHappening v) =
         \ t -> ( Rel (happening_list v) [t] )
-transVP (GChanging v obj) = \subj -> transNP obj (\ obj -> Rel (changing_list v) [subj,obj])
+transVP (GChanging v obj) = \subj -> transNP obj (\ e -> Rel (changing_list v) [subj,e])
 --transVP (Branch (Cat _ "VP" _ _) [Leaf (Cat name "V" _ [_]),obj1]) =
 --	case (catLabel ( t2c obj1 )) of
 --		"PP" -> \subj -> transPP obj1 (\adv -> Rel name [subj,adv])
