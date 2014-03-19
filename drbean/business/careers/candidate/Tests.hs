@@ -96,8 +96,12 @@ quality_test = [
   , "Is Barbara ambitious?"
   , "Does Barbara have experience?"
   , "Is Barbara experienced?"
-  , "Does Tadeusz have good judgement?"
   , "Is Tadeusz experienced?"
+  , "Is Fast-Track experienced?"
+  , "Is Dr Bean experienced?"
+  , "Does Tadeusz have good judgement?"
+  , "Does Barbara have good judgement?"
+  , "Does Dr Bean have good judgement?"
   ]
 
 working_test = [
