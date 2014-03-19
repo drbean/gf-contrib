@@ -1,9 +1,10 @@
 module Tests where
 
+
 import Control.Monad
 
 import PGF
-import Dickson
+import AFB1J0
 import LogicalForm
 import Evaluation
 import Model
@@ -17,7 +18,7 @@ import Data.Char
 -- import System.Environment.FindBin
 
 ans tests = do
-  gr	<- readPGF ( "./Dickson.pgf" )
+  gr	<- readPGF ( "./AFB1J0.pgf" )
   let ss = map (chomp . lc_first) tests
   let ps = map ( parses gr ) ss
   let ls = map ( map ( linear transform gr ) ) ps
@@ -73,19 +74,31 @@ chomp []                      = []
 chomp (x:xs) | x `elem` ".,?" = chomp xs
             | otherwise      =     x:chomp xs
 
-working_test = [
+roger_test = [
 
-	"Does Dee work?"
-	, "Does Dee have work?"
-	, "Does Dee have a job?"
-	, "Who works?"
-	, "Who has work?"
-	, "Who has a job?"
-	, "Dee works, doesn't she?"
-	, "Dee has work, doesn't she?"
-	, "Dee has a job, doesn't she?"
+	"Does Roger's father work?"
+	, "Does Roger come from YiLan?"
+	, "Does Roger have a brother?"
+	, "Does Roger like listening to music?"
+	, "Is Roger's father a businessman?"
+	, "Does Roger like Dwyane Wade?"
+	, "Is Roger optimistic?"
+	, "Roger's father has a job, doesn't he?"
+	, "Is Roger from YiLan?"
 	]
 
+birth	= [
+	"Does Betty come from Taipei?"
+	, "Does Bruce2 come from Taoyuan?"
+	, "Does Emily2 come from Taoyuan?"
+	, "Does Oliver come from Tucheng?"
+	, "Does Iris come from Taoyuan?"
+	, "Does Jeremy come from Tucheng?"
+	, "Does Roger come from YiLan?"
+	, "Does Silvi come from Taichung?"
+	, "Is Silvi from Taichung?"
+	, "Is Silvi come from Taichung?"
+	]
 test_text = [
 	"Dee's son spoke English.",
 	"Dee's son's brother spoke English.",
@@ -99,11 +112,6 @@ test_text = [
 	\Dee's son talked to the interviewer. \
 	\Dee's son asked the interviewer about Vietnam."
 	]
-
-alf_test = [
- "Does the uncle of the father of Dee have work?"
- , "Is the uncle of the father of Dee Alf?"
- ]
 
 test_possessives = [
   "Is Dee Dee's job?"
@@ -147,35 +155,36 @@ test_possessives = [
 	]
 
 haves = [
-  "Does Dee have Dee's father?"
-  , "Does Dee's father have money?"
-  , "Does Dee's father's uncle have money?"
-  , "Does Dee have Dee's dad?"
-  , "Does Dee have Dee's uncle?"
-  , "Does Dee's father's uncle have money?"
-  , "Does Dee's father have Dee?"
-  , "Does Dee have Dee's father?"
-  , "Does Dee have Alf?"
-  , "Does Dee have a mother?"
-  , "Does Dee have a son?"
-  , "Does Dee have a daughter?"
-  , "Does Dee's father have a mother?"
-  , "Does Dee have work?"
-  , "Does Dee have a job?"
-  , "Does Dee have some job?"
-  , "Does Dee have money?"
-  , "Does Dee's father have money?"
+  "Does Betty have friends?"
+  , "Does Emily2 have friends?"
+  , "Does Silvi have pets?"
+  , "Does Betty have pets?"
+  , "Does Bruce2 have pets?"
+  , "Does Bruce2 have Bruce2's uncle?"
+  , "Does Bruce2's father's uncle have money?"
+  , "Does Bruce2's father have Bruce2?"
+  , "Does Bruce2 have Bruce2's father?"
+  , "Does Emily2 have Alf?"
+  , "Does Emily2 have a mother?"
+  , "Does Emily2 have a son?"
+  , "Does Emily2 have a daughter?"
+  , "Does Emily2's father have a mother?"
+  , "Does Emily2 have work?"
+  , "Does Emily2 have a job?"
+  , "Does Emily2 have some job?"
+  , "Does Emily2 have money?"
+  , "Does Emily2's father have money?"
   , "Does Alf have money?"
-  , "Does Dee have a parent?"
-  , "Does Dee have some parents?"
-  , "Does Dee have parents?"
-  , "Does Dee's father have a parent?"
-  , "Does Dee's father have some parents?"
-  , "Does Dee's father have parents?"
-  , "Does Dee's father have an uncle?"
-  , "Does Dee have work?"
+  , "Does Iris have a parent?"
+  , "Does Iris have some parents?"
+  , "Does Iris have parents?"
+  , "Does Iris's father have a parent?"
+  , "Does Iris's father have some parents?"
+  , "Does Iris's father have parents?"
+  , "Does Iris's father have an uncle?"
+  , "Does Iris have work?"
   , "Does Alf have work?"
-  , "Does Dee's father have work?"
+  , "Does Iris's father have work?"
   , "Does the interviewer have the job?"
   , "Does the interviewer have Dee's son?"
   , "Does the interviewer have a mother?"
