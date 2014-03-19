@@ -1,135 +1,130 @@
-module Story_Interpretation where 
+module Story_Interpretation where
+
 
 import Model
-import Dickson
+import AFB1J0
 
 entity_list :: GPN -> Entity
-entity_list Gdee	 = ent_ided "Dee"
-entity_list Galf	 = ent_ided "Alf"
-entity_list Gmonday	 = ent_ided "Monday"
+entity_list Gjeremy	= ent_ided "Jeremy"
+entity_list Gmay	= ent_ided "May"
+entity_list Goliver	= ent_ided "Oliver"
+entity_list Gbetty	= ent_ided "Betty"
+entity_list Gemily2	= ent_ided "Emily2"
+entity_list Gsilvi	= ent_ided "Silvi"
+entity_list Gbruce2	= ent_ided "Bruce2"
+entity_list Giris	= ent_ided "Iris"
+entity_list Groger	= ent_ided "Roger"
+
+entity_list Gtaoyuan	= ent_ided "Taoyuan"
+entity_list Gtaiwan	= ent_ided "Taiwan"
+entity_list Gminghsin	= ent_ided "Minghsin University"
+entity_list Gtucheng	= ent_ided "Tucheng"
+entity_list Gpingzhen	= ent_ided "PingZhen"
+entity_list Gtaipei	= ent_ided "Taipei"
+entity_list Glondon	= ent_ided "London"
+entity_list Gnew_york	= ent_ided "New York"
+entity_list Ggucci	= ent_ided "Gucci"
+entity_list Gomo	= ent_ided "Omo"
+entity_list Gtaichung	= ent_ided "Taichung"
+entity_list Gyilan	= ent_ided "YiLan"
+entity_list Gdwyane_wade	= ent_ided "Dwyane Wade"
+
+
+entity_list Gfast_and_furious	= ent_ided "Fast and Furious"
+
 
 adjective_list :: GAP -> String
-adjective_list Gbad     = "bad"
-adjective_list Gbetter  = "better"
-adjective_list Gfirst   = "first"
-adjective_list Ghard    = "hard"
-adjective_list Glittle  = "little"
-adjective_list Gmad     = "mad"
+adjective_list Gcute	= "cute"
 
 n2_kind_list :: GN2 -> String
 n2_kind_list Gfather_2	= "father"
-n2_kind_list Guncle_2	= "uncle"
+n2_kind_list Gmother_2	= "mother"
+n2_kind_list Gbrother_2	= "brother"
+n2_kind_list Gsister_2	= "sister"
 
 uncount_list :: GNP -> String
 uncount_list Gmoney	= "money"
-uncount_list Gstuff	= "stuff"
 uncount_list Gtime	= "time"
 uncount_list Gwork	= "work"
+uncount_list Gwatching_action_movies	= "watching_action_movies"
+uncount_list Gwatching_scary_movies	= "watching_scary_movies"
+uncount_list Gplaying_with_her_nephews	= "playing_with_her_nephews"
+uncount_list Gtwenty_one	= "21"
+
+uncount_list Gdogs_and_cats	= "dogs_and_cats"
 
 kind_list :: GCN -> String
-kind_list Gapprentice	= "apprentice"
+kind_list Gbrother	= "brother"
 kind_list Gchild	= "child"
-kind_list Gdad	= "dad"
-kind_list Gelectrician	= "electrician"
-kind_list Gend	= "end"
+kind_list Gdream	 = "dream"
+kind_list Gfashion_designer	 = "fashion_designer"
 kind_list Gfamily	= "family"
 kind_list Gfather	= "father"
 kind_list Ggraduation	= "graduation"
-kind_list Gguy	= "guy"
 kind_list Gjob	= "job"
-kind_list Gkind	= "kind"
-kind_list Gknack	= "knack"
 kind_list Glife	= "life"
 kind_list Gman	= "man"
-kind_list Gnight	= "night"
-kind_list Gposition	= "position"
+kind_list Gmother	= "mother"
 kind_list Gschool	= "school"
-kind_list Gship	= "ship"
-kind_list Gshipyard	= "shipyard"
-kind_list Gsuperintendent	= "superintendent"
-kind_list Gsupervisor	= "supervisor"
+kind_list Gsister	= "sister"
 kind_list Gthing	= "thing"
-kind_list Gtop	= "top"
-kind_list Gtransformer	= "transformer"
-kind_list Guncle	= "uncle"
 kind_list Gway	= "way"
-kind_list Gweek	= "week"
 kind_list Gwoman	= "woman"
-kind_list Gword	= "word"
+kind_list Gnephew	= "nephew"
+kind_list Gfreshman	= "freshman"
+kind_list Gsenior	= "senior"
+kind_list Gfriend	= "friend"
+
+
+
 
 happening_list :: GV -> String
-happening_list Gwork_V	= "work"
-happening_list Glaugh	= "laugh"
-happening_list Gknow	= "know"
-happening_list Glook_here	= "look_here"
-happening_list Gslow_down	= "slow_down"
+happening_list Gstudy	= "study"
 
 changing_list :: GV2 -> String
 changing_list Gbecome	= "become"
-changing_list Gget  	= "get"
-changing_list Gget_along	= "get_along"
-changing_list Ggo   	= "go"
-changing_list Ghave 	= "have"
-changing_list Ghire 	= "hire"
-changing_list Ginterview	= "interview"
-changing_list Glift 	= "lift"
-changing_list Glike 	= "like"
-changing_list Gprove	= "prove"
-changing_list Gsee  	= "see"
+changing_list Ghave	= "have"
+changing_list Gcome	= "come"
+changing_list Glike	= "like"
+
 
 causative_list :: GV2V -> String
-causative_list Gtake	= "take"
+causative_list Gmake	= "make"
+
 
 positing_list :: GVS -> String
-positing_list Gknow_VS	= "know_VS"
 positing_list Gsay	= "say"
 positing_list Gthink	= "think"
 
 intens_list :: GVV -> String
 intens_list Gcan	= "can"
-intens_list Gneed	= "need"
-intens_list Gstart	= "start"
 
 objects = [
-	( "apprentice",	\[x]	-> predid1 "apprentice" x	)
+	( "brother",	\[x]	-> predid1 "brother" x	)
 	, ( "child",	\[x]	-> predid1 "child" x	)
-	, ( "dad",	\[x]	-> predid1 "dad" x	)
-	, ( "electrician",	\[x]	-> predid1 "electrician" x	)
-	, ( "end",	\[x]	-> predid1 "end" x	)
 	, ( "family",	\[x]	-> predid1 "family" x	)
+	, ( "fashion_designer",	\[x]	-> predid1 "fashion_designer" x	)
+	, ( "father",	\[x]	-> predid1 "father" x	)
 	, ( "graduation",	\[x]	-> predid1 "graduation" x	)
-	, ( "guy",	\[x]	-> predid1 "guy" x	)
 	, ( "job",	\[x]	-> predid1 "job" x	)
-	, ( "kind",	\[x]	-> predid1 "kind" x	)
 	, ( "life",	\[x]	-> predid1 "life" x	)
 	, ( "man",	\[x]	-> predid1 "man" x	)
-	, ( "night",	\[x]	-> predid1 "night" x	)
-	, ( "position",	\[x]	-> predid1 "position" x	)
+	, ( "mother",	\[x]	-> predid1 "mother" x	)
+	, ( "money",	\[x] -> predid1 "money" x	)
 	, ( "school",	\[x]	-> predid1 "school" x	)
-	, ( "ship",	\[x]	-> predid1 "ship" x	)
-	, ( "shipyard",	\[x]	-> predid1 "shipyard" x	)
-	, ( "superintendent",	\[x] -> predid1 "superintendent" x	)
-	, ( "supervisor",	\[x] -> predid1 "supervisor" x	)
+	, ( "sister",	\[x]	-> predid1 "sister" x	)
+	, ( "time",	\[x]	-> predid1 "time" x	)
 	, ( "thing",	\[x]	-> predid1 "thing" x	)
-	, ( "top",	\[x]	-> predid1 "top" x	)
-	, ( "transformer",	\[x]	-> predid1 "transformer" x	)
-	, ( "uncle",	\[x]	-> predid1 "uncle" x	)
 	, ( "way",	\[x]	-> predid1 "way" x	)
 	, ( "week",	\[x]	-> predid1 "week" x	)
-	, ( "word",	\[x]	-> predid1 "word" x	)
-
 	, ( "woman",	\[x]	-> predid1 "woman" x	)
-	, ( "man",	\[x]	-> predid1 "man" x	)
-	, ( "husband",	\[x] -> predid1 "husband" x	)
-	, ( "father",	\[x]	-> predid1 "father" x	)
-	, ( "construction",	\[x] -> predid1 "construction" x	)
-	, ( "electrician",	\[x] -> predid1 "electrician" x	)
-	, ( "interviewer",	\[x] -> predid1 "interviewer" x	)
-	, ( "shipyard",	\[x] -> predid1 "shipyard" x	)
-	, ( "disappointment",	\[x] -> predid1 "disappointment" x	)
-	, ( "money",	\[x] -> predid1 "money" x	)
-	, ( "upbringing",	\[x] -> predid1 "upbringing" x	)
-	, ( "story",	\[x] -> predid1 "story" x	)
+	, ( "work",	\[x]	-> predid1 "work" x	)
+	, ( "friend",	\[x]	-> predid1 "friend" x	)
+	, ( "dogs_and_cats",	\[x]	-> predid1 "dogs_and_cats" x	)
+
+
+-- betty
+
 	]
 
 inflections = [
@@ -137,21 +132,14 @@ inflections = [
 	]
 
 relations = [
-	( "bad",	\[x]	-> predid1 "bad" x	)
-	, ( "better",	\[x]	-> predid1 "better" x	)
-	, ( "first",	\[x]	-> predid1 "first" x	)
-	, ( "hard",	\[x]	-> predid1 "hard" x	)
-	, ( "little",	\[x]	-> predid1 "little" x	)
-	, ( "mad",	\[x]	-> predid1 "mad" x	)
+
+	( "cute",	\[x]	-> predid1 "cute" x	)
 
 	, ( "work",	\[x]	-> predid1 "work" x	)
-	, ( "laugh",	\[x] -> predid1 "laugh" x	)
-	, ( "know",	\[x]	-> predid1 "know" x	)
-	, ( "look_here",	\[x]	-> predid1 "look_here" x	)
-	, ( "slow_down",	\[x]	-> predid1 "slow_down" x	)
+	, ( "come",	\[x,y]	-> predid2 "come" y x	)
+	, ( "like",	\[x,y]	-> predid2 "like" y x	)
 
-	, ( "hire",	\[x,y]	-> predid2 "hire" y x	)
 
 	]
 
-
+-- vim: set ts=8 sts=2 sw=2 noet:
