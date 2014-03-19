@@ -142,7 +142,7 @@ oper
 	barbara_N = mkN feminine (mkN "Barbara");
 	dr_bean_N = mkN masculine (mkN "Dr Bean");
 	eva_N = mkN feminine (mkN "Eva");
-	fast_track_N = mkN nonhuman (mkN "Fast-track");
+	fast_track_N = mkN nonhuman (mkN "Fast-Track");
 	tadeusz_N = mkN masculine (mkN "Tadeusz");
 
 	--although_Adv = mkAdv "although";

@@ -16,7 +16,7 @@ entity_check :: [ (Entity, String) ]
 entity_check =  [
     (A, "" )	-- aim
     , (B, "Barbara" )
-    , (C, "" )
+    , (C, "Dr Bean" )
     , (D, "degree" )
     , (E, "Eva" )
     , (F, "Fast-Track" )
@@ -37,14 +37,14 @@ entity_check =  [
     , (U, "college" )
     , (V, "" )
     , (W, "" )
-    , (X, "" )
+    , (X, "experience" )
     , (Y, "interview" )
     , (Z, "" )
     ]
 
 ent_ided :: String -> Entity
-ent_ided string = head [entity | (entity,string) <- entity_check,
-				string /= ""
+ent_ided name = head [entity | (entity,string) <- entity_check ,
+				name == string
 				]
 
 characters :: [(String,Entity)]
@@ -140,7 +140,7 @@ pred2 xs	= curry ( `elem` xs )
 pred3 xs	= curry3 ( `elem` xs )
 pred4 xs	= curry4 ( `elem` xs )
 
-possessions	= [(B,J),(T,J),(E,J)]
+possessions	= [(B,J),(T,J),(E,J),(B,X),(T,X),(E,X),(T,G)]
 appreciation	= [ (D,Unspec,A),(D,Unspec,F) ]
 qualities	= [ (B,A),(T,G),(B,X),(T,X),(E,X) ]
 conflict	= []

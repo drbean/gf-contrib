@@ -4,11 +4,11 @@ import Model
 import Candidate
 
 entity_list :: GPN -> Entity
-entity_list Gbarbara	= ent_ided "barbara"
-entity_list Gtadeusz	= ent_ided "tadeusz"
-entity_list Geva	= ent_ided "eva"
-entity_list Gfast_track	= ent_ided "fast_track"
-entity_list Gdr_bean	= ent_ided "dr_bean"
+entity_list Gbarbara	= ent_ided "Barbara"
+entity_list Gtadeusz	= ent_ided "Tadeusz"
+entity_list Geva	= ent_ided "Eva"
+entity_list Gfast_track	= ent_ided "Fast-Track"
+entity_list Gdr_bean	= ent_ided "Dr Bean"
 
 adjective_list :: GAP -> String
 adjective_list Gambitious     = "ambitious"
@@ -178,7 +178,7 @@ objects = [
 
 inflections = [
 	( "children",	"child")
-	, ( "good_judgement",	"judgement")
+	, ( "good judgement",	"judgement")
 	]
 
 relations = [
@@ -194,6 +194,8 @@ relations = [
 	, ( "confident",	\[x]	-> predid1 "confident" x	)
 	, ( "difficult",	\[x]	-> predid1 "difficult" x	)
 	, ( "experienced",	\[x]	-> predid1 "experienced" x	)
+	, ( "judgement",	\[x]	-> predid1 "judgement" x	)
+
 
 	, ( "fast",	\[x]	-> predid1 "fast" x	)
 	, ( "hard",	\[x]	-> predid1 "hard" x	)
