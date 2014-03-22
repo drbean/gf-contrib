@@ -96,7 +96,14 @@ working_test = [
 	, "Dee works, doesn't she?"
 	, "Dee has work, doesn't she?"
 	, "Dee has a job, doesn't she?"
+	, "Does Dee work as an electrician?"
+	, "Is Dee an electrician?"
 	]
+
+tag_test = [
+  "Dee is an electrician, isn't she?"
+  , "Dee isn't an electrician, is she?"
+  ]
 
 test_text = [
 	"Dee's son spoke English.",
