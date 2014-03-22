@@ -111,6 +111,7 @@ oper
 	experience_N	= mkN "experience";
 	hand_N	= mkN "hand";
 	head_N	= mkN "head";
+	head_N2	= mkN2 (mkN human (mkN "head")) of_prep;
 	job_N	= mkN "job";
 	judgement_N	= mkN "judgement";
 	learner_N	= mkN "learner";

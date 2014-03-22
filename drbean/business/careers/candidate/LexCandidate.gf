@@ -89,6 +89,7 @@ oper
 	experience_N	: N;
 	hand_N	: N;
 	head_N	: N;
+	head_N2	: N2;
 	job_N	: N;
 	judgement_N	: N;
 	learner_N	: N;

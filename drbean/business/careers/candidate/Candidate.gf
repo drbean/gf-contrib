@@ -126,6 +126,7 @@ fun
 	experience	: NP;
 	hand	: CN;
 	head	: CN;
+	head_2	: N2;
 	job	: CN;
 	good_judgement	: NP;
 	judgement	: NP;

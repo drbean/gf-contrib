@@ -322,23 +322,24 @@ neg_tag_test = [
 	]
 
 test_possessives = [
-	-- "Dr Bean's co-worker hoped to get the job.",
-	"Barbara's co-worker talked to the boss.",
-	"Barbara's boss got Dr Bean's job.",
-	"Did Dr Bean's co-worker give a job to the German woman's boss?",
-	"Did Dr Bean's co-worker give a job to a German woman's boss?",
-	"Did Eva talk to Dr Bean?",
-	"The boss of Barbara talked to Eva.",
-	"Did the co-worker of Barbara talk to Dr Bean?",
-	"Did a co-worker of Barbara talk to Dr Bean?",
-	"Did the co-worker of a German woman talk to Barbara's boss?",
-	"Did the co-worker of the German woman have sales experience?",
-	"Did a co-worker of an ambitious woman have sales experience?",
-	"Did the co-workers of the ambitious women have sales experience?",
-	"Did the co-worker of Dr Bean have sales experience?",
-	"Did the boss of Barbara have sales experience?",
-	"Did the boss of the German woman have sales experience?",
-	"Did the boss of Barbara talk to Eva?"
+	"Tadeusz is the head of the company isn't he?"
+	, "Barbara's co-worker talked to the boss."
+	, "Barbara's boss got Dr Bean's job."
+	, "Did Dr Bean's co-worker give a job to the German woman's boss?"
+	, "Did Dr Bean's co-worker give a job to a German woman's boss?"
+	, "Did Eva talk to Dr Bean?"
+	, "The boss of Barbara talked to Eva."
+	, "Did the co-worker of Barbara talk to Dr Bean?"
+	, "Did a co-worker of Barbara talk to Dr Bean?"
+	, "Did the co-worker of a German woman talk to Barbara's boss?"
+	, "Did the co-worker of the German woman have sales experience?"
+	, "Did a co-worker of an ambitious woman have sales experience?"
+	, "Did the co-workers of the ambitious women have sales experience?"
+	, "Did the co-worker of Dr Bean have sales experience?"
+	, "Did the boss of Barbara have sales experience?"
+	, "Did the boss of the German woman have sales experience?"
+	, "Did the boss of Barbara talk to Eva?"
+	, "Dr Bean's co-worker hoped to get the job."
 	]
 
 haves = [

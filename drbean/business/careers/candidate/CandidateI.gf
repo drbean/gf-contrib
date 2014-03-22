@@ -143,6 +143,7 @@ lin
 	experience	= mkNP experience_N;
 	hand	= mkCN hand_N;
 	head	= mkCN head_N;
+	head_2	= head_N2;
 	job	= mkCN job_N;
 	good_judgement	= mkNP (mkCN good_A judgement_N);
 	learner	= mkCN learner_N;
