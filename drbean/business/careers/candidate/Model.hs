@@ -103,6 +103,7 @@ onePlacers = [
 	, ("realistic",	 pred1 [T,E] )
 	, ("judgement",	 pred1 [G] )
 	, ("experience",	 pred1 [X] )
+	, ("head",	 pred1 [] )
 
 	, ("fast",	 pred1 [B,E] )
 	, ("good",	 pred1 [T,E] )
@@ -141,7 +142,7 @@ pred3 xs	= curry3 ( `elem` xs )
 pred4 xs	= curry4 ( `elem` xs )
 
 possessions	= [(B,J),(T,J),(E,J),(B,X),(T,X),(E,X),(T,G)]
-appreciation	= [ (D,Unspec,A),(D,Unspec,F) ]
+appreciation	= [ (E,Unspec,J) ]
 qualities	= [ (B,A),(T,G),(B,X),(T,X),(E,X) ]
 conflict	= []
 supervision	= []
@@ -160,7 +161,7 @@ resent	= pred2 $ map swap disappointments
 have	= pred2 $ possessions
 		++ ( map (\x->(recipient x, theme x) ) giving )
 
-knowledge	= []
+knowledge	= [(B,F),(T,F),(E,F)]
 acquaintances	= []
 help	= pred2 $ supervision
 

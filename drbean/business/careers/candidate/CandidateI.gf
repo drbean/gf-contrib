@@ -79,6 +79,7 @@ lin
 	hire	= hire_V2;
 	interview	= interview_V2;
 	know	= know_V;
+	know_V2	= LexCandidate.know_V2;
 	know_VS	= LexCandidate.know_VS;
 	laugh	= laugh_V;
 	lift	= lift_V2;

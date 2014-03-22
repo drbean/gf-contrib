@@ -25,6 +25,7 @@ oper
 	hire_V2	= mkV2 "hire";
 	interview_V2	= mkV2 "interview";
 	know_V	= IrregEng.know_V;
+	know_V2	= mkV2 know_V;
 	know_VS	= mkVS know_V;
 	laugh_V	= mkV "laugh";
 	lift_V2	= mkV2 "lift";

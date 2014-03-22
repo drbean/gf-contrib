@@ -44,6 +44,8 @@ adjective_list Gvarious	= "various"
 
 n2_kind_list :: GN2 -> String
 n2_kind_list Gdirector_2	= "director"
+n2_kind_list Ghead_2	= "head"
+
 
 uncount_list :: GNP -> String
 -- uncount_list Gmoney	= "money"
@@ -114,6 +116,8 @@ changing_list Glike 	= "like"
 changing_list Gprove	= "prove"
 changing_list Gsee  	= "see"
 changing_list Gwork_in  	= "work"
+changing_list Gknow_V2	= "know"
+
 
 causative_list :: GV2V -> String
 causative_list Gtake	= "take"
@@ -210,7 +214,10 @@ relations = [
 
 
 	, ( "laugh",	\[x] -> predid1 "laugh" x	)
-	, ( "know",	\[x]	-> predid1 "know" x	)
+	, ( "know",	\args -> case args of
+				[x,y]	-> predid2 "know" y x
+				[x]	-> (forgetful2 . predid2) "know" x	)
+	, ( "like",	\[x, y]	-> predid2 "like" y x	)
 	, ( "look_here",	\[x]	-> predid1 "look_here" x	)
 	, ( "slow_down",	\[x]	-> predid1 "slow_down" x	)
 

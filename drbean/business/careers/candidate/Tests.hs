@@ -81,6 +81,9 @@ all_tests =
 fast_track = [
   "Is Fast-Track a company?"
   , "Does Eva work in Fast-Track?"
+  , "Does Tadeusz know the company?"
+  , "Does Tadeusz know Fast-Track?"
+  , "Does Eva know Fast-Track?"
   ]
 
 sales_test = [
