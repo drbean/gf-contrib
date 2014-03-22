@@ -8,7 +8,7 @@ fun
 	-- Cop		: NP -> NP -> Cl;
 	Look_bad	: VA -> AP -> VP;
 	Be_bad	: AP -> Comp;
-	Be_dee	: NP -> Comp;
+	Be_someone	: NP -> Comp;
 	Be_vp	: Comp -> VP;
 	Happening	: V -> VP ;
 	Changing	: V2 -> NP -> VP;
