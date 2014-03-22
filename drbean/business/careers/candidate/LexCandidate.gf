@@ -44,7 +44,7 @@ oper
 	work_V	: V;
 	work_in_V	: V2;
 
-	ambitious	= mkAP ambitious_A;
+	ambitious	= A;
 	bad_A	: A;
 	competitive_A	: A;
 	confident_A	: A;
