@@ -1,4 +1,4 @@
-abstract Candidate = Cat ** {
+abstract Cusp = Cat ** {
 
 
   flags startcat = Utt ;

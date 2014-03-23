@@ -1,4 +1,4 @@
-incomplete concrete CandidateI of Candidate = open Syntax, ParadigmsEng, ExtraEng, LexCandidate in {
+incomplete concrete CuspI of Cusp = open Syntax, ParadigmsEng, ExtraEng, LexCusp in {
 
 lincat
 	Utt	= Syntax.Utt;
@@ -50,9 +50,9 @@ lin
 	Ut q	= mkUtt q;
 	Sentence subject predicate	= mkCl subject predicate;
 
-	Yes	= LexCandidate.yes_Utt;
-	No	= LexCandidate.no_Utt;
-	NoAnswer	= LexCandidate.no_answer_Utt;
+	Yes	= LexCusp.yes_Utt;
+	No	= LexCusp.no_Utt;
+	NoAnswer	= LexCusp.no_answer_Utt;
 
 	Entity pn	= mkNP pn;
 	Kind ap cn	= mkCN ap cn;
@@ -60,27 +60,27 @@ lin
 	Apos np	= mkDet (GenNP np);
 	Item det noun	= mkNP det noun;
 
-	a_Det	= LexCandidate.a_Det;
-	zero_Det	= LexCandidate.zero_Det;
-	the_Det	= LexCandidate.the_Det;
-	thePlural_Det = LexCandidate.thePlural_Det;
+	a_Det	= LexCusp.a_Det;
+	zero_Det	= LexCusp.zero_Det;
+	the_Det	= LexCusp.the_Det;
+	thePlural_Det = LexCusp.thePlural_Det;
 
-	who_WH	= LexCandidate.who_WH;
-	what_WH	= LexCandidate.what_WH;
+	who_WH	= LexCusp.who_WH;
+	what_WH	= LexCusp.what_WH;
 
-	of_prep	= LexCandidate.of_prep;
+	of_prep	= LexCusp.of_prep;
 
 	become	= become_V2;
-	can	= LexCandidate.can_VV;
+	can	= LexCusp.can_VV;
 	get_along	= get_along_V2;
 	get	= get_V2;
 	go	= go_V2;
-	have	= LexCandidate.have_V2;
+	have	= LexCusp.have_V2;
 	hire	= hire_V2;
 	interview	= interview_V2;
 	know	= know_V;
-	know_V2	= LexCandidate.know_V2;
-	know_VS	= LexCandidate.know_VS;
+	know_V2	= LexCusp.know_V2;
+	know_VS	= LexCusp.know_VS;
 	laugh	= laugh_V;
 	lift	= lift_V2;
 	like	= like_V2;
@@ -96,7 +96,7 @@ lin
 	take	= take_V2V;
 	tell	= tell_V2S;
 	think	= think_VS;
-	work_V	= LexCandidateEng.work_V;
+	work_V	= LexCuspEng.work_V;
 	work_in	= work_in_V;
 
 	ambitious	= mkAP ambitious_A;
@@ -156,7 +156,7 @@ lin
 	pair	= mkCN pair_N;
 	people	= mkCN people_N;
 	personality	= mkCN personality_N;
-	polish_N	= mkCN LexCandidate.polish_N;
+	polish_N	= mkCN LexCusp.polish_N;
 	respect	= mkCN respect_N;
 	result	= mkCN result_N;
 	risk	= mkCN risk_N;

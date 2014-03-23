@@ -1,8 +1,8 @@
---# -path=.:./gf-contrib/drbean/business/careers/candidate:present
+--# -path=.:./gf-contrib/drbean/business/stress/cusp:present
 
-concrete CandidateEng of Candidate = CandidateI with
+concrete CuspEng of Cusp = CuspI with
   (Syntax = SyntaxEng),
-  (LexCandidate = LexCandidateEng) **
+  (LexCusp = LexCuspEng) **
   open ResEng,Prelude in {
 
 param

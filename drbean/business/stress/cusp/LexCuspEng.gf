@@ -1,4 +1,4 @@
-instance LexCandidateEng of LexCandidate = open SyntaxEng, ParadigmsEng, Prelude, IrregEng in {
+instance LexCuspEng of LexCusp = open SyntaxEng, ParadigmsEng, Prelude, IrregEng in {
 
 oper
 	a_Det	= aSg_Det;

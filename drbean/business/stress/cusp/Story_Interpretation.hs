@@ -1,7 +1,7 @@
 module Story_Interpretation where 
 
 import Model
-import Candidate
+import Cusp
 
 entity_list :: GPN -> Entity
 entity_list Gbarbara	= ent_ided "Barbara"

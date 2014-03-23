@@ -1,4 +1,4 @@
-interface LexCandidate = open Syntax in {
+interface LexCusp = open Syntax in {
 oper
 
 	a_Det	: Det;
