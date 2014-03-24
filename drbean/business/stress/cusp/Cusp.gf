@@ -132,6 +132,7 @@ fun
   high	: AP;
   latter	: AP;
   little	: AP;
+  managerial	: AP;
   main	: AP;
   more	: AP;
   most	: AP;
@@ -140,6 +141,7 @@ fun
   particular	: AP;
   poor	: AP;
   practical	: AP;
+  psychological	: AP;
   severe	: AP;
   simple	: AP;
   social	: AP;
@@ -152,6 +154,8 @@ fun
   useful	: AP;
   vulnerable	: AP;
   wrong  : AP;
+
+
 
 	ability	: CN;
 	administration	: CN;
@@ -198,6 +202,74 @@ fun
 	woman	: CN;
 	work  : NP;
 	year	: CN;
+
+                                  -- action	: CN;
+                                  -- approachability	: CN;
+                                  -- areas	: CN;
+                                  -- assessment	: CN;
+                                  -- awareness	: CN;
+                                  -- business	: CN;
+                                  -- cause	: CN;
+                                  -- characteristics	: CN;
+                                  -- climate	: CN;
+                                  -- combination	: CN;
+                                  -- comments	: CN;
+                                  -- communication	: CN;
+                                  -- companies	: CN;
+                                  -- consultation	: CN;
+                                  -- control	: CN;
+                                  -- delegation	: CN;
+                                  -- depression	: CN;
+                                  -- difference	: CN;
+                                  -- difficulties	: CN;
+                                  -- elements	: CN;
+                                  -- example	: CN;
+                                  -- experience	: CN;
+                                  -- flexibility	: CN;
+                                  -- framework	: CN;
+                                  -- groups	: CN;
+                                  -- health	: CN;
+                                  -- hotspots	: CN;
+                                  -- idea	: CN;
+                                  -- individuals	: CN;
+                                  -- key	: CN;
+                                  -- kind	: CN;
+                                  -- level	: CN;
+                                  -- luck	: CN;
+                                  -- management	: CN;
+                                  -- manager	: CN;
+                                  -- managers	: CN;
+                                  -- meetings	: CN;
+                                  -- message	: CN;
+                                  -- mind	: CN;
+                                  -- minutes	: CN;
+                                  -- model	: CN;
+                                  -- one	: CN;
+                                  -- options	: CN;
+                                  -- openness	: CN;
+                                  -- overview	: CN;
+                                  -- people	: CN;
+                                  -- performance	: CN;
+                                  -- placement	: CN;
+                                  -- plan	: CN;
+                                  -- position	: CN;
+                                  -- problem	: CN;
+                                  -- responsibility	: CN;
+                                  -- risk	: CN;
+                                  -- sense	: CN;
+                                  -- situation	: CN;
+                                  -- skills	: CN;
+                                  -- staff	: CN;
+                                  -- strategies	: CN;
+                                  -- etudies	: CN;
+                                  -- things	: CN;
+                                  -- time	: CN;
+                                  -- truth	: CN;
+                                  -- way	: CN;
+                                  -- work	: CN;
+                                  -- workload	: CN;
+
+
 
   bradshaw	: pn;
   c	: pn;
