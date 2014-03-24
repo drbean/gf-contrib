@@ -84,6 +84,7 @@ onePlacers = [
 	, ("degree",	 pred1 [D] )
 	, ("aim",	 pred1 [A] )
 	, ("company",	 pred1 [F] )
+	, ("director",	 pred1 [] )
 	, ("department",	 pred1 [F] )
 	, ("story",	 pred1 [Y] )
 	, ("job",	 pred1 [J] )
