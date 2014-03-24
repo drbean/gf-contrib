@@ -564,7 +564,7 @@ stands
 stress
 stressful	: AP;
 structured	: AP;
-                                  -- etudies	: CN;
+                                  -- studies	: CN;
 suggest	: V*;
 Support	: PN;
 take	: V*;
