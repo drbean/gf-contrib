@@ -362,7 +362,7 @@ v = [
 
 
 	]
-
+yiw'aA	, "0"ma''DI                                  -- 0	: CN;yy:brewind'bPomb:5bn
 abdicate	: V*;
 about
                                   -- action	: CN;
@@ -540,7 +540,7 @@ Pressure	: PN;
 prevent	: V*;
                                   -- problem	: CN;
 provide	: V*;
-psychological
+psychological	: AP;
 raise	: V*;
 rather
 really
