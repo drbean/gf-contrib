@@ -76,9 +76,49 @@ oper
 	unable_A	: A;
 	various_A	: A;
 
+	assertive_AP	: AP;
+	bad_AP	: AP;
+	best_AP	: AP;
+	best-placed_AP	: AP;
+	better_AP	: AP;
+	brief_AP	: AP;
+	common_AP	: AP;
+	critically-important_AP	: AP;
+	day-to-day_AP	: AP;
+	difficult_AP	: AP;
+	effective_AP	: AP;
+	face-to-face_AP	: AP;
+	good_AP	: AP;
+	helpless_AP	: AP;
+	high_AP	: AP;
+	latter_AP	: AP;
+	little_AP	: AP;
+	main_AP	: AP;
+	more_AP	: AP;
+	most_AP	: AP;
+	other_AP	: AP;
+	own_AP	: AP;
+	particular_AP	: AP;
+	poor_AP	: AP;
+	practical_AP	: AP;
+	psychological_AP	: AP;
+	severe_AP	: AP;
+	simple_AP	: AP;
+	social_AP	: AP;
+	stressful_AP	: AP;
+	structured_AP	: AP;
+	three_AP	: AP;
+	timely_AP	: AP;
+	two-way_AP	: AP;
+	unsupported_AP	: AP;
+	useful_AP	: AP;
+	vulnerable_AP	: AP;
+	wrong_AP	: AP;
+
+
+
 	ability_N	: N;
 	administration_N	: N;
-	aim_N	: N;
 	business_N	: N;
 	club_N	: N;
 	company_N	: N;
