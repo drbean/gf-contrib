@@ -493,8 +493,7 @@ main	: AP;
 make	: V*;
                                   -- management	: CN;
                                   -- manager	: CN;
-managerial
-                                  -- managers	: CN;
+managerial	: AP;
 men
                                   -- meetings	: CN;
 men	: PN;
