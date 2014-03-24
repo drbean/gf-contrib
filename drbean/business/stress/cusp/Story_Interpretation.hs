@@ -221,6 +221,8 @@ relations = [
 	, ( "look_here",	\[x]	-> predid1 "look_here" x	)
 	, ( "slow_down",	\[x]	-> predid1 "slow_down" x	)
 
+	, ( "stand",	\[x,y]	-> predid2 "stand" y x	)
+
 	]
 
 
