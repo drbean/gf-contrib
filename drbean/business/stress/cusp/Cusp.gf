@@ -119,15 +119,15 @@ fun
   assertive	: AP;
   bad	: AP;
   best	: AP;
-  best-placed	: AP;
+  best_placed	: AP;
   better	: AP;
   brief	: AP;
   common	: AP;
-  critically-important	: AP;
-  day-to-day	: AP;
+  critically_important	: AP;
+  day_to_day	: AP;
   difficult	: AP;
   effective	: AP;
-  face-to-face	: AP;
+  face_to_face	: AP;
   good	: AP;
   high	: AP;
   latter	: AP;
@@ -149,7 +149,7 @@ fun
   structured	: AP;
   three	: AP;
   timely	: AP;
-  two-way	: AP;
+  two_way	: AP;
   unsupported	: AP;
   useful	: AP;
   vulnerable	: AP;

@@ -79,15 +79,15 @@ oper
 	assertive_AP	: AP;
 	bad_AP	: AP;
 	best_AP	: AP;
-	best-placed_AP	: AP;
+	best_placed_AP	: AP;
 	better_AP	: AP;
 	brief_AP	: AP;
 	common_AP	: AP;
-	critically-important_AP	: AP;
-	day-to-day_AP	: AP;
+	critically_important_AP	: AP;
+	day_to_day_AP	: AP;
 	difficult_AP	: AP;
 	effective_AP	: AP;
-	face-to-face_AP	: AP;
+	face_to_face_AP	: AP;
 	good_AP	: AP;
 	helpless_AP	: AP;
 	high_AP	: AP;
@@ -110,7 +110,7 @@ oper
 	structured_AP	: AP;
 	three_AP	: AP;
 	timely_AP	: AP;
-	two-way_AP	: AP;
+	two_way_AP	: AP;
 	unsupported_AP	: AP;
 	useful_AP	: AP;
 	vulnerable_AP	: AP;

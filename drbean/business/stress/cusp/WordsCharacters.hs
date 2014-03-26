@@ -40,11 +40,11 @@ a = [
   , "better"
   , "brief"
   , "common"
-  , "critically"
-  , "day"
+  , "critically-important"
+  , "day-to-day"
   , "difficult"
   , "effective"
-  , "face"
+  , "face-to-face"
   , "good"
   , "helpless"
   , "high"
@@ -65,7 +65,7 @@ a = [
   , "structured"
   , "three"
   , "timely"
-  , "two"
+  , "two-way"
   , "unsupported"
   , "useful"
   , "vulnerable"
@@ -389,7 +389,7 @@ bad	: AP;
 base	: V*;
 be
 best	: AP;
-best-placed	: AP;
+best_placed	: AP;
 better	: AP;
 boost	: V*;
 both
@@ -419,10 +419,10 @@ consult	: V*;
 Control	: PN;
 cope	: V*;
 coping
-critically-important	: AP;
+critically_important	: AP;
 cusp
 CUSP	: PN;
-day-to-day	: AP;
+day_to_day	: AP;
 deal	: V*;
                                   -- delegation	: CN;
                                   -- depression	: CN;
@@ -440,7 +440,7 @@ encourage	: V*;
 especially
                                   -- example	: CN;
                                   -- experience	: CN;
-face-to-face	: AP;
+face_to_face	: AP;
 facilitate
 feel	: V*;
 feeling
@@ -592,7 +592,7 @@ to
 train	: V*;
                                   -- truth	: CN;
 two
-two-way	: AP;
+two_way	: AP;
 U	: PN;
 Uncertainty	: PN;
 under
