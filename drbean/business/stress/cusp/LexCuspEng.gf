@@ -47,10 +47,9 @@ oper
   agree_V	= mkV "agree";
   allow_V	= mkV "allow";
   appear_V	= mkV "appear";
-  -- base_V	= mkV3 (mkV "base") noPrep on_prep;
+  base_V	= mkV "base";
   boost_V	= mkV "boost";
-  -- call_V	= mkV "call" "calls" "called" "called" "calling";
-  -- call_V3	= mkV3 (call_V);
+  call_V	= mkV "call";
   cause_V	= mkV "cause";
   consult_V	= mkV2 "consult" with_prep;
   consider_V	= mkV "consider";
@@ -161,6 +160,7 @@ oper
   individual_N	= mkN "individual";
   key_N	= mkN "key";
   kind_N	= mkN "kind";
+  lack_of_N	= mkN "lack";
   level_N	= mkN "level";
   luck_N	= mkN "luck";
   management_N	= mkN "management";
@@ -182,7 +182,7 @@ oper
   problem_N	= mkN "problem";
   responsibility_N	= mkN "responsibility";
   risk_N	= mkN "risk";
-  sense_N2	= mkN2 (mkN "sense") of_prep;
+  sense_of_N	= mkN "sense";
   situation_N	= mkN "situation";
   skill_N	= mkN "skill";
   staff_N	= mkN "staff";
@@ -202,7 +202,7 @@ oper
   cusp_N	= mkN nonhuman (mkN "CUSP");
   gourlay_N	= mkN feminine (mkN "Gourlay");
   in_equilibrium_N	= mkN nonhuman (mkN "In Equilibrium");
-  men_N	= mkN masculine (mkN "men");
+  men_N	= mkN masculine (mkN nonExist "men");
   p_N	= mkN nonhuman (mkN "P");
   pressure_N	= mkN nonhuman (mkN "pressure");
   s_N	= mkN nonhuman (mkN "S");
@@ -210,7 +210,7 @@ oper
   support_N	= mkN nonhuman (mkN "support");
   u_N	= mkN nonhuman (mkN "U");
   uncertainty_N	= mkN nonhuman (mkN "uncertainty");
-  women_N	= mkN feminine (mkN "women");
+  women_N	= mkN feminine (mkN nonExist "women");
 
 }
 

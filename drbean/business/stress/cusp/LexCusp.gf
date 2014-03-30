@@ -37,10 +37,9 @@ oper
   agree_V	: V;
   allow_V	: V;
   appear_V	: V;
-  -- base_V	: V3;
+  base_V	: V;
   boost_V	: V;
-  -- call_V	: V;
-  -- call_V3	: V3;
+  call_V	: V;
   cause_V	: V;
   consult_V	: V2;
   consider_V	: V;
@@ -151,6 +150,7 @@ oper
   individual_N	: N;
   key_N	: N;
   kind_N	: N;
+  lack_of_N	: N;
   level_N	: N;
   luck_N	: N;
   management_N	: N;
@@ -172,7 +172,7 @@ oper
   problem_N	: N;
   responsibility_N	: N;
   risk_N	: N;
-  sense_N2	: N2;
+  sense_of_N	: N;
   situation_N	: N;
   skill_N	: N;
   staff_N	: N;
