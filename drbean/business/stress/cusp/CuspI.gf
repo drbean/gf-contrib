@@ -57,7 +57,6 @@ lin
   NoAnswer	= LexCusp.no_answer_Utt;
 
   Entity pn	= mkNP pn;
-  General role = mkNP role;
   Kind ap cn	= mkCN ap cn;
   Ofpos n2 np	= mkCN n2 np;
   Apos np	= mkDet (GenNP np);
