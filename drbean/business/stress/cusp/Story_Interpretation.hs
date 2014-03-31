@@ -77,6 +77,8 @@ uncount_list Gresponsibility	= "responsibility"
 uncount_list Gstaff	= "staff"
 uncount_list Gtime	= "time"
 uncount_list Gwork	= "work"
+uncount_list Gmen	= ent_ided "men"
+uncount_list Gwomen	= ent_ided "women"
 
 kind_list :: GCN -> String
 kind_list Gaction	= "action"
