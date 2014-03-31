@@ -38,6 +38,7 @@ fun
   Yes, No, NoAnswer	: Utt;
 
   Entity	: PN -> NP;
+  General : CN -> NP;
   Kind	: AP -> CN -> CN;
   Item	: Det -> CN -> NP;
   Ofpos	: N2 -> NP -> CN;
@@ -237,6 +238,7 @@ fun
   cusp	: PN;
   gourlay	: PN;
   in_equilibrium  : PN;
+  in_equilibrium_pl  : NP;
   men	: PN;
   p	: PN;
   pressure	: PN;
