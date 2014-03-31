@@ -250,8 +250,7 @@ lin
   cusp	= mkPN cusp_N;
   gourlay	= mkPN gourlay_N;
   in_equilibrium	= mkPN in_equilibrium_N;
-  men	= mkPN men_N;
-  -- men	= mkNP zero_Det (mkPN men_N);
+  men	= mkNP zero_Det men_N;
   p	= mkPN p_N;
   pressure	= mkPN pressure_N;
   s	= mkPN s_N;
@@ -259,8 +258,7 @@ stress = mkPN stress_N;
   support	= mkPN support_N;
   u	= mkPN u_N;
   uncertainty	= mkPN uncertainty_N;
-  women	= mkPN women_N;
-  -- women	= mkNP zero_Det (mkPN women_N);
+  women	= mkNP zero_Det women_N;
 
 }
 

@@ -238,7 +238,7 @@ fun
   cusp	: PN;
   gourlay	: PN;
   in_equilibrium  : PN;
-  men	: PN;
+  men	: NP;
   p	: PN;
   pressure	: PN;
   s	: PN;
@@ -246,7 +246,7 @@ fun
   support	: PN;
   u	: PN;
   uncertainty	: PN;
-  women	: PN;
+  women	: NP;
 
 }
 
