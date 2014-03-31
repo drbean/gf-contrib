@@ -127,7 +127,7 @@ det = [
   ]
 
 n = [
-  , "action"
+  "action"
   , "approachability"
   , "area"
   , "assessment"
