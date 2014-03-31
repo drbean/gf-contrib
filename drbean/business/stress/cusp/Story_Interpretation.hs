@@ -4,7 +4,7 @@ import Model
 import Cusp
 
 entity_list :: GPN -> Entity
-entity_list GCUSP	= ent_ided "CUSP"
+entity_list Gcusp	= ent_ided "CUSP"
 entity_list Gbradshaw	= ent_ided "Bradshaw"
 entity_list Gc	= ent_ided "C"
 entity_list Gcontrol	= ent_ided "control"
@@ -60,34 +60,75 @@ n2_kind_list Gcontrol_over	= "control_over"
 n2_kind_list Glack_of	= "lack_of"
 n2_kind_list Gsense_of	= "sense_of"
 
--- uncount_list :: GNP -> String
--- uncount_list Gexperience	= "experience"
+uncount_list :: GNP -> String
+uncount_list Gapproachability	= "approachability"
+uncount_list Gassessment	= "assessment"
+uncount_list Gawareness	= "awareness"
+uncount_list Gcommunication	= "communication"
+uncount_list Gdepression	= "depression"
+uncount_list Gdelegation	= "delegation"
+uncount_list Gflexibility	= "flexibility"
+uncount_list Ghealth	= "health"
+uncount_list Gmanagement	= "management"
+uncount_list Gopenness	= "openness"
+uncount_list Gperformance	= "performance"
+uncount_list Gplacement	= "placement"
+uncount_list Gresponsibility	= "responsibility"
+uncount_list Gstaff	= "staff"
+uncount_list Gtime	= "time"
+uncount_list Gwork	= "work"
 
 kind_list :: GCN -> String
-kind_list Gapproachability	= "approachability"
-kind_list Gassessment	= "assessment"
-kind_list Gawareness	= "awareness"
-kind_list Gcommunication	= "communication"
-kind_list Gdepression	= "depression"
-kind_list Gdelegation	= "delegation"
-kind_list Gflexibility	= "flexibility"
-kind_list Ghealth	= "health"
-kind_list Gmanagement	= "management"
-kind_list Gopenness	= "openness"
-kind_list Gperformance	= "performance"
-kind_list Gplacement	= "placement"
-kind_list Gresponsibility	= "responsibility"
-kind_list Gstaff	= "staff"
-kind_list Gtime	= "time"
-kind_list Gwork	= "work"
-
+kind_list Gaction	= "action"
+kind_list Garea	= "area"
+kind_list Gbusiness	= "business"
+kind_list Gcharacteristic	= "characteristic"
+kind_list Gclimate	= "climate"
+kind_list Gcombination	= "combination"
+kind_list Gcomment	= "comment"
+kind_list Gcompany	= "company"
+kind_list Gconsultation	= "consultation"
+kind_list Gdifference	= "difference"
+kind_list Gdifficulty	= "difficulty"
+kind_list Gelement	= "element"
+kind_list Gexample	= "example"
+kind_list Gexperience	= "experience"
+kind_list Gfeeling	= "feeling"
+kind_list Gframework	= "framework"
+kind_list Ggroup	= "group"
+kind_list Ghotspot	= "hotspot"
+kind_list Gidea	= "idea"
+kind_list Gindividual	= "individual"
+kind_list Gkey	= "key"
+kind_list Gkind	= "kind"
+kind_list Glevel	= "level"
+kind_list Gluck	= "luck"
+kind_list Gmanager	= "manager"
+kind_list Gmeeting	= "meeting"
+kind_list Gmind	= "mind"
+kind_list Gminute	= "minute"
+kind_list Gmodel	= "model"
+kind_list Gone	= "one"
+kind_list Goption	= "option"
+kind_list Goverview	= "overview"
+kind_list Gpeople	= "people"
+kind_list Gplan	= "plan"
+kind_list Gposition	= "position"
+kind_list Gproblem	= "problem"
+kind_list Grisk	= "risk"
+kind_list Gsituation	= "situation"
+kind_list Gskill	= "skill"
+kind_list Gstrategy	= "strategy"
+kind_list Gstudy	= "study"
+kind_list Gthing	= "thing"
+kind_list Gtruth	= "truth"
+kind_list Gway	= "way"
+kind_list Gworkload	= "workload"
 
 happening_list :: GV -> String
 happening_list Gwork_V	= "work"
-happening_list Glaugh	= "laugh"
-happening_list Gknow	= "know"
-happening_list Glook_here	= "look_here"
-happening_list Gslow_down	= "slow_down"
+happening_list Ghappen	= "happen"
+happening_list Goccur	= "occur"
 
 changing_list :: GV2 -> String
 changing_list Gbecome	= "become"
@@ -103,7 +144,7 @@ changing_list Gagree	= "agree"
 changing_list Gboost	= "boost"
 changing_list Gcause	= "cause"
 changing_list Gconsider	= "consider"
-changing_list Gconsult_V	= "consult_V"
+changing_list Gconsult	= "consult"
 changing_list Gcope	= "cope"
 changing_list Gdeal	= "deal"
 changing_list Genable	= "enable"
@@ -132,15 +173,14 @@ causative_list Ghelp	= "help"
 causative_list Guse	= "use"
 
 positing_list :: GVS -> String
-positing_list Gfeel	= "feel"
+positing_list Gfeel_S	= "feel"
 positing_list Gsay	= "say"
 positing_list Gsuggest	= "suggest"
 positing_list Gthink	= "think"
 
 intens_list :: GVV -> String
 intens_list Gcan	= "can"
-intens_list Gneed	= "need"
-intens_list Gstart	= "start"
+-- intens_list Gneed	= "need"
 intens_list Gtend	= "tend"
 
 triangulating_list :: GV3 -> String
@@ -273,20 +313,71 @@ relations = [
 	, ( "vulnerable",	\[x]	-> predid1 "vulnerable" x	)
 	, ( "wrong",	\[x]	-> predid1 "wrong" x	)
 
-	k
 
 
 
 
-	, ( "laugh",	\[x] -> predid1 "laugh" x	)
-	, ( "know",	\args -> case args of
-				[x,y]	-> predid2 "know" y x
-				[x]	-> (forgetful2 . predid2) "know" x	)
+	, ( "become",	\[x,y]	-> predid2 "become" y x	)
+	, ( "get",	\[x,y]	-> predid2 "get" y x	)
+	, ( "know_V2",	\[x,y]	-> predid2 "know_V2" y x	)
+	, ( "know_VS",	\[x,y]	-> predid2 "know_VS" y x	)
 	, ( "like",	\[x, y]	-> predid2 "like" y x	)
-	, ( "look_here",	\[x]	-> predid1 "look_here" x	)
-	, ( "slow_down",	\[x]	-> predid1 "slow_down" x	)
+	, ( "prove",	\[x,y]	-> predid2 "prove" y x	)
+	, ( "see",	\[x,y]	-> predid2 "see" y x	)
+	, ( "say",	\[x,y]	-> predid2 "say" y x	)
+	, ( "tell",	\[x,y,z]	-> predid3 "tell" z y x	)
 
+
+	, ( "abdicate",	\[x,y]	-> predid2 "abdicate" y x	)
+	, ( "agree",	\[x,y]	-> predid2 "agree" y x	)
+	, ( "appear",	\[x,y]	-> predid2 "appear" y x	)
+	, ( "base",	\[x,y,z]	-> predid3 "base" z y x	)
+	, ( "boost",	\[x,y]	-> predid2 "boost" y x	)
+	, ( "call",	\[x,y,z]	-> predid3 "call" z y x	)
+	, ( "cause",	\[x,y]	-> predid2 "cause" y x	)
+	, ( "consider",	\[x,y]	-> predid2 "consider" y x	)
+	, ( "consult",	\[x,y]	-> predid2 "consult" y x	)
+	, ( "cope",	\[x,y]	-> predid2 "cope" y x	)
+	, ( "deal",	\[x,y]	-> predid2 "deal" y x	)
+	, ( "enable",	\[x,y]	-> predid2 "enable" y x	)
+	, ( "encourage",	\[x,y,z]	-> predid3 "encourage" z y x	)
+	, ( "facilitate",	\[x,y]	-> predid2 "facilitate" y x	)
+	, ( "feel",	\[x,y]	-> predid2 "feel" y x	)
+	, ( "feel",	\args -> case args of
+		[x,y,z,w]	-> predid4 "feel" w z y x
+		[x,y,z]	-> (forgetful4 . predid4) "feel" z y x
+		[x,y]	-> (forgetful3 . forgetful4 . predid4) "feel" y x
+		[x]	-> (forgetful2 . forgetful3 . forgetful4 . predid4) "feel" x	)
+	, ( "get",	\[x,y]	-> predid2 "get" y x	)
+	, ( "give",	\[x,y,z]	-> predid3 "give" z y x	)
+	, ( "happen",	\[x]	-> predid1 "happen" x	)
+	, ( "have",	\[x,y]	-> predid2 "have" y x	)
+	, ( "help",	\[x,y,z]	-> predid3 "help" z y x	)
+	, ( "identify",	\[x,y]	-> predid2 "identify" y x	)
+	, ( "investigate",	\[x,y]	-> predid2 "investigate" y x	)
+	, ( "listen",	\[x,y]	-> predid2 "listen" y x	)
+	, ( "look",	\[x,y]	-> predid2 "look" y x	)
+	, ( "look_at",	\[x,y]	-> predid2 "look_at" y x	)
+	, ( "make",	\[x,y]	-> predid2 "make" y x	)
+	, ( "occur",	\[x]	-> predid1 "occur" x	)
+	, ( "offer",	\[x,y]	-> predid2 "offer" y x	)
+	, ( "pick",	\[x,y]	-> predid2 "pick" y x	)
+	, ( "prevent",	\[x,y]	-> predid2 "prevent" y x	)
+	, ( "provide",	\[x,y]	-> predid2 "provide" y x	)
+	, ( "raise",	\[x,y]	-> predid2 "raise" y x	)
+	, ( "receive",	\[x,y]	-> predid2 "receive" y x	)
+	, ( "reduce",	\[x,y]	-> predid2 "reduce" y x	)
+	, ( "report",	\[x,y]	-> predid2 "report" y x	)
 	, ( "stand",	\[x,y]	-> predid2 "stand" y x	)
+	, ( "suggest",	\[x,y]	-> predid2 "suggest" y x	)
+	, ( "take",	\[x,y]	-> predid2 "take" y x	)
+	, ( "talk",	\[x,y,z]	-> predid3 "talk" z y x	)
+	, ( "tend",	\[x,y]	-> predid2 "tend" y x	)
+	, ( "think",	\[x,y]	-> predid2 "think" y x	)
+	, ( "train",	\[x,y]	-> predid2 "train" y x	)
+	, ( "use",	\[x,y,z]	-> predid3 "use" z y x	)
+	, ( "work",	\[x]	-> predid1 "work" x	)
+
 
 	]
 
