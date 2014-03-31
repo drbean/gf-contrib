@@ -250,7 +250,6 @@ lin
   cusp	= mkPN cusp_N;
   gourlay	= mkPN gourlay_N;
   in_equilibrium	= mkPN in_equilibrium_N;
-  in_equilibrium_pl	= mkNP zero_Det in_equilibrium_N;
   men	= mkPN men_N;
   -- men	= mkNP zero_Det (mkPN men_N);
   p	= mkPN p_N;

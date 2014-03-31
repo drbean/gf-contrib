@@ -238,7 +238,6 @@ fun
   cusp	: PN;
   gourlay	: PN;
   in_equilibrium  : PN;
-  in_equilibrium_pl  : NP;
   men	: PN;
   p	: PN;
   pressure	: PN;

@@ -201,7 +201,7 @@ oper
   control_N	= mkN nonhuman (mkN "control");
   cusp_N	= mkN nonhuman (mkN "CUSP");
   gourlay_N	= mkN feminine (mkN "Gourlay");
-  in_equilibrium_N	= mkN nonhuman (mkN nonExist "In Equilibrium");
+  in_equilibrium_N	= mkN nonhuman (mkN "In Equilibrium");
   men_N	= mkN masculine (mkN nonExist "men");
   p_N	= mkN nonhuman (mkN "P");
   pressure_N	= mkN nonhuman (mkN "pressure");
