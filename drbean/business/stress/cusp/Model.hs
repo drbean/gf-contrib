@@ -14,21 +14,21 @@ entities	=  [minBound..maxBound]
 
 entity_check :: [ (Entity, String) ]
 entity_check =  [
-    (A, "CUSP" )	-- aim
+    (A, "CUSP" )
     , (B, "Bradshaw" )
     , (C, "C" )
     , (D, "control" )
-    , (E, "" )
-    , (F, "" )
+    , (E, "" )		-- manager
+    , (F, "" )		-- manager
     , (G, "Gourlay" )
-    , (H, "" )
+    , (H, "" )		-- help
     , (I, "In Equilibrium" )
     , (J, "" )
     , (K, "" )
     , (L, "" )
     , (M, "men" )
-    , (N, "" )
-    , (O, "" )
+    , (N, "" )		-- lack of control
+    , (O, "" )		-- lack of support
     , (P, "P" )
     , (Q, "pressure" )
     , (R, "" )
@@ -36,7 +36,7 @@ entity_check =  [
     , (T, "support" )
     , (U, "U" )
     , (V, "uncertainty" )
-    , (W, "" )
+    , (W, "women" )
     , (X, "stress" )
     , (Y, "" )
     , (Z, "" )
@@ -78,38 +78,22 @@ onePlacers = [
         , ("false",     pred1 [] )
         , ("role",      pred1 [] )
 
-	, ("high_school",	 pred1 [U] )
-	, ("college",	 pred1 [U] )
-	, ("diploma",	 pred1 [P] )
-	, ("degree",	 pred1 [D] )
-	, ("aim",	 pred1 [A] )
-	, ("company",	 pred1 [F] )
-	, ("department",	 pred1 [F] )
-	, ("story",	 pred1 [Y] )
-	, ("job",	 pred1 [J] )
+	, ("manager",	 pred1 [E,F] )
+	, ("individual",	 pred1 [E,F,B,G] )
+	, ("framework",	 pred1 [C] )
+	, ("company",	 pred1 [I] )
 	, ("work",	 pred1 $ [J] ++ map agent working )
 	, ("worker",	 pred1 $ map agent working )
-	, ("learner",	 pred1 $ map recipient5 schooling )
 
-	, ("ambitious",	 pred1 [B] )
-	, ("competitive",	 pred1 [B] )
-	, ("confident",	 pred1 [B] )
-	, ("outgoing",	 pred1 [B] )
-	, ("difficult",	 pred1 [B] )
-	, ("experienced",	 pred1 [B,T,E] )
-	, ("polish",	 pred1 [B,T] )
-	, ("successful",	 pred1 [B,T,E] )
+	, ("best_placed",	 pred1 [E,F] )
 
-	, ("realistic",	 pred1 [T,E] )
-	, ("judgement",	 pred1 [G] )
-	, ("experience",	 pred1 [X] )
-	, ("head",	 pred1 [] )
-
-	, ("fast",	 pred1 [B,E] )
+	, ("characteristic",	 pred1 [D,R,T,V] )
+	, ("critically_important",	 pred1 [C] )
 	, ("good",	 pred1 [T,E] )
 
-	, ("male",	 pred1 [T] )
-	, ("female",	 pred1 [B,E] )
+	, ("stressful",	 pred1 [N,O,Q,V] )
+	, ("male",	 pred1 [B,M,E] )
+	, ("female",	 pred1 [G,W,F] )
 	]
 
 predid1 "woman"  = predid1 "female"
@@ -161,13 +145,13 @@ resent	= pred2 $ map swap disappointments
 have	= pred2 $ possessions
 		++ ( map (\x->(recipient x, theme x) ) giving )
 
-knowledge	= [(B,F),(T,F),(E,F)]
+knowledge	= [(B,I),(G,I),(E,I)]
 acquaintances	= []
 help	= pred2 $ supervision
 
 twoPlacers :: [(String, TwoPlacePred)]
 twoPlacers = [
-    ("know",    pred2 $ knowledge ++ acquaintances ++ map swap acquaintances)
+    ("know_V2",    pred2 $ knowledge ++ acquaintances ++ map swap acquaintances)
     , ("have",  pred2 $ possessions ++ qualities ++
 					map (\(_,l,_,r,_) ->(r,l) ) schooling)
     , ("like",  pred2 $ map (\(a,t,r) -> (a,r)) appreciation)
@@ -203,18 +187,15 @@ origin	= theme
 destination = recipient
 
 --(worker,job,site)
-working	= [(B,Unspec,F),(T,Unspec,F),(E,Unspec,F)]
-comms	= [ (I,Unspec,D),(F,Unspec,D),(F,Unspec,A),(A,Unspec,D),(A,Unspec,I) ]
-giving	= [ (I,J,D) ]
+working	= [(B,Unspec,I),(G,Unspec,I),(E,Unspec,Unspec),(F,Unspec,Unspec)]
+comms	= [ (W,X,E),(W,X,F) ]
+giving	= [ (B,H,E),(I,H,E),(G,H,F),(F,M,T) ]
 --(agent,theme,location)
-looking_back	= [(D,C,V),(I,C,V)]
 seeing	= []
 --(agent,origin,destination)
 
 work_where	= pred2 $ map (\x -> (agent x, location x) ) working
 work_as = pred2 $ map (\x -> (agent x, theme x) ) working
-look_back	= pred1 $ map agent looking_back
-look_back_on	= pred2 $ map (\x->(agent x, theme x) ) looking_back
 said	= pred2 $ map (\x->(agent x, theme x) ) comms
 asked	= pred2 $ map (\x->(agent x, recipient x) ) comms
 ask_about = pred3 $ map (\x->(agent x, recipient x, theme x) ) comms
