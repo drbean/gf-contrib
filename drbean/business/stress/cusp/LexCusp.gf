@@ -15,6 +15,7 @@ oper
   of_prep	: Prep;
   on_prep	: Prep;
   over_prep	: Prep;
+  part_prep : Prep;
   to_prep	: Prep;
   up_prep	: Prep;
 
