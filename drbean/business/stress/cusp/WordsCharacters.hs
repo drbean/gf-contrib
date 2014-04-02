@@ -159,6 +159,7 @@ n = [
   , "individual"
   , "key"
   , "kind"
+  , "lack"
   , "level"
   , "luck"
   , "management"
