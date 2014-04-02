@@ -1,6 +1,6 @@
 module LogicalForm where
 
-import AFB1J0
+import Cusp
 import Model
 -- import Interpretation
 import Story_Interpretation
@@ -229,9 +229,10 @@ transN2 :: GN2 -> Term -> LF
 transN2 name	= \x -> Rel (n2_kind_list name) [x]
 transCN :: GCN -> Term -> LF
 transCN (GKind ap cn) = \x -> Conj [ transCN cn x, Rel (adjective_list ap) [x] ]
+transCN (GLack_of np) = \object -> transNP np ( \thing -> Rel "lacks" [object, thing])
 transCN (GOfpos cn np) =
     \owner -> Conj [(transN2 cn owner), (transNP np 
-	(\thing -> Rel "had" [owner, thing]))]
+	(\thing -> Rel "has" [owner, thing]))]
 transCN name          = \ x -> Rel (kind_list name) [x]
 --transCN (Branch (Cat _    "RCN" _ _) [cn,rel]) = case (rel) of
 --    (Branch (Cat _ "MOD" _ _) [Leaf (Cat _ "REL"  _ _), Branch (Cat _ "S" _ _) [np,vp]]) ->
