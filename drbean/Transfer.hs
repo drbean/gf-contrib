@@ -1,7 +1,7 @@
 module Main where
 
 import PGF
-import Dickson
+import Cusp
 import LogicalForm
 import Evaluation
 
@@ -18,7 +18,7 @@ import System.Environment.FindBin
 main :: IO () 
 main = do
   path <- getProgPath
-  gr <- readPGF ( path ++ "/Dickson.pgf" )
+  gr <- readPGF ( path ++ "/Cusp.pgf" )
   hClose stderr
   hDuplicateTo stdout stderr
   s <- getLine
@@ -53,7 +53,7 @@ linear :: (Tree -> Tree) -> PGF -> [Tree] -> [ String ]
 linear tr gr ps = concat $ map ((linearizeAll gr) . tr) ps
 
 lc_first :: String -> String
-lc_first str@(s:ss) = case ( or $ map (flip isPrefixOf str) ["Alf", "Dee"] ) of
+lc_first str@(s:ss) = case ( or $ map (flip isPrefixOf str) ["Bradshaw", "Gourlay", "men", "women", "CUSP"] ) of
 	True  -> (s:ss)
 	False -> ((toLower s):ss)
 
