@@ -59,6 +59,7 @@ lin
   Entity pn	= mkNP pn;
   Kind ap cn	= mkCN ap cn;
   Ofpos n2 np	= mkCN n2 np;
+  Lack_of np  = mkCN lack_of np;
   Apos np	= mkDet (GenNP np);
   Item det noun	= mkNP det noun;
 
@@ -76,6 +77,7 @@ lin
   of_prep	= LexCusp.of_prep;
   on_prep	= LexCusp.on_prep;
   over_prep	= LexCusp.over_prep;
+  part_prep	= LexCusp.part_prep;
   to_prep	= LexCusp.to_prep;
   up_prep	= LexCusp.up_prep;
 
@@ -208,7 +210,7 @@ lin
   individual	= mkCN individual_N;
   key	= mkCN key_N;
   kind	= mkCN kind_N;
-  lack_of	= mkN2 lack_of_N of_prep;
+  lack_of	= mkN2 lack_of_N part_prep;
   level	= mkCN level_N;
   luck	= mkCN luck_N;
   management	= mkNP management_N;

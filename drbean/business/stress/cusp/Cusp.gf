@@ -41,6 +41,7 @@ fun
   Kind	: AP -> CN -> CN;
   Item	: Det -> CN -> NP;
   Ofpos	: N2 -> NP -> CN;
+  Lack_of : NP -> CN;
 
   a_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
   zero_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
@@ -57,6 +58,7 @@ fun
   of_prep	: Prep;
   on_prep	: Prep;
   over_prep	: Prep;
+  part_prep	: Prep;
   to_prep	: Prep;
   up_prep	: Prep;
 
@@ -194,8 +196,8 @@ fun
   individual	: CN;
   key	: CN;
   kind	: CN;
-  lack_of : N2;
   level	: CN;
+  lack_of : N2;
   luck	: CN;
   management	: NP;
   manager	: CN;
