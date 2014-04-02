@@ -27,7 +27,7 @@ main = do
   let ps = parses l gr
   let ls = linear transform gr ps
   putStrLn ("Parsed: " ++ (show ps) )
-  putStrLn ("Answer: " ++ (concat ls) )
+  putStrLn ("Answer: " ++ (foldl takeAnswer "No answer" ls) )
   let courses = map (label . fg) ps
   putStrLn ("Course: " ++ foldl takeCourse "Unparseable" courses )
 
@@ -91,4 +91,13 @@ takeCourse _ "S"  = "S"
 takeCourse "S" _  = "S"
 takeCourse "Unparseable" _  = "Unparseable"
 takeCourse _  _   = error "undefined course, not WH, YN, S, or Unparseable"
+
+takeAnswer :: String -> String -> String
+takeAnswer _ "yes" = "yes"
+takeAnswer "yes" _ = "yes"
+takeAnswer "no" _  = "no"
+takeAnswer _ "no" = "no"
+takeAnswer "No answer" _ = "No answer"
+takeAnswer _ "No answer" = "No answer"
+takeAnswer _  _   = error "undefined answer, not Yes, No, or No answer"
 
