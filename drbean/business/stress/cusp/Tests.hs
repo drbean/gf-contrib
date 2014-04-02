@@ -78,12 +78,12 @@ all_tests =
 		ditransitive_tests ++ relclauses ++ relppR_test
 		-- ++ wh_questions ++ comp_wh_questions
 		-- ++ ungrammatical
-fast_track = [
-  "Is Fast-Track a company?"
-  , "Does Eva work in Fast-Track?"
-  , "Does Tadeusz know the company?"
-  , "Does Tadeusz know Fast-Track?"
-  , "Does Eva know Fast-Track?"
+in_equilibrium = [
+  "Is In Equilibrium a company?"
+  , "Does Gourlay work in In Equilibrium?"
+  , "Does Bradshaw know the company?"
+  , "Does Bradshaw know In Equilibrium?"
+  , "Does Gourlay know In Equilibrium?"
   ]
 
 sales_test = [
@@ -93,10 +93,13 @@ sales_test = [
   ]
 
 quality_test = [
-  "Does Eva have experience?"
-  , "Is Eva experienced?"
-  , "Does Barbara have ambition?"
-  , "Is Barbara ambitious?"
+  "Does stress have characteristics?"
+  , "Is uncertainty stressful?"
+  , "Is pressure stressful?"
+  , "Is a lack of control stressful?"
+  , "Is a lack of support stressful?"
+  , "Does CUSP have characteristics?"
+  , "Is CUSP critically-important?"
   , "Does Barbara have experience?"
   , "Is Barbara experienced?"
   , "Is Tadeusz experienced?"
@@ -111,17 +114,22 @@ quality_test = [
   , "Does Dr Bean have good judgement?"
   ]
 
+determiner_test = [
+  "Is a lack of control stressful?"
+  , "Is lack of control stressful?"
+  ]
+
 working_test = [
 
-	"Does Barbara work?"
-	, "Does Tadeusz have work?"
-	, "Does Eva have a job?"
+	"Does Bradshaw work?"
+	, "Does Gourlay have work?"
+	, "Does a manager have a job?"
 	, "Who works?"
 	, "Who has work?"
 	, "Who has a job?"
-	, "Barbara works doesn't she?"
-	, "Eva has work doesn't she?"
-	, "Eva has a job doesn't she?"
+	, "CUSP works doesn't it?"
+	, "Gourlay has work doesn't she?"
+	, "A manager has a job doesn't she?"
 	]
 
 student_tag_tests = [
