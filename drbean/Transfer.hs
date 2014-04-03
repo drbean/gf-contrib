@@ -53,7 +53,7 @@ linear :: (Tree -> Tree) -> PGF -> [Tree] -> [ String ]
 linear tr gr ps = concat $ map ((linearizeAll gr) . tr) ps
 
 lc_first :: String -> String
-lc_first str@(s:ss) = case ( or $ map (flip isPrefixOf str) ["Bradshaw", "Gourlay", "men", "women", "CUSP"] ) of
+lc_first str@(s:ss) = case ( or $ map (flip isPrefixOf str) ["Bradshaw", "Gourlay", "men", "women", "CUSP", "C", "P", "S", "U"] ) of
 	True  -> (s:ss)
 	False -> ((toLower s):ss)
 
