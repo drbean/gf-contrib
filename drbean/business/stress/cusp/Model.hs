@@ -31,7 +31,7 @@ entity_check =  [
     , (O, "" )		-- lack of support
     , (P, "P" )
     , (Q, "pressure" )
-    , (R, "" )
+    , (R, "" )		-- performance
     , (S, "S" )
     , (T, "support" )
     , (U, "U" )
@@ -85,10 +85,16 @@ onePlacers = [
 	, ("work",	 pred1 $ [J] ++ map agent working )
 	, ("worker",	 pred1 $ map agent working )
 
+	, ("assertive",	 pred1 [] )
+	, ("bad",	 pred1 [D,Q,T,V] )
 	, ("best_placed",	 pred1 [E,F] )
 
 	, ("characteristic",	 pred1 [D,R,T,V] )
-	, ("critically_important",	 pred1 [C] )
+	, ("common",	 pred1 [] )
+	, ("critically_important",	 pred1 [A,D,T] )
+	, ("day_to_day",	 pred1 [R] )
+	, ("difficult",	 pred1 [] )
+	, ("effective",	 pred1 [] )
 	, ("good",	 pred1 [T,E] )
 
 	, ("stressful",	 pred1 [N,O,Q,V] )
@@ -142,8 +148,6 @@ manager = boss
 disappointments = []
 disappoint	= pred2 $ disappointments
 resent	= pred2 $ map swap disappointments
-have	= pred2 $ possessions
-		++ ( map (\x->(recipient x, theme x) ) giving )
 
 knowledge	= [(B,I),(G,I),(E,I)]
 acquaintances	= []
@@ -153,14 +157,12 @@ twoPlacers :: [(String, TwoPlacePred)]
 twoPlacers = [
     ("know_V2",    pred2 $ knowledge ++ acquaintances ++ map swap acquaintances)
     , ("have",  pred2 $ possessions ++ qualities ++
-					map (\(_,l,_,r,_) ->(r,l) ) schooling)
+					map (\(_,t,r) -> (r,t)) giving )
+    , ("stand", pred2[(C,D),(P,Q),(S,T),(U,V)])
+    , ("lack", pred2 [(N,D),(O,T)])
     , ("like",  pred2 $ map (\(a,t,r) -> (a,r)) appreciation)
     , ("work",  pred2 $ [(a,c) | (a,p,c) <- working] )
-    , ("kind",  pred2 $ [(student, H) | (_,_,_,student,_) <- schooling ])
-    , ("placing",       pred2 $ [(student, school) | (_,school,_,student,_) <- schooling ]
-                ++ [(worker, place) | (worker,period,place) <- working ])
-    , ("studied", pred2 $ foldl (\hs (_,school,subject,student,_) ->
-                    (student,subject): (student,school) : hs) [] schooling )
+	, ("placing", pred2 [(worker, place) | (worker,_,place) <- working ])
     ]
 
 curry3 :: ((a,b,c) -> d) -> a -> b -> c -> d
@@ -170,8 +172,6 @@ curry4 f x y z w	= f (x,y,z,w)
 threePlacers = [
     ("liked", pred3 appreciation )
     , ("work",        pred3 $ [(a,a,c) | (a,p,c) <- working ] )
-    , ("studied_subj_at", pred3 $ map (\(_,school,subject,student,_) ->
-                    (student,subject,school) ) schooling )
     ]
 
 
@@ -202,23 +202,9 @@ ask_about = pred3 $ map (\x->(agent x, recipient x, theme x) ) comms
 talked	= pred2 $ map (\x->(agent x, recipient x) ) comms
               ++  map (\(agent,theme,recipient)->(recipient, agent) ) comms
 talk_about = pred3 $ map (\x->(agent x, recipient x, theme x) ) comms
-go_to	= pred2 $ map (\x->(recipient5 x,location5 x) ) schooling
 
 -- (teacher,school(location),subject,student,degree)
-schooling = [(Unspec,S,M,B,P),(Unspec,U,N,T,D),(Unspec,U,S,E,D)]
---(person,school)
-education	= [ (B,H), (T,U), (E,U) ]
 --(person,subject)
-subjects	= [ (B,M), (T,N), (E,S) ]
-
-studied = pred3 $ map ( \x -> (recipient5 x, theme5 x, location5 x) )
-				schooling
-studied_what = pred2 $ map (\x -> (recipient5 x, theme5 x) ) schooling
-studied_where = pred2 $ map (\x -> (recipient5 x, location5 x) ) schooling
-student = pred1 $ map recipient5 schooling
--- graduated_from ::  TwoPlacePred
-
-
 
 
 gave	= pred3 giving

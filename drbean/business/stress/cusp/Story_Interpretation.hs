@@ -56,7 +56,7 @@ adjective_list Gwrong	= "wrong"
 n2_kind_list :: GN2 -> String
 n2_kind_list Gcause_of	= "cause_of"
 n2_kind_list Gcontrol_over	= "control_over"
-n2_kind_list Glack_of	= "lack_of"
+n2_kind_list Glack	= "lack"
 n2_kind_list Gsense_of	= "sense_of"
 
 uncount_list :: GNP -> String
@@ -359,6 +359,11 @@ relations = [
 	, ( "identify",	\[x,y]	-> predid2 "identify" y x	)
 	, ( "investigate",	\[x,y]	-> predid2 "investigate" y x	)
 	, ( "listen",	\[x,y]	-> predid2 "listen" y x	)
+	, ( "lack",	\args -> case args of
+		[x,y]	-> predid2 "lack" y x
+		[x]	-> (forgetful2 . predid2) "lack" x	)
+	, ( "lack",	\[x,y]	-> predid2 "lack" y x	)
+
 	, ( "look",	\[x,y]	-> predid2 "look" y x	)
 	, ( "look_at",	\[x,y]	-> predid2 "look_at" y x	)
 	, ( "make",	\[x,y]	-> predid2 "make" y x	)
