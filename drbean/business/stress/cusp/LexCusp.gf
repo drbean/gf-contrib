@@ -151,7 +151,7 @@ oper
   individual_N	: N;
   key_N	: N;
   kind_N	: N;
-  lack_of_N	: N;
+  lack_N	: N;
   level_N	: N;
   luck_N	: N;
   management_N	: N;

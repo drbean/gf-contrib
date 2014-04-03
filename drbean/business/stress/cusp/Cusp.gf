@@ -197,7 +197,7 @@ fun
   key	: CN;
   kind	: CN;
   level	: CN;
-  lack_of : N2;
+  lack : N2;
   luck	: CN;
   management	: NP;
   manager	: CN;

@@ -59,7 +59,7 @@ lin
   Entity pn	= mkNP pn;
   Kind ap cn	= mkCN ap cn;
   Ofpos n2 np	= mkCN n2 np;
-  Lack_of np  = mkCN lack_of np;
+  Lack_of np  = mkCN lack np;
   Apos np	= mkDet (GenNP np);
   Item det noun	= mkNP det noun;
 
@@ -130,7 +130,7 @@ lin
   receive	= mkV2 receive_V;
   reduce	= mkV2 reduce_V;
   report	= mkV2 report_V;
-  stand	= mkV2 stand_V;
+  stand	= mkV2 stand_V for_prep;
   suggest	= mkVS suggest_V;
   take	= mkV2 take_V;
   talk	= mkV3 talk_V to_prep about_prep;
@@ -192,7 +192,7 @@ lin
   communication	= mkNP communication_N;
   company	= mkCN company_N;
   consultation	= mkCN consultation_N;
-  control_over	= mkN2 control_N over_prep;
+  control_over	= mkN2 control_over_N over_prep;
   delegation	= mkNP delegation_N;
   depression	= mkNP depression_N;
   difference	= mkCN difference_N;
@@ -210,7 +210,7 @@ lin
   individual	= mkCN individual_N;
   key	= mkCN key_N;
   kind	= mkCN kind_N;
-  lack_of	= mkN2 lack_of_N part_prep;
+  lack	= mkN2 lack_N part_prep;
   level	= mkCN level_N;
   luck	= mkCN luck_N;
   management	= mkNP management_N;

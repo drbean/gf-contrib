@@ -12,6 +12,7 @@ oper
   about_prep = mkPrep "about";
   of_prep	= possess_Prep;
   part_prep	= part_Prep;
+  for_prep = for_Prep;
   in_prep = in_Prep;
   on_prep = mkPrep "on";
   at_prep = mkPrep "at";
@@ -80,7 +81,7 @@ oper
   reduce_V	= mkV "reduce";
   report_V	= mkV "report";
   suggest_V	= mkV "suggest";
-  stand_V	= mkV "stand" "for";
+  stand_V	= mkV "stand";
   take_V	= mkV "take";
   talk_V	= mkV "talk";
   tend_V	= mkV "tend";
@@ -160,7 +161,7 @@ oper
   individual_N	= mkN "individual";
   key_N	= mkN "key";
   kind_N	= mkN "kind";
-  lack_of_N	= mkN "lack";
+  lack_N	= mkN "lack";
   level_N	= mkN "level";
   luck_N	= mkN "luck";
   management_N	= mkN "management";
