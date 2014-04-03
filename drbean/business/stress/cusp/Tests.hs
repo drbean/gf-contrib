@@ -60,7 +60,7 @@ linear :: (Tree -> Tree) -> PGF -> [Tree] -> [ String ]
 linear tr gr ps = concat $ map ((linearizeAll gr) . tr) ps
 
 lc_first :: String -> String
-lc_first str@(s:ss) = case ( or $ map (flip isPrefixOf str) ["Barbara", "Tadeusz", "Eva", "Fast-Track", "Dr Bean"] ) of
+lc_first str@(s:ss) = case ( or $ map (flip isPrefixOf str) ["Bradshaw", "Gourlay", "men", "women", "CUSP", "C", "P", "S", "U"] ) of
 	True  -> (s:ss)
 	False -> ((toLower s):ss)
 
@@ -98,8 +98,12 @@ quality_test = [
   , "Is pressure stressful?"
   , "Is a lack of control stressful?"
   , "Is a lack of support stressful?"
+  , "Is a lack of uncertainty stressful?"
+  , "Is a lack of pressure stressful?"
   , "Does CUSP have characteristics?"
   , "Is CUSP critically-important?"
+  , "Is control critically-important?"
+  , "Is support critically-important?"
   , "Does Barbara have experience?"
   , "Is Barbara experienced?"
   , "Is Tadeusz experienced?"
@@ -112,6 +116,16 @@ quality_test = [
   , "Does Tadeusz have good judgement?"
   , "Does Barbara have good judgement?"
   , "Does Dr Bean have good judgement?"
+  ]
+
+stands_test = [
+  "C stands for control, doesn't it?"
+  , "C stands for control, doesn't he?"
+  , "Does C stand for control?"
+  , "U stands for uncertainty, doesn't it?"
+  , "Does U stand for uncertainty?"
+  , "Does S stand for Support?"
+  , "Does P stand for pressure?"
   ]
 
 determiner_test = [
