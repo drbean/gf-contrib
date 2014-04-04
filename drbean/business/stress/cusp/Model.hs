@@ -38,7 +38,7 @@ entity_check =  [
     , (V, "uncertainty" )
     , (W, "women" )
     , (X, "stress" )
-    , (Y, "" )
+    , (Y, "" )		-- level of stress
     , (Z, "" )
     ]
 
@@ -96,6 +96,8 @@ onePlacers = [
 	, ("difficult",	 pred1 [] )
 	, ("effective",	 pred1 [] )
 	, ("good",	 pred1 [T,E] )
+	, ("helpless",	 pred1 [M,W] )
+	, ("high",	 pred1 [Y] )
 
 	, ("stressful",	 pred1 [N,O,Q,V] )
 	, ("male",	 pred1 [B,M,E] )
@@ -155,11 +157,13 @@ help	= pred2 $ supervision
 
 twoPlacers :: [(String, TwoPlacePred)]
 twoPlacers = [
-    ("know_V2",    pred2 $ knowledge ++ acquaintances ++ map swap acquaintances)
+    ("face_to_face",  pred2 $ [(E,M),(E,W),(F,M),(F,W)])
+    , ("know_V2",    pred2 $ knowledge ++ acquaintances ++ map swap acquaintances)
     , ("have",  pred2 $ possessions ++ qualities ++
 					map (\(_,t,r) -> (r,t)) giving )
     , ("stand", pred2[(C,D),(P,Q),(S,T),(U,V)])
     , ("lack", pred2 [(N,D),(O,T)])
+    , ("level", pred2 [(Y,X)])
     , ("like",  pred2 $ map (\(a,t,r) -> (a,r)) appreciation)
     , ("work",  pred2 $ [(a,c) | (a,p,c) <- working] )
 	, ("placing", pred2 [(worker, place) | (worker,_,place) <- working ])

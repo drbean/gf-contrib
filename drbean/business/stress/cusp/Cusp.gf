@@ -42,6 +42,7 @@ fun
   Item	: Det -> CN -> NP;
   Ofpos	: N2 -> NP -> CN;
   Lack_of : NP -> CN;
+  Level_of : NP -> CN;
 
   a_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
   zero_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
@@ -196,8 +197,8 @@ fun
   individual	: CN;
   key	: CN;
   kind	: CN;
-  level	: CN;
   lack : N2;
+  level	: N2;
   luck	: CN;
   management	: NP;
   manager	: CN;

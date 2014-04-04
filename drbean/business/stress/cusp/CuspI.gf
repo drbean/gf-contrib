@@ -60,6 +60,7 @@ lin
   Kind ap cn	= mkCN ap cn;
   Ofpos n2 np	= mkCN n2 np;
   Lack_of np  = mkCN lack np;
+  Level_of np  = mkCN level np;
   Apos np	= mkDet (GenNP np);
   Item det noun	= mkNP det noun;
 
@@ -211,7 +212,7 @@ lin
   key	= mkCN key_N;
   kind	= mkCN kind_N;
   lack	= mkN2 lack_N part_prep;
-  level	= mkCN level_N;
+  level	= mkN2 level_N part_prep;
   luck	= mkCN luck_N;
   management	= mkNP management_N;
   manager	= mkCN manager_N;

@@ -57,6 +57,7 @@ n2_kind_list :: GN2 -> String
 n2_kind_list Gcause_of	= "cause_of"
 n2_kind_list Gcontrol_over	= "control_over"
 n2_kind_list Glack	= "lack"
+n2_kind_list Glevel	= "level"
 n2_kind_list Gsense_of	= "sense_of"
 
 uncount_list :: GNP -> String
@@ -81,6 +82,7 @@ uncount_list Gwomen	= "women"
 
 
 kind_list :: GCN -> String
+kind_list Glevel	= "level"
 kind_list Gaction	= "action"
 kind_list Garea	= "area"
 kind_list Gbusiness	= "business"
@@ -103,7 +105,6 @@ kind_list Gidea	= "idea"
 kind_list Gindividual	= "individual"
 kind_list Gkey	= "key"
 kind_list Gkind	= "kind"
-kind_list Glevel	= "level"
 kind_list Gluck	= "luck"
 kind_list Gmanager	= "manager"
 kind_list Gmeeting	= "meeting"
@@ -229,7 +230,7 @@ objects = [
 	, ( "key",	\[x]	-> predid1 "key" x	)
 	, ( "kind",	\[x]	-> predid1 "kind" x	)
 	, ( "lack_of",	\[x]	-> predid1 "lack_of" x	)
-	, ( "level",	\[x]	-> predid1 "level" x	)
+	, ( "level_of",	\[x]	-> predid1 "level_of" x	)
 	, ( "luck",	\[x]	-> predid1 "luck" x	)
 	, ( "management",	\[x]	-> predid1 "management" x	)
 	, ( "manager",	\[x]	-> predid1 "manager" x	)
@@ -362,7 +363,10 @@ relations = [
 	, ( "lack",	\args -> case args of
 		[x,y]	-> predid2 "lack" y x
 		[x]	-> (forgetful2 . predid2) "lack" x	)
-	, ( "lack",	\[x,y]	-> predid2 "lack" y x	)
+	, ( "level",	\args -> case args of
+		[x,y]	-> predid2 "level" y x
+		[x]	-> (forgetful2 . predid2) "level" x	)
+
 
 	, ( "look",	\[x,y]	-> predid2 "look" y x	)
 	, ( "look_at",	\[x,y]	-> predid2 "look_at" y x	)

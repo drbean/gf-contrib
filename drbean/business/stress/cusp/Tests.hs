@@ -92,14 +92,26 @@ sales_test = [
   , "Does Eva have sales experience?"
   ]
 
+lack_test = [
+  "Is a lack of control stressful?"
+  , "Is a lack of support stressful?"
+  , "Is a lack of uncertainty stressful?"
+  , "Is a lack of pressure stressful?"
+  ]
+
+high_level_test = [
+  "Are levels of stress high?"
+  , "Is a high level of uncertainty stressful?"
+  , "Is a high level of control stressful?"
+  , "Does Bradshaw have a high level of stress?"
+  , "Does assessment have a high level of stress?"
+  , "Do men have a high level of stress?"
+  ]
+
 quality_test = [
   "Does stress have characteristics?"
   , "Is uncertainty stressful?"
   , "Is pressure stressful?"
-  , "Is a lack of control stressful?"
-  , "Is a lack of support stressful?"
-  , "Is a lack of uncertainty stressful?"
-  , "Is a lack of pressure stressful?"
   , "Does CUSP have characteristics?"
   , "Is CUSP critically-important?"
   , "Is control critically-important?"
