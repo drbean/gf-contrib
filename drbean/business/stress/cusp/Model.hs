@@ -80,6 +80,7 @@ onePlacers = [
 
 	, ("manager",	 pred1 [E,F] )
 	, ("individual",	 pred1 [E,F,B,G] )
+	, ("people",	 pred1 [E,F,B,G,M,W] )
 	, ("framework",	 pred1 [C] )
 	, ("company",	 pred1 [I] )
 	, ("work",	 pred1 $ [J] ++ map agent working )
@@ -97,6 +98,7 @@ onePlacers = [
 	, ("effective",	 pred1 [A] )
 	, ("good",	 pred1 [T,E] )
 	, ("helpless",	 pred1 [M,W] )
+	, ("unsupported",	 pred1 [M,W] )
 	, ("high",	 pred1 [Y] )
 	, ("little",	 pred1 [D,T] )
 

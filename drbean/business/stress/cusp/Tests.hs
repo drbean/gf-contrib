@@ -109,8 +109,25 @@ high_level_test = [
   , "Do men have a high level of stress?"
   ]
 
+people_test = [
+  "Is Bradshaw a person?"
+  , "Is Bradshaw a man?"
+  , "Are men people?"
+  , "Are managers people?"
+  , "Do people feel unsupported?"
+  ]
+
+feel_test = [
+  "Do people feel helpless?"
+  , "Do people feel unsupported?"
+  , "Does Bradshaw feel helpless?"
+  , "Does Gourlay feel unsupported?"
+  , "Do people feel stressful?"
+  ]
+
 little_test = [
-  "Do people have little control?" , "Do people have little support?"
+  "Do people have little control?"
+  , "Do people have little support?"
   ]
 
 common_test = [

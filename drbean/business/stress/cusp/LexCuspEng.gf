@@ -175,7 +175,7 @@ oper
   openness_N	= mkN "openness";
   option_N	= mkN "option";
   overview_N	= mkN "overview";
-  people_N	= mkN "people";
+  people_N	= mkN "person" "people";
   performance_N	= mkN "performance";
   placement_N	= mkN "placement";
   plan_N	= mkN "plan";
