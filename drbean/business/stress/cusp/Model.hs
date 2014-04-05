@@ -90,6 +90,7 @@ onePlacers = [
 	, ("bad",	 pred1 [N,Q,O,V,X,Y] )
 	, ("best_placed",	 pred1 [E,F] )
 
+	, ("cause_of",	 pred1 [N,O,P,V] )
 	, ("characteristic",	 pred1 [D,R,T,V] )
 	, ("common",	 pred1 [X,Y,N,O,V,Q] )
 	, ("critically_important",	 pred1 [A,D,T] )

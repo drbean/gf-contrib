@@ -92,6 +92,11 @@ sales_test = [
   , "Does Eva have sales experience?"
   ]
 
+cause_test = [
+  "Is a lack of uncertainty a cause of stress?"
+  , "Is a lack of control a cause of stress?"
+  ]
+
 lack_test = [
   "Is a lack of control stressful?"
   , "Is a lack of support stressful?"
