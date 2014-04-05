@@ -61,6 +61,7 @@ lin
   Ofpos n2 np	= mkCN n2 np;
   Lack_of np  = mkCN lack np;
   Level_of np  = mkCN level np;
+  Little n  = mkCN (Kind little n);
   Apos np	= mkDet (GenNP np);
   Item det noun	= mkNP det noun;
 
