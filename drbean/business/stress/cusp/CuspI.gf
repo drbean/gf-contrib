@@ -4,6 +4,7 @@ lincat
   Utt	= Syntax.Utt;
   PN	= Syntax.PN;
   NP	= Syntax.NP;
+  A	= Syntax.A;
   AP	= Syntax.AP;
   Comp	= Syntax.Comp;
   Cl	= Syntax.Cl;
@@ -25,6 +26,7 @@ lincat
   N2	= Syntax.N2;
   IP	= Syntax.IP;
   Prep	= Syntax.Prep;
+  CAdv	= Syntax.CAdv;
 
 lin
   -- Is item quality	=	mkCl item quality;
@@ -63,7 +65,7 @@ lin
   Ofpos n2 np	= mkCN n2 np;
   Lack_of np  = mkCN lack np;
   Level_of np  = mkCN level np;
-  Little n  = mkCN (Kind little n);
+  -- Little n  = mkCN (Kind little n);
   Apos np	= mkDet (GenNP np);
   Item det noun	= mkNP det noun;
 
@@ -84,6 +86,10 @@ lin
   part_prep	= LexCusp.part_prep;
   to_prep	= LexCusp.to_prep;
   up_prep	= LexCusp.up_prep;
+
+  more	= LexCusp.more_cadv;
+  Comparative np1 a np2 = mkCl np1 a np2;
+  More a = comparAP a;
 
   become	= become_V2;
   can	= LexCusp.can_VV;
@@ -156,12 +162,12 @@ lin
   face_to_face	= mkAP face_to_face_A;
   good	= mkAP good_A;
   helpless	= mkAP helpless_A;
+  high_A  = LexCusp.high_A;
   high	= mkAP high_A;
   latter	= mkAP latter_A;
   little	= mkAP little_A;
   main	= mkAP main_A;
   managerial	= mkAP managerial_A;
-  more	= mkAP more_A;
   most	= mkAP most_A;
   other	= mkAP other_A;
   own	= mkAP own_A;
@@ -179,6 +185,7 @@ lin
   two_way	= mkAP two_way_A;
   unsupported	= mkAP unsupported_A;
   useful	= mkAP useful_A;
+  vulnerable_A	= LexCusp.vulnerable_A;
   vulnerable	= mkAP vulnerable_A;
   wrong	= mkAP wrong_A;
 

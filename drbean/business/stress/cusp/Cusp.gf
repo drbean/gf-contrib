@@ -45,7 +45,7 @@ fun
   Ofpos	: N2 -> NP -> CN;
   Lack_of : NP -> CN;
   Level_of : NP -> CN;
-  Little : N -> CN;
+  -- Little : N -> CN;
 
   a_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
   zero_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
@@ -55,6 +55,10 @@ fun
 
   who_WH	: IP;
   what_WH	: IP;
+
+  more : CAdv;
+  Comparative : NP -> A ->NP -> Cl;
+  More	: A -> AP;
 
   about_prep	: Prep;
   at_prep	: Prep;
@@ -140,12 +144,12 @@ fun
   face_to_face	: AP;
   good	: AP;
   helpless	: AP;
+  high_A  : A;
   high	: AP;
   latter	: AP;
   little	: AP;
   managerial	: AP;
   main	: AP;
-  more	: AP;
   most	: AP;
   other	: AP;
   own	: AP;
@@ -164,6 +168,7 @@ fun
   unsupported	: AP;
   useful	: AP;
   vulnerable	: AP;
+  vulnerable_A	: A;
   wrong  : AP;
 
 
