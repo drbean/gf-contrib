@@ -51,7 +51,7 @@ a = [
   --, "latter"
   , "little"
   , "main"
-  --, "more"
+  , "more"
   --, "most"
   --, "other"
   --, "own"
@@ -243,7 +243,7 @@ prep = [
 	, "in"
 	, "on"
 	, "over"
-	-- , "than"
+	, "than"
 	-- , "to"
 	-- , "with"
 	]
