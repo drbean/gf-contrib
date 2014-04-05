@@ -97,6 +97,8 @@ transS ((GUt (GPosQ (GWH_Pred wh vp)))) =
 transS ((GUt (GNegQ (GWH_Pred wh vp)))) =
 	WH (\x -> Conj [ transW wh x, Neg (transVP vp x)])
 transS (GUt (GPosQ (GYN (GSentence np vp)))) = (transNP np) (transVP vp)
+transS (GUt (GPosQ (GYN (GFeel_helpless np)))) = transNP np (\e -> Rel "helpless" [e])
+transS (GUt (GPosQ (GYN (GFeel_unsupported np)))) = transNP np (\e -> Rel "unsupported" [e])
 transS (GUt (GNegQ (GYN (GSentence np vp)))) = (transNP np) (transVP vp)
 transS (GUt (GPosQ (GTagQ np vp))) = (transNP np) (transVP vp)
 transS (GUt (GNegQ (GTagQ np vp))) = (transNP np) (transVP vp)

@@ -32,7 +32,9 @@ lin
   Be_bad ap	= mkComp ap;
   Be_someone np	= mkComp np;
   Be_vp comp	= mkVP comp;
-  Look_bad verb adj	= mkVP verb adj;
+  -- Look_bad verb adj	= mkVP verb adj;
+  Feel_helpless np = mkCl np feel_V helpless_A;
+  Feel_unsupported np = mkCl np feel_V unsupported_A;
   Happening action	=	mkVP action;
   Changing action patient	= mkVP action patient;
   Causative causal patient predicate	= mkVP causal patient predicate;

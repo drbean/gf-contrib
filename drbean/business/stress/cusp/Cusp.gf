@@ -6,7 +6,9 @@ abstract Cusp = Cat ** {
 fun
   -- Is	: NP -> AP -> Cl;
   -- Cop		: NP -> NP -> Cl;
-  Look_bad	: VA -> AP -> VP;
+  -- Look_bad	: VA -> AP -> VP;
+  Feel_helpless	: NP -> Cl;
+  Feel_unsupported  : NP -> Cl;
   Be_bad	: AP -> Comp;
   Be_someone	: NP -> Comp;
   Be_vp	: Comp -> VP;
