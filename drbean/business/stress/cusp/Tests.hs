@@ -121,8 +121,12 @@ feel_test = [
   "Do people feel helpless?"
   , "Do people feel unsupported?"
   , "Does Bradshaw feel helpless?"
-  , "Does Bradshaw feel that stress is bad?"
   , "Does Bradshaw feel stress?"
+  , "Does Bradshaw think that stress is bad?"
+  , "Does Bradshaw feel that stress is bad?"
+  , "Does Bradshaw feel that stress is good?"
+  , "Does Bradshaw feel that stress is high?"
+  , "Does Bradshaw feel that a lack of control is good?"
   , "Does Gourlay feel unsupported?"
   , "Do people feel stressful?"
   ]
