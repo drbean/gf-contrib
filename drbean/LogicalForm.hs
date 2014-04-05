@@ -230,6 +230,7 @@ transN2 name	= \x -> Rel (n2_kind_list name) [x]
 transCN :: GCN -> Term -> LF
 transCN (GKind ap cn) = \x -> Conj [ transCN cn x, Rel (adjective_list ap) [x] ]
 transCN (GLack_of np) = \object -> transNP np ( \thing -> Rel "lack" [object, thing])
+transCN (GLevel_of np) = \object -> transNP np ( \thing -> Rel "level" [object, thing])
 transCN (GOfpos cn np) =
     \owner -> Conj [(transN2 cn owner), (transNP np 
 	(\thing -> Rel "have" [owner, thing]))]
