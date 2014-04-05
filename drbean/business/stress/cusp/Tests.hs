@@ -100,12 +100,25 @@ lack_test = [
   ]
 
 high_level_test = [
-  "Are levels of stress high?"
+  "Is a level of uncertainty stressful?"
+  , "Are levels of stress high?"
   , "Is a high level of uncertainty stressful?"
   , "Is a high level of control stressful?"
   , "Does Bradshaw have a high level of stress?"
   , "Does assessment have a high level of stress?"
   , "Do men have a high level of stress?"
+  ]
+
+little_test = [
+  "Do people have little control?" , "Do people have little support?"
+  ]
+
+common_test = [
+  "Is stress common?"
+  , "Is a high level of stress common?"
+  , "Is pressure common?"
+  , "Is uncertainty common?"
+  , "Is a lack of control common?"
   ]
 
 quality_test = [
