@@ -87,7 +87,7 @@ onePlacers = [
 	, ("worker",	 pred1 $ map agent working )
 
 	, ("assertive",	 pred1 [] )
-	, ("bad",	 pred1 [D,Q,T,V] )
+	, ("bad",	 pred1 [N,Q,O,V,X,Y] )
 	, ("best_placed",	 pred1 [E,F] )
 
 	, ("characteristic",	 pred1 [D,R,T,V] )
