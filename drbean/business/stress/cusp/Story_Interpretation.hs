@@ -82,7 +82,6 @@ uncount_list Gwomen	= "women"
 
 
 kind_list :: GCN -> String
-kind_list Glevel	= "level"
 kind_list Gaction	= "action"
 kind_list Garea	= "area"
 kind_list Gbusiness	= "business"
