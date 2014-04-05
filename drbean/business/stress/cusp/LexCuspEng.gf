@@ -21,6 +21,8 @@ oper
   up_prep = mkPrep "up";
   with_prep = mkPrep "with";
 
+  more_cadv = SyntaxEng.more_CAdv;
+
   yes_Utt	= SyntaxEng.yes_Utt;
   no_Utt	= SyntaxEng.no_Utt;
   no_answer_Utt = ss "No answer";
@@ -107,7 +109,6 @@ oper
   little_A	= mkA "little";
   managerial_A	= mkA "managerial";
   main_A	= mkA "main";
-  more_A	= mkA "more";
   most_A	= mkA "most";
   other_A	= mkA "other";
   own_A	= mkA "own";
@@ -125,7 +126,7 @@ oper
   two_way_A	= mkA "two-way";
   unsupported_A	= mkA "unsupported";
   useful_A	= mkA "useful";
-  vulnerable_A	= mkA "vulnerable";
+  vulnerable_A	= compoundA (mkA "vulnerable");
   wrong_A	= mkA "wrong";
 
 

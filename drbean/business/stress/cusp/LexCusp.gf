@@ -19,6 +19,8 @@ oper
   to_prep	: Prep;
   up_prep	: Prep;
 
+  more_cadv : CAdv;
+
   yes_Utt	: Utt;
   no_Utt	: Utt;
   no_answer_Utt	: Utt;
@@ -96,7 +98,6 @@ oper
   little_A	: A;
   managerial_A	: A;
   main_A	: A;
-  more_A	: A;
   most_A	: A;
   other_A	: A;
   own_A	: A;
