@@ -90,14 +90,15 @@ onePlacers = [
 	, ("best_placed",	 pred1 [E,F] )
 
 	, ("characteristic",	 pred1 [D,R,T,V] )
-	, ("common",	 pred1 [] )
+	, ("common",	 pred1 [X,Y,N,O,V,Q] )
 	, ("critically_important",	 pred1 [A,D,T] )
 	, ("day_to_day",	 pred1 [R] )
 	, ("difficult",	 pred1 [] )
-	, ("effective",	 pred1 [] )
+	, ("effective",	 pred1 [A] )
 	, ("good",	 pred1 [T,E] )
 	, ("helpless",	 pred1 [M,W] )
 	, ("high",	 pred1 [Y] )
+	, ("little",	 pred1 [D,T] )
 
 	, ("stressful",	 pred1 [N,O,Q,V] )
 	, ("male",	 pred1 [B,M,E] )
