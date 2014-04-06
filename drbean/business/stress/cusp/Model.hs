@@ -14,33 +14,33 @@ entities	=  [minBound..maxBound]
 
 entity_check :: [ (Entity, String) ]
 entity_check =  [
-    (A, "CUSP" )
-    , (B, "Bradshaw" )
-    , (C, "C" )
-    , (D, "control" )
-    , (E, "" )		-- manager
-    , (F, "" )		-- manager
-    , (G, "Gourlay" )
-    , (H, "" )		-- help
-    , (I, "In Equilibrium" )
-    , (J, "" )
-    , (K, "" )
-    , (L, "" )
-    , (M, "men" )
-    , (N, "" )		-- lack of control
-    , (O, "" )		-- lack of support
-    , (P, "P" )
-    , (Q, "pressure" )
-    , (R, "" )		-- performance
-    , (S, "S" )
-    , (T, "support" )
-    , (U, "U" )
-    , (V, "uncertainty" )
-    , (W, "women" )
-    , (X, "stress" )
-    , (Y, "" )		-- level of stress
-    , (Z, "" )
-    ]
+  (A, "CUSP" )
+  , (B, "Bradshaw" )
+  , (C, "C" )
+  , (D, "control" )
+  , (E, "" )		-- manager
+  , (F, "" )		-- manager
+  , (G, "Gourlay" )
+  , (H, "" )		-- help
+  , (I, "In Equilibrium" )
+  , (J, "" )	-- good woman strategy
+  , (K, "" )	-- bad (man) strategy
+  , (L, "" )
+  , (M, "men" )
+  , (N, "" )	-- lack of control
+  , (O, "" )	-- lack of support
+  , (P, "P" )
+  , (Q, "pressure" )
+  , (R, "" )	-- performance
+  , (S, "S" )
+  , (T, "support" )
+  , (U, "U" )
+  , (V, "uncertainty" )
+  , (W, "women" )
+  , (X, "stress" )
+  , (Y, "" )	-- level of stress
+  , (Z, "" )
+  ]
 
 ent_ided :: String -> Entity
 ent_ided name = head [entity | (entity,string) <- entity_check ,
@@ -60,57 +60,59 @@ predid3 :: String -> ThreePlacePred
 predid4 :: String -> FourPlacePred
 
 predid3 name
-       | Just pred <- lookup name threePlacers = pred
-        | otherwise    = error $ "no '" ++ name ++ "' three-place predicate."
+  | Just pred <- lookup name threePlacers = pred
+  | otherwise    = error $ "no '" ++ name ++ "' three-place predicate."
 predid4 name
-       | Just pred <- lookup name fourPlacers = pred
-        | otherwise    = error $ "no '" ++ name ++ "' four-place predicate."
+  | Just pred <- lookup name fourPlacers = pred
+  | otherwise    = error $ "no '" ++ name ++ "' four-place predicate."
 predid5 name
-       | Just pred <- lookup name fivePlacers = pred
-        | otherwise    = error $ "no '" ++ name ++ "' five-place predicate."
+  | Just pred <- lookup name fivePlacers = pred
+  | otherwise    = error $ "no '" ++ name ++ "' five-place predicate."
 
 onePlacers :: [(String, OnePlacePred)]
 onePlacers = [
-        ("true",        pred1 entities )
-        , ("false",     pred1 [] )
-        , ("role",      pred1 [] )
+  ("true",        pred1 entities )
+  , ("false",     pred1 [] )
+  , ("role",      pred1 [] )
 
-	, ("manager",	 pred1 [E,F] )
-	, ("individual",	 pred1 [E,F,B,G] )
-	, ("people",	 pred1 [E,F,B,G,M,W] )
-	, ("framework",	 pred1 [C] )
-	, ("company",	 pred1 [I] )
-	, ("work",	 pred1 $ [J] ++ map agent working )
-	, ("worker",	 pred1 $ map agent working )
+  , ("manager",	 pred1 [E,F] )
+  , ("individual",	 pred1 [E,F,B,G] )
+  , ("people",	 pred1 [E,F,B,G,M,W] )
+  , ("framework",	 pred1 [C] )
+  , ("company",	 pred1 [I] )
+  , ("work",	 pred1 $ [J] ++ map agent working )
+  , ("worker",	 pred1 $ map agent working )
 
-	, ("assertive",	 pred1 [] )
-	, ("bad",	 pred1 [N,Q,O,V,X,Y] )
-	, ("best_placed",	 pred1 [E,F] )
+  , ("assertive",	 pred1 [] )
+  , ("bad",	 pred1 [N,Q,O,V,X,Y,K] )
+  , ("best_placed",	 pred1 [E,F] )
 
-	, ("cause_of",	 pred1 [N,O,P,V] )
-	, ("characteristic",	 pred1 [D,R,T,V] )
-	, ("common",	 pred1 [X,Y,N,O,V,Q] )
-	, ("critically_important",	 pred1 [A,D,T] )
-	, ("day_to_day",	 pred1 [R] )
-	, ("difficult",	 pred1 [] )
-	, ("effective",	 pred1 [A] )
-	, ("good",	 pred1 [T,E] )
-	, ("helpless",	 pred1 [M,W] )
-	, ("unsupported",	 pred1 [M,W] )
-	, ("high",	 pred1 [Y] )
-	, ("little",	 pred1 [D,T] )
+  , ("cause_of",	 pred1 [N,O,P,V] )
+  , ("characteristic",	 pred1 [D,R,T,V] )
+  , ("common",	 pred1 [X,Y,N,O,V,Q] )
+  , ("critically_important",	 pred1 [A,D,T] )
+  , ("day_to_day",	 pred1 [R] )
+  , ("difficult",	 pred1 [] )
+  , ("effective",	 pred1 [A] )
+  , ("good",	 pred1 [T,E,J] )
+  , ("helpless",	 pred1 [M,W] )
+  , ("unsupported",	 pred1 [M,W] )
+  , ("high",	 pred1 [Y] )
+  , ("little",	 pred1 [D,T] )
 
-	, ("stressful",	 pred1 [N,O,Q,V] )
-	, ("male",	 pred1 [B,M,E] )
-	, ("female",	 pred1 [G,W,F] )
-	]
+  , ("stressful",	 pred1 [N,O,Q,V] )
+  , ("male",	 pred1 [B,M,E] )
+  , ("female",	 pred1 [G,W,F] )
+  , ("strategy",	 pred1 [J,K] )
+  ]
 
+predid1 "poor"  = predid1 "bad"
 predid1 "women"  = predid1 "female"
 predid1 "men"  = predid1 "male"
 
 predid1 name
-       | Just pred <- lookup name onePlacers = pred
-       | otherwise    = error $ "no '" ++ name ++ "' one-place predicate."
+  | Just pred <- lookup name onePlacers = pred
+  | otherwise    = error $ "no '" ++ name ++ "' one-place predicate."
 
 type OnePlacePred	= Entity -> Bool
 type TwoPlacePred	= Entity -> Entity -> Bool
@@ -138,7 +140,7 @@ possessions	= [(B,J),(T,J),(E,J),(B,X),(T,X),(E,X),(T,G)]
 appreciation	= [ (E,Unspec,J) ]
 qualities	= [ (B,A),(T,G),(B,X),(T,X),(E,X) ]
 conflict	= []
-supervision	= []
+supervision	= [(E,M),(E,W),(F,M),(F,W)]
 isBoss	= pred1 $ map fst supervision
 isWorker	= pred1 $ map snd supervision
 
@@ -148,6 +150,7 @@ subordinate	= pred1 $ map snd supervision
 employee	= subordinate
 manager = boss
 
+strategies = [(W,J),(M,K)]
 disappointments = []
 disappoint	= pred2 $ disappointments
 resent	= pred2 $ map swap disappointments
@@ -158,20 +161,22 @@ help	= pred2 $ supervision
 
 twoPlacers :: [(String, TwoPlacePred)]
 twoPlacers = [
-	("face_to_face",  pred2 $ [(E,M),(E,W),(F,M),(F,W)])
-	, ("know_V2",    pred2 $ knowledge ++ acquaintances ++ map swap acquaintances)
-	, ("have",  pred2 $ possessions ++ qualities ++
-					map (\(_,t,r) -> (r,t)) giving )
-	, ("stand", pred2[(C,D),(P,Q),(S,T),(U,V)])
-	, ("lack", pred2 [(N,D),(O,T)])
-	, ("level", pred2 [(Y,X)])
-	, ("more_vulnerable", pred2 [(M,W)])
-	, ("more_high", pred2 [])
-	, ("tend_to_report", (forgetful3 . predid3) "talk_about" )
-	, ("like",  pred2 $ map (\(a,t,r) -> (a,r)) appreciation)
-	, ("work",  pred2 $ [(a,c) | (a,p,c) <- working] )
-	, ("placing", pred2 [(worker, place) | (worker,_,place) <- working ])
-    ]
+  ("ask_for", pred2 $ map (\(_,t,r)->(r,t)) giving )
+  , ("face_to_face",  pred2 $ [(E,M),(E,W),(F,M),(F,W)])
+  , ("know_V2",    pred2 $ knowledge ++ acquaintances ++ map swap acquaintances)
+  , ("have",  pred2 $ possessions ++ qualities ++ 
+		    strategies ++
+		    map (\(_,t,r) -> (r,t)) giving )
+  , ("stand", pred2[(C,D),(P,Q),(S,T),(U,V)])
+  , ("lack", pred2 [(N,D),(O,T)])
+  , ("level", pred2 [(Y,X)])
+  , ("more_vulnerable", pred2 [(M,W)])
+  , ("more_high", pred2 [])
+  , ("tend_to_report", (forgetful3 . predid3) "talk_about" )
+  , ("like",  pred2 $ map (\(a,t,r) -> (a,r)) appreciation)
+  , ("work",  pred2 $ [(a,c) | (a,p,c) <- working] )
+  , ("placing", pred2 [(worker, place) | (worker,_,place) <- working ])
+  ]
 
 predid2 name
        | Just pred <- lookup name twoPlacers = pred
@@ -182,11 +187,13 @@ curry3 f x y z	= f (x,y,z)
 curry4 f x y z w	= f (x,y,z,w)
 
 threePlacers = [
-    ("liked", pred3 appreciation )
-    , ("talk", pred3 $ map (\(a,t,r) -> (a,r,t)) comms)
-    , ("talk_about", pred3 comms)
-    , ("work", pred3 $ [(a,a,c) | (a,p,c) <- working ] )
-    ]
+  ("liked", pred3 appreciation )
+  , ("ask", pred3 $ map (\(a,t,r) -> (r,a,t)) giving)
+  , ("talk", pred3 $ map (\(a,t,r) -> (a,r,t)) comms)
+  , ("talk_about", pred3 comms)
+  , ("get", pred3 $ map (\(a,t,r) -> (r,t,a)) comms)
+  , ("work", pred3 $ [(a,a,c) | (a,p,c) <- working ] )
+  ]
 
 
 agent, theme, recipient, location, instrument ::
@@ -201,9 +208,10 @@ origin	= theme
 destination = recipient
 
 --(worker,job,site)
-working	= [(B,Unspec,I),(G,Unspec,I),(E,Unspec,Unspec),(F,Unspec,Unspec)]
+working	= [(B,Unspec,I),(G,Unspec,I),(E,Unspec,Unspec),(F,Unspec,Unspec),(M,Unspec,Unspec),(W,Unspec,Unspec)]
 comms	= [ (W,X,E),(W,X,F) ]
-giving	= [ (B,H,E),(I,H,E),(G,H,F),(F,M,T) ]
+--(agent,theme,recipient)
+giving	= [ (B,H,E),(I,H,E),(G,H,F),(F,T,M),(E,T,W),(F,T,W) ]
 --(agent,theme,location)
 seeing	= []
 --(agent,origin,destination)
@@ -286,4 +294,4 @@ passivize4 r = \x y z -> or ( map (\u -> r u x y z ) entities )
 self ::  (a -> a -> b) -> a -> b
 self p	= \ x -> p x x 
 
--- vim: set ts=8 sts=4 sw=4 noet:
+-- vim: set ts=8 sts=2 sw=2 noet:
