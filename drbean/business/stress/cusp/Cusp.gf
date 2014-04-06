@@ -72,7 +72,6 @@ fun
 
   become	: V2;
   can	: VV;
-  get	: V2;
   know_V2	: V2;
   know_VS	: VS;
   like	: V2;
@@ -88,6 +87,8 @@ fun
   agree	: V2;
   allow	: V2V;
   appear	: VA;
+  ask : V3;
+  ask_for : V2;
   base	: V3;
   boost	: V2;
   call	: V3;
@@ -103,6 +104,7 @@ fun
   feel_S	: VS;
   -- find	: V2A;
   get	: V2;
+  get_from	: V3;
   give	: V3;
   happen	: V;
   have	: V2;

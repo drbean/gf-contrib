@@ -93,7 +93,8 @@ lin
 
   become	= become_V2;
   can	= LexCusp.can_VV;
-  get	= get_V2;
+  get	= mkV2 get_V;
+  get_from  = mkV3 get_V noPrep from_prep;
   know_V2	= LexCusp.know_V2;
   know_VS	= LexCusp.know_VS;
   like	= like_V2;
@@ -107,6 +108,8 @@ lin
   agree	= mkV2 agree_V;
   allow	= mkV2V allow_V noPrep to_prep;
   appear	= mkVA appear_V;
+  ask = mkV3 ask_V noPrep for_prep;
+  ask_for = mkV2 ask_V for_prep;
   base	= mkV3 base_V noPrep on_prep;
   boost	= mkV2 boost_V;
   call	= mkV3 call_V;

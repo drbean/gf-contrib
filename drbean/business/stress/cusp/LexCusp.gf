@@ -11,6 +11,7 @@ oper
 
   about_prep	: Prep;
   at_prep	: Prep;
+  from_prep : Prep;
   in_prep	: Prep;
   of_prep	: Prep;
   on_prep	: Prep;
@@ -26,7 +27,7 @@ oper
   no_answer_Utt	: Utt;
 
   become_V2	: V2;
-  get_V2	: V2;
+  get_V	: V;
   know_V2	: V2;
   know_VS	: VS;
   -- need_VV	: VV;
@@ -40,6 +41,7 @@ oper
   agree_V	: V;
   allow_V	: V;
   appear_V	: V;
+  ask_V	: V;
   base_V	: V;
   boost_V	: V;
   call_V	: V;

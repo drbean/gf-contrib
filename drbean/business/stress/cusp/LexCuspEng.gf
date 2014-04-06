@@ -13,6 +13,7 @@ oper
   of_prep	= possess_Prep;
   part_prep	= part_Prep;
   for_prep = for_Prep;
+  from_prep = from_Prep;
   in_prep = in_Prep;
   on_prep = mkPrep "on";
   at_prep = mkPrep "at";
@@ -29,7 +30,6 @@ oper
 
   become_V2	= mkV2 (IrregEng.become_V);
   can_VV	= SyntaxEng.can_VV;
-  get_V2	= mkV2 "get";
   know_V	= IrregEng.know_V;
   know_V2	= mkV2 know_V;
   know_VS	= mkVS know_V;
@@ -50,6 +50,7 @@ oper
   agree_V	= mkV "agree";
   allow_V	= mkV "allow";
   appear_V	= mkV "appear";
+  ask_V	= mkV "ask";
   base_V	= mkV "base";
   boost_V	= mkV "boost";
   call_V	= mkV "call";
