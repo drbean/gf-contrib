@@ -235,16 +235,16 @@ pron = [
 
 prep = [
 	"of"
-	-- , "about"
+	, "about"
 	, "at"
-	-- , "for"
-	-- , "from"
+	, "for"
+	, "from"
 	-- , "like"
 	, "in"
 	, "on"
 	, "over"
 	, "than"
-	-- , "to"
+	, "to"
 	-- , "with"
 	]
 
@@ -282,6 +282,7 @@ v = [
   , "allow"
   , "appear"
   -- , "base"
+  , "ask"
   , "boost"
   -- , "call"
   , "cause"
@@ -346,7 +347,7 @@ v = [
 -- are
 --                                   -- areas	: CN;
 -- as
--- ask
+-- ask : V*
 -- assertive	: AP;
 --                                   -- assessment	: CN;
 -- at
