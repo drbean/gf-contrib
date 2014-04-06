@@ -294,7 +294,6 @@ relations = [
 	, ( "high",	\[x]	-> predid1 "high" x	)
 	, ( "little",	\[x]	-> predid1 "little" x	)
 	, ( "managerial",	\[x]	-> predid1 "managerial" x	)
-	, ( "main",	\[x]	-> predid1 "main" x	)
 	, ( "more",	\[x]	-> predid1 "more" x	)
 	, ( "other",	\[x]	-> predid1 "other" x	)
 	, ( "own",	\[x]	-> predid1 "own" x	)

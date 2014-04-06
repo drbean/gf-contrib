@@ -50,7 +50,7 @@ a = [
   , "high"
   --, "latter"
   , "little"
-  , "main"
+  -- , "main"
   , "more"
   --, "most"
   --, "other"
