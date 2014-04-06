@@ -193,6 +193,7 @@ triangulating_list :: GV3 -> String
 triangulating_list Gask	= "ask"
 triangulating_list Gbase	= "base"
 triangulating_list Gcall	= "call"
+triangulating_list Gget_from	= "get"
 triangulating_list Ggive	= "give"
 triangulating_list Gtalk	= "talk"
 triangulating_list Gtalk_about	= "talk_about"
@@ -355,7 +356,7 @@ relations = [
 		[x,y,z]	-> (forgetful4 . predid4) "feel" z y x
 		[x,y]	-> (forgetful3 . forgetful4 . predid4) "feel" y x
 		[x]	-> (forgetful2 . forgetful3 . forgetful4 . predid4) "feel" x	)
- , ( "get", \args -> case args of
+	, ( "get", \args -> case args of
 	[x,y,z] -> predid3 "get" z y x
 	[x,y] -> (forgetful3 .predid3) "get" y x )
 	, ( "give",	\ [x,y,z] ->	predid3 "give" z y x )
@@ -408,4 +409,4 @@ relations = [
 
 	]
 
--- vim: set ts=8 sts=4 sw=4 noet:
+-- vim: set ts=8 sts=2 sw=2 noet:
