@@ -57,6 +57,7 @@ getting_test = [
   , "Do men have support?"
   , "Do men ask for support?"
   , "Do men get support from managers?"
+  , "Do women get support from managers?"
   , "Do women ask managers for support?"
   , "Do managers give women support?"
   ]
