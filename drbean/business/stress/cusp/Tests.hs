@@ -114,6 +114,13 @@ high_level_test = [
   , "Do men have a high level of stress?"
   ]
 
+comparative_test = [
+  "Are women more vulnerable than men?"
+  , "Are men more vulnerable than women?"
+  , "Are levels of uncertainty higher than levels of a lack of control?"
+  , "Is the level of uncertainty higher than the level of pressure?"
+  ]
+
 people_test = [
   "Is Bradshaw a person?"
   , "Is Bradshaw a man?"

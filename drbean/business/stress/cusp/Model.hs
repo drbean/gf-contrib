@@ -108,8 +108,8 @@ onePlacers = [
 	, ("female",	 pred1 [G,W,F] )
 	]
 
-predid1 "woman"  = predid1 "female"
-predid1 "man"  = predid1 "male"
+predid1 "women"  = predid1 "female"
+predid1 "men"  = predid1 "male"
 
 predid1 name
        | Just pred <- lookup name onePlacers = pred
@@ -168,6 +168,8 @@ twoPlacers = [
     , ("stand", pred2[(C,D),(P,Q),(S,T),(U,V)])
     , ("lack", pred2 [(N,D),(O,T)])
     , ("level", pred2 [(Y,X)])
+    , ("more_vulnerable", pred2 [(M,W)])
+    , ("more_high", pred2 [])
     , ("like",  pred2 $ map (\(a,t,r) -> (a,r)) appreciation)
     , ("work",  pred2 $ [(a,c) | (a,p,c) <- working] )
 	, ("placing", pred2 [(worker, place) | (worker,_,place) <- working ])

@@ -18,6 +18,10 @@ entity_list Gu	= ent_ided "U"
 entity_list Guncertainty	= ent_ided "uncertainty"
 entity_list Gstress	= ent_ided "stress"
 
+a_list	:: GA -> String
+a_list Ghigh_A	= "high"
+a_list Gvulnerable_A	= "vulnerable"
+
 adjective_list :: GAP -> String
 adjective_list Gassertive	= "assertive"
 adjective_list Gbad	= "bad"
@@ -387,6 +391,10 @@ relations = [
 	, ( "train",	\[x,y]	-> predid2 "train" y x	)
 	, ( "use",	\[x,y,z]	-> predid3 "use" z y x	)
 	, ( "work",	\[x]	-> predid1 "work" x	)
+
+	, ( "more_vulnerable",	\[x,y]	-> predid2 "more_vulnerable" y x	)
+	, ( "more_high",	\[x,y]	-> predid2 "more_high" y x	)
+
 
 
 	]
