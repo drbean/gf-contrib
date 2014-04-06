@@ -1,75 +1,6 @@
 module Tests where
 
-import PGF
-import Cusp
-import LogicalForm
-import Evaluation
-import Model
-import WordsCharacters
-
-import Data.List
-import Data.Char
-
--- handler gr core tests = putStr $ unlines $ map (\(x,y) -> x++show y) $ zip (map (++"\t") tests ) ( map (\string -> map (\x -> core ( x) ) (parse gr (mkCId "DicksonEng") (startCat gr) string)) tests )
-
--- import System.Environment.FindBin
-
-ans tests = do
-  gr	<- readPGF ( "./Cusp.pgf" )
-  let ss = map (chomp . lc_first) tests
-  let ps = map ( parses gr ) ss
-  let ls = map ( map ( linear transform gr ) ) ps
-  let zs = zip (map (++"\t") tests) ls
-  putStrLn (unlines (map (\(x,y) -> x ++ (show $ concat y)) zs) )
-
---trans tests = do
---  gr	<- readPGF ( "./Dickson.pgf" )
---  let ss = map (chomp . lc_first) tests
---  let ps = map ( parses gr ) ss
---  let ls = map id ps
---  let zs = zip (map (++"\t") tests) ps
---  putStrLn (unlines (map (\(x,y) -> x ++ (show (concat y ) ) ) zs) )
-
-logic tests = do
-  gr	<- readPGF ( "./Cusp.pgf" )
-  let ss = map (chomp . lc_first) tests
-  let ps = map ( parses gr ) ss
-  let ts = map (map (map lf)) ps
-  let zs = zip (map (++"\t") tests) ts
-  putStrLn (unlines (map (\(x,y) -> x ++ (show $ concat y ) ) zs) )
-
-parses :: PGF -> String -> [[Tree]]
-parses gr s = ( parseAll gr (startCat gr) s )
-
-transform :: Tree -> Tree
-transform = gf . answer . fg
-
-lf :: Tree -> LF
-lf =  transS . fg
-
-answer :: GUtt -> GUtt
--- answer (GUt (GPosQ (GWH_Cop Gwho_WH np)))	= (GUt (GNegQ (GTagQ np (GHappening Glaugh))))
--- answer (GUt (GPosQ (GWH_Pred Gwho_WH (GChanging v np)))) = (GUt (GNegQ (GTagQ np (GHappening Glaugh))))
--- answer (GUt (GPosQ (GWH_Pred Gwho_WH (GHappening vp)))) = Gdee
--- answer (GUt (GPosQ (GYN (GCop np1 np2))))  = np1
-answer utt	| (eval . transS) utt == Boolean True = GYes
-		| (eval . transS) utt == Boolean False = GNo
-		| (eval . transS) utt == NoAnswer = GNoAnswer
-
-linear :: (Tree -> Tree) -> PGF -> [Tree] -> [ String ]
-linear tr gr ps = concat $ map ((linearizeAll gr) . tr) ps
-
-lc_first :: String -> String
-lc_first str@(s:ss) = case ( or $ map (flip isPrefixOf str) ["Bradshaw", "Gourlay", "men", "women", "CUSP", "C", "P", "S", "U"] ) of
-	True  -> (s:ss)
-	False -> ((toLower s):ss)
-
-chomp :: String -> String
-chomp []                      = []
-chomp ('\'':'s':xs)           = " 's" ++ chomp xs
-chomp ('s':'\'':xs)           = "s 's" ++ chomp xs
-chomp (x:xs) | x `elem` ".,?" = chomp xs
-            | otherwise      =     x:chomp xs
+import Handler
 
 all_tests =
 		student_tag_tests ++ student_yn_tests ++ student_tests_wh ++
@@ -78,6 +9,7 @@ all_tests =
 		ditransitive_tests ++ relclauses ++ relppR_test
 		-- ++ wh_questions ++ comp_wh_questions
 		-- ++ ungrammatical
+
 in_equilibrium = [
   "Is In Equilibrium a company?"
   , "Does Gourlay work in In Equilibrium?"
@@ -114,11 +46,27 @@ high_level_test = [
   , "Do men have a high level of stress?"
   ]
 
+strategy_test = [
+  "Do men have poor strategies?"
+  , "Do women have good strategies?"
+  ] 
+
+getting_test = [
+  "Do women get support?"
+  , "Do women ask for support?"
+  , "Do men have support?"
+  , "Do men ask for support?"
+  , "Do men get support from managers?"
+  , "Do women ask managers for support?"
+  , "Do managers give women support?"
+  ]
+
 comparative_test = [
   "Are women more vulnerable than men?"
   , "Are men more vulnerable than women?"
   , "Are men more vulnerable?"
   , "Are women more vulnerable?"
+  , "Do women have more stress?"
   , "Are levels of uncertainty higher than levels of a lack of control?"
   , "Is the level of uncertainty higher than the level of pressure?"
   ]
@@ -212,10 +160,11 @@ comm_test = [
   "A woman talks to a manager, doesn't she?"
   , "Women talk about stress, don't they?"
   , "A woman talks about stress with a manager, doesn't she?"
+  , "Women talk about stress with managers, don't they?"
   , "Do men talk about stress?"
   , "Do men talk to managers?"
   , "Managers talk to men about stress, don't they?"
-  , "People don't talk to managers about stress, do they?"
+  , "Men don't talk to managers about stress, do they?"
   , "Do women report more stress?"
   , "Do women report stress?"
   , "Do women tend to report stress?"
