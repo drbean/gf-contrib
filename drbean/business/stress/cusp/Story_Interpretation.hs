@@ -145,6 +145,7 @@ changing_list Gsee  	= "see"
 
 changing_list Gabdicate	= "abdicate"
 changing_list Gagree	= "agree"
+changing_list Gask_for	= "ask_for"
 changing_list Gboost	= "boost"
 changing_list Gcause	= "cause"
 changing_list Gconsider	= "consider"
@@ -189,6 +190,7 @@ intens_list Gcan	= "can"
 intens_list Gtend	= "tend"
 
 triangulating_list :: GV3 -> String
+triangulating_list Gask	= "ask"
 triangulating_list Gbase	= "base"
 triangulating_list Gcall	= "call"
 triangulating_list Ggive	= "give"
@@ -322,7 +324,6 @@ relations = [
 
 
 	, ( "become",	\[x,y]	-> predid2 "become" y x	)
-	, ( "get",	\[x,y]	-> predid2 "get" y x	)
 	, ( "know_V2",	\[x,y]	-> predid2 "know_V2" y x	)
 	, ( "know_VS",	\[x,y]	-> predid2 "know_VS" y x	)
 	, ( "like",	\[x, y]	-> predid2 "like" y x	)
@@ -335,6 +336,8 @@ relations = [
 	, ( "abdicate",	\[x,y]	-> predid2 "abdicate" y x	)
 	, ( "agree",	\[x,y]	-> predid2 "agree" y x	)
 	, ( "appear",	\[x,y]	-> predid2 "appear" y x	)
+	, ( "ask",	\[x,y,z]	-> predid3 "ask" z y x	)
+	, ( "ask_for",	\[x,y]	-> predid2 "ask_for" y x	)
 	, ( "base",	\[x,y,z]	-> predid3 "base" z y x	)
 	, ( "boost",	\[x,y]	-> predid2 "boost" y x	)
 	, ( "call",	\[x,y,z]	-> predid3 "call" z y x	)
@@ -352,8 +355,10 @@ relations = [
 		[x,y,z]	-> (forgetful4 . predid4) "feel" z y x
 		[x,y]	-> (forgetful3 . forgetful4 . predid4) "feel" y x
 		[x]	-> (forgetful2 . forgetful3 . forgetful4 . predid4) "feel" x	)
-	, ( "get",	\[x,y]	-> predid2 "get" y x	)
-	, ( "give",	\[x,y,z]	-> predid3 "give" z y x	)
+ , ( "get", \args -> case args of
+	[x,y,z] -> predid3 "get" z y x
+	[x,y] -> (forgetful3 .predid3) "get" y x )
+	, ( "give",	\ [x,y,z] ->	predid3 "give" z y x )
 	, ( "happen",	\[x]	-> predid1 "happen" x	)
 	, ( "have",	\[x,y]	-> predid2 "have" y x	)
 	, ( "help",	\[x,y,z]	-> predid3 "help" z y x	)
