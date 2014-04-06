@@ -336,22 +336,12 @@ transVP (GChanging v obj) = \subj -> transNP obj (\ e -> Rel (changing_list v) [
 --transVP (Branch (Cat _ "VP" _ _) [Leaf (Cat name "V" _ [_]),obj1]) =
 --	case (catLabel ( t2c obj1 )) of
 --		"PP" -> \subj -> transPP obj1 (\adv -> Rel name [subj,adv])
---
---transVP (Branch (Cat _ "VP" _ _) [Leaf (Cat name "V" _ [_,_]),obj1,obj2]) =
---    case (catLabel ( t2c obj1 )) of
---	"NP" ->
---	    case (catLabel ( t2c obj2 )) of
---		"PP" ->
---		    \ agent   -> transNP obj1
---		    (\ theme   -> transPP obj2
---		     (\ recipient -> Rel name [agent,theme,recipient]))
---		"NP" ->
---		    \ agent   -> transNP obj1
---		    (\ recipient   -> transNP obj2
---		     (\ theme -> Rel name [agent,theme,recipient]))
---	"PP" -> \agent -> transPP obj1 (\theme -> transPP obj2 (\instrument
---		-> Rel name [agent,theme,instrument]))
---	_ -> undefined
+
+transVP (GTriangulating v obj1 obj2) =
+  \ agent   -> transNP obj1
+  (\ theme   -> transNP obj2
+   (\ recipient -> Rel (triangulating_list v) [agent,theme,recipient]))
+
 --transVP (Branch (Cat _ "VP" _ _) [Leaf (Cat name "V" _ [_,_,_]),obj1,obj2,obj3]) =
 --    \ agent   -> transNPorPP obj1
 --    (\ location   -> transNPorPP obj2
@@ -524,4 +514,4 @@ transW Gwhat_WH	= \e -> Rel "thing"    [e]
 --lf74 = ( \x -> ( Conj [ (Rel "daughter" [x]), (Rel "have" [x, Const (ents !! 17)]) ] ) )
 --lf75 = \x -> Impl (Rel "son" [x]) (Rel "have" [x, Const (ents !! 17)])
 --
----- vim: set ts=8 sts=4 sw=4 noet:
+---- vim: set ts=8 sts=2 sw=2 noet:
