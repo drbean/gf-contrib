@@ -35,10 +35,8 @@ adjective_list Geffective	= "effective"
 adjective_list Gface_to_face	= "face_to_face"
 adjective_list Ghelpless	= "helpless"
 adjective_list Ghigh	= "high"
-adjective_list Glatter	= "latter"
 adjective_list Glittle	= "little"
 adjective_list Gmain	= "main"
-adjective_list Gmost	= "most"
 adjective_list Gother	= "other"
 adjective_list Gown	= "own"
 adjective_list Gparticular	= "particular"
@@ -294,12 +292,10 @@ relations = [
 	, ( "good",	\[x]	-> predid1 "good" x	)
 	, ( "helpless",	\[x]	-> predid1 "helpless" x	)
 	, ( "high",	\[x]	-> predid1 "high" x	)
-	, ( "latter",	\[x]	-> predid1 "latter" x	)
 	, ( "little",	\[x]	-> predid1 "little" x	)
 	, ( "managerial",	\[x]	-> predid1 "managerial" x	)
 	, ( "main",	\[x]	-> predid1 "main" x	)
 	, ( "more",	\[x]	-> predid1 "more" x	)
-	, ( "most",	\[x]	-> predid1 "most" x	)
 	, ( "other",	\[x]	-> predid1 "other" x	)
 	, ( "own",	\[x]	-> predid1 "own" x	)
 	, ( "particular",	\[x]	-> predid1 "particular" x	)
