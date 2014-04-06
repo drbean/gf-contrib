@@ -144,6 +144,7 @@ lin
   suggest	= mkVS suggest_V;
   take	= mkV2 take_V;
   talk	= mkV3 talk_V to_prep about_prep;
+  talk_about	= mkV3 talk_V about_prep with_prep;
   tend	= mkVV tend_V;
   think	= mkVS think_V;
   train	= mkV2 train_V;

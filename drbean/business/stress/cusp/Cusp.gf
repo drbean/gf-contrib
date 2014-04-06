@@ -126,6 +126,7 @@ fun
   suggest	: VS;
   take	: V2;
   talk	: V3;
+  talk_about	: V3;
   tend	: VV;
   think	: VS;
   train	: V2;

@@ -59,9 +59,6 @@ predid2 :: String -> TwoPlacePred
 predid3 :: String -> ThreePlacePred
 predid4 :: String -> FourPlacePred
 
-predid2 name
-       | Just pred <- lookup name twoPlacers = pred
-        | otherwise    = error $ "no '" ++ name ++ "' two-place predicate."
 predid3 name
        | Just pred <- lookup name threePlacers = pred
         | otherwise    = error $ "no '" ++ name ++ "' three-place predicate."
@@ -161,19 +158,24 @@ help	= pred2 $ supervision
 
 twoPlacers :: [(String, TwoPlacePred)]
 twoPlacers = [
-    ("face_to_face",  pred2 $ [(E,M),(E,W),(F,M),(F,W)])
-    , ("know_V2",    pred2 $ knowledge ++ acquaintances ++ map swap acquaintances)
-    , ("have",  pred2 $ possessions ++ qualities ++
+	("face_to_face",  pred2 $ [(E,M),(E,W),(F,M),(F,W)])
+	, ("know_V2",    pred2 $ knowledge ++ acquaintances ++ map swap acquaintances)
+	, ("have",  pred2 $ possessions ++ qualities ++
 					map (\(_,t,r) -> (r,t)) giving )
-    , ("stand", pred2[(C,D),(P,Q),(S,T),(U,V)])
-    , ("lack", pred2 [(N,D),(O,T)])
-    , ("level", pred2 [(Y,X)])
-    , ("more_vulnerable", pred2 [(M,W)])
-    , ("more_high", pred2 [])
-    , ("like",  pred2 $ map (\(a,t,r) -> (a,r)) appreciation)
-    , ("work",  pred2 $ [(a,c) | (a,p,c) <- working] )
+	, ("stand", pred2[(C,D),(P,Q),(S,T),(U,V)])
+	, ("lack", pred2 [(N,D),(O,T)])
+	, ("level", pred2 [(Y,X)])
+	, ("more_vulnerable", pred2 [(M,W)])
+	, ("more_high", pred2 [])
+	, ("tend_to_report", (forgetful3 . predid3) "talk_about" )
+	, ("like",  pred2 $ map (\(a,t,r) -> (a,r)) appreciation)
+	, ("work",  pred2 $ [(a,c) | (a,p,c) <- working] )
 	, ("placing", pred2 [(worker, place) | (worker,_,place) <- working ])
     ]
+
+predid2 name
+       | Just pred <- lookup name twoPlacers = pred
+        | otherwise    = error $ "no '" ++ name ++ "' two-place predicate."
 
 curry3 :: ((a,b,c) -> d) -> a -> b -> c -> d
 curry3 f x y z	= f (x,y,z)
@@ -181,7 +183,9 @@ curry4 f x y z w	= f (x,y,z,w)
 
 threePlacers = [
     ("liked", pred3 appreciation )
-    , ("work",        pred3 $ [(a,a,c) | (a,p,c) <- working ] )
+    , ("talk", pred3 $ map (\(a,t,r) -> (a,r,t)) comms)
+    , ("talk_about", pred3 comms)
+    , ("work", pred3 $ [(a,a,c) | (a,p,c) <- working ] )
     ]
 
 
@@ -206,11 +210,10 @@ seeing	= []
 
 work_where	= pred2 $ map (\x -> (agent x, location x) ) working
 work_as = pred2 $ map (\x -> (agent x, theme x) ) working
-said	= pred2 $ map (\x->(agent x, theme x) ) comms
-asked	= pred2 $ map (\x->(agent x, recipient x) ) comms
+say	= pred2 $ map (\x->(agent x, theme x) ) comms
+ask	= pred2 $ map (\x->(agent x, recipient x) ) comms
 ask_about = pred3 $ map (\x->(agent x, recipient x, theme x) ) comms
-talked	= pred2 $ map (\x->(agent x, recipient x) ) comms
-              ++  map (\(agent,theme,recipient)->(recipient, agent) ) comms
+talk	= pred3 $ comms ++  map (\(a,t,r) -> (a,r,t) ) comms
 talk_about = pred3 $ map (\x->(agent x, recipient x, theme x) ) comms
 
 -- (teacher,school(location),subject,student,degree)
@@ -282,3 +285,5 @@ passivize4 r = \x y z -> or ( map (\u -> r u x y z ) entities )
 
 self ::  (a -> a -> b) -> a -> b
 self p	= \ x -> p x x 
+
+-- vim: set ts=8 sts=4 sw=4 noet:

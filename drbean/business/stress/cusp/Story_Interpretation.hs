@@ -164,6 +164,7 @@ changing_list Gprevent	= "prevent"
 changing_list Gprovide	= "provide"
 changing_list Graise	= "raise"
 changing_list Greceive	= "receive"
+changing_list Greport	= "report"
 changing_list Gstand	= "stand"
 changing_list Gtake	= "take"
 changing_list Gtrain	= "train"
@@ -192,6 +193,8 @@ triangulating_list Gbase	= "base"
 triangulating_list Gcall	= "call"
 triangulating_list Ggive	= "give"
 triangulating_list Gtalk	= "talk"
+triangulating_list Gtalk_about	= "talk_about"
+
 
 
 
@@ -376,11 +379,17 @@ relations = [
 	, ( "raise",	\[x,y]	-> predid2 "raise" y x	)
 	, ( "receive",	\[x,y]	-> predid2 "receive" y x	)
 	, ( "reduce",	\[x,y]	-> predid2 "reduce" y x	)
-	, ( "report",	\[x,y]	-> predid2 "report" y x	)
 	, ( "stand",	\[x,y]	-> predid2 "stand" y x	)
 	, ( "suggest",	\[x,y]	-> predid2 "suggest" y x	)
 	, ( "take",	\[x,y]	-> predid2 "take" y x	)
-	, ( "talk",	\[x,y,z]	-> predid3 "talk" z y x	)
+	, ( "tend_to_report",	\[x,y]	-> predid2 "tend_to_report" y x	)
+	, ( "report",	\[x,y]	-> (forgetful3 . predid3) "talk_about" y x	)
+	, ( "talk",	\args -> case args of
+		[x,y,z]	-> predid3 "talk" z y x
+		[x,y]	-> (forgetful3 . predid3) "talk" y x	)
+	, ( "talk_about",	\args -> case args of
+		[x,y,z]	-> predid3 "talk_about" z y x
+		[x,y]	-> (forgetful3 . predid3) "talk_about" y x	)
 	, ( "tend",	\[x,y]	-> predid2 "tend" y x	)
 	, ( "think",	\[x,y]	-> predid2 "think" y x	)
 	, ( "train",	\[x,y]	-> predid2 "train" y x	)
@@ -394,4 +403,4 @@ relations = [
 
 	]
 
-
+-- vim: set ts=8 sts=4 sw=4 noet:

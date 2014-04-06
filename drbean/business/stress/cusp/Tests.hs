@@ -208,6 +208,25 @@ working_test = [
 	, "A manager has a job doesn't she?"
 	]
 
+comm_test = [
+  "A woman talks to a manager, doesn't she?"
+  , "Women talk about stress, don't they?"
+  , "A woman talks about stress with a manager, doesn't she?"
+  , "Do men talk about stress?"
+  , "Do men talk to managers?"
+  , "Managers talk to men about stress, don't they?"
+  , "People don't talk to managers about stress, do they?"
+  , "Do women report more stress?"
+  , "Do women report stress?"
+  , "Do women tend to report stress?"
+  , "Do women report stress to managers?"
+  , "Do men say that a lack of control is stressful?"
+  , "Do women say that uncertainty is stressful?"
+  , "Do managers ask men about stress?"
+  , "Do women ask managers about stress?"
+  , "Do women ask for support?"
+	]
+
 student_tag_tests = [
 	-- "Eva had been with Fast-Track for one year, hadn't she?"
 	"Barbara isn't a good team-player, is she?",
