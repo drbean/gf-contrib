@@ -43,7 +43,7 @@ lin
   Intens attitude predicate	= mkVP attitude predicate;
   Positing posit event	= mkVP posit event;
   Informing posit patient event	= mkVP posit patient event;
-  Triangulating agent recipient patient = mkVP agent recipient patient; 
+  Triangulating agent patient recipient = mkVP agent patient recipient; 
   YN cl	= mkQCl cl;
   -- WH_Cop ip comp	= mkQCl ip comp;
   WH_NP ip np	= mkQCl ip np;
