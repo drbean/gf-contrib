@@ -117,6 +117,8 @@ high_level_test = [
 comparative_test = [
   "Are women more vulnerable than men?"
   , "Are men more vulnerable than women?"
+  , "Are men more vulnerable?"
+  , "Are women more vulnerable?"
   , "Are levels of uncertainty higher than levels of a lack of control?"
   , "Is the level of uncertainty higher than the level of pressure?"
   ]

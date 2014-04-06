@@ -328,6 +328,7 @@ transVP :: GVP -> Term -> LF
 --
 transVP (GBe_vp comp) = case comp of
     GBe_someone np -> \x -> transNP np (\pred -> Eq pred x)
+    GBe_bad (GMore a) -> \x -> (Exists (\y -> Rel ("more_" ++ a_list a) [x,y]))
     GBe_bad ap -> \x -> Rel (adjective_list ap) [x]
 transVP (GHappening v) =
         \ t -> ( Rel (happening_list v) [t] )
