@@ -191,7 +191,8 @@ threePlacers = [
   , ("ask", pred3 $ map (\(a,t,r) -> (r,a,t)) giving)
   , ("talk", pred3 $ map (\(a,t,r) -> (a,r,t)) comms)
   , ("talk_about", pred3 comms)
-  , ("get", pred3 $ map (\(a,t,r) -> (r,t,a)) comms)
+  , ("get", pred3 $ map (\(a,t,r) -> (r,t,a)) giving)
+  , ("give", pred3 $ [(a,r,t) | (a,t,r) <- giving])
   , ("work", pred3 $ [(a,a,c) | (a,p,c) <- working ] )
   ]
 
@@ -211,7 +212,7 @@ destination = recipient
 working	= [(B,Unspec,I),(G,Unspec,I),(E,Unspec,Unspec),(F,Unspec,Unspec),(M,Unspec,Unspec),(W,Unspec,Unspec)]
 comms	= [ (W,X,E),(W,X,F) ]
 --(agent,theme,recipient)
-giving	= [ (B,H,E),(I,H,E),(G,H,F),(F,T,M),(E,T,W),(F,T,W) ]
+giving	= [ (B,H,E),(I,H,E),(G,H,F),(E,T,W),(F,T,W) ]
 --(agent,theme,location)
 seeing	= []
 --(agent,origin,destination)
