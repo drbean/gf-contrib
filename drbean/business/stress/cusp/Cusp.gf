@@ -240,7 +240,6 @@ fun
   time	: NP;
   truth	: CN;
   way	: CN;
-  work	: NP;
   workload	: CN;
 
 

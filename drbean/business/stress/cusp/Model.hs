@@ -80,7 +80,7 @@ onePlacers = [
   , ("people",	 pred1 [E,F,B,G,M,W] )
   , ("framework",	 pred1 [C] )
   , ("company",	 pred1 [I] )
-  , ("work",	 pred1 $ [J] ++ map agent working )
+  , ("work",	 pred1 $ [A] ++ map agent working )
   , ("worker",	 pred1 $ map agent working )
 
   , ("assertive",	 pred1 [] )

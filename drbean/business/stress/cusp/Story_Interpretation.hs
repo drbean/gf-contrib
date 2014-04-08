@@ -77,7 +77,6 @@ uncount_list Gplacement	= "placement"
 uncount_list Gresponsibility	= "responsibility"
 uncount_list Gstaff	= "staff"
 uncount_list Gtime	= "time"
-uncount_list Gwork	= "work"
 uncount_list Gmen	= "men"
 uncount_list Gwomen	= "women"
 

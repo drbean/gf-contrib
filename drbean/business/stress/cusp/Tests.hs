@@ -49,6 +49,12 @@ high_level_test = [
 strategy_test = [
   "Do men have poor strategies?"
   , "Do women have good strategies?"
+  , "Does a strategy work?"
+  , "Does some strategy work?"
+  , "Do strategies work?"
+  , "Do some strategies work?"
+  , "Do women's strategies work?"
+  , "Do the strategies of women work?"
   ] 
 
 getting_test = [
@@ -75,6 +81,7 @@ comparative_test = [
 people_test = [
   "Is Bradshaw a person?"
   , "Is Bradshaw a man?"
+  , "Is Bradshaw assertive people?"
   , "Are men people?"
   , "Are managers people?"
   , "Do people feel unsupported?"
@@ -146,16 +153,18 @@ determiner_test = [
 
 working_test = [
 
-	"Does Bradshaw work?"
-	, "Does Gourlay have work?"
-	, "Does a manager have a job?"
-	, "Who works?"
-	, "Who has work?"
-	, "Who has a job?"
-	, "CUSP works doesn't it?"
-	, "Gourlay has work doesn't she?"
-	, "A manager has a job doesn't she?"
-	]
+  "Does Bradshaw work?"
+  , "Does Gourlay have work?"
+  , "Is Bradshaw work?"
+  , "Does a manager have a job?"
+  , "Who works?"
+  , "Who has work?"
+  , "Who has a job?"
+  , "CUSP works doesn't it?"
+  , "Do women's strategies work?"
+  , "Gourlay has work doesn't she?"
+  , "A manager has a job doesn't she?"
+  ]
 
 comm_test = [
   "A woman talks to a manager, doesn't she?"

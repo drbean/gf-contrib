@@ -257,7 +257,6 @@ lin
   time	= mkNP time_N;
   truth	= mkCN truth_N;
   way	= mkCN way_N;
-  work	= mkNP work_N;
   workload	= mkCN workload_N;
 
   bradshaw	= mkPN bradshaw_N;

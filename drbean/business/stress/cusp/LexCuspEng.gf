@@ -195,7 +195,6 @@ oper
   time_N	= mkN "time";
   truth_N	= mkN "truth";
   way_N	= mkN "way";
-  work_N	= mkN "work";
   workload_N	= mkN "workload";
 
 

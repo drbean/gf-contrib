@@ -186,7 +186,6 @@ oper
   time_N	: N;
   truth_N	: N;
   way_N	: N;
-  work_N	: N;
   workload_N	: N;
 
 
