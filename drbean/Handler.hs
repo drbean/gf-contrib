@@ -1,7 +1,7 @@
 module Handler where
 
 import PGF
-import Cusp
+import AFB1J0
 import LogicalForm
 import Evaluation
 import Model
@@ -15,7 +15,7 @@ import Data.Char
 -- import System.Environment.FindBin
 
 ans tests = do
-  gr	<- readPGF ( "./Cusp.pgf" )
+  gr	<- readPGF ( "./AFB1J0.pgf" )
   let ss = map (chomp . lc_first) tests
   let ps = map ( parses gr ) ss
   let ls = map ( map ( linear transform gr ) ) ps
@@ -23,7 +23,7 @@ ans tests = do
   putStrLn (unlines (map (\(x,y) -> x ++ (show $ concat y)) zs) )
 
 trans tests = do
-  gr	<- readPGF ( "./Cusp.pgf" )
+  gr	<- readPGF ( "./AFB1J0.pgf" )
   let ss = map (chomp . lc_first) tests
   let ps = map ( parses gr ) ss
   let ls = map id ps
@@ -31,7 +31,7 @@ trans tests = do
   putStrLn (unlines (map (\(x,y) -> x ++ (show (concat y ) ) ) zs) )
 
 logic tests = do
-  gr	<- readPGF ( "./Cusp.pgf" )
+  gr	<- readPGF ( "./AFB1J0.pgf" )
   let ss = map (chomp . lc_first) tests
   let ps = map ( parses gr ) ss
   let ts = map (map (map lf)) ps
