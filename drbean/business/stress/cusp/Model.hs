@@ -78,9 +78,9 @@ onePlacers = [
   , ("manager",	 pred1 [E,F] )
   , ("individual",	 pred1 [E,F,B,G] )
   , ("people",	 pred1 [E,F,B,G,M,W] )
-  , ("framework",	 pred1 [C] )
+  , ("framework",	 pred1 [A] )
   , ("company",	 pred1 [I] )
-  , ("work",	 pred1 $ [A] ++ map agent working )
+  , ("work",	 pred1 $ [A,J] ++ map agent working )
   , ("worker",	 pred1 $ map agent working )
 
   , ("assertive",	 pred1 [] )
@@ -191,6 +191,7 @@ threePlacers = [
   , ("ask", pred3 $ map (\(a,t,r) -> (r,a,t)) giving)
   , ("talk", pred3 $ map (\(a,t,r) -> (a,r,t)) comms)
   , ("talk_about", pred3 comms)
+  , ("call", pred3 naming)
   , ("get", pred3 $ map (\(a,t,r) -> (r,t,a)) giving)
   , ("give", pred3 $ [(a,r,t) | (a,t,r) <- giving])
   , ("work", pred3 $ [(a,a,c) | (a,p,c) <- working ] )
@@ -213,8 +214,8 @@ working	= [(B,Unspec,I),(G,Unspec,I),(E,Unspec,Unspec),(F,Unspec,Unspec),(M,Unsp
 comms	= [ (W,X,E),(W,X,F) ]
 --(agent,theme,recipient)
 giving	= [ (B,H,E),(I,H,E),(G,H,F),(E,T,W),(F,T,W) ]
---(agent,theme,location)
-seeing	= []
+--(agent,patient,name)
+naming	= [(I,A,A)]
 --(agent,origin,destination)
 
 work_where	= pred2 $ map (\x -> (agent x, location x) ) working
