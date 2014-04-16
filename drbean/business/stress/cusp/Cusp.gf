@@ -19,6 +19,7 @@ fun
   Positing:	VS -> S -> VP;
   Informing:	V2S -> NP -> S -> VP;
   Triangulating:	V3 -> NP -> NP -> VP;
+  Passivize2 : V2 -> V;
   YN	: Cl -> QCl;
 
   TagQ	: NP -> VP -> QCl;

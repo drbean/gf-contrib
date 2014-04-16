@@ -44,6 +44,7 @@ lin
   Positing posit event	= mkVP posit event;
   Informing posit patient event	= mkVP posit patient event;
   Triangulating agent patient recipient = mkVP agent patient recipient; 
+  Passivize2 v2 = mkVP (passiveVP v2);
   YN cl	= mkQCl cl;
   -- WH_Cop ip comp	= mkQCl ip comp;
   WH_NP ip np	= mkQCl ip np;
