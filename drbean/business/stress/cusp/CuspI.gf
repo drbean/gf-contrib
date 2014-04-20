@@ -44,7 +44,7 @@ lin
   Positing posit event	= mkVP posit event;
   Informing posit patient event	= mkVP posit patient event;
   Triangulating agent patient recipient = mkVP agent patient recipient; 
-  Passivize2 v2 = mkVP (passiveVP v2);
+  Be_made_sth vp np = passiveVP3 vp np;
   YN cl	= mkQCl cl;
   -- WH_Cop ip comp	= mkQCl ip comp;
   WH_NP ip np	= mkQCl ip np;
@@ -130,7 +130,9 @@ lin
   have	= mkV2 have_V;
   help	= mkV2V help_V noPrep to_prep;
   identify	= mkV2 identify_V;
+  be_identified	= passiveVP identify;
   investigate	= mkV2 investigate_V;
+  be_investigated	= passiveVP investigate;
   listen	= mkV2 listen_V;
   look_A	= mkVA look_V;
   look_at	= mkV2 look_V at_prep;

@@ -9,6 +9,7 @@ fun
   -- Look_bad	: VA -> AP -> VP;
   Feel_helpless	: NP -> Cl;
   Feel_unsupported  : NP -> Cl;
+  Be_made_sth : V3 -> NP -> VP;
   Be_bad	: AP -> Comp;
   Be_someone	: NP -> Comp;
   Be_vp	: Comp -> VP;
@@ -19,7 +20,6 @@ fun
   Positing:	VS -> S -> VP;
   Informing:	V2S -> NP -> S -> VP;
   Triangulating:	V3 -> NP -> NP -> VP;
-  Passivize2 : V2 -> V;
   YN	: Cl -> QCl;
 
   TagQ	: NP -> VP -> QCl;
@@ -111,7 +111,9 @@ fun
   have	: V2;
   help	: V2V;
   identify	: V2;
+  be_identified	: VP;
   investigate	: V2;
+  be_investigated	: VP;
   listen	: V2;
   look_A	: VA;
   look_at	: V2;
