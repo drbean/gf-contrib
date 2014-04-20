@@ -12,6 +12,9 @@ fun
 	Be_someone	: NP -> Comp;
 	Be_vp	: Comp -> VP;
 
+	Be_called : NP -> VP;
+
+
 	Location:   Prep -> NP -> Adv;
 
 	Happening	: V -> VP ;
@@ -114,6 +117,7 @@ fun
   go	: V2;
   say	: VS;
   think	: VS;
+  call_V2	: V2;
 
 -- silvi
   pet	: CN;

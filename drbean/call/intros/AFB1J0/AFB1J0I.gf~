@@ -133,6 +133,7 @@ lin
   go	= go_V2;
   say	= say_VS;
   think	= think_VS;
+  call_V2	= mkV2 call_V;
 
 -- silvi
   pet	= mkCN pet_N;

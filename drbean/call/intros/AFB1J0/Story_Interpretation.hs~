@@ -52,7 +52,6 @@ uncount_list Gplaying_with_her_nephews	= "playing_with_her_nephews"
 uncount_list Gtwenty_one	= "21"
 uncount_list Gplaying_basketball	= "playing_basketball"
 uncount_list Gplaying_soccer	= "playing_soccer"
-uncount_list Gdancing	= "dancing"
 
 uncount_list Gdogs_and_cats	= "dogs_and_cats"
 
@@ -123,8 +122,6 @@ objects = [
 	, ( "pet",	\[x]	-> predid1 "pet" x	)
 	, ( "playing_basketball",	\[x]	-> predid1 "basketball" x	)
 	, ( "playing_soccer",	\[x]	-> predid1 "soccer" x	)
-	, ( "dancing",	\[x]	-> predid1 "dancing" x	)
-
 
 	, ( "school",	\[x]	-> predid1 "school" x	)
 	, ( "sister",	\[x]	-> predid1 "sister" x	)

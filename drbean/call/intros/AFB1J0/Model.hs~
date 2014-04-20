@@ -212,7 +212,6 @@ onePlacers = [
 	, ("thing",	thing )
 	, ("basketball",	pred1 [B] )
 	, ("soccer",	pred1 [JF] )
-	, ("dancing",	pred1 [SD] )
 
 
 	, ("humorous",	pred1 [O] )

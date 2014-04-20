@@ -66,6 +66,7 @@ oper
   go_V2	: V2;
   say_VS	: VS;
   think_VS	: VS;
+  call_V	: V;
   
 -- silvi
   pet_N	: N;

@@ -9,10 +9,6 @@ oliver_test = [
   , "Does Oliver like playing basketball?"
   ]
 
-jeremy_test = [
-  "Does Jeremy like playing soccer?"
-  ]
-
 roger_test = [
 
 	"Does Roger's father work?"
