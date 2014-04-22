@@ -67,6 +67,7 @@ oper
   go_V2	= mkV2 IrregEng.go_V "to";
   say_VS	= mkVS IrregEng.say_V;
   think_VS = mkVS (IrregEng.think_V);
+  call_V	= mkV "call";
 
 -- silvi
   pet_N	= mkN "pet";

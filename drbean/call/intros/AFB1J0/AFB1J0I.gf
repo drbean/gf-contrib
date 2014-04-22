@@ -42,7 +42,9 @@ lin
   Intens attitude predicate	= mkVP attitude predicate;
   Positing posit event	= mkVP posit event;
   Informing posit patient event	= mkVP posit patient event;
+  Triangulating agent patient recipient = mkVP agent patient recipient; 
   Located action location	= mkVP action location;
+  Be_made_sth vp np = passiveVP3 vp np;
   YN cl	= mkQCl cl;
   -- WH_Cop ip comp	= mkQCl ip comp;
   WH_NP ip np	= mkQCl ip np;
@@ -133,6 +135,7 @@ lin
   go	= go_V2;
   say	= say_VS;
   think	= think_VS;
+  call	= mkV3 call_V;
 
 -- silvi
   pet	= mkCN pet_N;

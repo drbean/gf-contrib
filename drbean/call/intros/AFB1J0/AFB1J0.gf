@@ -11,6 +11,7 @@ fun
 	Be_mod	: Adv -> Comp;
 	Be_someone	: NP -> Comp;
 	Be_vp	: Comp -> VP;
+	Be_made_sth : V3 -> NP -> VP;
 
 	Location:   Prep -> NP -> Adv;
 
@@ -20,6 +21,7 @@ fun
 	Intens:	VV -> VP -> VP;
 	Positing:	VS -> S -> VP;
 	Informing:	V2S -> NP -> S -> VP;
+  Triangulating:	V3 -> NP -> NP -> VP;
 	Located:  VP -> Adv -> VP;
 	YN	: Cl -> QCl;
 
@@ -114,6 +116,7 @@ fun
   go	: V2;
   say	: VS;
   think	: VS;
+  call	: V3;
 
 -- silvi
   pet	: CN;

@@ -1,4 +1,5 @@
 
+
 module WordsCharacters where 
 
 import qualified Data.Map as Map
@@ -208,5 +209,6 @@ v = [
 -- playing_basketball	: CN;
 -- playing_soccer	: N;
 -- dancing	: PN;
+-- call	: V;
 
 -- vim: set ts=8 sts=2 sw=2 noet:
