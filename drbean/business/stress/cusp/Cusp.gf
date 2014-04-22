@@ -13,6 +13,7 @@ fun
   Be_bad	: AP -> Comp;
   Be_someone	: NP -> Comp;
   Be_vp	: Comp -> VP;
+  Location  : Prep -> NP -> Adv;
   Happening	: V -> VP ;
   Changing	: V2 -> NP -> VP;
   Causative:	V2V -> NP -> VP -> VP;
@@ -20,6 +21,7 @@ fun
   Positing:	VS -> S -> VP;
   Informing:	V2S -> NP -> S -> VP;
   Triangulating:	V3 -> NP -> NP -> VP;
+  Located:  VP -> Adv -> VP;
   YN	: Cl -> QCl;
 
   TagQ	: NP -> VP -> QCl;

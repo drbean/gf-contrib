@@ -6,6 +6,7 @@ lincat
   NP	= Syntax.NP;
   A	= Syntax.A;
   AP	= Syntax.AP;
+  Adv   = Syntax.Adv;
   Comp	= Syntax.Comp;
   Cl	= Syntax.Cl;
   QCl	= Syntax.QCl;
@@ -37,6 +38,7 @@ lin
   -- Look_bad verb adj	= mkVP verb adj;
   Feel_helpless np = mkCl np feel_V helpless_A;
   Feel_unsupported np = mkCl np feel_V unsupported_A;
+  Location prep item	= mkAdv prep item;
   Happening action	=	mkVP action;
   Changing action patient	= mkVP action patient;
   Causative causal patient predicate	= mkVP causal patient predicate;
@@ -44,6 +46,7 @@ lin
   Positing posit event	= mkVP posit event;
   Informing posit patient event	= mkVP posit patient event;
   Triangulating agent patient recipient = mkVP agent patient recipient; 
+  Located action location	= mkVP action location;
   Be_made_sth vp np = passiveVP3 vp np;
   YN cl	= mkQCl cl;
   -- WH_Cop ip comp	= mkQCl ip comp;
