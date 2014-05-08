@@ -21,6 +21,7 @@ fun
   Positing:	VS -> S -> VP;
   Informing:	V2S -> NP -> S -> VP;
   Triangulating:	V3 -> NP -> NP -> VP;
+  PassV3   : V3 -> NP -> VP ;               -- be called John
   Located:  VP -> Adv -> VP;
   YN	: Cl -> QCl;
 
