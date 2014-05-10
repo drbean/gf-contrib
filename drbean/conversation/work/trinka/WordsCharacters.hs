@@ -1,7 +1,3 @@
-	, "Trinka"
-	, "doorman"
-	, "smile"
-
 module WordsCharacters where 
 
 import qualified Data.Map as Map
@@ -37,13 +33,7 @@ posMap = Map.fromList [
 	]
 
 a = [
-	"bad"
-	, "better"
-	, "first"
-	, "little"
-	, "mad"
-	, "slow"
-	, "hard"
+	"big"
 
 	]
 
@@ -102,73 +92,14 @@ det = [
 	]
 
 n = [
-	"apprentice"
-	, "child"
-	, "children"
-	, "dad"
-	, "electrician"
-	, "end"
-	, "families"
-	, "family"
-	, "father"
-	, "graduation"
-	, "guy"
-	, "guys"
-	, "interviewer"
-	, "job"
-	, "jobs"
-	, "kind"
-	, "knack"
-	, "life"
-	, "man"
-	, "men"
-	, "men's"
-	, "money"
-	, "night"
-	, "nights"
-	, "position"
-	, "raise"
-	, "school"
-	, "ship"
-	, "shipyard"
-	, "stuff"
-	, "superintendent"
-	, "supervisor"
-	, "thing"
-	, "things"
-	, "time"
-	, "top"
-	, "transformer"
-	, "transformers"
-	, "uncle"
-	, "way"
-	, "week"
-	, "weeks"
-	, "woman"
-	, "word"
-	, "work"
+	"doorman"
 	]
 
 pn = [
-	"Alf"
-	, "Dee"
-	, "Monday"
+	"Ed Trinka"
 	]
 
 pron = [
-	"he"
-	, "i"
-	, "i'm"
-	, "it"
-	, "it's"
-	, "me"
-	, "myself"
-	, "they"
-	, "us"
-	, "we"
-	, "you"
-	, "you're"
-	, "who"
 	]
 
 prep = [
@@ -199,63 +130,9 @@ tag = [
 	]
 
 v = [
-	"are"
-	, "be"
-	-- , "been"
 	, "become"
 	, "can"
-	-- , "couldn't"
-	, "does"
-	, "doesn't"
-	-- , "did"
-	-- , "didn't"
-	, "do"
-	-- , "doing"
-	-- , "done"
-	, "don't"
-	, "find"
-	-- , "found"
-	, "get"
-	-- , "getting"
-	, "go"
-	-- , "got"
-	-- , "had"
-	, "has"
-	, "have"
-	, "hire"
-	-- , "hired"
-	, "interview"
-	, "is"
-	, "know"
-	, "laugh"
-	-- , "let"
-	, "lift"
-	, "like"
-	, "look"
-	-- , "made"
-	, "make"
-	-- , "making"
-	, "need"
-	-- , "needed"
-	, "prove"
-	-- , "proving"
-	, "say"
-	-- , "said"
-	, "see"
-	, "start"
-	-- , "started"
-	, "take"
-	-- , "taking"
-	, "think"
-	-- , "thought"
-	, "tell"
-	-- , "told"
-	-- , "took"
-	-- , "was"
-	-- , "went"
-	-- , "were"
-	-- , "would"
-	-- , "wouldn't"
+	, "smile"
 	]
 
 about
