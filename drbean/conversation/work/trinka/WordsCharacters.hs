@@ -1,3 +1,7 @@
+	, "Trinka"
+	, "doorman"
+	, "smile"
+
 module WordsCharacters where 
 
 import qualified Data.Map as Map
@@ -254,11 +258,6 @@ v = [
 	-- , "wouldn't"
 	]
 
-
-
-
-
-
 about
 ago
 all
@@ -275,8 +274,7 @@ be
 beautiful
 because
 being
-best
-biggest
+big	: AP;
 by
 Christmas
 coat
@@ -285,15 +283,15 @@ comes
 could
 cut
 day
-Debra
+"Debra Goodman"
 did
 do
 dollars
 done
 door
-doorman
+doorman	: CN;
 down
-Ed
+Ed Trinka	: PN;
 eight
 ever
 every
@@ -372,7 +370,7 @@ shoeshine
 shop
 sick
 six-thirty
-smiling
+smile	: V;
 somebody
 started
 story
