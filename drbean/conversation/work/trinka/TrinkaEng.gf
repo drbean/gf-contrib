@@ -1,8 +1,8 @@
---# -path=.:./gf-contrib/drbean/conversation/work/dickson:present
+--# -path=.:../../../../drbean:present
 
-concrete DicksonEng of Dickson = DicksonI with
+concrete TrinkaEng of Trinka = TrinkaI with
   (Syntax = SyntaxEng),
-  (LexDickson = LexDicksonEng) **
+  (LexTrinka = LexTrinkaEng) **
   open ResEng,Prelude in {
 
 param
