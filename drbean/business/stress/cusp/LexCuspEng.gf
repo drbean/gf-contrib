@@ -64,7 +64,7 @@ oper
   facilitate_V	= mkV "facilitate";
   feel_V	= mkV "feel";
   -- find_V	= IrregEng.find_V;
-  get_V	= mkV "get";
+  get_V	= IrregEng.get_V;
   give_V	= IrregEng.give_V;
   happen_V	= mkV "happen";
   have_V	= mkV "have";
