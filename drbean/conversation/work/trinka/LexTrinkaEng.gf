@@ -1,24 +1,8 @@
-instance LexDicksonEng of LexDickson = open SyntaxEng, ParadigmsEng, Prelude, IrregEng in {
+instance LexTrinkaEng of LexTrinka = open SyntaxEng, ParadigmsEng, Prelude, IrregEng in {
 
 oper
 
-	a_Det	= aSg_Det;
-	zero_Det	= aPl_Det;
-	the_Det	= theSg_Det;
-	thePlural_Det	= thePl_Det;
-
-	who_WH	= whoSg_IP;
-	what_WH	= whatSg_IP;
-
-	of_prep	=  possess_Prep;
-
-	yes_Utt	= SyntaxEng.yes_Utt;
-	no_Utt	= SyntaxEng.no_Utt;
-	no_answer_Utt = ss "No answer";
-
-	become_V2	= mkV2 (IrregEng.become_V);
-	can_VV	= SyntaxEng.can_VV;
-	get_along_V2	= mkV2 "get" "along_with";
+	get_along_V2	= mkV2 "get" "along with";
 	get_V2	= mkV2 "get";
 	go_V2	= mkV2 IrregEng.go_V "to";
 	have_V2	= mkV2 (IrregEng.have_V);
@@ -57,10 +41,10 @@ oper
 	electrician_N	=mkN human (mkN "electrician");
 	end_N	= mkN "end";
 	family_N	= mkN "family";
-	father_N2	= mkN2 (mkN masculine (mkN "father")) of_prep;
+	father_N2	= mkN2 (mkN masculine (mkN "father")) possess_Prep;
 	graduation_N	= mkN "graduation";
 	guy_N	= mkN masculine (mkN "guy");
-	husband_N2	= mkN2 (mkN masculine (mkN "husband")) of_prep;
+	husband_N2	= mkN2 (mkN masculine (mkN "husband")) possess_Prep;
 	interviewer_N	= mkN human (mkN "interviewer");
 	job_N	= mkN "job";
 	kind_N	= mkN "kind";
@@ -80,7 +64,7 @@ oper
 	time_N	= mkN "time";
 	top_N	= mkN "top";
 	transformer_N	= mkN "transformer";
-	uncle_N2	= mkN2 (mkN masculine (mkN "uncle")) of_prep;
+	uncle_N2	= mkN2 (mkN masculine (mkN "uncle")) possess_Prep;
 	way_N	= mkN "way";
 	week_N	= mkN "week";
 	woman_N	= mkN feminine (mkN "woman" "women");
