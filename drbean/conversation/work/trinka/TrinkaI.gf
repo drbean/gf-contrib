@@ -1,4 +1,4 @@
-incomplete concrete TrinkaI of Trinka = open MyConcrete, SyntaxEng, ParadigmsEng, ExtraEng, LexTrinka in {
+incomplete concrete TrinkaI of Trinka = MyConcrete ** open SyntaxEng, ParadigmsEng, ExtraEng, LexTrinka in {
 
 lin
 
