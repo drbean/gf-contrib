@@ -1,7 +1,7 @@
 --# -path=.:../../../../drbean:present
 
 concrete TrinkaEng of Trinka = TrinkaI with
-  (Syntax = SyntaxEng),
+  (Syntax = MyConcrete),
   (LexTrinka = LexTrinkaEng) **
   open ResEng,Prelude in {
 
