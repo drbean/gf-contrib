@@ -81,7 +81,7 @@ lin
 
 	doorman	= mkCN doorman_N;
 
-	-- trinka	= mkPN trinka_N;
+	trinka	= mkPN trinka_N;
 
 }
 

@@ -63,7 +63,7 @@ fun
 
 	doorman	: CN;
 
-	trinka	: NP;
+	trinka	: PN;
 
 }
 
