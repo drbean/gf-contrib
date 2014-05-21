@@ -54,7 +54,7 @@ lin
 
 	Yes	= yes_Utt;
 	No	= no_Utt;
-	NoAnswer	= ss "No answer";
+	NoAnswer	= no_answer_Utt;
 
 	Entity pn	= mkNP pn;
 	Kind ap cn	= mkCN ap cn;
