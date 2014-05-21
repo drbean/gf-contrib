@@ -36,6 +36,8 @@ oper
       _	=> Do
     };
 
+lin
+
  TagQ np vp	= let
    cl = mkCl np vp;
  in
