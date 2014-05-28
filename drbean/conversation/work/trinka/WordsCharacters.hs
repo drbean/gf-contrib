@@ -1,3 +1,4 @@
+
 module WordsCharacters where 
 
 import qualified Data.Map as Map
@@ -34,11 +35,22 @@ posMap = Map.fromList [
 
 a = [
 	"big"
+	, "beautiful"
+	, "good"
+	, "great"
+	, "happy"
+	, "high"
+	, "important"
+	, "last"
+	, "nice"
+	, "sick"
+	, "young"
 
-	]
+	, "shined"
+
 
 adv = [
-	"along"
+
 	, "away"
 	, "because"
 	, "before"
@@ -86,18 +98,60 @@ det = [
 	, "no"
 	, "some"
 	, "that"
-	, "theirs"
+	, "story"
+
+
 	, "these"
 	, "the"
 	]
 
 n = [
 	"doorman"
-	]
+	, "barber"
+	, "coat"
+	, "day"
+	, "dollar"
+	, "door"
+	, "fact"
+	, "father"
+	, "friend"
+	, "garage"
+	, "guest"
+	, "hour"
+	, "job"
+	, "kit"
+	, "lady"
+	, "life"
+	, "locker"
+	, "man"
+	, "manager"
+	, "meeting"
+	, "morning"
+	, "paradise"
+	, "school"
+	, "shoe"
+	, "shop"
+	, "thing"
+	, "time"
+	, "story"
+
+	, "tip"
+	, "way"
+	, "VIP"
+	, "year"
+
+  ]
 
 pn = [
 	"Ed Trinka"
-	]
+	, "Debra Goodman"
+	, "Jackie Gleason"
+	, "Christmas"
+	, "God"
+	, "the Plaza Hotel"
+	, "Merry Christmas"
+
+  ]
 
 pron = [
 	]
@@ -130,9 +184,34 @@ tag = [
 	]
 
 v = [
-	, "become"
-	, "can"
-	, "smile"
+  "become"
+
+  , "can"
+  , "smile"
+  , "ask"
+  , "come"
+  , "cut"
+  , "fit"
+  , "get"
+  , "give"
+  , "graduate"
+  , "have"
+  , "know"
+  , "like"
+  , "live"
+  , "make"
+  , "open"
+  , "put"
+  , "ran"
+  , "say"
+  , "shine"
+  , "smile"
+  , "start"
+  , "talk"
+  , "tell"
+  , "treat"
+  , "walk"
+  , "work"
 	]
 
 about
@@ -142,30 +221,27 @@ already
 always
 anybody
 as
-asked
+ask	: V;
 at
 away
 back
-barber
+barber	: CN;
 be
-beautiful
+beautiful	: A;
 because
 being
-big	: AP;
+big	: A;
 by
-Christmas
-coat
-come
-comes
-could
-cut
-day
-"Debra Goodman"
-did
+Christmas	: PN;
+coat	: CN;
+come	: V;
+cut	: V;
+day	: CN;
+Debra Goodman	: PN;
 do
-dollars
+dollar	: CN;
 done
-door
+door	: CN;
 doorman	: CN;
 down
 Ed Trinka	: PN;
@@ -173,104 +249,102 @@ eight
 ever
 every
 everybody
-fact
-father
+fact	: CN;
+father	: CN;
 fifty
 first
-fit
+fit	: V;
 for
-friends
+friend	: CN;
 from
-front
-garage
-gave
-get
-give
-Jackie Gleason
+front	: A;
+garage	: CN;
+get	: V;
+give	: V;
+Jackie Gleason	: PN;
 go
-God
-good
-graduated
-great
-guest
-had
+God	: PN;
+good	: A;
+graduated	: V;
+great	: A;
+guest	: CN;
 half
-happy
+happy	: A;
 hat
-have
+have	: V;
 he
 here
-high
+high	: A;
 him
 his
-Plaza Hotel
-hour
+the Plaza Hotel	: PN;
+hour	: CN;
 hundred
-important
+important	: A;
 in
 it
-job
+job	: CN;
 just
-kit
-know
-lady
-last
-life
-like
-live
-locker
-make
-man
-manager
+kit	: CN;
+know	: V;
+lady	: CN;
+last	: A;
+life	: CN;
+like	: V;
+live	: V;
+locker	: CN;
+make	: V;
+man	: CN;
+manager	: CN;
 me
-meeting
-Merry Christmas
-morning
-nice
+meeting	: CN;
+Merry Christmas	: PN;
+morning	: CN;
+nice	: A;
 eight o'clock
 on
 one
-open
+open	: V;
 or
 out
 outside
 over
-paradise
-put
-ran
+paradise	: CN;
+put	: V;
+ran	: V;
 right
-say
-school
-shine
-shoes
-shoeshine
-shop
-sick
+say	: V;
+school	: CN;
+shine	: V;
+shined	: A;
+shoe	: CN;
+shoeshine : CN;
+shop	: CN;
+sick	: A;
 six-thirty
 smile	: V;
 somebody
-started
-story
+start	: V;
+story	: CN;
 such
-talk
-tell
+talk	: V;
+tell	: V;
 that
 there
-thing
+thing	: CN;
 thirty
 this
 till
-time
-tip
+time	: CN;
+tip	: CN;
 to
-told
-treat
+treat	: V;
 up
 very
-VIP
-walk
+VIP	: CN;
+walk	: V;
 was
-way
+way	: CN;
 well
 what
 when
@@ -279,8 +353,8 @@ which
 who
 whole
 with
-work
-year
-young
+work	: V;
+year	: CN;
+young	: A;
 
 -- vim: set ts=8 sts=2 sw=2 noet:
