@@ -98,7 +98,6 @@ det = [
 	, "no"
 	, "some"
 	, "that"
-	, "story"
 
 
 	, "these"
@@ -131,9 +130,9 @@ n = [
 	, "school"
 	, "shoe"
 	, "shop"
+	, "story"
 	, "thing"
 	, "time"
-	, "story"
 
 	, "tip"
 	, "way"
