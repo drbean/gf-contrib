@@ -38,26 +38,26 @@ oper
 
 lin
 
- TagQ np vp	= let
+  TagQ np vp	= let
    cl = mkCl np vp;
- in
- {s = table {
+  in
+  {s = table {
      Pres => table {
        Simul => table {
-         CPos => table {
-           QDir => (cl.s ! Pres ! Simul ! CPos ! ODir False) ++ ((tag np).s ! Do ! Pos );
-           QIndir => "nonExist" };
-         CNeg True => table {
-           QDir => (cl.s ! Pres ! Simul ! (CNeg True) ! ODir False) ++ ((tag np).s ! Do ! Neg );
-           QIndir => "nonExist" };
-         CNeg False => table {
-           QDir => (cl.s ! Pres ! Simul ! (CNeg False) ! ODir False) ++ ((tag np).s ! Do ! Neg );
-           QIndir => "nonExist" }
-           }
-         }
+	 CPos => table {
+	   QDir => (cl.s ! Pres ! Simul ! CPos ! ODir False) ++ ((tag np).s ! Do ! Pos );
+	   QIndir => "nonExist" };
+	 CNeg True => table {
+	   QDir => (cl.s ! Pres ! Simul ! (CNeg True) ! ODir False) ++ ((tag np).s ! Do ! Neg );
+	   QIndir => "nonExist" };
+	 CNeg False => table {
+	   QDir => (cl.s ! Pres ! Simul ! (CNeg False) ! ODir False) ++ ((tag np).s ! Do ! Neg );
+	   QIndir => "nonExist" }
+	   }
+	 }
    };
- lock_QCl = <>;
- };
+  lock_QCl = <>;
+  };
 
  --TagNP np1 np2	= let
  --  cl = mkCl np1 np2;
