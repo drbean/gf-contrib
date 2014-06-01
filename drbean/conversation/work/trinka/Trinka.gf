@@ -105,7 +105,6 @@ fun
 	good	: AP;
 	great	: AP;
 	happy	: AP;
-	high	: AP;
 	important	: AP;
 	last	: AP;
 	nice	: AP;
@@ -138,7 +137,6 @@ fun
 	paradise	: CN;
 	school	: CN;
 	shoe	: CN;
-	shoeshine	: CN;
 	shop	: CN;
 	story	: CN;
 	thing	: CN;
@@ -149,6 +147,7 @@ fun
 	vip	: CN;
 
 	work_NP  : NP;
+	school_NP  : NP;
 
 	ed	: PN;
 	debra : PN;

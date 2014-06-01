@@ -132,7 +132,6 @@ lin
   good	= mkAP good_A;
   great	= mkAP great_A;
   happy	= mkAP happy_A;
-  high	= mkAP high_A;
   important	= mkAP important_A;
   last	= mkAP last_A;
   nice	= mkAP nice_A;
@@ -165,7 +164,6 @@ lin
   paradise	= mkCN paradise_N;
   school	= mkCN school_N;
   shoe	= mkCN shoe_N;
-  shoeshine	= mkCN shoeshine_N;
   shop	= mkCN shop_N;
   story	= mkCN story_N;
   thing	= mkCN thing_N;
@@ -173,6 +171,7 @@ lin
   tip	= mkCN tip_N;
   way	= mkCN way_N;
   work_NP	= mkNP work_N;
+  school_NP	= mkNP school_N;
   year	= mkCN year_N;
   vip	= mkCN vip_N;
 
