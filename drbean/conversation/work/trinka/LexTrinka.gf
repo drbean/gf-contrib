@@ -22,9 +22,9 @@ oper
   to_prep	: Prep;
   up_prep	: Prep;
 
-	yes_Utt	: Utt;
-	no_Utt	: Utt;
-	no_answer_Utt	: Utt;
+	-- yes_Utt	: Utt;
+	-- no_Utt	: Utt;
+	-- no_answer_Utt	: Utt;
 
 	become_V  : V;
 	smile_V	: V;
@@ -56,7 +56,6 @@ oper
 	good_A	: A;
 	great_A	: A;
 	happy_A	: A;
-	high_A	: A;
 	important_A	: A;
 	last_A	: A;
 	nice_A	: A;
@@ -99,6 +98,8 @@ oper
 	way_N	: N;
 	year_N	: N;
 	vip_N	: N;
+	work_N	: N;
+	school_N	: N;
 
 	ed_N	: N;
 	debra_N	: N;

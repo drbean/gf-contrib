@@ -27,9 +27,9 @@ oper
 
 	of_prep	=  possess_Prep;
 
-	yes_Utt	= SyntaxEng.yes_Utt;
-	no_Utt	= SyntaxEng.no_Utt;
-	no_answer_Utt = ss "No answer";
+	-- yes_Utt	= SyntaxEng.yes_Utt;
+	-- no_Utt	= SyntaxEng.no_Utt;
+	-- no_answer_Utt = ss "No answer";
 
 	become_V = IrregEng.become_V;
 	smile_V	= mkV "smile";
@@ -61,7 +61,6 @@ oper
 	good_A	= mkA "good";
 	great_A	= mkA "great";
 	happy_A	= mkA "happy";
-	high_A	= mkA "high";
 	important_A	= mkA "important";
 	last_A	= mkA "last";
 	nice_A	= mkA "nice";
@@ -93,7 +92,7 @@ oper
 	meeting_N	= mkN "meeting";
 	morning_N	= mkN "morning";
 	paradise_N	= mkN "paradise";
-	school_N	= mkN "school";
+	school_N	= mkN "high" (mkN "school");
 	shoe_N	= mkN "shoe";
 	shoeshine_N	= mkN nonhuman (mkN "shoeshine");
 	shop_N	= mkN "shop";
