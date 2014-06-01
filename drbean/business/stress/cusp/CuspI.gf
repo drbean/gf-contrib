@@ -45,7 +45,7 @@ lin
   Intens attitude predicate	= mkVP attitude predicate;
   Positing posit event	= mkVP posit event;
   Informing posit patient event	= mkVP posit patient event;
-  Triangulating agent patient recipient = mkVP agent patient recipient; 
+  Triangulating v patient recipient = mkVP v patient recipient; 
   PassV3 v np = insertObj (\\_ => v.s ! VPPart ++ v.p ++ v.c2 ++ v.c3 ++ np.s ! NPAcc) (predAux auxBe) ;
   Located action location	= mkVP action location;
   Be_made_sth vp np = passiveVP3 vp np;
