@@ -83,7 +83,7 @@ oper
 	guest_N	= mkN "guest";
 	hour_N	= mkN "hour";
 	job_N	= mkN "job";
-	kit_N	= mkN "kit";
+	kit_N	= mkN "shoeshine" (mkN "kit");
 	lady_N	= mkN "lady";
 	life_N	= mkN "life";
 	locker_N	= mkN "locker";
@@ -94,7 +94,6 @@ oper
 	paradise_N	= mkN "paradise";
 	school_N	= mkN "high" (mkN "school");
 	shoe_N	= mkN "shoe";
-	shoeshine_N	= mkN nonhuman (mkN "shoeshine");
 	shop_N	= mkN "shop";
 	story_N	= mkN nonhuman (mkN "story");
 	thing_N	= mkN "thing";

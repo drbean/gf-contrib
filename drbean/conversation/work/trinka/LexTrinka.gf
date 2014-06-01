@@ -89,7 +89,6 @@ oper
 	paradise_N	: N;
 	school_N	: N;
 	shoe_N	: N;
-	shoeshine_N	: N;
 	shop_N	: N;
 	story_N	: N;
 	thing_N	: N;
