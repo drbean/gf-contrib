@@ -47,7 +47,6 @@ lin
   Informing posit patient event	= mkVP posit patient event;
   Triangulating v patient recipient = mkVP v patient recipient; 
   Pred2A v patient state = mkVP v patient state;
-  Make_happy np = mkVP make np happy;
   
   
   PassV3 v np = insertObj (\\_ => v.s ! VPPart ++ v.p ++ v.c2 ++ v.c3 ++ np.s ! NPAcc) (predAux auxBe) ;

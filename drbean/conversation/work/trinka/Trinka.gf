@@ -21,7 +21,6 @@ fun
   Informing:      V2S -> NP -> S -> VP;
   Triangulating:  V3 -> NP -> NP -> VP;
   Pred2A: V2A -> NP -> AP -> VP;
-  Make_happy: NP -> VP;
   Located:  VP -> Adv -> VP;
   PassV3   : V3 -> NP -> VP ;               -- be called John
   YN      : Cl -> QCl;
