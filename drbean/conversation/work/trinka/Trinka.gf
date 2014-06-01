@@ -19,10 +19,11 @@ fun
   Intens: VV -> VP -> VP;
   Positing:       VS -> S -> VP;
   Informing:      V2S -> NP -> S -> VP;
-  -- Triangulating:  V3 -> NP -> NP -> VP;
-  -- Pred2: V2A -> NP -> AP -> VP;
+  Triangulating:  V3 -> NP -> NP -> VP;
+  Pred2A: V2A -> NP -> AP -> VP;
+  Make_happy: NP -> VP;
   Located:  VP -> Adv -> VP;
-  -- PassV3   : V3 -> NP -> VP ;               -- be called John
+  PassV3   : V3 -> NP -> VP ;               -- be called John
   YN      : Cl -> QCl;
 
         TagQ    : NP -> VP -> QCl;
@@ -75,18 +76,18 @@ fun
         can     : VV;
 
 	smile	: V;
-	-- ask	: V2Q;
+	ask	: V2Q;
 	come	: V;
 	cut	: V2;
 	fit	: V;
 	get	: V2;
-	-- give	: V3;
+	give	: V3;
 	graduate	: V2;
 	have	: V2;
 	know	: V2;
 	live	: V2;
 	make	: V2A;
-	-- put	: V3;
+	put	: V3;
 	put_on	: V2;
 	run	: V2;
 	say	: VS;
@@ -95,7 +96,7 @@ fun
 	talk	: V2;
 	tell	: V2;
 	tell_to	: V2V;
-	-- treat	: V3;
+	treat	: V3;
 	walk	: V2;
 	work_V	: V;
 

@@ -17,6 +17,9 @@ VP	= Syntax.VP;
 V2	= Syntax.V2;
 V2V	= Syntax.V2V;
 V2S	= Syntax.V2S;
+V2A	= Syntax.V2A;
+V2Q	= Syntax.V2Q;
+V3	= Syntax.V3;
 VV	= Syntax.VV;
 VS	= Syntax.VS;
 VA	= Syntax.VA;
@@ -42,8 +45,9 @@ lin
   Intens attitude predicate	= mkVP attitude predicate;
   Positing posit event	= mkVP posit event;
   Informing posit patient event	= mkVP posit patient event;
-  Triangulating agent patient recipient = mkVP agent patient recipient; 
-  Pred2 patient state = mkVP patient state;
+  Triangulating v patient recipient = mkVP v patient recipient; 
+  Pred2A v patient state = mkVP v patient state;
+  Make_happy np = mkVP make np happy;
   
   
   PassV3 v np = insertObj (\\_ => v.s ! VPPart ++ v.p ++ v.c2 ++ v.c3 ++ np.s ! NPAcc) (predAux auxBe) ;
@@ -104,7 +108,7 @@ lin
   cut	= mkV2 cut_V by_prep;
   fit	= fit_V;
   get	= mkV2 get_V;
-  give	= mkV3 give_V noPrep noPrep;
+  give	= mkV3 give_V;
   graduate	= mkV2 graduate_V from_prep;
   have	= mkV2 have_V;
   know	= mkV2 know_V;
