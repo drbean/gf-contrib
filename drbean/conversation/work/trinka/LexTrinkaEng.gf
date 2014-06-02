@@ -42,6 +42,7 @@ oper
 	graduate_V	= mkV "graduate";
 	have_V	= mkV "have";
 	know_V	= mkV "know";
+	like_V	= mkV "like";
 	live_V	= mkV "live";
 	make_V	= IrregEng.make_V;
 	put_V	= IrregEng.put_V;
@@ -94,7 +95,7 @@ oper
 	paradise_N	= mkN "paradise";
 	school_N	= mkN "high" (mkN "school");
 	shoe_N	= mkN "shoe";
-	shop_N	= mkN "shop";
+	barber_shop_N	= mkN "barber" (mkN "shop");
 	story_N	= mkN nonhuman (mkN "story");
 	thing_N	= mkN "thing";
 	time_N	= mkN "time";

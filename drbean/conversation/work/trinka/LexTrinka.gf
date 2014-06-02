@@ -37,6 +37,7 @@ oper
 	graduate_V	: V;
 	have_V	: V;
 	know_V	: V;
+	like_V	: V;
 	live_V	: V;
 	make_V	: V;
 	put_V	: V;
@@ -65,7 +66,6 @@ oper
 	shined_A	: A;
 
 	doorman_N	: N;
-	barber_N	: N;
 	coat_N	: N;
 	day_N	: N;
 
@@ -89,7 +89,7 @@ oper
 	paradise_N	: N;
 	school_N	: N;
 	shoe_N	: N;
-	shop_N	: N;
+	barber_shop_N	: N;
 	story_N	: N;
 	thing_N	: N;
 	time_N	: N;
