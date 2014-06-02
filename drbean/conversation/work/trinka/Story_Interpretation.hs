@@ -1,96 +1,106 @@
 module Story_Interpretation where 
 
 import Model
-import Dickson
+import Trinka
 
 entity_list :: GPN -> Entity
-entity_list Gdee	 = ent_ided "Dee"
-entity_list Galf	 = ent_ided "Alf"
-entity_list Gmonday	 = ent_ided "Monday"
+entity_list Ged	= ent_ided "Ed"
+entity_list Gdebra	= ent_ided "Debra"
+entity_list Gjackie	= ent_ided "Jackie"
+entity_list Gchristmas	= ent_ided "Christmas"
+entity_list Ggod	= ent_ided "God"
+entity_list Gplaza	= ent_ided "Plaza"
+entity_list Gmerry_xmas	= ent_ided "Merry_xmas"
 
 adjective_list :: GAP -> String
-adjective_list Gbad     = "bad"
-adjective_list Gbetter  = "better"
-adjective_list Gfirst   = "first"
-adjective_list Ghard    = "hard"
-adjective_list Glittle  = "little"
-adjective_list Gmad     = "mad"
-
-n2_kind_list :: GN2 -> String
-n2_kind_list Gfather_2	= "father"
-n2_kind_list Guncle_2	= "uncle"
+adjective_list Gbig	= "big"
+adjective_list Gbeautiful	= "beautiful"
+adjective_list Ggood	= "good"
+adjective_list Ggreat	= "great"
+adjective_list Ghappy	= "happy"
+adjective_list Glast	= "last"
+adjective_list Gnice	= "nice"
+adjective_list Gsick	= "sick"
+adjective_list Gyoung	= "young"
+adjective_list Gshined	= "shined"
 
 uncount_list :: GNP -> String
-uncount_list Gmoney	= "money"
-uncount_list Gstuff	= "stuff"
-uncount_list Gtime	= "time"
-uncount_list Gwork	= "work"
+uncount_list Gwork_NP	= "work_NP"
+uncount_list Gschool_NP	= "school_NP"
+
+n2_kind_list :: GN2 -> String
+n2_kind_list Gfather	= "father"
 
 kind_list :: GCN -> String
-kind_list Gapprentice	= "apprentice"
-kind_list Gchild	= "child"
-kind_list Gdad	= "dad"
-kind_list Gelectrician	= "electrician"
-kind_list Gend	= "end"
-kind_list Gfamily	= "family"
-kind_list Gfather	= "father"
-kind_list Ggraduation	= "graduation"
-kind_list Gguy	= "guy"
-kind_list Ginterviewer	= "interviewer"
+kind_list Gdoorman	= "doorman"
+kind_list Gbarber	= "barber"
+kind_list Gcoat	= "coat"
+kind_list Gday	= "day"
+kind_list Gdollar	= "dollar"
+kind_list Gdoor	= "door"
+kind_list Gfact	= "fact"
+kind_list Gfriend	= "friend"
+kind_list Ggarage	= "garage"
+kind_list Gguest	= "guest"
+kind_list Ghour	= "hour"
 kind_list Gjob	= "job"
-kind_list Gkind	= "kind"
-kind_list Gknack	= "knack"
+kind_list Gkit	= "kit"
+kind_list Glady	= "lady"
 kind_list Glife	= "life"
+kind_list Glocker	= "locker"
 kind_list Gman	= "man"
-kind_list Gnight	= "night"
-kind_list Gposition	= "position"
-kind_list Gschool	= "school"
-kind_list Gship	= "ship"
-kind_list Gshipyard	= "shipyard"
-kind_list Gsuperintendent	= "superintendent"
-kind_list Gsupervisor	= "supervisor"
+kind_list Gmanager	= "manager"
+kind_list Gmeeting	= "meeting"
+kind_list Gmorning	= "morning"
+kind_list Gparadise	= "paradise"
+kind_list Gshoe	= "shoe"
+kind_list Gshop	= "shop"
+kind_list Gstory	= "story"
 kind_list Gthing	= "thing"
-kind_list Gtop	= "top"
-kind_list Gtransformer	= "transformer"
-kind_list Guncle	= "uncle"
+kind_list Gtime	= "time"
+kind_list Gtip	= "tip"
 kind_list Gway	= "way"
-kind_list Gweek	= "week"
-kind_list Gwoman	= "woman"
-kind_list Gword	= "word"
+kind_list Gyear	= "year"
+kind_list Gvip	= "vip"
+
 
 happening_list :: GV -> String
-happening_list Gwork_V	= "work"
-happening_list Glaugh	= "laugh"
-happening_list Gknow	= "know"
-happening_list Glook_here	= "look_here"
-happening_list Gslow_down	= "slow_down"
+happening_list Gfit	= "fit"
+happening_list Gsmile	= "smile"
+happening_list Gcome	= "come"
+happening_list Gwork_V	= "work_V"
 
 changing_list :: GV2 -> String
 changing_list Gbecome	= "become"
+changing_list Gcut	= "cut"
 changing_list Gget  	= "get"
-changing_list Gget_along	= "get_along"
-changing_list Ggo   	= "go"
+changing_list Ggraduate	= "graduate"
 changing_list Ghave 	= "have"
-changing_list Ghire 	= "hire"
-changing_list Ginterview	= "interview"
-changing_list Glift 	= "lift"
-changing_list Glike 	= "like"
-changing_list Gneed 	= "need"
-changing_list Gprove	= "prove"
-changing_list Gsee  	= "see"
+changing_list Gknow	= "know"
+changing_list Glike_V	= "like_V"
+changing_list Glive	= "live"
+changing_list Gput_on	= "put_on"
+changing_list Grun	= "run"
+changing_list Gshine	= "shine"
+changing_list Gtalk	= "talk"
+changing_list Gtell	= "tell"
+changing_list Gwalk	= "walk"
 
 causative_list :: GV2V -> String
-causative_list Gtake	= "take"
+causative_list Gtell_to	= "tell_to"
 
-positing_list :: GVS -> String
-positing_list Gknow_VS	= "know_VS"
-positing_list Gsay	= "say"
-positing_list Gthink	= "think"
+pred2a_list :: GV2A -> String
+pred2a_list Gmake	= "make"
 
 intens_list :: GVV -> String
 intens_list Gcan	= "can"
-intens_list Gneed_V	= "need"
 intens_list Gstart	= "start"
+
+triangulating_list :: GV3 -> String
+triangulating_list Ggive	= "give"
+triangulating_list Gput	= "put"
+triangulating_list Gtreat	= "treat"
+
 
 objects = [
 	( "apprentice",	\[x]	-> predid1 "apprentice" x	)
