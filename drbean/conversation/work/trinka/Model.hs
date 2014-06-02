@@ -91,10 +91,23 @@ onePlacers = [
 
 	, ("work",	 pred1 $ [J] ++ map agent working )
 	, ("worker",	 pred1 $ map agent working )
+	, ("young", pred1 [] )
+
+	, ("doorman", pred1 [E] )
+	, ("barber_shop", pred1 [Something] )
+	, ("coat", pred1 [Something] )
+	, ( "door",	pred1 [] )
+	, ( "kit",	pred1 [] )
+	, ( "life",	pred1 [] )
+	, ( "kit",	pred1 [] )
+	, ( "locker",	pred1 [] )
+	, ( "manager",	pred1 [] )
+	, ( "paradise",	pred1 [] )
+	, ( "shoe",	pred1 [] )
 
 
 
-	, ("male",	 pred1 [E,J,G] )
+	, ("male",	 pred1 [E,J,G,Someone] )
 	, ("female",	 pred1 [D] )
 
 	, ("smile", pred1 [E] )
@@ -141,6 +154,8 @@ pred2 xs	= curry ( `elem` xs )
 pred3 xs	= curry3 ( `elem` xs )
 pred4 xs	= curry4 ( `elem` xs )
 
+marriages = []
+parenting = [(F,E)]
 possessions	= []
 appreciation	= [ (D,Unspec,D),(J,Unspec,E),(G,Unspec,E) ]
 conflict	= []
@@ -149,12 +164,10 @@ disappointments = []
 disappoint	= pred2 $ disappointments
 resent	= pred2 $ map swap disappointments
 have	= pred2 $ possessions ++ marriages 
-		++ ( map swap $ marriages
 		++ ( map (\x->(recipient x, theme x) ) giving )
 
 knowledge	= []
-acquaintances	= []
-help	= pred2 $ supervision
+acquaintances	= [(E,D),(E,J)]
 becoming  = []
 going = [(D,J)]
 needing = []
@@ -162,11 +175,10 @@ needing = []
 twoPlacers :: [(String, TwoPlacePred)]
 twoPlacers = [
     ("know",    pred2 $ knowledge ++ acquaintances ++ map swap acquaintances)
-    , ("have",  pred2 $ possessions 
+    , ("have",  pred2 $ possessions ++
 			  [(a,J) | (a,_,_) <- working] ++
 			  map (\(_,l,_,r) ->(r,l) ) schooling)
     , ("become",  pred2 becoming )
-    , ("can_to_lift",  pred2 can_to_lift )
     , ("hire",  pred2 $ map (\(a,_,_) -> (V,a)) working)
     , ("interview",  pred2 [(I,D)] )
     , ("like",  pred2 $ map (\(a,t,r) -> (a,r)) appreciation)
@@ -211,12 +223,11 @@ destination = recipient
 working	= [(D,Unspec,Unspec),(E,D,P),(J,Unspec,Unspec)]
 
 -- (speaker, content, referent)
-comms	= [ (J, ("need_to_slow_down",E), E),(W2, ("need_to_slow_down",D), D)
-	    -- ,(I,Unspec,D),(F,Unspec,D),(F,Unspec,A),(A,Unspec,D),(A,Unspec,I)
+comms	= [ (J, ("need_to_slow_down",E), E)
 	    ]
-giving	= [ (V,J,D) ]
+giving	= [ (J,T,E) ]
 --(agent,theme,location)
-looking_back	= [(D,C,V),(I,C,V)]
+looking_back	= [(E,J,P)]
 seeing	= []
 --(agent,origin,destination)
 
