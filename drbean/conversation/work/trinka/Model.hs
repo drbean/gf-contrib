@@ -4,10 +4,10 @@ import Data.Tuple
 import Data.List
 import Data.Maybe
 
-data Entity	= A | B | C | C1 | C2 | D | E | F | GF | GGF | G
+data Entity	= A | B | C | C1 | C2 | D | E | F | G
             | H | I | J | K | L | M | N 
             | O | P | Q | R | S | T | U 
-            | V | W | W1 | W2 | W3 | W4 | W5 | W6 | X | Y | Z | Someone | Something | Unspec
+            | V | W | X | Y | Z | Someone | Something | Unspec
      deriving (Eq,Show,Bounded,Enum,Ord)
 
 entities :: [Entity]
@@ -15,31 +15,31 @@ entities	=  [minBound..maxBound]
 
 entity_check :: [ (Entity, String) ]
 entity_check =  [
-    (A, "Alf" )
-    , (B, "" )	-- ship
+    (A, "" )
+    , (B, "" )	--
     , (C, "" )
-    , (D, "Dee" )
-    , (E, "" )
-    , (F, "" )
-    , (G, "" )	-- upbringing
-    , (H, "Dee's ex-husband" )
-    , (I, "" )	-- interviewer
-    , (J, "" )	-- job
-    , (K, "" )	-- disappointment
+    , (D, "Debra Goodman" )
+    , (E, "Ed Trinka" )
+    , (F, "" )	-- Ed's dad
+    , (G, "God" )	--
+    , (H, "" )
+    , (I, "" )	--
+    , (J, "Jackie Gleason" )
+    , (K, "" )	--
     , (L, "" )
-    , (M, "money" )	-- money
-    , (N, "" )	-- construction
+    , (M, "money" )	--
+    , (N, "" )	--
     , (O, "Monday" )
-    , (P, "" )
+    , (P, "the Plaza Hotel" )
     , (Q, "" )
-    , (R, "" )	-- electrician job
-    , (S, "" )	-- vocational school
-    , (T, "" )	-- transformer
+    , (R, "" )	--
+    , (S, "" )	--
+    , (T, "" )	-- tip
     , (U, "" )
-    , (V, "" )	-- shipyard
+    , (V, "" )	--
     , (W, "" )
-    , (X, "" )
-    , (Y, "" )	-- story , (Z, "" )
+    , (X, "Christmas" )
+    , (Y, "" )	--
     ]
 
 
@@ -79,48 +79,27 @@ onePlacers = [
         , ("false",     pred1 [] )
         , ("role",      pred1 [] )
 
-	, ("child",	pred1 $ map snd parenting )
-	, ("dad",	father )
-	, ("uncle",	pred1 [A] )
-	, ("superintendent",	 pred1 [A] )
-	, ("supervisor",	 pred1 [D] )
-	, ("apprentice",	 pred1 [D] )
-	, ("husband",	 pred1 [H] )
-	, ("vocational_school",	 pred1 [S] )
-	, ("construction",	 pred1 [N] )
-	, ("electrician",	 pred1 [D,W,W1,W2,W3] )
-	, ("interviewer",	 pred1 [I] )
-	, ("transformer",	 pred1 [T] )
-	, ("ship",	 pred1 [B] )
-	, ("shipyard",	 pred1 [V] )
-	, ("disappointment",	 pred1 [K] )
-	, ("money",	 pred1 [M] )
-	, ("upbringing",	 pred1 [G] )
-	, ("story",	 pred1 [Y] )
+	, ("big",	pred1 [T] )
+	, ("father",	father )
+	, ("good",	pred1 [] )
+	, ("guest",	pred1 [Someone] )
+	, ("great",	 pred1 [] )
+	, ("graduate",	 pred1 [E] )
+	, ("happy",	 pred1 [E] )
 	, ("job",	 pred1 [J] )
+	, ("sick",	 pred1 [Someone] )
+
 	, ("work",	 pred1 $ [J] ++ map agent working )
 	, ("worker",	 pred1 $ map agent working )
-  , ("superior",	pred1 $ map fst supervision )
-  , ("subordinate",	pred1 $ map snd supervision )
 
-  , ("need_to_slow_down", pred1 [D] )
 
-	, ("little",	 pred1 [D] )
-	, ("mad",	 pred1 [D,H,W1,W2,W3,W4] )
-	, ("bad",	 pred1 [H,W1,W2,W3,W4] )
 
-	, ("male",	 pred1 [A,F,W1,W2,W3,W4,W5,W6,I,C1,C2, GGF, GF] )
+	, ("male",	 pred1 [E,J,G] )
 	, ("female",	 pred1 [D] )
-	, ("family",  \x -> isParent x || isOffspring x )
 
-	, ("laugh", pred1 [D] )
+	, ("smile", pred1 [E] )
 
 	]
-predid1 "boss"	= predid1 "superior"
-predid1 "employee"  = predid1 "subordinate"
-predid1 "manager" = predid1 "boss"
-
-predid1 "father"  = predid1 "dad"
 predid1 "guy"  = predid1 "male"
 predid1 "woman"  = predid1 "female"
 predid1 "man"  = predid1 "male"
@@ -162,42 +141,28 @@ pred2 xs	= curry ( `elem` xs )
 pred3 xs	= curry3 ( `elem` xs )
 pred4 xs	= curry4 ( `elem` xs )
 
---(parent,child)
-parenting	= [ (D,C1),(D,C2),(F,D),(GGF,GF),(GGF,A),(GF,F) ]
-uncling	= [ (A,F) ]
-marriages	= [ (H,D) ]
---(husband,wife,wedding_location)
-weddings	= [ (H,D,Unspec) ]
---(divorcer,divorced)
-separations	= [ (H,D) ]
--- divorces	= []
---(boyfriend,girlfriend)
--- unmarried_couples	= []
---(contacter,contactee)
-possessions	= [ (A,M),(D,J) ]
-appreciation	= [ (D,Unspec,J),(D,Unspec,A),(D,Unspec,F) ]
+possessions	= []
+appreciation	= [ (D,Unspec,D),(J,Unspec,E),(G,Unspec,E) ]
 conflict	= []
-supervision	= [(D,W),(D,W1),(D,W2),(D,W3)]
 
-disappointments = [(W1,D), (W2,D), (W3,D), (W4,D), (W5,D) ]
+disappointments = []
 disappoint	= pred2 $ disappointments
 resent	= pred2 $ map swap disappointments
-have	= pred2 $ possessions ++ marriages ++ parenting 
-		++ ( map swap $ marriages ++ parenting )
+have	= pred2 $ possessions ++ marriages 
+		++ ( map swap $ marriages
 		++ ( map (\x->(recipient x, theme x) ) giving )
 
 knowledge	= []
 acquaintances	= []
 help	= pred2 $ supervision
-becoming  = [(D,R),(D,D)]
-can_to_lift = [(W1,T),(W3,T),(W5,T)]
-going = [(D,B)]
-needing = [(D,M),(D,J)]
+becoming  = []
+going = [(D,J)]
+needing = []
 
 twoPlacers :: [(String, TwoPlacePred)]
 twoPlacers = [
     ("know",    pred2 $ knowledge ++ acquaintances ++ map swap acquaintances)
-    , ("have",  pred2 $ possessions ++ parenting ++
+    , ("have",  pred2 $ possessions 
 			  [(a,J) | (a,_,_) <- working] ++
 			  map (\(_,l,_,r) ->(r,l) ) schooling)
     , ("become",  pred2 becoming )
@@ -243,14 +208,10 @@ origin	= theme
 destination = recipient
 
 --(worker,job,site)
-working	= [(A,Unspec,V),(I,Unspec,V),
--- shipyard
-	(D,R,V),(W1,R,V),(W2,R,V),(W3,R,V),(W4,R,V),(W5,R,V),(W6,R,V),
--- ship
-	(W1,R,B),(W2,R,B),(W3,R,B),(W4,R,B),(W5,R,B),(W6,R,B)]
+working	= [(D,Unspec,Unspec),(E,D,P),(J,Unspec,Unspec)]
 
 -- (speaker, content, referent)
-comms	= [ (W1, ("need_to_slow_down",D), D),(W2, ("need_to_slow_down",D), D)
+comms	= [ (J, ("need_to_slow_down",E), E),(W2, ("need_to_slow_down",D), D)
 	    -- ,(I,Unspec,D),(F,Unspec,D),(F,Unspec,A),(A,Unspec,D),(A,Unspec,I)
 	    ]
 giving	= [ (V,J,D) ]
