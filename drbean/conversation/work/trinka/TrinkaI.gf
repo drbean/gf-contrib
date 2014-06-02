@@ -98,33 +98,34 @@ lin
   become	= mkV2 become_V;
 
 
-  smile	= smile_V;
-  ask	= mkV2Q ask_V noPrep;
   come	= come_V;
-  come_in	= mkV come_V in_prep;
-  come_back	= mkV come_V "back";
-  come_by	= mkV come_V by_prep;
-  cut	= mkV2 cut_V by_prep;
   fit	= fit_V;
+  start	= ingVV start_V;
+  work_V	= LexTrinkaEng.work_V;
+  make	= mkV2A make_V noPrep;
+  cut	= mkV2 cut_V by_prep;
   get	= mkV2 get_V;
-  give	= mkV3 give_V;
   graduate	= mkV2 graduate_V from_prep;
   have	= mkV2 have_V;
   know	= mkV2 know_V;
+  like	= mkV2 like_V;
   live	= mkV2 live_V;
-  make	= mkV2A make_V noPrep;
-  put = mkV3 put_V noPrep on_prep;
   put_on	= mkV2 (partV put_V "on");
+  ask	= mkV2Q ask_V noPrep;
   run	= mkV2 run_V to_prep;
-  say	= mkVS say_V;
   shine	= mkV2 shine_V noPrep;
-  start	= ingVV start_V;
   talk	= mkV2 talk_V to_prep;
   tell	= mkV2 tell_V;
   tell_to	= mkV2V tell_V noPrep to_prep;
-  treat	= mkV3 treat_V noPrep like_prep;
   walk	= mkV2 walk_V to_prep;
-  work_V	= LexTrinkaEng.work_V;
+  give	= mkV3 give_V;
+  put = mkV3 put_V noPrep on_prep;
+  treat	= mkV3 treat_V noPrep like_prep;
+  come_back	= mkV come_V "back";
+  come_by	= mkV come_V by_prep;
+  come_in	= mkV come_V in_prep;
+  say	= mkVS say_V;
+  smile	= smile_V;
 
   big	= mkAP big_A;
   beautiful	= mkAP beautiful_A;
@@ -141,13 +142,12 @@ lin
   shined	= mkAP shined_A;
 
   doorman	= mkCN doorman_N;
-  barber	= mkCN barber_N;
   coat	= mkCN coat_N;
   day	= mkCN day_N;
   dollar	= mkCN dollar_N;
   door	= mkCN door_N;
   fact	= mkCN fact_N;
-  father	= mkCN father_N;
+  father	= mkN2 father_N;
   friend	= mkCN friend_N;
   garage	= mkCN garage_N;
   guest	= mkCN guest_N;
@@ -162,9 +162,8 @@ lin
   meeting	= mkCN meeting_N;
   morning	= mkCN morning_N;
   paradise	= mkCN paradise_N;
-  school	= mkCN school_N;
   shoe	= mkCN shoe_N;
-  shop	= mkCN shop_N;
+  barber_shop	= mkCN barber_shop_N;
   story	= mkCN story_N;
   thing	= mkCN thing_N;
   time	= mkCN time_N;

@@ -84,6 +84,7 @@ fun
 	graduate	: V2;
 	have	: V2;
 	know	: V2;
+	like	: V2;
 	live	: V2;
 	make	: V2A;
 	put	: V3;
@@ -114,13 +115,12 @@ fun
 	shined	: AP;
 
 	doorman	: CN;
-	barber	: CN;
 	coat	: CN;
 	day	: CN;
 	dollar	: CN;
 	door	: CN;
 	fact	: CN;
-	father	: CN;
+	father	: N2;
 	friend	: CN;
 	garage	: CN;
 	guest	: CN;
@@ -135,9 +135,8 @@ fun
 	meeting	: CN;
 	morning	: CN;
 	paradise	: CN;
-	school	: CN;
 	shoe	: CN;
-	shop	: CN;
+	barber_shop	: CN;
 	story	: CN;
 	thing	: CN;
 	time	: CN;
