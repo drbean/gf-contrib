@@ -3,7 +3,7 @@ module Tests where
 import Control.Monad
 
 import PGF
-import Dickson
+import Trinka
 import LogicalForm
 import Evaluation
 import Model
@@ -12,12 +12,12 @@ import WordsCharacters
 import Data.List
 import Data.Char
 
--- handler gr core tests = putStr $ unlines $ map (\(x,y) -> x++show y) $ zip (map (++"\t") tests ) ( map (\string -> map (\x -> core ( x) ) (parse gr (mkCId "DicksonEng") (startCat gr) string)) tests )
+-- handler gr core tests = putStr $ unlines $ map (\(x,y) -> x++show y) $ zip (map (++"\t") tests ) ( map (\string -> map (\x -> core ( x) ) (parse gr (mkCId "TrinkaEng") (startCat gr) string)) tests )
 
 -- import System.Environment.FindBin
 
 ans tests = do
-  gr	<- readPGF ( "./Dickson.pgf" )
+  gr	<- readPGF ( "./Trinka.pgf" )
   let ss = map (chomp . lc_first) tests
   let ps = map ( parses gr ) ss
   let ls = map ( map ( linear transform gr ) ) ps
@@ -25,7 +25,7 @@ ans tests = do
   putStrLn (unlines (map (\(x,y) -> x ++ (show $ concat y)) zs) )
 
 --trans tests = do
---  gr	<- readPGF ( "./Dickson.pgf" )
+--  gr	<- readPGF ( "./Trinka.pgf" )
 --  let ss = map (chomp . lc_first) tests
 --  let ps = map ( parses gr ) ss
 --  let ls = map id ps
@@ -33,7 +33,7 @@ ans tests = do
 --  putStrLn (unlines (map (\(x,y) -> x ++ (show (concat y ) ) ) zs) )
 
 logic tests = do
-  gr	<- readPGF ( "./Dickson.pgf" )
+  gr	<- readPGF ( "./Trinka.pgf" )
   let ss = map (chomp . lc_first) tests
   let ps = map ( parses gr ) ss
   let ts = map (map (map lf)) ps
@@ -62,7 +62,7 @@ linear :: (Tree -> Tree) -> PGF -> [Tree] -> [ String ]
 linear tr gr ps = concat $ map ((linearizeAll gr) . tr) ps
 
 lc_first :: String -> String
-lc_first str@(s:ss) = case ( or $ map (flip isPrefixOf str) ["Alf", "Dee"] ) of
+lc_first str@(s:ss) = case ( or $ map (flip isPrefixOf str) ["Debra Goodman", "Ed Trinka"] ) of
 	True  -> (s:ss)
 	False -> ((toLower s):ss)
 
@@ -74,169 +74,169 @@ chomp (x:xs) | x `elem` ".,?" = chomp xs
             | otherwise      =     x:chomp xs
 
 likes_test = [
-  "Does Dee like the job?"
-  , "No guys like Dee, do they?"
-  , "No guys like to work with Dee, do they?"
+  "Does Ed Trinka like the job?"
+  , "No guys like Ed Trinka, do they?"
+  , "No guys like to work with Ed Trinka, do they?"
 
   ]
 
 needs_test  = [
-  "Dee needs money, doesn't she?"
-  , "Dee needs to slow down, doesn't she?"
+  "Ed Trinka needs money, doesn't he?"
+  , "Ed Trinka needs to slow down, doesn't he?"
   ]
 
 working_test = [
 
-	"Does Dee work?"
-	, "Does Dee have work?"
-	, "Does Dee have a job?"
+	"Does Ed Trinka work?"
+	, "Does Ed Trinka have work?"
+	, "Does Ed Trinka have a job?"
 	, "Who works?"
 	, "Who has work?"
 	, "Who has a job?"
-	, "Dee works, doesn't she?"
-	, "Dee has work, doesn't she?"
-	, "Dee has a job, doesn't she?"
-	, "Does Dee work as an electrician?"
-	, "Is Dee an electrician?"
+	, "Ed Trinka works, doesn't he?"
+	, "Ed Trinka has work, doesn't he?"
+	, "Ed Trinka has a job, doesn't he?"
+	, "Does Ed Trinka work as an doorman?"
+	, "Is Ed Trinka an doorman?"
 	]
 
 tag_test = [
-  "Dee is an electrician, isn't she?"
-  , "Dee isn't an electrician, is she?"
+  "Ed Trinka is an doorman, isn't he?"
+  , "Ed Trinka isn't an doorman, is he?"
   ]
 
 test_text = [
-	"Dee's son spoke English.",
-	"Dee's son's brother spoke English.",
-	"Dee's son had a brother and a brother spoke English.",
-	"Dee's son knew English and the interviewer spoke English.",
-	"Dee's son spoke English but the interviewer didn't speak English.",
-	"Dee's son talked to the interviewer and the interviewer talked to Dee's son's father.",
-	"Dee's son talked to the interviewer and the interviewer talked to Dee's son's father " ++
-		"and Dee's son's father talked to Dee's son.",
-	"Dee's son's brother looked back on Dee's son's upbringing. \
-	\Dee's son talked to the interviewer. \
-	\Dee's son asked the interviewer about Vietnam."
+	"Ed Trinka's son spoke English.",
+	"Ed Trinka's son's brother spoke English.",
+	"Ed Trinka's son had a brother and a brother spoke English.",
+	"Ed Trinka's son knew English and the interviewer spoke English.",
+	"Ed Trinka's son spoke English but the interviewer doesn't speak English.",
+	"Ed Trinka's son talked to the interviewer and the interviewer talked to Dee's son's father.",
+	"Ed Trinka's son talked to the interviewer and the interviewer talked to Dee's son's father " ++
+		"and Ed Trinka's son's father talked to Dee's son.",
+	"Ed Trinka's son's brother looked back on Dee's son's upbringing. \
+	\Ed Trinka's son talked to the interviewer. \
+	\Ed Trinka's son asked the interviewer about Vietnam."
 	]
 
 alf_test = [
- "Does the uncle of the father of Dee have work?"
- , "Is the uncle of the father of Dee Alf?"
+ "Does the uncle of the father of Ed Trinka have work?"
+ , "Is the uncle of the father of Ed Trinka Debra Goodman?"
  ]
 
 test_possessives = [
-  "Is Dee Dee's job?"
-  , "Is Dee's job Dee?"
-  , "Dee's job is good, isn't it?"
-  , "Is Dee's job good?"
-  , "Is Dee's job a job?"
-  , "Is Dee's job the job?"
-  , "Is Dee's job Dee?"
-  , "Is Dee Dee's job"
-  , "Is Dee's lob Dee?"
-  , "Is Dee's job Dee's job?"
-  , "Is Dee's job Dee's father?"
-  , "Is Dee's job Dee's father"
-  , "Is Dee Dee's job"
-  , "Is Dee's job Dee"
-  , "Is Dee's uncle a superintendent?"
-  , "Is Dee's uncle Alf?"
-  , "Is Dee's father's uncle a superintendent?"
-  , "Is the uncle of Dee's father a superintendent?"
-  , "Is the uncle of the father of Dee a superintendent?"
-  , "Is Dee's father's uncle Alf?"
-  , "Is the uncle of Dee's father Alf?"
-  , "Is the uncle of the father of Dee Alf?"
-  , "Is the father of Dee a man?"
-  , "Is Dee's father a man?"
-  , "Does Dee's father have children?"
-	, "Does Dee's son's father work."
-	, "Dee's son's father works on Dee's son's upbringing, doesn't he."
-	, "Does Dee's son's father work on Dee's son's upbringing?"
-	, "Does Dee's son's brother work on Dee's son's upbringing?"
-	, "Does Dee's son's father speak English?"
-	, "Does Dee's son's brother speak English?"
-	, "Does Dee's son's brother know English?"
-	, "Does Dee's son's mother speak English?"
-	, "Does Dee's son's mother speak English?"
-	, "Does the sister of Dee's son know English?"
-	, "Does the father of Dee's son work on Dee's son's upbringing?"
-	, "Does the brother of Dee's son work on Dee's son's upbringing?"
-	, "Does the mother of Dee's son speak English?"
-	, "Does the father of Dee's son speak English?"
-	, "Does the brother of Dee's son speak English?"
-	, "Does the mother of Dee's son speak English?"
-	, "Does the brother of Dee's son know English?"
-	, "Does the sister of Dee's son know English?"
+  "Is Ed Trinka Dee's job?"
+  , "Is Ed Trinka's job Dee?"
+  , "Ed Trinka's job is good, isn't it?"
+  , "Is Ed Trinka's job good?"
+  , "Is Ed Trinka's job a job?"
+  , "Is Ed Trinka's job the job?"
+  , "Is Ed Trinka's job Dee?"
+  , "Is Ed Trinka Dee's job"
+  , "Is Ed Trinka's lob Dee?"
+  , "Is Ed Trinka's job Dee's job?"
+  , "Is Ed Trinka's job Dee's father?"
+  , "Is Ed Trinka's job Dee's father"
+  , "Is Ed Trinka Dee's job"
+  , "Is Ed Trinka's job Dee"
+  , "Is Ed Trinka's uncle a superintendent?"
+  , "Is Ed Trinka's uncle Debra Goodman?"
+  , "Is Ed Trinka's father's uncle a superintendent?"
+  , "Is the uncle of Ed Trinka's father a superintendent?"
+  , "Is the uncle of the father of Ed Trinka a superintendent?"
+  , "Is Ed Trinka's father's uncle Debra Goodman?"
+  , "Is the uncle of Ed Trinka's father Debra Goodman?"
+  , "Is the uncle of the father of Ed Trinka Debra Goodman?"
+  , "Is the father of Ed Trinka a man?"
+  , "Is Ed Trinka's father a man?"
+  , "Does Ed Trinka's father have children?"
+	, "Does Ed Trinka's son's father work."
+	, "Ed Trinka's son's father works on Dee's son's upbringing, doesn't he."
+	, "Does Ed Trinka's son's father work on Dee's son's upbringing?"
+	, "Does Ed Trinka's son's brother work on Dee's son's upbringing?"
+	, "Does Ed Trinka's son's father speak English?"
+	, "Does Ed Trinka's son's brother speak English?"
+	, "Does Ed Trinka's son's brother know English?"
+	, "Does Ed Trinka's son's mother speak English?"
+	, "Does Ed Trinka's son's mother speak English?"
+	, "Does the sister of Ed Trinka's son know English?"
+	, "Does the father of Ed Trinka's son work on Dee's son's upbringing?"
+	, "Does the brother of Ed Trinka's son work on Dee's son's upbringing?"
+	, "Does the mother of Ed Trinka's son speak English?"
+	, "Does the father of Ed Trinka's son speak English?"
+	, "Does the brother of Ed Trinka's son speak English?"
+	, "Does the mother of Ed Trinka's son speak English?"
+	, "Does the brother of Ed Trinka's son know English?"
+	, "Does the sister of Ed Trinka's son know English?"
 	]
 
 child_test = [
-  "Is Dee a child?"
+  "Is Ed Trinka a child?"
   , "Is the interviewer a child?"
-  , "Does Dee have a mother?"
-  , "Does Dee have a son?"
-  , "Does Dee have a daughter?"
-  , "Does Dee's father have children?"
-  , "Does the father of Dee have children?"
+  , "Does Ed Trinka have a mother?"
+  , "Does Ed Trinka have a son?"
+  , "Does Ed Trinka have a daughter?"
+  , "Does Ed Trinka's father have children?"
+  , "Does the father of Ed Trinka have children?"
   ] 
 
 becoming_test = [
-  "Does Dee become a supervisor?"
-  , "Does Dee become Dee?"
-  , "Does Dee become an electrician?"
-  , "Does Dee become an apprentice?"
-  , "Does Dee become a worker?"
-  , "Does Dee become a superintendent?"
-  , "Does Alf become a superintendent?"
-  , "Is Alf a superintendent?"
+  "Does Ed Trinka become a supervisor?"
+  , "Does Ed Trinka become Dee?"
+  , "Does Ed Trinka become an doorman?"
+  , "Does Ed Trinka become an apprentice?"
+  , "Does Ed Trinka become a worker?"
+  , "Does Ed Trinka become a superintendent?"
+  , "Does Debra Goodman become a superintendent?"
+  , "Is Debra Goodman a superintendent?"
   ]
 
 supervisor_test = [
-  "Is Dee a supervisor?"
-  , "Does Dee become a supervisor?"
-  , "Is Alf a supervisor?"
+  "Is Ed Trinka a supervisor?"
+  , "Does Ed Trinka become a supervisor?"
+  , "Is Debra Goodman a supervisor?"
   , "Is the interviewer a supervisor?"
   , "Is the superintendent a supervisor?"
   ]
 
 lifting_test = [
-  "Can Dee lift a transformer?"
+  "Can Ed Trinka lift a transformer?"
   , "Can some guys lift a transformer?"
   , "Can the guys lift a transformer?"
   ]
 
 going_test = [
-  "Does Dee go to the ship?"
-  , "Does Dee go to school?"
+  "Does Ed Trinka go to the ship?"
+  , "Does Ed Trinka go to school?"
   ]
 
 positing_test = [
-  "Does the guy think that Dee is little?"
-  , "Does a guy think that Dee is little?"
-  , "Does the interviewer think that Dee is little?"
-  , "Is Dee little?"
-  , "Does the interviewer say that Dee is little?"
-  , "Does the interviewer know that Dee is little?"
-  , "Does the interviewer know that Dee is the interviewer?"
-  , "Does Dee's father say that Alf is the superintendent?"
-  , "Does the father of Dee say that Alf is the superintendent?"
-  , "Does Dee know that Alf is the superintendent?"
-  , "Does the interviewer know that Alf is the superintendent?"
-  , "The guys say that Dee needs to slow down, don't they?"
-  , "The guys say that Dee needs to laugh, don't they?"
+  "Does the guy think that Ed Trinka is little?"
+  , "Does a guy think that Ed Trinka is little?"
+  , "Does the interviewer think that Ed Trinka is little?"
+  , "Is Ed Trinka little?"
+  , "Does the interviewer say that Ed Trinka is little?"
+  , "Does the interviewer know that Ed Trinka is little?"
+  , "Does the interviewer know that Ed Trinka is the interviewer?"
+  , "Does Ed Trinka's father say that Debra Goodman is the superintendent?"
+  , "Does the father of Ed Trinka say that Debra Goodman is the superintendent?"
+  , "Does Ed Trinka know that Debra Goodman is the superintendent?"
+  , "Does the interviewer know that Debra Goodman is the superintendent?"
+  , "The guys say that Ed Trinka needs to slow down, don't they?"
+  , "The guys say that Ed Trinka needs to laugh, don't they?"
   ]
 
 interview_test = [
-  "Does the interviewer interview Dee?"
+  "Does the interviewer interview Ed Trinka?"
   , "Does the interviewer work."
   , "Do the interviewer's children work."
-  , "Does the interviewer's family work on Dee's son's upbringing."
+  , "Does the interviewer's family work on Ed Trinka's son's upbringing."
   -- , "the interviewer's daughter work on the interviewer's daughter's upbringing."
-  , "the interviewer's daughter appreciated Dee's son's father."
-  , "Dee's son's father  appreciated the interviewer's daughter."
+  , "the interviewer's daughter appreciated Ed Trinka's son's father."
+  , "Ed Trinka's son's father  appreciated the interviewer's daughter."
   , "Does the interviewer have a job?"
   , "The interviewer has a job, doesn't he?"
-  , "Does the interviewer have Dee's son?"
+  , "Does the interviewer have Ed Trinka's son?"
   , "Does the interviewer have a mother?"
   , "Does the interviewer have a son?"
   , "Does the interviewer have a daughter?"
@@ -271,91 +271,91 @@ interview_test = [
   , "the interviewer told a story."
   , "the interviewer told the job a story."
   , "the interviewer told a story to the job."
-  , "the interviewer told a story to Dee's son"
-  , "the interviewer gave some ships to Dee's son."
-  , "Does the interviewer give some ships to Dee's son."
-  , "Does the interviewer give the ships to Dee's son?"
+  , "the interviewer told a story to Ed Trinka's son"
+  , "the interviewer gave some ships to Ed Trinka's son."
+  , "Does the interviewer give some ships to Ed Trinka's son."
+  , "Does the interviewer give the ships to Ed Trinka's son?"
   , "Does the interviewer give the ships to someone?"
-  , "the interviewer gave several ships to Dee's son."
-  , "the interviewer gave Dee's son some ships."
-  , "Does the interviewer give Dee's son some ships?"
-  , "Does the interviewer give Dee's son the ships?"
+  , "the interviewer gave several ships to Ed Trinka's son."
+  , "the interviewer gave Ed Trinka's son some ships."
+  , "Does the interviewer give Ed Trinka's son some ships?"
+  , "Does the interviewer give Ed Trinka's son the ships?"
   , "Does the interviewer give someone the ships?"
-  , "the interviewer gave Dee's son several ships."
+  , "the interviewer gave Ed Trinka's son several ships."
   , "Does the interviewer work at a motel?"
-  , "the interviewer did cleaning at a motel."
+  , "the interviewer does cleaning at a motel."
   ]
   
 
 haves = [
-  "Does Dee have Dee's father?"
-  , "Does Dee's father have money?"
-  , "Does Dee's father's uncle have money?"
-  , "Does Dee have Dee's dad?"
-  , "Does Dee have Dee's uncle?"
-  , "Does Dee's father's uncle have money?"
-  , "Does Dee's father have Dee?"
-  , "Does Dee have Dee's father?"
-  , "Does Dee have Alf?"
-  , "Does Dee's father have a mother?"
-  , "Does Dee have work?"
-  , "Does Dee have a job?"
-  , "Does Dee have some job?"
-  , "Does Dee have money?"
-  , "Does Dee's father have money?"
-  , "Does Alf have money?"
-  , "Does Alf have a family?"
-  , "Does Dee have a family?"
-  , "Does Dee have a parent?"
-  , "Does Dee have some parents?"
-  , "Does Dee have parents?"
-  , "Does Dee's father have a parent?"
-  , "Does Dee's father have some parents?"
-  , "Does Dee's father have parents?"
-  , "Does Dee's father have an uncle?"
-  , "Does Dee have work?"
-  , "Does Alf have work?"
-  , "Does Dee's father have work?"
+  "Does Ed Trinka have Dee's father?"
+  , "Does Ed Trinka's father have money?"
+  , "Does Ed Trinka's father's uncle have money?"
+  , "Does Ed Trinka have Dee's dad?"
+  , "Does Ed Trinka have Dee's uncle?"
+  , "Does Ed Trinka's father's uncle have money?"
+  , "Does Ed Trinka's father have Dee?"
+  , "Does Ed Trinka have Dee's father?"
+  , "Does Ed Trinka have Debra Goodman?"
+  , "Does Ed Trinka's father have a mother?"
+  , "Does Ed Trinka have work?"
+  , "Does Ed Trinka have a job?"
+  , "Does Ed Trinka have some job?"
+  , "Does Ed Trinka have money?"
+  , "Does Ed Trinka's father have money?"
+  , "Does Debra Goodman have money?"
+  , "Does Debra Goodman have a family?"
+  , "Does Ed Trinka have a family?"
+  , "Does Ed Trinka have a parent?"
+  , "Does Ed Trinka have some parents?"
+  , "Does Ed Trinka have parents?"
+  , "Does Ed Trinka's father have a parent?"
+  , "Does Ed Trinka's father have some parents?"
+  , "Does Ed Trinka's father have parents?"
+  , "Does Ed Trinka's father have an uncle?"
+  , "Does Ed Trinka have work?"
+  , "Does Debra Goodman have work?"
+  , "Does Ed Trinka's father have work?"
   , "Does the job have a mother?"
   , "Does the daughter have some ships?"
   , "Does the daughter have no ships?"
   , "Does the parent have some ships?"
   , "Does the parent have no ships?"
   , "Does the job have money?"
-  , "Does Dee's son have money?"
+  , "Does Ed Trinka's son have money?"
   , "Does the job have a parent?"
   , "Does the job have some parents?"
   , "Does the job have parents?"
-  , "Does Dee's son have a boat?"
+  , "Does Ed Trinka's son have a boat?"
   , "Does the job have a boat?"
   , "Does someone have a boat?"
   ]
 
 ungrammatical = [
-	"Does Alf worked?",
-	"Dee work?",
+	"Does Debra Goodman worked?",
+	"Ed Trinka work?",
 	"Man worked.",
 	"Some man work.",
 	"No worked.",
 	"No-one work.",
-	"Does Alf teach?",
-	"Alf teach Dee.",
-	"Dee taught.",
-	"Does Dee's son looked back?",
+	"Does Debra Goodman teach?",
+	"Debra Goodman teach Ed Trinka.",
+	"Ed Trinka taught.",
+	"Does Ed Trinka's son looked back?",
 	"the interviewer look back?",
 	"Man looked back.",
 	"Some man work.",
 	"No looked back.",
 	"No-one work.",
-	"Does Dee's son teach?",
-	"Dee's son teach the interviewer.",
+	"Does Ed Trinka's son teach?",
+	"Ed Trinka's son teach the interviewer.",
 	"the interviewer raised."
 	]
 
 intransitives = [
-	"Does Alf work?",
-	"Does Dee work?",
-	"Does Dee's father work?",
+	"Does Debra Goodman work?",
+	"Does Ed Trinka work?",
+	"Does Ed Trinka's father work?",
 	"A man work.",
 	"Some man work.",
 	"No one work.",
@@ -370,19 +370,19 @@ intransitives = [
 	"Does some woman work?",
 	"Does some women work?",
 	"Most men work.",
-	"Most men didn't work.",
+	"Most men doesn't work.",
 	"Several men work.",
-	"Several men didn't work.",
+	"Several men doesn't work.",
 	"Many men work.",
-	"Many men didn't work.",
+	"Many men doesn't work.",
 	"All men work.",
 	"No man work.",
-	"Does Dee's father work at a farm?",
-	"Dee's father work on a farm?",
-	"Dee's father work in a farm?",
-	"Dee's son got married.",
-	"Does Dee's son leave?",
-	"Does Dee's son's father leave?",
+	"Does Ed Trinka's father work at a farm?",
+	"Ed Trinka's father work on a farm?",
+	"Ed Trinka's father work in a farm?",
+	"Ed Trinka's son got married.",
+	"Does Ed Trinka's son leave?",
+	"Does Ed Trinka's son's father leave?",
 	"A man left.",
 	"Some man left.",
 	"No one left.",
@@ -398,13 +398,13 @@ intransitives = [
 	"Does some women leave?",
 	"Most persons left.",
 	"Most men left.",
-	"Most men didn't leave.",
+	"Most men doesn't leave.",
 	"Several men left.",
-	"Several men didn't leave.",
+	"Several men doesn't leave.",
 	"Several persons left.",
-	"Several persons didn't leave.",
-	"Does Dee's son look back?",
-	"Does Dee's son's father look back?",
+	"Several persons doesn't leave.",
+	"Does Ed Trinka's son look back?",
+	"Does Ed Trinka's son's father look back?",
 	"A man looked back.",
 	"Some man looked back.",
 	"No one looked back.",
@@ -420,151 +420,151 @@ intransitives = [
 	"Does some woman look back?",
 	"Does some women look back?",
 	"Most men looked back.",
-	"Most men didn't look back.",
+	"Most men doesn't look back.",
 	"Several men looked back.",
-	"Several men didn't look back.",
+	"Several men doesn't look back.",
 	"Many men looked back.",
-	"Many men didn't work.",
+	"Many men doesn't work.",
 	"All men looked back.",
 	"No man looked back."
 	]
 
 transitives = [
-	"Does Alf study law?",
-	"Alf studied law.",
-	"Dee studied law.",
-	"Dee studied law at Michigan Law.",
-	"Dee studied law at Colorado College",
-	"Does Dee go to Colorado College.",
+	"Does Debra Goodman study law?",
+	"Debra Goodman studied law.",
+	"Ed Trinka studied law.",
+	"Ed Trinka studied law at Michigan Law.",
+	"Ed Trinka studied law at Colorado College",
+	"Does Ed Trinka go to Colorado College.",
 	"Some woman went to Colorado College.",
 	"Some man went to Colorado College.",
 	"Some boy went to Colorado College.",
-	"Some man parented Dee.",
-	"A man parented Alf",
+	"Some man parented Ed Trinka.",
+	"A man parented Debra Goodman",
 	"Some woman told a story.",
 	"Does the job work at a motel?",
 	"the job work on a motel?",
 	"the job work in a motel?",
-	"Does Dee's son study medicine?",
-	"Dee's son studied medicine.",
+	"Does Ed Trinka's son study medicine?",
+	"Ed Trinka's son studied medicine.",
 	"Some woman went to vocational school.",
 	"Some man went to vocational school.",
 	"Some boy went to vocational school.",
-	"A man raised Dee's son",
+	"A man raised Ed Trinka's son",
 	"Some woman told a story.",
 	"Does Ofelia immigrate?",
 	"Does Ofelia go to the United States?",
 	"Does Ofelia come from Cuba?",
-	"Does Dee's son come to the United States?"
+	"Does Ed Trinka's son come to the United States?"
 	]
 
 ditransitive_tests = [
-	"Dee told a story.",
-	"Dee told Dee's father a story.",
-	"Dee told a story to Dee's father.",
-	"Dee told a story to Alf",
-	"Dee gave some job to Alf.",
-	"Does Dee give some job to Alf.",
-	"Does Dee give the job to Alf?",
-	"Does Dee give the job to someone?",
-	"Dee gave several job to Alf.",
-	"Does someone give something to Alf?",
-	"A woman gave the job to Alf.",
+	"Ed Trinka told a story.",
+	"Ed Trinka told Dee's father a story.",
+	"Ed Trinka told a story to Dee's father.",
+	"Ed Trinka told a story to Debra Goodman",
+	"Ed Trinka gave some job to Debra Goodman.",
+	"Does Ed Trinka give some job to Debra Goodman.",
+	"Does Ed Trinka give the job to Debra Goodman?",
+	"Does Ed Trinka give the job to someone?",
+	"Ed Trinka gave several job to Debra Goodman.",
+	"Does someone give something to Debra Goodman?",
+	"A woman gave the job to Debra Goodman.",
 	"A woman gave the job to someone.",
 	"A woman gave something to someone.",
 	"Someone gave something to someone.",
-	"Dee gave Alf some job.",
-	"Does Dee give Alf some job?",
-	"Does Dee give Alf the job?",
-	"Does Dee give someone the job?",
-	"Dee gave Alf several job.",
-	"Does someone give Alf something?",
-	"A man gave Alf the job.",
-	"A boy gave Alf the job.",
-	"Leroy gave Alf the shoe.",
+	"Ed Trinka gave Debra Goodman some job.",
+	"Does Ed Trinka give Debra Goodman some job?",
+	"Does Ed Trinka give Debra Goodman the job?",
+	"Does Ed Trinka give someone the job?",
+	"Ed Trinka gave Debra Goodman several job.",
+	"Does someone give Debra Goodman something?",
+	"A man gave Debra Goodman the job.",
+	"A boy gave Debra Goodman the job.",
+	"Leroy gave Debra Goodman the shoe.",
 	"A man gave someone the job.",
 	"A man gave someone something.",
 	"Someone gave someone something.",
-	"Does someone give something to Dee's son?",
-	"A woman gave the ships to Dee's son.",
+	"Does someone give something to Ed Trinka's son?",
+	"A woman gave the ships to Ed Trinka's son.",
 	"A woman gave the ships to someone.",
 	"A woman gave something to someone.",
 	"Someone gave something to someone.",
-	"Does someone give Dee's son something?",
-	"A man gave Dee's son the ships.",
-	"A man gave Dee's son some ships.",
-	"A boy gave Dee's son the ships.",
-	"the job gave Dee's son the boat.",
+	"Does someone give Ed Trinka's son something?",
+	"A man gave Ed Trinka's son the ships.",
+	"A man gave Ed Trinka's son some ships.",
+	"A boy gave Ed Trinka's son the ships.",
+	"the job gave Ed Trinka's son the boat.",
 	"A man gave someone the ships.",
 	"A man gave someone something.",
 	"Someone gave someone something.",
-	"Does Dee's son pick tomatoes in the fields?"
+	"Does Ed Trinka's son pick tomatoes in the fields?"
 	]
 
 wh_questions =[
 	"Who worked?",
-	"Who did Alf teach?",
-	"Who taught Alf?",
-	"Who gave the job to Alf?",
-	"Who gave some job to Alf?",
+	"Who does Debra Goodman teach?",
+	"Who taught Debra Goodman?",
+	"Who gave the job to Debra Goodman?",
+	"Who gave some job to Debra Goodman?",
 	"Which person worked?",
-	"Which person did Alf teach?",
-	"To whom did Dee give some job?",
-	"Who did Dee give some job to?",
+	"Which person does Debra Goodman teach?",
+	"To whom does Ed Trinka give some job?",
+	"Who does Ed Trinka give some job to?",
 	"Who looked back?",
 	"Which man looked back?",
-	"Who raised Dee's son?",
-	"Which woman raised Dee's son?",
-	"Who gave the ships to Dee's son?",
-	"Who gave some ships to Dee's son?",
+	"Who raised Ed Trinka's son?",
+	"Which woman raised Ed Trinka's son?",
+	"Who gave the ships to Ed Trinka's son?",
+	"Who gave some ships to Ed Trinka's son?",
 	"Which person looked back?",
 	"Which woman appreciated the interviewer?",
 	"Which girl appreciated the interviewer?",
 	"Which daughter appreciated the interviewer?",
-	"Who did Dee's son appreciate?",
-	"Which person did Dee's son appreciate?",
-	"Which man did Dee's son appreciate?",
-	"Which woman did Dee's son appreciate?",
-	"Which thing did Dee's son appreciate?",
-	"Which boat did Dee's son appreciate?",
-	-- "To whom did the interviewer give some ships?",
-	-- "Who did the interviewer give some ships to?",
+	"Who does Ed Trinka's son appreciate?",
+	"Which person does Ed Trinka's son appreciate?",
+	"Which man does Ed Trinka's son appreciate?",
+	"Which woman does Ed Trinka's son appreciate?",
+	"Which thing does Ed Trinka's son appreciate?",
+	"Which boat does Ed Trinka's son appreciate?",
+	-- "To whom does the interviewer give some ships?",
+	-- "Who does the interviewer give some ships to?",
 	"Who had a boat?",
-	"What did Dee's son have?",
-	"Who did Dee's son have?",
-	"Who did the job disappoint?",
-	"Who did the interviewer's daughter appreciate?",
-	"What did the interviewer's daughter appreciate?",
-	"Which thing did the interviewer's daughter appreciate?",
-	"Which man did the interviewer's daughter appreciate?",
-	"Which woman did the interviewer's daughter appreciate?",
-	"Which boat did the interviewer's daughter appreciate?",
-	"What did someone have?"
+	"What does Ed Trinka's son have?",
+	"Who does Ed Trinka's son have?",
+	"Who does the job disappoint?",
+	"Who does the interviewer's daughter appreciate?",
+	"What does the interviewer's daughter appreciate?",
+	"Which thing does the interviewer's daughter appreciate?",
+	"Which man does the interviewer's daughter appreciate?",
+	"Which woman does the interviewer's daughter appreciate?",
+	"Which boat does the interviewer's daughter appreciate?",
+	"What does someone have?"
 	]
 
 relclauses = [
-	"A woman who taught Alf work.",
-	"The woman who taught Alf work.",
-	"Did the woman who taught Alf work?",
-	"Did every woman who taught Alf work?",
-	"The woman who gave the job to Alf work.",
-	"Dee divorced the man that she gave the job to.",
+	"A woman who taught Debra Goodman work.",
+	"The woman who taught Debra Goodman work.",
+	"Did the woman who taught Debra Goodman work?",
+	"Did every woman who taught Debra Goodman work?",
+	"The woman who gave the job to Debra Goodman work.",
+	"Ed Trinka divorced the man that he gave the job to.",
 	"Who killed the man that helped the woman " 
 	 ++ "that had a boyfriend.",
-	"A woman who raised Dee's son looked back.",
-	"The woman who raised Dee's son looked back.",
-	"Did the woman who raised Dee's son look back?",
-	"Did every person who raised Dee's son look back?",
-	"Did some person who raised Dee's son look back?",
-	"The woman who gave the ships to Dee's son looked back.",
-	"Ofelia married the man that gave the ships to Dee's son.",
-	"The man that Ofelia married gave the ships to Dee's son.",
-	"The man Ofelia married gave the ships to Dee's son.",
-	"the job disappointed the man that gave Dee's son the ships.",
+	"A woman who raised Ed Trinka's son looked back.",
+	"The woman who raised Ed Trinka's son looked back.",
+	"Did the woman who raised Ed Trinka's son look back?",
+	"Did every person who raised Ed Trinka's son look back?",
+	"Did some person who raised Ed Trinka's son look back?",
+	"The woman who gave the ships to Ed Trinka's son looked back.",
+	"Ofelia married the man that gave the ships to Ed Trinka's son.",
+	"The man that Ofelia married gave the ships to Ed Trinka's son.",
+	"The man Ofelia married gave the ships to Ed Trinka's son.",
+	"the job disappointed the man that gave Ed Trinka's son the ships.",
 	"The man that the job disappointed left Cuba.",
 	"The man the job disappointed left Cuba.",
-	"Dee's son accepted the ships that a man gave Dee's son.",
-	"Dee's son accepted the ships that a man gave to Dee's son.",
+	"Ed Trinka's son accepted the ships that a man gave Dee's son.",
+	"Ed Trinka's son accepted the ships that a man gave to Dee's son.",
 	"Who appreciated the man that gave the girl \
 	 \that left Cuba a ship?"
 	]
