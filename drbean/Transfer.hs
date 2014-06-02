@@ -1,7 +1,7 @@
 module Main where
 
 import PGF
-import AFB1J0
+import Trinka
 import LogicalForm
 import Evaluation
 
