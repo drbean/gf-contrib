@@ -106,7 +106,7 @@ det = [
 
 n = [
 	"doorman"
-	, "barber"
+	, "barber shop"
 	, "coat"
 	, "day"
 	, "dollar"
@@ -118,7 +118,7 @@ n = [
 	, "guest"
 	, "hour"
 	, "job"
-	, "kit"
+	, "shoeshine kit"
 	, "lady"
 	, "life"
 	, "locker"
@@ -129,7 +129,6 @@ n = [
 	, "paradise"
 	, "high school"
 	, "shoe"
-	, "shop"
 	, "story"
 	, "thing"
 	, "time"
