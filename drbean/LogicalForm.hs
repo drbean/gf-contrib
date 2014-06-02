@@ -1,6 +1,6 @@
 module LogicalForm where
 
-import Cusp
+import Trinka
 import Model
 -- import Interpretation
 import Story_Interpretation
@@ -98,9 +98,6 @@ transS ((GUt (GNegQ (GWH_Pred wh vp)))) =
 	WH (\x -> Conj [ transW wh x, Neg (transVP vp x)])
 transS (GUt (GPosQ (GYN (GSentence np vp)))) = (transNP np) (transVP vp)
 transS (GUt (GNegQ (GYN (GSentence np vp)))) = (transNP np) (transVP vp)
-transS (GUt (GPosQ (GYN (GFeel_helpless np)))) = transNP np (\e -> Rel "helpless" [e])
-transS (GUt (GPosQ (GYN (GFeel_unsupported np)))) = transNP np (\e -> Rel "unsupported" [e])
-transS (GUt (GPosQ (GYN (GComparative np1 a np2 )))) = transNP np1 (\e1 -> (transNP np2 (\e2 -> (Rel ("more_" ++ (a_list a)) [e1, e2]))))
 transS (GUt (GPosQ (GTagQ np vp))) = (transNP np) (transVP vp)
 transS (GUt (GNegQ (GTagQ np vp))) = (transNP np) (transVP vp)
 transS (GUt (GPosQ (GTagComp np comp))) = (transNP np) (transCOMP comp)
@@ -232,8 +229,6 @@ transN2 :: GN2 -> Term -> LF
 transN2 name	= \x -> Rel (n2_kind_list name) [x]
 transCN :: GCN -> Term -> LF
 transCN (GKind ap cn) = \x -> Conj [ transCN cn x, Rel (adjective_list ap) [x] ]
-transCN (GLack_of np) = \object -> transNP np ( \thing -> Rel "lack" [object, thing])
-transCN (GLevel_of np) = \object -> transNP np ( \thing -> Rel "level" [object, thing])
 transCN (GOfpos cn np) =
     \owner -> Conj [(transN2 cn owner), (transNP np 
 	(\thing -> Rel "have" [owner, thing]))]
@@ -328,7 +323,6 @@ transVP :: GVP -> Term -> LF
 --
 transVP (GBe_vp comp) = case comp of
     GBe_someone np -> \x -> transNP np (\pred -> Eq pred x)
-    GBe_bad (GMore a) -> \x -> (Exists (\y -> Rel ("more_" ++ a_list a) [x,y]))
     GBe_bad ap -> \x -> Rel (adjective_list ap) [x]
 transVP (GHappening v) =
         \ t -> ( Rel (happening_list v) [t] )
@@ -406,20 +400,6 @@ transVP (GCausative v0 obj0 vp) = case vp of
 --		(\agent -> transNP obj1
 --		    (\theme -> transPP obj2
 --			( \recipient -> Rel (att++"_to_"++act) [subj,agent,theme,recipient] ))))
-transVP (GPositing v0 s) = case s of 
---    GPosS (GIs np ap) ->
---	(\positer -> transNP np 
---	    (\subj -> Rel ((positing_list v0) ++"_is_"++ (adjective_list ap)) [positer, subj]))
-    GPosS (GSentence referent (GBe_vp comp)) ->
-	(\positer -> transNP referent 
-	    (\subj -> (transCOMP comp subj )))
-    GPosS (GSentence referent (GIntens vv (GHappening v))) ->
-	(\positer -> transNP referent 
-	    (\subj -> Rel ((positing_list v0) ++ "_" ++ (intens_list vv) ++ "_to_"
-		++ (happening_list v)) [positer, subj] ))
---    GNegS (GCop item comp) ->
---	(\positer -> transNP item 
---	    (\subj -> transNP comp (\x -> Rel ((positing_list v0) ++"_isn't") [positer, subj, x])))
 transVP _ = \x -> NonProposition
 --
 transCOMP :: GComp -> Term -> LF
