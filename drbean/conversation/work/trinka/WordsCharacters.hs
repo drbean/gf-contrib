@@ -39,7 +39,6 @@ a = [
 	, "good"
 	, "great"
 	, "happy"
-	, "high"
 	, "important"
 	, "last"
 	, "nice"
@@ -47,11 +46,12 @@ a = [
 	, "young"
 
 	, "shined"
+	]
 
 
 adv = [
 
-	, "away"
+	"away"
 	, "because"
 	, "before"
 	, "but"
@@ -127,7 +127,7 @@ n = [
 	, "meeting"
 	, "morning"
 	, "paradise"
-	, "school"
+	, "high school"
 	, "shoe"
 	, "shop"
 	, "story"
@@ -213,147 +213,147 @@ v = [
   , "work"
 	]
 
-about
-ago
-all
-already
-always
-anybody
-as
-ask	: V;
-at
-away
-back
-barber	: CN;
-be
-beautiful	: A;
-because
-being
-big	: A;
-by
-Christmas	: PN;
-coat	: CN;
-come	: V;
-cut	: V;
-day	: CN;
-Debra Goodman	: PN;
-do
-dollar	: CN;
-done
-door	: CN;
-doorman	: CN;
-down
-Ed Trinka	: PN;
-eight
-ever
-every
-everybody
-fact	: CN;
-father	: CN;
-fifty
-first
-fit	: V;
-for
-friend	: CN;
-from
-front	: A;
-garage	: CN;
-get	: V;
-give	: V;
-Jackie Gleason	: PN;
-go
-God	: PN;
-good	: A;
-graduated	: V;
-great	: A;
-guest	: CN;
-half
-happy	: A;
-hat
-have	: V;
-he
-here
-high	: A;
-him
-his
-the Plaza Hotel	: PN;
-hour	: CN;
-hundred
-important	: A;
-in
-it
-job	: CN;
-just
-kit	: CN;
-know	: V;
-lady	: CN;
-last	: A;
-life	: CN;
-like	: V;
-live	: V;
-locker	: CN;
-make	: V;
-man	: CN;
-manager	: CN;
-me
-meeting	: CN;
-Merry Christmas	: PN;
-morning	: CN;
-nice	: A;
-eight o'clock
-on
-one
-open	: V;
-or
-out
-outside
-over
-paradise	: CN;
-put	: V;
-ran	: V;
-right
-say	: V;
-school	: CN;
-shine	: V;
-shined	: A;
-shoe	: CN;
-shoeshine : CN;
-shop	: CN;
-sick	: A;
-six-thirty
-smile	: V;
-somebody
-start	: V;
-story	: CN;
-such
-talk	: V;
-tell	: V;
-that
-there
-thing	: CN;
-thirty
-this
-till
-time	: CN;
-tip	: CN;
-to
-treat	: V;
-up
-very
-VIP	: CN;
-walk	: V;
-was
-way	: CN;
-well
-what
-when
-where
-which
-who
-whole
-with
-work	: V;
-year	: CN;
-young	: A;
-
--- vim: set ts=8 sts=2 sw=2 noet:
+-- about
+-- ago
+-- all
+-- already
+-- always
+-- anybody
+-- as
+-- ask	: V;
+-- at
+-- away
+-- back
+-- barber	: CN;
+-- be
+-- beautiful	: A;
+-- because
+-- being
+-- big	: A;
+-- by
+-- Christmas	: PN;
+-- coat	: CN;
+-- come	: V;
+-- cut	: V;
+-- day	: CN;
+-- Debra Goodman	: PN;
+-- do
+-- dollar	: CN;
+-- done
+-- door	: CN;
+-- doorman	: CN;
+-- down
+-- Ed Trinka	: PN;
+-- eight
+-- ever
+-- every
+-- everybody
+-- fact	: CN;
+-- father	: CN;
+-- fifty
+-- first
+-- fit	: V;
+-- for
+-- friend	: CN;
+-- from
+-- front	: A;
+-- garage	: CN;
+-- get	: V;
+-- give	: V;
+-- Jackie Gleason	: PN;
+-- go
+-- God	: PN;
+-- good	: A;
+-- graduated	: V;
+-- great	: A;
+-- guest	: CN;
+-- half
+-- happy	: A;
+-- hat
+-- have	: V;
+-- he
+-- here
+-- high	: A;
+-- him
+-- his
+-- the Plaza Hotel	: PN;
+-- hour	: CN;
+-- hundred
+-- important	: A;
+-- in
+-- it
+-- job	: CN;
+-- just
+-- kit	: CN;
+-- know	: V;
+-- lady	: CN;
+-- last	: A;
+-- life	: CN;
+-- like	: V;
+-- live	: V;
+-- locker	: CN;
+-- make	: V;
+-- man	: CN;
+-- manager	: CN;
+-- me
+-- meeting	: CN;
+-- Merry Christmas	: PN;
+-- morning	: CN;
+-- nice	: A;
+-- eight o'clock
+-- on
+-- one
+-- open	: V;
+-- or
+-- out
+-- outside
+-- over
+-- paradise	: CN;
+-- put	: V;
+-- ran	: V;
+-- right
+-- say	: V;
+-- school	: CN;
+-- shine	: V;
+-- shined	: A;
+-- shoe	: CN;
+-- shoeshine : CN;
+-- shop	: CN;
+-- sick	: A;
+-- six-thirty
+-- smile	: V;
+-- somebody
+-- start	: V;
+-- story	: CN;
+-- such
+-- talk	: V;
+-- tell	: V;
+-- that
+-- there
+-- thing	: CN;
+-- thirty
+-- this
+-- till
+-- time	: CN;
+-- tip	: CN;
+-- to
+-- treat	: V;
+-- up
+-- very
+-- VIP	: CN;
+-- walk	: V;
+-- was
+-- way	: CN;
+-- well
+-- what
+-- when
+-- where
+-- which
+-- who
+-- whole
+-- with
+-- work	: V;
+-- year	: CN;
+-- young	: A;
+-- 
+-- -- vim: set ts=8 sts=2 sw=2 noet:
