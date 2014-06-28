@@ -7,8 +7,6 @@ fun
 	-- Is	: NP -> AP -> Cl;
 	-- Cop		: NP -> NP -> Cl;
 	Look_bad	: VA -> AP -> VP;
-	Feel_helpless	: NP -> Cl;
-	Feel_unsupported  : NP -> Cl;
 	Be_made_sth : V3 -> NP -> VP;
 	Be_bad	: AP -> Comp;
 	Be_someone	: NP -> Comp;

@@ -35,8 +35,6 @@ lin
 	Be_someone np	= SyntaxEng.mkComp np;
 	Be_vp comp	= SyntaxEng.mkVP comp;
 	Look_bad verb adj	= SyntaxEng.mkVP verb adj;
-  Feel_helpless np = mkCl np feel_V helpless_A;
-  Feel_unsupported np = mkCl np feel_V unsupported_A;
   Location prep item	= mkAdv prep item;
 	Happening action	=	SyntaxEng.mkVP action;
 	Changing action patient	= SyntaxEng.mkVP action patient;
