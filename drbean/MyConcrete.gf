@@ -67,9 +67,6 @@ lin
 	Kind ap cn	= SyntaxEng.mkCN ap cn;
   KindOfKind cn adv	= mkCN cn adv;
 	Ofpos n2 np	= SyntaxEng.mkCN n2 np;
-  Lack_of np  = mkCN lack np;
-  Level_of np  = mkCN level np;
-  -- Little n  = mkCN (Kind little n);
 	Apos np	= SyntaxEng.mkDet (GenNP np);
 	Item det noun	= SyntaxEng.mkNP det noun;
 

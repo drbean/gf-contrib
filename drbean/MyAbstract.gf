@@ -47,9 +47,6 @@ fun
 	KindOfKind  : CN -> Adv -> CN;
 	Item	: Det -> CN -> NP;
 	Ofpos	: N2 -> NP -> CN;
-	Lack_of : NP -> CN;
-	Level_of : NP -> CN;
-	-- Little : N -> CN;
 
 	a_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
 	zero_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
