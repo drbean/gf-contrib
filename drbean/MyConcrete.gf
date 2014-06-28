@@ -1,43 +1,54 @@
 concrete MyConcrete of MyAbstract = open Prelude, SyntaxEng, ConstructorsEng, ParadigmsEng, ExtraEng, IrregEng in {
 
 lincat
-	Utt	= SyntaxEng.Utt;
-	PN	= SyntaxEng.PN;
-	NP	= SyntaxEng.NP;
-	AP	= SyntaxEng.AP;
-	Comp	= SyntaxEng.Comp;
-	Cl	= SyntaxEng.Cl;
-	QCl	= SyntaxEng.QCl;
-	S	= SyntaxEng.S;
-	QS	= SyntaxEng.QS;
-	SC	= SyntaxEng.SC;
-	V	= SyntaxEng.V;
-	VP	= SyntaxEng.VP;
-	V2	= SyntaxEng.V2;
-	V2V	= SyntaxEng.V2V;
-	V2S	= SyntaxEng.V2S;
-	VV	= SyntaxEng.VV;
-	VS	= SyntaxEng.VS;
-	VA	= SyntaxEng.VA;
-	Det	= SyntaxEng.Det;
-	CN	= SyntaxEng.CN;
-	N2	= SyntaxEng.N2;
-	IP	= SyntaxEng.IP;
-	Prep	= SyntaxEng.Prep;
+  Utt	= SyntaxEng.Utt;
+  PN	= SyntaxEng.PN;
+  NP	= SyntaxEng.NP;
+  AP	= SyntaxEng.AP;
+  Adv	= SyntaxEng.Adv;
+  Comp	= SyntaxEng.Comp;
+  Cl	= SyntaxEng.Cl;
+  QCl	= SyntaxEng.QCl;
+  S	= SyntaxEng.S;
+  QS	= SyntaxEng.QS;
+  SC	= SyntaxEng.SC;
+  V	= SyntaxEng.V;
+  VP	= SyntaxEng.VP;
+  V2	= SyntaxEng.V2;
+  V2V	= SyntaxEng.V2V;
+  V2S	= SyntaxEng.V2S;
+  VV	= SyntaxEng.VV;
+  VS	= SyntaxEng.VS;
+  VA	= SyntaxEng.VA;
+  Det	= SyntaxEng.Det;
+  CN	= SyntaxEng.CN;
+  N2	= SyntaxEng.N2;
+  IP	= SyntaxEng.IP;
+  Prep	= SyntaxEng.Prep;
+  CAdv	= SyntaxEng.CAdv;
 
 lin
 	-- Is item quality	=	mkCl item quality;
 	-- Cop item1 item2	= mkCl item1 item2;
 	Be_bad ap	= SyntaxEng.mkComp ap;
+  Be_mod located	= mkComp located;
 	Be_someone np	= SyntaxEng.mkComp np;
 	Be_vp comp	= SyntaxEng.mkVP comp;
 	Look_bad verb adj	= SyntaxEng.mkVP verb adj;
+  Feel_helpless np = mkCl np feel_V helpless_A;
+  Feel_unsupported np = mkCl np feel_V unsupported_A;
+  Location prep item	= mkAdv prep item;
 	Happening action	=	SyntaxEng.mkVP action;
 	Changing action patient	= SyntaxEng.mkVP action patient;
 	Causative causal patient predicate	= SyntaxEng.mkVP causal patient predicate;
 	Intens attitude predicate	= SyntaxEng.mkVP attitude predicate;
 	Positing posit event	= SyntaxEng.mkVP posit event;
 	Informing posit patient event	= SyntaxEng.mkVP posit patient event;
+  Triangulating v patient recipient = mkVP v patient recipient; 
+  Pred2A v patient state = mkVP v patient state;
+  PassV3 v np = insertObj (\\_ => v.s ! VPPart ++ v.p ++ v.c2 ++ v.c3 ++ np.s ! NPAcc) (predAux auxBe) ;
+  Located action location	= mkVP action location;
+  Be_made_sth vp np = passiveVP3 vp np;
 	YN cl	= SyntaxEng.mkQCl cl;
 	-- WH_Cop ip comp	= mkQCl ip comp;
 	WH_NP ip np	= SyntaxEng.mkQCl ip np;
@@ -56,7 +67,11 @@ lin
 
 	Entity pn	= SyntaxEng.mkNP pn;
 	Kind ap cn	= SyntaxEng.mkCN ap cn;
+  KindOfKind cn adv	= mkCN cn adv;
 	Ofpos n2 np	= SyntaxEng.mkCN n2 np;
+  Lack_of np  = mkCN lack np;
+  Level_of np  = mkCN level np;
+  -- Little n  = mkCN (Kind little n);
 	Apos np	= SyntaxEng.mkDet (GenNP np);
 	Item det noun	= SyntaxEng.mkNP det noun;
 
@@ -68,10 +83,19 @@ lin
 	who_WH	= SyntaxEng.whoSg_IP;
 	what_WH	= SyntaxEng.whatSg_IP;
 
-	of_prep	= SyntaxEng.possess_Prep;
+  about_prep	= mkPrep "about";
+  at_prep	= at_prep;
+  in_prep	= in_prep;
+	of_prep	= possess_Prep;
+  on_prep	= on_prep;
+  over_prep	= over_prep;
+  part_prep	= part_prep;
+  to_prep	= to_prep;
+  up_prep	= up_prep;
+
 	can	= can_VV;
 	become	= mkV2 IrregEng.become_V;
 
 }
 
--- vim: set ts=8 sts=2 sw=2 noet:
+-- vim: set ts=2 sts=2 sw=2 noet:
