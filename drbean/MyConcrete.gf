@@ -1,4 +1,4 @@
-concrete MyConcrete of MyAbstract = open Prelude, SyntaxEng, ConstructorsEng, ParadigmsEng, ExtraEng, IrregEng in {
+concrete MyConcrete of MyAbstract = open Prelude, ResEng, SyntaxEng, ConstructorsEng, ParadigmsEng, ExtraEng, IrregEng in {
 
 lincat
   Utt	= SyntaxEng.Utt;
@@ -15,8 +15,10 @@ lincat
   V	= SyntaxEng.V;
   VP	= SyntaxEng.VP;
   V2	= SyntaxEng.V2;
+  V3	= SyntaxEng.V3;
   V2V	= SyntaxEng.V2V;
   V2S	= SyntaxEng.V2S;
+  V2A	= SyntaxEng.V2A;
   VV	= SyntaxEng.VV;
   VS	= SyntaxEng.VS;
   VA	= SyntaxEng.VA;
@@ -35,7 +37,7 @@ lin
 	Be_someone np	= SyntaxEng.mkComp np;
 	Be_vp comp	= SyntaxEng.mkVP comp;
 	Look_bad verb adj	= SyntaxEng.mkVP verb adj;
-  Location prep item	= mkAdv prep item;
+  Location prep item	= SyntaxEng.mkAdv prep item;
 	Happening action	=	SyntaxEng.mkVP action;
 	Changing action patient	= SyntaxEng.mkVP action patient;
 	Causative causal patient predicate	= SyntaxEng.mkVP causal patient predicate;
@@ -46,7 +48,7 @@ lin
   Pred2A v patient state = mkVP v patient state;
   PassV3 v np = insertObj (\\_ => v.s ! VPPart ++ v.p ++ v.c2 ++ v.c3 ++ np.s ! NPAcc) (predAux auxBe) ;
   Located action location	= mkVP action location;
-  Be_made_sth vp np = passiveVP3 vp np;
+  Be_made_sth vp np = PassV3 vp np;
 	YN cl	= SyntaxEng.mkQCl cl;
 	-- WH_Cop ip comp	= mkQCl ip comp;
 	WH_NP ip np	= SyntaxEng.mkQCl ip np;
@@ -79,14 +81,14 @@ lin
 	what_WH	= SyntaxEng.whatSg_IP;
 
   about_prep	= mkPrep "about";
-  at_prep	= at_prep;
-  in_prep	= in_prep;
+  at_prep	= mkPrep "at";
+  in_prep	= mkPrep "in";
 	of_prep	= possess_Prep;
-  on_prep	= on_prep;
-  over_prep	= over_prep;
-  part_prep	= part_prep;
-  to_prep	= to_prep;
-  up_prep	= up_prep;
+  on_prep	= mkPrep "on";
+  over_prep	= mkPrep "over";
+  part_prep	= part_Prep;
+  to_prep	= to_Prep;
+  up_prep	= mkPrep "up";
 
 	can	= can_VV;
 	become	= mkV2 IrregEng.become_V;
