@@ -37,7 +37,8 @@ fun
 	NegQ	: QCl -> QS;
 	PosS	: Cl -> S;
 	NegS	: Cl -> S;
-	Ut	: QS -> Utt;
+	QUt	: QS -> Utt;
+	Ut	: S -> Utt;
 	Sentence	: NP -> VP -> Cl;
 
 	Yes, No, NoAnswer	: Utt;
@@ -72,6 +73,7 @@ fun
 	part_prep	: Prep;
 	to_prep	: Prep;
 	up_prep	: Prep;
+	with_prep	: Prep;
 
 	become	: V2;
 	can	: VV;
@@ -81,7 +83,6 @@ fun
 	like	: V2;
 	need	: V2;
 	-- need_V	: VV;
-	prove	: V2;
 	say	: VS;
 	see	: V2;
 	tell	: V2S;
