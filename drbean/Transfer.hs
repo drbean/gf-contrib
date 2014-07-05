@@ -1,7 +1,7 @@
 module Main where
 
 import PGF
-import Trinka
+import Dickson
 import LogicalForm
 import Evaluation
 
@@ -18,7 +18,7 @@ import System.Environment.FindBin
 main :: IO () 
 main = do
   path <- getProgPath
-  gr <- readPGF ( path ++ "/AFB1J0.pgf" )
+  gr <- readPGF ( path ++ "/Dickson.pgf" )
   hClose stderr
   hDuplicateTo stdout stderr
   s <- getLine
@@ -53,7 +53,7 @@ linear :: (Tree -> Tree) -> PGF -> [Tree] -> [ String ]
 linear tr gr ps = concat $ map ((linearizeAll gr) . tr) ps
 
 lc_first :: String -> String
-lc_first str@(s:ss) = case ( or $ map (flip isPrefixOf str) ["Bradshaw", "Gourlay", "men", "women", "CUSP", "C", "P", "S", "U"] ) of
+lc_first str@(s:ss) = case ( or $ map (flip isPrefixOf str) ["Dee", "Alf", "Monday"] ) of
 	True  -> (s:ss)
 	False -> ((toLower s):ss)
 
@@ -66,18 +66,18 @@ chomp (x:xs) | x `elem` ".,?" = chomp xs
 
 label :: GUtt -> String
 -- label (GUt (GPosQ (GWH_Cop _ _)))	= "WH"
-label (GUt (GPosQ (GWH_NP _ _)))	= "WH"
-label (GUt (GNegQ (GWH_NP _ _)))	= "WH"
-label (GUt (GPosQ (GWH_AP _ _)))	= "WH"
-label (GUt (GNegQ (GWH_AP _ _)))	= "WH"
-label (GUt (GPosQ (GWH_Pred _ _)))	= "WH"
-label (GUt (GNegQ (GWH_Pred _ _)))	= "WH"
-label (GUt (GPosQ (GYN _)))	= "YN"
-label (GUt (GNegQ (GYN _)))	= "YN"
-label (GUt (GPosQ (GTagQ _ _)))	= "Tag"
-label (GUt (GNegQ (GTagQ _ _)))	= "Tag"
-label (GUt (GPosQ (GTagComp _ _)))	= "Tag"
-label (GUt (GNegQ (GTagComp _ _)))	= "Tag"
+label (GQUt (GPosQ (GWH_NP _ _)))	= "WH"
+label (GQUt (GNegQ (GWH_NP _ _)))	= "WH"
+label (GQUt (GPosQ (GWH_AP _ _)))	= "WH"
+label (GQUt (GNegQ (GWH_AP _ _)))	= "WH"
+label (GQUt (GPosQ (GWH_Pred _ _)))	= "WH"
+label (GQUt (GNegQ (GWH_Pred _ _)))	= "WH"
+label (GQUt (GPosQ (GYN _)))	= "YN"
+label (GQUt (GNegQ (GYN _)))	= "YN"
+label (GQUt (GPosQ (GTagQ _ _)))	= "Tag"
+label (GQUt (GNegQ (GTagQ _ _)))	= "Tag"
+label (GQUt (GPosQ (GTagComp _ _)))	= "Tag"
+label (GQUt (GNegQ (GTagComp _ _)))	= "Tag"
 label _				= "Unparseable"
 
 takeCourse :: String -> String -> String
