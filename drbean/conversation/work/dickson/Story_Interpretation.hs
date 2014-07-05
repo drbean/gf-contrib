@@ -61,8 +61,6 @@ kind_list Gword	= "word"
 happening_list :: GV -> String
 happening_list Gwork_V	= "work"
 happening_list Glaugh	= "laugh"
-happening_list Gknow	= "know"
-happening_list Glook_here	= "look_here"
 happening_list Gslow_down	= "slow_down"
 
 changing_list :: GV2 -> String
@@ -165,3 +163,4 @@ relations = [
 	]
 
 
+-- vim: set ts=2 sts=2 sw=2 noet:
