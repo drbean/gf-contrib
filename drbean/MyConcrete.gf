@@ -15,6 +15,7 @@ lincat
   SC	= SyntaxEng.SC;
   V	= SyntaxEng.V;
   VP	= SyntaxEng.VP;
+	VPSlash = SyntaxEng.VPSlash;
   V2	= SyntaxEng.V2;
   V3	= SyntaxEng.V3;
   V2V	= SyntaxEng.V2V;
@@ -81,9 +82,12 @@ lin
 	Informing posit patient event	= SyntaxEng.mkVP posit patient event;
   Triangulating v patient recipient = mkVP v patient recipient; 
   Pred2A v patient state = mkVP v patient state;
-  PassV3 v np = insertObj (\\_ => v.s ! VPPart ++ v.p ++ v.c2 ++ v.c3 ++ np.s ! NPAcc) (predAux auxBe) ;
+  -- PassV3 v np = insertObj (\\_ => v.s ! VPPart ++ v.p ++ v.c2 ++ v.c3 ++ np.s ! NPAcc) (predAux auxBe) ;
+	Pass vp = PassVPSlash vp;
+	V2VSlash v2v vp	= mkVPSlash v2v vp;
+	V3Slash v3 np	= mkVPSlash v3 np;
   Located action location	= mkVP action location;
-  Be_made_sth vp np = PassV3 vp np;
+  -- Be_made_sth vp np = PassV3 vp np;
 	YN cl	= SyntaxEng.mkQCl cl;
 	-- WH_Cop ip comp	= mkQCl ip comp;
 	WH_NP ip np	= SyntaxEng.mkQCl ip np;

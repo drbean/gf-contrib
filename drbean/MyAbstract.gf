@@ -7,7 +7,7 @@ fun
 	-- Is	: NP -> AP -> Cl;
 	-- Cop		: NP -> NP -> Cl;
 	Look_bad	: VA -> AP -> VP;
-	Be_made_sth : V3 -> NP -> VP;
+	-- Be_made_sth : V3 -> NP -> VP;
 	Be_bad	: AP -> Comp;
 	Be_someone	: NP -> Comp;
 	Be_vp	: Comp -> VP;
@@ -20,7 +20,10 @@ fun
 	Informing:	V2S -> NP -> S -> VP;
 	Triangulating:	V3 -> NP -> NP -> VP;
   Pred2A: V2A -> NP -> AP -> VP;
-	PassV3   : V3 -> NP -> VP ;               -- be called John
+	-- PassV3	: V3 -> NP -> VP ;	-- be called John
+	Pass : VPSlash -> VP;
+	V2VSlash : V2V -> VP -> VPSlash;
+	V3Slash	: V3 -> NP -> VPSlash;
 	Located:  VP -> Adv -> VP;
 	YN	: Cl -> QCl;
 
