@@ -254,4 +254,4 @@ v = [
 	-- , "wouldn't"
 	]
 
--- vim: set ts=8 sts=2 sw=2 noet:
+-- vim: set ts=2 sts=2 sw=2 noet:
