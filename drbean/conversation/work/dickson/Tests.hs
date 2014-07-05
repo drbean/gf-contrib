@@ -24,13 +24,13 @@ ans tests = do
   let zs = zip (map (++"\t") tests) ls
   putStrLn (unlines (map (\(x,y) -> x ++ (show $ concat y)) zs) )
 
---trans tests = do
---  gr	<- readPGF ( "./Dickson.pgf" )
---  let ss = map (chomp . lc_first) tests
---  let ps = map ( parses gr ) ss
---  let ls = map id ps
---  let zs = zip (map (++"\t") tests) ps
---  putStrLn (unlines (map (\(x,y) -> x ++ (show (concat y ) ) ) zs) )
+trans tests = do
+  gr	<- readPGF ( "./Dickson.pgf" )
+  let ss = map (chomp . lc_first) tests
+  let ps = map ( parses gr ) ss
+  let ls = map id ps
+  let zs = zip (map (++"\t") tests) ps
+  putStrLn (unlines (map (\(x,y) -> x ++ (show (concat y ) ) ) zs) )
 
 logic tests = do
   gr	<- readPGF ( "./Dickson.pgf" )
@@ -72,6 +72,53 @@ chomp []                      = []
 -- chomp ('s':'\'':xs)           = "s 's" ++ chomp xs
 chomp (x:xs) | x `elem` ".,?" = chomp xs
             | otherwise      =     x:chomp xs
+
+dic_test = [
+
+    "The guy that interviews Dee says that Dee is too little."
+		, "The interviewer says that Dee cannot get along with the guys"
+		, "The guys make life hard for Dee."
+		, "The guy that interviews Dee doesn't think Dee needs to do it."
+
+    , "Dee's dad says that Uncle Alf is superintendent at the shipyard."
+		, "Dee's dad says that Uncle Alf can get Dee on like that."
+		, "Dee finally lets Dee's dad take Dee to see Uncle Alf."
+		, "Dee at the end of that week lets Dee's dad take Dee to see Uncle Alf."
+
+    , "Dee goes next Monday."
+    , "Dee goes the next Monday."
+		, "The guy says, I have the word from the top."
+		, "The guy doesn't like it."
+		, "The guy says Dee is hired."
+
+    , "Dee goes to the ship."
+		, "None of the guys want to work with Dee."
+		, "The guys say, These are men's jobs."
+		, "The guys say, Dee is taking jobs away from men who have families."
+		, "Dee says, I have a family and no man and I need money."
+
+    , "It takes about two weeks before Dee starts proving herself."
+		, "The guys do better with having a woman working."
+		, "The guys work with Dee."
+		, "Several guys tell Dee, Dee needs to slow down."
+		, "Several guys tell Dee to slow down."
+		, "Dee makes the guys look bad."
+		, "Dee laughs."
+		, "Dee says, Dee is here to work."
+
+    , "Dee has to go to school two nights a week."
+		, "Dee is the first apprentice who ever becomes supervisor before graduation."
+		, "The guys are mad because Dee gets a raise."
+		, "Dee gets a position they think is theirs."
+		, "Dee has a knack for getting stuff done on time."
+		, "Dee has a knack for getting stuff done right."
+
+    , "Dee has to do some things a little differently than the guys do."
+		, "Dee cannot lift an 80 pound transformer. "
+		, "Dee finds a way to do the same things the guys do."
+		, "Dee says that it makes Dee better than I probably would have been if I was a guy."
+
+	]
 
 likes_test = [
   "Does Dee like the job?"
@@ -609,4 +656,4 @@ relclauses = [
 --lf74 = ( \x -> ( Conj [ (Rel "daughter" [x]), (Rel "have" [x, Const (realents !! 17)]) ] ) )
 --lf75 = \x -> Impl (Rel "son" [x]) (Rel "have" [x, Const (realents !! 17)])
 
--- vim: set ts=8 sts=2 sw=2 noet:
+-- vim: set ts=2 sw=2 noet:
