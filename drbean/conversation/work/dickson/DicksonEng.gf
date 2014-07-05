@@ -1,126 +1,92 @@
---# -path=.:./gf-contrib/drbean/conversation/work/dickson:present
+--# -path=.:/home/drbean/GF/gf-contrib/drbean:./gf-contrib/drbean/conversation/work/dickson:present
 
-concrete DicksonEng of Dickson = DicksonI with
-  (Syntax = SyntaxEng),
-  (LexDickson = LexDicksonEng) **
-  open ResEng,Prelude in {
-
-param
-  Auxiliary	= Do | Be;
-
-oper
-  tag : NP -> {s : Auxiliary => Polarity => Str} =
-    \subj -> { s = case <(fromAgr subj.a).n, (fromAgr subj.a).g> of {
-      <Sg,Fem> => table {
-		      Do => table {Pos => "doesn't she"; Neg => "does she" };
-		      Be => table {Pos => "isn't she"; Neg => "is she" }
-		      };
-      <Sg,Masc>  => table {
-		      Do => table { Pos => "doesn't he"; Neg => "does he" };
-		      Be => table {Pos => "isn't he"; Neg => "is he" }
-		      };
-      <Sg,Neutr> => table {
-		      Do => table { Pos => "doesn't it"; Neg => "does it" };
-		      Be => table {Pos => "isn't it"; Neg => "is it" }
-		      };
-      <Pl,_>	=> table {
-		      Do => table { Pos => "don't they"; Neg => "do they" };
-		      Be => table {Pos => "aren't they"; Neg => "are they" }
-		      }
-    }
-  };
-
-  auxiliary : VP -> Auxiliary =
-    \vp -> case vp of {
-      vp => Be;
-      _	=> Do
-    };
+concrete DicksonEng of Dickson = MyConcrete  **
+open SyntaxEng, ParadigmsEng, IrregEng, ExtraEng in {
 
 lin
 
- TagQ np vp	= let
-   cl = mkCl np vp;
- in
- {s = table {
-     Pres => table {
-       Simul => table {
-         CPos => table {
-           QDir => (cl.s ! Pres ! Simul ! CPos ! ODir False) ++ ((tag np).s ! Do ! Pos );
-           QIndir => "nonExist" };
-         CNeg True => table {
-           QDir => (cl.s ! Pres ! Simul ! (CNeg True) ! ODir False) ++ ((tag np).s ! Do ! Neg );
-           QIndir => "nonExist" };
-         CNeg False => table {
-           QDir => (cl.s ! Pres ! Simul ! (CNeg False) ! ODir False) ++ ((tag np).s ! Do ! Neg );
-           QIndir => "nonExist" }
-           }
-         }
-   };
- lock_QCl = <>;
- };
+	-- PassV2V vp = PassVPSlash vp;
+	-- Slash v2v vp = mkVPSlash v2v vp;
+	allow = mkV2V (mkV "allow") noPrep to_prep;
+	get_along	= mkV2 "get" "along with";
+	get	= mkV2 "get";
+	give	= mkV3 IrregEng.give_V;
+	go	= mkV2 IrregEng.go_V "to";
+	have	= mkV2 (IrregEng.have_V);
+	hire	= mkV2 "hire";
+	interview	= mkV2 "interview";
+	laugh	= mkV "laugh";
+	lift	= mkV2 "lift";
+	like	= mkV2 "like";
+	look	= mkVA look_V;
+	need_VV = mkVV (mkV "need" ) ;
+	need_V2 = mkV2 (mkV "need" );
+	prove	= mkV2 "prove";
+	say	= mkVS IrregEng.say_V;
+	see	= mkV2 IrregEng.see_V;
+	slow_down	= partV (mkV "slow") "down";
+	start_ing_VV = ingVV (mkV "start");
+	take = mkV2V (IrregEng.take_V) noPrep to_prep;
+	tell = mkV2S IrregEng.tell_V noPrep;
+	tell_to	= mkV2V IrregEng.tell_V noPrep to_prep;
+	think_VS = mkVS (IrregEng.think_V);
+	work_V	= mkV "work";
+	work_with	 = mkV2 "work" with_prep;
 
- --TagNP np1 np2	= let
- --  cl = mkCl np1 np2;
- --in
- --{s = table {
- --    Pres => table {
- --      Simul => table {
- --        CPos => table {
- --          QDir => (cl.s ! Pres ! Simul ! CPos ! ODir False) ++ ((tag np1).s ! Be ! Pos );
- --          QIndir => "nonExist" };
- --        CNeg True => table {
- --          QDir => (cl.s ! Pres ! Simul ! (CNeg True) ! ODir False) ++ ((tag np1).s ! Be ! Neg );
- --          QIndir => "nonExist" };
- --        CNeg False => table {
- --          QDir => (cl.s ! Pres ! Simul ! (CNeg False) ! ODir False) ++ ((tag np1).s ! Be ! Neg );
- --          QIndir => "nonExist" }
- --          }
- --        }
- --  };
- --lock_QCl = <>;
- --};
+  bad	= mkAP( mkA "bad");
+  better	= mkAP( mkA "better");
+  first	= mkAP( mkA "first");
+  little	= mkAP( mkA "little");
+  mad	= mkAP( mkA "mad");
+  slow	= mkAP( mkA "slow");
+  hard	= mkAP( mkA "hard");
 
- --TagAP np ap	= let
- --  cl = mkCl np ap;
- --in
- --{s = table {
- --    Pres => table {
- --      Simul => table {
- --        CPos => table {
- --          QDir => (cl.s ! Pres ! Simul ! CPos ! ODir False) ++ ((tag np).s ! Be ! Pos );
- --          QIndir => "nonExist" };
- --        CNeg True => table {
- --          QDir => (cl.s ! Pres ! Simul ! (CNeg True) ! ODir False) ++ ((tag np).s ! Be ! Neg );
- --          QIndir => "nonExist" };
- --        CNeg False => table {
- --          QDir => (cl.s ! Pres ! Simul ! (CNeg False) ! ODir False) ++ ((tag np).s ! Be ! Neg );
- --          QIndir => "nonExist" }
- --          }
- --        }
- --  };
- --lock_QCl = <>;
- --};
+  apprentice	= mkCN( mkN "apprentice");
+  child	= mkCN( mkN "child");
+  dad	= mkCN( mkN "dad");
+  electrician	= mkCN( mkN "electrician");
+  end	= mkCN( mkN "end");
+  family	= mkCN( mkN "family");
+  father_2	= mkN2( father_N) part_prep;
+  father	= mkCN( father_N );
+  guy	= mkCN( mkN masculine (mkN "guy"));
+  graduation	= mkCN( mkN "graduation");
+  husband_2	= mkN2 ( husband_N ) of_prep;
+  husband	= mkCN( husband_N );
+  night	= mkCN( mkN "night");
+  position	= mkCN( mkN "position");
+	raise = mkCN( mkN "raise");
+  school	= mkCN( mkN "school");
+  ship	= mkCN( mkN "ship");
+  shipyard	= mkCN( mkN "shipyard");
+  stuff	= mkNP( mkN "stuff");
+  superintendent	= mkCN( mkN "superintendent");
+  supervisor	= mkCN( mkN "supervisor");
+  thing	= mkCN( mkN "thing");
+  time	= mkNP( mkN "time");
+  top	= mkCN( mkN "top");
+  transformer	= mkCN( mkN "transformer");
+  uncle_2	= mkN2 uncle_N part_prep;
+  uncle	= mkCN uncle_N;
+  way	= mkCN( mkN "way");
+  week	= mkCN( mkN "week");
+  woman	= mkCN( mkN "woman");
+  word	= mkCN( mkN "word");
+  work	= mkNP( mkN "work");
 
-  TagComp np comp	= let cl = mkCl np (mkVP comp)
-  in
-  {s = table {
-    Pres => table {
-      Simul => table {
-        CPos => table {
-          QDir => (cl.s ! Pres ! Simul ! CPos ! ODir False) ++ ((tag np).s ! Be ! Pos );
-          QIndir => "nonExist" };
-        CNeg True => table {
-          QDir => (cl.s ! Pres ! Simul ! CNeg True ! ODir False) ++ ((tag np).s ! Be ! Neg );
-          QIndir => "nonExist" };
-        CNeg False => table {
-          QDir => (cl.s ! Pres ! Simul ! CNeg False ! ODir False) ++ ((tag np).s ! Be ! Neg );
-          QIndir => "nonExist" }
-          }
-        }
-     };
-  lock_QCl = <>;
-  };
+  alf	= mkPN( mkN masculine (mkN "Alf") );
+  dee	= mkPN( mkN feminine (mkN "Dee") );
+  monday = mkPN( mkN nonhuman (mkN "Monday") );
+
+oper
+
+	look_V = mkV "look";
+
+  father_N	= mkN masculine (mkN "father");
+	husband_N	= mkN masculine (mkN "husband");
+  uncle_N	= mkN masculine (mkN "uncle");
 
 }
 
--- vim: set ts=8 sts=2 sw=2 noet:
+-- vim: set ts=2 sw=2 noet:
+
