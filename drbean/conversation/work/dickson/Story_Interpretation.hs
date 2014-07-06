@@ -90,6 +90,9 @@ intens_list Gcan	= "can"
 intens_list Gneed_V	= "need"
 intens_list Gstart	= "start"
 
+triangulating_list :: GV3 -> String
+triangulating_list Ggive	= "give"
+
 objects = [
 	( "apprentice",	\[x]	-> predid1 "apprentice" x	)
 	, ( "child",	\[x]	-> predid1 "child" x	)
