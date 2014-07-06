@@ -16,8 +16,7 @@ fun
 	Changing	: V2 -> NP -> VP;
 	Causative:	V2V -> NP -> VP -> VP;
 	Intens:	VV -> VP -> VP;
-	Positing:	VS -> SC -> VP;
-	Posited	: S -> SC;
+	Positing:	VS -> S -> VP;
 	Informing:	V2S -> NP -> S -> VP;
 	Triangulating:	V3 -> NP -> NP -> VP;
   Pred2A: V2A -> NP -> AP -> VP;

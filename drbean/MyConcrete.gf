@@ -79,7 +79,6 @@ lin
 	Causative causal patient predicate	= SyntaxEng.mkVP causal patient predicate;
 	Intens attitude predicate	= SyntaxEng.mkVP attitude predicate;
 	Positing posit event	= SyntaxEng.mkVP posit event;
-	Posited s = SyntaxEng.mkSC s;
 	Informing posit patient event	= SyntaxEng.mkVP posit patient event;
   Triangulating v patient recipient = mkVP v patient recipient; 
   Pred2A v patient state = mkVP v patient state;
