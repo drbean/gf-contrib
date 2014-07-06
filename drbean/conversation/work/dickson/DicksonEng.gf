@@ -53,6 +53,7 @@ lin
   graduation	= mkCN( mkN "graduation");
   husband_2	= mkN2 ( husband_N ) of_prep;
   husband	= mkCN( husband_N );
+	interviewer	= mkCN( mkN masculine (mkN "interviewer") );
   night	= mkCN( mkN "night");
   position	= mkCN( mkN "position");
 	raise = mkCN( mkN "raise");
