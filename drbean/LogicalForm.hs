@@ -1,6 +1,6 @@
 module LogicalForm where
 
-import Trinka
+import Dickson
 import Model
 -- import Interpretation
 import Story_Interpretation
@@ -92,16 +92,18 @@ relname lf = error ( (show lf) ++ " not a relation" )
 --
 transS :: GUtt -> LF
 --transS (Just Ep) = NonProposition
-transS ((GUt (GPosQ (GWH_Pred wh vp)))) =
+transS ((GQUt (GPosQ (GWH_Pred wh vp)))) =
 	WH (\x -> Conj [ transW wh x, transVP vp x ])
-transS ((GUt (GNegQ (GWH_Pred wh vp)))) =
+transS ((GQUt (GNegQ (GWH_Pred wh vp)))) =
 	WH (\x -> Conj [ transW wh x, Neg (transVP vp x)])
-transS (GUt (GPosQ (GYN (GSentence np vp)))) = (transNP np) (transVP vp)
-transS (GUt (GNegQ (GYN (GSentence np vp)))) = (transNP np) (transVP vp)
-transS (GUt (GPosQ (GTagQ np vp))) = (transNP np) (transVP vp)
-transS (GUt (GNegQ (GTagQ np vp))) = (transNP np) (transVP vp)
-transS (GUt (GPosQ (GTagComp np comp))) = (transNP np) (transCOMP comp)
-transS (GUt (GNegQ (GTagComp np comp))) = (transNP np) (transCOMP comp)
+transS (GQUt (GPosQ (GYN (GSentence np vp)))) = (transNP np) (transVP vp)
+transS (GUt (GPosS (GSentence np vp))) = (transNP np) (transVP vp)
+transS (GQUt (GNegQ (GYN (GSentence np vp)))) = (transNP np) (transVP vp)
+transS (GUt (GNegS (GSentence np vp))) = (transNP np) (transVP vp)
+transS (GQUt (GPosQ (GTagQ np vp))) = (transNP np) (transVP vp)
+transS (GQUt (GNegQ (GTagQ np vp))) = (transNP np) (transVP vp)
+transS (GQUt (GPosQ (GTagComp np comp))) = (transNP np) (transCOMP comp)
+transS (GQUt (GNegQ (GTagComp np comp))) = (transNP np) (transCOMP comp)
 --transS ((GUt (GPosQ (GYN (GIs subj ap))))) = (transNP subj)
 --					    (\x -> Rel (adjective_list ap) [x])
 --transS ((GUt (GNegQ (GYN (GIs subj ap))))) = (transNP subj)
