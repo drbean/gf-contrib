@@ -76,6 +76,7 @@ chomp (x:xs) | x `elem` ".,?" = chomp xs
 dic_test = [
 
     "The guy that interviews Dee says that Dee is too little."
+    , "The interviewer says that Dee is little."
 		, "The interviewer says that Dee cannot get along with the guys"
 		, "The guys make life hard for Dee."
 		, "The guy that interviews Dee doesn't think Dee needs to do it."
