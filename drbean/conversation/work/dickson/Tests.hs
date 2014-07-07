@@ -81,10 +81,10 @@ dic_test = [
 		, "The guys make life hard for Dee."
 		, "The guy who interviews Dee doesn't think that Dee needs to have the job."
 
-    , "Dee's dad says that Uncle Alf is superintendent at the shipyard."
-		, "Dee's dad says that Uncle Alf can get Dee on like that."
-		, "Dee finally lets Dee's dad take Dee to see Uncle Alf."
-		, "Dee at the end of that week lets Dee's dad take Dee to see Uncle Alf."
+    , "Dee's father says that Uncle Alf is the superintendent at the shipyard."
+		, "Dee's father says that Uncle Alf can get Dee a job."
+		, "Dee finally lets Dee's father take Dee to see Uncle Alf."
+		, "Dee at the end of that week lets Dee's father take Dee to see Uncle Alf."
 
     , "Dee goes next Monday."
     , "Dee goes the next Monday."
@@ -339,7 +339,7 @@ haves = [
   "Does Dee have Dee's father?"
   , "Does Dee's father have money?"
   , "Does Dee's father's uncle have money?"
-  , "Does Dee have Dee's dad?"
+  , "Does Dee have Dee's father?"
   , "Does Dee have Dee's uncle?"
   , "Does Dee's father's uncle have money?"
   , "Does Dee's father have Dee?"
