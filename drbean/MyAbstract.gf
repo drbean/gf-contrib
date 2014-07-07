@@ -22,8 +22,13 @@ fun
   Pred2A: V2A -> NP -> AP -> VP;
 	-- PassV3	: V3 -> NP -> VP ;	-- be called John
 	Pass : VPSlash -> VP;
-	V2VSlash : V2V -> VP -> VPSlash;
+	V2Slash	: V2 -> VPSlash;
+	V2VSlash	: V2V -> VP -> VPSlash;
 	V3Slash	: V3 -> NP -> VPSlash;
+	Modified	: CN -> RCl -> CN;
+	SubjRel	: RP -> VP -> RCl;
+	ObjRel	: RP -> ClSlash -> RCl;
+	VPClSlash	: NP -> VPSlash -> ClSlash;
 	Located:  VP -> Adv -> VP;
 	YN	: Cl -> QCl;
 
@@ -60,6 +65,8 @@ fun
 
 	who_WH	: IP;
 	what_WH	: IP;
+	which_RP	: RP;
+	that_RP	: RP;
 
 	more : CAdv;
 	Comparative : NP -> A ->NP -> Cl;
@@ -84,8 +91,6 @@ fun
 	know_V2	: V2;
 	know_VS	: VS;
 	like	: V2;
-	need	: V2;
-	-- need_V	: VV;
 	say	: VS;
 	see	: V2;
 	tell	: V2S;

@@ -7,6 +7,7 @@ lincat
   N	= SyntaxEng.N;
   AP	= SyntaxEng.AP;
   Adv	= SyntaxEng.Adv;
+  AdA	= SyntaxEng.AdA;
   Comp	= SyntaxEng.Comp;
   Cl	= SyntaxEng.Cl;
   QCl	= SyntaxEng.QCl;
@@ -16,6 +17,10 @@ lincat
   V	= SyntaxEng.V;
   VP	= SyntaxEng.VP;
 	VPSlash = SyntaxEng.VPSlash;
+	RCl	= SyntaxEng.RCl;
+	RS	= SyntaxEng.RS;
+	RP	= SyntaxEng.RP;
+	ClSlash	= SyntaxEng.ClSlash;
   V2	= SyntaxEng.V2;
   V3	= SyntaxEng.V3;
   V2V	= SyntaxEng.V2V;
@@ -84,8 +89,13 @@ lin
   Pred2A v patient state = mkVP v patient state;
   -- PassV3 v np = insertObj (\\_ => v.s ! VPPart ++ v.p ++ v.c2 ++ v.c3 ++ np.s ! NPAcc) (predAux auxBe) ;
 	Pass vp = PassVPSlash vp;
+	V2Slash v2	= mkVPSlash v2;
 	V2VSlash v2v vp	= mkVPSlash v2v vp;
 	V3Slash v3 np	= mkVPSlash v3 np;
+	Modified cn rcl = mkCN cn ( mkRS rcl);
+	SubjRel	rp vp = mkRCl rp vp;
+	ObjRel rp clslash = mkRCl rp clslash;
+	VPClSlash	np vpslash = mkClSlash np vpslash;
   Located action location	= mkVP action location;
   -- Be_made_sth vp np = PassV3 vp np;
 	YN cl	= SyntaxEng.mkQCl cl;
@@ -119,6 +129,8 @@ lin
 
 	who_WH	= SyntaxEng.whoSg_IP;
 	what_WH	= SyntaxEng.whatSg_IP;
+	which_RP	= which_RP;
+	that_RP	= that_RP;
 
   about_prep	= mkPrep "about";
   at_prep	= mkPrep "at";
@@ -131,6 +143,7 @@ lin
   up_prep	= mkPrep "up";
   with_prep	= mkPrep "with";
 
+	too_AdA	= too_AdA;
 	can	= can_VV;
 	become	= mkV2 IrregEng.become_V;
 	know_V2	= mkV2 know_V;
