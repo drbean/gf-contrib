@@ -42,6 +42,8 @@ fun
 	mad	: AP;
 	hard	: AP;
 
+	next_Monday	: Adv;
+
 	apprentice	: CN;
 	child	: CN;
 	dad	: CN;

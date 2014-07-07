@@ -45,9 +45,11 @@ lin
   little	= mkAP( little_A );
 	too_little	= mkAP too_AdA little_A;
   mad	= mkAP( mkA "mad");
+	next jjjj
   slow	= mkAP( mkA "slow");
   hard	= mkAP( mkA "hard");
 
+	next_Monday	= mkAdv noPrep (Item the_Det (mkCN (mkA "next") (mkN "Monday")));
   apprentice	= mkCN( mkN "apprentice");
   child	= mkCN( mkN "child");
   dad	= mkCN( mkN "dad");
