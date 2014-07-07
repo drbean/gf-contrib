@@ -21,6 +21,7 @@ n2_kind_list Gfather_2	= "father"
 n2_kind_list Guncle_2	= "uncle"
 
 uncount_list :: GNP -> String
+uncount_list Glife	= "life"
 uncount_list Gmoney	= "money"
 uncount_list Gstuff	= "stuff"
 uncount_list Gtime	= "time"
@@ -40,7 +41,6 @@ kind_list Ginterviewer	= "interviewer"
 kind_list Gjob	= "job"
 kind_list Gkind	= "kind"
 kind_list Gknack	= "knack"
-kind_list Glife	= "life"
 kind_list Gman	= "man"
 kind_list Gnight	= "night"
 kind_list Gposition	= "position"
@@ -87,7 +87,7 @@ positing_list Gthink	= "think"
 
 intens_list :: GVV -> String
 intens_list Gcan	= "can"
-intens_list Gneed_V	= "need"
+intens_list Gneed_VV	= "need"
 intens_list Gstart	= "start"
 
 triangulating_list :: GV3 -> String
