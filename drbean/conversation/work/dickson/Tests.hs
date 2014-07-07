@@ -83,8 +83,7 @@ dic_test = [
 
     , "Dee's father says that Uncle Alf is the superintendent at the shipyard."
 		, "Dee's father says that Uncle Alf can get Dee a job."
-		, "Dee finally lets Dee's father take Dee to see Uncle Alf."
-		, "Dee at the end of that week lets Dee's father take Dee to see Uncle Alf."
+		, "Dee lets Dee's father take Dee to see Uncle Alf."
 
     , "Dee goes next Monday."
     , "Dee goes the next Monday."

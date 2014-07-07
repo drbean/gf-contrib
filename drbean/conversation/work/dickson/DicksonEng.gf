@@ -19,6 +19,7 @@ lin
 	hire	= mkV2 "hire";
 	interview	= mkV2 "interview";
 	laugh	= mkV "laugh";
+	let_V2V	= mkV2V let_V noPrep noPrep;
 	lift	= mkV2 "lift";
 	like	= mkV2 "like";
 	look	= mkVA look_V;

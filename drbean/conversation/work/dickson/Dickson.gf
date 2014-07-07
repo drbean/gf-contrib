@@ -19,7 +19,7 @@ fun
 	hire	: V2;
 	interview	: V2;
 	laugh	: V;
-	-- let	: V2;
+	let_V2V	: V2V;
 	lift	: V2;
 	look	: VA;
 	make	: V2A;
