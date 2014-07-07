@@ -12,6 +12,7 @@ lin
 	allow = mkV2V (mkV "allow") noPrep to_prep;
 	get_along	= mkV2 "get" "along with";
 	get	= mkV2 "get";
+	get_3	= mkV3 "get";
 	give	= mkV3 IrregEng.give_V;
 	go	= mkV2 IrregEng.go_V "to";
 	have	= mkV2 (IrregEng.have_V);
@@ -97,7 +98,7 @@ oper
 
   father_N	= mkN masculine (mkN "father");
 	husband_N	= mkN masculine (mkN "husband");
-  uncle_N	= mkN masculine (mkN "uncle");
+  uncle_N	= mkN masculine (mkN "Uncle");
 
   alf_PN	= mkPN( mkN masculine (mkN "Alf") );
 }

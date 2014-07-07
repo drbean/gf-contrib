@@ -87,7 +87,6 @@ fun
 
 	become	: V2;
 	can	: VV;
-	get	: V2;
 	know_V2	: V2;
 	know_VS	: VS;
 	like	: V2;
