@@ -75,11 +75,11 @@ chomp (x:xs) | x `elem` ".,?" = chomp xs
 
 dic_test = [
 
-    "The guy that interviews Dee says that Dee is too little."
+    "The guy who interviews Dee says that Dee is too little."
     , "The interviewer says that Dee is little."
 		, "The interviewer says that Dee cannot get along with the guys"
 		, "The guys make life hard for Dee."
-		, "The guy that interviews Dee doesn't think Dee needs to do it."
+		, "The guy who interviews Dee doesn't think that Dee needs to have the job."
 
     , "Dee's dad says that Uncle Alf is superintendent at the shipyard."
 		, "Dee's dad says that Uncle Alf can get Dee on like that."
@@ -88,24 +88,24 @@ dic_test = [
 
     , "Dee goes next Monday."
     , "Dee goes the next Monday."
-		, "The guy says, I have the word from the top."
+		, "The guy says that I have the word from the top."
 		, "The guy doesn't like it."
-		, "The guy says Dee is hired."
+		, "The guy says that Dee is hired."
 
     , "Dee goes to the ship."
 		, "None of the guys want to work with Dee."
-		, "The guys say, These are men's jobs."
-		, "The guys say, Dee is taking jobs away from men who have families."
-		, "Dee says, I have a family and no man and I need money."
+		, "The guys say that these are men's jobs."
+		, "The guys say that Dee is taking jobs away from men who have families."
+		, "Dee says that I have a family and no man and I need money."
 
     , "It takes about two weeks before Dee starts proving herself."
 		, "The guys do better with having a woman working."
 		, "The guys work with Dee."
-		, "Several guys tell Dee, Dee needs to slow down."
+		, "Several guys tell Dee that Dee needs to slow down."
 		, "Several guys tell Dee to slow down."
 		, "Dee makes the guys look bad."
 		, "Dee laughs."
-		, "Dee says, Dee is here to work."
+		, "Dee says that Dee is here to work."
 
     , "Dee has to go to school two nights a week."
 		, "Dee is the first apprentice who ever becomes supervisor before graduation."
