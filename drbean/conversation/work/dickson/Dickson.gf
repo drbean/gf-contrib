@@ -4,6 +4,9 @@ abstract Dickson = MyAbstract ** {
   flags startcat = Utt ;
 
 fun
+
+	for_prep	: Prep;
+
 	-- PassV2V	: VPSlash -> VP;
 	-- Slash	: V2V -> VP -> VPSlash;
 	allow	: V2V;
@@ -17,8 +20,9 @@ fun
 	-- let	: V2;
 	lift	: V2;
 	look	: VA;
-	-- make	: V2
-	need_V	: VV;
+	make	: V2A;
+	need	: V2;
+	need_VV	: VV;
 	prove	: V2;
 	slow_down	: V;
 	start	: VV;
@@ -32,6 +36,7 @@ fun
 	better	: AP;
 	first	: AP;
 	little	: AP;
+	too_little	: AP;
 	mad	: AP;
 	hard	: AP;
 
@@ -51,7 +56,7 @@ fun
 	job	: CN;
 	kind	: CN;
 	knack	: CN;
-	life	: CN;
+	life	: NP;
 	man	: CN;
 	money	: NP;
 	night	: CN;
@@ -75,6 +80,7 @@ fun
 	word	: CN;
 	work	: NP;
 
+	uncle_alf	: PN;
 	alf	: PN;
 	dee	: PN;
 	monday	: PN;
