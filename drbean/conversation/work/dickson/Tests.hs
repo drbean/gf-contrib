@@ -86,7 +86,7 @@ dic_test = [
 		, "Dee lets Dee's father take Dee to see Uncle Alf."
 
     , "Dee goes to the shipyard the next Monday."
-		, "The guy says that I have the word from the top."
+		, "The interviewer says that the superintendent tells the shipyard to hire Dee."
 		, "The guy doesn't like it."
 		, "The guy says that Dee is hired."
 
@@ -122,7 +122,9 @@ dic_test = [
 likes_test = [
   "Does Dee like the job?"
   , "No guys like Dee, do they?"
-  , "No guys like to work with Dee, do they?"
+  , "None of the guys like to work with Dee, do they?"
+	, "Do the guys like that Dee gets a raise?"
+	, "Does the interviewer like that Dee is hired?"
 
   ]
 
