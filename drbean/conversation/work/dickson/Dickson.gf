@@ -21,6 +21,9 @@ fun
 	laugh	: V;
 	let_V2V	: V2V;
 	lift	: V2;
+	like_2	: V2;
+	like_that	: VS;
+	like_to	: VV;
 	look	: VA;
 	make	: V2A;
 	need	: V2;

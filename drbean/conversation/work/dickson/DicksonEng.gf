@@ -21,7 +21,9 @@ lin
 	laugh	= mkV "laugh";
 	let_V2V	= mkV2V let_V noPrep noPrep;
 	lift	= mkV2 "lift";
-	like	= mkV2 "like";
+	like_2	= mkV2 like_V;
+	like_that	= mkVS like_V;
+	like_to	= mkVV like_V;
 	look	= mkVA look_V;
 	need	= mkV2 need_V;
 	need_VV = mkVV need_V ;
@@ -49,7 +51,7 @@ lin
   slow	= mkAP( mkA "slow");
   hard	= mkAP( mkA "hard");
 
-	next_Monday	= mkAdv noPrep (Item the_Det (mkCN (mkA "next") (mkN "Monday")));
+	next_Monday	= mkAdv "the next Monday";
   apprentice	= mkCN( mkN "apprentice");
   child	= mkCN( mkN "child");
   dad	= mkCN( mkN "dad");
@@ -93,6 +95,7 @@ lin
 
 oper
 
+	like_V	= mkV "like";
 	look_V	= mkV "look";
 	make_V	= IrregEng.make_V;
 	need_V	= mkV "need";
