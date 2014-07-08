@@ -87,7 +87,7 @@ dic_test = [
 
     , "Dee goes to the shipyard the next Monday."
 		, "The interviewer says that the superintendent tells the shipyard to hire Dee."
-		, "The guy doesn't like it."
+		, "The guy doesn't like that Dee is hired."
 		, "The guy says that Dee is hired."
 
     , "Dee goes to the ship."
