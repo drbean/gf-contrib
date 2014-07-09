@@ -38,6 +38,7 @@ lin
 	tell = mkV2S IrregEng.tell_V noPrep;
 	tell_to	= mkV2V IrregEng.tell_V noPrep to_prep;
 	think = mkVS (IrregEng.think_V);
+	want	= mkVV (mkV "want");
 	work_V	= mkV "work";
 	work_with	 = mkV2 "work" with_prep;
 
@@ -58,15 +59,17 @@ lin
   electrician	= mkCN( mkN "electrician");
   end	= mkCN( mkN "end");
   family	= mkCN( mkN "family");
-  father_2	= mkN2( father_N) part_prep;
-  father	= mkCN( father_N );
-  guy	= mkCN( mkN masculine (mkN "guy"));
+  father_2	= mkN2 father_N part_prep;
+  father	= mkCN father_N;
+  guy	= mkCN guy_N;
   graduation	= mkCN( mkN "graduation");
   husband_2	= mkN2 ( husband_N ) of_prep;
   husband	= mkCN( husband_N );
 	interviewer	= mkCN( mkN masculine (mkN "interviewer") );
   job	= mkCN( mkN "job");
 	life = mkNP( mkN "life");
+	man_CN	= mkCN man;
+	man_N	= man;
   night	= mkCN( mkN "night");
   position	= mkCN( mkN "position");
 	raise = mkCN( mkN "raise");
@@ -103,7 +106,9 @@ oper
 	little_A = mkA "little";
 
   father_N	= mkN masculine (mkN "father");
+	guy_N	= mkN masculine (mkN "guy");
 	husband_N	= mkN masculine (mkN "husband");
+	man	= mkN masculine (mkN "man" "men" "man's" "men's");
   uncle_N	= mkN masculine (mkN "Uncle");
 
   alf_PN	= mkPN( mkN masculine (mkN "Alf") );

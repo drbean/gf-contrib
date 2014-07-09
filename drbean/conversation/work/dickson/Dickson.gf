@@ -34,6 +34,7 @@ fun
 	take	: V2V;
 	tell_to	: V2V;
 	think	: VS;
+	want	: VV;
 	work_V	: V;
 	work_with	: V2;
 
@@ -64,7 +65,8 @@ fun
 	kind	: CN;
 	knack	: CN;
 	life	: NP;
-	man	: CN;
+	man_CN	: CN;
+	man_N	: N;
 	money	: NP;
 	night	: CN;
 	position	: CN;
