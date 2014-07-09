@@ -1,4 +1,4 @@
-concrete MyConcrete of MyAbstract = open Prelude, ResEng, SyntaxEng, ConstructorsEng, ParadigmsEng, ExtraEng, IrregEng in {
+concrete MyConcrete of MyAbstract = open Prelude, ResEng, SyntaxEng, ConstructorsEng, ParadigmsEng, ExtraEng, IrregEng, StructuralEng in {
 
 lincat
   Utt	= SyntaxEng.Utt;
@@ -29,6 +29,7 @@ lincat
   VV	= SyntaxEng.VV;
   VS	= SyntaxEng.VS;
   VA	= SyntaxEng.VA;
+	Quant	= SyntaxEng.Quant;
   Det	= SyntaxEng.Det;
   CN	= SyntaxEng.CN;
   N2	= SyntaxEng.N2;
@@ -40,6 +41,9 @@ param
   Auxiliary	= Do | Be;
 
 oper
+
+	no_Quant	= StructuralEng.no_Quant;
+	some_Quant	= mkQuant "some" "some" "some" "some";
 
 	know_V = IrregEng.know_V;
 
@@ -119,18 +123,28 @@ lin
 	Kind ap cn	= SyntaxEng.mkCN ap cn;
   KindOfKind cn adv	= mkCN cn adv;
 	Ofpos n2 np	= SyntaxEng.mkCN n2 np;
-	Apos np	= SyntaxEng.mkDet (GenNP np);
 	Item det noun	= SyntaxEng.mkNP det noun;
+	Quantified q n = SyntaxEng.mkNP q n;
 
 	a_Det	= SyntaxEng.a_Det;
 	zero_Det	= SyntaxEng.aPl_Det;
 	the_Det	= SyntaxEng.the_Det;
 	thePlural_Det = SyntaxEng.thePl_Det;
+	Apos np	= SyntaxEng.mkDet (GenNP np);
+	Apos_pl np	= SyntaxEng.mkDet (GenNP np) pluralNum;
+	no_Det	= mkDet no_Quant;
+	no_pl_Det	= mkDet no_Quant pluralNum;
+	no_N2 = mkN2( mkN( mkDet no_Quant));
+	no_pl_N2 = mkN2( mkN( mkDet no_Quant pluralNum));
+	some_Det = mkDet some_Quant;
+	some_pl_Det = mkDet some_Quant pluralNum;
+	some_NP = mkNP( mkDet some_Quant);
+	some_pl_NP = mkNP( mkDet some_Quant pluralNum);
 
 	who_WH	= SyntaxEng.whoSg_IP;
 	what_WH	= SyntaxEng.whatSg_IP;
-	which_RP	= which_RP;
-	that_RP	= that_RP;
+	which_RP	= SyntaxEng.which_RP;
+	that_RP	= ExtraEng.that_RP;
 
   about_prep	= mkPrep "about";
   at_prep	= mkPrep "at";

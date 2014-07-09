@@ -56,12 +56,22 @@ fun
 	KindOfKind  : CN -> Adv -> CN;
 	Item	: Det -> CN -> NP;
 	Ofpos	: N2 -> NP -> CN;
+	Quantified	: Quant -> CN -> NP;
 
 	a_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
 	zero_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
 	the_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
 	thePlural_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
 	Apos  : NP -> Det;
+	Apos_pl  : NP -> Det;
+	no_Det	: Det;
+	no_pl_Det	: Det;
+	no_N2	: N2;
+	no_pl_N2	: N2;
+	some_Det	: Det;
+	some_pl_Det	: Det;
+	some_NP	: NP;
+	some_pl_NP	: NP;
 
 	who_WH	: IP;
 	what_WH	: IP;
