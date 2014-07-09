@@ -91,8 +91,9 @@ dic_test = [
 		, "The guy says that Dee is hired."
 
     , "Dee goes to the ship."
+		, "No man wants to work with Dee."
 		, "None of the guys want to work with Dee."
-		, "The guys say that these are men's jobs."
+		, "The guys say that the jobs are men's jobs."
 		, "The guys say that Dee is taking jobs away from men who have families."
 		, "Dee says that I have a family and no man and I need money."
 
