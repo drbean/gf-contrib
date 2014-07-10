@@ -73,8 +73,8 @@ changing_list Ghire 	= "hire"
 changing_list Ginterview	= "interview"
 changing_list Glift 	= "lift"
 changing_list Glike 	= "like"
-changing_list Gneed 	= "need"
-changing_list Gprove	= "prove"
+changing_list Gneed_V2 	= "need"
+-- changing_list Gprove	= "prove"
 changing_list Gsee  	= "see"
 
 causative_list :: GV2V -> String
