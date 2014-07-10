@@ -1,10 +1,12 @@
 --# -path=.:/home/drbean/GF/gf-contrib/drbean:./gf-contrib/drbean/conversation/work/dickson:present
 
 concrete DicksonEng of Dickson = MyConcrete  **
-open SyntaxEng, ParadigmsEng, IrregEng, ExtraEng in {
+open SyntaxEng, ParadigmsEng, IrregEng, ExtraEng, Prelude in {
 
 lin
 
+	two	= mkDet( mkCard (mkNumeral n2_Unit));
+	about = ss "about";
 	for_prep	= mkPrep "for";
 
 	-- PassV2V vp = PassVPSlash vp;
@@ -25,16 +27,16 @@ lin
 	like_that	= mkVS like_V;
 	like_to	= mkVV like_V;
 	look	= mkVA look_V;
-	need	= mkV2 need_V;
-	need_VV = mkVV need_V ;
 	make	= mkV2A make_V noPrep;
-	need_V2 = mkV2 (mkV "need" );
-	prove	= mkV2 "prove";
+	need_V2 = mkV2 need_V ;
+	need_VV = mkVV need_V ;
+	prove	= reflexiveVP( mkV2 "prove");
 	say	= mkVS IrregEng.say_V;
 	see	= mkV2 IrregEng.see_V;
 	slow_down	= partV (mkV "slow") "down";
-	start_ing_VV = ingVV (mkV "start");
-	take = mkV2V (IrregEng.take_V) noPrep to_prep;
+	start = ingVV (mkV "start");
+	take = mkV2V take_V noPrep to_prep;
+	take_away	= mkV3 (partV take_V "away") noPrep from_prep;
 	tell = mkV2S IrregEng.tell_V noPrep;
 	tell_to	= mkV2V IrregEng.tell_V noPrep to_prep;
 	think = mkVS (IrregEng.think_V);
@@ -70,6 +72,7 @@ lin
 	life = mkNP( mkN "life");
 	man_CN	= mkCN man;
 	man_N	= man;
+	money = mkNP( mkN "money");
   night	= mkCN( mkN "night");
   position	= mkCN( mkN "position");
 	raise = mkCN( mkN "raise");
@@ -102,6 +105,7 @@ oper
 	look_V	= mkV "look";
 	make_V	= IrregEng.make_V;
 	need_V	= mkV "need";
+	take_V	= IrregEng.take_V;
 
 	little_A = mkA "little";
 
