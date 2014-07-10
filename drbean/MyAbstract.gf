@@ -67,7 +67,6 @@ fun
 	no_pl_Det	: Det;
 	no_NP	: NP;
 	no_pl_NP	: NP;
-	no_Predet	: Predet;
 	some_Det	: Det;
 	some_pl_Det	: Det;
 	some_NP	: NP;

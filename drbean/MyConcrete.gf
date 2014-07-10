@@ -135,7 +135,6 @@ lin
 	no_pl_Det	= mkDet no_Quant pluralNum;
 	no_NP = mkNP( mkN( mkDet no_Quant));
 	no_pl_N2 = mkN2( mkN( mkDet no_Quant pluralNum));
-	no_Predet	= mkPredet no_NP;
 	some_Det = mkDet some_Quant;
 	some_pl_Det = mkDet some_Quant pluralNum;
 	some_NP = mkNP( mkDet some_Quant);
