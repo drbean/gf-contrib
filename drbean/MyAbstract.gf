@@ -55,6 +55,7 @@ fun
 	Kind	: AP -> CN -> CN;
 	KindOfKind  : CN -> Adv -> CN;
 	Item	: Det -> CN -> NP;
+	PredetItem	: Predet -> NP -> NP;
 	Ofpos	: N2 -> NP -> CN;
 
 	a_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));

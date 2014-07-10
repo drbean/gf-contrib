@@ -31,6 +31,7 @@ lincat
   VA	= SyntaxEng.VA;
 	Quant	= SyntaxEng.Quant;
   Det	= SyntaxEng.Det;
+  Predet	= SyntaxEng.Predet;
   CN	= SyntaxEng.CN;
   N2	= SyntaxEng.N2;
   IP	= SyntaxEng.IP;
@@ -124,6 +125,7 @@ lin
   KindOfKind cn adv	= mkCN cn adv;
 	Ofpos n2 np	= SyntaxEng.mkCN n2 np;
 	Item det noun	= SyntaxEng.mkNP det noun;
+	PredetItem predet np	= SyntaxEng.mkNP predet np;
 
 	a_Det	= SyntaxEng.a_Det;
 	zero_Det	= SyntaxEng.aPl_Det;
@@ -147,6 +149,7 @@ lin
 
   about_prep	= mkPrep "about";
   at_prep	= mkPrep "at";
+  from_prep	= mkPrep "from";
   in_prep	= mkPrep "in";
 	of_prep	= possess_Prep;
   on_prep	= mkPrep "on";
