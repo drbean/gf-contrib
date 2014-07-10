@@ -6,15 +6,17 @@ open SyntaxEng, ParadigmsEng, IrregEng, ExtraEng, Prelude in {
 lin
 
 	two	= mkDet( mkCard (mkNumeral n2_Unit));
+	several	= mkDet( mkQuant nonExist "several") pluralNum;
 	about = ss "about";
 	for_prep	= mkPrep "for";
 
 	-- PassV2V vp = PassVPSlash vp;
 	-- Slash v2v vp = mkVPSlash v2v vp;
 	allow = mkV2V (mkV "allow") noPrep to_prep;
+	do	= mkVA do_V;
 	get_along	= mkV2 "get" "along with";
-	get	= mkV2 "get";
-	get_3	= mkV3 "get";
+	get	= mkV2 get_V;
+	get_3	= mkV3 get_V;
 	give	= mkV3 IrregEng.give_V;
 	go	= mkV2 IrregEng.go_V "to";
 	have	= mkV2 (IrregEng.have_V);
@@ -27,7 +29,8 @@ lin
 	like_that	= mkVS like_V;
 	like_to	= mkVV like_V;
 	look	= mkVA look_V;
-	make	= mkV2A make_V noPrep;
+	make_V2A	= mkV2A make_V noPrep;
+	make_V2V	= mkV2V make_V noPrep noPrep;
 	need_V2 = mkV2 need_V ;
 	need_VV = mkVV need_V ;
 	prove	= reflexiveVP( mkV2 "prove");
@@ -101,6 +104,7 @@ lin
 
 oper
 
+	get_V	= IrregEng.get_V;
 	like_V	= mkV "like";
 	look_V	= mkV "look";
 	make_V	= IrregEng.make_V;

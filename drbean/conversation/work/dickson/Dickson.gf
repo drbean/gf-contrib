@@ -6,6 +6,7 @@ abstract Dickson = MyAbstract ** {
 fun
 
 	two	: Det;
+	several	: Det;
 	about	: Predet;
 
 	for_prep	: Prep;
@@ -13,6 +14,7 @@ fun
 	-- PassV2V	: VPSlash -> VP;
 	-- Slash	: V2V -> VP -> VPSlash;
 	allow	: V2V;
+	do	: VA;
 	get_along	: V2;
 	get	: V2;
 	get_3	: V3;
@@ -28,7 +30,8 @@ fun
 	like_that	: VS;
 	like_to	: VV;
 	look	: VA;
-	make	: V2A;
+	make_V2A	: V2A;
+	make_V2V	: V2V;
 	need_V2	: V2;
 	need_VV	: VV;
 	prove	: VP;
