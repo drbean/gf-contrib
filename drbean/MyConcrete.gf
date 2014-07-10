@@ -124,7 +124,6 @@ lin
   KindOfKind cn adv	= mkCN cn adv;
 	Ofpos n2 np	= SyntaxEng.mkCN n2 np;
 	Item det noun	= SyntaxEng.mkNP det noun;
-	Quantified q n = SyntaxEng.mkNP q n;
 
 	a_Det	= SyntaxEng.a_Det;
 	zero_Det	= SyntaxEng.aPl_Det;
@@ -134,8 +133,9 @@ lin
 	Apos_pl np	= SyntaxEng.mkDet (GenNP np) pluralNum;
 	no_Det	= mkDet no_Quant;
 	no_pl_Det	= mkDet no_Quant pluralNum;
-	no_N2 = mkN2( mkN( mkDet no_Quant));
+	no_NP = mkNP( mkN( mkDet no_Quant));
 	no_pl_N2 = mkN2( mkN( mkDet no_Quant pluralNum));
+	no_Predet	= mkPredet no_NP;
 	some_Det = mkDet some_Quant;
 	some_pl_Det = mkDet some_Quant pluralNum;
 	some_NP = mkNP( mkDet some_Quant);
