@@ -107,7 +107,7 @@ dic_test = [
 		, "Several guys tell Dee to slow down."
 		, "Dee makes the guys look bad."
 		, "Dee laughs."
-		, "Dee says that Dee is here to work."
+		, "Dee says that Dee is at the shipyard to work."
 
     , "Dee has to go to school two nights a week."
 		, "Dee is the first apprentice who ever becomes supervisor before graduation."
