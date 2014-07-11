@@ -48,6 +48,7 @@ fun
 	bad	: AP;
 	better	: AP;
 	first	: AP;
+	here_to_work	: AP;
 	little	: AP;
 	too_little	: AP;
 	mad	: AP;

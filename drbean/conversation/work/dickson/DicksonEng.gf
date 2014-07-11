@@ -50,6 +50,7 @@ lin
   bad	= mkAP( mkA "bad");
   better	= mkAP( mkA "better");
   first	= mkAP( mkA "first");
+	here_to_work	= mkAP( mkA "at the shipyard to work");
   little	= mkAP( little_A );
 	too_little	= mkAP too_AdA little_A;
   mad	= mkAP( mkA "mad");
