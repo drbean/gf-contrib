@@ -5,6 +5,7 @@ open SyntaxEng, ParadigmsEng, IrregEng, ExtraEng, Prelude in {
 
 lin
 
+	AdjModified	a s = mkAP a s;
 	two	= mkDet( mkCard (mkNumeral n2_Unit));
 	several	= mkDet( mkQuant nonExist "several") pluralNum;
 	about = ss "about";
@@ -47,10 +48,10 @@ lin
 	work_V	= mkV "work";
 	work_with	 = mkV2 "work" with_prep;
 
+	at_the_shipyard	= mkAP( mkA "at the shipyard");
   bad	= mkAP( mkA "bad");
   better	= mkAP( mkA "better");
   first	= mkAP( mkA "first");
-	here_to_work	= mkAP( mkA "at the shipyard to work");
   little	= mkAP( little_A );
 	too_little	= mkAP too_AdA little_A;
   mad	= mkAP( mkA "mad");
