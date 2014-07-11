@@ -1,7 +1,7 @@
 --# -path=.:/home/drbean/GF/gf-contrib/drbean:./gf-contrib/drbean/conversation/work/dickson:present
 
 concrete DicksonEng of Dickson = MyConcrete  **
-open SyntaxEng, ParadigmsEng, IrregEng, ExtraEng, Prelude in {
+open SyntaxEng, ParadigmsEng, StructuralEng, IrregEng, ExtraEng, Prelude in {
 
 lin
 
@@ -20,7 +20,8 @@ lin
 	get_3	= mkV3 get_V;
 	give	= mkV3 IrregEng.give_V;
 	go	= mkV2 IrregEng.go_V "to";
-	have	= mkV2 (IrregEng.have_V);
+	have_V2 = mkV2 have_V;
+	have_VV	= mkVV have_V;
 	hire	= mkV2 "hire";
 	interview	= mkV2 "interview";
 	laugh	= mkV "laugh";
@@ -32,6 +33,7 @@ lin
 	look	= mkVA look_V;
 	make_V2A	= mkV2A make_V noPrep;
 	make_V2V	= mkV2V make_V noPrep noPrep;
+	must_VV	= StructuralEng.must_VV;
 	need_V2 = mkV2 need_V ;
 	need_VV = mkVV need_V ;
 	prove	= reflexiveVP( mkV2 "prove");
@@ -60,6 +62,8 @@ lin
   hard	= mkAP( mkA "hard");
 
 	next_Monday	= mkAdv "the next Monday";
+  per_week	= mkAdv "a week";
+
   apprentice	= mkCN( mkN "apprentice");
   child	= mkCN( mkN "child");
   dad	= mkCN( mkN "dad");
@@ -81,7 +85,7 @@ lin
   night	= mkCN( mkN "night");
   position	= mkCN( mkN "position");
 	raise = mkCN( mkN "raise");
-  school	= mkCN( mkN "school");
+  school	= mkNP( mkN "school");
   ship	= mkCN( mkN "ship");
   shipyard	= mkCN( mkN "shipyard");
   stuff	= mkNP( mkN "stuff");
@@ -94,7 +98,7 @@ lin
   uncle_2	= mkN2 uncle_N part_prep;
   uncle	= mkCN uncle_N;
   way	= mkCN( mkN "way");
-  week	= mkCN( mkN "week");
+	week	= mkCN( mkN "week");
   woman	= mkCN( mkN feminine ( mkN "woman"));
   word	= mkCN( mkN "word");
   work	= mkNP( mkN "work");
@@ -107,6 +111,7 @@ lin
 oper
 
 	get_V	= IrregEng.get_V;
+	have_V	= IrregEng.have_V;
 	like_V	= mkV "like";
 	look_V	= mkV "look";
 	make_V	= IrregEng.make_V;

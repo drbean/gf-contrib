@@ -21,7 +21,8 @@ fun
 	get_3	: V3;
 	give	: V3;
 	go	: V2;
-	have	: V2;
+	have_V2	: V2;
+	have_VV	: VV;
 	hire	: V2;
 	interview	: V2;
 	laugh	: V;
@@ -33,6 +34,7 @@ fun
 	look	: VA;
 	make_V2A	: V2A;
 	make_V2V	: V2V;
+	must_VV	: VV;
 	need_V2	: V2;
 	need_VV	: VV;
 	prove	: VP;
@@ -50,13 +52,13 @@ fun
 	bad	: AP;
 	better	: AP;
 	first	: AP;
-	-- here_to_work	: AP;
 	little	: AP;
 	too_little	: AP;
 	mad	: AP;
 	hard	: AP;
 
 	next_Monday	: Adv;
+	per_week	: Adv;
 
 	apprentice	: CN;
 	child	: CN;
@@ -81,7 +83,7 @@ fun
 	night	: CN;
 	position	: CN;
 	raise	: CN;
-	school	: CN;
+	school	: NP;
 	ship	: CN;
 	shipyard	: CN;
 	stuff	: NP;
