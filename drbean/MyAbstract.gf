@@ -3,6 +3,9 @@ abstract MyAbstract = Cat ** {
 
 	flags startcat = Utt ;
 
+cat
+	Freq;
+
 fun
 	-- Is	: NP -> AP -> Cl;
 	-- Cop		: NP -> NP -> Cl;
@@ -12,6 +15,7 @@ fun
 	Be_someone	: NP -> Comp;
 	Be_vp	: Comp -> VP;
 	Location  : Prep -> NP -> Adv;
+	FreqAdv	: NP -> Freq;
 	Happening	: V -> VP ;
 	Changing	: V2 -> NP -> VP;
 	Causative:	V2V -> NP -> VP -> VP;

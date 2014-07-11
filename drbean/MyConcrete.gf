@@ -37,6 +37,7 @@ lincat
   IP	= SyntaxEng.IP;
   Prep	= SyntaxEng.Prep;
   CAdv	= SyntaxEng.CAdv;
+	Rreq	= SyntaxEng.Adv;
 
 param
   Auxiliary	= Do | Be;
@@ -84,6 +85,7 @@ lin
 	Be_vp comp	= SyntaxEng.mkVP comp;
 	Look_bad verb adj	= SyntaxEng.mkVP verb adj;
   Location prep item	= SyntaxEng.mkAdv prep item;
+	FreqAdv time	= mkAdv time;
 	Happening action	=	SyntaxEng.mkVP action;
 	Changing action patient	= SyntaxEng.mkVP action patient;
 	Causative causal patient predicate	= SyntaxEng.mkVP causal patient predicate;
