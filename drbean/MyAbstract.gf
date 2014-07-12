@@ -5,7 +5,6 @@ abstract MyAbstract = Cat ** {
 
 cat
 	Freq;
-
 fun
 	-- Is	: NP -> AP -> Cl;
 	-- Cop		: NP -> NP -> Cl;
