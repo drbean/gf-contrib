@@ -8,10 +8,12 @@ entity_list Gdee	 = ent_ided "Dee"
 entity_list Galf	 = ent_ided "Alf"
 entity_list Gmonday	 = ent_ided "Monday"
 
+determiner_list :: GDet -> String
+determiner_list Gthe_first	= "the first"
+
 adjective_list :: GAP -> String
 adjective_list Gbad     = "bad"
 adjective_list Gbetter  = "better"
-adjective_list Gfirst   = "first"
 adjective_list Ghard    = "hard"
 adjective_list Glittle  = "little"
 adjective_list Gmad     = "mad"
