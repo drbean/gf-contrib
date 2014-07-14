@@ -5,6 +5,9 @@ abstract MyAbstract = Cat ** {
 
 cat
 	Freq;
+	Times;
+	Period;
+
 fun
 	-- Is	: NP -> AP -> Cl;
 	-- Cop		: NP -> NP -> Cl;
@@ -14,7 +17,7 @@ fun
 	Be_someone	: NP -> Comp;
 	Be_vp	: Comp -> VP;
 	Location  : Prep -> NP -> Adv;
-	FreqAdv	: NP -> Freq;
+	FreqAdv	: NP -> Period -> Freq;
 	Happening	: V -> VP ;
 	Changing	: V2 -> NP -> VP;
 	Causative:	V2V -> NP -> VP -> VP;
@@ -32,7 +35,9 @@ fun
 	SubjRel	: RP -> VP -> RCl;
 	ObjRel	: RP -> ClSlash -> RCl;
 	VPClSlash	: NP -> VPSlash -> ClSlash;
-	Located:  VP -> Adv -> VP;
+	VPAdv	:  VP -> Adv -> VP;
+	AdvVP	: Adv -> VP -> VP;
+	WithFreq	: VP -> Freq -> VP;
 	YN	: Cl -> QCl;
 
 	TagQ	: NP -> VP -> QCl;

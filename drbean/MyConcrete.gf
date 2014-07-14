@@ -7,6 +7,7 @@ lincat
   N	= SyntaxEng.N;
   AP	= SyntaxEng.AP;
   Adv	= SyntaxEng.Adv;
+  AdV	= SyntaxEng.AdV;
   AdA	= SyntaxEng.AdA;
   Comp	= SyntaxEng.Comp;
   Cl	= SyntaxEng.Cl;
@@ -37,7 +38,13 @@ lincat
   IP	= SyntaxEng.IP;
   Prep	= SyntaxEng.Prep;
   CAdv	= SyntaxEng.CAdv;
+	Num	= SyntaxEng.Num;
+	Numeral	= SyntaxEng.Numeral;
+	Ord	= SyntaxEng.Ord;
+	CardOrd	= ResEng.CardOrd;
 	Freq	= SyntaxEng.Adv;
+	Times	= SyntaxEng.NP;
+	Period	= SyntaxEng.Adv;
 
 param
   Auxiliary	= Do | Be;
@@ -85,7 +92,7 @@ lin
 	Be_vp comp	= SyntaxEng.mkVP comp;
 	Look_bad verb adj	= SyntaxEng.mkVP verb adj;
   Location prep item	= SyntaxEng.mkAdv prep item;
-	FreqAdv time	= SyntaxEng.mkAdv noPrep time;
+	FreqAdv times period	= SyntaxEng.mkAdv ParadigmsEng.noPrep (SyntaxEng.mkNP times period);
 	Happening action	=	SyntaxEng.mkVP action;
 	Changing action patient	= SyntaxEng.mkVP action patient;
 	Causative causal patient predicate	= SyntaxEng.mkVP causal patient predicate;
@@ -103,7 +110,9 @@ lin
 	SubjRel	rp vp = mkRCl rp vp;
 	ObjRel rp clslash = mkRCl rp clslash;
 	VPClSlash	np vpslash = mkClSlash np vpslash;
-  Located action location	= mkVP action location;
+  VPAdv vp adv	= mkVP vp adv;
+  AdvVP adv vp	= mkVP adv vp;
+  WithFreq action frequency	= mkVP action frequency;
   -- Be_made_sth vp np = PassV3 vp np;
 	YN cl	= SyntaxEng.mkQCl cl;
 	-- WH_Cop ip comp	= mkQCl ip comp;
