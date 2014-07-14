@@ -6,6 +6,7 @@ abstract Dickson = MyAbstract ** {
 fun
 
 	AdjModified	: AP -> VP -> AP;
+	the_first	: Det;
 	two	: Det;
 	several	: Det;
 	about	: Predet;
@@ -51,14 +52,15 @@ fun
 	at_the_shipyard	: AP;
 	bad	: AP;
 	better	: AP;
-	first	: AP;
 	little	: AP;
 	too_little	: AP;
 	mad	: AP;
 	hard	: AP;
 
+	ever_v	: Adv;
+	ever_V	: AdV;
 	next_Monday	: Adv;
-	per_week	: Adv;
+	per_week	: Period;
 
 	apprentice	: CN;
 	child	: CN;

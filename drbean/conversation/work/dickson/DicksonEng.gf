@@ -1,11 +1,12 @@
 --# -path=.:/home/drbean/GF/gf-contrib/drbean:./gf-contrib/drbean/conversation/work/dickson:present
 
 concrete DicksonEng of Dickson = MyConcrete  **
-open SyntaxEng, ParadigmsEng, StructuralEng, IrregEng, ExtraEng, Prelude in {
+open ConstructorsEng, ParadigmsEng, StructuralEng, IrregEng, ExtraEng, Prelude in {
 
 lin
 
 	AdjModified	a s = mkAP a s;
+	the_first	= mkDet  the_Quant (ConstructorsEng.mkOrd (mkNumeral n1_Unit));
 	two	= mkDet( mkCard (mkNumeral n2_Unit));
 	several	= mkDet( mkQuant nonExist "several") pluralNum;
 	about = ss "about";
@@ -53,7 +54,6 @@ lin
 	at_the_shipyard	= mkAP( mkA "at the shipyard");
   bad	= mkAP( mkA "bad");
   better	= mkAP( mkA "better");
-  first	= mkAP( mkA "first");
   little	= mkAP( little_A );
 	too_little	= mkAP too_AdA little_A;
   mad	= mkAP( mkA "mad");
@@ -61,10 +61,12 @@ lin
   slow	= mkAP( mkA "slow");
   hard	= mkAP( mkA "hard");
 
+	ever_v	= mkAdv "ever";
+	ever_V	= mkAdV "ever";
 	next_Monday	= mkAdv "the next Monday";
   per_week	= mkAdv "a week";
 
-  apprentice	= mkCN( mkN "apprentice");
+  apprentice	= mkCN( mkN human (mkN "apprentice"));
   child	= mkCN( mkN "child");
   dad	= mkCN( mkN "dad");
   electrician	= mkCN( mkN "electrician");
