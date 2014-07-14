@@ -42,6 +42,7 @@ lincat
 	Times	= NP;
 	Period	= Adv;
 	Subj	= Subj;
+	Title	= NP;
 
 param
   Auxiliary	= Do | Be;

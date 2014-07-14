@@ -103,6 +103,9 @@ fun
 	word	: CN;
 	work	: NP;
 
+	superintendent_NP	: NP;
+	supervisor_NP	: NP;
+
 	uncle_alf	: PN;
 	alf	: PN;
 	dee	: PN;

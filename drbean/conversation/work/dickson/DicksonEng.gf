@@ -91,8 +91,10 @@ lin
   ship	= mkCN( mkN "ship");
   shipyard	= mkCN( mkN "shipyard");
   stuff	= mkNP( mkN "stuff");
-  superintendent	= mkCN( mkN "superintendent");
-  supervisor	= mkCN( mkN "supervisor");
+  superintendent	= mkCN superintendent_N;
+  superintendent_NP	= mkNP superintendent_N;
+  supervisor	= mkCN supervisor_N;
+  supervisor_NP	= mkNP supervisor_N;
   thing	= mkCN( mkN "thing");
   time	= mkNP( mkN "time");
   top	= mkCN( mkN "top");
@@ -126,6 +128,8 @@ oper
 	guy_N	= mkN masculine (mkN "guy");
 	husband_N	= mkN masculine (mkN "husband");
 	man	= mkN masculine (mkN "man" "men" "man's" "men's");
+	superintendent_N	= mkN human (mkN "superintendent");
+	supervisor_N	= mkN human (mkN "supervisor");
   uncle_N	= mkN masculine (mkN "Uncle");
 
   alf_PN	= mkPN( mkN masculine (mkN "Alf") );
