@@ -112,6 +112,11 @@ fun
 	say	: VS;
 	see	: V2;
 	tell	: V2S;
+
+	too_AdA	: AdA;
+	because_Subj	: Subj;
+
+	Subjunct	: Subj -> S -> Adv;
 }
 
 -- vim: set ts=2 sts=2 sw=2 noet:
