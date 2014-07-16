@@ -81,7 +81,7 @@ dic_test = [
 		, "The guys make life hard for Dee."
 		, "The guy who interviews Dee doesn't think that Dee needs to have the job."
 
-    , "Dee's father says that Uncle Alf is the superintendent at the shipyard."
+    , "Dee's father says that Uncle Alf is superintendent at the shipyard."
 		, "Dee's father says that Uncle Alf can get Dee a job."
 		, "Dee lets Dee's father take Dee to see Uncle Alf."
 
@@ -112,7 +112,9 @@ dic_test = [
     , "Dee has to go to school two nights a week."
 		, "Dee is the first apprentice who ever becomes supervisor before graduation."
 		, "The guys are mad because Dee gets a raise."
-		, "Dee gets a position they think is theirs."
+		, "The guys think that Dee's position is a man's."
+		, "Dee gets a position that the guys think is a man's position."
+		, "Dee gets stuff done on time."
 		, "Dee has a knack for getting stuff done on time."
 		, "Dee has a knack for getting stuff done right."
 
