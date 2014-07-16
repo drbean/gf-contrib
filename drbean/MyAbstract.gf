@@ -29,6 +29,7 @@ fun
 	-- PassV3	: V3 -> NP -> VP ;	-- be called John
 	Pass : VPSlash -> VP;
 	V2Slash	: V2 -> VPSlash;
+	VSSlash	: VS -> VPSlash;
 	V2VSlash	: V2V -> VP -> VPSlash;
 	V3Slash	: V3 -> NP -> VPSlash;
 	Modified	: CN -> RCl -> CN;
@@ -81,6 +82,7 @@ fun
 	some_NP	: NP;
 	some_pl_NP	: NP;
 	some_Predet	: Predet;
+	Genitive_NP	: NP -> NP;
 
 	who_WH	: IP;
 	what_WH	: IP;
@@ -93,6 +95,7 @@ fun
 
 	about_prep	: Prep;
 	at_prep	: Prep;
+	before_prep	: Prep;
 	in_prep	: Prep;
 	from_prep	: Prep;
   like_prep	: Prep;

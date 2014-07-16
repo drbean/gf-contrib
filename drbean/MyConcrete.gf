@@ -102,6 +102,7 @@ lin
   -- PassV3 v np = insertObj (\\_ => v.s ! VPPart ++ v.p ++ v.c2 ++ v.c3 ++ np.s ! NPAcc) (predAux auxBe) ;
 	Pass vp = PassVPSlash vp;
 	V2Slash v2	= mkVPSlash v2;
+	VSSlash vs	= mkVPSlash vs;
 	V2VSlash v2v vp	= mkVPSlash v2v vp;
 	V3Slash v3 np	= mkVPSlash v3 np;
 	Modified cn rcl = mkCN cn ( mkRS rcl);
@@ -150,6 +151,7 @@ lin
 	some_pl_Det = mkDet some_Quant pluralNum;
 	some_NP = mkNP( mkDet some_Quant);
 	some_pl_NP = mkNP( mkDet some_Quant pluralNum);
+	Genitive_NP	np = mkNP (mkDet (GenNP np));
 
 	who_WH	= whoSg_IP;
 	what_WH	= whatSg_IP;
@@ -158,6 +160,7 @@ lin
 
   about_prep	= mkPrep "about";
   at_prep	= mkPrep "at";
+	before_prep	= mkPrep "before";
   from_prep	= mkPrep "from";
   in_prep	= mkPrep "in";
 	of_prep	= possess_Prep;
