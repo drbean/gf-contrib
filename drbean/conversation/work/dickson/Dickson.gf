@@ -70,7 +70,7 @@ fun
 	family	: CN;
 	father	: CN;
 	father_2	: N2;
-	graduation	: CN;
+	graduation	: NP;
 	guy	: CN;
 	husband	: CN;
 	husband_2	: N2;

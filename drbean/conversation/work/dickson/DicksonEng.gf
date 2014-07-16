@@ -75,7 +75,7 @@ lin
   father_2	= mkN2 father_N part_prep;
   father	= mkCN father_N;
   guy	= mkCN guy_N;
-  graduation	= mkCN( mkN "graduation");
+  graduation	= mkNP( mkN "graduation");
   husband_2	= mkN2 ( husband_N ) of_prep;
   husband	= mkCN( husband_N );
 	interviewer	= mkCN( mkN masculine (mkN "interviewer") );
