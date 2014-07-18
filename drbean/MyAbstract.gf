@@ -7,6 +7,7 @@ cat
 	Freq;
 	Times;
 	Period;
+	Title;
 
 fun
 	-- Is	: NP -> AP -> Cl;
@@ -65,6 +66,7 @@ fun
 	Kind	: AP -> CN -> CN;
 	KindOfKind  : CN -> Adv -> CN;
 	Item	: Det -> CN -> NP;
+	Titular	: Title -> NP;
 	PredetItem	: Predet -> NP -> NP;
 	Ofpos	: N2 -> NP -> CN;
 

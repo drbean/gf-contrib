@@ -42,7 +42,7 @@ lincat
 	Times	= NP;
 	Period	= Adv;
 	Subj	= Subj;
-	Title	= NP;
+	Title	= CN;
 
 param
   Auxiliary	= Do | Be;
@@ -136,6 +136,7 @@ lin
   KindOfKind cn adv	= mkCN cn adv;
 	Ofpos n2 np	= mkCN n2 np;
 	Item det noun	= mkNP det noun;
+	Titular cn = mkNP cn;
 	PredetItem predet np	= mkNP predet np;
 
 	a_Det	= a_Det;

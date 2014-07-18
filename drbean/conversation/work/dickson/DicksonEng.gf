@@ -95,9 +95,9 @@ lin
   shipyard	= mkCN( mkN "shipyard");
   stuff	= mkNP( mkN "stuff");
   superintendent	= mkCN superintendent_N;
-  superintendent_NP	= mkNP superintendent_N;
+  superintendent_title = mkCN superintendent_N;
   supervisor	= mkCN supervisor_N;
-  supervisor_NP	= mkNP supervisor_N;
+  supervisor_title = mkCN supervisor_N;
   thing	= mkCN( mkN "thing");
   time	= mkNP( mkN "time");
   top	= mkCN( mkN "top");
