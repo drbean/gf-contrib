@@ -16,6 +16,7 @@ lin
 	-- Slash v2v vp = mkVPSlash v2v vp;
 	allow = mkV2V (mkV "allow") noPrep to_prep;
 	do	= mkVA do_V;
+	do_2	= mkV2 do_V;
 	get_along	= mkV2 "get" "along with";
 	get	= mkV2 get_V;
 	get_3	= mkV3 get_V;
@@ -64,7 +65,9 @@ lin
 	ever_v	= mkAdv "ever";
 	ever_V	= mkAdV "ever";
 	next_Monday	= mkAdv "the next Monday";
+	on_time	= mkAdv "on time";
   per_week	= mkAdv "a week";
+	right	= mkAdv "right";
 
   apprentice	= mkCN( mkN human (mkN "apprentice"));
   child	= mkCN( mkN "child");

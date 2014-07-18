@@ -17,6 +17,7 @@ fun
 	-- Slash	: V2V -> VP -> VPSlash;
 	allow	: V2V;
 	do	: VA;
+	do_2	: V2;
 	get_along	: V2;
 	get	: V2;
 	get_3	: V3;
@@ -60,7 +61,9 @@ fun
 	ever_v	: Adv;
 	ever_V	: AdV;
 	next_Monday	: Adv;
+	on_time	: Adv;
 	per_week	: Period;
+	right	: Adv;
 
 	apprentice	: CN;
 	child	: CN;
