@@ -26,10 +26,11 @@ fun
 	Informing:	V2S -> NP -> S -> VP;
 	Triangulating:	V3 -> NP -> NP -> VP;
   Pred2A: V2A -> NP -> AP -> VP;
-	-- PassV3	: V3 -> NP -> VP ;	-- be called John
+	GetPassV3	: V3 -> NP -> VP ;	-- be called John
+	GetNPPPart	: V2 -> NP -> VP; -- get the job done right
 	Pass : VPSlash -> VP;
 	V2Slash	: V2 -> VPSlash;
-	VSSlash	: VS -> VPSlash;
+	-- VSSlash	: VS -> VPSlash;
 	V2VSlash	: V2V -> VP -> VPSlash;
 	V3Slash	: V3 -> NP -> VPSlash;
 	Modified	: CN -> RCl -> CN;
