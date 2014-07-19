@@ -41,9 +41,12 @@ fun
 	need_VV	: VV;
 	prove	: VP;
 	slow_down	: V;
+	say	: VS;
+	see	: V2;
 	start	: VV;
 	take	: V2V;
 	take_away	: V3;
+	tell	: V2S;
 	tell_to	: V2V;
 	think	: VS;
 	want	: VV;
@@ -53,11 +56,13 @@ fun
 	at_the_shipyard	: AP;
 	bad	: AP;
 	better	: AP;
+	different	: A;
 	little	: AP;
 	too_little	: AP;
 	mad	: AP;
 	hard	: AP;
 
+	a_little	: CAdv;
 	ever_v	: Adv;
 	ever_V	: AdV;
 	next_Monday	: Adv;

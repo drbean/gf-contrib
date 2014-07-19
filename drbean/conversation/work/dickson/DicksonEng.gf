@@ -1,7 +1,7 @@
 --# -path=.:/home/drbean/GF/gf-contrib/drbean:./gf-contrib/drbean/conversation/work/dickson:present
 
 concrete DicksonEng of Dickson = MyConcrete  **
-open ConstructorsEng, ParadigmsEng, StructuralEng, IrregEng, ExtraEng, Prelude in {
+open ConstructorsEng, ParadigmsEng, StructuralEng, IrregEng, ExtraEng, ConstructX, Prelude in {
 
 lin
 
@@ -55,6 +55,7 @@ lin
 	at_the_shipyard	= mkAP( mkA "at the shipyard");
   bad	= mkAP( mkA "bad");
   better	= mkAP( mkA "better");
+	different = mkA "different";
   little	= mkAP( little_A );
 	too_little	= mkAP too_AdA little_A;
   mad	= mkAP( mkA "mad");
@@ -62,6 +63,7 @@ lin
   slow	= mkAP( mkA "slow");
   hard	= mkAP( mkA "hard");
 
+	a_little	= ConstructX.mkCAdv "a little" "than";
 	ever_v	= mkAdv "ever";
 	ever_V	= mkAdV "ever";
 	next_Monday	= mkAdv "the next Monday";
