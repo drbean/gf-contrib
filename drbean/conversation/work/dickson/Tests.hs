@@ -118,6 +118,7 @@ dic_test = [
 		, "Dee has a knack for getting stuff done on time."
 		, "Dee has a knack for getting stuff done right."
 
+    , "Dee has to do some things a little differently than the guys."
     , "Dee has to do some things a little differently than the guys do."
 		, "Dee cannot lift an 80 pound transformer. "
 		, "Dee finds a way to do the same things the guys do."
