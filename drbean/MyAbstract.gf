@@ -94,7 +94,7 @@ fun
 
 	more : CAdv;
 	ComparaNP : CAdv -> A -> NP -> Adv;
-	ComparaS : CAdv -> A -> ClSlash -> Adv;
+	-- ComparaS : CAdv -> A -> ClSlash -> Adv;
 	More	: A -> AP;
 
 	about_prep	: Prep;
