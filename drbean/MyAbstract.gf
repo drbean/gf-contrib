@@ -93,7 +93,8 @@ fun
 	that_RP	: RP;
 
 	more : CAdv;
-	Comparative : NP -> A ->NP -> Cl;
+	ComparaNP : CAdv -> A -> NP -> Adv;
+	ComparaS : CAdv -> A -> ClSlash -> Adv;
 	More	: A -> AP;
 
 	about_prep	: Prep;
@@ -114,10 +115,6 @@ fun
 	can	: VV;
 	know_V2	: V2;
 	know_VS	: VS;
-	like	: V2;
-	say	: VS;
-	see	: V2;
-	tell	: V2S;
 
 	too_AdA	: AdA;
 	because_Subj	: Subj;

@@ -5,6 +5,7 @@ lincat
   PN	= PN;
   NP	= NP;
   N	= N;
+  A	= A;
   AP	= AP;
   Adv	= Adv;
   AdV	= AdV;
@@ -160,11 +161,16 @@ lin
 	which_RP	= which_RP;
 	that_RP	= ExtraEng.that_RP;
 
+	more	= more_CAdv;
+	ComparaNP cadv a np = ConstructorsEng.mkAdv cadv a np;
+	ComparaS cadv a clslash = ConstructorsEng.mkAdv cadv a (mkS (mkTemp presentTense simultaneousAnt) positivePol  clslash);
+
   about_prep	= mkPrep "about";
   at_prep	= mkPrep "at";
 	before_prep	= mkPrep "before";
   from_prep	= mkPrep "from";
   in_prep	= mkPrep "in";
+  like_prep	= mkPrep "like";
 	of_prep	= possess_Prep;
   on_prep	= mkPrep "on";
   over_prep	= mkPrep "over";
