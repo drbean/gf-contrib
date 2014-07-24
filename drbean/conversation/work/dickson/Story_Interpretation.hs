@@ -13,7 +13,7 @@ determiner_list Gthe_first	= "the first"
 
 adjective_list :: GAP -> String
 adjective_list Gbad     = "bad"
-adjective_list Gbetter  = "better"
+adjective_list Ggood  = "good"
 adjective_list Ghard    = "hard"
 adjective_list Glittle  = "little"
 adjective_list Gmad     = "mad"

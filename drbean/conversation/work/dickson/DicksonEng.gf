@@ -56,7 +56,7 @@ lin
 	at_the_shipyard	= mkAP( mkA "at the shipyard");
   eighty_pound	= mkAP( mkA "80-pound");
   bad	= mkAP( mkA "bad");
-  good	= mkAP( mkA "good");
+  good	= mkAP( mkA "good" "better" "best" "well" );
 	different = mkA "different";
   little	= mkAP( little_A );
 	too_little	= mkAP too_AdA little_A;
