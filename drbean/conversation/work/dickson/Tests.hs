@@ -120,9 +120,10 @@ dic_test = [
 
     , "Dee has to do some things a little differently than the guys."
     , "Dee has to do some things a little differently than the guys do."
-		, "Dee cannot lift an 80 pound transformer. "
-		, "Dee finds a way to do the same things the guys do."
-		, "Dee says that it makes Dee better than I probably would have been if I was a guy."
+		, "Dee cannot lift an 80-pound transformer. "
+		, "Dee finds a way to do the same things that the guys do."
+		, "Dee finds a way to do the same things as the guys."
+		, "Dee says that the job makes a woman better than if the woman is a guy."
 
 	]
 
