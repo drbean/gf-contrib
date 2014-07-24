@@ -162,8 +162,9 @@ lin
 	that_RP	= ExtraEng.that_RP;
 
 	more	= more_CAdv;
-	ComparaNP cadv a np = ConstructorsEng.mkAdv cadv a np;
-	-- ComparaS cadv a clslash = ConstructorsEng.mkAdv cadv a (mkS (mkTemp presentTense simultaneousAnt) positivePol  clslash);
+	ComparaAP a np = ConstructorsEng.mkAP a np;
+	ComparaAdv cadv a np = ConstructorsEng.mkAdv cadv a np;
+	ComparaS a s = mkAP a s;
 
   about_prep	= mkPrep "about";
   as_prep	= mkPrep "as";

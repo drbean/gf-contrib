@@ -93,8 +93,9 @@ fun
 	that_RP	: RP;
 
 	more : CAdv;
-	ComparaNP : CAdv -> A -> NP -> Adv;
-	-- ComparaS : CAdv -> A -> ClSlash -> Adv;
+	ComparaAP : A -> NP -> AP;
+	ComparaAdv : CAdv -> A -> NP -> Adv;
+	ComparaS : AP -> S -> AP;
 	More	: A -> AP;
 
 	about_prep	: Prep;
