@@ -18,6 +18,7 @@ fun
 	allow	: V2V;
 	do	: VA;
 	do_2	: V2;
+	find	: V2V;
 	get_along	: V2;
 	get	: V2;
 	get_3	: V3;
@@ -54,13 +55,15 @@ fun
 	work_with	: V2;
 
 	at_the_shipyard	: AP;
+	eighty_pound	: AP;
 	bad	: AP;
-	better	: AP;
+	good	: AP;
 	different	: A;
 	little	: AP;
 	too_little	: AP;
 	mad	: AP;
 	hard	: AP;
+	same	: AP;
 
 	a_little	: CAdv;
 	ever_v	: Adv;

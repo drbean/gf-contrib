@@ -17,6 +17,7 @@ lin
 	allow = mkV2V (mkV "allow") noPrep to_prep;
 	do	= mkVA do_V;
 	do_2	= mkV2 do_V;
+	find	= mkV2V (mkV "find") noPrep to_prep;
 	get_along	= mkV2 "get" "along with";
 	get	= mkV2 get_V;
 	get_3	= mkV3 get_V;
@@ -53,8 +54,9 @@ lin
 	work_with	 = mkV2 "work" with_prep;
 
 	at_the_shipyard	= mkAP( mkA "at the shipyard");
+  eighty_pound	= mkAP( mkA "80-pound");
   bad	= mkAP( mkA "bad");
-  better	= mkAP( mkA "better");
+  good	= mkAP( mkA "good");
 	different = mkA "different";
   little	= mkAP( little_A );
 	too_little	= mkAP too_AdA little_A;
@@ -62,6 +64,7 @@ lin
 	next jjjj
   slow	= mkAP( mkA "slow");
   hard	= mkAP( mkA "hard");
+  same	= mkAP( mkA "same");
 
 	a_little	= ConstructX.mkCAdv "a little" "than";
 	ever_v	= mkAdv "ever";
