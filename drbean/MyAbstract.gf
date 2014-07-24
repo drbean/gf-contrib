@@ -98,6 +98,7 @@ fun
 	More	: A -> AP;
 
 	about_prep	: Prep;
+	as_prep	: Prep;
 	at_prep	: Prep;
 	before_prep	: Prep;
 	in_prep	: Prep;

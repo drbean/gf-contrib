@@ -166,6 +166,7 @@ lin
 	-- ComparaS cadv a clslash = ConstructorsEng.mkAdv cadv a (mkS (mkTemp presentTense simultaneousAnt) positivePol  clslash);
 
   about_prep	= mkPrep "about";
+  as_prep	= mkPrep "as";
   at_prep	= mkPrep "at";
 	before_prep	= mkPrep "before";
   from_prep	= mkPrep "from";
