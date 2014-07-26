@@ -5,7 +5,7 @@ import Dickson
 
 entity_list :: GPN -> Entity
 entity_list Gdee	 = ent_ided "Dee"
-entity_list Galf	 = ent_ided "Alf"
+entity_list Guncle_alf	 = ent_ided "Uncle Alf"
 entity_list Gmonday	 = ent_ided "Monday"
 
 determiner_list :: GDet -> String
@@ -33,17 +33,12 @@ uncount_list Ggraduation	= "graduation"
 
 kind_list :: GCN -> String
 kind_list Gapprentice	= "apprentice"
-kind_list Gchild	= "child"
-kind_list Gdad	= "dad"
 kind_list Gelectrician	= "electrician"
-kind_list Gend	= "end"
 kind_list Gfamily	= "family"
 kind_list Gfather	= "father"
 kind_list Gguy	= "guy"
 kind_list Ginterviewer	= "interviewer"
 kind_list Gjob	= "job"
-kind_list Gkind	= "kind"
-kind_list Gknack	= "knack"
 -- kind_list Gman	= "man"
 kind_list Gnight	= "night"
 kind_list Gposition	= "position"
@@ -58,7 +53,6 @@ kind_list Guncle	= "uncle"
 kind_list Gway	= "way"
 kind_list Gweek	= "week"
 kind_list Gwoman	= "woman"
-kind_list Gword	= "word"
 
 happening_list :: GV -> String
 happening_list Gwork_V	= "work"

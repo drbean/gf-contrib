@@ -74,10 +74,7 @@ fun
 	right	: Adv;
 
 	apprentice	: CN;
-	child	: CN;
-	dad	: CN;
 	electrician	: CN;
-	end	: CN;
 	family	: CN;
 	father	: CN;
 	father_2	: N2;
@@ -87,8 +84,7 @@ fun
 	husband_2	: N2;
 	interviewer : CN;
 	job	: CN;
-	kind	: CN;
-	knack	: CN;
+	-- knack	: CN;
 	life	: NP;
 	man_CN	: CN;
 	man_N	: N;
@@ -111,7 +107,6 @@ fun
 	way	: CN;
 	week	: CN;
 	woman	: CN;
-	word	: CN;
 	work	: NP;
 
 	superintendent_title	: Title;

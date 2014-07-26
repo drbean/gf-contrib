@@ -75,10 +75,7 @@ lin
 	right	= mkAdv "right";
 
   apprentice	= mkCN( mkN human (mkN "apprentice"));
-  child	= mkCN( mkN "child");
-  dad	= mkCN( mkN "dad");
   electrician	= mkCN( mkN "electrician");
-  end	= mkCN( mkN "end");
   family	= mkCN( mkN "family");
   father_2	= mkN2 father_N part_prep;
   father	= mkCN father_N;
@@ -88,6 +85,7 @@ lin
   husband	= mkCN( husband_N );
 	interviewer	= mkCN( mkN masculine (mkN "interviewer") );
   job	= mkCN( mkN "job");
+  -- knack	= mkCN( mkN "knack");
 	life = mkNP( mkN "life");
 	man_CN	= mkCN man;
 	man_N	= man;
@@ -112,10 +110,9 @@ lin
   way	= mkCN( mkN "way");
 	week	= mkCN( mkN "week");
   woman	= mkCN( mkN feminine ( mkN "woman"));
-  word	= mkCN( mkN "word");
   work	= mkNP( mkN "work");
 
-	uncle_alf = mkPN (mkCN uncle_N (mkNP alf_PN));
+	uncle_alf = mkPN (mkCN Uncle_N (mkNP alf_PN));
   alf	= alf_PN;
   dee	= mkPN( mkN feminine (mkN "Dee") );
   monday = mkPN( mkN nonhuman (mkN "Monday") );
@@ -138,7 +135,8 @@ oper
 	man	= mkN masculine (mkN "man" "men" "man's" "men's");
 	superintendent_N	= mkN human (mkN "superintendent");
 	supervisor_N	= mkN human (mkN "supervisor");
-  uncle_N	= mkN masculine (mkN "Uncle");
+  Uncle_N	= mkN masculine (mkN "Uncle");
+  uncle_N	= mkN masculine (mkN "uncle");
 
   alf_PN	= mkPN( mkN masculine (mkN "Alf") );
 }
