@@ -52,6 +52,7 @@ fun
 	WH_NP	: IP -> NP -> QCl;
 	WH_AP	: IP -> AP -> QCl;
 	WH_Pred	: IP -> VP -> QCl;
+	WH_ClSlash	: IP -> ClSlash -> QCl;
 	PosQ	: QCl -> QS;
 	NegQ	: QCl -> QS;
 	PosS	: Cl -> S;

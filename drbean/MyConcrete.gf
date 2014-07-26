@@ -120,6 +120,7 @@ lin
 	WH_NP ip np	= mkQCl ip np;
 	WH_AP ip ap	= mkQCl ip ap;
 	WH_Pred ip vp	= mkQCl ip vp;
+	WH_ClSlash ip cslash	= mkQCl ip cslash;
 	PosQ qcl	= mkQS qcl;
 	NegQ qcl	= mkQS negativePol qcl;
 	PosS cl	= mkS cl;
