@@ -234,8 +234,8 @@ transCN (GKind ap cn) = \x -> Conj [ transCN cn x, Rel (adjective_list ap) [x] ]
 transCN (GOfpos cn np) =
     \owner -> Conj [(transN2 cn owner), (transNP np 
 	(\thing -> Rel "have" [owner, thing]))]
+transCN (GModified cn rel) = \x -> Rel (kind_list cn) [x] -- case (rel) of
 transCN name          = \ x -> Rel (kind_list name) [x]
---transCN (Branch (Cat _    "RCN" _ _) [cn,rel]) = case (rel) of
 --    (Branch (Cat _ "MOD" _ _) [Leaf (Cat _ "REL"  _ _), Branch (Cat _ "S" _ _) [np,vp]]) ->
 --	case (np,vp) of
 --	    (Leaf (Cat "#" "NP" _ _), _) -> \x -> Conj [transCN cn x, transVP vp x]
@@ -371,15 +371,24 @@ transVP (GIntens v0 vp) = case vp of
 --		(\theme -> transPP obj2
 --		    ( \recipient -> Rel (att++"_to_"++act) [subj,subj,theme,recipient] )))
 transVP (GCausative v0 obj0 vp) = case vp of
-    GHappening v ->
-	\subj -> transNP obj0
-	    (\agent -> Rel ((causative_list v0) ++ "_to_" ++
-			    (happening_list v)) [subj,agent])
-    GChanging v obj1 ->
-	(\subj -> transNP obj0
-	    (\agent -> transNP obj1
-		( \theme -> Rel ((causative_list v0) ++"_to_"++
-				(changing_list v)) [subj,agent,theme] )))
+	GHappening v ->
+		\subj -> transNP obj0
+			(\agent -> Rel ((causative_list v0) ++ "_to_" ++
+				(happening_list v)) [subj,agent])
+	GChanging v obj1 ->
+		(\subj -> transNP obj0
+			(\agent -> transNP obj1
+				( \theme -> Rel ((causative_list v0) ++"_to_"++
+					(changing_list v)) [subj,agent,theme] )))
+	GCausative v obj1 vp2 ->
+		case vp2 of
+			GChanging v2 obj2 ->
+				(\subj -> transNP obj0
+					(\agent1 -> transNP obj1
+						(\agent2 -> transNP obj2
+							(\theme -> Rel ((causative_list v0) ++ "_to_" ++
+								(causative_list v) ++ "_to_" ++
+									(changing_list v2)) [subj,agent1,agent2,theme] ))))
 --transVP (Branch (Cat _ "AT" _ _)
 --    [Leaf (Cat att "V" _ [_]), obj0, Leaf (Cat "to" "TO" [ToInf] []),
 --       (Branch (Cat _ "VP" _ _) [Leaf (Cat act "V" _ _),obj])]) =
@@ -496,4 +505,4 @@ transW Gwhat_WH	= \e -> Rel "thing"    [e]
 --lf74 = ( \x -> ( Conj [ (Rel "daughter" [x]), (Rel "have" [x, Const (ents !! 17)]) ] ) )
 --lf75 = \x -> Impl (Rel "son" [x]) (Rel "have" [x, Const (ents !! 17)])
 --
----- vim: set ts=8 sts=2 sw=2 noet:
+---- vim: set ts=2 sts=2 sw=2 noet:
