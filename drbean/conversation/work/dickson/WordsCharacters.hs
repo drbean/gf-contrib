@@ -2,18 +2,19 @@ module WordsCharacters where
 
 import qualified Data.Map as Map
 
-gfWords = Map.fromList [("A",a),
-	-- ("ADV",adv),
-	("Aux",aux),
-	-- ("CONJ",conj),
-	("Det",det),
-	("N",n),
-	("PN",pn),
-	-- ("Pron",pron),
-	("Prep",prep),
-	-- ("Rel",rel),
-	("Tag",tag),
-	("V",v) ]
+gfWords = Map.fromList [
+	("A",a)
+	, ("ADV",adv)
+	, ("Aux",aux)
+	, ("CONJ",conj)
+	, ("Det",det)
+	, ("N",n)
+	, ("PN",pn)
+	, ("Pron",pron)
+	, ("Prep",prep)
+	, ("Rel",rel)
+	, ("Tag",tag)
+	, ("V",v) ]
 
 wordlist = concat ( map (gfWords Map.!) (Map.keys gfWords) )
 
@@ -33,37 +34,28 @@ posMap = Map.fromList [
 	]
 
 a = [
-	"bad"
-	, "better"
-	, "first"
+	"80-pound"
+	, "at the shipyard"
+	, "bad"
+	, "good, better"
+	, "hard"
 	, "little"
 	, "mad"
+	, "same"
 	, "slow"
-	, "hard"
+	, "too little"
 
 	]
 
 adv = [
-	"along"
-	, "away"
-	, "because"
-	, "before"
-	, "but"
+	"a little"
+	, "a week"
+	, "at the shipyard"
 	, "differently"
-	, "down"
 	, "ever"
-	, "finally"
-	, "here"
-	, "just"
-	, "now"
-	, "on"
-	, "out"
-	, "probably"
-	, "so"
-	, "then"
-	, "there"
-	, "too"
-	, "well"
+	, "on time"
+	, "right"
+	, "the next Monday"
 	]
 
 aux = [
@@ -79,49 +71,37 @@ aux = [
 	
 
 conj = [
-	"and"
-	, "if"
+	"because"
 	]
 
 
 det = [
 	"'s"
 	, "a"
+	, "about"
 	, "an"
-	, "my"
 	, "no"
 	, "some"
-	, "that"
-	, "theirs"
-	, "these"
+	, "several"
 	, "the"
+	, "the first"
+	, "two"
 	]
 
 n = [
 	"apprentice"
-	, "child"
-	, "children"
-	, "dad"
 	, "electrician"
-	, "end"
-	, "families"
-	, "family"
+	, "family, families"
 	, "father"
 	, "graduation"
-	, "guy"
-	, "guys"
+	, "guy, guys"
 	, "interviewer"
-	, "job"
-	, "jobs"
-	, "kind"
-	, "knack"
+	, "job,jobs"
+	-- , "knack"
 	, "life"
-	, "man"
-	, "men"
-	, "men's"
+	, "man, men, man's"
 	, "money"
-	, "night"
-	, "nights"
+	, "night, nights"
 	, "position"
 	, "raise"
 	, "school"
@@ -130,128 +110,92 @@ n = [
 	, "stuff"
 	, "superintendent"
 	, "supervisor"
-	, "thing"
-	, "things"
+	, "thing, things"
 	, "time"
-	, "top"
 	, "transformer"
-	, "transformers"
 	, "uncle"
 	, "way"
-	, "week"
-	, "weeks"
+	, "week, weeks"
 	, "woman"
-	, "word"
 	, "work"
 	]
 
 pn = [
-	"Alf"
+	"Uncle Alf"
 	, "Dee"
 	, "Monday"
 	]
 
 pron = [
-	"he"
-	, "i"
-	, "i'm"
-	, "it"
-	, "it's"
-	, "me"
-	, "myself"
-	, "they"
-	, "us"
-	, "we"
-	, "you"
-	, "you're"
-	, "who"
+	"who"
 	]
 
 prep = [
-	"of"
-	-- , "about"
+	"along with"
+	, "as"
 	-- , "at"
-	-- , "for"
-	-- , "from"
-	-- , "like"
-	-- , "than"
-	-- , "to"
-	-- , "with"
+	, "before"
+	, "for"
+	, "from"
+	, "of"
+	, "than"
+	, "to"
+	, "with"
 	]
 
 rel = [
 	"that"
+	, "who"
 	]
 
 tag = [
-	"doesn't he,"
-	, "doesn't she,"
-	, "doesn't it,"
-	, "don't they,"
-	, "does he,"
-	, "does she,"
-	, "does it,"
-	, "do they,"
+	"doesn't he"
+	, "doesn't she"
+	, "doesn't it"
+	, "don't they"
+	, "does he"
+	, "does she"
+	, "does it"
+	, "do they"
+	, "isn't he"
+	, "isn't she"
+	, "isn't it"
+	, "aren't they"
+	, "is he"
+	, "is she"
+	, "is it"
+	, "are they"
 	]
 
 v = [
-	"are"
-	, "be"
-	-- , "been"
-	, "become"
+	"be, is, are"
+	, "become, becomes"
 	, "can"
 	-- , "couldn't"
-	, "does"
-	, "doesn't"
-	-- , "did"
-	-- , "didn't"
-	, "do"
-	-- , "doing"
-	-- , "done"
-	, "don't"
-	, "find"
-	-- , "found"
-	, "get"
-	-- , "getting"
-	, "go"
-	-- , "got"
-	-- , "had"
-	, "has"
-	, "have"
-	, "hire"
-	-- , "hired"
-	, "interview"
-	, "is"
-	, "know"
-	, "laugh"
-	-- , "let"
-	, "lift"
-	, "like"
-	, "look"
-	-- , "made"
-	, "make"
-	-- , "making"
-	, "need"
-	-- , "needed"
-	, "prove"
-	-- , "proving"
-	, "say"
-	-- , "said"
-	, "see"
-	, "start"
-	-- , "started"
-	, "take"
-	-- , "taking"
-	, "think"
-	-- , "thought"
-	, "tell"
-	-- , "told"
-	-- , "took"
-	-- , "was"
-	-- , "went"
-	-- , "were"
-	-- , "would"
-	-- , "wouldn't"
+	, "do, does, done"
+	, "find, finds"
+	, "get, gets, gotten"
+	, "go, goes"
+	, "has, have, had"
+	, "hire, hires, hired"
+	, "interview, interviews, interviewed"
+	, "know, knows, known"
+	, "laugh, laughs"
+	, "let, lets"
+	, "lift, lifts, lifted"
+	, "like, likes, liked"
+	, "look bad, looks bad"
+	, "make, makes, made"
+	, "need, needs, needed"
+	, "prove, proves, proved"
+	, "say, says"
+	, "see, sees"
+	, "start, starts"
+	, "take, takes, taken"
+	, "think, thinks"
+	, "tell, tells, told"
+	, "want, wants"
+	, "work, works"
 	]
 
 -- vim: set ts=2 sts=2 sw=2 noet:
