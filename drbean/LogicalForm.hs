@@ -234,11 +234,10 @@ transCN (GKind ap cn) = \x -> Conj [ transCN cn x, Rel (adjective_list ap) [x] ]
 transCN (GOfpos cn np) =
     \owner -> Conj [(transN2 cn owner), (transNP np 
 	(\thing -> Rel "have" [owner, thing]))]
-transCN (GModified cn rel) = \x -> Rel (kind_list cn) [x] -- case (rel) of
+transCN (GModified cn rel) = case (rel) of
+	(GSubjRel wh vp) -> \ x -> Conj [transCN cn x, transVP vp x]
 transCN name          = \ x -> Rel (kind_list name) [x]
---    (Branch (Cat _ "MOD" _ _) [Leaf (Cat _ "REL"  _ _), Branch (Cat _ "S" _ _) [np,vp]]) ->
 --	case (np,vp) of
---	    (Leaf (Cat "#" "NP" _ _), _) -> \x -> Conj [transCN cn x, transVP vp x]
 --	    (_, (Branch (Cat _ "VP" _ _) vp)) -> case (vp) of
 --		[Leaf (Cat name "V" _ _),Leaf (Cat "#" "NP" _ _)]->
 --		    \x -> Conj [transCN cn x, transNP np (\agent -> Rel name [agent,x])]
@@ -273,7 +272,7 @@ transCN name          = \ x -> Rel (kind_list name) [x]
 --  \ x -> (transS (Just s))
 --transREL (Branch (Cat _ "MOD" _ _ ) [s])     =
 --  \ x -> (transS (Just s))
---
+
 --transPP :: ParseTree Cat Cat -> (Term -> LF) -> LF
 --transPP (Leaf   (Cat "#" "PP" _ _)) = \ p -> p (Var 0)
 --transPP (Branch (Cat _   "PP" _ _) [prep,np]) = transNP np
