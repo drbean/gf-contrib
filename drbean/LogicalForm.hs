@@ -237,7 +237,7 @@ transCN (GOfpos cn np) =
 transCN (GModified cn rel) = case (rel) of
 	(GSubjRel wh vp) -> \ x -> Conj [transCN cn x, transVP vp x]
 	(GObjRel wh (GVPClSlash np (GV2Slash v))) ->
-		\x -> Conj [transCN cn x, transNP np (\agent -> Rel "interview" [agent,x])]
+		\x -> Conj [transCN cn x, transNP np (\agent -> Rel (changing_list v) [agent,x])]
 transCN name          = \ x -> Rel (kind_list name) [x]
 --	case (np,vp) of
 --	    (_, (Branch (Cat _ "VP" _ _) vp)) -> case (vp) of
