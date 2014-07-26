@@ -12,11 +12,14 @@ determiner_list :: GDet -> String
 determiner_list Gthe_first	= "the first"
 
 adjective_list :: GAP -> String
+adjective_list Geighty_pound     = "80-pound"
 adjective_list Gbad     = "bad"
 adjective_list Ggood  = "good"
 adjective_list Ghard    = "hard"
 adjective_list Glittle  = "little"
+adjective_list Gtoo_little  = "too little"
 adjective_list Gmad     = "mad"
+adjective_list Gsame     = "same"
 
 n2_kind_list :: GN2 -> String
 n2_kind_list Gfather_2	= "father"
@@ -39,7 +42,7 @@ kind_list Gfather	= "father"
 kind_list Gguy	= "guy"
 kind_list Ginterviewer	= "interviewer"
 kind_list Gjob	= "job"
--- kind_list Gman	= "man"
+kind_list Gman_CN	= "man"
 kind_list Gnight	= "night"
 kind_list Gposition	= "position"
 kind_list Gship	= "ship"
