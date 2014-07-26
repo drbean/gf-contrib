@@ -61,8 +61,6 @@ lin
   little	= mkAP( little_A );
 	too_little	= mkAP too_AdA little_A;
   mad	= mkAP( mkA "mad");
-	next jjjj
-  slow	= mkAP( mkA "slow");
   hard	= mkAP( mkA "hard");
   same	= mkAP( mkA "same");
 
