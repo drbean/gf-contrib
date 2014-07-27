@@ -192,7 +192,8 @@ help	= pred2 $ supervision
 becoming  = [(D,R),(D,D)]
 can_to_lift = [(W1,T),(W3,T),(W5,T)]
 going = [(D,B)]
-needing = [(D,M),(D,J)]
+-- needing :: positer, agent, theme
+needing = [(D,D,M),(D,D,J)]
 
 twoPlacers :: [(String, TwoPlacePred)]
 twoPlacers = [
@@ -212,11 +213,11 @@ twoPlacers = [
     , ("studied", pred2 $ foldl (\hs (_,school,subject,student) ->
                     (student,subject): (student,school) : hs) [] schooling )
     , ("go_to",	pred2 $ going ++ map (\x->(recipient4 x,location4 x) ) schooling )
-    , ("need",	pred2 needing )
-    , ("say_need_to_slow_down",        pred2 $ [ (s,r) | (s, (pred, r) ,_) <- comms,
-					      pred == "need_to_slow_down",
-					      r == D ] )
-
+    , ("need",	pred2 $ [ (a,t) | (p,a,t) <- needing ] )
+    , ("say_too_little", pred2 $ [ (s,r) | (s, (pred, r) ,_) <- comms,
+					      pred == "too_little" ] )
+    , ("say_need_to_slow_down", pred2 $ [ (s,r) | (s, (pred, r) ,_) <- comms,
+					      pred == "need_to_slow_down" ] )
     ]
 
 curry3 :: ((a,b,c) -> d) -> a -> b -> c -> d
@@ -228,6 +229,7 @@ threePlacers = [
     , ("work",        pred3 $ [(a,a,c) | (a,p,c) <- working ] )
     , ("studied_subj_at", pred3 $ map (\(_,school,subject,student) ->
                     (student,subject,school) ) schooling )
+  , ("think_need_to_have", pred3 needing )
     ]
 
 
@@ -249,8 +251,11 @@ working	= [(A,Unspec,V),(I,Unspec,V),
 -- ship
 	(W1,R,B),(W2,R,B),(W3,R,B),(W4,R,B),(W5,R,B),(W6,R,B)]
 
--- (speaker, content, referent)
-comms	= [ (W1, ("need_to_slow_down",D), D),(W2, ("need_to_slow_down",D), D)
+-- (speaker, (content, referent),listener)
+comms	= [
+  (I, ("too_little",D), D)
+  ,(W1, ("need_to_slow_down",D), D)
+  ,(W2, ("need_to_slow_down",D), D)
 	    -- ,(I,Unspec,D),(F,Unspec,D),(F,Unspec,A),(A,Unspec,D),(A,Unspec,I)
 	    ]
 giving	= [ (V,J,D) ]

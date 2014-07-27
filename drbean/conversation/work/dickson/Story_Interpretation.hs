@@ -17,7 +17,7 @@ adjective_list Gbad     = "bad"
 adjective_list Ggood  = "good"
 adjective_list Ghard    = "hard"
 adjective_list Glittle  = "little"
-adjective_list Gtoo_little  = "too little"
+adjective_list Gtoo_little  = "too_little"
 adjective_list Gmad     = "mad"
 adjective_list Gsame     = "same"
 
@@ -138,6 +138,7 @@ objects = [
 
 inflections = [
 	( "children",	"child")
+	, ("say_little", "say_too_little")
 	]
 
 relations = [
@@ -156,6 +157,7 @@ relations = [
 	, ( "need_to_slow_down",	\[x]	-> predid1 "need_to_slow_down" x	)
 
 	, ( "say_need_to_slow_down",	\[x,y]	-> predid2 "say_need_to_slow_down" y x	)
+	, ( "say_too_little",	\[x,y]	-> predid2 "say_too_little" y x	)
 	, ( "need",	\[x,y]	-> predid2 "need" y x	)
 	, ( "become",	\[x,y]	-> predid2 "become" y x	)
 	, ( "can_to_lift",	\[x,y]	-> predid2 "can_to_lift" y x	)
@@ -164,6 +166,7 @@ relations = [
 	, ( "interview",	\[x,y]	-> predid2 "interview" y x	)
 	, ( "like",	\[x,y]	-> predid2 "like" y x	)
 
+	, ( "think_need_to_have",	\[x,y,z]	-> predid3 "think_need_to_have" z y x	)
 	]
 
 
