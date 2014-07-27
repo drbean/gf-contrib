@@ -44,6 +44,10 @@ lincat
 	Period	= Adv;
 	Subj	= Subj;
 	Title	= CN;
+	Place	= NP;
+	PlaceName	= CN;
+	LocPrep	= Prep;
+	Located	= Adv;
 
 param
   Auxiliary	= Do | Be;
@@ -90,7 +94,8 @@ lin
 	Be_someone np	= mkComp np;
 	Be_vp comp	= mkVP comp;
 	Look_bad verb adj	= mkVP verb adj;
-  Location prep item	= ConstructorsEng.mkAdv prep item;
+  Locating prep item	= ConstructorsEng.mkAdv prep item;
+	Location det placename = mkNP det placename;
 	FreqAdv times period	= ConstructorsEng.mkAdv noPrep (mkNP times period);
 	Happening action	=	mkVP action;
 	Changing action patient	= mkVP action patient;
@@ -111,7 +116,7 @@ lin
 	SubjRel	rp vp = mkRCl rp vp;
 	ObjRel rp clslash = mkRCl rp clslash;
 	VPClSlash	np vpslash = mkClSlash np vpslash;
-  VPAdv vp adv	= mkVP vp adv;
+  VPPlaced vp located	= mkVP vp located;
   AdvVP adv vp	= mkVP adv vp;
   WithFreq action frequency	= mkVP action frequency;
   -- Be_made_sth vp np = PassV3 vp np;

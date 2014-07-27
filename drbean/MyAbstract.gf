@@ -8,6 +8,10 @@ cat
 	Times;
 	Period;
 	Title;
+	Place;
+	PlaceName;
+	LocPrep;
+	Located;
 
 fun
 	-- Is	: NP -> AP -> Cl;
@@ -17,7 +21,8 @@ fun
 	Be_bad	: AP -> Comp;
 	Be_someone	: NP -> Comp;
 	Be_vp	: Comp -> VP;
-	Location  : Prep -> NP -> Adv;
+	Locating  : LocPrep -> Place -> Located;
+	Location	: Det -> PlaceName -> Place;
 	FreqAdv	: NP -> Period -> Freq;
 	Happening	: V -> VP ;
 	Changing	: V2 -> NP -> VP;
@@ -38,7 +43,7 @@ fun
 	SubjRel	: RP -> VP -> RCl;
 	ObjRel	: RP -> ClSlash -> RCl;
 	VPClSlash	: NP -> VPSlash -> ClSlash;
-	VPAdv	:  VP -> Adv -> VP;
+	VPPlaced	:  VP -> Located -> VP;
 	AdvVP	: Adv -> VP -> VP;
 	WithFreq	: VP -> Freq -> VP;
 	YN	: Cl -> QCl;
@@ -101,7 +106,7 @@ fun
 
 	about_prep	: Prep;
 	as_prep	: Prep;
-	at_prep	: Prep;
+	at_prep	: LocPrep;
 	before_prep	: Prep;
 	in_prep	: Prep;
 	from_prep	: Prep;
@@ -110,7 +115,7 @@ fun
 	on_prep	: Prep;
 	over_prep	: Prep;
 	part_prep	: Prep;
-	to_prep	: Prep;
+	to_prep	: LocPrep;
 	up_prep	: Prep;
 	with_prep	: Prep;
 
