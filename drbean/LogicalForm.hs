@@ -214,8 +214,9 @@ transDet Ga_Det = \ p q -> Exists (\v -> Conj [p v, q v] )
 transDet Gzero_Det = \ p q -> Exists (\v -> Conj [p v, q v] )
 --transDet (Leaf (Cat "several" "DET" _ _)) =
 --  \ p q -> Several (\v -> Conj [p v, q v] )
---transDet (Leaf (Cat "no" "DET" _ _)) =
---  \ p q -> Neg (Exists (\v -> Conj [p v, q v]))
+transDet Gno_Det =
+	\ p q -> Neg (Exists (\v -> Conj [p v, q v]))
+transDet Gno_pl_Det = transDet Gno_Det
 --transDet (Leaf (Cat "most" "DET" _ _)) =
 --  \ p q -> Most (\v -> Impl (p v) (q v) )
 --transDet (Leaf (Cat "many" "DET" _ _)) =
