@@ -81,6 +81,7 @@ changing_list Glike_2 	= "like"
 changing_list Gneed_V2 	= "need"
 -- changing_list Gprove	= "prove"
 changing_list Gsee  	= "see"
+changing_list Gwork_with  	= "work_with"
 
 causative_list :: GV2V -> String
 causative_list Gtake	= "take"
@@ -96,9 +97,11 @@ intens_list Ghave_VV 	= "have"
 intens_list Gmust_VV 	= "must"
 intens_list Gneed_VV	= "need"
 intens_list Gstart	= "start"
+intens_list Gwant	= "want"
 
 triangulating_list :: GV3 -> String
 triangulating_list Ggive	= "give"
+triangulating_list Gtake_away	= "take_away"
 
 objects = [
 	( "apprentice",	\[x]	-> predid1 "apprentice" x	)
@@ -144,7 +147,7 @@ objects = [
 
 inflections = [
 	( "children",	"child")
-	, ("say_little", "say_too_little")
+	, ("say:little", "say:too_little")
 	]
 
 relations = [
@@ -162,17 +165,20 @@ relations = [
 	, ( "slow_down",	\[x]	-> predid1 "slow_down" x	)
 	, ( "need_to_slow_down",	\[x]	-> predid1 "need_to_slow_down" x	)
 
-	, ( "say_need_to_slow_down",	\[x,y]	-> predid2 "say_need_to_slow_down" y x	)
-	, ( "say_too_little",	\[x,y]	-> predid2 "say_too_little" y x	)
+	, ( "say:need_to_slow_down",	\[x,y]	-> predid2 "say:need_to_slow_down" y x	)
+	, ( "say:too_little",	\[x,y]	-> predid2 "say:too_little" y x	)
 	, ( "need",	\[x,y]	-> predid2 "need" y x	)
 	, ( "become",	\[x,y]	-> predid2 "become" y x	)
 	, ( "can_to_lift",	\[x,y]	-> predid2 "can_to_lift" y x	)
+	, ( "want_to_work_with",	\[x,y]	-> predid2 "want_to_work_with" y x	)
 
 	, ( "hire",	\[x,y]	-> predid2 "hire" y x	)
 	, ( "interview",	\[x,y]	-> predid2 "interview" y x	)
 	, ( "like",	\[x,y]	-> predid2 "like" y x	)
 
-	, ( "think_need_to_have",	\[x,y,z]	-> predid3 "think_need_to_have" z y x	)
+	, ( "think:need_to_have",	\[x,y,z]	-> predid3 "think:need_to_have" z y x	)
+
+	, ( "say:take_away",	\[x,y,z,w]	-> predid4 "say:take_away" w z y x	)
 	]
 
 
