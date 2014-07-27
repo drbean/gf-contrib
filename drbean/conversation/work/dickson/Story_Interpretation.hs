@@ -65,11 +65,14 @@ happening_list Gwork_V	= "work"
 happening_list Glaugh	= "laugh"
 happening_list Gslow_down	= "slow_down"
 
+vp_list :: GVP -> String
+vp_list Ggo_ship   	= "go_ship"
+vp_list Ggo_school   	= "go_school"
+
 changing_list :: GV2 -> String
 changing_list Gbecome	= "become"
 changing_list Gget  	= "get"
 changing_list Gget_along	= "get_along"
-changing_list Ggo   	= "go"
 changing_list Ghave_V2 	= "have"
 changing_list Ghire 	= "hire"
 changing_list Ginterview	= "interview"

@@ -437,6 +437,7 @@ transVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 --    GNegS (GCop item comp) ->
 --	(\positer -> transNP item 
 --	    (\subj -> transNP comp (\x -> Rel ((positing_list v0) ++"_isn't") [positer, subj, x])))
+transVP	(GVPPlaced vp placed) = \x -> Rel "go_school" [x]
 transVP _ = \x -> NonProposition
 --
 transCOMP :: GComp -> Term -> LF

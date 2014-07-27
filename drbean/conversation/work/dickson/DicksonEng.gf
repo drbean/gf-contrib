@@ -22,7 +22,8 @@ lin
 	get	= mkV2 get_V;
 	get_3	= mkV3 get_V;
 	give	= mkV3 IrregEng.give_V;
-	go	= mkV2 IrregEng.go_V "to";
+	go_ship	= VPPlaced (mkVP IrregEng.go_V) (Locating to_prep (Location the_Det ship));
+	go_school	= VPPlaced (mkVP IrregEng.go_V) (Locating to_prep school);
 	have_V2 = mkV2 have_V;
 	have_VV	= mkVV have_V;
 	hire	= mkV2 "hire";
