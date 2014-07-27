@@ -413,18 +413,27 @@ transVP (GCausative v0 obj0 vp) = case vp of
 --		    (\theme -> transPP obj2
 --			( \recipient -> Rel (att++"_to_"++act) [subj,agent,theme,recipient] ))))
 transVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
-	(GHappening v) -> \positer -> transNP np
-		(\referent -> Rel ((positing_list v0) ++ ":" ++ (happening_list v)) [positer, referent])
+	(GHappening v) -> (\positer -> transNP np
+		(\referent -> Rel ((positing_list v0) ++ ":" ++ (happening_list v)) [positer, referent]))
 --'	(GIs np ap) -> (\positer -> transNP np 
 --'		(\referent -> Rel ((positing_list v0) ++"_is_"++ (adjective_list ap)) [positer, referent]))
-	(GIntens vv (GHappening v)) -> (\positer -> transNP np 
-	    (\referent -> Rel ((positing_list v0) ++ "_" ++ (intens_list vv) ++ "_to_"
-		++ (happening_list v)) [positer, referent] ))
 	(GBe_vp comp) -> case comp of
 		(GBe_bad attribute ) -> (\positer -> transNP np
 			(\referent -> Rel ((positing_list v0) ++ "_" ++
 				(adjective_list attribute)) [positer,referent]))
 		_ -> (transCOMP comp )
+	(GChanging v2 obj) -> (\positer -> transNP np
+		(\referent -> transNP obj (
+			(\theme -> Rel ((positing_list v0) ++ "_" ++
+				(changing_list v2)) [positer,referent,theme]))))
+	(GIntens vv vp2) -> case vp2 of
+		(GHappening v) -> (\positer -> transNP np 
+			(\referent -> Rel ((positing_list v0) ++ "_" ++ (intens_list vv) ++ "_to_"
+				++ (happening_list v)) [positer, referent] ))
+		(GChanging v obj) -> (\positer -> transNP obj
+			(\theme -> transNP obj (\referent -> Rel ((positing_list v0) ++
+				"_" ++ (intens_list vv) ++ "_to_" ++ (changing_list v))
+					[positer,referent,theme])))
 --    GNegS (GCop item comp) ->
 --	(\positer -> transNP item 
 --	    (\subj -> transNP comp (\x -> Rel ((positing_list v0) ++"_isn't") [positer, subj, x])))
