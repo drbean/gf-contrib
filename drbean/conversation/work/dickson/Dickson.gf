@@ -92,9 +92,9 @@ fun
 	night	: CN;
 	position	: CN;
 	raise	: CN;
-	school	: NP;
-	ship	: CN;
-	shipyard	: CN;
+	school	: Place;
+	ship	: PlaceName;
+	shipyard	: PlaceName;
 	stuff	: NP;
 	superintendent	: CN;
 	supervisor	: CN;

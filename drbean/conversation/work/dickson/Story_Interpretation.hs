@@ -25,10 +25,15 @@ n2_kind_list :: GN2 -> String
 n2_kind_list Gfather_2	= "father"
 n2_kind_list Guncle_2	= "uncle"
 
+place_list :: GPlace -> String
+place_list Gschool	= "school"
+placename_list :: GPlaceName -> String
+placename_list Gship	= "ship"
+placename_list Gshipyard	= "shipyard"
+
 uncount_list :: GNP -> String
 uncount_list Glife	= "life"
 uncount_list Gmoney	= "money"
-uncount_list Gschool	= "school"
 uncount_list Gstuff	= "stuff"
 uncount_list Gtime	= "time"
 uncount_list Gwork	= "work"
@@ -45,8 +50,6 @@ kind_list Gjob	= "job"
 kind_list Gman_CN	= "man"
 kind_list Gnight	= "night"
 kind_list Gposition	= "position"
-kind_list Gship	= "ship"
-kind_list Gshipyard	= "shipyard"
 kind_list Gsuperintendent	= "superintendent"
 kind_list Gsupervisor	= "supervisor"
 kind_list Gthing	= "thing"
