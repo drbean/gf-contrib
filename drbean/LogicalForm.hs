@@ -417,11 +417,14 @@ transVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 		(\referent -> Rel ((positing_list v0) ++ ":" ++ (happening_list v)) [positer, referent])
 --'	(GIs np ap) -> (\positer -> transNP np 
 --'		(\referent -> Rel ((positing_list v0) ++"_is_"++ (adjective_list ap)) [positer, referent]))
-	(GBe_vp comp) -> (\positer -> transNP np
-	    (\referent -> (transCOMP comp referent )))
 	(GIntens vv (GHappening v)) -> (\positer -> transNP np 
 	    (\referent -> Rel ((positing_list v0) ++ "_" ++ (intens_list vv) ++ "_to_"
 		++ (happening_list v)) [positer, referent] ))
+	(GBe_vp comp) -> case comp of
+		(GBe_bad attribute ) -> (\positer -> transNP np
+			(\referent -> Rel ((positing_list v0) ++ "_" ++
+				(adjective_list attribute)) [positer,referent]))
+		_ -> (transCOMP comp )
 --    GNegS (GCop item comp) ->
 --	(\positer -> transNP item 
 --	    (\subj -> transNP comp (\x -> Rel ((positing_list v0) ++"_isn't") [positer, subj, x])))
