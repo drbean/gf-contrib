@@ -412,6 +412,23 @@ transVP (GCausative v0 obj0 vp) = case vp of
 --		(\agent -> transNP obj1
 --		    (\theme -> transPP obj2
 --			( \recipient -> Rel (att++"_to_"++act) [subj,agent,theme,recipient] ))))
+transVP (GPositing v0 (GPosS (Sentence np vp)) = case vp of
+	(GHappening v) -> \positer -> TransNP np (\Rel ((positing_list v0) ++ ":" ++ (happening_list v)) [positer
+	\positer ->
+transVP (GPositing v0 s) = case s of 
+--    GPosS (GIs np ap) ->
+--	(\positer -> transNP np 
+--	    (\subj -> Rel ((positing_list v0) ++"_is_"++ (adjective_list ap)) [positer, subj]))
+    GPosS (GSentence referent (GBe_vp comp)) ->
+	(\positer -> transNP referent 
+	    (\subj -> (transCOMP comp subj )))
+    GPosS (GSentence referent (GIntens vv (GHappening v))) ->
+	(\positer -> transNP referent 
+	    (\subj -> Rel ((positing_list v0) ++ "_" ++ (intens_list vv) ++ "_to_"
+		++ (happening_list v)) [positer, subj] ))
+--    GNegS (GCop item comp) ->
+--	(\positer -> transNP item 
+--	    (\subj -> transNP comp (\x -> Rel ((positing_list v0) ++"_isn't") [positer, subj, x])))
 transVP _ = \x -> NonProposition
 --
 transCOMP :: GComp -> Term -> LF
