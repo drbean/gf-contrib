@@ -214,10 +214,11 @@ twoPlacers = [
                     (student,subject): (student,school) : hs) [] schooling )
     , ("go_to",	pred2 $ going ++ map (\x->(recipient4 x,location4 x) ) schooling )
     , ("need",	pred2 $ [ (a,t) | (p,a,t) <- needing ] )
-    , ("say_too_little", pred2 $ [ (s,r) | (s, (pred, r) ,_) <- comms,
+    , ("say:too_little", pred2 $ [ (s,r) | (s, (pred, r) ,_) <- comms,
 					      pred == "too_little" ] )
-    , ("say_need_to_slow_down", pred2 $ [ (s,r) | (s, (pred, r) ,_) <- comms,
+    , ("say:need_to_slow_down", pred2 $ [ (s,r) | (s, (pred, r) ,_) <- comms,
 					      pred == "need_to_slow_down" ] )
+    , ("want_to_work_with", pred2 [] )
     ]
 
 curry3 :: ((a,b,c) -> d) -> a -> b -> c -> d
@@ -229,7 +230,7 @@ threePlacers = [
     , ("work",        pred3 $ [(a,a,c) | (a,p,c) <- working ] )
     , ("studied_subj_at", pred3 $ map (\(_,school,subject,student) ->
                     (student,subject,school) ) schooling )
-  , ("think_need_to_have", pred3 needing )
+  , ("think:need_to_have", pred3 needing )
     ]
 
 
@@ -258,6 +259,11 @@ comms	= [
   ,(W2, ("need_to_slow_down",D), D)
 	    -- ,(I,Unspec,D),(F,Unspec,D),(F,Unspec,A),(A,Unspec,D),(A,Unspec,I)
 	    ]
+-- long_comms : (speaker, (content, agent, theme, recipient), listener)
+long_comms  = [
+  (W3, ("take_away",D,J,W5), D)
+  , (W4, ("take_away",D,J,W6), D)
+  ]
 giving	= [ (V,J,D) ]
 --(agent,theme,location)
 looking_back	= [(D,C,V),(I,C,V)]
@@ -294,6 +300,8 @@ got_from	= pred3 $ map (\x -> (recipient x, patient x, agent x) ) giving
 -- recite = pred2 $ map ( \x -> (agent x, theme x) ) comms
 
 fourPlacers = [
+    ("say:take_away", pred4 $ [ (s,a,t,r) | (s, (c,a,t,r) ,l) <- long_comms,
+					      c == "take_away" ] )
         ]
 
 
