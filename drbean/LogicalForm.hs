@@ -200,8 +200,11 @@ transNP thing	| rel <- uncount_list thing = \p -> Exists ( \v -> Conj [ p v, Rel
 
 transDet :: GDet -> (Term -> LF) -> (Term -> LF) -> LF
 transDet (GApos owner) =
-    \ p q -> Exists (\v -> Conj [ Single p, p v, q v, transNP owner
-	(\mod -> Rel "have" [mod, v] )])
+	\ p q -> Exists (\v -> Conj [ Single p, p v, q v, transNP owner
+		(\mod -> Rel "have" [mod, v] )])
+transDet (GApos_pl owners) =
+	\ p q -> Exists (\v -> Conj [ Several p, p v, q v, transNP owners
+		(\mod -> Rel "have" [mod, v] )])
 transDet Gthe_Det =  \ p q -> Exists (\v -> Conj [Single p, p v, q v] )
 transDet GthePlural_Det =  \ p q -> Several (\v -> Conj [p v, q v] )
 --transDet (Leaf (Cat "every" "DET" _ _)) =
@@ -420,21 +423,27 @@ transVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 --'		(\referent -> Rel ((positing_list v0) ++"_is_"++ (adjective_list ap)) [positer, referent]))
 	(GBe_vp comp) -> case comp of
 		(GBe_bad attribute ) -> (\positer -> transNP np
-			(\referent -> Rel ((positing_list v0) ++ "_" ++
+			(\referent -> Rel ((positing_list v0) ++ ":" ++
 				(adjective_list attribute)) [positer,referent]))
 		_ -> (transCOMP comp )
 	(GChanging v2 obj) -> (\positer -> transNP np
 		(\referent -> transNP obj (
-			(\theme -> Rel ((positing_list v0) ++ "_" ++
+			(\theme -> Rel ((positing_list v0) ++ ":" ++
 				(changing_list v2)) [positer,referent,theme]))))
 	(GIntens vv vp2) -> case vp2 of
 		(GHappening v) -> (\positer -> transNP np 
-			(\referent -> Rel ((positing_list v0) ++ "_" ++ (intens_list vv) ++ "_to_"
+			(\referent -> Rel ((positing_list v0) ++ ":" ++ (intens_list vv) ++ "_to_"
 				++ (happening_list v)) [positer, referent] ))
 		(GChanging v obj) -> (\positer -> transNP obj
 			(\theme -> transNP obj (\referent -> Rel ((positing_list v0) ++
-				"_" ++ (intens_list vv) ++ "_to_" ++ (changing_list v))
+				":" ++ (intens_list vv) ++ "_to_" ++ (changing_list v))
 					[positer,referent,theme])))
+	(GTriangulating v obj1 obj2) ->
+		(\positer -> transNP np
+			(\referent -> transNP obj1
+				(\theme	-> transNP obj2
+					(\recipient -> Rel ((positing_list v0) ++ ":" ++ (triangulating_list v))
+						[positer,referent,theme,recipient]))))
 --    GNegS (GCop item comp) ->
 --	(\positer -> transNP item 
 --	    (\subj -> transNP comp (\x -> Rel ((positing_list v0) ++"_isn't") [positer, subj, x])))
