@@ -427,13 +427,13 @@ transVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 				(adjective_list attribute)) [positer,referent]))
 		(GBe_someone subjcomp ) -> (\positer -> transNP np
 			(\referent -> transNP subjcomp
-				(\predicate -> Rel ((positing_list v0) ++ ":is_"
-					++ predicate_list predicate) [positer,referent])))
-		_ -> (transCOMP comp )
+				(\pred -> Rel ((positing_list v0) ++ ":is")
+					[positer,referent,pred])))
+	(GVPPlaced v loc) -> (\x -> Rel "true" [x] )
 	(GChanging v2 obj) -> (\positer -> transNP np
-		(\referent -> transNP obj (
+		(\referent -> transNP obj
 			(\theme -> Rel ((positing_list v0) ++ ":" ++
-				(changing_list v2)) [positer,referent,theme]))))
+				(changing_list v2)) [positer,referent,theme])))
 	(GIntens vv vp2) -> case vp2 of
 		(GHappening v) -> (\positer -> transNP np 
 			(\referent -> Rel ((positing_list v0) ++ ":" ++ (intens_list vv) ++ "_to_"
@@ -448,6 +448,7 @@ transVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 				(\theme	-> transNP obj2
 					(\recipient -> Rel ((positing_list v0) ++ ":" ++ (triangulating_list v))
 						[positer,referent,theme,recipient]))))
+	_ -> \x -> NonProposition
 --    GNegS (GCop item comp) ->
 --	(\positer -> transNP item 
 --	    (\subj -> transNP comp (\x -> Rel ((positing_list v0) ++"_isn't") [positer, subj, x])))
