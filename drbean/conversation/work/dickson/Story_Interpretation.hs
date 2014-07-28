@@ -39,6 +39,10 @@ uncount_list Gtime	= "time"
 uncount_list Gwork	= "work"
 uncount_list Ggraduation	= "graduation"
 
+title_list :: GTitle -> String
+title_list Gsuperintendent_title	= "superintendent_title"
+title_list Gsupervisor_title	= "supervisor_title"
+
 kind_list :: GCN -> String
 kind_list Gapprentice	= "apprentice"
 kind_list Gelectrician	= "electrician"

@@ -193,6 +193,7 @@ transNP (GEntity name)
     | entity <- (entity_list name) , entity `elem` entities =
 	\ p -> p (Const entity)
     | otherwise = \p -> NonProposition
+transNP (GTitular t)	| rel <- title_list t = \p -> Exists ( \v -> Conj [ p v, Rel rel [v] ] )
 transNP thing	| rel <- uncount_list thing = \p -> Exists ( \v -> Conj [ p v, Rel rel [v] ] )
 		| otherwise = \p -> NonProposition
 --transNP (Branch (Cat _ "NP" _ _) [np,Leaf (Cat "'s" "APOS" _ _),cn]) =
