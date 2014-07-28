@@ -425,6 +425,10 @@ transVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 		(GBe_bad attribute ) -> (\positer -> transNP np
 			(\referent -> Rel ((positing_list v0) ++ ":" ++
 				(adjective_list attribute)) [positer,referent]))
+		(GBe_someone subjcomp ) -> (\positer -> transNP np
+			(\referent -> transNP subjcomp
+				(\predicate -> Rel ((positing_list v0) ++ ":is_"
+					++ predicate_list predicate) [positer,referent])))
 		_ -> (transCOMP comp )
 	(GChanging v2 obj) -> (\positer -> transNP np
 		(\referent -> transNP obj (
