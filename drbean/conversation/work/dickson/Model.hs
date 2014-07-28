@@ -231,8 +231,12 @@ threePlacers = [
     , ("studied_subj_at", pred3 $ map (\(_,school,subject,student) ->
                     (student,subject,school) ) schooling )
   , ("think:need_to_have", pred3 needing )
+  , ("say:have", pred3 $ [(D,o,p)   | (o,p) <- possessions,
+	  o == D] )
     ]
 
+data Case = Agent | Theme | Recipient | Feature | Location
+instance Eq Case
 
 agent, theme, recipient, location, instrument ::
 	(Entity,Entity,Entity) -> Entity
@@ -259,10 +263,15 @@ comms	= [
   ,(W2, ("need_to_slow_down",D), D)
 	    -- ,(I,Unspec,D),(F,Unspec,D),(F,Unspec,A),(A,Unspec,D),(A,Unspec,I)
 	    ]
+type Speaker = Entity
+type Listener = Entity
+-- type Content  = ThreePlacePred
+type Content  = String
 -- long_comms : (speaker, (content, agent, theme, recipient), listener)
+long_comms :: [(Speaker, Content, [(Case,Entity)], Listener)]
 long_comms  = [
-  (W3, ("take_away",D,J,W5), D)
-  , (W4, ("take_away",D,J,W6), D)
+  (W3, "take_away",[(Agent,D),(Theme,J),(Recipient,W5)], D)
+  , (W4, "take_away",[(Agent,D),(Theme,J),(Recipient,W6)], D)
   ]
 giving	= [ (V,J,D) ]
 --(agent,theme,location)
@@ -300,8 +309,12 @@ got_from	= pred3 $ map (\x -> (recipient x, patient x, agent x) ) giving
 -- recite = pred2 $ map ( \x -> (agent x, theme x) ) comms
 
 fourPlacers = [
-    ("say:take_away", pred4 $ [ (s,a,t,r) | (s, (c,a,t,r) ,l) <- long_comms,
-					      c == "take_away" ] )
+    ("say:take_away", pred4 $ [ (s,a,t,r) | (s, content ,c ,l) <- long_comms
+				, content == "take_away"
+				, Just a <- [lookup Agent c]
+				, Just t <- [lookup Theme c]
+				, Just r <- [lookup Recipient c]
+				] )
         ]
 
 

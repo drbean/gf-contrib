@@ -177,6 +177,7 @@ relations = [
 	, ( "like",	\[x,y]	-> predid2 "like" y x	)
 
 	, ( "think:need_to_have",	\[x,y,z]	-> predid3 "think:need_to_have" z y x	)
+	, ( "say:have",	\[x,y,z]	-> predid3 "say:have" z y x	)
 
 	, ( "say:take_away",	\[x,y,z,w]	-> predid4 "say:take_away" w z y x	)
 	]
