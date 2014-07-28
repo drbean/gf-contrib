@@ -88,6 +88,7 @@ changing_list Gsee  	= "see"
 changing_list Gwork_with  	= "work_with"
 
 causative_list :: GV2V -> String
+causative_list Glet_V2V	= "let"
 causative_list Gtake	= "take"
 
 positing_list :: GVS -> String
@@ -104,6 +105,7 @@ intens_list Gstart	= "start"
 intens_list Gwant	= "want"
 
 triangulating_list :: GV3 -> String
+triangulating_list Gget_V3	= "get_V3"
 triangulating_list Ggive	= "give"
 triangulating_list Gtake_away	= "take_away"
 

@@ -439,10 +439,15 @@ transVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 		(GHappening v) -> (\positer -> transNP np 
 			(\referent -> Rel ((positing_list v0) ++ ":" ++ (intens_list vv) ++ "_to_"
 				++ (happening_list v)) [positer, referent] ))
-		(GChanging v obj) -> (\positer -> transNP obj
+		(GChanging v obj) -> (\positer -> transNP np
 			(\theme -> transNP obj (\referent -> Rel ((positing_list v0) ++
 				":" ++ (intens_list vv) ++ "_to_" ++ (changing_list v))
 					[positer,referent,theme])))
+		(GTriangulating v obj1 obj2) -> (\positer -> transNP np
+			(\referent -> transNP obj1
+			(\theme	-> transNP obj2
+			(\recipient -> Rel ((positing_list v0) ++ ":" ++ (intens_list vv)
+			++ "_" ++ (triangulating_list v)) [positer,referent,theme,recipient]))))
 	(GTriangulating v obj1 obj2) ->
 		(\positer -> transNP np
 			(\referent -> transNP obj1

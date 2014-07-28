@@ -21,7 +21,7 @@ fun
 	find	: V2V;
 	get_along	: V2;
 	get	: V2;
-	get_3	: V3;
+	get_V3	: V3;
 	give	: V3;
 	go_ship	: VP;
 	go_school	: VP;

@@ -20,7 +20,7 @@ lin
 	find	= mkV2V (mkV "find") noPrep to_prep;
 	get_along	= mkV2 "get" "along with";
 	get	= mkV2 get_V;
-	get_3	= mkV3 get_V;
+	get_V3	= mkV3 get_V;
 	give	= mkV3 IrregEng.give_V;
 	go_ship	= VPPlaced (mkVP IrregEng.go_V) (Locating to_prep (Location the_Det ship));
 	go_school	= VPPlaced (mkVP IrregEng.go_V) (Locating to_prep school);
