@@ -351,10 +351,10 @@ transVP (GTriangulating v obj1 obj2) =
 --     (\ recipient -> Rel name [agent,location,theme,recipient])))
 --
 transVP (GIntens v0 vp) = case vp of
-    GHappening v ->
-	\subj -> Rel ((intens_list v0) ++"_to_"++ (happening_list v)) [subj]
-    GChanging v obj ->
-	(\subj -> transNP obj
+	GHappening v ->
+		\subj -> Rel ((intens_list v0) ++"_to_"++ (happening_list v)) [subj]
+	GChanging v obj ->
+		(\subj -> transNP obj
 		( \theme -> Rel ((intens_list v0) ++"_to_"++
 				(changing_list v)) [subj,theme] ))
 --transVP (Branch (Cat _ "AT" _ _)
