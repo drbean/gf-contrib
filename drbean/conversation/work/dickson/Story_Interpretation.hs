@@ -13,6 +13,7 @@ determiner_list Gthe_first	= "the first"
 
 adjective_list :: GAP -> String
 adjective_list Geighty_pound     = "80-pound"
+adjective_list Gat_the_shipyard     = "at_the_shipyard"
 adjective_list Gbad     = "bad"
 adjective_list Ggood  = "good"
 adjective_list Ghard    = "hard"
@@ -69,6 +70,9 @@ happening_list Gwork_V	= "work"
 happening_list Glaugh	= "laugh"
 happening_list Gslow_down	= "slow_down"
 
+va_list :: GVA -> String
+va_list Glook = "look"
+
 vp_list :: GVP -> String
 vp_list Ggo_ship   	= "go_ship"
 vp_list Ggo_school   	= "go_school"
@@ -89,7 +93,9 @@ changing_list Gwork_with  	= "work_with"
 
 causative_list :: GV2V -> String
 causative_list Glet_V2V	= "let"
+causative_list Gmake_V2V	= "make"
 causative_list Gtake	= "take"
+causative_list Gtell_to	= "tell_to"
 
 positing_list :: GVS -> String
 positing_list Gknow_VS	= "know_VS"
@@ -157,7 +163,8 @@ inflections = [
 	]
 
 relations = [
-	( "bad",	\[x]	-> predid1 "bad" x	)
+	( "at_the_shipyard",	\[x]	-> predid1 "at_the_shipyard" x	)
+	, ( "bad",	\[x]	-> predid1 "bad" x	)
 	, ( "better",	\[x]	-> predid1 "better" x	)
 	, ( "first",	\[x]	-> predid1 "first" x	)
 	, ( "hard",	\[x]	-> predid1 "hard" x	)
@@ -167,15 +174,18 @@ relations = [
 	, ( "work",	\[x]	-> predid1 "work" x	)
 	, ( "laugh",	\[x] -> predid1 "laugh" x	)
 	, ( "know",	\[x]	-> predid1 "know" x	)
-	, ( "look_here",	\[x]	-> predid1 "look_here" x	)
+	, ( "look_bad",	\[x]	-> predid1 "look_bad" x	)
 	, ( "slow_down",	\[x]	-> predid1 "slow_down" x	)
 	, ( "need_to_slow_down",	\[x]	-> predid1 "need_to_slow_down" x	)
 
 	, ( "say:need_to_slow_down",	\[x,y]	-> predid2 "say:need_to_slow_down" y x	)
+	, ( "tell_to_to_slow_down",	\[x,y]	-> predid2 "tell_to_to_slow_down" y x	)
 	, ( "say:too_little",	\[x,y]	-> predid2 "say:too_little" y x	)
 	, ( "need",	\[x,y]	-> predid2 "need" y x	)
 	, ( "become",	\[x,y]	-> predid2 "become" y x	)
 	, ( "can_to_lift",	\[x,y]	-> predid2 "can_to_lift" y x	)
+	, ( "make_look_bad",	\[x,y]	-> predid2 "make_look_bad" y x	)
+	, ( "work_with",	\[x,y]	-> predid2 "work_with" y x	)
 	, ( "want_to_work_with",	\[x,y]	-> predid2 "want_to_work_with" y x	)
 
 	, ( "hire",	\[x,y]	-> predid2 "hire" y x	)
@@ -184,6 +194,7 @@ relations = [
 
 	, ( "think:need_to_have",	\[x,y,z]	-> predid3 "think:need_to_have" z y x	)
 	, ( "say:have",	\[x,y,z]	-> predid3 "say:have" z y x	)
+	, ( "say:need",	\[x,y,z]	-> predid3 "say:need" y x z	)
 
 	, ( "say:take_away",	\[x,y,z,w]	-> predid4 "say:take_away" w z y x	)
 	]
