@@ -164,6 +164,7 @@ inflections = [
 
 relations = [
 	( "at_the_shipyard",	\[x]	-> predid1 "at_the_shipyard" x	)
+	, ( "at_the_shipyard_to_work",	\[x]	-> predid1 "at_the_shipyard_to_work" x	)
 	, ( "bad",	\[x]	-> predid1 "bad" x	)
 	, ( "better",	\[x]	-> predid1 "better" x	)
 	, ( "first",	\[x]	-> predid1 "first" x	)
@@ -180,6 +181,7 @@ relations = [
 
 	, ( "say:need_to_slow_down",	\[x,y]	-> predid2 "say:need_to_slow_down" y x	)
 	, ( "tell_to_to_slow_down",	\[x,y]	-> predid2 "tell_to_to_slow_down" y x	)
+	, ( "say:at_the_shipyard_to_work",	\[x,y]	-> predid2 "say:at_the_shipyard_to_work" y x	)
 	, ( "say:too_little",	\[x,y]	-> predid2 "say:too_little" y x	)
 	, ( "need",	\[x,y]	-> predid2 "need" y x	)
 	, ( "become",	\[x,y]	-> predid2 "become" y x	)

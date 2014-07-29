@@ -93,6 +93,11 @@ onePlacers = [
 	, ("transformer",	 pred1 [T] )
 	, ("ship",	 pred1 [B] )
 	, ("shipyard",	 pred1 [V] )
+	, ("at_the_shipyard", pred1 $ [ w | (w,_,s) <- working
+			      , s == V ])
+	, ("at_the_shipyard_to_work", pred1 $ [w | w <-
+		    filter (predid1 "at_the_shipyard") entities
+			  , w == D])
 	, ("disappointment",	 pred1 [K] )
 	, ("money",	 pred1 [M] )
 	, ("upbringing",	 pred1 [G] )
@@ -225,6 +230,9 @@ twoPlacers = [
 			      pred == "need_to_slow_down" ] )
      , ("want_to_work_with", pred2 [] )
      , ("work_with", pred2 $ [ (D,w) | (w,j,s) <- working , s == B ])
+     , ("say:at_the_shipyard_to_work", pred2 $ [(D,e) | e <- filter
+	       (predid1 "at_the_shipyard_to_work") entities ])
+
     ]
 
 curry3 :: ((a,b,c) -> d) -> a -> b -> c -> d
