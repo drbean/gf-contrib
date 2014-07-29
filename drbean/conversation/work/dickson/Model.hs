@@ -108,6 +108,7 @@ onePlacers = [
 	, ("little",	 pred1 [D] )
 	, ("mad",	 pred1 [D,H,W1,W2,W3,W4] )
 	, ("bad",	 pred1 [H,W1,W2,W3,W4] )
+	, ("look_bad",	 pred1 [H,W1,W2,W3,W4] )
 
 	, ("male",	 pred1 [A,F,W1,W2,W3,W4,W5,W6,I,C1,C2, GGF, GF] )
 	, ("female",	 pred1 [D] )
@@ -214,11 +215,16 @@ twoPlacers = [
                     (student,subject): (student,school) : hs) [] schooling )
     , ("go_to",	pred2 $ going ++ map (\x->(recipient4 x,location4 x) ) schooling )
     , ("need",	pred2 $ [ (a,t) | (p,a,t) <- needing ] )
+    , ("make_look_bad",  pred2 $ [ (D,b) | b <-
+	filter (predid1 "look_bad") entities ])
     , ("say:too_little", pred2 $ [ (s,r) | (s, (pred, r) ,_) <- comms,
 					      pred == "too_little" ] )
-    , ("say:need_to_slow_down", pred2 $ [ (s,r) | (s, (pred, r) ,_) <- comms,
+    , ("say:need_to_slow_down", pred2 $ [ (s,r) | (s, (pred, r), _) <- comms,
 					      pred == "need_to_slow_down" ] )
-    , ("want_to_work_with", pred2 [] )
+    , ("tell_to_to_slow_down", pred2 $ [ (s,r) | (s, (pred, r), _) <- comms,
+			      pred == "need_to_slow_down" ] )
+     , ("want_to_work_with", pred2 [] )
+     , ("work_with", pred2 $ [ (D,w) | (w,j,s) <- working , s == B ])
     ]
 
 curry3 :: ((a,b,c) -> d) -> a -> b -> c -> d
@@ -231,8 +237,10 @@ threePlacers = [
     , ("studied_subj_at", pred3 $ map (\(_,school,subject,student) ->
                     (student,subject,school) ) schooling )
   , ("think:need_to_have", pred3 needing )
-  , ("say:have", pred3 $ [(D,o,p)   | (o,p) <- possessions,
-	  o == D] )
+  , ("say:have", pred3 $ [(D,o,p)   | (o,p) <- possessions
+	  , o == D] )
+  , ("say:need", pred3 [ (p,a,t) | (p,a,t) <- needing
+	  , p == D] )
     ]
 
 data Case = Agent | Theme | Recipient | Feature | Location
@@ -254,13 +262,15 @@ working	= [(A,Unspec,V),(I,Unspec,V),
 -- shipyard
 	(D,R,V),(W1,R,V),(W2,R,V),(W3,R,V),(W4,R,V),(W5,R,V),(W6,R,V),
 -- ship
-	(W1,R,B),(W2,R,B),(W3,R,B),(W4,R,B),(W5,R,B),(W6,R,B)]
+	(D,R,B),(W1,R,B),(W2,R,B),(W3,R,B),(W4,R,B),(W5,R,B),(W6,R,B)]
 
 -- (speaker, (content, referent),listener)
 comms	= [
   (I, ("too_little",D), D)
   ,(W1, ("need_to_slow_down",D), D)
   ,(W2, ("need_to_slow_down",D), D)
+  ,(D, ("need_money",D), W1)
+  ,(D, ("need_money",D), W2)
 	    -- ,(I,Unspec,D),(F,Unspec,D),(F,Unspec,A),(A,Unspec,D),(A,Unspec,I)
 	    ]
 type Speaker = Entity
