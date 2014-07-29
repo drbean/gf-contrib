@@ -216,8 +216,8 @@ transDet GthePlural_Det =  \ p q -> Several (\v -> Conj [p v, q v] )
 --  \ p q -> Exists (\v -> Conj [p v, q v] )
 transDet Ga_Det = \ p q -> Exists (\v -> Conj [p v, q v] )
 transDet Gzero_Det = \ p q -> Exists (\v -> Conj [p v, q v] )
---transDet (Leaf (Cat "several" "DET" _ _)) =
---  \ p q -> Several (\v -> Conj [p v, q v] )
+transDet Gseveral =
+	\ p q -> Several (\v -> Conj [p v, q v] )
 transDet Gno_Det =
 	\ p q -> Neg (Exists (\v -> Conj [p v, q v]))
 transDet Gno_pl_Det = transDet Gno_Det
@@ -381,6 +381,10 @@ transVP (GCausative v0 obj0 vp) = case vp of
 		\subj -> transNP obj0
 			(\agent -> Rel ((causative_list v0) ++ "_to_" ++
 				(happening_list v)) [subj,agent])
+	GLook_bad v a ->
+		\subj -> transNP obj0
+		(\agent -> Rel ((causative_list v0) ++ "_" ++ (va_list v) ++
+		"_" ++ (adjective_list a)) [subj, agent])
 	GChanging v obj1 ->
 		(\subj -> transNP obj0
 			(\agent -> transNP obj1
@@ -395,6 +399,8 @@ transVP (GCausative v0 obj0 vp) = case vp of
 							(\theme -> Rel ((causative_list v0) ++ "_to_" ++
 								(causative_list v) ++ "_to_" ++
 									(changing_list v2)) [subj,agent1,agent2,theme] ))))
+	GIntens v vp2 ->
+		(\x -> Rel "true" [x])
 --transVP (Branch (Cat _ "AT" _ _)
 --    [Leaf (Cat att "V" _ [_]), obj0, Leaf (Cat "to" "TO" [ToInf] []),
 --       (Branch (Cat _ "VP" _ _) [Leaf (Cat act "V" _ _),obj])]) =
@@ -423,8 +429,13 @@ transVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 --'	(GIs np ap) -> (\positer -> transNP np 
 --'		(\referent -> Rel ((positing_list v0) ++"_is_"++ (adjective_list ap)) [positer, referent]))
 	(GBe_vp comp) -> case comp of
-		(GBe_bad attribute ) -> (\positer -> transNP np
-			(\referent -> Rel ((positing_list v0) ++ ":" ++
+		(GBe_bad attribute ) -> case attribute of
+			(GAdjModified adj mod) -> case mod of
+				(GHappening v) -> \positer -> transNP np
+					(\referent -> Rel ((positing_list v0) ++ ":" ++ (adjective_list adj) ++ "_to_" ++ (happening_list v)) [positer,referent])
+				_ -> \x -> undefined
+			_ -> (\positer -> transNP np
+				(\referent -> Rel ((positing_list v0) ++ ":" ++
 				(adjective_list attribute)) [positer,referent]))
 		(GBe_someone subjcomp ) -> (\positer -> transNP np
 			(\referent -> transNP subjcomp
