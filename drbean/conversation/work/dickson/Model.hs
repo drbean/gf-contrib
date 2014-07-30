@@ -103,6 +103,7 @@ onePlacers = [
 	, ("upbringing",	 pred1 [G] )
 	, ("story",	 pred1 [Y] )
 	, ("job",	 pred1 [J] )
+	, ("position",	 predid1 "job" )
 	, ("work",	 pred1 $ [J] ++ map agent working )
 	, ("worker",	 pred1 $ map agent working )
   , ("superior",	pred1 $ map fst supervision )
@@ -247,6 +248,10 @@ threePlacers = [
                     (student,subject,school) ) schooling )
     , ("have_go_to", pred3 $ [ (a,l,n) |
 	    (a,_,l) <- working ++ studying , n <- [O,W] ])
+  , ("think:is", pred3 $ [ (s,t,r) | (s, content ,c ,l) <- long_comms
+		  , content == "belong_to"
+		  , Just t <- [lookup Theme c]
+		  , Just r <- [lookup Recipient c] ] )
   , ("think:need_to_have", pred3 needing )
   , ("say:have", pred3 $ [(D,o,p)   | (o,p) <- possessions
           , o == D] )
@@ -291,8 +296,12 @@ type Content  = String
 -- long_comms : (speaker, (content, agent, theme, recipient), listener)
 long_comms :: [(Speaker, Content, [(Case,Entity)], Listener)]
 long_comms  = [
-  (W3, "take_away",[(Agent,D),(Theme,J),(Recipient,W5)], D)
-  , (W4, "take_away",[(Agent,D),(Theme,J),(Recipient,W6)], D)
+  (W1, "take_away",[(Agent,D),(Theme,J),(Recipient,W5)], D)
+  , (W2, "take_away",[(Agent,D),(Theme,J),(Recipient,W6)], D)
+  , (W1, "take_away",[(Agent,D),(Theme,D),(Recipient,W5)], D) -- supervisor position
+  , (W2, "take_away",[(Agent,D),(Theme,D),(Recipient,W6)], D)
+  , (W1, "belong_to",[(Theme,D),(Recipient,W5)], D)
+  , (W2, "belong_to",[(Theme,D),(Recipient,W6)], D)
   ]
 giving	= [ (V,J,D) ]
 --(agent,theme,location)
