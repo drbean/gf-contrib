@@ -193,8 +193,10 @@ transNP (GEntity name)
     | entity <- (entity_list name) , entity `elem` entities =
 	\ p -> p (Const entity)
     | otherwise = \p -> NonProposition
-transNP (GTitular t)	| rel <- title_list t = \p -> Exists ( \v -> Conj [ p v, Rel rel [v] ] )
-transNP thing	| rel <- uncount_list thing = \p -> Exists ( \v -> Conj [ p v, Rel rel [v] ] )
+transNP (GTitular t)	| rel <- title_list t =
+	\p -> Exists ( \v -> Conj [ p v, Rel rel [v] ] )
+transNP thing	| rel <- uncount_list thing =
+	\p -> Exists ( \v -> Conj [ p v, Rel rel [v] ] )
 		| otherwise = \p -> NonProposition
 --transNP (Branch (Cat _ "NP" _ _) [np,Leaf (Cat "'s" "APOS" _ _),cn]) =
 --    \p -> Exists (\thing -> Conj [ p thing, transCN cn thing, transNP np (\owner -> (Rel "had" [owner,thing]))])
@@ -218,6 +220,7 @@ transDet Ga_Det = \ p q -> Exists (\v -> Conj [p v, q v] )
 transDet Gzero_Det = \ p q -> Exists (\v -> Conj [p v, q v] )
 transDet Gseveral =
 	\ p q -> Several (\v -> Conj [p v, q v] )
+transDet Gtwo = transDet Gseveral
 transDet Gno_Det =
 	\ p q -> Neg (Exists (\v -> Conj [p v, q v]))
 transDet Gno_pl_Det = transDet Gno_Det
@@ -279,6 +282,12 @@ transCN name          = \ x -> Rel (kind_list name) [x]
 --  \ x -> (transS (Just s))
 --transREL (Branch (Cat _ "MOD" _ _ ) [s])     =
 --  \ x -> (transS (Just s))
+
+transPlace :: GPlace -> (Term -> LF) -> LF
+transPlace (GLocation _ name) | rel <- placename_list name =
+	\p -> Exists ( \v -> Conj [ p v, Rel rel [v] ] )
+transPlace place	| rel <- place_list place =
+	\p -> Exists ( \v -> Conj [ p v, Rel rel [v] ] )
 
 --transPP :: ParseTree Cat Cat -> (Term -> LF) -> LF
 --transPP (Leaf   (Cat "#" "PP" _ _)) = \ p -> p (Var 0)
@@ -357,6 +366,13 @@ transVP (GIntens v0 vp) = case vp of
 		(\subj -> transNP obj
 		( \theme -> Rel ((intens_list v0) ++"_to_"++
 				(changing_list v)) [subj,theme] ))
+	GVPPlaced v loc ->
+		\subj -> Rel  ((intens_list v0) ++ "_to_" ++ "goto_school") [subj]
+	GWithFreq vp2 (GFreqAdv count period) -> case vp2 of
+		GVPPlaced vp (GLocating prep place) -> \subj -> transNP count
+				(\times -> transPlace place
+				(\name -> Rel ((intens_list v0) ++ "_" ++ (motion_list vp) ++ "_" ++ (locprep_list prep)) [subj,name,times]))
+		-- _ -> \subj -> Rel  ((intens_list v0) ++ "_to_" ++ "go_2_nights_aweek") [subj]
 --transVP (Branch (Cat _ "AT" _ _)
 --    [Leaf (Cat att "V" _ _), Leaf (Cat "to" "TO" [ToInf] []),
 --       (Branch (Cat _ "VP" _ _) [Leaf (Cat act "V" _ _),obj])]) =
@@ -469,7 +485,9 @@ transVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 --    GNegS (GCop item comp) ->
 --	(\positer -> transNP item 
 --	    (\subj -> transNP comp (\x -> Rel ((positing_list v0) ++"_isn't") [positer, subj, x])))
-transVP	(GVPPlaced vp placed) = \x -> Rel "go_school" [x]
+transVP	(GVPPlaced vp (GLocating prep destination)) =
+	\mover -> transPlace destination
+	(\place -> Rel ((motion_list vp) ++ "_" ++ (locprep_list prep)) [mover,place])
 transVP _ = \x -> NonProposition
 --
 transCOMP :: GComp -> Term -> LF
