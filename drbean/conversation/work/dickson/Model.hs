@@ -37,7 +37,7 @@ entity_check =  [
     , (T, "" )	-- transformer
     , (U, "" )
     , (V, "" )	-- shipyard
-    , (W, "" )
+    , (W, "Wednesday" )
     , (X, "" )
     , (Y, "" )	-- story , (Z, "" )
     ]
@@ -86,17 +86,17 @@ onePlacers = [
 	, ("supervisor",	 pred1 [D] )
 	, ("apprentice",	 pred1 [D] )
 	, ("husband",	 pred1 [H] )
-	, ("vocational_school",	 pred1 [S] )
+	, ("school",	 pred1 [S] )
+	, ("night", pred1 [O,W] )
 	, ("construction",	 pred1 [N] )
 	, ("electrician",	 pred1 [D,W,W1,W2,W3] )
 	, ("interviewer",	 pred1 [I] )
 	, ("transformer",	 pred1 [T] )
 	, ("ship",	 pred1 [B] )
 	, ("shipyard",	 pred1 [V] )
-	, ("at_the_shipyard", pred1 $ [ w | (w,_,s) <- working
-			      , s == V ])
+	, ("at_the_shipyard", pred1 $ [ w | (w,_,s) <- working , s == V ])
 	, ("at_the_shipyard_to_work", pred1 $ [w | w <-
-		    filter (predid1 "at_the_shipyard") working
+		    filter (predid1 "at_the_shipyard") entities
 			  , w == D])
 	, ("disappointment",	 pred1 [K] )
 	, ("money",	 pred1 [M] )
@@ -218,7 +218,8 @@ twoPlacers = [
                 ++ [(worker, place) | (worker,period,place) <- working ])
     , ("studied", pred2 $ foldl (\hs (_,school,subject,student) ->
                     (student,subject): (student,school) : hs) [] schooling )
-    , ("go_to",	pred2 $ going ++ map (\x->(recipient4 x,location4 x) ) schooling )
+    , ("go_to",	pred2 $ [ (a,l) | (a,_,l) <- working ++ studying ] )
+    , ("have_go_to", predid2 "go_to" )
     , ("need",	pred2 $ [ (a,t) | (p,a,t) <- needing ] )
     , ("make_look_bad",  pred2 $ [ (D,b) | b <-
 	filter (predid1 "look_bad") entities ])
@@ -231,7 +232,7 @@ twoPlacers = [
      , ("want_to_work_with", pred2 [] )
      , ("work_with", pred2 $ [ (D,w) | (w,j,s) <- working , s == B ])
      , ("say:at_the_shipyard_to_work", pred2 $ [(D,e) | e <- filter
-	       (predid1 "at_the_shipyard_to_work") working ])
+	       (predid1 "at_the_shipyard_to_work") entities ])
 
     ]
 
@@ -244,11 +245,13 @@ threePlacers = [
     , ("work",        pred3 $ [(a,a,c) | (a,p,c) <- working ] )
     , ("studied_subj_at", pred3 $ map (\(_,school,subject,student) ->
                     (student,subject,school) ) schooling )
+    , ("have_go_to", pred3 $ [ (a,l,n) |
+	    (a,_,l) <- working ++ studying , n <- [O,W] ])
   , ("think:need_to_have", pred3 needing )
   , ("say:have", pred3 $ [(D,o,p)   | (o,p) <- possessions
-	  , o == D] )
+          , o == D] )
   , ("say:need", pred3 [ (p,a,t) | (p,a,t) <- needing
-	  , p == D] )
+          , p == D] )
     ]
 
 data Case = Agent | Theme | Recipient | Feature | Location
@@ -310,8 +313,7 @@ look_back_on	= pred2 $ map (\x->(agent x, theme x) ) looking_back
 
 -- (teacher,school(location),subject,student,degree)
 schooling = [(Unspec,S,N,D)]
-studied = pred3 $ map ( \x -> (recipient4 x, theme4 x, location4 x) )
-				schooling
+studying = map ( \x -> (recipient4 x, theme4 x, location4 x) ) schooling
 studied_what = pred2 $ map (\x -> (recipient4 x, theme4 x) ) schooling
 studied_where = pred2 $ map (\x -> (recipient4 x, location4 x) ) schooling
 student = pred1 $ map recipient4 schooling
