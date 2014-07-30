@@ -23,8 +23,7 @@ fun
 	get	: V2;
 	get_V3	: V3;
 	give	: V3;
-	go_ship	: VP;
-	go_school	: VP;
+	go	: Motion;
 	have_V2	: V2;
 	have_VV	: VV;
 	hire	: V2;
