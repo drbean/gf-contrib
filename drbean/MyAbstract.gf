@@ -12,6 +12,7 @@ cat
 	PlaceName;
 	LocPrep;
 	Located;
+	Motion;
 
 fun
 	-- Is	: NP -> AP -> Cl;
@@ -43,7 +44,7 @@ fun
 	SubjRel	: RP -> VP -> RCl;
 	ObjRel	: RP -> ClSlash -> RCl;
 	VPClSlash	: NP -> VPSlash -> ClSlash;
-	VPPlaced	:  VP -> Located -> VP;
+	VPPlaced	:  Motion -> Located -> VP;
 	AdvVP	: Adv -> VP -> VP;
 	WithFreq	: VP -> Freq -> VP;
 	YN	: Cl -> QCl;

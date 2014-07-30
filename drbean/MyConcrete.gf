@@ -48,6 +48,7 @@ lincat
 	PlaceName	= CN;
 	LocPrep	= Prep;
 	Located	= Adv;
+	Motion	= VP;
 
 param
   Auxiliary	= Do | Be;
