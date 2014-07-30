@@ -214,15 +214,13 @@ transDet GthePlural_Det =  \ p q -> Several (\v -> Conj [p v, q v] )
 --  \ p q -> Forall (\v -> Impl (p v) (q v) )
 --transDet (Leaf (Cat "all" "DET" _ _)) =
 --  \ p q -> Forall (\v -> Impl (p v) (q v) )
---transDet (Leaf (Cat "some" "DET" _ _)) =
---  \ p q -> Exists (\v -> Conj [p v, q v] )
+transDet Gsome_Det = \ p q -> Exists (\v -> Conj [p v, q v] )
+transDet Gsome_pl_Det = transDet Gsome_Det
 transDet Ga_Det = \ p q -> Exists (\v -> Conj [p v, q v] )
 transDet Gzero_Det = \ p q -> Exists (\v -> Conj [p v, q v] )
-transDet Gseveral =
-	\ p q -> Several (\v -> Conj [p v, q v] )
+transDet Gseveral = \ p q -> Several (\v -> Conj [p v, q v] )
 transDet Gtwo = transDet Gseveral
-transDet Gno_Det =
-	\ p q -> Neg (Exists (\v -> Conj [p v, q v]))
+transDet Gno_Det = \ p q -> Neg (Exists (\v -> Conj [p v, q v]))
 transDet Gno_pl_Det = transDet Gno_Det
 --transDet (Leaf (Cat "most" "DET" _ _)) =
 --  \ p q -> Most (\v -> Impl (p v) (q v) )
