@@ -16,7 +16,7 @@ lin
 	-- Slash v2v vp = mkVPSlash v2v vp;
 	allow = mkV2V (mkV "allow") noPrep to_prep;
 	do	= mkVA do_V;
-	do_2	= mkV2 do_V;
+	do_V2	= mkV2 do_V;
 	find	= mkV2V (mkV "find") noPrep to_prep;
 	get_along	= mkV2 "get" "along with";
 	get	= mkV2 get_V;

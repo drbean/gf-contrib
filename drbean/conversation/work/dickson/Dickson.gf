@@ -17,7 +17,7 @@ fun
 	-- Slash	: V2V -> VP -> VPSlash;
 	allow	: V2V;
 	do	: VA;
-	do_2	: V2;
+	do_V2	: V2;
 	find	: V2V;
 	get_along	: V2;
 	get	: V2;
