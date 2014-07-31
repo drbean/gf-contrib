@@ -101,3 +101,4 @@ takeAnswer "No answer" _ = "No answer"
 takeAnswer _ "No answer" = "No answer"
 takeAnswer _  _   = error "undefined answer, not Yes, No, or No answer"
 
+-- vim: set ts=2 sts=2 sw=2 noet:

@@ -87,3 +87,5 @@ bigN :: [a] -> Bool
 bigN [] = False
 bigN [_] = False
 bigN xs = not . smallN $ xs
+
+-- vim: set ts=2 sts=2 sw=2 noet:
