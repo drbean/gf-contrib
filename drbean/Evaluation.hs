@@ -61,18 +61,18 @@ bool2Maybe = \x -> case x of False -> Nothing; True -> Just True
 testents :: (Term -> LF) -> [Bool]
 testents scope = map ( \e -> evl (scope (Const e)) ) realents
 --
---ent2Maybe :: (Term -> LF) -> Entity -> Maybe Entity
---ent2Maybe scope = \e -> case evl (scope (Const e)) of
---	False -> Nothing; True -> Just e
---evalW :: LF -> [Entity]
---evalW (WH scope)	= mapMaybe (ent2Maybe scope) realents
---evalW NonProposition	= []
---
---ttest :: (Term -> LF) -> Term -> Bool
---ttest scope (Const a) = evl (scope (Const a))
---ttest scope _ = evl (scope (Const R))
---
---revttest scope = \x -> not $ evl (scope (Const x))
+ent2Maybe :: (Term -> LF) -> Entity -> Maybe Entity
+ent2Maybe scope = \e -> case evl (scope (Const e)) of
+	False -> Nothing; True -> Just e
+evalW :: LF -> [Entity]
+evalW (WH scope)	= mapMaybe (ent2Maybe scope) realents
+evalW NonProposition	= []
+
+ttest :: (Term -> LF) -> Term -> Bool
+ttest scope (Const a) = evl (scope (Const a))
+ttest scope _ = evl (scope (Const R))
+
+revttest scope = \x -> not $ evl (scope (Const x))
 
 singleton :: [a] -> Bool
 singleton [x]	= True
