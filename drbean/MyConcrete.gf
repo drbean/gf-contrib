@@ -49,6 +49,7 @@ lincat
 	LocPrep	= Prep;
 	Located	= Adv;
 	Motion	= VP;
+	Style	= Adv;
 
 param
   Auxiliary	= Do | Be;
@@ -120,6 +121,7 @@ lin
   VPPlaced vp located	= mkVP vp located;
   AdvVP adv vp	= mkVP adv vp;
   WithFreq action frequency	= mkVP action frequency;
+  WithStyle action style	= mkVP action style;
   -- Be_made_sth vp np = PassV3 vp np;
 	YN cl	= mkQCl cl;
 	-- WH_Cop ip comp	= mkQCl ip comp;

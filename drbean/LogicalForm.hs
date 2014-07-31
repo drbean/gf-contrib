@@ -370,6 +370,11 @@ transVP (GIntens v0 vp) = case vp of
 		GVPPlaced vp (GLocating prep place) -> \subj -> transNP count
 				(\times -> transPlace place
 				(\name -> Rel ((intens_list v0) ++ "_" ++ (motion_list vp) ++ "_" ++ (locprep_list prep)) [subj,name,times]))
+	GWithStyle vp2 (GComparaAdv cadv a np) -> case vp2 of
+		GChanging v obj ->
+			\subj -> transNP obj
+			(\name -> transNP np
+			(\norm -> Rel ((intens_list v0) ++ "_" ++ (changing_list v) ++ "_" ++ (adj_list a)) [subj, name, norm]))
 		-- _ -> \subj -> Rel  ((intens_list v0) ++ "_to_" ++ "go_2_nights_aweek") [subj]
 --transVP (Branch (Cat _ "AT" _ _)
 --    [Leaf (Cat att "V" _ _), Leaf (Cat "to" "TO" [ToInf] []),

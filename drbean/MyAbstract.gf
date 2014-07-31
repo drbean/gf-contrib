@@ -13,6 +13,7 @@ cat
 	LocPrep;
 	Located;
 	Motion;
+	Style;
 
 fun
 	-- Is	: NP -> AP -> Cl;
@@ -47,6 +48,7 @@ fun
 	VPPlaced	:  Motion -> Located -> VP;
 	AdvVP	: Adv -> VP -> VP;
 	WithFreq	: VP -> Freq -> VP;
+	WithStyle	: VP -> Style -> VP;
 	YN	: Cl -> QCl;
 
 	TagQ	: NP -> VP -> QCl;
@@ -101,7 +103,7 @@ fun
 
 	more : CAdv;
 	ComparaAP : A -> NP -> AP;
-	ComparaAdv : CAdv -> A -> NP -> Adv;
+	ComparaAdv : CAdv -> A -> NP -> Style;
 	ComparaS : AP -> S -> AP;
 	More	: A -> AP;
 
