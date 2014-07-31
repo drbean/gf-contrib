@@ -39,7 +39,8 @@ entity_check =  [
     , (V, "" )	-- shipyard
     , (W, "Wednesday" )
     , (X, "" )
-    , (Y, "" )	-- story , (Z, "" )
+    , (Y, "" )	-- way
+    , (Z, "" )	-- story
     ]
 
 
@@ -77,7 +78,9 @@ onePlacers :: [(String, OnePlacePred)]
 onePlacers = [
         ("true",        pred1 entities )
         , ("false",     pred1 [] )
+        , ("person",    person )
         , ("role",      pred1 [] )
+        , ("thing",    thing )
 
 	, ("child",	pred1 $ map snd parenting )
 	, ("dad",	father )
@@ -91,6 +94,7 @@ onePlacers = [
 	, ("construction",	 pred1 [N] )
 	, ("electrician",	 pred1 [D,W,W1,W2,W3] )
 	, ("interviewer",	 pred1 [I] )
+	, ("80-pound",	 predid1 "transformer" )
 	, ("transformer",	 pred1 [T] )
 	, ("ship",	 pred1 [B] )
 	, ("shipyard",	 pred1 [V] )
@@ -101,9 +105,11 @@ onePlacers = [
 	, ("disappointment",	 pred1 [K] )
 	, ("money",	 pred1 [M] )
 	, ("upbringing",	 pred1 [G] )
-	, ("story",	 pred1 [Y] )
+	, ("same",  thing )
+	, ("story",	 pred1 [Z] )
 	, ("job",	 pred1 [J] )
 	, ("position",	 predid1 "job" )
+	, ("way",	 pred1 $ [Y] )
 	, ("work",	 pred1 $ [J] ++ map agent working )
 	, ("worker",	 pred1 $ map agent working )
   , ("superior",	pred1 $ map fst supervision )
@@ -197,7 +203,7 @@ knowledge	= []
 acquaintances	= []
 help	= pred2 $ supervision
 becoming  = [(D,R),(D,D)]
-can_to_lift = [(W1,T),(W3,T),(W5,T)]
+lifting = [(W1,T),(W3,T),(W5,T)]
 going = [(D,B)]
 -- needing :: positer, agent, theme
 needing = [(D,D,M),(D,D,J)]
@@ -209,7 +215,10 @@ twoPlacers = [
 			  [(a,J) | (a,_,_) <- working] ++
 			  map (\(_,l,_,r) ->(r,l) ) schooling)
     , ("become",  pred2 becoming )
-    , ("can_to_lift",  pred2 can_to_lift )
+    , ("can_to_lift",  pred2 lifting )
+    , ("do",  pred2 $ [ (a,j) | a <- filter person entities
+	    , (w,j,s) <- working
+	    , w == a ] )
     , ("hire",  pred2 $ map (\(a,_,_) -> (V,a)) working)
     , ("interview",  pred2 [(I,D)] )
     , ("like",  pred2 $ map (\(a,t,r) -> (a,r)) appreciation)
@@ -246,6 +255,8 @@ threePlacers = [
     , ("work",        pred3 $ [(a,a,c) | (a,p,c) <- working ] )
     , ("studied_subj_at", pred3 $ map (\(_,school,subject,student) ->
                     (student,subject,school) ) schooling )
+    , ("find_to_do", pred3 [(D,Y,R),(D,Y,J)] )
+    , ("have_do_different", pred3 [(D,R,W1),(D,J,W1),(D,R,W2),(D,J,W2)] )
     , ("have_go_to", pred3 $ [ (a,l,n) |
 	    (a,_,l) <- working ++ studying , n <- [O,W] ])
   , ("think:is", pred3 $ [ (s,t,r) | (s, content ,c ,l) <- long_comms
