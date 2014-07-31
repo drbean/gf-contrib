@@ -11,6 +11,9 @@ entity_list Gmonday	 = ent_ided "Monday"
 determiner_list :: GDet -> String
 determiner_list Gthe_first	= "the first"
 
+adj_list :: GA -> String
+adj_list Gdifferent	= "different"
+
 adjective_list :: GAP -> String
 adjective_list Geighty_pound     = "80-pound"
 adjective_list Gat_the_shipyard     = "at_the_shipyard"
@@ -81,6 +84,7 @@ va_list Glook = "look"
 
 changing_list :: GV2 -> String
 changing_list Gbecome	= "become"
+changing_list Gdo_V2  	= "do"
 changing_list Gget  	= "get"
 changing_list Gget_along	= "get_along"
 changing_list Ghave_V2 	= "have"
@@ -94,6 +98,7 @@ changing_list Gsee  	= "see"
 changing_list Gwork_with  	= "work_with"
 
 causative_list :: GV2V -> String
+causative_list Gfind	= "find"
 causative_list Glet_V2V	= "let"
 causative_list Gmake_V2V	= "make"
 causative_list Gtake	= "take"
@@ -165,7 +170,8 @@ inflections = [
 	]
 
 relations = [
-	( "at_the_shipyard",	\[x]	-> predid1 "at_the_shipyard" x	)
+	( "80-pound",	\[x]	-> predid1 "80-pound" x	)
+	, ( "at_the_shipyard",	\[x]	-> predid1 "at_the_shipyard" x	)
 	, ( "at_the_shipyard_to_work",	\[x]	-> predid1 "at_the_shipyard_to_work" x	)
 	, ( "bad",	\[x]	-> predid1 "bad" x	)
 	, ( "better",	\[x]	-> predid1 "better" x	)
@@ -173,6 +179,7 @@ relations = [
 	, ( "hard",	\[x]	-> predid1 "hard" x	)
 	, ( "little",	\[x]	-> predid1 "little" x	)
 	, ( "mad",	\[x]	-> predid1 "mad" x	)
+	, ( "same",	\[x]	-> predid1 "same" x	)
 
 	, ( "work",	\[x]	-> predid1 "work" x	)
 	, ( "laugh",	\[x] -> predid1 "laugh" x	)
@@ -183,6 +190,7 @@ relations = [
 
 	, ( "become",	\[x,y]	-> predid2 "become" y x	)
 	, ( "can_to_lift",	\[x,y]	-> predid2 "can_to_lift" y x	)
+	, ( "do",	\[x,y]	-> predid2 "do" y x	)
 	, ( "go_to",	\[x,y]	-> predid2 "go_to" y x	)
 	, ( "hire",	\[x,y]	-> predid2 "hire" y x	)
 	, ( "interview",	\[x,y]	-> predid2 "interview" y x	)
@@ -196,6 +204,8 @@ relations = [
 	, ( "want_to_work_with",	\[x,y]	-> predid2 "want_to_work_with" y x	)
 	, ( "work_with",	\[x,y]	-> predid2 "work_with" y x	)
 
+	, ( "find_to_do",	\[x,y,z]	-> predid3 "find_to_do" z y x	)
+	, ( "have_do_different",	\[x,y,z]	-> predid3 "have_do_different" z y x	)
 	, ( "have_go_to",	\args -> case args of
 			[x,y,z]	-> predid3 "have_go_to" z y x
 			[x,y]	-> (forgetful3 . predid3) "have_go_to" y x )
