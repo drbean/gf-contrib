@@ -15,7 +15,7 @@ import System.IO
 
 import System.Environment.FindBin
 
-main :: IO () 
+main :: IO ()
 main = do
   path <- getProgPath
   gr <- readPGF ( path ++ "/Dickson.pgf" )
@@ -45,9 +45,11 @@ answer :: GUtt -> GUtt
 -- answer (GUt (GPosQ (GWH_Pred Gwho_WH (GChanging v np)))) = (GUt (GNegQ (GTagQ np (GHappening Glaugh))))
 -- answer (GUt (GPosQ (GWH_Pred Gwho_WH (GHappening vp)))) = Gdee
 -- answer (GUt (GPosQ (GYN (GCop np1 np2))))  = np1
-answer utt	| (eval . transS) utt == Boolean True = GYes
+answer	utt@(GQUt (GPosQ (GYN _)))
+		| (eval . transS) utt == Boolean True = GYes
 		| (eval . transS) utt == Boolean False = GNo
 		| (eval . transS) utt == NoAnswer = GNoAnswer
+answer	utt@(GQUt (GPosQ (GWH_Pred who_WH _))) = GYes -- (evalW . transWH) utt
 
 linear :: (Tree -> Tree) -> PGF -> [Tree] -> [ String ]
 linear tr gr ps = concat $ map ((linearizeAll gr) . tr) ps
