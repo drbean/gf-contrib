@@ -103,7 +103,7 @@ dic_test = [
 		, "Dee says that Dee needs money."
 
     , "Dee takes about two weeks to start proving herself."
-		-- , "The guys do tetter with having a woman working."
+		-- , "The guys do better with having a woman working."
 		, "The guys work with Dee."
 		, "Several guys say that Dee needs to slow down."
 		, "Several guys tell Dee to slow down."
