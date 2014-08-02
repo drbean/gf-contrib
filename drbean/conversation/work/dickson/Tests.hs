@@ -54,9 +54,11 @@ answer :: GUtt -> GUtt
 -- answer (GUt (GPosQ (GWH_Pred Gwho_WH (GChanging v np)))) = (GUt (GNegQ (GTagQ np (GHappening Glaugh))))
 -- answer (GUt (GPosQ (GWH_Pred Gwho_WH (GHappening vp)))) = Gdee
 -- answer (GUt (GPosQ (GYN (GCop np1 np2))))  = np1
-answer utt	| (eval . transS) utt == Boolean True = GYes
+answer utt@(GQUt (GPosQ (GYN _)))	| (eval . transS) utt == Boolean True = GYes
 		| (eval . transS) utt == Boolean False = GNo
 		| (eval . transS) utt == NoAnswer = GNoAnswer
+answer	utt@(GQUt (GPosQ (GWH_Pred who_WH _))) = GYes -- (evalW . transWH) utt
+answer	utt@(GQUt (GNegQ (GWH_Pred who_WH _))) = GAnswer (GEntity Gdee) -- (evalW . transWH) utt
 
 linear :: (Tree -> Tree) -> PGF -> [Tree] -> [ String ]
 linear tr gr ps = concat $ map ((linearizeAll gr) . tr) ps
@@ -130,7 +132,7 @@ dic_test = [
 who_dic_test = [
 	"Who does the guy who interviews Dee say is too little?"
 	, "Who does the interviewer say is little?"
-	, "Who does the interviewer say cannot get along with th e guys?"
+	, "Who does the interviewer say cannot get along with the guys?"
 	, "Who do the guys make life hard for?"
 	, "Who does the guy who interviews Dee think doesn't need the job?"
 	, "Who says that Uncle Alf is superintendent at the shipyard?"
