@@ -139,7 +139,7 @@ who_dic_test = [
 	, "Who does Dee's father say can get Dee a job?"
 	, "Who lets Dee's father take Dee to see Uncle Alf?"
 	, "When does Dee go to the shipyard?"
-	, "Who does the interviewer say tells the shipyard to hir Dee?"
+	, "Who does the interviewer say tells the shipyard to hire Dee?"
 	, "Who doesn't like that Dee is hired?"
 	, "Who does the guy say is hired?"
 	, "Where does Dee go?"
