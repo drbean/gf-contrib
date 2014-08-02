@@ -1,6 +1,7 @@
-module LogicalForm where
+module LogicalForm (module LogicalForm, module Dickson) where
 
 import Dickson
+
 import Model
 -- import Interpretation
 import Story_Interpretation
@@ -238,7 +239,7 @@ transN2 name	= \x -> Rel (n2_kind_list name) [x]
 transCN :: GCN -> Term -> LF
 transCN (GKind ap cn) = \x -> Conj [ transCN cn x, Rel (adjective_list ap) [x] ]
 transCN (GOfpos cn np) =
-    \owner -> Conj [(transN2 cn owner), (transNP np 
+    \owner -> Conj [(transN2 cn owner), (transNP np
 	(\thing -> Rel "have" [owner, thing]))]
 transCN (GModified cn rel) = case (rel) of
 	(GSubjRel wh vp) -> \ x -> Conj [transCN cn x, transVP vp x]
@@ -445,7 +446,7 @@ transVP (GCausative v0 obj0 vp) = case vp of
 transVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 	(GHappening v) -> (\positer -> transNP np
 		(\referent -> Rel ((positing_list v0) ++ ":" ++ (happening_list v)) [positer, referent]))
---'	(GIs np ap) -> (\positer -> transNP np 
+--'	(GIs np ap) -> (\positer -> transNP np
 --'		(\referent -> Rel ((positing_list v0) ++"_is_"++ (adjective_list ap)) [positer, referent]))
 	(GBe_vp comp) -> case comp of
 		(GBe_bad attribute ) -> case attribute of
@@ -466,7 +467,7 @@ transVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 			(\theme -> Rel ((positing_list v0) ++ ":" ++
 				(changing_list v2)) [positer,referent,theme])))
 	(GIntens vv vp2) -> case vp2 of
-		(GHappening v) -> (\positer -> transNP np 
+		(GHappening v) -> (\positer -> transNP np
 			(\referent -> Rel ((positing_list v0) ++ ":" ++ (intens_list vv) ++ "_to_"
 				++ (happening_list v)) [positer, referent] ))
 		(GChanging v obj) -> (\positer -> transNP np
@@ -486,7 +487,7 @@ transVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 						[positer,referent,theme,recipient]))))
 	_ -> \x -> NonProposition
 --    GNegS (GCop item comp) ->
---	(\positer -> transNP item 
+--	(\positer -> transNP item
 --	    (\subj -> transNP comp (\x -> Rel ((positing_list v0) ++"_isn't") [positer, subj, x])))
 transVP	(GVPPlaced vp (GLocating prep destination)) =
 	\mover -> transPlace destination
@@ -511,8 +512,11 @@ transCOMP (GBe_bad ap) = \x -> Rel (adjective_list ap) [x]
 --	--Branch (Cat _ "NP" _ _) [np,Leaf (Cat _ "APOS" _ _),cn] -> case (cn) of
 --	--    Leaf (Cat name "CN" _ _) -> \x -> transNP np
 --	--	(\owner -> Conj [Rel name [x], Rel "had" [owner,x] ] )
---
---transWH :: Maybe (ParseTree Cat Cat) -> LF
+
+transWH :: GUtt -> LF
+transWH (GQUt (GPosQ (GWH_Pred who_WH (GHappening v)))) =
+	WH (\x -> Rel (happening_list v) [x])
+
 --transWH (Just (Branch (Cat _ "WH" _ _ )
 --	[wh,(Branch (Cat _ "YN" _ _) [_,(Branch
 --		(Cat _ "S" _ _) [np,(Branch
