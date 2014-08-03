@@ -3,10 +3,18 @@ module Story_Interpretation where
 import Model
 import Dickson
 
-entity_list :: GPN -> Entity
-entity_list Gdee	 = ent_ided "Dee"
-entity_list Guncle_alf	 = ent_ided "Uncle Alf"
-entity_list Gmonday	 = ent_ided "Monday"
+import Data.Tuple
+
+entuples :: [(Entity,GPN)]
+entuples = [(A,Guncle_alf), (D,Gdee), (O,Gmonday)]
+
+gent2ent :: GPN -> Entity
+gent2ent gent	| Just ent <- lookup gent (map swap entuples) = ent
+							| otherwise = error ("No entity for " ++ (show gent) )
+
+ent2gent :: Entity -> GPN
+ent2gent ent	| Just gent <- lookup ent entuples = gent
+							| otherwise = error ("No GEntity for " ++ (show ent) )
 
 determiner_list :: GDet -> String
 determiner_list Gthe_first	= "the first"
