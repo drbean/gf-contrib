@@ -4,6 +4,7 @@ lincat
   Utt	= Utt;
   PN	= PN;
   NP	= NP;
+	ListNP	= ListNP;
   N	= N;
   A	= A;
   AP	= AP;
@@ -43,6 +44,7 @@ lincat
 	Times	= NP;
 	Period	= Adv;
 	Subj	= Subj;
+	Conj	= Conj;
 	Title	= CN;
 	Place	= NP;
 	PlaceName	= CN;
@@ -140,6 +142,7 @@ lin
 	Yes	= yes_Utt;
 	No	= no_Utt;
 	NoAnswer	= ss "No answer";
+	Answer listnp = mkUtt (mkNP or_Conj listnp);
 
 	Entity pn	= mkNP pn;
 	Kind ap cn	= mkCN ap cn;
@@ -164,6 +167,9 @@ lin
 	some_NP = mkNP( mkDet some_Quant);
 	some_pl_NP = mkNP( mkDet some_Quant pluralNum);
 	Genitive_NP	np = mkNP (mkDet (GenNP np));
+	List np1 np2 = mkListNP np1 np2;
+	AddList np list = mkListNP np list;
+	CloseList conj list = mkNP conj list;
 
 	who_WH	= whoSg_IP;
 	what_WH	= whatSg_IP;
@@ -197,6 +203,7 @@ lin
 
 	too_AdA	= too_AdA;
 	because_Subj	= because_Subj;
+	or_Conj	= or_Conj;
 
 	Subjunct subj s	= ConstructorsEng.mkAdv subj s;
 

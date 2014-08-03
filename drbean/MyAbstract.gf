@@ -1,4 +1,4 @@
-abstract MyAbstract = Cat ** {
+abstract MyAbstract = Cat, Conjunction ** {
 
 
 	flags startcat = Utt ;
@@ -70,6 +70,7 @@ fun
 	Sentence	: NP -> VP -> Cl;
 
 	Yes, No, NoAnswer	: Utt;
+	Answer : ListNP -> Utt;
 
 	Entity	: PN -> NP;
 	Kind	: AP -> CN -> CN;
@@ -95,6 +96,9 @@ fun
 	some_pl_NP	: NP;
 	some_Predet	: Predet;
 	Genitive_NP	: NP -> NP;
+	List : NP -> NP -> ListNP;
+	AddList : NP -> ListNP -> ListNP;
+	CloseList	: Conj -> ListNP -> NP;
 
 	who_WH	: IP;
 	what_WH	: IP;
@@ -129,6 +133,7 @@ fun
 
 	too_AdA	: AdA;
 	because_Subj	: Subj;
+	or_Conj	: Conj;
 
 	Subjunct	: Subj -> S -> Adv;
 }
