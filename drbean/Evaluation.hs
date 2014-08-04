@@ -10,11 +10,11 @@ import Data.Maybe
 --
 --fint :: FInterp
 --fint name [] =	maybe (entities!!26) id $ lookup name characters
---
+
 realents :: [Entity]
 -- realents = filter ( not . flip elem [Unspec,Someone,Something] ) entities
-realents = entities
---
+realents = map snd characters
+
 --type TVal = Term -> Entity
 --
 --lift :: FInterp -> TVal
@@ -58,12 +58,14 @@ evl _ = False
 
 bool2Maybe :: Bool -> Maybe Bool
 bool2Maybe = \x -> case x of False -> Nothing; True -> Just True
+
 testents :: (Term -> LF) -> [Bool]
 testents scope = map ( \e -> evl (scope (Const e)) ) realents
---
+
 ent2Maybe :: (Term -> LF) -> Entity -> Maybe Entity
 ent2Maybe scope = \e -> case evl (scope (Const e)) of
 	False -> Nothing; True -> Just e
+
 evalW :: LF -> [Entity]
 evalW (WH scope)	= mapMaybe (ent2Maybe scope) realents
 evalW NonProposition	= []
