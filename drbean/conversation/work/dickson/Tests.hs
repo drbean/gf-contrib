@@ -57,8 +57,12 @@ answer :: GUtt -> GUtt
 answer utt@(GQUt (GPosQ (GYN _)))	| (eval . transS) utt == Boolean True = GYes
 		| (eval . transS) utt == Boolean False = GNo
 		| (eval . transS) utt == NoAnswer = GNoAnswer
-answer	utt@(GQUt (GPosQ (GWH_Pred who_WH _))) = GYes -- (evalW . transWH) utt
-answer	utt@(GQUt (GNegQ (GWH_Pred who_WH _))) = GAnswer (GEntity Gdee) -- (evalW . transWH) utt
+answer	utt@(GQUt _) = case (evalW . transS) utt of
+	[] -> GAnswer Gno_pl_NP
+	[x] -> GAnswer (GEntity (ent2gent x))
+	[x,y] -> GAnswer (GCloseList Gor_Conj (GList (GEntity (ent2gent x)) (GEntity (ent2gent y))))
+	[x,y,z] -> GAnswer (GCloseList Gor_Conj (GAddList (GEntity (ent2gent x)) (GList (GEntity (ent2gent y)) (GEntity (ent2gent z)))))
+	[x,y,z,w] -> error ("No more than 3 entities " ++ (show w))
 
 linear :: (Tree -> Tree) -> PGF -> [Tree] -> [ String ]
 linear tr gr ps = concat $ map ((linearizeAll gr) . tr) ps
