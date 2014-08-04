@@ -142,7 +142,7 @@ lin
 	Yes	= yes_Utt;
 	No	= no_Utt;
 	NoAnswer	= ss "No answer";
-	Answer listnp = mkUtt (mkNP or_Conj listnp);
+	Answer np = mkUtt np;
 
 	Entity pn	= mkNP pn;
 	Kind ap cn	= mkCN ap cn;

@@ -70,7 +70,7 @@ fun
 	Sentence	: NP -> VP -> Cl;
 
 	Yes, No, NoAnswer	: Utt;
-	Answer : ListNP -> Utt;
+	Answer : NP -> Utt;
 
 	Entity	: PN -> NP;
 	Kind	: AP -> CN -> CN;
