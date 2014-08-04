@@ -50,10 +50,6 @@ lf :: Tree -> LF
 lf =  transS . fg
 
 answer :: GUtt -> GUtt
--- answer (GUt (GPosQ (GWH_Cop Gwho_WH np)))	= (GUt (GNegQ (GTagQ np (GHappening Glaugh))))
--- answer (GUt (GPosQ (GWH_Pred Gwho_WH (GChanging v np)))) = (GUt (GNegQ (GTagQ np (GHappening Glaugh))))
--- answer (GUt (GPosQ (GWH_Pred Gwho_WH (GHappening vp)))) = Gdee
--- answer (GUt (GPosQ (GYN (GCop np1 np2))))  = np1
 answer utt@(GQUt (GPosQ (GYN _)))	| (eval . transS) utt == Boolean True = GYes
 		| (eval . transS) utt == Boolean False = GNo
 		| (eval . transS) utt == NoAnswer = GNoAnswer
