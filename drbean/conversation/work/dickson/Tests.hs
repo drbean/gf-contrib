@@ -26,7 +26,7 @@ trans tests = do
   let ss = map (chomp . lc_first) tests
   let ps = map ( parses gr ) ss
   let ls = map id ps
-  let zs = zip (map (++"\t") tests) ps
+  let zs = zip (map (++"\t") tests) (map (map (showExpr []) ) ps)
   putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
 
 logic tests = do
