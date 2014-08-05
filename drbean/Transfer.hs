@@ -1,6 +1,5 @@
 module Main where
 
-import PGF
 import Dickson
 import LogicalForm
 import Evaluation
@@ -8,8 +7,6 @@ import Evaluation
 --import Model
 import WordsCharacters
 
-import Data.List
-import Data.Char
 import GHC.IO.Handle
 import System.IO
 
@@ -24,7 +21,7 @@ main = do
   s <- getLine
   let l = (chomp . lc_first) s
   putStrLn ("Unknown_words: " ++ (unknown l) )
-  let ps = parses l gr
+  let ps = parses gr l
   let ls = linear transform gr ps
   putStrLn ("Parsed: " ++ (show ps) )
   putStrLn ("Answer: " ++ (foldl takeAnswer "No answer" ls) )
@@ -33,39 +30,6 @@ main = do
 
 unknown :: String -> String
 unknown str = unwords ( filter (\x -> not (elem x wordlist)) (words str) )
-
-parses :: String -> PGF -> [Tree]
-parses s gr = concat ( parseAll gr (startCat gr) s )
-
-transform :: Tree -> Tree
-transform = gf . answer . fg
-
-answer :: GUtt -> GUtt
-answer	utt@(GQUt (GPosQ (GYN _)))
-		| (eval . transS) utt == Boolean True = GYes
-		| (eval . transS) utt == Boolean False = GNo
-		| (eval . transS) utt == NoAnswer = GNoAnswer
-answer	utt@(GQUt _) = case (evalW . transS) utt of
-	[] -> GAnswer Gno_pl_NP
-	[x] -> GAnswer (GEntity (ent2gent x))
-	[x,y] -> GAnswer (GCloseList Gor_Conj (GList (GEntity (ent2gent x)) (GEntity (ent2gent y))))
-	[x,y,z] -> GAnswer (GCloseList Gor_Conj (GAddList (GEntity (ent2gent x)) (GList (GEntity (ent2gent y)) (GEntity (ent2gent z)))))
-	[x,y,z,w] -> error ("No more than 3 entities " ++ (show w))
-
-linear :: (Tree -> Tree) -> PGF -> [Tree] -> [ String ]
-linear tr gr ps = concat $ map ((linearizeAll gr) . tr) ps
-
-lc_first :: String -> String
-lc_first str@(s:ss) = case ( or $ map (flip isPrefixOf str) ["Dee", "Alf", "Monday"] ) of
-	True  -> (s:ss)
-	False -> ((toLower s):ss)
-
-chomp :: String -> String
-chomp []                      = []
--- chomp ('\'':'s':xs)           = " 's" ++ chomp xs
--- chomp ('s':'\'':xs)           = "s 's" ++ chomp xs
-chomp (x:xs) | x `elem` ".,?" = chomp xs
-            | otherwise      =     x:chomp xs
 
 label :: GUtt -> String
 -- label (GUt (GPosQ (GWH_Cop _ _)))	= "WH"

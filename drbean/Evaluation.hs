@@ -1,10 +1,14 @@
-module Evaluation where
+module Evaluation (readPGF, chomp, lc_first, lf, parses, linear, transform, unmaybe) where
 
+import PGF
 import LogicalForm
 import Interpretation
 import Model
 
 import Data.Maybe
+
+import Data.List
+import Data.Char
 
 --type FInterp = String -> [Entity] -> Entity
 --
@@ -89,5 +93,48 @@ bigN :: [a] -> Bool
 bigN [] = False
 bigN [_] = False
 bigN xs = not . smallN $ xs
+
+-- used by both Transfer, Tests
+
+parses :: PGF -> String -> [[Tree]]
+parses gr s = ( parseAll gr (startCat gr) s )
+
+unmaybe (Just x) = x
+-- unmaybe Nothing = I
+
+transform :: Tree -> Tree
+transform = gf . answer . fg
+
+lf :: Tree -> LF
+lf =  transS . fg
+
+answer :: GUtt -> GUtt
+answer	utt@(GQUt (GPosQ (GYN _)))
+		| (eval . transS) utt == Boolean True = GYes
+		| (eval . transS) utt == Boolean False = GNo
+		| (eval . transS) utt == NoAnswer = GNoAnswer
+answer	utt@(GQUt _) = case (evalW . transS) utt of
+	[] -> GAnswer Gno_pl_NP
+	[x] -> GAnswer (GEntity (ent2gent x))
+	[x,y] -> GAnswer (GCloseList Gor_Conj (GList (GEntity (ent2gent x)) (GEntity (ent2gent y))))
+	[x,y,z] -> GAnswer (GCloseList Gor_Conj (GAddList (GEntity (ent2gent x)) (GList (GEntity (ent2gent y)) (GEntity (ent2gent z)))))
+	[x,y,z,w] -> error ("No more than 3 entities " ++ (show w))
+
+linear :: (Tree -> Tree) -> PGF -> [Tree] -> [ String ]
+linear tr gr ps = concat $ map ((linearizeAll gr) . tr) ps
+
+lc_first :: String -> String
+lc_first str@(s:ss) = case ( or $ map (flip isPrefixOf str) ["Dee", "Alf", "Monday"] ) of
+	True  -> (s:ss)
+	False -> ((toLower s):ss)
+
+chomp :: String -> String
+chomp []                      = []
+-- chomp ('\'':'s':xs)           = " 's" ++ chomp xs
+-- chomp ('s':'\'':xs)           = "s 's" ++ chomp xs
+chomp (x:xs) | x `elem` ".,?" = chomp xs
+            | otherwise      =     x:chomp xs
+
+
 
 -- vim: set ts=2 sts=2 sw=2 noet:
