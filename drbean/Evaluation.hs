@@ -96,8 +96,8 @@ bigN xs = not . smallN $ xs
 
 -- used by both Transfer, Tests
 
-parses :: PGF -> String -> [[Tree]]
-parses gr s = ( parseAll gr (startCat gr) s )
+parses :: PGF -> String -> [Tree]
+parses gr s = concat ( parseAll gr (startCat gr) s )
 
 unmaybe (Just x) = x
 -- unmaybe Nothing = I

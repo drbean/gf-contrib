@@ -17,7 +17,7 @@ ans tests = do
   gr	<- readPGF ( "./Dickson.pgf" )
   let ss = map (chomp . lc_first) tests
   let ps = map ( parses gr ) ss
-  let ls = map ( map ( linear transform gr ) ) ps
+  let ls = map ( linear transform gr ) ps
   let zs = zip (map (++"\t") tests) ls
   putStrLn (unlines (map (\(x,y) -> x ++ (show $ concat y)) zs) )
 
@@ -27,15 +27,15 @@ trans tests = do
   let ps = map ( parses gr ) ss
   let ls = map id ps
   let zs = zip (map (++"\t") tests) ps
-  putStrLn (unlines (map (\(x,y) -> x ++ (show (concat y ) ) ) zs) )
+  putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
 
 logic tests = do
   gr	<- readPGF ( "./Dickson.pgf" )
   let ss = map (chomp . lc_first) tests
   let ps = map ( parses gr ) ss
-  let ts = map (map (map lf)) ps
+  let ts = map (map lf) ps
   let zs = zip (map (++"\t") tests) ts
-  putStrLn (unlines (map (\(x,y) -> x ++ (show $ concat y ) ) zs) )
+  putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
 
 dic_test = [
 
