@@ -7,6 +7,9 @@ import Evaluation
 --import Model
 import WordsCharacters
 
+import Data.Maybe
+import Control.Monad
+
 import GHC.IO.Handle
 import System.IO
 
@@ -22,9 +25,9 @@ main = do
   let l = (chomp . lc_first) s
   putStrLn ("Unknown_words: " ++ (unknown l) )
   let ps = parses gr l
-  let ls = linear transform gr ps
+  let ls = map ((linear gr) <=< transform) ps
   putStrLn ("Parsed: " ++ (show ps) )
-  putStrLn ("Answer: " ++ (foldl takeAnswer "No answer" ls) )
+  putStrLn ("Answer: " ++ (bestAnswer ls) )
   let courses = map (label . fg) ps
   putStrLn ("Course: " ++ foldl takeCourse "Unparseable" courses )
 
@@ -58,6 +61,10 @@ takeCourse _ "S"  = "S"
 takeCourse "S" _  = "S"
 takeCourse "Unparseable" _  = "Unparseable"
 takeCourse _  _   = error "undefined course, not WH, YN, S, or Unparseable"
+
+bestAnswer :: [Maybe String] -> String
+bestAnswer ss = 
+	foldl takeAnswer "No answer" (map (\(Just s) -> s) ss)
 
 takeAnswer :: String -> String -> String
 takeAnswer _ "yes" = "yes"
