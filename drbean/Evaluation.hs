@@ -111,9 +111,8 @@ gfmaybe :: GUtt -> Maybe Tree
 gfmaybe (GUt x) = Just (gf (GUt x))
 gfmaybe _ = Nothing
 
--- lf :: Tree -> LF
--- lf (Just x) =  (transS . fg) x
--- lf Nothing = NonProposition
+lf :: Tree -> Maybe LF
+lf x =  (transS . fg) x
 
 answer :: GUtt -> Maybe GUtt
 answer	utt@(GQUt (GPosQ (GYN _)))
@@ -127,12 +126,8 @@ answer	utt@(GQUt _) = case (evalW <=< transS) utt of
 	(Just [x,y,z]) -> Just (GAnswer (GCloseList Gor_Conj (GAddList (GEntity (ent2gent x)) (GList (GEntity (ent2gent y)) (GEntity (ent2gent z))))))
 	(Just [x,y,z,w]) -> Nothing
 
-linear :: (Tree -> Maybe Tree) -> PGF -> [Tree] -> Maybe [String]
-linear tr gr ps = Just (map ((linearizemaybe gr (myLanguage gr) ) <=< tr) ps)
-
-linearizemaybe :: PGF -> Language -> Tree -> Maybe String
-linearizemaybe g l t = Just (linearize g l t)
-linearizemaybe _ _ _ = Nothing
+linear :: PGF -> Tree -> Maybe String
+linear gr p = Just (linearize gr (myLanguage gr) p)
 
 myLanguage gr = (head . languages) gr
 
