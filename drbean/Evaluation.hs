@@ -6,6 +6,7 @@ import Interpretation
 import Model
 
 import Data.Maybe
+import Control.Monad
 
 import Data.List
 import Data.Char
@@ -38,10 +39,11 @@ instance Show Answer where
 	show Yes	= "Yes"
 	show No	= "No"
 	show NoAnswer	= "NoAnswer"
-eval :: LF ->  Answer
+eval :: LF ->  Maybe Answer
 
-eval NonProposition = NoAnswer
-eval lf = Boolean $ evl lf
+eval NonProposition = Just NoAnswer
+eval x = Just (Boolean $ evl x)
+eval _ = Nothing
 
 
 evl (Rel r as)	= int r $ reverse (map term2ent as)
@@ -70,9 +72,9 @@ ent2Maybe :: (Term -> LF) -> Entity -> Maybe Entity
 ent2Maybe scope = \e -> case evl (scope (Const e)) of
 	False -> Nothing; True -> Just e
 
-evalW :: LF -> [Entity]
-evalW (WH scope)	= mapMaybe (ent2Maybe scope) realents
-evalW NonProposition	= []
+evalW :: LF -> Maybe [Entity]
+evalW (WH scope)	= Just (mapMaybe (ent2Maybe scope) realents)
+-- evalW NonProposition	= []
 
 ttest :: (Term -> LF) -> Term -> Bool
 ttest scope (Const a) = evl (scope (Const a))
@@ -102,26 +104,37 @@ parses gr s = concat ( parseAll gr (startCat gr) s )
 unmaybe (Just x) = x
 -- unmaybe Nothing = I
 
-transform :: Tree -> Tree
-transform = gf . answer . fg
+transform :: Tree -> Maybe Tree
+transform = gfmaybe <=< answer . fg
 
-lf :: Tree -> LF
-lf =  transS . fg
+gfmaybe :: GUtt -> Maybe Tree
+gfmaybe (GUt x) = Just (gf (GUt x))
+gfmaybe _ = Nothing
 
-answer :: GUtt -> GUtt
+-- lf :: Tree -> LF
+-- lf (Just x) =  (transS . fg) x
+-- lf Nothing = NonProposition
+
+answer :: GUtt -> Maybe GUtt
 answer	utt@(GQUt (GPosQ (GYN _)))
-		| (eval . transS) utt == Boolean True = GYes
-		| (eval . transS) utt == Boolean False = GNo
-		| (eval . transS) utt == NoAnswer = GNoAnswer
-answer	utt@(GQUt _) = case (evalW . transS) utt of
-	[] -> GAnswer Gno_pl_NP
-	[x] -> GAnswer (GEntity (ent2gent x))
-	[x,y] -> GAnswer (GCloseList Gor_Conj (GList (GEntity (ent2gent x)) (GEntity (ent2gent y))))
-	[x,y,z] -> GAnswer (GCloseList Gor_Conj (GAddList (GEntity (ent2gent x)) (GList (GEntity (ent2gent y)) (GEntity (ent2gent z)))))
-	[x,y,z,w] -> error ("No more than 3 entities " ++ (show w))
+		| (eval <=< transS) utt == (Just (Boolean True)) = Just GYes
+		| (eval <=< transS) utt == (Just (Boolean False)) = Just GNo
+		| (eval <=< transS) utt == (Just NoAnswer) = Just GNoAnswer
+answer	utt@(GQUt _) = case (evalW <=< transS) utt of
+	(Just []) -> Just (GAnswer Gno_pl_NP)
+	(Just [x]) -> Just (GAnswer (GEntity (ent2gent x)))
+	(Just [x,y]) -> Just (GAnswer (GCloseList Gor_Conj (GList (GEntity (ent2gent x)) (GEntity (ent2gent y)))))
+	(Just [x,y,z]) -> Just (GAnswer (GCloseList Gor_Conj (GAddList (GEntity (ent2gent x)) (GList (GEntity (ent2gent y)) (GEntity (ent2gent z))))))
+	(Just [x,y,z,w]) -> Nothing
 
-linear :: (Tree -> Tree) -> PGF -> [Tree] -> [ String ]
-linear tr gr ps = concat $ map ((linearizeAll gr) . tr) ps
+linear :: (Tree -> Maybe Tree) -> PGF -> [Tree] -> Maybe [String]
+linear tr gr ps = Just (map ((linearizemaybe gr (myLanguage gr) ) <=< tr) ps)
+
+linearizemaybe :: PGF -> Language -> Tree -> Maybe String
+linearizemaybe g l t = Just (linearize g l t)
+linearizemaybe _ _ _ = Nothing
+
+myLanguage gr = (head . languages) gr
 
 lc_first :: String -> String
 lc_first str@(s:ss) = case ( or $ map (flip isPrefixOf str) ["Dee", "Alf", "Monday"] ) of
