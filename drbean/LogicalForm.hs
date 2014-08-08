@@ -1,11 +1,12 @@
 module LogicalForm (module LogicalForm, module Dickson) where
 
 import Dickson
+import PGF
 
 import Model
--- import Interpretation
-import Story_Interpretation
-import qualified Topic_Interpretation as Topic
+import Interpretation
+-- import Story_Interpretation
+-- import qualified Topic_Interpretation as Topic
 
 import Data.List
 import Data.Tuple
@@ -76,7 +77,7 @@ ishowForms (f:fs) i = ishow f i ++ "," ++ ishowForms fs i
 relname :: LF -> String
 relname (Rel name _) = name
 relname lf = error ( (show lf) ++ " not a relation" )
---
+
 --transTXT :: Maybe (ParseTree Cat Cat) -> LF
 --transTXT (Just Ep) = NonProposition
 --transTXT s@(Just (Branch (Cat _ "S" _ _) _) ) = transS s
@@ -91,20 +92,20 @@ relname lf = error ( (show lf) ++ " not a relation" )
 --	s2@(Branch (Cat _ "TXT" _ _) _)])) =
 --	    Conj [ transS (Just s), transTXT (Just s2) ]
 --
-transS :: GUtt -> LF
+transS :: GUtt -> Maybe LF
 --transS (Just Ep) = NonProposition
-transS ((GQUt (GPosQ (GWH_Pred wh vp)))) =
-	WH (\x -> Conj [ transW wh x, transVP vp x ])
-transS ((GQUt (GNegQ (GWH_Pred wh vp)))) =
-	WH (\x -> Conj [ transW wh x, Neg (transVP vp x)])
-transS (GQUt (GPosQ (GYN (GSentence np vp)))) = (transNP np) (transVP vp)
-transS (GUt (GPosS (GSentence np vp))) = (transNP np) (transVP vp)
-transS (GQUt (GNegQ (GYN (GSentence np vp)))) = (transNP np) (transVP vp)
-transS (GUt (GNegS (GSentence np vp))) = (transNP np) (transVP vp)
-transS (GQUt (GPosQ (GTagQ np vp))) = (transNP np) (transVP vp)
-transS (GQUt (GNegQ (GTagQ np vp))) = (transNP np) (transVP vp)
-transS (GQUt (GPosQ (GTagComp np comp))) = (transNP np) (transCOMP comp)
-transS (GQUt (GNegQ (GTagComp np comp))) = (transNP np) (transCOMP comp)
+transS (GQUt (GPosQ (GWH_Pred wh vp))) =
+	Just (WH (\x -> Conj [ transW wh x, transVP vp x ]))
+transS (GQUt (GNegQ (GWH_Pred wh vp))) =
+	Just (WH (\x -> Conj [ transW wh x, Neg (transVP vp x)]))
+transS (GQUt (GPosQ (GYN (GSentence np vp)))) = Just ((transNP np) (transVP vp))
+transS (GUt (GPosS (GSentence np vp))) = Just ((transNP np) (transVP vp))
+transS (GQUt (GNegQ (GYN (GSentence np vp)))) = Just ((transNP np) (transVP vp))
+transS (GUt (GNegS (GSentence np vp))) = Just ((transNP np) (transVP vp))
+transS (GQUt (GPosQ (GTagQ np vp))) = Just ((transNP np) (transVP vp))
+transS (GQUt (GNegQ (GTagQ np vp))) = Just ((transNP np) (transVP vp))
+transS (GQUt (GPosQ (GTagComp np comp))) = Just ((transNP np) (transCOMP comp))
+transS (GQUt (GNegQ (GTagComp np comp))) = Just ((transNP np) (transCOMP comp))
 --transS ((GUt (GPosQ (GYN (GIs subj ap))))) = (transNP subj)
 --					    (\x -> Rel (adjective_list ap) [x])
 --transS ((GUt (GNegQ (GYN (GIs subj ap))))) = (transNP subj)
@@ -125,7 +126,7 @@ transS (GQUt (GNegQ (GTagComp np comp))) = (transNP np) (transCOMP comp)
 --transS (Just (Branch (Cat _ "YN" _ _)
 --       [Leaf (Cat _ "AUX" _ []),s])) = transS (Just s)
 --
-transS _ = NonProposition
+transS _ = Nothing
 --
 --transAT :: ParseTree Cat Cat -> Term -> LF
 --transAT (Branch (Cat _ "AV" _ _)
@@ -233,7 +234,10 @@ transDet Gno_pl_Det = transDet Gno_Det
 --  \ p q -> WH (\v1 -> Conj
 --  		[Forall (\v2 -> Equi (p v2) (Eq v1 v2)),
 --		q v1])
---
+
+-- linear_kind :: GCN -> String
+-- linear_kind gcn = showCId (fst (unApp (gf gcn)))
+
 transN2 :: GN2 -> Term -> LF
 transN2 name	= \x -> Rel (n2_kind_list name) [x]
 transCN :: GCN -> Term -> LF
@@ -513,17 +517,18 @@ transCOMP (GBe_bad ap) = \x -> Rel (adjective_list ap) [x]
 --	--    Leaf (Cat name "CN" _ _) -> \x -> transNP np
 --	--	(\owner -> Conj [Rel name [x], Rel "had" [owner,x] ] )
 
-transWH :: GUtt -> LF
-transWH (GQUt (GPosQ (GWH_Pred who_WH (GHappening v)))) =
-	WH (\x -> Rel (happening_list v) [x])
+--transWH :: GUtt -> LF
+--transWH (GQUt (GPosQ (GWH_Pred who_WH pred))) = case pred of
+--	(GBe_vp comp) -> WH( transCOMP comp )
+--	(GHappening v) -> WH (\x -> Rel (happening_list v) [x])
+--	(GChanging v np) -> WH (\x -> transNP np
+--		(\agent -> Rel (changing_list v) [agent,x]))
+--	-- WH (\x -> Conj [transW wh x, transNP np (\agent -> Rel v [agent,x])])
+--	(GCausative v0 obj0 vp) -> WH (transVP (GCausative v0 obj0 vp))
 
---transWH (Just (Branch (Cat _ "WH" _ _ )
---	[wh,(Branch (Cat _ "YN" _ _) [_,(Branch
---		(Cat _ "S" _ _) [np,(Branch
---			(Cat _ "VP" _ _) [Leaf (Cat "#" "COP" _ _),(Branch
---				(Cat _ "COMP" _ _) [Leaf (Cat "#" "NP" _ _)])])])])])) =
---	WH (\x -> transNP np (\obj -> Eq obj x ) )
---
+	-- GBe_someone sb ->
+	-- WH (\x -> transNP sb (\obj -> Eq obj x ) )
+
 --transWH (Just (Branch (Cat _ "WH" _ _ )
 --	[wh,(Branch (Cat _ "YN" _ _) [_,(Branch
 --		(Cat _ "S" _ _) [np,(Branch
@@ -555,8 +560,8 @@ transWH (GQUt (GPosQ (GWH_Pred who_WH (GHappening v)))) =
 --			WH (\x -> Conj [transW wh x,
 --				transNP np (\agent -> transNP obj1
 --					( \recipient -> Rel three_ple [agent,x,recipient]))])
---transWH _ = NonProposition
---
+-- transWH _ = NonProposition
+
 transW :: GIP -> (Term -> LF)
 --transW (Branch (Cat _ "NP" fs _) [det,cn]) =
 --                            \e -> transCN cn e
