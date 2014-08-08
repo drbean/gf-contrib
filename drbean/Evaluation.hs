@@ -1,4 +1,4 @@
-module Evaluation (readPGF, chomp, lc_first, lf, parses, linear, transform, unmaybe) where
+module Evaluation (readPGF, chomp, lc_first, lf, parses, linear, showExpr, transform, unmaybe) where
 
 import PGF
 import LogicalForm
