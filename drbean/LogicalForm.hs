@@ -194,7 +194,7 @@ transNP :: GNP -> (Term -> LF) -> LF
 transNP (GItem det cn) = (transDet det) (transCN cn)
 transNP (GEntity name)
 --    | name `elem` interrolist = \ p -> NonProposition
-    | entity <- (entity_list name) , entity `elem` entities =
+    | entity <- (gent2ent name) , entity `elem` entities =
 	\ p -> p (Const entity)
     | otherwise = \p -> NonProposition
 transNP (GTitular t)	| rel <- title_list t =
