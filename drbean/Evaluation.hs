@@ -125,6 +125,7 @@ answer	utt@(GQUt _) = case (evalW <=< transS) utt of
 	(Just [x,y]) -> Just (GAnswer (GCloseList Gor_Conj (GList (GEntity (ent2gent x)) (GEntity (ent2gent y)))))
 	(Just [x,y,z]) -> Just (GAnswer (GCloseList Gor_Conj (GAddList (GEntity (ent2gent x)) (GList (GEntity (ent2gent y)) (GEntity (ent2gent z))))))
 	(Just [x,y,z,w]) -> Nothing
+	otherwise	-> Nothing
 
 linear :: PGF -> Tree -> Maybe String
 linear gr p = Just (linearize gr (myLanguage gr) p)
