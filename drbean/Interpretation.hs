@@ -1,16 +1,16 @@
-module Interpretation where 
+module Interpretation (module Interpretation, module Topic, module Story_Interpretation) where 
 
 import Data.List
 
 import Model
 import qualified Topic_Interpretation as Topic
-import qualified Story_Interpretation as Story
+import Story_Interpretation
 
 type Interp a	= String -> [a] -> Bool
 
-inttuples = objects ++ relations ++ Story.objects ++ Story.relations
+inttuples = common_objects ++ common_relations ++ objects ++ relations
 			    ++ Topic.objects ++ Topic.relations
-infltuples = inflections ++ Topic.inflections ++ Story.inflections
+infltuples = common_inflections ++ Topic.inflections ++ inflections
 
 int :: Interp Entity
 
@@ -21,16 +21,16 @@ int word = int' word inttuples infltuples where
 	int' w ((word,interpretation):is) infls | w == word	= interpretation
 	int' w (i:is) infls	= int' w is infls
 
-objects, relations :: [( String, [Entity] -> Bool)]
-objects = [
+common_objects, common_relations :: [( String, [Entity] -> Bool)]
+common_objects = [
 	( "person",	\ [x] -> person x	)
 	, ( "thing",	\ [x] -> thing x	)
 	, ( "man",	\ [x] -> predid1 "male" x	)
 	, ( "woman",	\ [x] -> predid1 "female" x	)
  ]
 
-inflections :: [(String, String)]
-inflections = [
+common_inflections :: [(String, String)]
+common_inflections = [
  ( "men",	"man" ),
  ( "women",	"woman" ),
  ( "persons",	"person" ),
@@ -57,7 +57,7 @@ inflections = [
  ( "come",	"came" )
  ]
 
-relations = [
+common_relations = [
 
  ( "true", \[x] -> predid1 "true" x )
  , ( "had", \[x,y] -> predid2 "have" y x )
