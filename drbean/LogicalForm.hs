@@ -96,6 +96,8 @@ transS :: GUtt -> Maybe LF
 --transS (Just Ep) = NonProposition
 transS (GQUt (GPosQ (GWH_Pred wh vp))) =
 	Just (WH (\x -> Conj [ transW wh x, transVP vp x ]))
+transS (GQUt (GPosQ (GWH_ClSlash wh cl))) =
+	Just (WH (\x -> Conj [ transW wh x, transClSlash cl ]))
 transS (GQUt (GNegQ (GWH_Pred wh vp))) =
 	Just (WH (\x -> Conj [ transW wh x, Neg (transVP vp x)]))
 transS (GQUt (GPosQ (GYN (GSentence np vp)))) = Just ((transNP np) (transVP vp))
@@ -126,7 +128,7 @@ transS (GQUt (GNegQ (GTagComp np comp))) = Just ((transNP np) (transCOMP comp))
 --transS (Just (Branch (Cat _ "YN" _ _)
 --       [Leaf (Cat _ "AUX" _ []),s])) = transS (Just s)
 --
-transS _ = Nothing
+-- transS _ = Nothing
 --
 --transAT :: ParseTree Cat Cat -> Term -> LF
 --transAT (Branch (Cat _ "AV" _ _)
@@ -295,7 +297,17 @@ transPlace place	| rel <- place_list place =
 --transPP :: ParseTree Cat Cat -> (Term -> LF) -> LF
 --transPP (Leaf   (Cat "#" "PP" _ _)) = \ p -> p (Var 0)
 --transPP (Branch (Cat _   "PP" _ _) [prep,np]) = transNP np
---
+
+transClSlash :: GClSlash -> LF
+transClSlash cl = case cl of
+	(GVPClSlash np vpslash) -> case vpslash of
+		(GV2Slash v) -> WH (\x -> transNP np (\subj->
+			Rel (changing_list v) [subj,x]))
+		(GV2VSlash v vp) -> case vp of
+			(GLook_bad va a) -> WH (\x -> transNP np (\subj ->
+				Rel ((causative_list v) ++ "_" ++ (va_list va)
+					++ "_" ++ (adjective_list a)) [subj,x]))
+
 transVP :: GVP -> Term -> LF
 ----transVP (Branch (Cat "_" "VP" [Part] _) [Leaf (Cat part "V" _ _), obj] ) =
 ----	\x -> Exists( \agent -> transPP obj (\cond -> Rel part [agent, x, cond] ) )
