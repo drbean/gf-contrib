@@ -1,4 +1,4 @@
-module Evaluation (readPGF, chomp, lc_first, lf, parses, linear, showExpr, transform, unmaybe) where
+module Evaluation (readPGF, chomp, lc_first, lf, parses, linear, showExpr, transform) where
 
 import PGF
 import LogicalForm
@@ -100,9 +100,6 @@ bigN xs = not . smallN $ xs
 
 parses :: PGF -> String -> [Tree]
 parses gr s = concat ( parseAll gr (startCat gr) s )
-
-unmaybe (Just x) = x
--- unmaybe Nothing = I
 
 transform :: Tree -> Maybe Tree
 transform = gfmaybe <=< answer . fg
