@@ -81,8 +81,11 @@ relname lf = error ( (show lf) ++ " not a relation" )
 -- lin :: Tree -> Maybe String
 -- lin tr = Just (showCId (fst tr))
 
-lin :: Gf a => a -> String
-lin e = showCId (fst (unmaybe (unApp (gf e))))
+lin :: Gf a => a -> Maybe String
+lin e = stripApp (unApp (gf e))
+
+stripApp :: Maybe (CId, [Expr]) -> Maybe String
+stripApp = maybe Nothing (\x -> Just ((showCId . fst) x))
 
 -- e2t :: GPN -> Tree
 -- e2t e | (Just tr) <- unApp (gf e) = tr
