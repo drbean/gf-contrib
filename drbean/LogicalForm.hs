@@ -116,9 +116,9 @@ transS (GQUt (GPosQ (GWH_ClSlash wh cl))) =
 transS (GQUt (GNegQ (GWH_Pred wh vp))) =
 	Just (WH (\x -> Conj [ transW wh x, Neg (transVP vp x)]))
 transS (GQUt (GPosQ (GYN (GSentence np vp)))) = Just ((transNP np) (transVP vp))
-transS (GUt (GPosS (GSentence np vp))) = Just ((transNP np) (transVP vp))
+-- transS (GUt (GPosS (GSentence np vp))) = Just ((transNP np) (transVP vp))
 transS (GQUt (GNegQ (GYN (GSentence np vp)))) = Just ((transNP np) (transVP vp))
-transS (GUt (GNegS (GSentence np vp))) = Just ((transNP np) (transVP vp))
+-- transS (GUt (GNegS (GSentence np vp))) = Just ((transNP np) (transVP vp))
 transS (GQUt (GPosQ (GTagQ np vp))) = Just ((transNP np) (transVP vp))
 transS (GQUt (GNegQ (GTagQ np vp))) = Just ((transNP np) (transVP vp))
 transS (GQUt (GPosQ (GTagComp np comp))) = Just ((transNP np) (transCOMP comp))
