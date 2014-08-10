@@ -95,6 +95,61 @@ dic_test = [
 
 	]
 
+yn_dic_test = [
+
+    "Does the guy who interviews Dee say that Dee is too little."
+    , "Does the interviewer say that Dee is little."
+		, "Does the interviewer say that Dee cannot get along with the guys"
+		, "Do the guys make life hard for Dee."
+		, "Does the guy who interviews Dee think that Dee needs to have the job."
+
+		, "Is Uncle Alf superintendent at the shipyard."
+    , "Does Dee's father say that Uncle Alf is superintendent at the shipyard."
+		, "Does Dee's father say that Uncle Alf can get Dee a job."
+		, "Does Dee let Dee's father take Dee to see Uncle Alf."
+
+    , "Does Dee go to the shipyard the next Monday."
+		, "Does the interviewer say that the superintendent tells the shipyard to hire Dee."
+		, "Doesn't the guy like that Dee is hired."
+		, "Does the guy say that Dee is hired."
+
+    , "Does Dee go to the ship."
+		, "Does no man want to work with Dee."
+		, "Do none of the guys want to work with Dee."
+		, "Do the guys say that the jobs are men's jobs."
+		, "Do the guys say that Dee takes work away from men who have families."
+		, "Do the guys say that Dee takes away work from men who have families."
+		, "Does Dee say that Dee has a family."
+		, "Does Dee say that Dee has no man."
+		, "Does Dee say that Dee needs money."
+
+    , "Does Dee take about two weeks to start proving herself."
+		-- , "Do the guys do better with having a woman working."
+		, "Do the guys work with Dee."
+		, "Do several guys say that Dee needs to slow down."
+		, "Do several guys tell Dee to slow down."
+		, "Does Dee make the guys look bad."
+		, "Does Dee laugh."
+		, "Does Dee say that Dee is at the shipyard to work."
+
+    , "Does Dee have to go to school two nights a week."
+		, "Is Dee the first apprentice who ever becomes supervisor before graduation."
+		, "Are the guys mad because Dee gets a raise."
+		, "Do the guys think that Dee's position is a man's."
+		, "Does Dee gets a position that the guys think is a man's position."
+		, "Does Dee get stuff done on time."
+		, "Does Dee have a knack for getting stuff done on time."
+		, "Does Dee have a knack for getting stuff done right."
+
+    , "Does Dee have to do some things a little differently than the guys."
+    , "Does Dee have to do some things a little differently than the guys do."
+		, "Can't Dee lift an 80-pound transformer. "
+		, "Does Dee find a way to do the same things that the guys do."
+		, "Does Dee find a way to do the same things as the guys."
+		, "Does Dee say that the job makes a woman better than if the woman is a guy."
+
+	]
+
 who_dic_test = [
 	"Who does the guy who interviews Dee say is too little?"
 	, "Who does the interviewer say is little?"
