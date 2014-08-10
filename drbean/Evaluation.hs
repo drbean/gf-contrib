@@ -42,10 +42,22 @@ instance Show Answer where
 eval :: LF ->  Maybe Answer
 
 eval NonProposition = Just NoAnswer
-eval x = Just (Boolean $ evl x)
+eval x@(Rel r as)	= Just (Boolean (evl x))
+eval x@(Eq a b)	= Just (Boolean (evl x))
+eval x@(Neg lf)	= Just (Boolean (evl x))
+eval x@(Impl f1 f2)	= Just (Boolean (evl x))
+eval x@(Equi f1 f2)	= Just (Boolean (evl x))
+eval x@(Conj lfs)	= Just (Boolean (evl x))
+eval x@(Disj lfs)	= Just (Boolean (evl x))
+eval x@(Forall scope)	= Just (Boolean (evl x))
+eval x@(Exists scope)	= Just (Boolean (evl x))
+eval x@(Single scope)	= Just (Boolean (evl x))
+eval x@(Several scope)	= Just (Boolean (evl x))
+eval x@(Many scope)	= Just (Boolean (evl x))
+eval x@(Most scope)	= Just (Boolean (evl x))
 eval _ = Nothing
 
-
+evl :: LF -> Bool
 evl (Rel r as)	= int r $ reverse (map term2ent as)
 evl (Eq a b)	= a == b
 evl (Neg lf)	= not $ evl lf
