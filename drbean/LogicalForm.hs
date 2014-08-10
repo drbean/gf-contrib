@@ -78,6 +78,30 @@ relname :: LF -> String
 relname (Rel name _) = name
 relname lf = error ( (show lf) ++ " not a relation" )
 
+-- lin :: Tree -> Maybe String
+-- lin tr = Just (showCId (fst tr))
+
+lin :: Gf a => a -> String
+lin e = showCId (fst (unmaybe (unApp (gf e))))
+
+-- e2t :: GPN -> Tree
+-- e2t e | (Just tr) <- unApp (gf e) = tr
+
+unmaybe (Just x) = x
+-- unmaybe Nothing = I
+
+linent :: GPN -> String
+linent e = showCId (fst (unmaybe (unApp (gf e))))
+
+linCN :: GCN -> String
+linCN e = showCId (fst (unmaybe (unApp (gf e))))
+
+linPlace :: GPlace -> String
+linPlace e = showCId (fst (unmaybe (unApp (gf e))))
+
+linAP :: GAP -> String
+linAP e = showCId (fst (unmaybe (unApp (gf e))))
+
 --transTXT :: Maybe (ParseTree Cat Cat) -> LF
 --transTXT (Just Ep) = NonProposition
 --transTXT s@(Just (Branch (Cat _ "S" _ _) _) ) = transS s
@@ -237,9 +261,6 @@ transDet Gno_pl_Det = transDet Gno_Det
 --  		[Forall (\v2 -> Equi (p v2) (Eq v1 v2)),
 --		q v1])
 
--- linear_kind :: GCN -> String
--- linear_kind gcn = showCId (fst (unApp (gf gcn)))
-
 transN2 :: GN2 -> Term -> LF
 transN2 name	= \x -> Rel (n2_kind_list name) [x]
 transCN :: GCN -> Term -> LF
@@ -251,7 +272,7 @@ transCN (GModified cn rel) = case (rel) of
 	(GSubjRel wh vp) -> \ x -> Conj [transCN cn x, transVP vp x]
 	(GObjRel wh (GVPClSlash np (GV2Slash v))) ->
 		\x -> Conj [transCN cn x, transNP np (\agent -> Rel (changing_list v) [agent,x])]
-transCN name          = \ x -> Rel (kind_list name) [x]
+transCN name          = \ x -> Rel (lin name) [x]
 --	case (np,vp) of
 --	    (_, (Branch (Cat _ "VP" _ _) vp)) -> case (vp) of
 --		[Leaf (Cat name "V" _ _),Leaf (Cat "#" "NP" _ _)]->
@@ -291,7 +312,7 @@ transCN name          = \ x -> Rel (kind_list name) [x]
 transPlace :: GPlace -> (Term -> LF) -> LF
 transPlace (GLocation _ name) | rel <- placename_list name =
 	\p -> Exists ( \v -> Conj [ p v, Rel rel [v] ] )
-transPlace place	| rel <- place_list place =
+transPlace place	| rel <- lin place =
 	\p -> Exists ( \v -> Conj [ p v, Rel rel [v] ] )
 
 --transPP :: ParseTree Cat Cat -> (Term -> LF) -> LF
