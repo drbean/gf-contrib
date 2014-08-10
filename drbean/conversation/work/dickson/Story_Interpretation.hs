@@ -16,120 +16,6 @@ ent2gent :: Entity -> GPN
 ent2gent ent	| Just gent <- lookup ent entuples = gent
 							| otherwise = error ("No GEntity for " ++ (show ent) )
 
-determiner_list :: GDet -> String
-determiner_list Gthe_first	= "the first"
-
-adj_list :: GA -> String
-adj_list Gdifferent	= "different"
-
-adjective_list :: GAP -> String
-adjective_list Geighty_pound     = "80-pound"
-adjective_list Gat_the_shipyard     = "at_the_shipyard"
-adjective_list Gbad     = "bad"
-adjective_list Ggood  = "good"
-adjective_list Ghard    = "hard"
-adjective_list Glittle  = "little"
-adjective_list Gtoo_little  = "too_little"
-adjective_list Gmad     = "mad"
-adjective_list Gsame     = "same"
-
-n2_kind_list :: GN2 -> String
-n2_kind_list Gfather_2	= "father"
-n2_kind_list Guncle_2	= "uncle"
-
-locprep_list :: GLocPrep -> String
-locprep_list Gto_prep = "to"
-
-place_list :: GPlace -> String
-place_list Gschool	= "school"
-placename_list :: GPlaceName -> String
-placename_list Gship	= "ship"
-placename_list Gshipyard	= "shipyard"
-
-uncount_list :: GNP -> String
-uncount_list Glife	= "life"
-uncount_list Gmoney	= "money"
-uncount_list Gstuff	= "stuff"
-uncount_list Gtime	= "time"
-uncount_list Gwork	= "work"
-uncount_list Ggraduation	= "graduation"
-
-title_list :: GTitle -> String
-title_list Gsuperintendent_title	= "superintendent_title"
-title_list Gsupervisor_title	= "supervisor_title"
-
-kind_list :: GCN -> String
-kind_list Gapprentice	= "apprentice"
-kind_list Gelectrician	= "electrician"
-kind_list Gfamily	= "family"
-kind_list Gfather	= "father"
-kind_list Gguy	= "guy"
-kind_list Ginterviewer	= "interviewer"
-kind_list Gjob	= "job"
-kind_list Gman_CN	= "man"
-kind_list Gnight	= "night"
-kind_list Gposition	= "position"
-kind_list Gsuperintendent	= "superintendent"
-kind_list Gsupervisor	= "supervisor"
-kind_list Gthing	= "thing"
-kind_list Gtop	= "top"
-kind_list Gtransformer	= "transformer"
-kind_list Guncle	= "uncle"
-kind_list Gway	= "way"
-kind_list Gweek	= "week"
-kind_list Gwoman	= "woman"
-
-motion_list :: GMotion -> String
-motion_list Ggo	= "go"
-
-happening_list :: GV -> String
-happening_list Gwork_V	= "work"
-happening_list Glaugh	= "laugh"
-happening_list Gslow_down	= "slow_down"
-
-va_list :: GVA -> String
-va_list Glook = "look"
-
-changing_list :: GV2 -> String
-changing_list Gbecome	= "become"
-changing_list Gdo_V2  	= "do"
-changing_list Gget  	= "get"
-changing_list Gget_along	= "get_along"
-changing_list Ghave_V2 	= "have"
-changing_list Ghire 	= "hire"
-changing_list Ginterview	= "interview"
-changing_list Glift 	= "lift"
-changing_list Glike_2 	= "like"
-changing_list Gneed_V2 	= "need"
--- changing_list Gprove	= "prove"
-changing_list Gsee  	= "see"
-changing_list Gwork_with  	= "work_with"
-
-causative_list :: GV2V -> String
-causative_list Gfind	= "find"
-causative_list Glet_V2V	= "let"
-causative_list Gmake_V2V	= "make"
-causative_list Gtake	= "take"
-causative_list Gtell_to	= "tell_to"
-
-positing_list :: GVS -> String
-positing_list Gknow_VS	= "know_VS"
-positing_list Gsay	= "say"
-positing_list Gthink	= "think"
-
-intens_list :: GVV -> String
-intens_list Gcan	= "can"
-intens_list Ghave_VV 	= "have"
-intens_list Gmust_VV 	= "must"
-intens_list Gneed_VV	= "need"
-intens_list Gstart	= "start"
-intens_list Gwant	= "want"
-
-triangulating_list :: GV3 -> String
-triangulating_list Gget_V3	= "get_V3"
-triangulating_list Ggive	= "give"
-triangulating_list Gtake_away	= "take_away"
-
 objects = [
 	( "apprentice",	\[x]	-> predid1 "apprentice" x	)
 	, ( "child",	\[x]	-> predid1 "child" x	)
@@ -180,7 +66,7 @@ inflections = [
 relations = [
 	( "80-pound",	\[x]	-> predid1 "80-pound" x	)
 	, ( "at_the_shipyard",	\[x]	-> predid1 "at_the_shipyard" x	)
-	, ( "at_the_shipyard_to_work",	\[x]	-> predid1 "at_the_shipyard_to_work" x	)
+	, ( "at_the_shipyard_to_work_V",	\[x]	-> predid1 "at_the_shipyard_to_work" x	)
 	, ( "bad",	\[x]	-> predid1 "bad" x	)
 	, ( "better",	\[x]	-> predid1 "better" x	)
 	, ( "first",	\[x]	-> predid1 "first" x	)
@@ -205,7 +91,7 @@ relations = [
 	, ( "like",	\[x,y]	-> predid2 "like" y x	)
 	, ( "make_look_bad",	\[x,y]	-> predid2 "make_look_bad" y x	)
 	, ( "need",	\[x,y]	-> predid2 "need" y x	)
-	, ( "say:at_the_shipyard_to_work",	\[x,y]	-> predid2 "say:at_the_shipyard_to_work" y x	)
+	, ( "say:at_the_shipyard_to_work_V",	\[x,y]	-> predid2 "say:at_the_shipyard_to_work" y x	)
 	, ( "say:need_to_slow_down",	\[x,y]	-> predid2 "say:need_to_slow_down" y x	)
 	, ( "say:too_little",	\[x,y]	-> predid2 "say:too_little" y x	)
 	, ( "tell_to_to_slow_down",	\[x,y]	-> predid2 "tell_to_to_slow_down" y x	)
@@ -218,7 +104,7 @@ relations = [
 			[x,y,z]	-> predid3 "have_go_to" z y x
 			[x,y]	-> (forgetful3 . predid3) "have_go_to" y x )
 	, ( "think:need_to_have",	\[x,y,z]	-> predid3 "think:need_to_have" z y x	)
-	, ( "say:have",	\[x,y,z]	-> predid3 "say:have" z y x	)
+	, ( "say:have_V2",	\[x,y,z]	-> predid3 "say:have" z y x	)
 	, ( "say:need",	\[x,y,z]	-> predid3 "say:need" y x z	)
 	, ( "think:is",	\[x,y,z]	-> predid3 "think:is" z y x	)
 

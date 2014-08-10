@@ -90,18 +90,6 @@ lin e = showCId (fst (unmaybe (unApp (gf e))))
 unmaybe (Just x) = x
 -- unmaybe Nothing = I
 
-linent :: GPN -> String
-linent e = showCId (fst (unmaybe (unApp (gf e))))
-
-linCN :: GCN -> String
-linCN e = showCId (fst (unmaybe (unApp (gf e))))
-
-linPlace :: GPlace -> String
-linPlace e = showCId (fst (unmaybe (unApp (gf e))))
-
-linAP :: GAP -> String
-linAP e = showCId (fst (unmaybe (unApp (gf e))))
-
 --transTXT :: Maybe (ParseTree Cat Cat) -> LF
 --transTXT (Just Ep) = NonProposition
 --transTXT s@(Just (Branch (Cat _ "S" _ _) _) ) = transS s
@@ -133,9 +121,9 @@ transS (GQUt (GNegQ (GTagQ np vp))) = Just ((transNP np) (transVP vp))
 transS (GQUt (GPosQ (GTagComp np comp))) = Just ((transNP np) (transCOMP comp))
 transS (GQUt (GNegQ (GTagComp np comp))) = Just ((transNP np) (transCOMP comp))
 --transS ((GUt (GPosQ (GYN (GIs subj ap))))) = (transNP subj)
---					    (\x -> Rel (adjective_list ap) [x])
+--					    (\x -> Rel (lin ap) [x])
 --transS ((GUt (GNegQ (GYN (GIs subj ap))))) = (transNP subj)
---				    (\x -> (Neg (Rel (adjective_list ap) [x])))
+--				    (\x -> (Neg (Rel (lin ap) [x])))
 --transS ((GUt (GPosQ (GYN (GCop subj comp))))) =  (transNP subj)
 --				    (\x -> transNP comp (\pred -> Eq pred x))
 --transS ((GUt (GNegQ (GYN (GCop subj comp))))) =  (transNP subj)
@@ -221,9 +209,9 @@ transNP (GEntity name)
     | entity <- (gent2ent name) , entity `elem` entities =
 	\ p -> p (Const entity)
     | otherwise = \p -> NonProposition
-transNP (GTitular t)	| rel <- title_list t =
+transNP (GTitular t)	| rel <- lin t =
 	\p -> Exists ( \v -> Conj [ p v, Rel rel [v] ] )
-transNP thing	| rel <- uncount_list thing =
+transNP thing	| rel <- lin thing =
 	\p -> Exists ( \v -> Conj [ p v, Rel rel [v] ] )
 		| otherwise = \p -> NonProposition
 --transNP (Branch (Cat _ "NP" _ _) [np,Leaf (Cat "'s" "APOS" _ _),cn]) =
@@ -262,16 +250,16 @@ transDet Gno_pl_Det = transDet Gno_Det
 --		q v1])
 
 transN2 :: GN2 -> Term -> LF
-transN2 name	= \x -> Rel (n2_kind_list name) [x]
+transN2 name	= \x -> Rel (lin name) [x]
 transCN :: GCN -> Term -> LF
-transCN (GKind ap cn) = \x -> Conj [ transCN cn x, Rel (adjective_list ap) [x] ]
+transCN (GKind ap cn) = \x -> Conj [ transCN cn x, Rel (lin ap) [x] ]
 transCN (GOfpos cn np) =
     \owner -> Conj [(transN2 cn owner), (transNP np
 	(\thing -> Rel "have" [owner, thing]))]
 transCN (GModified cn rel) = case (rel) of
 	(GSubjRel wh vp) -> \ x -> Conj [transCN cn x, transVP vp x]
 	(GObjRel wh (GVPClSlash np (GV2Slash v))) ->
-		\x -> Conj [transCN cn x, transNP np (\agent -> Rel (changing_list v) [agent,x])]
+		\x -> Conj [transCN cn x, transNP np (\agent -> Rel (lin v) [agent,x])]
 transCN name          = \ x -> Rel (lin name) [x]
 --	case (np,vp) of
 --	    (_, (Branch (Cat _ "VP" _ _) vp)) -> case (vp) of
@@ -310,7 +298,7 @@ transCN name          = \ x -> Rel (lin name) [x]
 --  \ x -> (transS (Just s))
 
 transPlace :: GPlace -> (Term -> LF) -> LF
-transPlace (GLocation _ name) | rel <- placename_list name =
+transPlace (GLocation _ name) | rel <- lin name =
 	\p -> Exists ( \v -> Conj [ p v, Rel rel [v] ] )
 transPlace place	| rel <- lin place =
 	\p -> Exists ( \v -> Conj [ p v, Rel rel [v] ] )
@@ -323,11 +311,11 @@ transClSlash :: GClSlash -> LF
 transClSlash cl = case cl of
 	(GVPClSlash np vpslash) -> case vpslash of
 		(GV2Slash v) -> WH (\x -> transNP np (\subj->
-			Rel (changing_list v) [subj,x]))
+			Rel (lin v) [subj,x]))
 		(GV2VSlash v vp) -> case vp of
 			(GLook_bad va a) -> WH (\x -> transNP np (\subj ->
-				Rel ((causative_list v) ++ "_" ++ (va_list va)
-					++ "_" ++ (adjective_list a)) [subj,x]))
+				Rel ((lin v) ++ "_" ++ (lin va)
+					++ "_" ++ (lin a)) [subj,x]))
 
 transVP :: GVP -> Term -> LF
 ----transVP (Branch (Cat "_" "VP" [Part] _) [Leaf (Cat part "V" _ _), obj] ) =
@@ -376,10 +364,10 @@ transVP :: GVP -> Term -> LF
 --
 transVP (GBe_vp comp) = case comp of
     GBe_someone np -> \x -> transNP np (\pred -> Eq pred x)
-    GBe_bad ap -> \x -> Rel (adjective_list ap) [x]
+    GBe_bad ap -> \x -> Rel (lin ap) [x]
 transVP (GHappening v) =
-        \ t -> ( Rel (happening_list v) [t] )
-transVP (GChanging v obj) = \subj -> transNP obj (\ e -> Rel (changing_list v) [subj,e])
+        \ t -> ( Rel (lin v) [t] )
+transVP (GChanging v obj) = \subj -> transNP obj (\ e -> Rel (lin v) [subj,e])
 --transVP (Branch (Cat _ "VP" _ _) [Leaf (Cat name "V" _ [_]),obj1]) =
 --	case (catLabel ( t2c obj1 )) of
 --		"PP" -> \subj -> transPP obj1 (\adv -> Rel name [subj,adv])
@@ -387,7 +375,7 @@ transVP (GChanging v obj) = \subj -> transNP obj (\ e -> Rel (changing_list v) [
 transVP (GTriangulating v obj1 obj2) =
   \ agent   -> transNP obj1
   (\ theme   -> transNP obj2
-   (\ recipient -> Rel (triangulating_list v) [agent,theme,recipient]))
+   (\ recipient -> Rel (lin v) [agent,theme,recipient]))
 
 --transVP (Branch (Cat _ "VP" _ _) [Leaf (Cat name "V" _ [_,_,_]),obj1,obj2,obj3]) =
 --    \ agent   -> transNPorPP obj1
@@ -397,23 +385,23 @@ transVP (GTriangulating v obj1 obj2) =
 --
 transVP (GIntens v0 vp) = case vp of
 	GHappening v ->
-		\subj -> Rel ((intens_list v0) ++"_to_"++ (happening_list v)) [subj]
+		\subj -> Rel ((lin v0) ++"_to_"++ (lin v)) [subj]
 	GChanging v obj ->
 		(\subj -> transNP obj
-		( \theme -> Rel ((intens_list v0) ++"_to_"++
-				(changing_list v)) [subj,theme] ))
+		( \theme -> Rel ((lin v0) ++"_to_"++
+				(lin v)) [subj,theme] ))
 	GVPPlaced v loc ->
-		\subj -> Rel  ((intens_list v0) ++ "_to_" ++ "goto_school") [subj]
+		\subj -> Rel  ((lin v0) ++ "_to_" ++ "goto_school") [subj]
 	GWithFreq vp2 (GFreqAdv count period) -> case vp2 of
 		GVPPlaced vp (GLocating prep place) -> \subj -> transNP count
 				(\times -> transPlace place
-				(\name -> Rel ((intens_list v0) ++ "_" ++ (motion_list vp) ++ "_" ++ (locprep_list prep)) [subj,name,times]))
+				(\name -> Rel ((lin v0) ++ "_" ++ (lin vp) ++ "_" ++ (lin prep)) [subj,name,times]))
 	GWithStyle vp2 (GComparaAdv cadv a np) -> case vp2 of
 		GChanging v obj ->
 			\subj -> transNP obj
 			(\name -> transNP np
-			(\norm -> Rel ((intens_list v0) ++ "_" ++ (changing_list v) ++ "_" ++ (adj_list a)) [subj, name, norm]))
-		-- _ -> \subj -> Rel  ((intens_list v0) ++ "_to_" ++ "go_2_nights_aweek") [subj]
+			(\norm -> Rel ((lin v0) ++ "_" ++ (lin v) ++ "_" ++ (lin a)) [subj, name, norm]))
+		-- _ -> \subj -> Rel  ((lin v0) ++ "_to_" ++ "go_2_nights_aweek") [subj]
 --transVP (Branch (Cat _ "AT" _ _)
 --    [Leaf (Cat att "V" _ _), Leaf (Cat "to" "TO" [ToInf] []),
 --       (Branch (Cat _ "VP" _ _) [Leaf (Cat act "V" _ _),obj])]) =
@@ -436,26 +424,26 @@ transVP (GIntens v0 vp) = case vp of
 transVP (GCausative v0 obj0 vp) = case vp of
 	GHappening v ->
 		\subj -> transNP obj0
-			(\agent -> Rel ((causative_list v0) ++ "_to_" ++
-				(happening_list v)) [subj,agent])
+			(\agent -> Rel ((lin v0) ++ "_to_" ++
+				(lin v)) [subj,agent])
 	GLook_bad v a ->
 		\subj -> transNP obj0
-		(\agent -> Rel ((causative_list v0) ++ "_" ++ (va_list v) ++
-		"_" ++ (adjective_list a)) [subj, agent])
+		(\agent -> Rel ((lin v0) ++ "_" ++ (lin v) ++
+		"_" ++ (lin a)) [subj, agent])
 	GChanging v obj1 ->
 		(\subj -> transNP obj0
 			(\agent -> transNP obj1
-				( \theme -> Rel ((causative_list v0) ++"_to_"++
-					(changing_list v)) [subj,agent,theme] )))
+				( \theme -> Rel ((lin v0) ++"_to_"++
+					(lin v)) [subj,agent,theme] )))
 	GCausative v obj1 vp2 ->
 		case vp2 of
 			GChanging v2 obj2 ->
 				(\subj -> transNP obj0
 					(\agent1 -> transNP obj1
 						(\agent2 -> transNP obj2
-							(\theme -> Rel ((causative_list v0) ++ "_to_" ++
-								(causative_list v) ++ "_to_" ++
-									(changing_list v2)) [subj,agent1,agent2,theme] ))))
+							(\theme -> Rel ((lin v0) ++ "_to_" ++
+								(lin v) ++ "_to_" ++
+									(lin v2)) [subj,agent1,agent2,theme] ))))
 	GIntens v vp2 ->
 		(\x -> Rel "true" [x])
 --transVP (Branch (Cat _ "AT" _ _)
@@ -482,58 +470,58 @@ transVP (GCausative v0 obj0 vp) = case vp of
 --			( \recipient -> Rel (att++"_to_"++act) [subj,agent,theme,recipient] ))))
 transVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 	(GHappening v) -> (\positer -> transNP np
-		(\referent -> Rel ((positing_list v0) ++ ":" ++ (happening_list v)) [positer, referent]))
+		(\referent -> Rel ((lin v0) ++ ":" ++ (lin v)) [positer, referent]))
 --'	(GIs np ap) -> (\positer -> transNP np
---'		(\referent -> Rel ((positing_list v0) ++"_is_"++ (adjective_list ap)) [positer, referent]))
+--'		(\referent -> Rel ((lin v0) ++"_is_"++ (lin ap)) [positer, referent]))
 	(GBe_vp comp) -> case comp of
 		(GBe_bad attribute ) -> case attribute of
 			(GAdjModified adj mod) -> case mod of
 				(GHappening v) -> \positer -> transNP np
-					(\referent -> Rel ((positing_list v0) ++ ":" ++ (adjective_list adj) ++ "_to_" ++ (happening_list v)) [positer,referent])
+					(\referent -> Rel ((lin v0) ++ ":" ++ (lin adj) ++ "_to_" ++ (lin v)) [positer,referent])
 				_ -> \x -> undefined
 			_ -> (\positer -> transNP np
-				(\referent -> Rel ((positing_list v0) ++ ":" ++
-				(adjective_list attribute)) [positer,referent]))
+				(\referent -> Rel ((lin v0) ++ ":" ++
+				(lin attribute)) [positer,referent]))
 		(GBe_someone subjcomp ) -> (\positer -> transNP np
 			(\referent -> transNP subjcomp
-				(\pred -> Rel ((positing_list v0) ++ ":is")
+				(\pred -> Rel ((lin v0) ++ ":is")
 					[positer,referent,pred])))
 	(GVPPlaced v loc) -> (\x -> Rel "true" [x] )
 	(GChanging v2 obj) -> (\positer -> transNP np
 		(\referent -> transNP obj
-			(\theme -> Rel ((positing_list v0) ++ ":" ++
-				(changing_list v2)) [positer,referent,theme])))
+			(\theme -> Rel ((lin v0) ++ ":" ++
+				(lin v2)) [positer,referent,theme])))
 	(GIntens vv vp2) -> case vp2 of
 		(GHappening v) -> (\positer -> transNP np
-			(\referent -> Rel ((positing_list v0) ++ ":" ++ (intens_list vv) ++ "_to_"
-				++ (happening_list v)) [positer, referent] ))
+			(\referent -> Rel ((lin v0) ++ ":" ++ (lin vv) ++ "_to_"
+				++ (lin v)) [positer, referent] ))
 		(GChanging v obj) -> (\positer -> transNP np
-			(\theme -> transNP obj (\referent -> Rel ((positing_list v0) ++
-				":" ++ (intens_list vv) ++ "_to_" ++ (changing_list v))
+			(\theme -> transNP obj (\referent -> Rel ((lin v0) ++
+				":" ++ (lin vv) ++ "_to_" ++ (lin v))
 					[positer,referent,theme])))
 		(GTriangulating v obj1 obj2) -> (\positer -> transNP np
 			(\referent -> transNP obj1
 			(\theme	-> transNP obj2
-			(\recipient -> Rel ((positing_list v0) ++ ":" ++ (intens_list vv)
-			++ "_" ++ (triangulating_list v)) [positer,referent,theme,recipient]))))
+			(\recipient -> Rel ((lin v0) ++ ":" ++ (lin vv)
+			++ "_" ++ (lin v)) [positer,referent,theme,recipient]))))
 	(GTriangulating v obj1 obj2) ->
 		(\positer -> transNP np
 			(\referent -> transNP obj1
 				(\theme	-> transNP obj2
-					(\recipient -> Rel ((positing_list v0) ++ ":" ++ (triangulating_list v))
+					(\recipient -> Rel ((lin v0) ++ ":" ++ (lin v))
 						[positer,referent,theme,recipient]))))
 	_ -> \x -> NonProposition
 --    GNegS (GCop item comp) ->
 --	(\positer -> transNP item
---	    (\subj -> transNP comp (\x -> Rel ((positing_list v0) ++"_isn't") [positer, subj, x])))
+--	    (\subj -> transNP comp (\x -> Rel ((lin v0) ++"_isn't") [positer, subj, x])))
 transVP	(GVPPlaced vp (GLocating prep destination)) =
 	\mover -> transPlace destination
-	(\place -> Rel ((motion_list vp) ++ "_" ++ (locprep_list prep)) [mover,place])
+	(\place -> Rel ((lin vp) ++ "_" ++ (lin prep)) [mover,place])
 transVP _ = \x -> NonProposition
 --
 transCOMP :: GComp -> Term -> LF
 transCOMP (GBe_someone np) = \x -> transNP np (\pred -> Eq pred x)
-transCOMP (GBe_bad ap) = \x -> Rel (adjective_list ap) [x]
+transCOMP (GBe_bad ap) = \x -> Rel (lin ap) [x]
 --transVP (Branch (Cat _ "VP" _ _) [Leaf (Cat _ "COP" _ _),
 --    Branch (Cat "_" "COMP" [] []) [comp]]) = case (catLabel (t2c comp)) of
 --	"PP" -> \subj -> transPP comp (\place -> Rel "resident" [subj,place])
@@ -553,9 +541,9 @@ transCOMP (GBe_bad ap) = \x -> Rel (adjective_list ap) [x]
 --transWH :: GUtt -> LF
 --transWH (GQUt (GPosQ (GWH_Pred who_WH pred))) = case pred of
 --	(GBe_vp comp) -> WH( transCOMP comp )
---	(GHappening v) -> WH (\x -> Rel (happening_list v) [x])
+--	(GHappening v) -> WH (\x -> Rel (lin v) [x])
 --	(GChanging v np) -> WH (\x -> transNP np
---		(\agent -> Rel (changing_list v) [agent,x]))
+--		(\agent -> Rel (lin v) [agent,x]))
 --	-- WH (\x -> Conj [transW wh x, transNP np (\agent -> Rel v [agent,x])])
 --	(GCausative v0 obj0 vp) -> WH (transVP (GCausative v0 obj0 vp))
 
