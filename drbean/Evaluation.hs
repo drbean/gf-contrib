@@ -86,7 +86,8 @@ ent2Maybe scope = \e -> case evl (scope (Const e)) of
 
 evalW :: LF -> Maybe [Entity]
 evalW (WH scope)	= Just (mapMaybe (ent2Maybe scope) realents)
--- evalW NonProposition	= []
+evalW NonProposition	= Nothing
+evalW _ = Nothing
 
 ttest :: (Term -> LF) -> Term -> Bool
 ttest scope (Const a) = evl (scope (Const a))
@@ -117,7 +118,7 @@ transform :: Tree -> Maybe Tree
 transform = gfmaybe <=< answer . fg
 
 gfmaybe :: GUtt -> Maybe Tree
-gfmaybe (GUt x) = Just (gf (GUt x))
+gfmaybe (GQUt x) = Just (gf (GQUt x))
 gfmaybe _ = Nothing
 
 lf :: Tree -> Maybe LF
@@ -125,6 +126,10 @@ lf x =  (transS . fg) x
 
 answer :: GUtt -> Maybe GUtt
 answer	utt@(GQUt (GPosQ (GYN _)))
+		| (eval <=< transS) utt == (Just (Boolean True)) = Just GYes
+		| (eval <=< transS) utt == (Just (Boolean False)) = Just GNo
+		| (eval <=< transS) utt == (Just NoAnswer) = Just GNoAnswer
+answer	utt@(GQUt (GNegQ (GYN _)))
 		| (eval <=< transS) utt == (Just (Boolean True)) = Just GYes
 		| (eval <=< transS) utt == (Just (Boolean False)) = Just GNo
 		| (eval <=< transS) utt == (Just NoAnswer) = Just GNoAnswer
