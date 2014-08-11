@@ -20,7 +20,7 @@ entity_check =  [
     , (C, "" )
     , (D, "Dee" )
     , (E, "" )
-    , (F, "" )
+    , (F, "" )	-- Dee's father
     , (G, "" )	-- upbringing
     , (H, "Dee's ex-husband" )
     , (I, "" )	-- interviewer
@@ -233,6 +233,8 @@ twoPlacers = [
     , ("need",	pred2 $ [ (a,t) | (p,a,t) <- needing ] )
     , ("make_look_bad",  pred2 $ [ (D,b) | b <-
 	filter (predid1 "look_bad") entities ])
+    , ("think:is_little", pred2 $ [ (s,r) | (s, (pred, r) ,_) <- comms,
+					      pred == "too_little" ] )
     , ("say:too_little", pred2 $ [ (s,r) | (s, (pred, r) ,_) <- comms,
 					      pred == "too_little" ] )
     , ("say:need_to_slow_down", pred2 $ [ (s,r) | (s, (pred, r), _) <- comms,
@@ -266,12 +268,16 @@ threePlacers = [
   , ("think:need_to_have", pred3 needing )
   , ("say:have", pred3 $ [(D,o,p)   | (o,p) <- possessions
           , o == D] )
+  , ("say:is", pred3 [ (s,a,t) | (s, content ,c ,l) <- long_comms
+				, Just a <- [lookup Agent c]
+				, Just t <- [lookup Theme c]
+				] )
   , ("say:need", pred3 [ (p,a,t) | (p,a,t) <- needing
           , p == D] )
     ]
 
 data Case = Agent | Theme | Recipient | Feature | Location
-instance Eq Case
+  deriving Eq
 
 agent, theme, recipient, location, instrument ::
 	(Entity,Entity,Entity) -> Entity
@@ -313,6 +319,7 @@ long_comms  = [
   , (W2, "take_away",[(Agent,D),(Theme,D),(Recipient,W6)], D)
   , (W1, "belong_to",[(Theme,D),(Recipient,W5)], D)
   , (W2, "belong_to",[(Theme,D),(Recipient,W6)], D)
+  , (F, "is", [(Agent,A),(Theme,A)], D)
   ]
 giving	= [ (V,J,D) ]
 --(agent,theme,location)
