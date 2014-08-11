@@ -464,15 +464,15 @@ transVP (GCausative v0 obj0 vp) = case vp of
 --			( \recipient -> Rel (att++"_to_"++act) [subj,agent,theme,recipient] ))))
 transVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 	(GHappening v) -> (\positer -> transNP np
-		(\referent -> Rel ((lin v0) ++ ":" ++ (lin v)) [positer, referent]))
+		(\referent -> Rel ((lin v0) ++ ":is_" ++ (lin v)) [positer, referent]))
 	(GBe_vp comp) -> case comp of
 		(GBe_bad attribute ) -> case attribute of
 			(GAdjModified adj mod) -> case mod of
 				(GHappening v) -> \positer -> transNP np
-					(\referent -> Rel ((lin v0) ++ ":" ++ (lin adj) ++ "_to_" ++ (lin v)) [positer,referent])
+					(\referent -> Rel ((lin v0) ++ ":is_" ++ (lin adj) ++ "_to_" ++ (lin v)) [positer,referent])
 				_ -> \x -> undefined
 			_ -> (\positer -> transNP np
-				(\referent -> Rel ((lin v0) ++ ":" ++
+				(\referent -> Rel ((lin v0) ++ ":is_" ++
 				(lin attribute)) [positer,referent]))
 		(GBe_someone subjcomp ) -> (\positer -> transNP np
 			(\referent -> transNP subjcomp
