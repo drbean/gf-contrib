@@ -123,14 +123,6 @@ transS (GQUt (GPosQ (GTagQ np vp))) = Just ((transNP np) (transVP vp))
 transS (GQUt (GNegQ (GTagQ np vp))) = Just ((transNP np) (transVP vp))
 transS (GQUt (GPosQ (GTagComp np comp))) = Just ((transNP np) (transCOMP comp))
 transS (GQUt (GNegQ (GTagComp np comp))) = Just ((transNP np) (transCOMP comp))
---transS ((GUt (GPosQ (GYN (GIs subj ap))))) = (transNP subj)
---					    (\x -> Rel (lin ap) [x])
---transS ((GUt (GNegQ (GYN (GIs subj ap))))) = (transNP subj)
---				    (\x -> (Neg (Rel (lin ap) [x])))
---transS ((GUt (GPosQ (GYN (GCop subj comp))))) =  (transNP subj)
---				    (\x -> transNP comp (\pred -> Eq pred x))
---transS ((GUt (GNegQ (GYN (GCop subj comp))))) =  (transNP subj)
---				    (\x -> transNP comp (\pred -> Neg (Eq pred x)))
 
 --transS (Just (Branch (Cat _ "AT" _ _) [np,att])) =
 --  (transNP np) (transAT att)
@@ -142,9 +134,8 @@ transS (GQUt (GNegQ (GTagComp np comp))) = Just ((transNP np) (transCOMP comp))
 --
 --transS (Just (Branch (Cat _ "YN" _ _)
 --       [Leaf (Cat _ "AUX" _ []),s])) = transS (Just s)
---
 -- transS _ = Nothing
---
+
 --transAT :: ParseTree Cat Cat -> Term -> LF
 --transAT (Branch (Cat _ "AV" _ _)
 --    [Leaf (Cat att "V" _ [_]), Leaf (Cat "to" "TO" [ToInf] []),
@@ -474,8 +465,6 @@ transVP (GCausative v0 obj0 vp) = case vp of
 transVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 	(GHappening v) -> (\positer -> transNP np
 		(\referent -> Rel ((lin v0) ++ ":" ++ (lin v)) [positer, referent]))
---'	(GIs np ap) -> (\positer -> transNP np
---'		(\referent -> Rel ((lin v0) ++"_is_"++ (lin ap)) [positer, referent]))
 	(GBe_vp comp) -> case comp of
 		(GBe_bad attribute ) -> case attribute of
 			(GAdjModified adj mod) -> case mod of

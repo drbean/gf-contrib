@@ -91,8 +91,6 @@ oper
     };
 
 lin
-	-- Is item quality	=	mkCl item quality;
-	-- Cop item1 item2	= mkCl item1 item2;
 	Be_bad ap	= mkComp ap;
   Be_mod located	= mkComp located;
 	Be_someone np	= mkComp np;

@@ -16,8 +16,6 @@ cat
 	Style;
 
 fun
-	-- Is	: NP -> AP -> Cl;
-	-- Cop		: NP -> NP -> Cl;
 	Look_bad	: VA -> AP -> VP;
 	-- Be_made_sth : V3 -> NP -> VP;
 	Be_bad	: AP -> Comp;
