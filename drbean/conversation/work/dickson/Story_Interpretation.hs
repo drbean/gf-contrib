@@ -16,6 +16,12 @@ ent2gent :: Entity -> GPN
 ent2gent ent	| Just gent <- lookup ent entuples = gent
 							| otherwise = error ("No GEntity for " ++ (show ent) )
 
+instance Eq GPN where
+	(==) Gdee Gdee = True
+	(==) Guncle_alf Guncle_alf = True
+	(==) Gmonday Gmonday = True
+	(==) _ _ = False
+
 objects = [
 	( "apprentice",	\[x]	-> predid1 "apprentice" x	)
 	, ( "child",	\[x]	-> predid1 "child" x	)
@@ -59,8 +65,10 @@ objects = [
 	]
 
 inflections = [
-	( "children",	"child")
+	( "father_2",	"father")
+	, ( "children",	"child")
 	, ("say:little", "say:too_little")
+	, ("know_VS:is", "think:is")
 	]
 
 relations = [
@@ -98,6 +106,7 @@ relations = [
 	, ( "tell_to_to_slow_down",	\[x,y]	-> predid2 "tell_to_to_slow_down" y x	)
 	, ( "want_to_work_with",	\[x,y]	-> predid2 "want_to_work_with" y x	)
 	, ( "work_with",	\[x,y]	-> predid2 "work_with" y x	)
+	, ( "think:is_little",	\[x,y]	-> predid2 "think:is_little" y x	)
 
 	, ( "find_to_do",	\[x,y,z]	-> predid3 "find_to_do" z y x	)
 	, ( "have_VV_do_V2_different",	\[x,y,z]	-> predid3 "have_do_different" z y x	)
@@ -107,7 +116,9 @@ relations = [
 	, ( "think:need_to_have",	\[x,y,z]	-> predid3 "think:need_to_have" z y x	)
 	, ( "say:have_V2",	\[x,y,z]	-> predid3 "say:have" z y x	)
 	, ( "say:need_V2",	\[x,y,z]	-> predid3 "say:need" y x z	)
+	, ( "say:is",	\[x,y,z]	-> predid3 "say:is" z y x	)
 	, ( "think:is",	\[x,y,z]	-> predid3 "think:is" z y x	)
+
 
 	, ( "say:take_away",	\[x,y,z,w]	-> predid4 "say:take_away" w z y x	)
 	]
