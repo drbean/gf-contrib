@@ -35,11 +35,6 @@ unknown :: String -> String
 unknown str = unwords ( filter (\x -> not (elem x wordlist)) (words str) )
 
 label :: GUtt -> String
--- label (GUt (GPosQ (GWH_Cop _ _)))	= "WH"
--- label (GQUt (GPosQ (GWH_NP _ _)))	= "WH"
--- label (GQUt (GNegQ (GWH_NP _ _)))	= "WH"
--- label (GQUt (GPosQ (GWH_AP _ _)))	= "WH"
--- label (GQUt (GNegQ (GWH_AP _ _)))	= "WH"
 label (GQUt (GPosQ (GWH_Pred _ _)))	= "WH"
 label (GQUt (GNegQ (GWH_Pred _ _)))	= "WH"
 label (GQUt (GPosQ (GYN _)))	= "YN"
