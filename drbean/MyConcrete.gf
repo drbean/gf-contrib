@@ -127,8 +127,8 @@ lin
   -- Be_made_sth vp np = PassV3 vp np;
 	YN cl	= mkQCl cl;
 	-- WH_Cop ip comp	= mkQCl ip comp;
-	WH_NP ip np	= mkQCl ip np;
-	WH_AP ip ap	= mkQCl ip ap;
+	-- WH_NP ip np	= mkQCl ip np;
+	-- WH_AP ip ap	= mkQCl ip ap;
 	WH_Pred ip vp	= mkQCl ip vp;
 	WH_ClSlash ip cslash	= mkQCl ip cslash;
 	PosQ qcl	= mkQS qcl;
