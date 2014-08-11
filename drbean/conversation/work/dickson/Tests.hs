@@ -342,12 +342,14 @@ positing_test = [
   , "Does the interviewer say that Dee is little?"
   , "Does the interviewer know that Dee is little?"
   , "Does the interviewer know that Dee is the interviewer?"
-  , "Does Dee's father say that Alf is the superintendent?"
-  , "Does the father of Dee say that Alf is the superintendent?"
-  , "Does Dee know that Alf is the superintendent?"
-  , "Does the interviewer know that Alf is the superintendent?"
+  , "Does Dee's father say that Uncle Alf is the superintendent?"
+  , "Does the father of Dee say that Uncle Alf is the superintendent?"
+  , "Does Dee know that Uncle Alf is the superintendent?"
+  , "Does the interviewer know that Uncle Alf is the superintendent?"
   , "The guys say that Dee needs to slow down, don't they?"
   , "The guys say that Dee needs to laugh, don't they?"
+  , "The guys say that Dee doesn't laugh, don't they?"
+  , "The guys say that the job isn't a woman's job, don't they?"
   ]
 
 interview_test = [
