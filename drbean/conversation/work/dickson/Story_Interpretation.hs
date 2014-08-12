@@ -66,8 +66,9 @@ objects = [
 
 inflections = [
 	( "father_2",	"father")
-	, ( "children",	"child")
-	, ("say:little", "say:too_little")
+	, ( "superintendent_title",	"superintendent")
+	, ( "supervisor_title",	"supervisor")
+	, ("say:is_little", "say:is_too_little")
 	, ("know_VS:is", "think:is")
 	]
 
@@ -83,7 +84,7 @@ relations = [
 	, ( "mad",	\[x]	-> predid1 "mad" x	)
 	, ( "same",	\[x]	-> predid1 "same" x	)
 
-	, ( "work",	\[x]	-> predid1 "work" x	)
+	, ( "work_V",	\[x]	-> predid1 "work" x	)
 	, ( "laugh",	\[x] -> predid1 "laugh" x	)
 	, ( "know",	\[x]	-> predid1 "know" x	)
 	, ( "look_bad",	\[x]	-> predid1 "look_bad" x	)
@@ -99,10 +100,10 @@ relations = [
 	, ( "interview",	\[x,y]	-> predid2 "interview" y x	)
 	, ( "like",	\[x,y]	-> predid2 "like" y x	)
 	, ( "make_V2V_look_bad",	\[x,y]	-> predid2 "make_look_bad" y x	)
-	, ( "need",	\[x,y]	-> predid2 "need" y x	)
+	, ( "need_V2",	\[x,y]	-> predid2 "need" y x	)
 	, ( "say:is_at_the_shipyard_to_work_V",	\[x,y]	-> predid2 "say:is_at_the_shipyard_to_work" y x	)
 	, ( "say:need_VV_to_slow_down",	\[x,y]	-> predid2 "say:need_to_slow_down" y x	)
-	, ( "say:too_little",	\[x,y]	-> predid2 "say:too_little" y x	)
+	, ( "say:is_too_little",	\[x,y]	-> predid2 "say:is_too_little"	y x )
 	, ( "tell_to_to_slow_down",	\[x,y]	-> predid2 "tell_to_to_slow_down" y x	)
 	, ( "want_to_work_with",	\[x,y]	-> predid2 "want_to_work_with" y x	)
 	, ( "work_with",	\[x,y]	-> predid2 "work_with" y x	)
@@ -115,7 +116,7 @@ relations = [
 			[x,y]	-> (forgetful3 . predid3) "have_go_to" y x )
 	, ( "think:need_to_have",	\[x,y,z]	-> predid3 "think:need_to_have" z y x	)
 	, ( "say:have_V2",	\[x,y,z]	-> predid3 "say:have" z y x	)
-	, ( "say:need_V2",	\[x,y,z]	-> predid3 "say:need" y x z	)
+	, ( "say:need_V2",	\[x,y,z]	-> predid3 "say:need" z y x )
 	, ( "say:is",	\[x,y,z]	-> predid3 "say:is" z y x	)
 	, ( "think:is",	\[x,y,z]	-> predid3 "think:is" z y x	)
 
