@@ -336,6 +336,7 @@ going_test = [
 
 positing_test = [
   "Does the guy think that Dee is little?"
+  , "Does a guy say that Dee is little?"
   , "Does a guy think that Dee is little?"
   , "Does the interviewer think that Dee is little?"
   , "Is Dee little?"
@@ -350,6 +351,11 @@ positing_test = [
   , "The guys say that Dee needs to laugh, don't they?"
   , "The guys say that Dee doesn't laugh, don't they?"
   , "The guys say that the job isn't a woman's job, don't they?"
+  , "Uncle Alf says that Dee doesn't need to work, doesn't he?"
+  , "Dee says that Dee doesn't need to work, doesn't she?"
+  , "Dee says that Uncle Alf doesn't need to get Dee a job, doesn't she?"
+  , "Dee says that the shipyard doesn't give women jobs, doesn't she?"
+
   ]
 
 interview_test = [
