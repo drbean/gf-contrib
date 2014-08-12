@@ -125,7 +125,7 @@ yn_dic_test = [
 
     , "Does Dee take about two weeks to start proving herself."
 		-- , "Do the guys do better with having a woman working."
-		, "Do the guys work with Dee."
+		, "Do some guys work with Dee."
 		, "Do several guys say that Dee needs to slow down."
 		, "Do several guys tell Dee to slow down."
 		, "Does Dee make the guys look bad."
@@ -136,7 +136,7 @@ yn_dic_test = [
 		, "Is Dee the first apprentice who ever becomes supervisor before graduation."
 		, "Are the guys mad because Dee gets a raise."
 		, "Do the guys think that Dee's position is a man's."
-		, "Does Dee gets a position that the guys think is a man's position."
+		, "Does Dee get a position that the guys think is a man's position."
 		, "Does Dee get stuff done on time."
 		, "Does Dee have a knack for getting stuff done on time."
 		, "Does Dee have a knack for getting stuff done right."
@@ -337,6 +337,7 @@ going_test = [
 positing_test = [
   "Does the guy think that Dee is little?"
   , "Does a guy say that Dee is little?"
+  , "Does a guy say that Dee is too little?"
   , "Does a guy think that Dee is little?"
   , "Does the interviewer think that Dee is little?"
   , "Is Dee little?"
