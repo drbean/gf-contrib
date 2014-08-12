@@ -20,7 +20,7 @@ ans tests = do
   let ps = map ( parses gr ) ss
   let ls = map (map ( (linear gr) <=< transform ) ) ps
   let zs = zip (map (++"\t") tests) ls
-  putStrLn (unlines (map (\(x,y) -> x ++ (show $ concat (map displayResult y))) zs) )
+  putStrLn (unlines (map (\(x,y) -> x ++ (show $ unwords (map displayResult y))) zs) )
 
 displayResult = fromMaybe "Broken"
 
