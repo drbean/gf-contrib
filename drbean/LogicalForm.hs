@@ -503,6 +503,47 @@ transVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 					(\recipient -> Rel ((lin v0) ++ ":" ++ (lin v))
 						[positer,referent,theme,recipient]))))
 	_ -> \x -> NonProposition
+transVP (GPositing v0 (GNegS (GSentence np vp))) = case vp of
+	(GHappening v) -> (\positer -> transNP np
+		(\referent -> Rel ((lin v0) ++ ":doesn't_" ++ (lin v)) [positer, referent]))
+	(GBe_vp comp) -> case comp of
+		(GBe_bad attribute ) -> case attribute of
+			(GAdjModified adj mod) -> case mod of
+				(GHappening v) -> \positer -> transNP np
+					(\referent -> Rel ((lin v0) ++ ":isn't_" ++ (lin adj) ++ "_to_" ++ (lin v)) [positer,referent])
+				_ -> \x -> undefined
+			_ -> (\positer -> transNP np
+				(\referent -> Rel ((lin v0) ++ ":isn't_" ++
+				(lin attribute)) [positer,referent]))
+		(GBe_someone subjcomp ) -> (\positer -> transNP np
+			(\referent -> transNP subjcomp
+				(\pred -> Rel ((lin v0) ++ ":isn't_")
+					[positer,referent,pred])))
+	(GVPPlaced v loc) -> (\x -> Rel "true" [x] )
+	(GChanging v2 obj) -> (\positer -> transNP np
+		(\referent -> transNP obj
+			(\theme -> Rel ((lin v0) ++ ":doesn't_" ++
+				(lin v2)) [positer,referent,theme])))
+	(GIntens vv vp2) -> case vp2 of
+		(GHappening v) -> (\positer -> transNP np
+			(\referent -> Rel ((lin v0) ++ ":" ++ (lin vv) ++ "_not_to_"
+				++ (lin v)) [positer, referent] ))
+		(GChanging v obj) -> (\positer -> transNP np
+			(\theme -> transNP obj (\referent -> Rel ((lin v0) ++
+				":" ++ (lin vv) ++ "_not_to_" ++ (lin v))
+					[positer,referent,theme])))
+		(GTriangulating v obj1 obj2) -> (\positer -> transNP np
+			(\referent -> transNP obj1
+			(\theme	-> transNP obj2
+			(\recipient -> Rel ((lin v0) ++ ":" ++ (lin vv)
+			++ "_not_to_" ++ (lin v)) [positer,referent,theme,recipient]))))
+	(GTriangulating v obj1 obj2) ->
+		(\positer -> transNP np
+			(\referent -> transNP obj1
+				(\theme	-> transNP obj2
+					(\recipient -> Rel ((lin v0) ++ ":doesn't_" ++ (lin v)) 
+						[positer,referent,theme,recipient]))))
+	_ -> \x -> NonProposition
 --    GNegS (GCop item comp) ->
 --	(\positer -> transNP item
 --	    (\subj -> transNP comp (\x -> Rel ((lin v0) ++"_isn't") [positer, subj, x])))
