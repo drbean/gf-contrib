@@ -170,7 +170,7 @@ tag = [
 v = [
 	"be, is, are"
 	, "become, becomes"
-	, "can"
+	, "can, can't, cannot"
 	-- , "couldn't"
 	, "do, does, done"
 	, "find, finds"
