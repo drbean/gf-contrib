@@ -234,9 +234,9 @@ twoPlacers = [
     , ("make_look_bad",  pred2 $ [ (D,b) | b <-
 	filter (predid1 "look_bad") entities ])
     , ("think:is_little", pred2 $ [ (s,r) | (s, (pred, r) ,_) <- comms,
-					      pred == "too_little" ] )
-    , ("say:too_little", pred2 $ [ (s,r) | (s, (pred, r) ,_) <- comms,
-					      pred == "too_little" ] )
+					      pred == "is_too_little" ] )
+    , ("say:is_too_little", pred2 $ [ (s,r) | (s, (pred, r) ,_) <- comms,
+					      pred == "is_too_little" ] )
     , ("say:need_to_slow_down", pred2 $ [ (s,r) | (s, (pred, r), _) <- comms,
 					      pred == "need_to_slow_down" ] )
     , ("tell_to_to_slow_down", pred2 $ [ (s,r) | (s, (pred, r), _) <- comms,
@@ -272,8 +272,7 @@ threePlacers = [
 				, Just a <- [lookup Agent c]
 				, Just t <- [lookup Theme c]
 				] )
-  , ("say:need", pred3 [ (p,a,t) | (p,a,t) <- needing
-          , p == D] )
+  , ("say:need", pred3 needing )
     ]
 
 data Case = Agent | Theme | Recipient | Feature | Location
@@ -291,7 +290,7 @@ origin	= theme
 destination = recipient
 
 --(worker,job,site)
-working	= [(A,Unspec,V),(I,Unspec,V),
+working	= [(A,Unspec,V),(I,Unspec,V),(F,Unspec,Unspec),
 -- shipyard
 	(D,R,V),(W1,R,V),(W2,R,V),(W3,R,V),(W4,R,V),(W5,R,V),(W6,R,V),
 -- ship
@@ -299,7 +298,7 @@ working	= [(A,Unspec,V),(I,Unspec,V),
 
 -- (speaker, (content, referent),listener)
 comms	= [
-  (I, ("too_little",D), D)
+  (I, ("is_too_little",D), D)
   ,(W1, ("need_to_slow_down",D), D)
   ,(W2, ("need_to_slow_down",D), D)
   ,(D, ("need_money",D), W1)
