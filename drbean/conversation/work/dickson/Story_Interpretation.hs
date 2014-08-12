@@ -100,7 +100,7 @@ relations = [
 	, ( "like",	\[x,y]	-> predid2 "like" y x	)
 	, ( "make_V2V_look_bad",	\[x,y]	-> predid2 "make_look_bad" y x	)
 	, ( "need",	\[x,y]	-> predid2 "need" y x	)
-	, ( "say:at_the_shipyard_to_work_V",	\[x,y]	-> predid2 "say:at_the_shipyard_to_work" y x	)
+	, ( "say:is_at_the_shipyard_to_work_V",	\[x,y]	-> predid2 "say:is_at_the_shipyard_to_work" y x	)
 	, ( "say:need_VV_to_slow_down",	\[x,y]	-> predid2 "say:need_to_slow_down" y x	)
 	, ( "say:too_little",	\[x,y]	-> predid2 "say:too_little" y x	)
 	, ( "tell_to_to_slow_down",	\[x,y]	-> predid2 "tell_to_to_slow_down" y x	)

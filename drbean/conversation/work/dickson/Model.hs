@@ -243,7 +243,7 @@ twoPlacers = [
 			      pred == "need_to_slow_down" ] )
      , ("want_to_work_with", pred2 [] )
      , ("work_with", pred2 $ [ (D,w) | (w,j,s) <- working , s == B ])
-     , ("say:at_the_shipyard_to_work", pred2 $ [(D,e) | e <- filter
+     , ("say:is_at_the_shipyard_to_work", pred2 $ [(D,e) | e <- filter
 	       (predid1 "at_the_shipyard_to_work") entities ])
 
     ]
