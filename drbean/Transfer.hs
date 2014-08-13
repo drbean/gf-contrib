@@ -33,7 +33,36 @@ main = do
   putStrLn ("Course: " ++ foldl takeCourse "Unparseable" courses )
 
 unknown :: String -> String
-unknown str = unwords ( filter (\x -> not (elem x (concat (map (splitOn ", ") wordlist)))) (words str) )
+unknown ws = unwords ( filter (\x -> not (checkLists x ws) ) (words ws))
+
+checkLists :: String -> String -> Bool
+checkLists w ws	=	if check_on_wordlist w then True
+									else if check_on_wordlist (alternative w (bigram ws)) then True
+									else if check_on_wordlist (alternative w (trigram ws)) then True
+									else False
+splitVariants :: [String] -> [String]
+splitVariants ls = concat $ map (splitOn ", ") ls
+
+check_on_wordlist :: String -> Bool
+check_on_wordlist = flip elem (splitVariants wordlist)
+
+alternative :: String -> [(String, String)] -> String
+alternative w bis	| Just bi <- lookup w bis = bi
+									| Nothing <- lookup w bis = "Nothing"
+
+bigram :: String -> [ (String, String) ]
+bigram ws = let zs = zip ss (tail ss)
+						where
+						ss = words ws
+						in (map (\(a,b) -> (a, unwords [a,b]) ) zs)
+
+trigram :: String -> [ (String, String) ]
+trigram ws = let zs = zip3 ss sss ssss
+			where
+			ss = words ws
+			sss = tail ss
+			ssss = tail sss
+			in (map (\(a,b,c) -> (a, unwords [a,b,c]) ) zs)
 
 label :: GUtt -> String
 label (GQUt (GPosQ (GWH_Pred _ _)))	= "WH"
