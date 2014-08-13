@@ -9,6 +9,7 @@ import WordsCharacters
 
 import Data.Maybe
 import Control.Monad
+import Data.List.Split
 
 import GHC.IO.Handle
 import System.IO
@@ -32,7 +33,7 @@ main = do
   putStrLn ("Course: " ++ foldl takeCourse "Unparseable" courses )
 
 unknown :: String -> String
-unknown str = unwords ( filter (\x -> not (elem x wordlist)) (words str) )
+unknown str = unwords ( filter (\x -> not (elem x (concat (map (splitOn ", ") wordlist)))) (words str) )
 
 label :: GUtt -> String
 label (GQUt (GPosQ (GWH_Pred _ _)))	= "WH"
