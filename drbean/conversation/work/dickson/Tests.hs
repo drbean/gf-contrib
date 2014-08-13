@@ -195,6 +195,21 @@ who_dic_test = [
 	, "Who says that the job makes a woman better than if the woman is a guy?"
 	]
 
+unknowns = [
+	"Does Dee go to the shipyard the next Monday"
+	, "Can Dee be too"
+	, "Can dee work at the shipyard"
+	, "Can Dee lift an 80-pound transformer"
+	, "Does Dee go to the ship"
+	, "Deoes Dee work at the shipyard"
+	, "does Dee go to school two nights a week"
+	, "does Dee's father have money"
+	, "does Dee 's father have money"
+	, "does Uncle Alf have money"
+	, "does Dee get along with the guys"
+	, 
+
+
 likes_test = [
   "Does Dee like the job?"
   , "No guys like Dee, do they?"
@@ -378,7 +393,12 @@ interview_test = [
   
 
 haves = [
-  "Does Dee have Dee's father?"
+	"Do the men have jobs"
+	, "Does some man have two jobs?"
+	, "Who has a job?"
+	, "Does Uncle Alf have a job?"
+	, "Does Dee have a job?"
+  , "Does Dee have Dee's father?"
   , "Does Dee's father have money?"
   , "Does Dee have Dee's father?"
   , "Does Dee's father have Dee?"
