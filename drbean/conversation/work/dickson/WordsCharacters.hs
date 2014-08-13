@@ -96,7 +96,7 @@ n = [
 	, "graduation"
 	, "guy, guys"
 	, "interviewer"
-	, "job,jobs"
+	, "job, jobs"
 	-- , "knack"
 	, "life"
 	, "man, men, man's"
