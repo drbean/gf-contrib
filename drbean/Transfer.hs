@@ -51,10 +51,12 @@ alternative w bis	| Just bi <- lookup w bis = bi
 									| Nothing <- lookup w bis = "Nothing"
 
 bigram :: String -> [ (String, String) ]
-bigram ws = let zs = zip ss (tail ss)
+bigram ws = let zs = zip ss sss
 						where
 						ss = words ws
-						in (map (\(a,b) -> (a, unwords [a,b]) ) zs)
+						sss = tail ss
+						in (map (\(a,b) -> (a, unwords [a,b]) ) zs) ++
+							(map (\(a,b) -> (b, unwords [a,b]) ) zs)
 
 trigram :: String -> [ (String, String) ]
 trigram ws = let zs = zip3 ss sss ssss
@@ -62,7 +64,8 @@ trigram ws = let zs = zip3 ss sss ssss
 			ss = words ws
 			sss = tail ss
 			ssss = tail sss
-			in (map (\(a,b,c) -> (a, unwords [a,b,c]) ) zs)
+			in (map (\(a,b,c) -> (a, unwords [a,b,c]) ) zs) ++
+				(map (\(a,b,c) -> (c, unwords [a,b,c]) ) zs)
 
 label :: GUtt -> String
 label (GQUt (GPosQ (GWH_Pred _ _)))	= "WH"
