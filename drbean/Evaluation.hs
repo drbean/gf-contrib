@@ -42,19 +42,19 @@ instance Show Answer where
 eval :: LF ->  Maybe Answer
 
 eval NonProposition = Just NoAnswer
-eval x@(Rel r as)	= Just (Boolean (evl x))
-eval x@(Eq a b)	= Just (Boolean (evl x))
-eval x@(Neg lf)	= Just (Boolean (evl x))
-eval x@(Impl f1 f2)	= Just (Boolean (evl x))
-eval x@(Equi f1 f2)	= Just (Boolean (evl x))
-eval x@(Conj lfs)	= Just (Boolean (evl x))
-eval x@(Disj lfs)	= Just (Boolean (evl x))
-eval x@(Forall scope)	= Just (Boolean (evl x))
-eval x@(Exists scope)	= Just (Boolean (evl x))
-eval x@(Single scope)	= Just (Boolean (evl x))
-eval x@(Several scope)	= Just (Boolean (evl x))
-eval x@(Many scope)	= Just (Boolean (evl x))
-eval x@(Most scope)	= Just (Boolean (evl x))
+eval (Rel r as)	= Just (Boolean (evl (Rel r as)))
+eval (Eq a b)	= Just (Boolean (evl (Eq a b)))
+eval (Neg lf)	= Just (Boolean (evl (Neg lf)))
+eval (Impl f1 f2)	= Just (Boolean (evl (Impl f1 f2)))
+eval (Equi f1 f2)	= Just (Boolean (evl (Equi f1 f2)))
+eval (Conj lfs)	= Just (Boolean (evl (Conj lfs)))
+eval (Disj lfs)	= Just (Boolean (evl (Disj lfs)))
+eval (Forall scope)	= Just (Boolean (evl (Forall scope)))
+eval (Exists scope)	= Just (Boolean (evl (Exists scope)))
+eval (Single scope)	= Just (Boolean (evl (Single scope)))
+eval (Several scope)	= Just (Boolean (evl (Several scope)))
+eval (Many scope)	= Just (Boolean (evl (Many scope)))
+eval (Most scope)	= Just (Boolean (evl (Most scope)))
 eval _ = Nothing
 
 evl :: LF -> Bool
