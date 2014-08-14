@@ -36,19 +36,18 @@ unknown :: String -> String
 unknown ws = unwords ( filter (\x -> not (checkLists x ws) ) (words ws))
 
 checkLists :: String -> String -> Bool
-checkLists w ws	=	if check_on_wordlist w then True
-									else if check_on_wordlist (alternative w (bigram ws)) then True
-									else if check_on_wordlist (alternative w (trigram ws)) then True
+checkLists w ws	=	if check_on_wordlist [w] then True
+									else if check_on_wordlist (alternatives w (bigram ws)) then True
+									else if check_on_wordlist (alternatives w (trigram ws)) then True
 									else False
 splitVariants :: [String] -> [String]
 splitVariants ls = concat $ map (splitOn ", ") ls
 
-check_on_wordlist :: String -> Bool
-check_on_wordlist = flip elem (splitVariants wordlist)
+check_on_wordlist :: [String] -> Bool
+check_on_wordlist = any (flip elem (splitVariants wordlist))
 
-alternative :: String -> [(String, String)] -> String
-alternative w bis	| Just bi <- lookup w bis = bi
-									| Nothing <- lookup w bis = "Nothing"
+alternatives :: String -> [(String, String)] -> [String]
+alternatives w bis	= [ bi | (key,bi) <- bis, key==w]
 
 bigram :: String -> [ (String, String) ]
 bigram ws = let zs = zip ss sss
