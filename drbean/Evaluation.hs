@@ -114,8 +114,8 @@ bigN xs = not . smallN $ xs
 parses :: PGF -> String -> [Tree]
 parses gr s = concat ( parseAll gr (startCat gr) s )
 
-transform :: Tree -> Tree
-transform = gf . (\x -> fromMaybe GNo (answer x)) . fg
+transform :: Tree -> Maybe Tree
+transform = gfmaybe <=< answer . fg
 
 gfmaybe :: GUtt -> Maybe Tree
 gfmaybe (GQUt x) = Just (gf (GQUt x))
@@ -141,8 +141,8 @@ answer	utt@(GQUt _) = case (evalW <=< transS) utt of
 	(Just [x,y,z,w]) -> Nothing
 	otherwise	-> Nothing
 
-linear :: (Tree -> Tree) -> PGF -> Tree -> Maybe String
-linear tr gr p = Just (linearize gr (myLanguage gr) (tr p))
+linear :: PGF -> Tree -> Maybe String
+linear gr p = Just (linearize gr (myLanguage gr) p)
 
 myLanguage gr = (head . languages) gr
 

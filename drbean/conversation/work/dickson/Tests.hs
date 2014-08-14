@@ -18,7 +18,7 @@ ans tests = do
   gr	<- readPGF ( "./Dickson.pgf" )
   let ss = map (chomp . lc_first) tests
   let ps = map ( parses gr ) ss
-  let ls = map (map ( linear transform gr ) ) ps
+  let ls = map (map ( (linear gr) <=< transform ) ) ps
   let zs = zip (map (++"\t") tests) ls
   putStrLn (unlines (map (\(x,y) -> x ++ (show $ unwords (map displayResult y))) zs) )
 
