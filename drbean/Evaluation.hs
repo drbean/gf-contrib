@@ -118,7 +118,9 @@ transform :: Tree -> Maybe Tree
 transform = gfmaybe <=< answer . fg
 
 gfmaybe :: GUtt -> Maybe Tree
-gfmaybe (GQUt x) = Just (gf (GQUt x))
+gfmaybe (GYes) = Just (gf GYes)
+gfmaybe (GNo) = Just (gf GNo)
+gfmaybe (GAnswer x) = Just (gf (GAnswer x))
 gfmaybe _ = Nothing
 
 lf :: Tree -> Maybe LF
