@@ -207,7 +207,7 @@ unknowns = [
 	, "does Dee 's father have money"
 	, "does Uncle Alf have money"
 	, "does Dee get along with the guys"
-	, 
+	]
 
 
 likes_test = [
