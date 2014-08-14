@@ -110,10 +110,10 @@ relations = [
 	, ( "think:is_little",	\[x,y]	-> predid2 "think:is_little" y x	)
 
 	, ( "find_to_do",	\[x,y,z]	-> predid3 "find_to_do" z y x	)
-	, ( "have_VV_do_V2_different",	\[x,y,z]	-> predid3 "have_do_different" z y x	)
-	, ( "have_VV_go_to_prep",	\args -> case args of
-			[x,y,z]	-> predid3 "have_go_to" z y x
-			[x,y]	-> (forgetful3 . predid3) "have_go_to" y x )
+	, ( "have_VV_to_do_V2_different",	\[x,y,z]	-> predid3 "have_to_do_different" z y x	)
+	, ( "have_VV_to_go_to_prep",	\args -> case args of
+			[x,y,z]	-> predid3 "have_to_go_to" z y x
+			[x,y]	-> (forgetful3 . predid3) "have_to_go_to" y x )
 	, ( "think:need_to_have",	\[x,y,z]	-> predid3 "think:need_to_have" z y x	)
 	, ( "say:have_V2",	\[x,y,z]	-> predid3 "say:have" z y x	)
 	, ( "say:need_V2",	\[x,y,z]	-> predid3 "say:need" z y x )
