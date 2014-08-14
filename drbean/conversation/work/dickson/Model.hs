@@ -229,7 +229,7 @@ twoPlacers = [
     , ("studied", pred2 $ foldl (\hs (_,school,subject,student) ->
                     (student,subject): (student,school) : hs) [] schooling )
     , ("go_to",	pred2 $ [ (a,l) | (a,_,l) <- working ++ studying ] )
-    , ("have_go_to", predid2 "go_to" )
+    , ("have_to_go_to", predid2 "go_to" )
     , ("need",	pred2 $ [ (a,t) | (p,a,t) <- needing ] )
     , ("make_look_bad",  pred2 $ [ (D,b) | b <-
 	filter (predid1 "look_bad") entities ])
@@ -258,8 +258,8 @@ threePlacers = [
     , ("studied_subj_at", pred3 $ map (\(_,school,subject,student) ->
                     (student,subject,school) ) schooling )
     , ("find_to_do", pred3 [(D,Y,R),(D,Y,J)] )
-    , ("have_do_different", pred3 [(D,R,W1),(D,J,W1),(D,R,W2),(D,J,W2)] )
-    , ("have_go_to", pred3 $ [ (a,l,n) |
+    , ("have_to_do_different", pred3 [(D,R,W1),(D,J,W1),(D,R,W2),(D,J,W2)] )
+    , ("have_to_go_to", pred3 $ [ (a,l,n) |
 	    (a,_,l) <- working ++ studying , n <- [O,W] ])
   , ("think:is", pred3 $ [ (s,t,r) | (s, content ,c ,l) <- long_comms
 		  , content == "belong_to"

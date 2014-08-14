@@ -384,17 +384,18 @@ transVP (GIntens v0 vp) = case vp of
 		(\subj -> transNP obj
 		( \theme -> Rel ((lin v0) ++"_to_"++
 				(lin v)) [subj,theme] ))
-	GVPPlaced v loc ->
-		\subj -> Rel  ((lin v0) ++ "_to_" ++ "goto_school") [subj]
+	GVPPlaced v (GLocating prep place) ->
+		\subj -> transPlace place
+		(\name -> Rel  ((lin v0) ++ "_to_" ++ (lin v) ++ "_" ++ (lin prep)) [subj,name])
 	GWithFreq vp2 (GFreqAdv count period) -> case vp2 of
 		GVPPlaced vp (GLocating prep place) -> \subj -> transNP count
 				(\times -> transPlace place
-				(\name -> Rel ((lin v0) ++ "_" ++ (lin vp) ++ "_" ++ (lin prep)) [subj,name,times]))
+				(\name -> Rel ((lin v0) ++ "_to_" ++ (lin vp) ++ "_" ++ (lin prep)) [subj,name,times]))
 	GWithStyle vp2 (GComparaAdv cadv a np) -> case vp2 of
 		GChanging v obj ->
 			\subj -> transNP obj
 			(\name -> transNP np
-			(\norm -> Rel ((lin v0) ++ "_" ++ (lin v) ++ "_" ++ (lin a)) [subj, name, norm]))
+			(\norm -> Rel ((lin v0) ++ "_to_" ++ (lin v) ++ "_" ++ (lin a)) [subj, name, norm]))
 		-- _ -> \subj -> Rel  ((lin v0) ++ "_to_" ++ "go_2_nights_aweek") [subj]
 --transVP (Branch (Cat _ "AT" _ _)
 --    [Leaf (Cat att "V" _ _), Leaf (Cat "to" "TO" [ToInf] []),
