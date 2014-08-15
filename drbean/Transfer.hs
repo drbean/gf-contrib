@@ -28,6 +28,8 @@ main = do
   let ps = parses gr l
   let ls = map ((linear gr) <=< transform) ps
   putStrLn ("Parsed: " ++ (show (map (showExpr []) ps) ) )
+  let lfs = map lf ps
+  putStrLn ("LF: " ++ show lfs )
   putStrLn ("Answer: " ++ (bestAnswer ls) )
   let courses = map (label . fg) ps
   putStrLn ("Course: " ++ foldl takeCourse "Unparseable" courses )
