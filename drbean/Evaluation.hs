@@ -41,7 +41,6 @@ instance Show Answer where
 	show NoAnswer	= "NoAnswer"
 eval :: LF ->  Maybe Answer
 
-eval NonProposition = Just NoAnswer
 eval (Rel r as)	= Just (Boolean (evl (Rel r as)))
 eval (Eq a b)	= Just (Boolean (evl (Eq a b)))
 eval (Neg lf)	= Just (Boolean (evl (Neg lf)))
