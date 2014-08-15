@@ -15,6 +15,7 @@ infltuples = common_inflections ++ Topic.inflections ++ inflections
 int :: Interp Entity
 
 int word = int' word inttuples infltuples where
+	int' :: String -> [(String, [Entity] -> Bool)] -> [(String,String)] -> [Entity] -> Bool
 	int' w [] []	= error $ "'" ++ w ++ "'" ++ " has no interpretation"
 	int' w [] ((infl,word):infls) | w == infl	=  int' word inttuples []
 	int' w [] (i:is)	= int' w [] is
