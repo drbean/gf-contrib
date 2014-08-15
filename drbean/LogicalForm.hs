@@ -123,6 +123,7 @@ transS (GQUt (GPosQ (GTagQ np vp))) = Just ((transNP np) (transVP vp))
 transS (GQUt (GNegQ (GTagQ np vp))) = Just ((transNP np) (transVP vp))
 transS (GQUt (GPosQ (GTagComp np comp))) = Just ((transNP np) (transCOMP comp))
 transS (GQUt (GNegQ (GTagComp np comp))) = Just ((transNP np) (transCOMP comp))
+transS _ = Nothing
 
 --transS (Just (Branch (Cat _ "AT" _ _) [np,att])) =
 --  (transNP np) (transAT att)
