@@ -85,7 +85,6 @@ ent2Maybe scope = \e -> case evl (scope (Const e)) of
 
 evalW :: LF -> Maybe [Entity]
 evalW (WH scope)	= Just (mapMaybe (ent2Maybe scope) realents)
-evalW NonProposition	= Nothing
 evalW _ = Nothing
 
 ttest :: (Term -> LF) -> Term -> Bool
