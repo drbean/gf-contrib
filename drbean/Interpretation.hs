@@ -74,4 +74,4 @@ common_relations = [
  	[x,y] -> forgetful3 (predid3 "got") y x )
  ]
 
--- vim: set ts=8 sts=4 sw=4 noet:
+-- vim: set ts=2 sts=2 sw=2 noet:
