@@ -18,21 +18,21 @@ import System.Environment.FindBin
 
 main :: IO ()
 main = do
-  path <- getProgPath
-  gr <- readPGF ( path ++ "/Dickson.pgf" )
-  hClose stderr
-  hDuplicateTo stdout stderr
-  s <- getLine
-  let l = (chomp . lc_first) s
-  putStrLn ("Unknown_words: " ++ (unknown l) )
-  let ps = parses gr l
-  let ls = map ((linear gr) <=< transform) ps
-  putStrLn ("Parsed: " ++ (show (map (showExpr []) ps) ) )
-  let lfs = map lf ps
-  putStrLn ("LF: " ++ show lfs )
-  putStrLn ("Answer: " ++ (bestAnswer ls) )
-  let courses = map (label . fg) ps
-  putStrLn ("Course: " ++ foldl takeCourse "Unparseable" courses )
+	path <- getProgPath
+	gr <- readPGF ( path ++ "/Dickson.pgf" )
+	hClose stderr
+	hDuplicateTo stdout stderr
+	s <- getLine
+	let l = (chomp . lc_first) s
+	putStrLn ("Unknown_words: " ++ (unknown l) )
+	let ps = parses gr l
+	let ls = map ((linear gr) <=< transform) ps
+	putStrLn ("Parsed: " ++ (show (map (showExpr []) ps) ) )
+	let lfs = map lf ps
+	putStrLn ("LF: " ++ show lfs )
+	putStrLn ("Answer: " ++ (bestAnswer ls) )
+	let courses = map (label . fg) ps
+	putStrLn ("Course: " ++ foldl takeCourse "Unparseable" courses )
 
 unknown :: String -> String
 unknown ws = unwords ( filter (\x -> not (checkLists x ws) ) (words ws))
