@@ -55,6 +55,7 @@ eval (Single scope)	= Just (Boolean (evl (Single scope)))
 eval (Several scope)	= Just (Boolean (evl (Several scope)))
 eval (Many scope)	= Just (Boolean (evl (Many scope)))
 eval (Most scope)	= Just (Boolean (evl (Most scope)))
+eval NonProposition = Nothing
 eval _ = Nothing
 
 evl :: LF -> Bool

@@ -401,6 +401,7 @@ transVP (GIntens v0 vp) = case vp of
 		\ agent   -> transNP obj1
 		(\ theme   -> transNP obj2
 		 (\ recipient -> Rel ((lin v0) ++ "_to_" ++ lin v) [agent,theme,recipient]))
+	_ -> \x -> NonProposition
 		-- _ -> \subj -> Rel  ((lin v0) ++ "_to_" ++ "go_2_nights_aweek") [subj]
 --transVP (Branch (Cat _ "AT" _ _)
 --    [Leaf (Cat att "V" _ _), Leaf (Cat "to" "TO" [ToInf] []),
