@@ -195,6 +195,60 @@ who_dic_test = [
 	, "Who says that the job makes a woman better than if the woman is a guy?"
 	]
 
+tag_dic_test = [
+
+    "The guy who interviews Dee says that Dee is too little, doesn't he?"
+    , "The interviewer says that Dee is little, doesn't he?"
+		, "The interviewer says that Dee cannot get along with the guys, doesn't he?"
+		, "The guys make life hard for Dee, don't they?"
+		, "The guy who interviews Dee doesn't think that Dee needs to have the job, does he?"
+
+		, "Uncle Alf is superintendent at the shipyard, isn't he?"
+    , "Dee's father says that Uncle Alf is superintendent at the shipyard, doesn't he?"
+		, "Dee's father says that Uncle Alf can get Dee a job, doesn't he?"
+		, "Dee lets Dee's father take Dee to see Uncle Alf, doesn't she?"
+
+    , "Dee goes to the shipyard the next Monday, doesn't she?"
+		, "The interviewer says that the superintendent tells the shipyard to hire Dee, doesn't he?"
+		, "The guy doesn't like that Dee is hired, does he?"
+		, "The guy says that Dee is hired, doesn't he?"
+
+    , "Dee goes to the ship, doesn't she?"
+		, "No man wants to work with Dee, does he?"
+		, "None of the guys want to work with Dee, do they?"
+		, "The guys say that the jobs are men's jobs, don't they?"
+		, "The guys say that Dee takes work away from men who have families, don't they?"
+		, "The guys say that Dee takes away work from men who have families, don't they?"
+		, "Dee says that Dee has a family, doesn't she?"
+		, "Dee says that Dee has no man, doesn't she?"
+		, "Dee says that Dee needs money, doesn't she?"
+
+    , "Dee takes about two weeks to start proving herself, doesn't she?"
+		-- , "The guys do better with having a woman working."
+		, "The guys work with Dee, don't they?"
+		, "Several guys say that Dee needs to slow down, don't they?"
+		, "Several guys tell Dee to slow down, don't they?"
+		, "Dee makes the guys look bad, doesn't she?"
+		, "Dee laughs, doesn't she?"
+		, "Dee says that Dee is at the shipyard to work, doesn't she?"
+
+    , "Dee has to go to school two nights a week, doesn't she?"
+		, "Dee is the first apprentice who ever becomes supervisor before graduation, isn't she?"
+		, "The guys are mad because Dee gets a raise, aren't they?"
+		, "The guys think that Dee's position is a man's, don't they?"
+		, "Dee gets a position that the guys think is a man's position, doesn't she?"
+		, "Dee gets stuff done on time, doesn't she?"
+		, "Dee has a knack for getting stuff done on time, doesn't she?"
+		, "Dee has a knack for getting stuff done right, doesn't she?"
+
+    , "Dee has to do some things a little differently than the guys, doesn't she?"
+    , "Dee has to do some things a little differently than the guys do, doesn't she?"
+		, "Dee cannot lift an 80-pound transformer, can she? "
+		, "Dee finds a way to do the same things that the guys do, doesn't she?"
+		, "Dee finds a way to do the same things as the guys, doesn't she?"
+		, "Dee says that the job makes a woman better than if the woman is a guy, doesn't she?"
+
+	]
 unknowns = [
 	"Does Dee go to the shipyard the next Monday"
 	, "Can Dee be too"
