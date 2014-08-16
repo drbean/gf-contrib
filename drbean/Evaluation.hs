@@ -18,7 +18,7 @@ import Data.Char
 
 realents :: [Entity]
 -- realents = filter ( not . flip elem [Unspec,Someone,Something] ) entities
--- realents = map snd characters
+namedents = map snd characters
 realents = entities
 
 --type TVal = Term -> Entity
@@ -85,7 +85,7 @@ ent2Maybe scope = \e -> case evl (scope (Const e)) of
 	False -> Nothing; True -> Just e
 
 evalW :: LF -> Maybe [Entity]
-evalW (WH scope)	= Just (mapMaybe (ent2Maybe scope) realents)
+evalW (WH scope)	= Just (mapMaybe (ent2Maybe scope) namedents)
 evalW _ = Nothing
 
 ttest :: (Term -> LF) -> Term -> Bool
