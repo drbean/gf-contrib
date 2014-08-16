@@ -95,7 +95,7 @@ takeCourse _  _   = error "undefined course, not WH, YN, S, or Unparseable"
 
 bestAnswer :: [Maybe String] -> String
 bestAnswer ss = 
-	foldl takeAnswer "No answer" (map (fromMaybe "Nothing") ss)
+	foldl takeAnswer "Nothing" (map (fromMaybe "Nothing") ss)
 
 takeAnswer :: String -> String -> String
 takeAnswer _ "yes" = "yes"
