@@ -69,11 +69,12 @@ inflections = [
 	, ( "superintendent_title",	"superintendent")
 	, ( "supervisor_title",	"supervisor")
 	, ("say:is_little", "say:is_too_little")
+	, ("think:is_little", "say:is_too_little")
 	, ("know_VS:is", "think:is")
 	]
 
 relations = [
-	( "80-pound",	\[x]	-> predid1 "80-pound" x	)
+	( "eighty_pound",	\[x]	-> predid1 "80-pound" x	)
 	, ( "at_the_shipyard",	\[x]	-> predid1 "at_the_shipyard" x	)
 	, ( "at_the_shipyard_to_work_V",	\[x]	-> predid1 "at_the_shipyard_to_work" x	)
 	, ( "bad",	\[x]	-> predid1 "bad" x	)
@@ -94,7 +95,7 @@ relations = [
 	, ( "become",	\[x,y]	-> predid2 "become" y x	)
 	, ( "can_to_lift",	\[x,y]	-> predid2 "can_to_lift" y x	)
 	, ( "have_V2",	\[x,y]	-> predid2 "have" y x	)
-	, ( "do",	\[x,y]	-> predid2 "do" y x	)
+	, ( "do_V2",	\[x,y]	-> predid2 "do" y x	)
 	, ( "go_to_prep",	\[x,y]	-> predid2 "go_to" y x	)
 	, ( "hire",	\[x,y]	-> predid2 "hire" y x	)
 	, ( "interview",	\[x,y]	-> predid2 "interview" y x	)
@@ -107,17 +108,17 @@ relations = [
 	, ( "tell_to_to_slow_down",	\[x,y]	-> predid2 "tell_to_to_slow_down" y x	)
 	, ( "want_to_work_with",	\[x,y]	-> predid2 "want_to_work_with" y x	)
 	, ( "work_with",	\[x,y]	-> predid2 "work_with" y x	)
-	, ( "think:is_little",	\[x,y]	-> predid2 "think:is_little" y x	)
 
-	, ( "find_to_do",	\[x,y,z]	-> predid3 "find_to_do" z y x	)
+	, ( "find_to_do_V2",	\[x,y,z]	-> predid3 "find_to_do" z y x	)
 	, ( "have_VV_to_do_V2_different",	\[x,y,z]	-> predid3 "have_to_do_different" z y x	)
 	, ( "have_VV_to_go_to_prep",	\args -> case args of
 			[x,y,z]	-> predid3 "have_to_go_to" z y x
 			[x,y]	-> (forgetful3 . predid3) "have_to_go_to" y x )
-	, ( "think:need_to_have",	\[x,y,z]	-> predid3 "think:need_to_have" z y x	)
+	, ( "think:need_VV_to_have_V2",	\[x,y,z]	-> predid3 "think:need_to_have" z y x	)
 	, ( "say:have_V2",	\[x,y,z]	-> predid3 "say:have" z y x	)
 	, ( "say:need_V2",	\[x,y,z]	-> predid3 "say:need" z y x )
 	, ( "say:is",	\[x,y,z]	-> predid3 "say:is" z y x	)
+	, ( "say:can_not_to_get_along", \[x,y,z] -> predid3  "say:can_not_to_get_along" z y x )
 	, ( "think:is",	\[x,y,z]	-> predid3 "think:is" z y x	)
 
 
