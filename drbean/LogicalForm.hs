@@ -490,7 +490,7 @@ transVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 			(\referent -> Rel ((lin v0) ++ ":" ++ (lin vv) ++ "_to_"
 				++ (lin v)) [positer, referent] ))
 		(GChanging v obj) -> (\positer -> transNP np
-			(\theme -> transNP obj (\referent -> Rel ((lin v0) ++
+			(\referent -> transNP obj (\theme -> Rel ((lin v0) ++
 				":" ++ (lin vv) ++ "_to_" ++ (lin v))
 					[positer,referent,theme])))
 		(GTriangulating v obj1 obj2) -> (\positer -> transNP np
@@ -531,7 +531,7 @@ transVP (GPositing v0 (GNegS (GSentence np vp))) = case vp of
 			(\referent -> Rel ((lin v0) ++ ":" ++ (lin vv) ++ "_not_to_"
 				++ (lin v)) [positer, referent] ))
 		(GChanging v obj) -> (\positer -> transNP np
-			(\theme -> transNP obj (\referent -> Rel ((lin v0) ++
+			(\referent -> transNP obj (\theme -> Rel ((lin v0) ++
 				":" ++ (lin vv) ++ "_not_to_" ++ (lin v))
 					[positer,referent,theme])))
 		(GTriangulating v obj1 obj2) -> (\positer -> transNP np
