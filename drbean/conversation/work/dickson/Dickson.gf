@@ -22,7 +22,6 @@ fun
 	get_along	: V2;
 	get	: V2;
 	get_V3	: V3;
-	give	: V3;
 	go	: Motion;
 	have_V2	: V2;
 	have_VV	: VV;

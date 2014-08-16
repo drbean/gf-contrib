@@ -21,7 +21,6 @@ lin
 	get_along	= mkV2 "get" "along with";
 	get	= mkV2 get_V;
 	get_V3	= mkV3 get_V;
-	give	= mkV3 IrregEng.give_V;
 	go	= mkVP IrregEng.go_V;
 	have_V2 = mkV2 have_V;
 	have_VV	= mkVV have_V;
