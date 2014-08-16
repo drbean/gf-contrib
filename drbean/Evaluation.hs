@@ -18,7 +18,8 @@ import Data.Char
 
 realents :: [Entity]
 -- realents = filter ( not . flip elem [Unspec,Someone,Something] ) entities
-realents = map snd characters
+-- realents = map snd characters
+realents = entities
 
 --type TVal = Term -> Entity
 --
