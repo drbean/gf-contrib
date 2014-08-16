@@ -118,7 +118,7 @@ yn_dic_test = [
 		, "Do none of the guys want to work with Dee."
 		, "Do the guys say that the jobs are men's jobs."
 		, "Do the guys say that Dee takes work away from men who have families."
-		-- , "Do the guys say that Dee takes away work from men who have families."
+		, "Do the guys say that Dee takes away work from men who have families."
 		, "Does Dee say that Dee has a family."
 		, "Does Dee say that Dee has no man."
 		, "Does Dee say that Dee needs money."
