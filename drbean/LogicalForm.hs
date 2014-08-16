@@ -397,6 +397,10 @@ transVP (GIntens v0 vp) = case vp of
 			\subj -> transNP obj
 			(\name -> transNP np
 			(\norm -> Rel ((lin v0) ++ "_to_" ++ (lin v) ++ "_" ++ (lin a)) [subj, name, norm]))
+	GTriangulating v obj1 obj2 ->
+		\ agent   -> transNP obj1
+		(\ theme   -> transNP obj2
+		 (\ recipient -> Rel ((lin v0) ++ "_to_" ++ lin v) [agent,theme,recipient]))
 		-- _ -> \subj -> Rel  ((lin v0) ++ "_to_" ++ "go_2_nights_aweek") [subj]
 --transVP (Branch (Cat _ "AT" _ _)
 --    [Leaf (Cat att "V" _ _), Leaf (Cat "to" "TO" [ToInf] []),
