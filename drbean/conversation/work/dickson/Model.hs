@@ -234,7 +234,7 @@ twoPlacers = [
     , ("make_look_bad",  pred2 $ [ (D,b) | b <-
 	filter (predid1 "look_bad") entities ])
     , ("think:is_little", pred2 $ [ (s,r) | (s, (pred, r) ,_) <- comms,
-					      pred == "is_too_little" ] )
+					      pred == "is_little" ] )
     , ("say:is_too_little", pred2 $ [ (s,r) | (s, (pred, r) ,_) <- comms,
 					      pred == "is_too_little" ] )
     , ("say:need_to_slow_down", pred2 $ [ (s,r) | (s, (pred, r), _) <- comms,
@@ -273,6 +273,10 @@ threePlacers = [
 				, Just t <- [lookup Theme c]
 				] )
   , ("say:need", pred3 needing )
+  , ( "say:can_not_to_get_along", pred3 $ [ (s,a,t) | (s,content,c,l) <- long_comms
+    , Just a <- [lookup Agent c]
+    , Just t <- [lookup Theme c]
+    ])
     ]
 
 data Case = Agent | Theme | Recipient | Feature | Location
@@ -298,7 +302,8 @@ working	= [(A,Unspec,V),(I,Unspec,V),(F,Unspec,Unspec),
 
 -- (speaker, (content, referent),listener)
 comms	= [
-  (I, ("is_too_little",D), D)
+  (I, ("is_little",D), D)
+  , (I, ("is_too_little",D), D)
   ,(W1, ("need_to_slow_down",D), D)
   ,(W2, ("need_to_slow_down",D), D)
   ,(D, ("need_money",D), W1)
@@ -319,6 +324,8 @@ long_comms  = [
   , (W1, "belong_to",[(Theme,D),(Recipient,W5)], D)
   , (W2, "belong_to",[(Theme,D),(Recipient,W6)], D)
   , (F, "is", [(Agent,A),(Theme,A)], D)
+  , (I,  "say:can_not_to_get_along", [(Agent,D),(Theme,W1)], D)
+  , (I,  "say:can_not_to_get_along", [(Agent,D),(Theme,W2)], D)
   ]
 giving	= [ (V,J,D) ]
 --(agent,theme,location)
