@@ -22,7 +22,7 @@ ans tests = do
   let zs = zip (map (++"\t") tests) ls
   putStrLn (unlines (map (\(x,y) -> x ++ (show $ unwords (map displayResult y))) zs) )
 
-displayResult = fromMaybe "Broken"
+displayResult = fromMaybe "Nothing"
 
 trans tests = do
   gr	<- readPGF ( "./Dickson.pgf" )
@@ -98,7 +98,7 @@ dic_test = [
 yn_dic_test = [
 
     "Does the guy who interviews Dee say that Dee is too little."
-    , "Does the interviewer say that Dee is little."
+    , "Does the interviewer think that Dee is little."
 		, "Does the interviewer say that Dee cannot get along with the guys"
 		, "Do the guys make life hard for Dee."
 		, "Does the guy who interviews Dee think that Dee needs to have the job."
@@ -118,7 +118,7 @@ yn_dic_test = [
 		, "Do none of the guys want to work with Dee."
 		, "Do the guys say that the jobs are men's jobs."
 		, "Do the guys say that Dee takes work away from men who have families."
-		, "Do the guys say that Dee takes away work from men who have families."
+		-- , "Do the guys say that Dee takes away work from men who have families."
 		, "Does Dee say that Dee has a family."
 		, "Does Dee say that Dee has no man."
 		, "Does Dee say that Dee needs money."
