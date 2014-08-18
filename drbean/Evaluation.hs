@@ -28,10 +28,14 @@ realents = entities
 --lift fint (Struct str ts) =
 --           fint str (map (lift fint) ts)
 --lift fint _     = R
---
+
+terms :: [Term]
+terms = map Const entities
+
 term2ent :: Term -> Entity
 term2ent (Const a) = a
 term2ent _ = R
+
 
 data Answer = Boolean Bool | Yes | No | NoAnswer
 	deriving (Eq)
@@ -50,9 +54,8 @@ eval (Neg lf)	= eval lf >>= notLF
 -- eval (Equi f1 f2)	= eval f1 == eval f2
 eval (Conj lfs)	= foldM conjLF (Boolean True) (map (fromMaybe NoAnswer . eval ) lfs)
 eval (Disj lfs)	= foldM disjLF (Boolean False) (map (fromMaybe NoAnswer . eval ) lfs)
--- eval (Disj lfs)	= or ( map ( eval ) lfs )
 -- eval (Forall scope)	= and $ testents scope
--- eval (Exists scope)	= or $ testents scope
+eval (Exists scope)	= eval (Disj (map scope terms))
 -- eval (Single scope)	= singleton ( mapMaybe bool2Maybe $ testents scope )
 -- eval (Several scope)	= smallN ( mapMaybe bool2Maybe $ testents scope )
 -- eval (Many scope)	= bigN ( mapMaybe bool2Maybe $ testents scope )
