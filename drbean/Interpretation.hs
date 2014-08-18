@@ -13,14 +13,15 @@ inttuples = common_objects ++ common_relations ++ objects ++ relations
 infltuples = common_inflections ++ Topic.inflections ++ inflections
 
 int :: Interp Entity
+int = lookIntuples . uninflect
 
-int word = int' word inttuples infltuples where
-	int' :: String -> [(String, [Entity] -> Bool)] -> [(String,String)] -> [Entity] -> Bool
-	int' w [] []	= error $ "'" ++ w ++ "'" ++ " has no interpretation"
-	int' w [] ((infl,word):infls) | w == infl	=  int' word inttuples []
-	int' w [] (i:is)	= int' w [] is
-	int' w ((word,interpretation):is) infls | w == word	= interpretation
-	int' w (i:is) infls	= int' w is infls
+lookIntuples :: String -> [Entity] -> Bool
+lookIntuples word	| Just interpretation <- lookup word inttuples = interpretation
+					| otherwise = \_ -> error ( "'" ++ word ++ "'" ++ " has no interpretation" )
+
+uninflect :: String -> String
+uninflect word	| Just rel <- lookup word infltuples = rel
+								| otherwise = word
 
 common_objects, common_relations :: [( String, [Entity] -> Bool)]
 common_objects = [
