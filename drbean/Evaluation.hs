@@ -51,7 +51,7 @@ eval (Rel r as)	= Just (Boolean (int r $ reverse (map term2ent as)))
 eval (Eq a b)	= Just (Boolean (a == b))
 eval (Neg lf)	= eval lf >>= notLF
 -- eval (Impl f1 f2)	= not ( eval f1 && ( not $ eval f2 ) )
--- eval (Equi f1 f2)	= eval f1 == eval f2
+eval (Equi f1 f2)	= liftM2 equiLF (eval f1) (eval f2)
 eval (Conj lfs)	= foldM conjLF (Boolean True) (map (fromMaybe NoAnswer . eval ) lfs)
 eval (Disj lfs)	= foldM disjLF (Boolean False) (map (fromMaybe NoAnswer . eval ) lfs)
 eval (Forall scope)	= eval (Conj (map scope terms))
@@ -66,6 +66,10 @@ eval (Many scope)	= Just (Boolean (bigN (map scope terms)))
 notLF :: Answer -> Maybe Answer
 notLF (Boolean b) = Just (Boolean (not b))
 notLF _	= Nothing
+
+equiLF :: Answer -> Answer -> Answer
+equiLF (Boolean b1) (Boolean b2) = Boolean ( b1 == b2)
+equiLF _ _ = NoAnswer
 
 conjLF :: Answer -> Answer -> Maybe Answer
 conjLF (Boolean b1) (Boolean b2) = Just (Boolean (b1 && b2))
