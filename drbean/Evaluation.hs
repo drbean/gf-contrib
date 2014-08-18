@@ -72,7 +72,7 @@ lifting f (Boolean b1) (Boolean b2) = Boolean (f b1 b2)
 lifting _ _ _ = NoAnswer
 
 implLF :: Answer -> Answer -> Answer
-implLF = lifting (\b1 b2 -> not (b1 && (not b2))
+implLF = lifting (\b1 b2 -> not (b1 && (not b2)))
 
 equiLF :: Answer -> Answer -> Answer
 equiLF = lifting (==)

@@ -203,7 +203,7 @@ knowledge	= []
 acquaintances	= []
 help	= pred2 $ supervision
 becoming  = [(D,R),(D,D)]
-lifting = [(W1,T),(W3,T),(W5,T)]
+lifts = [(W1,T),(W3,T),(W5,T)]
 going = [(D,B)]
 -- needing :: positer, agent, theme
 needing = [(D,D,M),(D,D,J)]
@@ -215,7 +215,7 @@ twoPlacers = [
 			  [(a,J) | (a,_,_) <- working] ++
 			  map (\(_,l,_,r) ->(r,l) ) schooling)
     , ("become",  pred2 becoming )
-    , ("can_to_lift",  pred2 lifting )
+    , ("can_to_lift",  pred2 lifts )
     , ("do",  pred2 $ [ (a,j) | a <- filter person entities
 	    , (w,j,s) <- working
 	    , w == a ] )
