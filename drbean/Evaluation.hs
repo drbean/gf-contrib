@@ -58,8 +58,7 @@ eval (Forall scope)	= eval (Conj (map scope terms))
 eval (Exists scope)	= eval (Disj (map scope terms))
 eval (Single scope)	= Just (Boolean (singleton (map scope terms)))
 eval (Several scope)	= Just (Boolean (smallN (map scope terms)))
--- eval (Several scope)	= smallN ( mapMaybe bool2Maybe $ testents scope )
--- eval (Many scope)	= bigN ( mapMaybe bool2Maybe $ testents scope )
+eval (Many scope)	= Just (Boolean (bigN (map scope terms)))
 -- eval (Most scope)	= length ( mapMaybe bool2Maybe $ testents scope ) >
 -- 			length ( mapMaybe bool2Maybe $ testents scope )
 -- eval lf = error $ (show lf) ++ " logical formula unknown, not evaluated."
