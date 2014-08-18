@@ -48,7 +48,7 @@ eval (Eq a b)	= Just (Boolean (a == b))
 eval (Neg lf)	= eval lf >>= notLF
 -- eval (Impl f1 f2)	= not ( eval f1 && ( not $ eval f2 ) )
 -- eval (Equi f1 f2)	= eval f1 == eval f2
-eval (Conj lfs)	= foldM conjLF (Boolean True) (map unJustAnswer lfs)
+eval (Conj lfs)	= foldM conjLF (Boolean True) (map (fromMaybe NoAnswer . eval ) lfs)
 -- eval (Disj lfs)	= or ( map ( eval ) lfs )
 -- eval (Forall scope)	= and $ testents scope
 -- eval (Exists scope)	= or $ testents scope
