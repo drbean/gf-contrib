@@ -68,7 +68,7 @@ conjLF (Boolean b1) (Boolean b2) = Just (Boolean (b1 && b2))
 conjLF _ _ = Nothing
 
 unJustAnswer :: LF -> Answer
-unJustAnswer = \lf -> fromMaybe (Boolean False) (eval lf)
+unJustAnswer = \lf -> fromMaybe NoAnswer (eval lf)
 
 bool2Maybe :: Bool -> Maybe Bool
 bool2Maybe = \x -> case x of False -> Nothing; True -> Just True
