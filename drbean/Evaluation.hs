@@ -50,7 +50,7 @@ eval NonProposition = Nothing
 eval (Rel r as)	= Just (Boolean (int r $ reverse (map term2ent as)))
 eval (Eq a b)	= Just (Boolean (a == b))
 eval (Neg lf)	= eval lf >>= notLF
--- eval (Impl f1 f2)	= not ( eval f1 && ( not $ eval f2 ) )
+eval (Impl f1 f2)	= liftM2 implLF (eval f1) (eval f2)
 eval (Equi f1 f2)	= liftM2 equiLF (eval f1) (eval f2)
 eval (Conj lfs)	= foldM conjLF (Boolean True) (map (fromMaybe NoAnswer . eval ) lfs)
 eval (Disj lfs)	= foldM disjLF (Boolean False) (map (fromMaybe NoAnswer . eval ) lfs)
@@ -67,9 +67,15 @@ notLF :: Answer -> Maybe Answer
 notLF (Boolean b) = Just (Boolean (not b))
 notLF _	= Nothing
 
+lifting :: (Bool -> Bool -> Bool) -> Answer -> Answer -> Answer
+lifting f (Boolean b1) (Boolean b2) = Boolean (f b1 b2)
+lifting _ _ _ = NoAnswer
+
+implLF :: Answer -> Answer -> Answer
+implLF = lifting (\b1 b2 -> not (b1 && (not b2))
+
 equiLF :: Answer -> Answer -> Answer
-equiLF (Boolean b1) (Boolean b2) = Boolean ( b1 == b2)
-equiLF _ _ = NoAnswer
+equiLF = lifting (==)
 
 conjLF :: Answer -> Answer -> Maybe Answer
 conjLF (Boolean b1) (Boolean b2) = Just (Boolean (b1 && b2))
