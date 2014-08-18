@@ -509,6 +509,10 @@ transVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 				(\theme	-> transNP obj2
 					(\recipient -> Rel ((lin v0) ++ ":" ++ (lin v))
 						[positer,referent,theme,recipient]))))
+	(GPass (GV2Slash v)) ->
+		\positer -> transNP np 
+			(\referent -> Rel((lin v0) ++ ":" ++ (lin v))
+				[positer,referent])
 	_ -> \x -> NonProposition
 transVP (GPositing v0 (GNegS (GSentence np vp))) = case vp of
 	(GHappening v) -> (\positer -> transNP np
