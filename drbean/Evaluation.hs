@@ -40,23 +40,10 @@ instance Show Answer where
 	show Yes	= "Yes"
 	show No	= "No"
 	show NoAnswer	= "NoAnswer"
-eval :: LF ->  Maybe Answer
 
-eval (Rel r as)	= Just (Boolean (evl (Rel r as)))
-eval (Eq a b)	= Just (Boolean (evl (Eq a b)))
-eval (Neg lf)	= Just (Boolean (evl (Neg lf)))
-eval (Impl f1 f2)	= Just (Boolean (evl (Impl f1 f2)))
-eval (Equi f1 f2)	= Just (Boolean (evl (Equi f1 f2)))
-eval (Conj lfs)	= Just (Boolean (evl (Conj lfs)))
-eval (Disj lfs)	= Just (Boolean (evl (Disj lfs)))
-eval (Forall scope)	= Just (Boolean (evl (Forall scope)))
-eval (Exists scope)	= Just (Boolean (evl (Exists scope)))
-eval (Single scope)	= Just (Boolean (evl (Single scope)))
-eval (Several scope)	= Just (Boolean (evl (Several scope)))
-eval (Many scope)	= Just (Boolean (evl (Many scope)))
-eval (Most scope)	= Just (Boolean (evl (Most scope)))
+eval :: LF -> Maybe Answer
 eval NonProposition = Nothing
-eval _ = Nothing
+eval lf = ( justify . evl ) lf
 
 evl :: LF -> Bool
 evl (Rel r as)	= int r $ reverse (map term2ent as)
@@ -73,7 +60,11 @@ evl (Several scope)	= smallN ( mapMaybe bool2Maybe $ testents scope )
 evl (Many scope)	= bigN ( mapMaybe bool2Maybe $ testents scope )
 evl (Most scope)	= length ( mapMaybe bool2Maybe $ testents scope ) >
 			length ( mapMaybe bool2Maybe $ testents scope )
-evl _ = False
+evl lf = error $ (show lf) ++ " logical formula unknown, not evluated."
+
+justify :: Bool -> Maybe Answer
+justify True = Just (Boolean True)
+justify False = Just (Boolean False)
 
 bool2Maybe :: Bool -> Maybe Bool
 bool2Maybe = \x -> case x of False -> Nothing; True -> Just True
