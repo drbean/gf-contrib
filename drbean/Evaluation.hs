@@ -43,48 +43,46 @@ instance Show Answer where
 
 eval :: LF -> Maybe Answer
 eval NonProposition = Nothing
-eval lf = ( justify . evl ) lf
+eval (Rel r as)	= Just (Boolean (int r $ reverse (map term2ent as)))
+eval (Eq a b)	= Just (Boolean (a == b))
+eval (Neg lf)	= eval lf >>= notLF
+-- eval (Impl f1 f2)	= not ( eval f1 && ( not $ eval f2 ) )
+-- eval (Equi f1 f2)	= eval f1 == eval f2
+-- eval (Conj lfs)	= and ( map ( eval ) lfs )
+-- eval (Disj lfs)	= or ( map ( eval ) lfs )
+-- eval (Forall scope)	= and $ testents scope
+-- eval (Exists scope)	= or $ testents scope
+-- eval (Single scope)	= singleton ( mapMaybe bool2Maybe $ testents scope )
+-- eval (Several scope)	= smallN ( mapMaybe bool2Maybe $ testents scope )
+-- eval (Many scope)	= bigN ( mapMaybe bool2Maybe $ testents scope )
+-- eval (Most scope)	= length ( mapMaybe bool2Maybe $ testents scope ) >
+-- 			length ( mapMaybe bool2Maybe $ testents scope )
+-- eval lf = error $ (show lf) ++ " logical formula unknown, not evaluated."
 
-evl :: LF -> Bool
-evl (Rel r as)	= int r $ reverse (map term2ent as)
-evl (Eq a b)	= a == b
-evl (Neg lf)	= not $ evl lf
-evl (Impl f1 f2)	= not ( evl f1 && ( not $ evl f2 ) )
-evl (Equi f1 f2)	= evl f1 == evl f2
-evl (Conj lfs)	= and ( map ( evl ) lfs )
-evl (Disj lfs)	= or ( map ( evl ) lfs )
-evl (Forall scope)	= and $ testents scope
-evl (Exists scope)	= or $ testents scope
-evl (Single scope)	= singleton ( mapMaybe bool2Maybe $ testents scope )
-evl (Several scope)	= smallN ( mapMaybe bool2Maybe $ testents scope )
-evl (Many scope)	= bigN ( mapMaybe bool2Maybe $ testents scope )
-evl (Most scope)	= length ( mapMaybe bool2Maybe $ testents scope ) >
-			length ( mapMaybe bool2Maybe $ testents scope )
-evl lf = error $ (show lf) ++ " logical formula unknown, not evluated."
-
-justify :: Bool -> Maybe Answer
-justify True = Just (Boolean True)
-justify False = Just (Boolean False)
+notLF :: Answer -> Maybe Answer
+notLF (Boolean b) = Just (Boolean (not b))
+notLF _	= Nothing
 
 bool2Maybe :: Bool -> Maybe Bool
 bool2Maybe = \x -> case x of False -> Nothing; True -> Just True
 
-testents :: (Term -> LF) -> [Bool]
-testents scope = map ( \e -> evl (scope (Const e)) ) realents
+-- testents :: (Term -> LF) -> [Bool]
+-- testents scope = map ( \e -> evl (scope (Const e)) ) realents
 
-ent2Maybe :: (Term -> LF) -> Entity -> Maybe Entity
-ent2Maybe scope = \e -> case evl (scope (Const e)) of
-	False -> Nothing; True -> Just e
 
-evalW :: LF -> Maybe [Entity]
-evalW (WH scope)	= Just (mapMaybe (ent2Maybe scope) namedents)
-evalW _ = Nothing
+-- ent2Maybe :: (Term -> LF) -> Entity -> Maybe Entity
+-- ent2Maybe scope = \e -> case evl (scope (Const e)) of
+-- 	False -> Nothing; True -> Just e
 
-ttest :: (Term -> LF) -> Term -> Bool
-ttest scope (Const a) = evl (scope (Const a))
-ttest scope _ = evl (scope (Const R))
+-- evalW :: LF -> Maybe [Entity]
+-- evalW (WH scope)	= Just (mapMaybe (ent2Maybe scope) namedents)
+-- evalW _ = Nothing
 
-revttest scope = \x -> not $ evl (scope (Const x))
+-- ttest :: (Term -> LF) -> Term -> Bool
+-- ttest scope (Const a) = evl (scope (Const a))
+-- ttest scope _ = evl (scope (Const R))
+
+-- revttest scope = \x -> not $ evl (scope (Const x))
 
 singleton :: [a] -> Bool
 singleton [x]	= True
@@ -134,13 +132,13 @@ answer	utt@(GQUt (GNegQ (GTagQ _ _)))
 		| (eval <=< transS) utt == (Just (Boolean True)) = Just GYes
 		| (eval <=< transS) utt == (Just (Boolean False)) = Just GNo
 		| (eval <=< transS) utt == (Just NoAnswer) = Just GNoAnswer
-answer	utt@(GQUt _) = case (evalW <=< transS) utt of
-	(Just []) -> Just (GAnswer Gno_pl_NP)
-	(Just [x]) -> Just (GAnswer (GEntity (ent2gent x)))
-	(Just [x,y]) -> Just (GAnswer (GCloseList Gor_Conj (GList (GEntity (ent2gent x)) (GEntity (ent2gent y)))))
-	(Just [x,y,z]) -> Just (GAnswer (GCloseList Gor_Conj (GAddList (GEntity (ent2gent x)) (GList (GEntity (ent2gent y)) (GEntity (ent2gent z))))))
-	(Just [x,y,z,w]) -> Nothing
-	otherwise	-> Nothing
+--answer	utt@(GQUt _) = case (evalW <=< transS) utt of
+--	(Just []) -> Just (GAnswer Gno_pl_NP)
+--	(Just [x]) -> Just (GAnswer (GEntity (ent2gent x)))
+--	(Just [x,y]) -> Just (GAnswer (GCloseList Gor_Conj (GList (GEntity (ent2gent x)) (GEntity (ent2gent y)))))
+--	(Just [x,y,z]) -> Just (GAnswer (GCloseList Gor_Conj (GAddList (GEntity (ent2gent x)) (GList (GEntity (ent2gent y)) (GEntity (ent2gent z))))))
+--	(Just [x,y,z,w]) -> Nothing
+--	otherwise	-> Nothing
 
 linear :: PGF -> Tree -> Maybe String
 linear gr p = Just (linearize gr (myLanguage gr) p)
