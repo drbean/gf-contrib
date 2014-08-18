@@ -144,19 +144,19 @@ answer :: GUtt -> Maybe GUtt
 answer	utt@(GQUt (GPosQ (GYN _)))
 		| (eval <=< transS) utt == (Just (Boolean True)) = Just GYes
 		| (eval <=< transS) utt == (Just (Boolean False)) = Just GNo
-		| (eval <=< transS) utt == (Just NoAnswer) = Just GNoAnswer
+		| (eval <=< transS) utt == Nothing = Just GNoAnswer
 answer	utt@(GQUt (GNegQ (GYN _)))
 		| (eval <=< transS) utt == (Just (Boolean True)) = Just GYes
 		| (eval <=< transS) utt == (Just (Boolean False)) = Just GNo
-		| (eval <=< transS) utt == (Just NoAnswer) = Just GNoAnswer
+		| (eval <=< transS) utt == Nothing = Just GNoAnswer
 answer	utt@(GQUt (GPosQ (GTagQ _ _)))
 		| (eval <=< transS) utt == (Just (Boolean True)) = Just GYes
 		| (eval <=< transS) utt == (Just (Boolean False)) = Just GNo
-		| (eval <=< transS) utt == (Just NoAnswer) = Just GNoAnswer
+		| (eval <=< transS) utt == Nothing = Just GNoAnswer
 answer	utt@(GQUt (GNegQ (GTagQ _ _)))
 		| (eval <=< transS) utt == (Just (Boolean True)) = Just GYes
 		| (eval <=< transS) utt == (Just (Boolean False)) = Just GNo
-		| (eval <=< transS) utt == (Just NoAnswer) = Just GNoAnswer
+		| (eval <=< transS) utt == Nothing = Just GNoAnswer
 --answer	utt@(GQUt _) = case (evalW <=< transS) utt of
 --	(Just []) -> Just (GAnswer Gno_pl_NP)
 --	(Just [x]) -> Just (GAnswer (GEntity (ent2gent x)))
