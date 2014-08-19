@@ -366,6 +366,8 @@ transVP (GChanging v obj) = \subj -> transNP obj (\ e -> Rel (lin v) [subj,e])
 --transVP (Branch (Cat _ "VP" _ _) [Leaf (Cat name "V" _ [_]),obj1]) =
 --	case (catLabel ( t2c obj1 )) of
 --		"PP" -> \subj -> transPP obj1 (\adv -> Rel name [subj,adv])
+transVP (GPass (GV2Slash v)) =
+	\patient -> Rel ("is_" ++ (lin v) ++ "_ed") [patient]
 
 transVP (GTriangulating v obj1 obj2) =
   \ agent   -> transNP obj1
