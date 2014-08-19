@@ -29,8 +29,14 @@ realents = entities
 --           fint str (map (lift fint) ts)
 --lift fint _     = R
 
+termed :: Entity -> Term
+termed = Const
+
 terms :: [Term]
 terms = map Const entities
+
+nameterms :: [Term]
+nameterms = map termed namedents
 
 term2ent :: Term -> Entity
 term2ent (Const a) = a
@@ -99,9 +105,13 @@ bool2Maybe = \x -> case x of False -> Nothing; True -> Just True
 -- ent2Maybe scope = \e -> case evl (scope (Const e)) of
 -- 	False -> Nothing; True -> Just e
 
--- evalW :: LF -> Maybe [Entity]
--- evalW (WH scope)	= Just (mapMaybe (ent2Maybe scope) namedents)
--- evalW _ = Nothing
+evalW :: LF -> Maybe [Entity]
+evalW (WH scope)	= Just [ e | e <- namedents
+				, t <- [termed e]
+				, a <- [(eval.scope) t]
+				, a == Just (Boolean True)
+							]
+evalW _ = Nothing
 
 -- ttest :: (Term -> LF) -> Term -> Bool
 -- ttest scope (Const a) = evl (scope (Const a))
@@ -157,13 +167,13 @@ answer	utt@(GQUt (GNegQ (GTagQ _ _)))
 		| (eval <=< transS) utt == (Just (Boolean True)) = Just GYes
 		| (eval <=< transS) utt == (Just (Boolean False)) = Just GNo
 		| (eval <=< transS) utt == Nothing = Just GNoAnswer
---answer	utt@(GQUt _) = case (evalW <=< transS) utt of
---	(Just []) -> Just (GAnswer Gno_pl_NP)
---	(Just [x]) -> Just (GAnswer (GEntity (ent2gent x)))
---	(Just [x,y]) -> Just (GAnswer (GCloseList Gor_Conj (GList (GEntity (ent2gent x)) (GEntity (ent2gent y)))))
---	(Just [x,y,z]) -> Just (GAnswer (GCloseList Gor_Conj (GAddList (GEntity (ent2gent x)) (GList (GEntity (ent2gent y)) (GEntity (ent2gent z))))))
---	(Just [x,y,z,w]) -> Nothing
---	otherwise	-> Nothing
+answer	utt@(GQUt _) = case (evalW <=< transS) utt of
+	(Just []) -> Just (GAnswer Gno_pl_NP)
+	(Just [x]) -> Just (GAnswer (GEntity (ent2gent x)))
+	(Just [x,y]) -> Just (GAnswer (GCloseList Gor_Conj (GList (GEntity (ent2gent x)) (GEntity (ent2gent y)))))
+	(Just [x,y,z]) -> Just (GAnswer (GCloseList Gor_Conj (GAddList (GEntity (ent2gent x)) (GList (GEntity (ent2gent y)) (GEntity (ent2gent z))))))
+	(Just [x,y,z,w]) -> Nothing
+	otherwise	-> Nothing
 
 linear :: PGF -> Tree -> Maybe String
 linear gr p = Just (linearize gr (myLanguage gr) p)
