@@ -47,7 +47,7 @@ entity_check =  [
 ent_ided :: String -> Entity
 ent_ided name | Just entity <- lookup name (map swap entity_check)
 		  = entity
-	      | otherwise = error ("No entity named " ++ name)
+	      | otherwise = Nothing
 
 characters :: [(String,Entity)]
 characters = [(string,entity) | (entity,string) <- entity_check,
@@ -56,23 +56,20 @@ characters = [(string,entity) | (entity,string) <- entity_check,
 namelist :: [String]
 namelist = [string | (entity,string) <- entity_check, string /= "" ]
 
-predid1 :: String -> OnePlacePred
-predid2 :: String -> TwoPlacePred
-predid3 :: String -> ThreePlacePred
-predid4 :: String -> FourPlacePred
+predid1 :: String -> Maybe OnePlacePred
+predid2 :: String -> Maybe TwoPlacePred
+predid3 :: String -> Maybe ThreePlacePred
+predid4 :: String -> Maybe FourPlacePred
 
-predid2 name 
-	| Just pred <- lookup name twoPlacers = pred
-        | otherwise    = error $ "no '" ++ name ++ "' two-place predicate."
 predid3 name
-	| Just pred <- lookup name threePlacers = pred
-        | otherwise    = error $ "no '" ++ name ++ "' three-place predicate."
+	| Just pred <- lookup name threePlacers = Just pred
+        | otherwise    = Nothing
 predid4 name 
-	| Just pred <- lookup name fourPlacers = pred
-        | otherwise    = error $ "no '" ++ name ++ "' four-place predicate."
+	| Just pred <- lookup name fourPlacers = Just pred
+        | otherwise    = Nothing
 predid5 name 
-	| Just pred <- lookup name fivePlacers = pred
-        | otherwise    = error $ "no '" ++ name ++ "' five-place predicate."
+	| Just pred <- lookup name fivePlacers = Just pred
+        | otherwise    = Nothing
 
 onePlacers :: [(String, OnePlacePred)]
 onePlacers = [
@@ -94,21 +91,19 @@ onePlacers = [
 	, ("construction",	 pred1 [N] )
 	, ("electrician",	 pred1 [D,W,W1,W2,W3] )
 	, ("interviewer",	 pred1 [I] )
-	, ("80-pound",	 predid1 "transformer" )
 	, ("transformer",	 pred1 [T] )
 	, ("ship",	 pred1 [B] )
 	, ("shipyard",	 pred1 [V] )
 	, ("at_the_shipyard", pred1 $ [ w | (w,_,s) <- working , s == V ])
 	, ("at_the_shipyard_to_work", pred1 $ [w | w <-
-		    filter (predid1 "at_the_shipyard") entities
-			  , w == D])
+		   filter (test1 "at_the_shipyard") entities
+			 , w == D])
 	, ("disappointment",	 pred1 [K] )
 	, ("money",	 pred1 [M] )
 	, ("upbringing",	 pred1 [G] )
 	, ("same",  thing )
 	, ("story",	 pred1 [Z] )
 	, ("job",	 pred1 [J] )
-	, ("position",	 predid1 "job" )
 	, ("way",	 pred1 $ [Y] )
 	, ("work",	 pred1 $ [J] ++ map agent working )
 	, ("worker",	 pred1 $ map agent working )
@@ -129,17 +124,19 @@ onePlacers = [
 	, ("laugh", pred1 [D] )
 
 	]
+predid1 "80-pound"	= predid1 "transformer"
 predid1 "boss"	= predid1 "superior"
-predid1 "employee"  = predid1 "subordinate"
-predid1 "manager" = predid1 "boss"
+predid1 "employee"	= predid1 "subordinate"
+predid1 "manager"	= predid1 "boss"
+predid1 "position"	= predid1 "job"
 
 predid1 "father"  = predid1 "dad"
 predid1 "guy"  = predid1 "male"
 predid1 "woman"  = predid1 "female"
 predid1 "man"  = predid1 "male"
 predid1 name
-	| Just pred <- lookup name onePlacers = pred
-        | otherwise    = error $ "no '" ++ name ++ "' one-place predicate."
+	| Just pred <- lookup name onePlacers = Just pred
+        | otherwise    = Nothing
 
 type OnePlacePred	= Entity -> Bool
 type TwoPlacePred	= Entity -> Entity -> Bool
@@ -153,21 +150,31 @@ list2OnePlacePred xs	= \ x -> elem x xs
 pred1 :: [Entity] -> OnePlacePred
 pred1	= flip elem
 
+test1 :: String -> OnePlacePred
+test1 p = fromMaybe (\_ -> False) (predid1 p)
+
 person, thing :: OnePlacePred
 
-person	= \ x -> (predid1 "male" x || predid1 "female" x || predid1 "role" x || x == Someone)
+person	= \ x -> ((test1 "male") x ||
+      (test1 "female") x ||
+      (test1 "role") x || x == Someone)
 thing	= \ x -> (x == Unspec || x == Something || not ( person x ) )
 
-boy	= \x -> predid1 "male" x && predid1 "child" x
-isMan	= \x -> ( not $ boy x ) && predid1 "male" x
-isGirl	= \x -> ( predid1 "female" x && predid1 "child" x )
-isWoman	= \x -> ( not $ isGirl x ) && predid1 "female" x
+boy	= \x -> (test1 "male") x &&
+      (test1 "child") x
+isMan	= \x -> ( not $ boy x ) && (test1 "male") x
+isGirl	= \x -> ( (test1 "female") x &&
+      (test1 "child") x )
+isWoman	= \x -> ( not $ isGirl x ) &&
+      (test1 "female") x
 isParent	= pred1 $ map fst parenting
 isOffspring	= pred1 $ map snd parenting
-isMother	= \x -> ( predid1 "female" x && isParent x )
-father	= \x -> ( predid1 "male" x && isParent x )
-daughter	= \x -> ( predid1 "female" x && isOffspring x )
-son	= \x -> ( predid1 "male" x && isOffspring x )
+isMother	= \x -> ( (test1 "female") x &&
+	isParent x )
+father	= \x -> ( test1 "male" x && isParent x )
+daughter	= \x -> ( (test1 "female") x &&
+	isOffspring x )
+son	= \x -> ( (test1 "male") x && isOffspring x )
 
 pred2 :: [(Entity,Entity)] -> TwoPlacePred
 pred3 :: [(Entity,Entity,Entity)] -> ThreePlacePred
@@ -229,10 +236,9 @@ twoPlacers = [
     , ("studied", pred2 $ foldl (\hs (_,school,subject,student) ->
                     (student,subject): (student,school) : hs) [] schooling )
     , ("go_to",	pred2 $ [ (a,l) | (a,_,l) <- working ++ studying ] )
-    , ("have_to_go_to", predid2 "go_to" )
     , ("need",	pred2 $ [ (a,t) | (p,a,t) <- needing ] )
     , ("make_look_bad",  pred2 $ [ (D,b) | b <-
-	filter (predid1 "look_bad") entities ])
+	filter (test1 "look_bad") entities ])
     , ("think:is_little", pred2 $ [ (s,r) | (s, (pred, r) ,_) <- comms,
 					      pred == "is_little" ] )
     , ("say:is_too_little", pred2 $ [ (s,r) | (s, (pred, r) ,_) <- comms,
@@ -244,9 +250,13 @@ twoPlacers = [
      , ("want_to_work_with", pred2 [] )
      , ("work_with", pred2 $ [ (D,w) | (w,j,s) <- working , s == B ])
      , ("say:is_at_the_shipyard_to_work", pred2 $ [(D,e) | e <- filter
-	       (predid1 "at_the_shipyard_to_work") entities ])
+	       (test1 "at_the_shipyard_to_work") entities ])
 
     ]
+predid2 "have_to_go_to"	= predid2 "go_to"
+predid2 name
+	| Just pred <- lookup name twoPlacers = Just pred
+        | otherwise    = Nothing
 
 curry3 :: ((a,b,c) -> d) -> a -> b -> c -> d
 curry3 f x y z	= f (x,y,z)
