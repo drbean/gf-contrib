@@ -47,7 +47,7 @@ entity_check =  [
 ent_ided :: String -> Entity
 ent_ided name | Just entity <- lookup name (map swap entity_check)
 		  = entity
-	      | otherwise = Nothing
+	      | otherwise = error ("No entity named " ++ name)
 
 characters :: [(String,Entity)]
 characters = [(string,entity) | (entity,string) <- entity_check,
