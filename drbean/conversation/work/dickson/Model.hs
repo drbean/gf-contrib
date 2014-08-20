@@ -110,6 +110,7 @@ onePlacers = [
   , ("superior",	pred1 $ map fst supervision )
   , ("subordinate",	pred1 $ map snd supervision )
 
+  , ("is_hire_ed", pred1 [D] )
   , ("need_to_slow_down", pred1 [D] )
 
 	, ("little",	 pred1 [D] )
