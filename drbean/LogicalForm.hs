@@ -513,8 +513,8 @@ transVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 						[positer,referent,theme,recipient]))))
 	(GPass (GV2Slash v)) ->
 		\positer -> transNP np 
-			(\referent -> Rel((lin v0) ++ ":" ++ (lin v))
-				[positer,referent])
+			(\patient -> Rel((lin v0) ++ ":is" ++ (lin v) ++ "_ed")
+				[positer,patient])
 	_ -> \x -> NonProposition
 transVP (GPositing v0 (GNegS (GSentence np vp))) = case vp of
 	(GHappening v) -> (\positer -> transNP np
