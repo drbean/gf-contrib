@@ -99,6 +99,7 @@ relations = [
 	, ( "mad",	\[x]	-> unmay1 (predid1 "mad") x	)
 	, ( "same",	\[x]	-> unmay1 (predid1 "same") x	)
 
+	, ( "is_hire_ed",	\[x]	-> unmay1 (predid1 "is_hire_ed") x	)
 	, ( "work_V",	\[x]	-> unmay1 (predid1 "work") x	)
 	, ( "laugh",	\[x] -> unmay1 (predid1 "laugh") x	)
 	, ( "know",	\[x]	-> unmay1 (predid1 "know") x	)
