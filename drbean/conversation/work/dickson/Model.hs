@@ -136,7 +136,7 @@ predid1 "woman"  = predid1 "female"
 predid1 "man"  = predid1 "male"
 predid1 name
 	| Just pred <- lookup name onePlacers = Just pred
-        | otherwise    = Nothing
+        | otherwise    = error $ "no '" ++ name ++ "' one-place predicate."
 
 type OnePlacePred	= Entity -> Bool
 type TwoPlacePred	= Entity -> Entity -> Bool
