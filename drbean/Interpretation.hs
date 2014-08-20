@@ -8,7 +8,15 @@ import Model
 import qualified Topic_Interpretation as Topic
 import Story_Interpretation
 
-type Interp a	= String -> [a] -> Bool
+data Answer = Boolean Bool | Yes | No | NoAnswer
+	deriving (Eq)
+instance Show Answer where
+	show (Boolean bool)	= show bool
+	show Yes	= "Yes"
+	show No	= "No"
+	show NoAnswer	= "NoAnswer"
+
+type Interp a	= String -> [a] -> Maybe Answer
 
 inttuples :: [(String, [Entity] -> Bool)]
 inttuples = common_objects ++ common_relations ++ objects ++ relations
@@ -18,10 +26,12 @@ infltuples :: [(String, String)]
 infltuples = common_inflections ++ Topic.inflections ++ inflections
 
 int :: Interp Entity
-int r ents = evalu ((lookIntuples <=< uninflect) r) ents
+int r ents
+	| Just p <- evalu r = Just (Boolean (p ents))
+	| otherwise = Nothing
 
-evalu :: Maybe ([Entity] -> Bool ) -> [Entity] -> Bool
-evalu p ints = (fromMaybe (\_ -> False) p) ints
+evalu :: String -> Maybe ([Entity] -> Bool )
+evalu r = (lookIntuples <=< uninflect) r
 
 lookIntuples :: String -> Maybe ( [Entity] -> Bool )
 lookIntuples word	| Just interpretation <- lookup word inttuples = Just interpretation

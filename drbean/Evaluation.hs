@@ -43,17 +43,9 @@ term2ent (Const a) = a
 term2ent _ = R
 
 
-data Answer = Boolean Bool | Yes | No | NoAnswer
-	deriving (Eq)
-instance Show Answer where
-	show (Boolean bool)	= show bool
-	show Yes	= "Yes"
-	show No	= "No"
-	show NoAnswer	= "NoAnswer"
-
 eval :: LF -> Maybe Answer
 eval NonProposition = Nothing
-eval (Rel r as)	= Just (Boolean (int r $ reverse (map term2ent as)))
+eval (Rel r as)	= int r $ reverse (map term2ent as)
 eval (Eq a b)	= Just (Boolean (a == b))
 eval (Neg lf)	= eval lf >>= notLF
 eval (Impl f1 f2)	= liftM2 implLF (eval f1) (eval f2)
