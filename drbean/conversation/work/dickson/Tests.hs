@@ -110,7 +110,7 @@ yn_dic_test = [
 
     , "Does Dee go to the shipyard the next Monday."
 		, "Does the interviewer say that the superintendent tells the shipyard to hire Dee."
-		, "Doesn't the guy like that Dee is hired."
+		, "Doesn't the interviewer like that Dee is hired."
 		, "Does the guy say that Dee is hired."
 
     , "Does Dee go to the ship."
@@ -210,8 +210,8 @@ tag_dic_test = [
 
     , "Dee goes to the shipyard the next Monday, doesn't she?"
 		, "The interviewer says that the superintendent tells the shipyard to hire Dee, doesn't he?"
-		, "The guy doesn't like that Dee is hired, does he?"
-		, "The guy says that Dee is hired, doesn't he?"
+		, "The interviewer doesn't like that Dee is hired, does he?"
+		, "The interviewer says that Dee is hired, doesn't he?"
 
     , "Dee goes to the ship, doesn't she?"
 		, "No man wants to work with Dee, does he?"
