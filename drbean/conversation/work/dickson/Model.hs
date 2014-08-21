@@ -63,13 +63,16 @@ predid4 :: String -> Maybe FourPlacePred
 
 predid3 name
 	| Just pred <- lookup name threePlacers = Just pred
-        | otherwise    = Nothing
+        -- | otherwise    = Nothing
+        | otherwise    = error $ "no '" ++ name ++ "' three-place predicate."
 predid4 name 
 	| Just pred <- lookup name fourPlacers = Just pred
-        | otherwise    = Nothing
+        -- | otherwise    = Nothing
+        | otherwise    = error $ "no '" ++ name ++ "' four-place predicate."
 predid5 name 
 	| Just pred <- lookup name fivePlacers = Just pred
-        | otherwise    = Nothing
+        -- | otherwise    = Nothing
+        | otherwise    = error $ "no '" ++ name ++ "' five-place predicate."
 
 onePlacers :: [(String, OnePlacePred)]
 onePlacers = [
@@ -137,6 +140,7 @@ predid1 "woman"  = predid1 "female"
 predid1 "man"  = predid1 "male"
 predid1 name
 	| Just pred <- lookup name onePlacers = Just pred
+        -- | otherwise    = Nothing
         | otherwise    = error $ "no '" ++ name ++ "' one-place predicate."
 
 type OnePlacePred	= Entity -> Bool
@@ -197,6 +201,7 @@ separations	= [ (H,D) ]
 --(contacter,contactee)
 possessions	= [ (A,M),(D,J) ]
 appreciation	= [ (D,Unspec,J),(D,Unspec,A),(D,Unspec,F) ]
+  -- , (I,	"like_that:is_hire_ed", [(Agent,D),
 conflict	= []
 supervision	= [(D,W),(D,W1),(D,W2),(D,W3)]
 
@@ -212,7 +217,6 @@ acquaintances	= []
 help	= pred2 $ supervision
 becoming  = [(D,R),(D,D)]
 lifts = [(W1,T),(W3,T),(W5,T)]
-going = [(D,B)]
 -- needing :: positer, agent, theme
 needing = [(D,D,M),(D,D,J)]
 
@@ -257,7 +261,8 @@ twoPlacers = [
 predid2 "have_to_go_to"	= predid2 "go_to"
 predid2 name
 	| Just pred <- lookup name twoPlacers = Just pred
-        | otherwise    = Nothing
+        -- | otherwise    = Nothing
+        | otherwise    = error $ "no '" ++ name ++ "' two-place predicate."
 
 curry3 :: ((a,b,c) -> d) -> a -> b -> c -> d
 curry3 f x y z	= f (x,y,z)
@@ -379,6 +384,7 @@ fourPlacers = [
 				, Just t <- [lookup Theme c]
 				, Just r <- [lookup Recipient c]
 				] )
+    , ("let_to_take_to_see", pred4 [ (s,g,m,d) | (s,g,m,d,_) <- going ] )
         ]
 
 
@@ -411,6 +417,14 @@ location5 (_,_,_,_,l)   = l
 purpose5        = location5
 aim5    = purpose5
 vehicle5        = location5
+
+-- going :: sanctioner, guide, goer, destination, occasion
+going = [
+	(D,Unspec,D,B,O), (D,Unspec,D,B,W)
+	, (D,Unspec,D,V,O), (D,Unspec,D,V,W)
+	, (V,Unspec,D,S,O),(V,Unspec,D,S,W)
+	, (D,F,D,A,Unspec)
+	]
 
 forgetful5 :: FivePlacePred -> FourPlacePred
 forgetful5 r u v w t = or ( map ( r u v w t ) entities )
