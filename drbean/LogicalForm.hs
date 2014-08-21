@@ -311,6 +311,9 @@ transClSlash cl = case cl of
 			(GLook_bad va a) -> WH (\x -> transNP np (\subj ->
 				Rel ((lin v) ++ "_" ++ (lin va)
 					++ "_" ++ (lin a)) [subj,x]))
+			(GChanging v2 obj) -> WH (\x -> transNP np (\subj ->
+				transNP obj (\theme -> Rel ((lin v) ++ "_to_" ++
+				(lin v2)) [subj,x,theme])))
 
 transVP :: GVP -> Term -> LF
 ----transVP (Branch (Cat "_" "VP" [Part] _) [Leaf (Cat part "V" _ _), obj] ) =
