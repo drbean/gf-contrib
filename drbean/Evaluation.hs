@@ -59,6 +59,7 @@ eval (Several scope)	= Just (Boolean (smallN (map scope terms)))
 eval (Many scope)	= Just (Boolean (bigN (map scope terms)))
 -- eval (Most scope)	= length ( mapMaybe bool2Maybe $ testents scope ) >
 -- 			length ( mapMaybe bool2Maybe $ testents scope )
+-- eval lf = Nothing
 eval lf = error $ (show lf) ++ " logical formula unknown, not evaluated."
 
 notLF :: Answer -> Maybe Answer
