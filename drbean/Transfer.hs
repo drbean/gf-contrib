@@ -95,7 +95,7 @@ takeCourse _  _   = error "undefined course, not WH, YN, S, or Unparseable"
 
 bestAnswer :: [Maybe String] -> String
 bestAnswer ss = 
-	foldl takeAnswer "Nothing" (map (fromMaybe "Nothing") ss)
+	foldl takeAnswer "No answer" (map (fromMaybe "No answer") ss)
 
 takeAnswer :: String -> String -> String
 takeAnswer _ "yes" = "yes"
@@ -108,8 +108,6 @@ takeAnswer _ "Uncle Alf" = "Uncle Alf"
 takeAnswer "Uncle Alf" _ = "Uncle Alf"
 takeAnswer "No answer" _ = "No answer"
 takeAnswer _ "No answer" = "No answer"
-takeAnswer _ "Nothing" = "Nothing"
-takeAnswer "Nothing" _ = "Nothing"
-takeAnswer _  _   = error "undefined answer, not Yes, No, No answer or Nothing"
+takeAnswer _  _   = error "undefined answer, not Yes, No, Dee, Uncle Alf or No answer"
 
 -- vim: set ts=2 sts=2 sw=2 noet:
