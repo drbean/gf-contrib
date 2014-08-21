@@ -113,10 +113,12 @@ relations = [
 	, ( "do_V2",	\[x,y]	-> unmay2 (predid2 "do") y x	)
 	, ( "go_to_prep",	\[x,y]	-> unmay2 (predid2 "go_to") y x	)
 	, ( "hire",	\[x,y]	-> unmay2 (predid2 "hire") y x	)
+	, ( "like_that:is_hire_ed",	\[x,y]	-> unmay2 (predid2 "like_that:is_hire_ed") y x	)
 	, ( "interview",	\[x,y]	-> unmay2 (predid2 "interview") y x	)
 	, ( "like",	\[x,y]	-> unmay2 (predid2 "like") y x	)
 	, ( "make_V2V_look_bad",	\[x,y]	-> unmay2 (predid2 "make_look_bad") y x	)
 	, ( "need_V2",	\[x,y]	-> unmay2 (predid2 "need") y x	)
+	, ( "say:is_hire_ed",	\[x,y]	-> unmay2 (predid2 "say:is_hire_ed") y x	)
 	, ( "say:is_at_the_shipyard_to_work_V",	\[x,y]	-> unmay2 (predid2 "say:is_at_the_shipyard_to_work") y x	)
 	, ( "say:need_VV_to_slow_down",	\[x,y]	-> unmay2 (predid2 "say:need_to_slow_down") y x	)
 	, ( "say:is_too_little",	\[x,y]	-> unmay2 (predid2 "say:is_too_little")	y x )
@@ -139,6 +141,8 @@ relations = [
 
 
 	, ( "say:take_away",	\[x,y,z,w]	-> unmay4 (predid4 "say:take_away") w z y x	)
+	, ( "say:can_get_V3",	\[x,y,z,w]	-> unmay4 (predid4 "say:can_get") w z y x	)
+	, ( "let_V2V_to_take_to_see",	\[x,y,z,w]	-> unmay4 (predid4 "let_to_take_to_see") w z y x	)
 	]
 
 
