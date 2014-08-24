@@ -100,14 +100,21 @@ bestAnswer ss =
 takeAnswer :: String -> String -> String
 takeAnswer _ "yes" = "yes"
 takeAnswer "yes" _ = "yes"
-takeAnswer "no" _  = "no"
 takeAnswer _ "no" = "no"
+takeAnswer "no" _  = "no"
+takeAnswer _ "Dee or Uncle Alf" = "Dee or Uncle Alf"
+takeAnswer "Dee or Uncle Alf" _ = "Dee or Uncle Alf"
+takeAnswer _ "Uncle Alf or Dee" = "Dee or Uncle Alf"
+takeAnswer "Uncle Alf or Dee" _ = "Dee or Uncle Alf"
+takeAnswer _ "Dee or Uncle Alf" = "Dee or Uncle Alf"
 takeAnswer _ "Dee" = "Dee"
 takeAnswer "Dee" _ = "Dee"
 takeAnswer _ "Uncle Alf" = "Uncle Alf"
 takeAnswer "Uncle Alf" _ = "Uncle Alf"
+takeAnswer "none" _ = "none of Dee or Uncle Alf"
+takeAnswer _ "none" = "none of Dee or Uncle Alf"
 takeAnswer "No answer" _ = "No answer"
 takeAnswer _ "No answer" = "No answer"
-takeAnswer _  _   = error "undefined answer, not Yes, No, Dee, Uncle Alf or No answer"
+takeAnswer _  _   = error "undefined answer, not Yes, No, Dee, Uncle Alf, Dee or Uncle Alf, none or No answer"
 
 -- vim: set ts=2 sts=2 sw=2 noet:
