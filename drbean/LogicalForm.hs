@@ -1,6 +1,6 @@
-module LogicalForm (module LogicalForm, module Dickson) where
+module LogicalForm (module LogicalForm, module Candidate) where
 
-import Dickson
+import Candidate
 import PGF
 
 import Model

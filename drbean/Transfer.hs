@@ -1,6 +1,6 @@
 module Main where
 
-import Dickson
+import Candidate
 import LogicalForm
 import Evaluation
 
@@ -19,7 +19,7 @@ import System.Environment.FindBin
 main :: IO ()
 main = do
 	path <- getProgPath
-	gr <- readPGF ( path ++ "/Dickson.pgf" )
+	gr <- readPGF ( path ++ "/Candidate.pgf" )
 	hClose stderr
 	hDuplicateTo stdout stderr
 	s <- getLine
