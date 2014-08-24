@@ -3,6 +3,8 @@ module Story_Interpretation where
 import Model
 import Candidate
 
+import Data.Maybe
+
 entity_list :: GPN -> Entity
 entity_list Gbarbara	= ent_ided "Barbara"
 entity_list Gtadeusz	= ent_ided "Tadeusz"
@@ -131,6 +133,18 @@ intens_list :: GVV -> String
 intens_list Gcan	= "can"
 intens_list Gneed	= "need"
 intens_list Gstart	= "start"
+
+unmay1 :: Maybe (Entity -> Bool) -> Entity -> Bool
+unmay1 = fromMaybe (\_ -> False)
+
+unmay2 :: Maybe (Entity -> Entity -> Bool) -> Entity -> Entity -> Bool
+unmay2 = fromMaybe (\_ _ -> False)
+
+unmay3 :: Maybe (Entity -> Entity -> Entity -> Bool) -> Entity -> Entity -> Entity -> Bool
+unmay3 = fromMaybe (\_ _ _ -> False)
+
+unmay4 :: Maybe (Entity -> Entity -> Entity -> Entity -> Bool) -> Entity -> Entity -> Entity -> Entity -> Bool
+unmay4 = fromMaybe (\_ _ _ _ -> False)
 
 objects = [
 
