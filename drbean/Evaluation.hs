@@ -59,6 +59,7 @@ eval (Several scope)	= Just (Boolean (smallN (map scope terms)))
 eval (Many scope)	= Just (Boolean (bigN (map scope terms)))
 -- eval (Most scope)	= length ( mapMaybe bool2Maybe $ testents scope ) >
 -- 			length ( mapMaybe bool2Maybe $ testents scope )
+eval (WH scope)	= ( notNull <=< evalW ) (WH scope)
 -- eval lf = Nothing
 eval lf = error $ (show lf) ++ " logical formula unknown, not evaluated."
 
@@ -105,6 +106,13 @@ evalW (WH scope)	= Just [ e | e <- namedents
 				, a == Just (Boolean True)
 							]
 evalW _ = Nothing
+
+notNull :: [Entity] -> Maybe Answer
+notNull [] = Just (Boolean False )
+notNull [_] = Just (Boolean True )
+notNull [_,_] = Just (Boolean True )
+notNull [_,_,_] = Just (Boolean True )
+notNull _ = Nothing
 
 -- ttest :: (Term -> LF) -> Term -> Bool
 -- ttest scope (Const a) = evl (scope (Const a))
