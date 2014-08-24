@@ -54,22 +54,26 @@ characters = [(string,entity) | (entity,string) <- entity_check,
 namelist :: [String]
 namelist = [string | (entity,string) <- entity_check, string /= "" ]
 
-predid1 :: String -> OnePlacePred
-predid2 :: String -> TwoPlacePred
-predid3 :: String -> ThreePlacePred
-predid4 :: String -> FourPlacePred
+predid1 :: String -> Maybe OnePlacePred
+predid2 :: String -> Maybe TwoPlacePred
+predid3 :: String -> Maybe ThreePlacePred
+predid4 :: String -> Maybe FourPlacePred
 
 predid2 name
-       | Just pred <- lookup name twoPlacers = pred
+       | Just pred <- lookup name twoPlacers = Just pred
+        -- | otherwise    = Nothing
         | otherwise    = error $ "no '" ++ name ++ "' two-place predicate."
 predid3 name
-       | Just pred <- lookup name threePlacers = pred
+       | Just pred <- lookup name threePlacers = Just pred
+        -- | otherwise    = Nothing
         | otherwise    = error $ "no '" ++ name ++ "' three-place predicate."
 predid4 name
-       | Just pred <- lookup name fourPlacers = pred
+       | Just pred <- lookup name fourPlacers = Just pred
+        -- | otherwise    = Nothing
         | otherwise    = error $ "no '" ++ name ++ "' four-place predicate."
 predid5 name
-       | Just pred <- lookup name fivePlacers = pred
+       | Just pred <- lookup name fivePlacers = Just pred
+        -- | otherwise    = Nothing
         | otherwise    = error $ "no '" ++ name ++ "' five-place predicate."
 
 onePlacers :: [(String, OnePlacePred)]
@@ -117,7 +121,8 @@ predid1 "woman"  = predid1 "female"
 predid1 "man"  = predid1 "male"
 
 predid1 name
-       | Just pred <- lookup name onePlacers = pred
+       | Just pred <- lookup name onePlacers = Just pred
+        -- | otherwise    = Nothing
        | otherwise    = error $ "no '" ++ name ++ "' one-place predicate."
 
 type OnePlacePred	= Entity -> Bool
