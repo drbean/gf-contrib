@@ -28,6 +28,7 @@ infltuples = common_inflections ++ Topic.inflections ++ inflections
 int :: Interp Entity
 int r ents
 	| Just p <- evalu r = Just (Boolean (p ents))
+	-- | otherwise = Nothing
 	| otherwise = error ( "'" ++ r ++ "'" ++ " has no interpretation with entities " ++ (show ents) )
 
 evalu :: String -> Maybe ([Entity] -> Bool )
