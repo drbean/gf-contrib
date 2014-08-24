@@ -137,6 +137,7 @@ relations = [
 	, ( "say:need_V2",	\[x,y,z]	-> unmay3 (predid3 "say:need") z y x )
 	, ( "say:is",	\[x,y,z]	-> unmay3 (predid3 "say:is") z y x	)
 	, ( "say:can_not_to_get_along", \[x,y,z] -> unmay3 (predid3  "say:can_not_to_get_along") z y x )
+	, ( "take_to_see",	\[x,y,z]	-> unmay3 (predid3 "take_to_see")	z y x )
 	, ( "think:is",	\[x,y,z]	-> unmay3 (predid3 "think:is") z y x	)
 
 

@@ -22,14 +22,14 @@ entity_check =  [
     , (E, "" )
     , (F, "" )	-- Dee's father
     , (G, "" )	-- upbringing
-    , (H, "Dee's ex-husband" )
+    , (H, "" )	-- Dee's ex-husband
     , (I, "" )	-- interviewer
     , (J, "" )	-- job
     , (K, "" )	-- disappointment
     , (L, "" )
-    , (M, "money" )	-- money
+    , (M, "" )	-- money
     , (N, "" )	-- construction
-    , (O, "Monday" )
+    , (O, "" )	-- Monday
     , (P, "" )
     , (Q, "" )
     , (R, "" )	-- electrician job
@@ -37,7 +37,7 @@ entity_check =  [
     , (T, "" )	-- transformer
     , (U, "" )
     , (V, "" )	-- shipyard
-    , (W, "Wednesday" )
+    , (W, "" )	-- Wednesday
     , (X, "" )
     , (Y, "" )	-- way
     , (Z, "" )	-- story
@@ -101,7 +101,6 @@ onePlacers = [
 	, ("at_the_shipyard_to_work", pred1 $ [w | w <-
 		   filter (test1 "at_the_shipyard") entities
 			 , w == D])
-	, ("disappointment",	 pred1 [K] )
 	, ("money",	 pred1 [M] )
 	, ("upbringing",	 pred1 [G] )
 	, ("same",  thing )
@@ -200,14 +199,23 @@ separations	= [ (H,D) ]
 -- unmarried_couples	= []
 --(contacter,contactee)
 possessions	= [ (A,M),(D,J) ]
-appreciation	= [ (D,Unspec,J),(D,Unspec,A),(D,Unspec,F) ]
-  -- , (I,	"like_that:is_hire_ed", [(Agent,D),
+type Appreciator = Entity
+type Appreciatee = Entity
+appreciation :: [(Appreciator, Content, [(Case,Entity)], Appreciatee)]
+appreciation	= [
+	(D, "is_hire_ed", [(Theme, D)],A)
+	, (D, "is_hire_ed", [(Theme, D)],F)
+	, (F, "is_hire_ed", [(Theme, D)],A)
+	, (A, "is_hire_ed", [(Theme, D)],V)
+	] 
 conflict	= []
 supervision	= [(D,W),(D,W1),(D,W2),(D,W3)]
 
-disappointments = [(W1,D), (W2,D), (W3,D), (W4,D), (W5,D) ]
-disappoint	= pred2 $ disappointments
-resent	= pred2 $ map swap disappointments
+resentmentments = [
+  (I,	"is_hire_ed", [(Theme,D)] )
+  , (W1,	"is_hire_ed", [(Theme,D)] )
+  , (W2,	"is_hire_ed", [(Theme,D)] )
+	]
 have	= pred2 $ possessions ++ marriages ++ parenting 
 		++ ( map swap $ marriages ++ parenting )
 		++ ( map (\x->(recipient x, theme x) ) giving )
@@ -233,7 +241,7 @@ twoPlacers = [
 	    , w == a ] )
     , ("hire",  pred2 $ map (\(a,_,_) -> (V,a)) working)
     , ("interview",  pred2 [(I,D)] )
-    , ("like",  pred2 $ map (\(a,t,r) -> (a,r)) appreciation)
+    , ("like",  pred2 $ map (\(a,c,rs,r) -> (a,r)) appreciation)
     , ("work",  pred2 $ [(a,c) | (a,p,c) <- working] )
     , ("kind",  pred2 $ [(student, H) | (_,_,_,student) <- schooling ])
     , ("placing",       pred2 $ [(student, school) | (_,school,_,student) <- schooling ]
@@ -253,6 +261,9 @@ twoPlacers = [
     , ("tell_to_to_slow_down", pred2 $ [ (s,r) | (s, (pred, r), _) <- comms,
 			      pred == "need_to_slow_down" ] )
      , ("want_to_work_with", pred2 [] )
+     , ("like_that:is_hire_ed", pred2 [ (a,t) | (a,c,rs,r) <- appreciation
+						, Just t <- [lookup Theme rs]
+						, c == "is_hire_ed" ] )
      , ("work_with", pred2 $ [ (D,w) | (w,j,s) <- working , s == B ])
      , ("say:is_at_the_shipyard_to_work", pred2 $ [(D,e) | e <- filter
 	       (test1 "at_the_shipyard_to_work") entities ])
@@ -269,8 +280,7 @@ curry3 f x y z	= f (x,y,z)
 curry4 f x y z w	= f (x,y,z,w)
 
 threePlacers = [
-    ("liked", pred3 appreciation )
-    , ("work",        pred3 $ [(a,a,c) | (a,p,c) <- working ] )
+    ("work",        pred3 $ [(a,a,c) | (a,p,c) <- working ] )
     , ("studied_subj_at", pred3 $ map (\(_,school,subject,student) ->
                     (student,subject,school) ) schooling )
     , ("find_to_do", pred3 [(D,Y,R),(D,Y,J)] )
@@ -293,6 +303,7 @@ threePlacers = [
     , Just a <- [lookup Agent c]
     , Just t <- [lookup Theme c]
     ])
+	, ("take_to_see", pred3 [ (g,m,d) | (s,g,m,d,o) <- going ] )
     ]
 
 data Case = Agent | Theme | Recipient | Feature | Location
@@ -449,4 +460,4 @@ passivize4 r = \x y z -> or ( map (\u -> r u x y z ) entities )
 self ::  (a -> a -> b) -> a -> b
 self p  = \ x -> p x x
 
--- vim: set ts=8 sts=2 sw=2 noet:
+-- vim: set ts=2 sts=2 sw=2 noet:
