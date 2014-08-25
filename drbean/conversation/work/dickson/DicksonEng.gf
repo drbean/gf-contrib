@@ -5,7 +5,6 @@ open ConstructorsEng, ParadigmsEng, StructuralEng, IrregEng, ExtraEng, Construct
 
 lin
 
-	AdjModified	a s = mkAP a s;
 	the_first	= mkDet  the_Quant (ConstructorsEng.mkOrd (mkNumeral n1_Unit));
 	two	= mkDet( mkCard (mkNumeral n2_Unit));
 	several	= mkDet( mkQuant nonExist "several") pluralNum;

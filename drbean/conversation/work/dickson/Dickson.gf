@@ -5,7 +5,6 @@ abstract Dickson = MyAbstract ** {
 
 fun
 
-	AdjModified	: AP -> VP -> AP;
 	the_first	: Det;
 	two	: Det;
 	several	: Det;

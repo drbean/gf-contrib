@@ -175,6 +175,7 @@ lin
 	ComparaAP a np = ConstructorsEng.mkAP a np;
 	ComparaAdv cadv a np = ConstructorsEng.mkAdv cadv a np;
 	ComparaS a s = mkAP a s;
+	AdjModified	a s = mkAP a s;
 
   about_prep	= mkPrep "about";
   as_prep	= mkPrep "as";

@@ -105,6 +105,7 @@ fun
 	ComparaAdv : CAdv -> A -> NP -> Style;
 	ComparaS : AP -> S -> AP;
 	More	: A -> AP;
+	AdjModified	: AP -> VP -> AP;
 
 	about_prep	: Prep;
 	as_prep	: Prep;
