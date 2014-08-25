@@ -18,30 +18,11 @@ instance Show Answer where
 
 type Interp a	= String -> [a] -> Maybe Answer
 
-inttuples :: [(String, [Entity] -> Bool)]
-inttuples = common_objects ++ common_relations ++ objects ++ relations
-			    ++ Topic.objects ++ Topic.relations
-
-infltuples :: [(String, String)]
-infltuples = common_inflections ++ Topic.inflections ++ inflections
-
 int :: Interp Entity
-int r ents
-	| Just p <- evalu r = Just (Boolean (p ents))
-	-- | otherwise = Nothing
-	| otherwise = error ( "'" ++ r ++ "'" ++ " has no interpretation with entities " ++ (show ents) )
-
-evalu :: String -> Maybe ([Entity] -> Bool )
-evalu r = (lookIntuples <=< uninflect) r
-
-lookIntuples :: String -> Maybe ( [Entity] -> Bool )
-lookIntuples word	| Just interpretation <- lookup word inttuples = Just interpretation
-					| otherwise = Nothing
-
-
-uninflect :: String -> Maybe String
-uninflect word	| Just rel <- lookup word infltuples = Just rel
-								| otherwise = Just word
+int r [int] = predid1 r >>= (\f -> Just (Boolean (f int) ))
+int r [i1,i2] = predid2 r >>= (\f -> Just (Boolean (f i1 i2)))
+int r [i1,i2,i3] = predid3 r >>= (\f -> Just (Boolean (f i1 i2 i3)))
+int r ents = error ( "'" ++ r ++ "'" ++ " has no interpretation with entities " ++ (show ents) )
 
 common_objects, common_relations :: [( String, [Entity] -> Bool)]
 common_objects = [
