@@ -103,7 +103,7 @@ dic_test = [
   , "Tadeusz feels that Tadeusz has the ability to do the job."
   , "Tadeusz feels that Tadeusz has the experience to do the job."
   , "Tadeusz says that Tadeusz is a safe pair of hands."
-  , "People respect Tadeusz becaise he has good judgement."
+  , "People respect Tadeusz because he has good judgement."
   , "If Fast-Track chooses Eva, Eva wants to start by improving Fast-Track's sales team."
   , "Eva wants people to enjoy working in Fast-Track's sales department."
   , "Eva thinks that people in the sales deparment should help each other."
