@@ -62,8 +62,8 @@ fun
 	true	: AP;
 	various	: AP;
 
-	ability	: NP;
-	administration	: NP;
+	ability	: N;
+	administration	: N;
 	aim	: CN;
 	company	: CN;
 	department	: CN;
@@ -72,26 +72,24 @@ fun
 	head	: CN;
 	head_of	: N2;
 	job	: CN;
-	judgement	: NP;
+	judgement	: N;
 	learner	: CN;
 	local_business_club	: CN;
 	market	: CN;
 	market_share	: CN;
-	material	: NP;
+	material	: N;
 	person	: CN;
 	personality	: CN;
-	polish_N	: NP;
 	result	: CN;
 	risk	: CN;
 	safe_pair_of_hands	: CN;
 	sales_experience	: N;
 	sales_team	: CN;
 	thing	: CN;
-	time	: NP;
+	time	: N;
 	top	: CN;
 	training_course	: CN;
 	year	: CN;
-	by	: CN;
 
 	really	: Adv;
 	slowly	: Adv;
@@ -103,8 +101,10 @@ fun
 	eva	: PN;
 	drbean	: PN;
 	fast_track	: PN;
+	polish_N	: PN;
 
 	for	: Prep;
+	by	: Prep;
 
 }
 

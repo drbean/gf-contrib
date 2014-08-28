@@ -47,9 +47,10 @@ lin
 	eva	= mkPN( mkN feminine (mkN "Eva") );
 	drbean	= mkPN( mkN masculine (mkN "Dr Bean") );
 	fast_track	= mkPN( mkN nonhuman (mkN "Fast-Track") );
+	polish_N	= mkPN( mkN nonhuman (mkN "Polish" ) );
 
-	ability	= mkNP( mkN "ability");
-	administration	= mkNP( mkN "administration");
+	ability	= mkN "ability";
+	administration	= mkN "administration";
 	aim	= mkCN( mkN "aim");
 	company	= mkCN( mkN "company");
 	department	= mkCN( mkN "department");
@@ -58,26 +59,24 @@ lin
 	head	= mkCN head_N;
 	head_of	= mkN2 head_N of_prep;
 	job	= mkCN( mkN "job");
-	judgement	= mkNP( mkN "judgement");
+	judgement	= mkN "judgement";
 	learner	= mkCN( mkN "learner");
 	local_business_club	= mkCN( mkN "local business club");
 	market	= mkCN( mkN "market");
 	market_share	= mkCN( mkN "market share");
-	material	= mkNP( mkN "material");
+	material	= mkN "material";
 	person	= mkCN( mkN "person" "people");
 	personality	= mkCN( mkN "personality");
-	polish_N	= mkNP( mkN "Polish" );
 	result	= mkCN( mkN "result");
 	risk	= mkCN( mkN "risk");
 	safe_pair_of_hands	= mkCN( mkN "safe pair of hands");
 	sales_experience	= mkN "sales experience";
 	sales_team	= mkCN( mkN "sales team");
 	thing	= mkCN( mkN "thing");
-	time	= mkNP( mkN "time");
+	time	= mkN "time";
 	top	= mkCN( mkN "top");
 	training_course	= mkCN( mkN "training course");
 	year	= mkCN( mkN "year");
-	by	= mkCN( mkN "by");
 
 	apply	= mkV2 "apply" "for";
 	choose	= mkV2 "choose";
@@ -114,7 +113,7 @@ lin
 	in_the_long_term	= mkAdv "in the long term";
 
 	for	= mkPrep "for";
-
+	by	= mkPrep "by";
 }
 
 -- vim: set ts=2 sts=2 sw=2 noet:
