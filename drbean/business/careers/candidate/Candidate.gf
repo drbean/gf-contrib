@@ -96,6 +96,7 @@ fun
 	really	: Adv;
 	slowly	: Adv;
 	soon	: Adv;
+	in_the_long_term	: Adv;
 
 	barbara	: PN;
 	tadeusz	: PN;

@@ -111,6 +111,7 @@ lin
 	really	= mkAdv "really";
 	slowly	= mkAdv "slowly";
 	soon	= mkAdv "soon";
+	in_the_long_term	= mkAdv "in the long term";
 
 	for	= mkPrep "for";
 
