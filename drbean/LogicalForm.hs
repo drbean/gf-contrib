@@ -11,6 +11,27 @@ import Interpretation
 import Data.List
 import Data.Tuple
 
+entuples :: [(Entity,GPN)]
+entuples = [
+	(B,Gbarbara)
+	, (C,Gdrbean)
+	, (E,Geva)
+	, (T,Gtadeusz)
+	, (F,Gfast_track)
+	]
+
+instance Eq GPN where
+(==) Gbarbara Gbarbara = True
+(==) Gdrbean Gdrbean = True
+(==) Geva Geva = True
+(==) Gtadeusz Gtadeusz = True
+(==) Gfast_track Gfast_track = True
+(==) _ _ = False
+
+
+gent2ent gent        | Just ent <- lookup gent (map swap entuples) = ent
+ent2gent ent | Just gent <- lookup ent entuples = gent
+
 data Term = Const Entity | Var Int | Struct String [Term]
 	deriving (Eq)
 
@@ -229,8 +250,7 @@ transDet Gsome_Det = \ p q -> Exists (\v -> Conj [p v, q v] )
 transDet Gsome_pl_Det = transDet Gsome_Det
 transDet Ga_Det = \ p q -> Exists (\v -> Conj [p v, q v] )
 transDet Gzero_Det = \ p q -> Exists (\v -> Conj [p v, q v] )
-transDet Gseveral = \ p q -> Several (\v -> Conj [p v, q v] )
-transDet Gtwo = transDet Gseveral
+transDet Ga_few = \ p q -> Several (\v -> Conj [p v, q v] )
 transDet Gno_Det = \ p q -> Neg (Exists (\v -> Conj [p v, q v]))
 transDet Gno_pl_Det = transDet Gno_Det
 --transDet (Leaf (Cat "most" "DET" _ _)) =
