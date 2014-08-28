@@ -60,6 +60,8 @@ adv = [
 	, "slowly"
 	, "soon"
 	, "well"
+
+	, "in the long term"
 	]
 
 aux = [
@@ -304,7 +306,7 @@ successful	: A;
 systems
 take	: V;
 tell	: V;
-"in the long-term"
+in the long term	: Adv;
 that
 the
 thing	: CN;
