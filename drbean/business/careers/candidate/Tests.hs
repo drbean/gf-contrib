@@ -1,14 +1,14 @@
 module Tests where
 
+import Control.Monad
+import Data.Maybe
+
 import PGF
 import Candidate
 import LogicalForm
 import Evaluation
 import Model
 import WordsCharacters
-
-import Data.List
-import Data.Char
 
 -- handler gr core tests = putStr $ unlines $ map (\(x,y) -> x++show y) $ zip (map (++"\t") tests ) ( map (\string -> map (\x -> core ( x) ) (parse gr (mkCId "DicksonEng") (startCat gr) string)) tests )
 
@@ -18,58 +18,27 @@ ans tests = do
   gr	<- readPGF ( "./Candidate.pgf" )
   let ss = map (chomp . lc_first) tests
   let ps = map ( parses gr ) ss
-  let ls = map ( map ( linear transform gr ) ) ps
+  let ls = map (map ( (linear gr) <=< transform ) ) ps
   let zs = zip (map (++"\t") tests) ls
-  putStrLn (unlines (map (\(x,y) -> x ++ (show $ concat y)) zs) )
+  putStrLn (unlines (map (\(x,y) -> x ++ (show $ unwords (map displayResult y))) zs) )
 
---trans tests = do
---  gr	<- readPGF ( "./Dickson.pgf" )
---  let ss = map (chomp . lc_first) tests
---  let ps = map ( parses gr ) ss
---  let ls = map id ps
---  let zs = zip (map (++"\t") tests) ps
---  putStrLn (unlines (map (\(x,y) -> x ++ (show (concat y ) ) ) zs) )
+displayResult = fromMaybe "Nothing"
+
+trans tests = do
+  gr	<- readPGF ( "./Candidate.pgf" )
+  let ss = map (chomp . lc_first) tests
+  let ps = map ( parses gr ) ss
+  let ls = map id ps
+  let zs = zip (map (++"\t") tests) (map (map (showExpr []) ) ps)
+  putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
 
 logic tests = do
   gr	<- readPGF ( "./Candidate.pgf" )
   let ss = map (chomp . lc_first) tests
   let ps = map ( parses gr ) ss
-  let ts = map (map (map lf)) ps
+  let ts = map (map lf) ps
   let zs = zip (map (++"\t") tests) ts
-  putStrLn (unlines (map (\(x,y) -> x ++ (show $ concat y ) ) zs) )
-
-parses :: PGF -> String -> [[Tree]]
-parses gr s = ( parseAll gr (startCat gr) s )
-
-transform :: Tree -> Tree
-transform = gf . answer . fg
-
-lf :: Tree -> LF
-lf =  transS . fg
-
-answer :: GUtt -> GUtt
--- answer (GUt (GPosQ (GWH_Cop Gwho_WH np)))	= (GUt (GNegQ (GTagQ np (GHappening Glaugh))))
--- answer (GUt (GPosQ (GWH_Pred Gwho_WH (GChanging v np)))) = (GUt (GNegQ (GTagQ np (GHappening Glaugh))))
--- answer (GUt (GPosQ (GWH_Pred Gwho_WH (GHappening vp)))) = Gdee
--- answer (GUt (GPosQ (GYN (GCop np1 np2))))  = np1
-answer utt	| (eval . transS) utt == Boolean True = GYes
-		| (eval . transS) utt == Boolean False = GNo
-		| (eval . transS) utt == NoAnswer = GNoAnswer
-
-linear :: (Tree -> Tree) -> PGF -> [Tree] -> [ String ]
-linear tr gr ps = concat $ map ((linearizeAll gr) . tr) ps
-
-lc_first :: String -> String
-lc_first str@(s:ss) = case ( or $ map (flip isPrefixOf str) ["Barbara", "Tadeusz", "Eva", "Fast-Track", "Dr Bean"] ) of
-	True  -> (s:ss)
-	False -> ((toLower s):ss)
-
-chomp :: String -> String
-chomp []                      = []
-chomp ('\'':'s':xs)           = " 's" ++ chomp xs
-chomp ('s':'\'':xs)           = "s 's" ++ chomp xs
-chomp (x:xs) | x `elem` ".,?" = chomp xs
-            | otherwise      =     x:chomp xs
+  putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
 
 all_tests =
 		student_tag_tests ++ student_yn_tests ++ student_tests_wh ++
@@ -129,6 +98,64 @@ dic_test = [
   , "Dr Bean enjoys administration of the sales team."
   , "Dr Bean thinks administration of the sales team is very difficult, because Dr Bean doesn't know any Polish."
   , "Dr Bean doesn't know any Polish."
+  
+  ]
+
+yn_dic_test = [
+  "Does Barbara have an aim."
+  , "Does Barbara want to get to the top as soon as possible."
+  , "Is Barbara very ambitious."
+  , "If Barbara gets the job, does Barbara think Barbara can become a director in a few years' time."
+  , "Does Barbara really want to become a director."
+  , "Is becoming a director what Barbara really wants."
+  , "Does Barbara apply for the job because Barbara thinks Barbara has a lot to offer."
+  , "Is Barbara competitive."
+  , "Does Barbara like to win."
+  , "Does Barbara know that a few people think Barbara is difficult to work with."
+  , "Is it true that Barbara is difficult to work with."
+  , "Ooes Barbara get results."
+  , "Does Barbara thinks that results are the main thing."
+  , "Does Tadeusz want to do a good job for the company."
+  , "Does Tadeusz think that Fast-Track should expand slowly over the next five years."
+  , "Does Tadeusz think that Fast-Track is in a very competitive market."
+  , "Does Tadeusz think that Fast-Track shouldn't take too many risks."
+  , "Does Tadeusz think that Fast-Track can increase market share in the long term."
+  , "Does Tadeusz think that Fast-Track should be patient."
+  , "Does Tadeusz think that Fast-Track should be realistic."
+  , "Does Tadeusz feel that Tadeusz has the ability to do the job."
+  , "Does Tadeusz feel that Tadeusz has the experience to do the job."
+  , "Does Tadeusz says that Tadeusz is a safe pair of hands."
+  , "Do people respect Tadeusz because he has good judgement."
+  , "If Fast-Track chooses Eva, does Eva want to start by improving Fast-Track's sales team."
+  , "Does Eva want people to enjoy working in Fast-Track's sales department."
+  , "Does Eva think that people in the sales deparment should help each other."
+  , "Does Eva think that people should help Eva as much as possible."
+  , "Does Eva think Fast-Track can get good results, if people help each other."
+  , "Does Eva have a lot of sales experience."
+  , "Is Eva successful."
+  , "Does Eva think that she can lead a team well."
+  , "Is Eva the head of a local business club."
+  , "Does Eva like organizing people."
+  , "Does Eva like telling people to do things."
+  , "Does Eva say that Eva is a fast learner."
+  , "May Eva enjoy going on a training course to help Eva do the job better."
+  , "Does Dr Bean try very hard to motivate the sales team."
+  , "Does Dr Bean think that the sales team are very bad sales people."
+  , "Does Dr Bean think that the sales team does a very bad job."
+  , "Can Dr Bean get the sales team to enjoy selling Fast-Track material."
+  , "Does Dr Bean try very hard to get the sales team to enjoy selling Fast-Track material."
+  , "Does Dr Bean try very hard to set up systems to allow the sales team to see results, "
+  , "Does Dr Bean have sales experience."
+  , "Is Dr Bean confident."
+  , "Isn't Dr Bean confident."
+  , "Is Dr Bean outgoing."
+  , "Isn't Dr Bean outgoing."
+  , "Does Dr Bean enjoy administration of the sales team."
+  , "Does Dr Bean think administration of the sales team is very difficult, because Dr Bean doesn't know any Polish."
+  , "Does Dr Bean know any Polish."
+  , "Doesn't Dr Bean know any Polish."
+  ]
+
 fast_track = [
   "Is Fast-Track a company?"
   , "Does Eva work in Fast-Track?"
