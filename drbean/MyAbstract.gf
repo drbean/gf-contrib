@@ -14,6 +14,7 @@ cat
 	Located;
 	Motion;
 	Style;
+	MassDet;
 
 fun
 	Look_bad	: VA -> AP -> VP;
@@ -71,14 +72,16 @@ fun
 	Kind	: AP -> CN -> CN;
 	KindOfKind  : CN -> Adv -> CN;
 	Item	: Det -> CN -> NP;
-	MassItem	: Det -> N	-> NP;
+	MassItem	: MassDet -> N	-> NP;
 	Titular	: Title -> NP;
 	PredetItem	: Predet -> NP -> NP;
 	Ofpos	: N2 -> NP -> CN;
 
 	a_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
-	zero_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
-	the_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
+	zero_Det_pl : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
+	zero_Det_sg : MassDet;
+	the_mass_Det	: MassDet;
+	theSg_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
 	thePlural_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
 	Apos  : NP -> Det;
 	Apos_pl  : NP -> Det;

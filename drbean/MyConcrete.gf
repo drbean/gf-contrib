@@ -52,6 +52,7 @@ lincat
 	Located	= Adv;
 	Motion	= VP;
 	Style	= Adv;
+	MassDet = Det;
 
 param
   Auxiliary	= Do | Be;
@@ -60,6 +61,7 @@ oper
 
 	no_Quant	= StructuralEng.no_Quant;
 	some_Quant	= mkQuant "some" "some" "some" "some";
+	zero_mass_Quant = mkQuant "" nonExist;
 
 	know_V = IrregEng.know_V;
 
@@ -144,13 +146,15 @@ lin
   KindOfKind cn adv	= mkCN cn adv;
 	Ofpos n2 np	= mkCN n2 np;
 	Item det noun	= mkNP det noun;
-	MassItem det ucn	= mkNP det ucn;
+	MassItem udet ucn	= mkNP udet ucn;
 	Titular cn = mkNP cn;
 	PredetItem predet np	= mkNP predet np;
 
 	a_Det	= a_Det;
-	zero_Det	= aPl_Det;
-	the_Det	= the_Det;
+	zero_Det_pl	= aPl_Det;
+	zero_Det_sg	= mkDet zero_mass_Quant singularNum;
+	the_mass_Det	= theSg_Det;
+	theSg_Det	= theSg_Det;
 	thePlural_Det = thePl_Det;
 	Apos np	= mkDet (GenNP np);
 	Apos_pl np	= mkDet (GenNP np) pluralNum;
