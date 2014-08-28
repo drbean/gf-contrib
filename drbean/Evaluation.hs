@@ -1,7 +1,7 @@
 module Evaluation (readPGF, chomp, lc_first, lf, parses, linear, showExpr, transform) where
 
 import PGF
-import LogicalForm
+import LogicalForm hiding ((==))
 import Interpretation
 import Model
 
