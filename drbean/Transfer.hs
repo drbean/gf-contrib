@@ -1,7 +1,7 @@
 module Main where
 
 import Candidate
-import LogicalForm
+import LogicalForm hiding ((==))
 import Evaluation
 
 --import Model
