@@ -144,6 +144,7 @@ lin
   KindOfKind cn adv	= mkCN cn adv;
 	Ofpos n2 np	= mkCN n2 np;
 	Item det noun	= mkNP det noun;
+	MassItem det ucn	= mkNP det ucn;
 	Titular cn = mkNP cn;
 	PredetItem predet np	= mkNP predet np;
 

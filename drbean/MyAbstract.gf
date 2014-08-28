@@ -71,6 +71,7 @@ fun
 	Kind	: AP -> CN -> CN;
 	KindOfKind  : CN -> Adv -> CN;
 	Item	: Det -> CN -> NP;
+	MassItem	: Det -> N	-> NP;
 	Titular	: Title -> NP;
 	PredetItem	: Predet -> NP -> NP;
 	Ofpos	: N2 -> NP -> CN;
