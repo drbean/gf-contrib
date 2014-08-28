@@ -1,126 +1,119 @@
---# -path=.:./gf-contrib/drbean/business/careers/candidate:present
+--# -path=.:/home/drbean/GF/gf-contrib/drbean:./gf-contrib/drbean/business/careers/candidate:present
 
-concrete CandidateEng of Candidate = CandidateI with
-  (Syntax = SyntaxEng),
-  (LexCandidate = LexCandidateEng) **
-  open ResEng,Prelude in {
-
-param
-  Auxiliary	= Do | Be;
+concrete CandidateEng of Candidate = MyConcrete  **
+open ConstructorsEng, ParadigmsEng, StructuralEng, IrregEng, ExtraEng, ConstructX, Prelude in {
 
 oper
-  tag : NP -> {s : Auxiliary => Polarity => Str} =
-    \subj -> { s = case <(fromAgr subj.a).n, (fromAgr subj.a).g> of {
-      <Sg,Fem> => table {
-		      Do => table {Pos => "doesn't she"; Neg => "does she" };
-		      Be => table {Pos => "isn't she"; Neg => "is she" }
-		      };
-      <Sg,Masc>  => table {
-		      Do => table { Pos => "doesn't he"; Neg => "does he" };
-		      Be => table {Pos => "isn't he"; Neg => "is he" }
-		      };
-      <Sg,Neutr> => table {
-		      Do => table { Pos => "doesn't it"; Neg => "does it" };
-		      Be => table {Pos => "isn't it"; Neg => "is it" }
-		      };
-      <Pl,_>	=> table {
-		      Do => table { Pos => "don't they"; Neg => "do they" };
-		      Be => table {Pos => "aren't they"; Neg => "are they" }
-		      }
-    }
-  };
 
-  auxiliary : VP -> Auxiliary =
-    \vp -> case vp of {
-      vp => Be;
-      _	=> Do
-    };
+	director_N	= mkN masculine (mkN "director");
+	head_N	= mkN human (mkN "head");
+	like_V	= mkV "like";
+	enjoy_V	= mkV "enjoy";
+	work_V	= mkV "work";
+	a_lot =  mkQuant  "a lot of" "a lot of" "a lot" "a lot";
 
 lin
 
- TagQ np vp	= let
-   cl = mkCl np vp;
- in
- {s = table {
-     Pres => table {
-       Simul => table {
-         CPos => table {
-           QDir => (cl.s ! Pres ! Simul ! CPos ! ODir False) ++ ((tag np).s ! Do ! Pos );
-           QIndir => "nonExist" };
-         CNeg True => table {
-           QDir => (cl.s ! Pres ! Simul ! (CNeg True) ! ODir False) ++ ((tag np).s ! Do ! Neg );
-           QIndir => "nonExist" };
-         CNeg False => table {
-           QDir => (cl.s ! Pres ! Simul ! (CNeg False) ! ODir False) ++ ((tag np).s ! Do ! Neg );
-           QIndir => "nonExist" }
-           }
-         }
-   };
- lock_QCl = <>;
- };
+	five = mkDet( mkCard (mkNumeral n5_Unit));
+	a_few = mkDet( mkQuant nonExist "a few") pluralNum;
+	any_sg = mkDet( mkQuant nonExist "any") singularNum;
+	any = mkDet( mkQuant nonExist "any") pluralNum;
+	many = many_Det;
+	a_lot_of_sg	= mkDet a_lot singularNum;
+	a_lot_of	= mkDet a_lot pluralNum;
+	zero_Det_sg	= mkDet (mkQuant "" nonExist ) singularNum;
 
- --TagNP np1 np2	= let
- --  cl = mkCl np1 np2;
- --in
- --{s = table {
- --    Pres => table {
- --      Simul => table {
- --        CPos => table {
- --          QDir => (cl.s ! Pres ! Simul ! CPos ! ODir False) ++ ((tag np1).s ! Be ! Pos );
- --          QIndir => "nonExist" };
- --        CNeg True => table {
- --          QDir => (cl.s ! Pres ! Simul ! (CNeg True) ! ODir False) ++ ((tag np1).s ! Be ! Neg );
- --          QIndir => "nonExist" };
- --        CNeg False => table {
- --          QDir => (cl.s ! Pres ! Simul ! (CNeg False) ! ODir False) ++ ((tag np1).s ! Be ! Neg );
- --          QIndir => "nonExist" }
- --          }
- --        }
- --  };
- --lock_QCl = <>;
- --};
+	ambitious	= mkAP( mkA "ambitious");
+	bad	= mkAP( mkA "bad");
+	competitive	= mkAP( mkA "competitive");
+	confident	= mkAP( mkA "confident");
+	difficult	= mkAP( mkA "difficult");
+	fast	= mkAP( mkA "fast");
+	good	= mkAP( mkA "good" "better" "best" "well");
+	hard	= mkAP( mkA "hard");
+	main	= mkAP( mkA "main");
+	next	= mkAP( mkA "next");
+	outgoing	= mkAP( mkA "outgoing");
+	patient	= mkAP( mkA "patient");
+	polish_A	= mkAP( mkA "Polish" );
+	possible	= mkAP( mkA "possible");
+	realistic	= mkAP( mkA "realistic");
+	successful	= mkAP( mkA "successful");
+	true	= mkAP( mkA "true");
+	various	= mkAP( mkA "various");
 
- --TagAP np ap	= let
- --  cl = mkCl np ap;
- --in
- --{s = table {
- --    Pres => table {
- --      Simul => table {
- --        CPos => table {
- --          QDir => (cl.s ! Pres ! Simul ! CPos ! ODir False) ++ ((tag np).s ! Be ! Pos );
- --          QIndir => "nonExist" };
- --        CNeg True => table {
- --          QDir => (cl.s ! Pres ! Simul ! (CNeg True) ! ODir False) ++ ((tag np).s ! Be ! Neg );
- --          QIndir => "nonExist" };
- --        CNeg False => table {
- --          QDir => (cl.s ! Pres ! Simul ! (CNeg False) ! ODir False) ++ ((tag np).s ! Be ! Neg );
- --          QIndir => "nonExist" }
- --          }
- --        }
- --  };
- --lock_QCl = <>;
- --};
+	barbara	= mkPN( mkN feminine (mkN "Barbara") );
+	tadeusz	= mkPN( mkN masculine (mkN "Tadeusz") );
+	eva	= mkPN( mkN feminine (mkN "Eva") );
+	drbean	= mkPN( mkN masculine (mkN "Dr Bean") );
+	fast_track	= mkPN( mkN nonhuman (mkN "Fast-Track") );
 
-  TagComp np comp	= let cl = mkCl np (mkVP comp)
-  in
-  {s = table {
-    Pres => table {
-      Simul => table {
-        CPos => table {
-          QDir => (cl.s ! Pres ! Simul ! CPos ! ODir False) ++ ((tag np).s ! Be ! Pos );
-          QIndir => "nonExist" };
-        CNeg True => table {
-          QDir => (cl.s ! Pres ! Simul ! CNeg True ! ODir False) ++ ((tag np).s ! Be ! Neg );
-          QIndir => "nonExist" };
-        CNeg False => table {
-          QDir => (cl.s ! Pres ! Simul ! CNeg False ! ODir False) ++ ((tag np).s ! Be ! Neg );
-          QIndir => "nonExist" }
-          }
-        }
-     };
-  lock_QCl = <>;
-  };
+	ability	= mkNP( mkN "ability");
+	administration	= mkNP( mkN "administration");
+	aim	= mkCN( mkN "aim");
+	company	= mkCN( mkN "company");
+	department	= mkCN( mkN "department");
+	director	= mkCN director_N;
+	director_of = mkN2 director_N of_prep;
+	head	= mkCN head_N;
+	head_of	= mkN2 head_N of_prep;
+	job	= mkCN( mkN "job");
+	judgement	= mkNP( mkN "judgement");
+	learner	= mkCN( mkN "learner");
+	local_business_club	= mkCN( mkN "local business club");
+	market	= mkCN( mkN "market");
+	market_share	= mkCN( mkN "market share");
+	material	= mkNP( mkN "material");
+	person	= mkCN( mkN "person" "people");
+	personality	= mkCN( mkN "personality");
+	polish_N	= mkNP( mkN "Polish" );
+	result	= mkCN( mkN "result");
+	risk	= mkCN( mkN "risk");
+	safe_pair_of_hands	= mkCN( mkN "safe pair of hands");
+	sales_experience	= mkN "sales experience";
+	sales_team	= mkCN( mkN "sales team");
+	thing	= mkCN( mkN "thing");
+	time	= mkNP( mkN "time");
+	top	= mkCN( mkN "top");
+	training_course	= mkCN( mkN "training course");
+	year	= mkCN( mkN "year");
+	by	= mkCN( mkN "by");
+
+	apply	= mkV2 "apply" "for";
+	choose	= mkV2 "choose";
+	enjoy_ing	= ingVV enjoy_V;
+	enjoy_V2	= mkV2 enjoy_V;
+	expand	= mkV "expand";
+	feel	= mkVS feel_V;
+	get_to = mkV2 get_V "to";
+	get = mkV2 get_V;
+	get_V2V  = mkV2V get_V noPrep to_Prep;
+	have	= mkV2 have_V;
+	improve	= mkV2 "improve";
+	increase	= mkV2 "increase";
+	like_to	= mkVV like_V;
+	like_ing	= ingVV like_V;
+	motivate	= mkV2 "motivate";
+	offer	= mkV2 "offer";
+	organize	= mkV2 "organize";
+	respect	= mkV2 "respect";
+	say	= mkVS say_V;
+	start	= ingVV( mkV "start");
+	take	= mkV2 take_V;
+	tell	= mkV3 tell_V;
+	think	= mkVS IrregEng.think_V;
+	try	= ingVV( mkV "try");
+	want	= mkVV( mkV "want");
+	win	= mkV "win";
+	work	= work_V;
+	work_with	= mkV2 work_V with_prep;
+
+	really	= mkAdv "really";
+	slowly	= mkAdv "slowly";
+	soon	= mkAdv "soon";
+
+	for	= mkPrep "for";
 
 }
 
--- vim: set ts=8 sts=2 sw=2 noet:
+-- vim: set ts=2 sts=2 sw=2 noet:
