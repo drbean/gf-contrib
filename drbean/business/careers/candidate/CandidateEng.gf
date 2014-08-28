@@ -21,7 +21,6 @@ lin
 	many = many_Det;
 	a_lot_of_sg	= mkDet a_lot singularNum;
 	a_lot_of	= mkDet a_lot pluralNum;
-	zero_Det_sg	= mkDet (mkQuant "" nonExist ) singularNum;
 
 	ambitious	= mkAP( mkA "ambitious");
 	bad	= mkAP( mkA "bad");

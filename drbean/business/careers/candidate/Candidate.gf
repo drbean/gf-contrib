@@ -10,9 +10,8 @@ fun
 	any_sg	: Det;
 	any	: Det;
 	many	: Det;
-	a_lot_of_sg	: Det;
+	a_lot_of_sg	: MassDet;
 	a_lot_of	: Det;
-	zero_Det_sg	: Det;
 
 	apply	: V2;
 	choose	: V2;
