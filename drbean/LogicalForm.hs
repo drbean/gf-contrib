@@ -240,7 +240,7 @@ transDet (GApos owner) =
 transDet (GApos_pl owners) =
 	\ p q -> Exists (\v -> Conj [ Several p, p v, q v, transNP owners
 		(\mod -> Rel "have" [mod, v] )])
-transDet Gthe_Det =  \ p q -> Exists (\v -> Conj [Single p, p v, q v] )
+transDet GtheSg_Det =  \ p q -> Exists (\v -> Conj [Single p, p v, q v] )
 transDet GthePlural_Det =  \ p q -> Several (\v -> Conj [p v, q v] )
 --transDet (Leaf (Cat "every" "DET" _ _)) =
 --  \ p q -> Forall (\v -> Impl (p v) (q v) )
@@ -249,7 +249,7 @@ transDet GthePlural_Det =  \ p q -> Several (\v -> Conj [p v, q v] )
 transDet Gsome_Det = \ p q -> Exists (\v -> Conj [p v, q v] )
 transDet Gsome_pl_Det = transDet Gsome_Det
 transDet Ga_Det = \ p q -> Exists (\v -> Conj [p v, q v] )
-transDet Gzero_Det = \ p q -> Exists (\v -> Conj [p v, q v] )
+transDet Gzero_Det_pl = \ p q -> Exists (\v -> Conj [p v, q v] )
 transDet Ga_few = \ p q -> Several (\v -> Conj [p v, q v] )
 transDet Gno_Det = \ p q -> Neg (Exists (\v -> Conj [p v, q v]))
 transDet Gno_pl_Det = transDet Gno_Det
@@ -263,6 +263,9 @@ transDet Gno_pl_Det = transDet Gno_Det
 --  \ p q -> WH (\v1 -> Conj
 --  		[Forall (\v2 -> Equi (p v2) (Eq v1 v2)),
 --		q v1])
+transMassDet :: GMassDet -> (Term -> LF) -> (Term -> LF) -> LF
+transMassDet Gthe_mass_Det = \ p q -> Exists (\v -> Conj [Single p, p v, q v] )
+transMassDet Gzero_Det_sg = \ p q -> Exists (\v -> Conj [p v, q v] )
 
 transN2 :: GN2 -> Term -> LF
 transN2 name	= \x -> Rel (lin name) [x]
