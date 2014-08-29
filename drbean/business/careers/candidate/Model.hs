@@ -16,29 +16,29 @@ entity_check :: [ (Entity, String) ]
 entity_check =  [
     (A, "" )	-- aim
     , (B, "Barbara" )
-    , (C, "Dr Bean" )
-    , (D, "degree" )
+    , (C, "" )	-- director
+    , (D, "Dr Bean" )
     , (E, "Eva" )
     , (F, "Fast-Track" )
-    , (G, "judgement" )
-    , (H, "high_school" )
-    , (I, "" )
-    , (J, "job" )
-    , (K, "" )
-    , (L, "" )
-    , (M, "marketing" )
-    , (N, "engineering" )
-    , (O, "" )
-    , (P, "diploma" )
-    , (Q, "" )
-    , (R, "" )
-    , (S, "history" )
+    , (G, "" )	-- judgement
+    , (H, "" )	-- training course
+    , (I, "" )	-- risks
+    , (J, "" )	-- job
+    , (K, "" )	-- competitive market
+    , (L, "" )	-- sales team
+    , (M, "" )	-- material
+    , (N, "" )	-- main thing
+    , (O, "" )	-- administration
+    , (P, "" )	-- Polish
+    , (Q, "" )	-- top
+    , (R, "" )	-- results
+    , (S, "" )	-- market share
     , (T, "Tadeusz" )
-    , (U, "college" )
+    , (U, "" )	-- biz club
     , (V, "" )
-    , (W, "" )
-    , (X, "experience" )
-    , (Y, "interview" )
+    , (W, "" )	-- ability
+    , (X, "" )	-- experience
+    , (Y, "" )	-- interview
     , (Z, "" )
     ]
 
@@ -82,10 +82,6 @@ onePlacers = [
         , ("false",     pred1 [] )
         , ("role",      pred1 [] )
 
-	, ("high_school",	 pred1 [U] )
-	, ("college",	 pred1 [U] )
-	, ("diploma",	 pred1 [P] )
-	, ("degree",	 pred1 [D] )
 	, ("aim",	 pred1 [A] )
 	, ("company",	 pred1 [F] )
 	, ("director",	 pred1 [] )
