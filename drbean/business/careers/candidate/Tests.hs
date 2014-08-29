@@ -102,9 +102,9 @@ dic_test = [
   ]
 
 yn_dic_test = [
-  "Does a person have an aim."
-  , "Does a person want to get to the top as soon as possible."
-  , "Is a person very ambitious."
+  "Does Barbara have an aim."
+  , "Does Barbara want to get to the top as soon as possible."
+  , "Is Barbara very ambitious."
   , "If Barbara gets the job, does Barbara think Barbara can become a director in a few years' time."
   , "Does Barbara really want to become a director."
   , "Is becoming a director what Barbara really wants."
