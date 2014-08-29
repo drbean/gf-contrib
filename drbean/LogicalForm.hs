@@ -14,19 +14,19 @@ import Data.Tuple
 entuples :: [(Entity,GPN)]
 entuples = [
 	(B,Gbarbara)
-	, (C,Gdrbean)
+	, (D,Gdrbean)
 	, (E,Geva)
 	, (T,Gtadeusz)
 	, (F,Gfast_track)
 	]
 
 instance Eq GPN where
-(==) Gbarbara Gbarbara = True
-(==) Gdrbean Gdrbean = True
-(==) Geva Geva = True
-(==) Gtadeusz Gtadeusz = True
-(==) Gfast_track Gfast_track = True
-(==) _ _ = False
+	(==) Gbarbara Gbarbara = True
+	(==) Gdrbean Gdrbean = True
+	(==) Geva Geva = True
+	(==) Gtadeusz Gtadeusz = True
+	(==) Gfast_track Gfast_track = True
+	(==) _ _ = False
 
 gent2ent :: GPN -> Entity
 gent2ent gent        | Just ent <- lookup gent (map swap entuples) = ent
