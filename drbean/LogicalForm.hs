@@ -421,11 +421,15 @@ transVP (GIntens v0 vp) = case vp of
 		GVPPlaced vp (GLocating prep place) -> \subj -> transNP count
 				(\times -> transPlace place
 				(\name -> Rel ((lin v0) ++ "_to_" ++ (lin vp) ++ "_" ++ (lin prep)) [subj,name,times]))
-	GWithStyle vp2 (GComparaAdv cadv a np) -> case vp2 of
-		GChanging v obj ->
-			\subj -> transNP obj
-			(\name -> transNP np
-			(\norm -> Rel ((lin v0) ++ "_to_" ++ (lin v) ++ "_" ++ (lin a)) [subj, name, norm]))
+	GWithStyle vp2 adv -> case vp2 of
+		GChanging v obj -> case adv of
+				(GComparaAdv cadv a np) -> 
+				\subj -> transNP obj
+				(\name -> transNP np
+				(\norm -> Rel ((lin v0) ++ "_to_" ++ (lin v) ++ "_" ++ (lin a)) [subj, name, norm]))
+		(GVPPlaced vp (GLocating prep place)) ->
+			\subj -> transPlace place
+			(\name -> Rel ((lin v0) ++ "_to_" ++ (lin vp)) [subj,name])
 	GTriangulating v obj1 obj2 ->
 		\ agent   -> transNP obj1
 		(\ theme   -> transNP obj2
