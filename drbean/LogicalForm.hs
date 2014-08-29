@@ -414,20 +414,20 @@ transVP (GIntens v0 vp) = case vp of
 		(\subj -> transNP obj
 		( \theme -> Rel ((lin v0) ++"_to_"++
 				(lin v)) [subj,theme] ))
-	GVPPlaced v (GLocating prep place) ->
+	GWithPlace v (GLocating prep place) ->
 		\subj -> transPlace place
 		(\name -> Rel  ((lin v0) ++ "_to_" ++ (lin v) ++ "_" ++ (lin prep)) [subj,name])
 	GWithFreq vp2 (GFreqAdv count period) -> case vp2 of
-		GVPPlaced vp (GLocating prep place) -> \subj -> transNP count
+		GWithPlace vp (GLocating prep place) -> \subj -> transNP count
 				(\times -> transPlace place
 				(\name -> Rel ((lin v0) ++ "_to_" ++ (lin vp) ++ "_" ++ (lin prep)) [subj,name,times]))
 	GWithStyle vp2 adv -> case vp2 of
 		GChanging v obj -> case adv of
-				(GComparaAdv cadv a np) -> 
+		(GComparaAdv cadv a np) -> 
 				\subj -> transNP obj
 				(\name -> transNP np
 				(\norm -> Rel ((lin v0) ++ "_to_" ++ (lin v) ++ "_" ++ (lin a)) [subj, name, norm]))
-		(GVPPlaced vp (GLocating prep place)) ->
+		(GWithPlace vp (GLocating prep place)) ->
 			\subj -> transPlace place
 			(\name -> Rel ((lin v0) ++ "_to_" ++ (lin vp)) [subj,name])
 	GTriangulating v obj1 obj2 ->
@@ -518,7 +518,7 @@ transVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 			(\referent -> transNP subjcomp
 				(\pred -> Rel ((lin v0) ++ ":is")
 					[positer,referent,pred])))
-	(GVPPlaced v loc) -> (\x -> Rel "true" [x] )
+	(GWithPlace v loc) -> (\x -> Rel "true" [x] )
 	(GChanging v2 obj) -> (\positer -> transNP np
 		(\referent -> transNP obj
 			(\theme -> Rel ((lin v0) ++ ":" ++
@@ -563,7 +563,7 @@ transVP (GPositing v0 (GNegS (GSentence np vp))) = case vp of
 			(\referent -> transNP subjcomp
 				(\pred -> Rel ((lin v0) ++ ":isn't_")
 					[positer,referent,pred])))
-	(GVPPlaced v loc) -> (\x -> Rel "true" [x] )
+	(GWithPlace v loc) -> (\x -> Rel "true" [x] )
 	(GChanging v2 obj) -> (\positer -> transNP np
 		(\referent -> transNP obj
 			(\theme -> Rel ((lin v0) ++ ":doesn't_" ++
@@ -591,7 +591,7 @@ transVP (GPositing v0 (GNegS (GSentence np vp))) = case vp of
 --    GNegS (GCop item comp) ->
 --	(\positer -> transNP item
 --	    (\subj -> transNP comp (\x -> Rel ((lin v0) ++"_isn't") [positer, subj, x])))
-transVP	(GVPPlaced vp (GLocating prep destination)) =
+transVP	(GWithPlace vp (GLocating prep destination)) =
 	\mover -> transPlace destination
 	(\place -> Rel ((lin vp) ++ "_" ++ (lin prep)) [mover,place])
 transVP _ = \x -> NonProposition
