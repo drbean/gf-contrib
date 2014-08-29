@@ -423,7 +423,7 @@ transVP (GIntens v0 vp) = case vp of
 				(\name -> Rel ((lin v0) ++ "_to_" ++ (lin vp) ++ "_" ++ (lin prep)) [subj,name,times]))
 	GWithStyle vp2 adv -> case vp2 of
 		GChanging v obj -> case adv of
-		(GComparaAdv cadv a np) -> 
+			(GComparaAdv cadv a np) -> 
 				\subj -> transNP obj
 				(\name -> transNP np
 				(\norm -> Rel ((lin v0) ++ "_to_" ++ (lin v) ++ "_" ++ (lin a)) [subj, name, norm]))
