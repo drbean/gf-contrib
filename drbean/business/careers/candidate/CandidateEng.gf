@@ -83,7 +83,7 @@ lin
 	enjoy_V2	= mkV2 enjoy_V;
 	expand	= mkV "expand";
 	feel	= mkVS feel_V;
-	get_to = mkV2 get_V "to";
+	get_to = mkVP get_V;
 	get = mkV2 get_V;
 	get_V2V  = mkV2V get_V noPrep to_Prep;
 	have	= mkV2 have_V;
@@ -108,7 +108,8 @@ lin
 
 	really	= mkAdv "really";
 	slowly	= mkAdv "slowly";
-	soon	= mkAdv "soon";
+	asap	= mkAdv "as soon as possible";
+	amap	= mkAdv "as much as possible";
 	in_the_long_term	= mkAdv "in the long term";
 
 	for	= mkPrep "for";

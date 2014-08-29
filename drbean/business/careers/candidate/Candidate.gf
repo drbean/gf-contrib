@@ -19,7 +19,7 @@ fun
 	enjoy_V2	: V2;
 	expand	: V;
 	feel	: VS;
-	get_to	: V2;
+	get_to	: Motion;
 	get	: V2;
 	get_V2V	: V2V;
 	have	: V2;
@@ -86,13 +86,14 @@ fun
 	sales_team	: CN;
 	thing	: CN;
 	time	: N;
-	top	: CN;
+	top	: PlaceName;
 	training_course	: CN;
 	year	: CN;
 
 	really	: Adv;
 	slowly	: Adv;
-	soon	: Adv;
+	asap	: Style;
+	amap	: Style;
 	in_the_long_term	: Adv;
 
 	barbara	: PN;
