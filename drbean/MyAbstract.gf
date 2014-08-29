@@ -110,6 +110,7 @@ fun
 	ComparaS : AP -> S -> AP;
 	More	: A -> AP;
 	AdjModified	: AP -> VP -> AP;
+	As_as	: AP -> NP -> AP;
 
 	about_prep	: Prep;
 	as_prep	: Prep;
@@ -131,7 +132,8 @@ fun
 	know_V2	: V2;
 	know_VS	: VS;
 
-	too_AdA	: AdA;
+	Too	: AP -> AP;
+	Very	: AP -> AP;
 	because_Subj	: Subj;
 	or_Conj	: Conj;
 

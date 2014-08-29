@@ -181,6 +181,7 @@ lin
 	ComparaAdv cadv a np = ConstructorsEng.mkAdv cadv a np;
 	ComparaS a s = mkAP a s;
 	AdjModified	a s = mkAP a s;
+	As_as ap np	= mkAP as_CAdv ap np;
 
   about_prep	= mkPrep "about";
   as_prep	= mkPrep "as";
@@ -202,7 +203,8 @@ lin
 	know_V2	= mkV2 know_V;
 	know_VS	= mkVS know_V;
 
-	too_AdA	= too_AdA;
+	Too a = mkAP too_AdA a;
+	Very a = mkAP very_AdA a;
 	because_Subj	= because_Subj;
 	or_Conj	= or_Conj;
 
