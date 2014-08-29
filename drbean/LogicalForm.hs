@@ -28,8 +28,9 @@ instance Eq GPN where
 (==) Gfast_track Gfast_track = True
 (==) _ _ = False
 
-
+gent2ent :: GPN -> Entity
 gent2ent gent        | Just ent <- lookup gent (map swap entuples) = ent
+ent2gent :: Entity -> GPN
 ent2gent ent | Just gent <- lookup ent entuples = gent
 
 data Term = Const Entity | Var Int | Struct String [Term]
