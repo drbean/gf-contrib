@@ -120,7 +120,7 @@ lin
 	SubjRel	rp vp = mkRCl rp vp;
 	ObjRel rp clslash = mkRCl rp clslash;
 	VPClSlash	np vpslash = mkClSlash np vpslash;
-  VPPlaced vp located	= mkVP vp located;
+  WithPlace vp located	= mkVP vp located;
   AdvVP adv vp	= mkVP adv vp;
   WithFreq action frequency	= mkVP action frequency;
   WithStyle action style	= mkVP action style;

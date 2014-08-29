@@ -44,7 +44,7 @@ fun
 	SubjRel	: RP -> VP -> RCl;
 	ObjRel	: RP -> ClSlash -> RCl;
 	VPClSlash	: NP -> VPSlash -> ClSlash;
-	VPPlaced	:  Motion -> Located -> VP;
+	WithPlace	:  Motion -> Located -> VP;
 	AdvVP	: Adv -> VP -> VP;
 	WithFreq	: VP -> Freq -> VP;
 	WithStyle	: VP -> Style -> VP;
