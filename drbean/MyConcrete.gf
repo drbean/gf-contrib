@@ -122,6 +122,7 @@ lin
 	VPClSlash	np vpslash = mkClSlash np vpslash;
   WithPlace vp located	= mkVP vp located;
   AdvVP adv vp	= mkVP adv vp;
+	VPAdv vp adv = mkVP vp adv;
   WithFreq action frequency	= mkVP action frequency;
   WithStyle action style	= mkVP action style;
   -- Be_made_sth vp np = PassV3 vp np;
@@ -206,6 +207,7 @@ lin
 	Too a = mkAP too_AdA a;
 	Very a = mkAP very_AdA a;
 	because_Subj	= because_Subj;
+	if_Subj	= if_Subj;
 	or_Conj	= or_Conj;
 
 	Subjunct subj s	= ConstructorsEng.mkAdv subj s;

@@ -46,6 +46,7 @@ fun
 	VPClSlash	: NP -> VPSlash -> ClSlash;
 	WithPlace	:  Motion -> Located -> VP;
 	AdvVP	: Adv -> VP -> VP;
+	VPAdv	: VP -> Adv -> VP;
 	WithFreq	: VP -> Freq -> VP;
 	WithStyle	: VP -> Style -> VP;
 	YN	: Cl -> QCl;
@@ -135,6 +136,7 @@ fun
 	Too	: AP -> AP;
 	Very	: AP -> AP;
 	because_Subj	: Subj;
+	if_Subj	: Subj;
 	or_Conj	: Conj;
 
 	Subjunct	: Subj -> S -> Adv;
