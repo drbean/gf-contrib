@@ -27,6 +27,7 @@ lin
 	competitive	= mkAP( mkA "competitive");
 	confident	= mkAP( mkA "confident");
 	difficult	= mkAP( mkA "difficult");
+	difficult_to_work_with = mkAP difficult (mkVP (V2Slash work_with));
 	fast	= mkAP( mkA "fast");
 	good	= mkAP( mkA "good" "better" "best" "well");
 	hard	= mkAP( mkA "hard");
@@ -93,6 +94,7 @@ lin
 	like_ing	= ingVV like_V;
 	motivate	= mkV2 "motivate";
 	offer	= mkV2 "offer";
+	a_lot_to_offer = mkNP( mkCN( mkN "a lot to offer"));
 	organize	= mkV2 "organize";
 	respect	= mkV2 "respect";
 	say	= mkVS say_V;

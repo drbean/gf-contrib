@@ -29,6 +29,7 @@ fun
 	like_ing	: VV;
 	motivate	: V2;
 	offer	: V2;
+	a_lot_to_offer : NP;
 	organize	: V2;
 	respect	: V2;
 	say	: VS;
@@ -47,6 +48,7 @@ fun
 	competitive	: AP;
 	confident	: AP;
 	difficult	: AP;
+	difficult_to_work_with	: AP;
 	fast	: AP;
 	good	: AP;
 	hard	: AP;
