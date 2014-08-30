@@ -340,6 +340,7 @@ transClSlash cl = case cl of
 				(lin v2)) [subj,x,theme])))
 
 transVP :: GVP -> Term -> LF
+transVP (GAdvVP adv vp) = transVP vp
 ----transVP (Branch (Cat "_" "VP" [Part] _) [Leaf (Cat part "V" _ _), obj] ) =
 ----	\x -> Exists( \agent -> transPP obj (\cond -> Rel part [agent, x, cond] ) )
 --transVP (Branch vp@(Cat _ "VP" _ _)
