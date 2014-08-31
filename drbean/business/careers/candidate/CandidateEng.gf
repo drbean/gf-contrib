@@ -27,7 +27,7 @@ lin
 	competitive	= mkAP( mkA "competitive");
 	confident	= mkAP( mkA "confident");
 	difficult	= mkAP( mkA "difficult");
-	difficult_to_work_with = mkAP difficult (mkSC (mkVP (mkVPSlash work_with)));
+	difficult_to_work_with = mkAP( mkA "difficult to work with");
 	fast	= mkAP( mkA "fast");
 	good	= mkAP( mkA "good" "better" "best" "well");
 	hard	= mkAP( mkA "hard");
