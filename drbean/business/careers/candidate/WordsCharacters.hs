@@ -182,6 +182,7 @@ v = [
 
 	, "apply"
 	, "choose"
+	, "do"
 	, "enjoy"
 	, "expand"
 	, "feel"
@@ -234,6 +235,7 @@ confident	: A;
 department	: CN;
 difficult	: A;
 director	: CN;
+do	: V2;
 each
 enjoy	: V;
 expand	: V;
