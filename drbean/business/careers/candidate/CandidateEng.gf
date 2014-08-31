@@ -1,10 +1,26 @@
 --# -path=.:/home/drbean/GF/gf-contrib/drbean:./gf-contrib/drbean/business/careers/candidate:present
 
 concrete CandidateEng of Candidate = MyConcrete  **
-open ConstructorsEng, ParadigmsEng, StructuralEng, IrregEng, ExtraEng, ConstructX, Prelude in {
+open ConstructorsEng, ParadigmsEng, StructuralEng, IrregEng, ExtraEng, ConstructX, Prelude, (R=ResEng) in {
 
 oper
 
+	ModalVV	: Str -> Str -> Str -> Str -> Str ->
+		{s : R.VVForm => Str; p : Str; typ : R.VVType } =
+		\inf, pres, pp, prespp, presN -> {
+		s = table {
+			R.VVF R.VInf	=> inf ;
+			R.VVF R.VPres => pres;
+			R.VVF R.VPPart	=> pp ;
+			R.VVF R.VPresPart	=> prespp ;
+			-- R.VVF R.VPast	=> past ;
+			-- R.VVPastNeg	=> pastN ;
+			R.VVPresNeg	=> presN
+			} ;
+		p = [];
+		typ	= R.VVAux;
+		lock_VV = {}
+		};
 	director_N	= mkN masculine (mkN "director");
 	head_N	= mkN human (mkN "head");
 	like_V	= mkV "like";
@@ -101,6 +117,7 @@ lin
 	organize	= mkV2 "organize";
 	respect	= mkV2 "respect";
 	say	= mkVS say_V;
+	should = ModalVV nonExist "should" nonExist nonExist "shouldn't";
 	start	= ingVV( mkV "start");
 	take	= mkV2 take_V;
 	tell	= mkV3 tell_V;
