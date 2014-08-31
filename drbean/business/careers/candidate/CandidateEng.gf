@@ -8,6 +8,7 @@ oper
 	director_N	= mkN masculine (mkN "director");
 	head_N	= mkN human (mkN "head");
 	like_V	= mkV "like";
+	do_V	= IrregEng.do_V;
 	enjoy_V	= mkV "enjoy";
 	work_V	= mkV "work";
 	a_lot =  mkQuant  "a lot of" "a lot of" "a lot" "a lot";
@@ -78,8 +79,10 @@ lin
 	training_course	= mkCN( mkN "training course");
 	year	= mkCN( mkN "year");
 
-	apply	= mkV2 "apply" "for";
+	apply	= mkV2 "apply" for;
 	choose	= mkV2 "choose";
+	do	= mkV2 do_V;
+	do_for	= mkV3 do_V noPrep for;
 	enjoy_ing	= ingVV enjoy_V;
 	enjoy_V2	= mkV2 enjoy_V;
 	expand	= mkV "expand";

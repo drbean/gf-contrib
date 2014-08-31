@@ -15,6 +15,8 @@ fun
 
 	apply	: V2;
 	choose	: V2;
+	do	: V2;
+	do_for	: V3;
 	enjoy_ing	: VV;
 	enjoy_V2	: V2;
 	expand	: V;
