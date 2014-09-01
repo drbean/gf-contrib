@@ -35,7 +35,6 @@ lin
 	a_few = mkDet( mkQuant nonExist "a few") pluralNum;
 	any_sg = mkDet( mkQuant nonExist "any") singularNum;
 	any = mkDet( mkQuant nonExist "any") pluralNum;
-	many = many_Det;
 	a_lot_of_sg	= mkDet a_lot singularNum;
 	a_lot_of	= mkDet a_lot pluralNum;
 
@@ -49,6 +48,7 @@ lin
 	good	= mkAP( mkA "good" "better" "best" "well");
 	hard	= mkAP( mkA "hard");
 	main	= mkAP( mkA "main");
+	many = mkAP( mkA "many");
 	next	= mkAP( mkA "next");
 	outgoing	= mkAP( mkA "outgoing");
 	patient	= mkAP( mkA "patient");
@@ -66,6 +66,7 @@ lin
 	fast_track	= mkPN( mkN nonhuman (mkN "Fast-Track") );
 	polish_N	= mkPN( mkN nonhuman (mkN "Polish" ) );
 
+	GoodMass n = mkN "good" n;
 	ability	= mkN "ability";
 	administration	= mkN "administration";
 	aim	= mkCN( mkN "aim");
@@ -80,7 +81,7 @@ lin
 	learner	= mkCN( mkN "learner");
 	local_business_club	= mkCN( mkN "local business club");
 	market	= mkCN( mkN "market");
-	market_share	= mkCN( mkN "market share");
+	market_share	= mkN "market share";
 	material	= mkN "material";
 	person	= mkCN( mkN "person" "people");
 	personality	= mkCN( mkN "personality");
@@ -117,7 +118,7 @@ lin
 	organize	= mkV2 "organize";
 	respect	= mkV2 "respect";
 	say	= mkVS say_V;
-	should = ModalVV nonExist "should" nonExist nonExist "shouldn't";
+	should = ModalVV "should" "should" nonExist nonExist "shouldn't";
 	start	= ingVV( mkV "start");
 	take	= mkV2 take_V;
 	tell	= mkV3 tell_V;
@@ -133,6 +134,7 @@ lin
 	asap	= mkAdv "as soon as possible";
 	amap	= mkAdv "as much as possible";
 	in_the_long_term	= mkAdv "in the long term";
+	over_the_next_five_years	= mkAdv "over the next five years";
 
 	for	= mkPrep "for";
 	by	= mkPrep "by";

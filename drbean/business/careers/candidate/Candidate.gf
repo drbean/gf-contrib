@@ -9,7 +9,6 @@ fun
 	five	: Det;
 	any_sg	: Det;
 	any	: Det;
-	many	: Det;
 	a_lot_of_sg	: MassDet;
 	a_lot_of	: Det;
 
@@ -56,6 +55,7 @@ fun
 	good	: AP;
 	hard	: AP;
 	main	: AP;
+	many	: AP;
 	next	: AP;
 	outgoing	: AP;
 	patient	: AP;
@@ -66,6 +66,7 @@ fun
 	true	: AP;
 	various	: AP;
 
+	GoodMass: N -> N;
 	ability	: N;
 	administration	: N;
 	aim	: CN;
@@ -79,8 +80,8 @@ fun
 	judgement	: N;
 	learner	: CN;
 	local_business_club	: CN;
-	market	: CN;
-	market_share	: CN;
+	market	: PlaceName;
+	market_share	: N;
 	material	: N;
 	person	: CN;
 	personality	: CN;
@@ -99,7 +100,8 @@ fun
 	slowly	: Adv;
 	asap	: Style;
 	amap	: Style;
-	in_the_long_term	: Adv;
+	in_the_long_term	: Time;
+	over_the_next_five_years	: Time;
 
 	barbara	: PN;
 	tadeusz	: PN;
