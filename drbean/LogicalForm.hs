@@ -418,7 +418,7 @@ transVP (GIntens v0 vp) = case vp of
 	GWithPlace v (GLocating prep place) ->
 		\subj -> transPlace place
 		(\name -> Rel  ((lin v0) ++ "_to_" ++ (lin v) ++ "_" ++ (lin prep)) [subj,name])
-	GWithFreq vp2 (GFreqAdv count period) -> case vp2 of
+	GWithTime vp2 (GFreqAdv count period) -> case vp2 of
 		GWithPlace vp (GLocating prep place) -> \subj -> transNP count
 				(\times -> transPlace place
 				(\name -> Rel ((lin v0) ++ "_to_" ++ (lin vp) ++ "_" ++ (lin prep)) [subj,name,times]))

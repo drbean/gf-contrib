@@ -94,7 +94,7 @@ oper
 
 lin
 	Be_bad ap	= mkComp ap;
-  Be_mod located	= mkComp located;
+  Be_somewhere located	= mkComp located;
 	Be_someone np	= mkComp np;
 	Be_vp comp	= mkVP comp;
 	Look_bad verb adj	= mkVP verb adj;
@@ -116,6 +116,8 @@ lin
 	-- VSSlash vs	= mkVPSlash vs;
 	V2VSlash v2v vp	= mkVPSlash v2v vp;
 	V3Slash v3 np	= mkVPSlash v3 np;
+	ModInf cn vp = mkCN cn vp;
+	MassModInf n vp = mkCN( mkCN n) vp;
 	Modified cn rcl = mkCN cn ( mkRS rcl);
 	SubjRel	rp vp = mkRCl rp vp;
 	ObjRel rp clslash = mkRCl rp clslash;
@@ -123,7 +125,7 @@ lin
   WithPlace vp located	= mkVP vp located;
   AdvVP adv vp	= mkVP adv vp;
 	VPAdv vp adv = mkVP vp adv;
-  WithFreq action frequency	= mkVP action frequency;
+  WithTime action time	= mkVP action time;
   WithStyle action style	= mkVP action style;
   -- Be_made_sth vp np = PassV3 vp np;
 	YN cl	= mkQCl cl;
@@ -145,6 +147,7 @@ lin
 	Entity pn	= mkNP pn;
 	Kind ap cn	= mkCN ap cn;
   KindOfKind cn adv	= mkCN cn adv;
+	KindLocating ap n = mkCN ap n;
 	Ofpos n2 np	= mkCN n2 np;
 	Item det noun	= mkNP det noun;
 	MassItem udet ucn	= mkNP udet ucn;

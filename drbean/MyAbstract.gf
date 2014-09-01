@@ -4,7 +4,7 @@ abstract MyAbstract = Cat, Conjunction ** {
 	flags startcat = Utt ;
 
 cat
-	Freq;
+	Time;
 	Times;
 	Period;
 	Title;
@@ -21,10 +21,11 @@ fun
 	-- Be_made_sth : V3 -> NP -> VP;
 	Be_bad	: AP -> Comp;
 	Be_someone	: NP -> Comp;
+	Be_somewhere	: Located -> Comp;
 	Be_vp	: Comp -> VP;
 	Locating  : LocPrep -> Place -> Located;
 	Location	: Det -> PlaceName -> Place;
-	FreqAdv	: NP -> Period -> Freq;
+	FreqAdv	: NP -> Period -> Time;
 	Happening	: V -> VP ;
 	Changing	: V2 -> NP -> VP;
 	Causative:	V2V -> NP -> VP -> VP;
@@ -40,14 +41,17 @@ fun
 	-- VSSlash	: VS -> VPSlash;
 	V2VSlash	: V2V -> VP -> VPSlash;
 	V3Slash	: V3 -> NP -> VPSlash;
+	ModInf : CN -> VP -> CN;
+	MassModInf : N -> VP -> CN;
 	Modified	: CN -> RCl -> CN;
 	SubjRel	: RP -> VP -> RCl;
 	ObjRel	: RP -> ClSlash -> RCl;
 	VPClSlash	: NP -> VPSlash -> ClSlash;
 	WithPlace	:  Motion -> Located -> VP;
+	InPlace	:  Comp -> Located -> Comp;
 	AdvVP	: Adv -> VP -> VP;
 	VPAdv	: VP -> Adv -> VP;
-	WithFreq	: VP -> Freq -> VP;
+	WithTime	: VP -> Time -> VP;
 	WithStyle	: VP -> Style -> VP;
 	YN	: Cl -> QCl;
 
@@ -72,6 +76,7 @@ fun
 	Entity	: PN -> NP;
 	Kind	: AP -> CN -> CN;
 	KindOfKind  : CN -> Adv -> CN;
+	KindLocating	: AP -> PlaceName -> PlaceName;
 	Item	: Det -> CN -> NP;
 	MassItem	: MassDet -> N	-> NP;
 	Titular	: Title -> NP;
@@ -117,7 +122,7 @@ fun
 	as_prep	: Prep;
 	at_prep	: LocPrep;
 	before_prep	: Prep;
-	in_prep	: Prep;
+	in_prep	: LocPrep;
 	from_prep	: Prep;
   like_prep	: Prep;
 	of_prep	: Prep;
