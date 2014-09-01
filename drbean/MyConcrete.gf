@@ -40,7 +40,7 @@ lincat
   IP	= IP;
   Prep	= Prep;
   CAdv	= CAdv;
-	Freq	= Adv;
+	Time	= Adv;
 	Times	= NP;
 	Period	= Adv;
 	Subj	= Subj;
