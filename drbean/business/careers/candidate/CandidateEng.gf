@@ -71,7 +71,6 @@ lin
 	administration	= mkN "administration";
 	aim	= mkCN( mkN "aim");
 	company	= mkCN( mkN "company");
-	department	= mkCN( mkN "department");
 	director	= mkCN director_N;
 	director_of = mkN2 director_N of_prep;
 	head	= mkCN head_N;
@@ -88,6 +87,7 @@ lin
 	result	= mkCN( mkN "result");
 	risk	= mkCN( mkN "risk");
 	safe_pair_of_hands	= mkCN( mkN "safe pair of hands");
+	sales_department	= mkCN( mkN "sales department");
 	sales_experience	= mkN "sales experience";
 	sales_team	= mkCN( mkN "sales team");
 	thing	= mkCN( mkN "thing");
@@ -125,6 +125,7 @@ lin
 	think	= mkVS IrregEng.think_V;
 	try	= ingVV( mkV "try");
 	want	= mkVV( mkV "want");
+	want_sb	= mkV2V( mkV "want") noPrep to_Prep;
 	win	= mkV "win";
 	work	= work_V;
 	work_with	= mkV2 work_V with_prep;

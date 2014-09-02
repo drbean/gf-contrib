@@ -41,6 +41,7 @@ fun
 	think	: VS;
 	try	: VV;
 	want	: VV;
+	want_sb	: V2V;
 	win	: V;
 	work	: V;
 	work_with	: V2;
@@ -71,7 +72,6 @@ fun
 	administration	: N;
 	aim	: CN;
 	company	: CN;
-	department	: CN;
 	director	: CN;
 	director_of	: N2;
 	head	: CN;
@@ -89,6 +89,7 @@ fun
 	risk	: CN;
 	safe_pair_of_hands	: CN;
 	sales_experience	: N;
+	sales_department	: PlaceName;
 	sales_team	: CN;
 	thing	: CN;
 	time	: N;
