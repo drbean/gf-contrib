@@ -189,8 +189,10 @@ v = [
 	, "get to"
 	, "get"
 	, "have"
+	, "help"
 	, "improve"
 	, "increase"
+	, "lead"
 	, "like"
 	, "motivate"
 	, "offer"
@@ -252,7 +254,7 @@ hard	: A;
 have	: V;
 he
 head	: CN;
-help
+help	: V2;
 if
 improve	: V;
 in	: Prep;
@@ -262,7 +264,7 @@ it
 job	: CN;
 judgement	: NP;
 know
-lead
+lead	: V2;
 learner	: CN;
 like	: V;
 a lot of	: Det;
