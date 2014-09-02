@@ -123,6 +123,7 @@ lin
 	SubjRel	rp vp = mkRCl rp vp;
 	ObjRel rp clslash = mkRCl rp clslash;
 	VPClSlash	np vpslash = mkClSlash np vpslash;
+	ToPlace vp located = mkVP vp located;
   WithPlace vp located	= mkVP vp located;
   AdvVP adv vp	= mkVP adv vp;
 	VPAdv vp adv = mkVP vp adv;
@@ -149,7 +150,8 @@ lin
 	Entity pn	= mkNP pn;
 	Kind ap cn	= mkCN ap cn;
   KindOfKind cn adv	= mkCN cn adv;
-	KindLocating ap n = mkCN ap n;
+	KindInPlace cn adv	= mkCN cn adv;
+	PlaceKind ap n = mkCN ap n;
 	Ofpos n2 np	= mkCN n2 np;
 	Item det noun	= mkNP det noun;
 	MassItem udet ucn	= mkNP udet ucn;

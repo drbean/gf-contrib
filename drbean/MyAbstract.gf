@@ -48,8 +48,8 @@ fun
 	SubjRel	: RP -> VP -> RCl;
 	ObjRel	: RP -> ClSlash -> RCl;
 	VPClSlash	: NP -> VPSlash -> ClSlash;
-	WithPlace	:  Motion -> Located -> VP;
-	InPlace	:  Comp -> Located -> Comp;
+	ToPlace	:  Motion -> Located -> VP;
+	WithPlace	:  VP -> Located -> VP;
 	WithTime	: VP -> Time -> VP;
 	WithStyle	: VP -> Style -> VP;
 	WithCl	: VP -> SubordCl -> VP;
@@ -77,7 +77,8 @@ fun
 	Entity	: PN -> NP;
 	Kind	: AP -> CN -> CN;
 	KindOfKind  : CN -> Adv -> CN;
-	KindLocating	: AP -> PlaceName -> PlaceName;
+	KindInPlace	: CN -> Located -> CN;
+	PlaceKind	: AP -> PlaceName -> PlaceName;
 	Item	: Det -> CN -> NP;
 	MassItem	: MassDet -> N	-> NP;
 	Titular	: Title -> NP;
