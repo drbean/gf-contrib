@@ -15,6 +15,7 @@ cat
 	Motion;
 	Style;
 	MassDet;
+	SubordCl;
 
 fun
 	Look_bad	: VA -> AP -> VP;
@@ -49,10 +50,10 @@ fun
 	VPClSlash	: NP -> VPSlash -> ClSlash;
 	WithPlace	:  Motion -> Located -> VP;
 	InPlace	:  Comp -> Located -> Comp;
-	AdvVP	: Adv -> VP -> VP;
-	VPAdv	: VP -> Adv -> VP;
 	WithTime	: VP -> Time -> VP;
 	WithStyle	: VP -> Style -> VP;
+	WithCl	: VP -> SubordCl -> VP;
+
 	YN	: Cl -> QCl;
 
 	TagQ	: NP -> VP -> QCl;
@@ -144,7 +145,8 @@ fun
 	if_Subj	: Subj;
 	or_Conj	: Conj;
 
-	Subjunct	: Subj -> S -> Adv;
+	Subjunct	: Subj -> S -> SubordCl;
+
 }
 
 -- vim: set ts=2 sts=2 sw=2 noet:

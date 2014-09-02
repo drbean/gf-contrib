@@ -45,6 +45,7 @@ lincat
 	Period	= Adv;
 	Subj	= Subj;
 	Conj	= Conj;
+	SubordCl	= Adv;
 	Title	= CN;
 	Place	= NP;
 	PlaceName	= CN;
@@ -127,6 +128,7 @@ lin
 	VPAdv vp adv = mkVP vp adv;
   WithTime action time	= mkVP action time;
   WithStyle action style	= mkVP action style;
+	WithCl vp cl = mkVP vp cl;
   -- Be_made_sth vp np = PassV3 vp np;
 	YN cl	= mkQCl cl;
 	WH_Pred ip vp	= mkQCl ip vp;
