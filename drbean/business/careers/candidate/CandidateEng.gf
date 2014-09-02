@@ -101,7 +101,6 @@ lin
 	choose	= mkV2 "choose";
 	do	= mkV2 do_V;
 	do_for	= mkV3 do_V noPrep for;
-	enjoy_ing	= ingVV enjoy_V;
 	enjoy_V2	= mkV2 enjoy_V;
 	expand	= mkV "expand";
 	feel	= mkVS feel_V;
@@ -125,7 +124,7 @@ lin
 	should = ModalVV "should" "should" nonExist nonExist "shouldn't";
 	start	= ingVV( mkV "start");
 	take	= mkV2 take_V;
-	tell	= mkV3 tell_V;
+	tell	= mkV2V tell_V noPrep to_Prep;
 	think	= mkVS IrregEng.think_V;
 	try	= ingVV( mkV "try");
 	want	= mkVV( mkV "want");
@@ -133,6 +132,7 @@ lin
 	win	= mkV "win";
 	work	= work_V;
 	work_with	= mkV2 work_V with_prep;
+	would = ModalVV "would" "would" nonExist nonExist "wouldn't";
 
 	really	= mkAdv "really";
 	slowly	= mkAdv "slowly";

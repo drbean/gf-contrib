@@ -16,7 +16,6 @@ fun
 	choose	: V2;
 	do	: V2;
 	do_for	: V3;
-	enjoy_ing	: VV;
 	enjoy_V2	: V2;
 	expand	: V;
 	feel	: VS;
@@ -40,7 +39,7 @@ fun
 	should	: VV;
 	start	: VV;
 	take	: V2;
-	tell	: V3;
+	tell	: V2V;
 	think	: VS;
 	try	: VV;
 	want	: VV;
@@ -48,6 +47,7 @@ fun
 	win	: V;
 	work	: V;
 	work_with	: V2;
+	would	: VV;
 
 	ambitious	: AP;
 	bad	: AP;
