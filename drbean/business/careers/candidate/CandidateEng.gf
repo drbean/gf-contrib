@@ -26,6 +26,7 @@ oper
 	like_V	= mkV "like";
 	do_V	= IrregEng.do_V;
 	enjoy_V	= mkV "enjoy";
+	help_V	= mkV "help";
 	work_V	= mkV "work";
 	a_lot =  mkQuant  "a lot of" "a lot of" "a lot" "a lot";
 
@@ -108,8 +109,11 @@ lin
 	get = mkV2 get_V;
 	get_V2V  = mkV2V get_V noPrep to_Prep;
 	have	= mkV2 have_V;
+	help	= mkV2 help_V;
+	help_do	= mkV2V help_V noPrep noPrep;
 	improve	= mkV2 "improve";
 	increase	= mkV2 "increase";
+	lead	= mkV2 "lead";
 	like_to	= mkVV like_V;
 	like_ing	= ingVV like_V;
 	motivate	= mkV2 "motivate";
