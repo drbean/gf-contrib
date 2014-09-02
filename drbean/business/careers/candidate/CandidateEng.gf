@@ -29,6 +29,7 @@ oper
 	help_V	= mkV "help";
 	work_V	= mkV "work";
 	a_lot =  mkQuant  "a lot of" "a lot of" "a lot" "a lot";
+	good_A	= mkA "good" "better" "best" "well";
 
 lin
 
@@ -46,7 +47,7 @@ lin
 	difficult	= mkAP( mkA "difficult");
 	difficult_to_work_with = mkAP( mkA "difficult to work with");
 	fast	= mkAP( mkA "fast");
-	good	= mkAP( mkA "good" "better" "best" "well");
+	good	= mkAP good_A;
 	hard	= mkAP( mkA "hard");
 	main	= mkAP( mkA "main");
 	many = mkAP( mkA "many");
@@ -134,6 +135,8 @@ lin
 	work_with	= mkV2 work_V with_prep;
 	would = ModalVV "would" "would" nonExist nonExist "wouldn't";
 
+	well	= mkAdv "well";
+	better	= mkAdv "better";
 	really	= mkAdv "really";
 	slowly	= mkAdv "slowly";
 	asap	= mkAdv "as soon as possible";

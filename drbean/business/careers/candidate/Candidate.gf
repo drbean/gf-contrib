@@ -100,6 +100,8 @@ fun
 	training_course	: CN;
 	year	: CN;
 
+	well	: Style;
+	better	: Style;
 	really	: Adv;
 	slowly	: Adv;
 	asap	: Style;
