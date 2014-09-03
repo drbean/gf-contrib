@@ -34,15 +34,13 @@ posMap = Map.fromList [
 	]
 
 a = [
-	"Polish"
-	, "ambitious"
+	"ambitious"
 	, "bad"
 	, "competitive"
 	, "confident"
 	, "difficult"
 	, "fast"
 	, "good"
-	, "hard"
 	, "main"
 	, "next"
 	, "outgoing"
@@ -56,7 +54,8 @@ a = [
 	]
 
 adv = [
-	"really"
+	"hard"
+	, "really"
 	, "slowly"
 	, "soon"
 	, "well"
@@ -111,7 +110,7 @@ n = [
 	, "local business club"
 	, "market"
 	, "market share"
-	, "material"
+	, "Fast-Track material"
 	, "people"
 	, "personality"
 	, "Polish"
@@ -199,6 +198,7 @@ v = [
 	, "organize"
 	, "respect"
 	, "say"
+	, "sell"
 	, "start"
 	, "take"
 	, "tell"
@@ -250,7 +250,7 @@ for	: Prep;
 get	: V;
 good	: A;
 
-hard	: A;
+hard	: Adv;
 have	: V;
 he
 head	: CN;
@@ -299,7 +299,7 @@ sales experience	: NP;
 sales team	: CN;
 say	: V;
 see
-selling
+sell	: V2;
 set
 she
 should
