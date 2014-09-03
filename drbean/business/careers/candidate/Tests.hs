@@ -148,6 +148,7 @@ yn_dic_test = [
   , "Does Dr Bean think that the sales team does a very bad job?"
   , "Can Dr Bean get the sales team to enjoy selling Fast-Track material?"
   , "Does Dr Bean try very hard to get the sales team to enjoy selling Fast-Track material?"
+  , "Does Dr Bean try hard to get the sales team to enjoy selling Fast-Track material?"
   , "Does Dr Bean try very hard to set up systems to allow the sales team to see results? "
   , "Does Dr Bean have sales experience?"
   , "Is Dr Bean confident?"
