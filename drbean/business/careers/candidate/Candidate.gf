@@ -17,6 +17,7 @@ fun
 	do	: V2;
 	do_for	: V3;
 	enjoy_V2	: V2;
+	enjoy_ing	: VV;
 	expand	: V;
 	feel	: VS;
 	get_to	: Motion;

@@ -102,6 +102,7 @@ lin
 	choose	= mkV2 "choose";
 	do	= mkV2 do_V;
 	do_for	= mkV3 do_V noPrep for;
+	enjoy_ing	= ingVV enjoy_V;
 	enjoy_V2	= mkV2 enjoy_V;
 	expand	= mkV "expand";
 	feel	= mkVS feel_V;
