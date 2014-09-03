@@ -21,8 +21,10 @@ oper
 		typ	= R.VVAux;
 		lock_VV = {}
 		};
+	administration_N	= mkN "administration" nonExist;
 	director_N	= mkN masculine (mkN "director");
 	head_N	= mkN human (mkN "head");
+	material_N	= mkN "material";
 	like_V	= mkV "like";
 	do_V	= IrregEng.do_V;
 	enjoy_V	= mkV "enjoy";
@@ -36,7 +38,7 @@ lin
 
 	five = mkDet( mkCard (mkNumeral n5_Unit));
 	a_few = mkDet( mkQuant nonExist "a few") pluralNum;
-	any_sg = mkDet( mkQuant nonExist "any") singularNum;
+	any_sg = mkDet( mkQuant "any" nonExist) singularNum;
 	any = mkDet( mkQuant nonExist "any") pluralNum;
 	a_lot_of_sg	= mkDet a_lot singularNum;
 	a_lot_of	= mkDet a_lot pluralNum;
@@ -54,7 +56,6 @@ lin
 	next	= mkAP( mkA "next");
 	outgoing	= mkAP( mkA "outgoing");
 	patient	= mkAP( mkA "patient");
-	polish_A	= mkAP( mkA "Polish" );
 	possible	= mkAP( mkA "possible");
 	realistic	= mkAP( mkA "realistic");
 	successful	= mkAP( mkA "successful");
@@ -66,11 +67,11 @@ lin
 	eva	= mkPN( mkN feminine (mkN "Eva") );
 	drbean	= mkPN( mkN masculine (mkN "Dr Bean") );
 	fast_track	= mkPN( mkN nonhuman (mkN "Fast-Track") );
-	polish_N	= mkPN( mkN nonhuman (mkN "Polish" ) );
 
 	GoodMass n = mkN "good" n;
 	ability	= mkN "ability";
-	administration	= mkN "administration";
+	administration	= administration_N;
+	administration_of_team	= mkN "administration of the sales team";
 	aim	= mkCN( mkN "aim");
 	company	= mkCN( mkN "company");
 	director	= mkCN director_N;
@@ -83,9 +84,10 @@ lin
 	local_business_club	= mkCN( mkN "local business club");
 	market	= mkCN( mkN "market");
 	market_share	= mkN "market share";
-	material	= mkN "material";
+	material	= mkN "Fast-Track" material_N;
 	person	= mkCN( mkN "person" "people");
 	personality	= mkCN( mkN "personality");
+	polish	= mkN "Polish";
 	result	= mkCN( mkN "result");
 	risk	= mkCN( mkN "risk");
 	safe_pair_of_hands	= mkCN( mkN "safe pair of hands");
@@ -123,6 +125,7 @@ lin
 	organize	= mkV2 "organize";
 	respect	= mkV2 "respect";
 	say	= mkVS say_V;
+	sell	= mkV2 IrregEng.sell_V;
 	should = ModalVV "should" "should" nonExist nonExist "shouldn't";
 	start	= ingVV( mkV "start");
 	take	= mkV2 take_V;

@@ -7,7 +7,7 @@ fun
 
 	a_few	: Det;
 	five	: Det;
-	any_sg	: Det;
+	any_sg	: MassDet;
 	any	: Det;
 	a_lot_of_sg	: MassDet;
 	a_lot_of	: Det;
@@ -37,6 +37,7 @@ fun
 	organize	: V2;
 	respect	: V2;
 	say	: VS;
+	sell	: V2;
 	should	: VV;
 	start	: VV;
 	take	: V2;
@@ -64,7 +65,6 @@ fun
 	next	: AP;
 	outgoing	: AP;
 	patient	: AP;
-	polish_A	: AP;
 	possible	: AP;
 	realistic	: AP;
 	successful	: AP;
@@ -74,6 +74,7 @@ fun
 	GoodMass: N -> N;
 	ability	: N;
 	administration	: N;
+	administration_of_team	: N;
 	aim	: CN;
 	company	: CN;
 	director	: CN;
@@ -89,6 +90,7 @@ fun
 	material	: N;
 	person	: CN;
 	personality	: CN;
+	polish	: N;
 	result	: CN;
 	risk	: CN;
 	safe_pair_of_hands	: CN;
@@ -116,7 +118,6 @@ fun
 	eva	: PN;
 	drbean	: PN;
 	fast_track	: PN;
-	polish_N	: PN;
 
 	for	: Prep;
 	by	: Prep;
