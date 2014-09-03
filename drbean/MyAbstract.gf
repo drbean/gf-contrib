@@ -142,6 +142,7 @@ fun
 
 	Too	: AP -> AP;
 	Very	: AP -> AP;
+	Very_Style	: Style -> Style;
 	because_Subj	: Subj;
 	if_Subj	: Subj;
 	or_Conj	: Conj;

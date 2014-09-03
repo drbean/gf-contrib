@@ -213,6 +213,7 @@ lin
 
 	Too a = mkAP too_AdA a;
 	Very a = mkAP very_AdA a;
+	Very_Style a = mkAdv ("very" ++ a.s);
 	because_Subj	= because_Subj;
 	if_Subj	= if_Subj;
 	or_Conj	= or_Conj;
