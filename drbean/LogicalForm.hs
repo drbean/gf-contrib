@@ -317,6 +317,8 @@ transCN name          = \ x -> Rel (lin name) [x]
 --  \ x -> (transS (Just s))
 
 transPlace :: GPlace -> (Term -> LF) -> LF
+transPlace (GLocation _ (GPlaceKind _ name)) | rel <- lin name =
+	\p -> Exists ( \v -> Conj [ p v, Rel rel [v] ] )
 transPlace (GLocation _ name) | rel <- lin name =
 	\p -> Exists ( \v -> Conj [ p v, Rel rel [v] ] )
 transPlace place	| rel <- lin place =
@@ -431,6 +433,9 @@ transVP (GIntens v0 vp) = case vp of
 		(GWithPlace vp (GLocating prep place)) ->
 			\subj -> transPlace place
 			(\name -> Rel ((lin v0) ++ "_to_" ++ (lin vp)) [subj,name])
+		(GToPlace vp (GLocating prep place)) ->
+			\subj -> transPlace place
+			(\name -> Rel ((lin v0) ++ "_to_" ++ (lin vp)) [subj,name])
 	GTriangulating v obj1 obj2 ->
 		\ agent   -> transNP obj1
 		(\ theme   -> transNP obj2
@@ -517,18 +522,32 @@ transVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 				(lin attribute)) [positer,referent]))
 		(GBe_someone subjcomp ) -> (\positer -> transNP np
 			(\referent -> transNP subjcomp
-				(\pred -> Rel ((lin v0) ++ ":is")
+				(\pred -> Rel ((lin v0) ++ ":is_")
 					[positer,referent,pred])))
+		(GBe_somewhere (GLocating prep location)) ->
+			(\positer -> transNP np
+			(\referent -> transPlace location
+			(\place -> Rel ((lin v0) ++ ":is_" ++ (lin prep)) [positer,referent,place])))
 	(GWithPlace v loc) -> (\x -> Rel "true" [x] )
 	(GChanging v2 obj) -> (\positer -> transNP np
 		(\referent -> transNP obj
 			(\theme -> Rel ((lin v0) ++ ":" ++
 				(lin v2)) [positer,referent,theme])))
 	(GIntens vv vp2) -> case vp2 of
+		(GBe_bad a) -> (\positer -> transNP np
+			(\referent -> Rel ((lin v0) ++ ":" ++ (lin vv) ++ "_be_" ++ (lin a)) [positer,referent] ))
 		(GHappening v) -> (\positer -> transNP np
 			(\referent -> Rel ((lin v0) ++ ":" ++ (lin vv) ++ "_to_"
 				++ (lin v)) [positer, referent] ))
 		(GChanging v obj) -> (\positer -> transNP np
+			(\referent -> transNP obj (\theme -> Rel ((lin v0) ++
+				":" ++ (lin vv) ++ "_to_" ++ (lin v))
+					[positer,referent,theme])))
+		(GWithCl (GChanging v obj) _ )-> (\positer -> transNP np
+			(\referent -> transNP obj (\theme -> Rel ((lin v0) ++
+				":" ++ (lin vv) ++ "_to_" ++ (lin v))
+					[positer,referent,theme])))
+		(GWithTime (GChanging v obj) _ )-> (\positer -> transNP np
 			(\referent -> transNP obj (\theme -> Rel ((lin v0) ++
 				":" ++ (lin vv) ++ "_to_" ++ (lin v))
 					[positer,referent,theme])))
