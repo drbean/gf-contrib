@@ -27,6 +27,7 @@ oper
 	do_V	= IrregEng.do_V;
 	enjoy_V	= mkV "enjoy";
 	help_V	= mkV "help";
+	try_V	= mkV "try";
 	work_V	= mkV "work";
 	a_lot =  mkQuant  "a lot of" "a lot of" "a lot" "a lot";
 	good_A	= mkA "good" "better" "best" "well";
@@ -48,7 +49,6 @@ lin
 	difficult_to_work_with = mkAP( mkA "difficult to work with");
 	fast	= mkAP( mkA "fast");
 	good	= mkAP good_A;
-	hard	= mkAP( mkA "hard");
 	main	= mkAP( mkA "main");
 	many = mkAP( mkA "many");
 	next	= mkAP( mkA "next");
@@ -127,7 +127,8 @@ lin
 	take	= mkV2 take_V;
 	tell	= mkV2V tell_V noPrep to_Prep;
 	think	= mkVS IrregEng.think_V;
-	try	= ingVV( mkV "try");
+	try	= mkVV try_V;
+	try_hard = mkVV (partV try_V "hard");
 	want	= mkVV( mkV "want");
 	want_sb	= mkV2V( mkV "want") noPrep to_Prep;
 	win	= mkV "win";
@@ -137,6 +138,7 @@ lin
 
 	well	= mkAdv "well";
 	better	= mkAdv "better";
+	hard	= mkAdv "hard";
 	really	= mkAdv "really";
 	slowly	= mkAdv "slowly";
 	asap	= mkAdv "as soon as possible";

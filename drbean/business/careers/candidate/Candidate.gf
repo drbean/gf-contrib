@@ -42,6 +42,7 @@ fun
 	tell	: V2V;
 	think	: VS;
 	try	: VV;
+	try_hard	: VV;
 	want	: VV;
 	want_sb	: V2V;
 	win	: V;
@@ -57,7 +58,6 @@ fun
 	difficult_to_work_with	: AP;
 	fast	: AP;
 	good	: AP;
-	hard	: AP;
 	main	: AP;
 	many	: AP;
 	next	: AP;
@@ -102,6 +102,7 @@ fun
 
 	well	: Style;
 	better	: Style;
+	hard	: Style;
 	really	: Adv;
 	slowly	: Adv;
 	asap	: Style;
