@@ -222,10 +222,10 @@ transS _ = Nothing
 transNP :: GNP -> (Term -> LF) -> LF
 transNP (GItem det cn) = (transDet det) (transCN cn)
 transNP (GEntity name)
---    | name `elem` interrolist = \ p -> NonProposition
-    | entity <- (gent2ent name) , entity `elem` entities =
-	\ p -> p (Const entity)
-    | otherwise = \p -> NonProposition
+--	| name `elem` interrolist = \ p -> NonProposition
+	| entity <- (gent2ent name) , entity `elem` entities =
+		\ p -> p (Const entity)
+	| otherwise = \p -> NonProposition
 transNP (GTitular t)	| rel <- lin t =
 	\p -> Exists ( \v -> Conj [ p v, Rel rel [v] ] )
 transNP thing	| rel <- lin thing =
@@ -342,7 +342,8 @@ transClSlash cl = case cl of
 				(lin v2)) [subj,x,theme])))
 
 transVP :: GVP -> Term -> LF
-transVP (GWithCl vp cl) = transVP vp
+transVP (GWithCl vp _) = transVP vp
+transVP (GWithStyle vp _) = transVP vp
 ----transVP (Branch (Cat "_" "VP" [Part] _) [Leaf (Cat part "V" _ _), obj] ) =
 ----	\x -> Exists( \agent -> transPP obj (\cond -> Rel part [agent, x, cond] ) )
 --transVP (Branch vp@(Cat _ "VP" _ _)
@@ -418,6 +419,9 @@ transVP (GIntens v0 vp) = case vp of
 		( \theme -> Rel ((lin v0) ++"_to_"++
 				(lin v)) [subj,theme] ))
 	GWithPlace v (GLocating prep place) ->
+		\subj -> transPlace place
+		(\name -> Rel  ((lin v0) ++ "_to_" ++ (lin v) ++ "_" ++ (lin prep)) [subj,name])
+	GToPlace v (GLocating prep place) ->
 		\subj -> transPlace place
 		(\name -> Rel  ((lin v0) ++ "_to_" ++ (lin v) ++ "_" ++ (lin prep)) [subj,name])
 	GWithTime vp2 (GFreqAdv count period) -> case vp2 of
@@ -534,8 +538,9 @@ transVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 			(\theme -> Rel ((lin v0) ++ ":" ++
 				(lin v2)) [positer,referent,theme])))
 	(GIntens vv vp2) -> case vp2 of
-		(GBe_bad a) -> (\positer -> transNP np
-			(\referent -> Rel ((lin v0) ++ ":" ++ (lin vv) ++ "_be_" ++ (lin a)) [positer,referent] ))
+		(GBe_vp comp ) -> case comp of 
+			(GBe_bad a) -> (\positer -> transNP np
+				(\referent -> Rel ((lin v0) ++ ":" ++ (lin vv) ++ "_be_" ++ (lin a)) [positer,referent] ))
 		(GHappening v) -> (\positer -> transNP np
 			(\referent -> Rel ((lin v0) ++ ":" ++ (lin vv) ++ "_to_"
 				++ (lin v)) [positer, referent] ))
@@ -561,11 +566,11 @@ transVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 			(\referent -> transNP obj1
 				(\theme	-> transNP obj2
 					(\recipient -> Rel ((lin v0) ++ ":" ++ (lin v))
-						[positer,referent,theme,recipient]))))
+					 [positer,referent,theme,recipient]))))
 	(GPass (GV2Slash v)) ->
 		\positer -> transNP np 
-			(\patient -> Rel((lin v0) ++ ":is_" ++ (lin v) ++ "_ed")
-				[positer,patient])
+		(\patient -> Rel((lin v0) ++ ":is_" ++ (lin v) ++ "_ed")
+		 [positer,patient])
 	_ -> \x -> NonProposition
 transVP (GPositing v0 (GNegS (GSentence np vp))) = case vp of
 	(GHappening v) -> (\positer -> transNP np
