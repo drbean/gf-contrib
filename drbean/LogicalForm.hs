@@ -272,6 +272,9 @@ transN2 :: GN2 -> Term -> LF
 transN2 name	= \x -> Rel (lin name) [x]
 transCN :: GCN -> Term -> LF
 transCN (GKind ap cn) = \x -> Conj [ transCN cn x, Rel (lin ap) [x] ]
+transCN (GKindInPlace cn (GLocating prep place)) =
+	\x -> Conj [transCN cn x, transPlace place 
+	(\p -> Rel (lin prep) [x,p])]
 transCN (GOfpos cn np) =
     \owner -> Conj [(transN2 cn owner), (transNP np
 	(\thing -> Rel "have" [owner, thing]))]
@@ -345,6 +348,7 @@ transVP :: GVP -> Term -> LF
 transVP (GWithCl vp _) = transVP vp
 transVP (GWithStyle vp _) = transVP vp
 transVP (GWithTime vp _) = transVP vp
+transVP (GWithPlace vp _) = transVP vp
 ----transVP (Branch (Cat "_" "VP" [Part] _) [Leaf (Cat part "V" _ _), obj] ) =
 ----	\x -> Exists( \agent -> transPP obj (\cond -> Rel part [agent, x, cond] ) )
 --transVP (Branch vp@(Cat _ "VP" _ _)
@@ -467,6 +471,7 @@ transVP (GIntens v0 vp) = case vp of
 --		(\theme -> transPP obj2
 --		    ( \recipient -> Rel (att++"_to_"++act) [subj,subj,theme,recipient] )))
 transVP (GCausative v0 obj0 vp) = case vp of
+	GWithPlace v _ -> transVP (GCausative v0 obj0 v)
 	GHappening v ->
 		\subj -> transNP obj0
 			(\agent -> Rel ((lin v0) ++ "_to_" ++
@@ -491,6 +496,11 @@ transVP (GCausative v0 obj0 vp) = case vp of
 									(lin v2)) [subj,agent1,agent2,theme] ))))
 	GIntens v vp2 ->
 		case vp2 of
+			GHappening v3 ->
+				\subj -> transNP obj0
+				(\agent -> Rel ((lin v0) ++ "_to_" ++
+				(lin v) ++ "_to_" ++ (lin v3))
+				[subj,agent])
 			(GWithPlace (GHappening v3) _) ->
 				\subj -> transNP obj0
 				(\agent -> Rel ((lin v0) ++ "_to_" ++ (lin v) ++ "_to_" ++ (lin v3)) [subj,agent])
@@ -562,6 +572,12 @@ transVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 			(\referent -> transNP obj (\theme -> Rel ((lin v0) ++
 				":" ++ (lin vv) ++ "_to_" ++ (lin v))
 					[positer,referent,theme])))
+		GWithStyle (GChanging v obj) _ ->
+			\positer -> transNP np
+			(\referent -> transNP obj 
+			(\theme -> Rel ((lin v0) ++ ":" ++ (lin vv) ++
+			"_to_" ++ (lin v)) [positer,referent,theme]))
+
 		(GTriangulating v obj1 obj2) -> (\positer -> transNP np
 			(\referent -> transNP obj1
 			(\theme	-> transNP obj2
