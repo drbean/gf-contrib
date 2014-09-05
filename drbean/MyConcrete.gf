@@ -110,8 +110,8 @@ lin
 	Informing posit patient event	= mkVP posit patient event;
   Triangulating v patient recipient = mkVP v patient recipient; 
   Pred2A v patient state = mkVP v patient state;
-  GetPassV3 v np = insertObj (\\_ => v.s ! VPPart ++ v.p ++ v.c2 ++ v.c3 ++ np.s ! NPAcc) (predAux auxGet) ;
-  GetNPPPart v np = insertObj (\\_ => np.s ! NPAcc ++ v.s ! VPPart ++ v.p ++ v.c2 ) (predAux auxGet) ;
+  -- GetPassV3 v np = insertObj (\\_ => v.s ! VPPart ++ v.p ++ v.c2 ++ v.c3 ++ np.s ! NPAcc) (predAux auxGet) ;
+  -- GetNPPPart v np = insertObj (\\_ => np.s ! NPAcc ++ v.s ! VPPart ++ v.p ++ v.c2 ) (predAux auxGet) ;
 	Pass vp = PassVPSlash vp;
 	V2Slash v2	= mkVPSlash v2;
 	-- VSSlash vs	= mkVPSlash vs;
