@@ -86,7 +86,6 @@ onePlacers = [
 	, ("company",	 pred1 [F] )
 	, ("director",	 pred1 [] )
 	, ("department",	 pred1 [F] )
-	, ("story",	 pred1 [Y] )
 	, ("job",	 pred1 [J] )
 	, ("work",	 pred1 $ [J] ++ map agent working )
 	, ("worker",	 pred1 $ map agent working )
@@ -146,11 +145,11 @@ pred2 xs	= curry ( `elem` xs )
 pred3 xs	= curry3 ( `elem` xs )
 pred4 xs	= curry4 ( `elem` xs )
 
-possessions	= [(B,J),(T,J),(E,J),(B,X),(T,X),(E,X),(T,G)]
+possessions	= [(B,A),(B,J),(T,J),(E,J),(B,X),(T,X),(E,X),(T,G)]
 appreciation	= [ (E,Unspec,J) ]
 qualities	= [ (B,A),(T,G),(B,X),(T,X),(E,X) ]
 conflict	= []
-supervision	= []
+supervision	= [(D,L)]
 isBoss	= pred1 $ map fst supervision
 isWorker	= pred1 $ map snd supervision
 
@@ -229,7 +228,7 @@ talk_about = pred3 $ map (\x->(agent x, recipient x, theme x) ) comms
 go_to	= pred2 $ map (\x->(recipient5 x,location5 x) ) schooling
 
 -- (teacher,school(location),subject,student,degree)
-schooling = [Unspec,Unspec,H,E,]
+schooling = [(Unspec,Unspec,H,E,Unspec)]
 --(person,school)
 education	= [ (B,H), (T,U), (E,U) ]
 --(person,subject)
