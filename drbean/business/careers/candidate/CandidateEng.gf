@@ -111,9 +111,10 @@ lin
 	get_to = mkVP get_V;
 	get = mkV2 get_V;
 	get_V2V  = mkV2V get_V noPrep to_Prep;
+	go_on	= mkV2V go_V on_Prep to_Prep;
 	have	= mkV2 have_V;
-	help	= mkV2 help_V;
-	help_do	= mkV2V help_V noPrep noPrep;
+	help_V2	= mkV2 help_V;
+	help	= mkV2V help_V noPrep noPrep;
 	improve	= mkV2 "improve";
 	increase	= mkV2 "increase";
 	lead	= mkV2 "lead";

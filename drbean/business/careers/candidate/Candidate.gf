@@ -23,9 +23,10 @@ fun
 	get_to	: Motion;
 	get	: V2;
 	get_V2V	: V2V;
+	go_on	: V2V;
 	have	: V2;
-	help	: V2;
-	help_do	: V2V;
+	help_V2	: V2;
+	help	: V2V;
 	improve	: V2;
 	increase	: V2;
 	lead	: V2;
