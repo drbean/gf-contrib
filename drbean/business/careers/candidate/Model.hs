@@ -108,7 +108,7 @@ onePlacers = [
 	, ("fast",	 pred1 [B,E] )
 	, ("good",	 pred1 [T,E] )
 
-	, ("male",	 pred1 [T] )
+	, ("male",	 pred1 [T,D] )
 	, ("female",	 pred1 [B,E] )
 	]
 
