@@ -430,6 +430,11 @@ transVP (GIntens v0 vp) = case vp of
 		( \theme -> Rel ((lin v0) ++"_to_"++
 				(lin v)) [subj,theme] ))
 	GIntens v1 vp1 -> case vp1 of
+		GWithStyle vp2 _ -> case vp2 of
+			GChanging v2 obj ->
+				\subj -> transNP obj
+				(\theme -> Rel ((lin v0) ++ "_to_" ++
+				(lin v1) ++ "_to_" ++ (lin v2)) [subj,theme])
 		GWithCl vp2 _ -> case vp2 of
 			GChanging v2 obj ->
 				\subj -> transNP obj
@@ -439,6 +444,12 @@ transVP (GIntens v0 vp) = case vp of
 			\subj -> transNP obj
 			(\theme -> Rel ((lin v0) ++ "_to_" ++
 			(lin v1) ++ "_to_" ++ (lin v2)) [subj,theme])
+	GCausative v1 obj vp2 -> case vp2 of
+		GChanging v2 obj2 ->
+			\subj -> transNP obj
+			(\agent -> transNP obj2
+			(\theme -> Rel ((lin v0) ++ "_to_" ++
+			(lin v1) ++ "_to_" ++ (lin v2)) [subj,agent,theme]))
 	GWithPlace v (GLocating prep place) ->
 		\subj -> transPlace place
 		(\name -> Rel  ((lin v0) ++ "_to_" ++ (lin v) ++ "_" ++ (lin prep)) [subj,name])
@@ -461,6 +472,11 @@ transVP (GIntens v0 vp) = case vp of
 		(GToPlace vp (GLocating prep place)) ->
 			\subj -> transPlace place
 			(\name -> Rel ((lin v0) ++ "_to_" ++ (lin vp)) [subj,name])
+		GIntens v1 vp3 -> case vp3 of
+			GChanging v2 obj ->
+				\subj -> transNP obj
+				(\theme -> Rel ((lin v0) ++ "_to_" ++
+				(lin v1) ++ (lin v2)) [subj,theme])
 	GTriangulating v obj1 obj2 ->
 		\ agent   -> transNP obj1
 		(\ theme   -> transNP obj2
