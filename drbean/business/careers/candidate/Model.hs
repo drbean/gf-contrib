@@ -145,8 +145,24 @@ pred2 xs	= curry ( `elem` xs )
 pred3 xs	= curry3 ( `elem` xs )
 pred4 xs	= curry4 ( `elem` xs )
 
-possessions	= [(B,A),(B,J),(T,J),(E,J),(B,X),(T,X),(E,X),(T,G)]
-appreciation	= [ (E,Unspec,J) ]
+possessions	= [(B,A),(T,A),(E,A),(D,A),(B,J),(T,J),(E,J),(B,X),(T,X),(E,X),(T,G)]
+type Judger = Entity
+type Judged = Entity
+type Content  = String
+
+appreciation :: [(Judger, Content, [(Case,Entity)], Judged)]
+appreciation	= [
+	(L, "has", [(Agent,T),(Theme,G)],T)
+	--, (E, "likes", [(Agent,E),(Theme,O)], O)
+	]
+
+resentments :: [(Judger, Content, [(Case,Entity)], Judged)]
+resentments = [
+  (L,	"difficult_to_work_with", [(Theme,B)],B )
+  , (D,	"motivate", [(Agent,D),(Theme,L)], L )
+  , (D, "poor", [(Theme, L)], L)
+  , (D, "bad job", [(Agent, L)], L)
+	]
 qualities	= [ (B,A),(T,G),(B,X),(T,X),(E,X) ]
 conflict	= []
 supervision	= [(D,L)]
@@ -159,9 +175,6 @@ subordinate	= pred1 $ map snd supervision
 employee	= subordinate
 manager = boss
 
-disappointments = []
-disappoint	= pred2 $ disappointments
-resent	= pred2 $ map swap disappointments
 have	= pred2 $ possessions
 		++ ( map (\x->(recipient x, theme x) ) giving )
 
@@ -194,6 +207,8 @@ threePlacers = [
                     (student,subject,school) ) schooling )
     ]
 
+data Case = Agent | Theme | Recipient | Feature | Location
+  deriving Eq
 
 agent, theme, recipient, location, instrument ::
 	(Entity,Entity,Entity) -> Entity
