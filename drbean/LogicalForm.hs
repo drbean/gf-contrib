@@ -356,7 +356,6 @@ transVP :: GVP -> Term -> LF
 transVP (GWithCl vp _) = transVP vp
 transVP (GWithStyle vp _) = transVP vp
 transVP (GWithTime vp _) = transVP vp
-transVP (GWithPlace vp _) = transVP vp
 ----transVP (Branch (Cat "_" "VP" [Part] _) [Leaf (Cat part "V" _ _), obj] ) =
 ----	\x -> Exists( \agent -> transPP obj (\cond -> Rel part [agent, x, cond] ) )
 --transVP (Branch vp@(Cat _ "VP" _ _)
