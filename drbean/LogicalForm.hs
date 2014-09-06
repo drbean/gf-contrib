@@ -493,6 +493,13 @@ transVP (GIntens v0 vp) = case vp of
 			(\agent -> transNP obj2
 			(\theme -> Rel ((lin v0) ++ "_to_" ++
 			(lin v1) ++ "_to_" ++ (lin v2)) [subj,agent,theme]))
+		GIntens v2 vp3 -> case vp3 of
+			GChanging v3 obj3 ->
+				\subj -> transNP obj
+				(\agent -> transNP obj3
+				(\theme -> Rel ((lin v0) ++ "_to_" ++
+				(lin v1) ++ "_" ++ (lin v2) ++ "_to_" ++
+				(lin v3)) [subj,agent,theme]))
 	GWithPlace v (GLocating prep place) ->
 		\subj -> transPlace place
 		(\name -> Rel  ((lin v0) ++ "_to_" ++ (lin v) ++ "_" ++ (lin prep)) [subj,name])
