@@ -334,8 +334,6 @@ transPlace (GLocation _ (GPlaceKind _ name)) | rel <- lin name =
 	\p -> Exists ( \v -> Conj [ p v, Rel rel [v] ] )
 transPlace (GLocation _ name) | rel <- lin name =
 	\p -> Exists ( \v -> Conj [ p v, Rel rel [v] ] )
-transPlace place	| rel <- lin place =
-	\p -> Exists ( \v -> Conj [ p v, Rel rel [v] ] )
 
 --transPP :: ParseTree Cat Cat -> (Term -> LF) -> LF
 --transPP (Leaf   (Cat "#" "PP" _ _)) = \ p -> p (Var 0)
