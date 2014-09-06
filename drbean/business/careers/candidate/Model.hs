@@ -178,7 +178,7 @@ qualities	= [ (B,A),(T,G),(B,X),(T,X),(E,X) ]
 
 goal :: [ (Content, [(Case, Entity)]) ]
 goal = [
-	("get_to", [(Agent,B),(Location,Q)])
+	("get_to", [(Agent,B),(Theme,Q)])
 	, ("become", [(Agent,B),(Theme,C)])
 	]
 conflict	= []
