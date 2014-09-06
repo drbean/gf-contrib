@@ -164,6 +164,12 @@ resentments = [
   , (D, "bad job", [(Agent, L)], L)
 	]
 qualities	= [ (B,A),(T,G),(B,X),(T,X),(E,X) ]
+
+goal :: [ (Content, [Case, Entity]) ]
+goal = [
+	("get_to", [(Agent,B),(Location,Q)])
+	, ("become", [(Agent,B),(Theme,C)])
+	]
 conflict	= []
 supervision	= [(D,L)]
 isBoss	= pred1 $ map fst supervision
