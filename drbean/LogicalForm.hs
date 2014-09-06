@@ -417,12 +417,23 @@ transVP (GTriangulating v obj1 obj2) =
 --     (\ recipient -> Rel name [agent,location,theme,recipient])))
 --
 transVP (GIntens v0 vp) = case vp of
+	GWithCl v _ -> transVP (GIntens v0 v)
 	GHappening v ->
 		\subj -> Rel ((lin v0) ++"_to_"++ (lin v)) [subj]
 	GChanging v obj ->
 		(\subj -> transNP obj
 		( \theme -> Rel ((lin v0) ++"_to_"++
 				(lin v)) [subj,theme] ))
+	GIntens v1 vp1 -> case vp1 of
+		GWithCl vp2 _ -> case vp2 of
+			GChanging v2 obj ->
+				\subj -> transNP obj
+				(\theme -> Rel ((lin v0) ++ "_to_" ++
+				(lin v1) ++ "_to_" ++ (lin v2)) [subj,theme])
+		GChanging v2 obj ->
+			\subj -> transNP obj
+			(\theme -> Rel ((lin v0) ++ "_to_" ++
+			(lin v1) ++ "_to_" ++ (lin v2)) [subj,theme])
 	GWithPlace v (GLocating prep place) ->
 		\subj -> transPlace place
 		(\name -> Rel  ((lin v0) ++ "_to_" ++ (lin v) ++ "_" ++ (lin prep)) [subj,name])
