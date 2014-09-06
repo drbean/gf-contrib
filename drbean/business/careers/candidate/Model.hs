@@ -48,9 +48,15 @@ ent_ided name = head [entity | (entity,string) <- entity_check ,
 				]
 
 characters :: [(String,Entity)]
-characters = [(string,entity) | (entity,string) <- entity_check,
-				string /= ""
-				]
+characters = map findEnt [B,D,E,F,T]
+	where findEnt e
+		| Just name <- lookup e entity_check
+			= (name,e)
+		| otherwise = error ("No " ++ (show e))
+
+stringEntity :: [(String,Entity)]
+stringEntity = map swap entity_check
+
 namelist :: [String]
 namelist = [string | (entity,string) <- entity_check, string /= "" ]
 
@@ -150,11 +156,16 @@ type Judger = Entity
 type Judged = Entity
 type Content  = String
 
-appreciation :: [(Judger, Content, [(Case,Entity)], Judged)]
-appreciation	= [
+appreciations :: [(Judger, Content, [(Case,Entity)], Judged)]
+appreciations	= [
 	(L, "has", [(Agent,T),(Theme,G)],T)
 	--, (E, "likes", [(Agent,E),(Theme,O)], O)
 	]
+appreciation = [ (a,t,r) | (_,_,cs,_) <- appreciations
+		, Just a <- [lookup Agent cs]
+		, Just t <- [lookup Theme cs]
+		, Just r <- [lookup Recipient cs]
+		]
 
 resentments :: [(Judger, Content, [(Case,Entity)], Judged)]
 resentments = [
@@ -165,7 +176,7 @@ resentments = [
 	]
 qualities	= [ (B,A),(T,G),(B,X),(T,X),(E,X) ]
 
-goal :: [ (Content, [Case, Entity]) ]
+goal :: [ (Content, [(Case, Entity)]) ]
 goal = [
 	("get_to", [(Agent,B),(Location,Q)])
 	, ("become", [(Agent,B),(Theme,C)])
