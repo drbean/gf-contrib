@@ -439,6 +439,16 @@ transVP (GIntens v0 vp) = case vp of
 				\subj -> transNP obj
 				(\theme -> Rel ((lin v0) ++ "_to_" ++
 				(lin v1) ++ "_to_" ++ (lin v2)) [subj,theme])
+			GCausative v2 obj vp2 -> case vp2 of
+				GCausative v3 obj1 vp3 -> case vp3 of
+					GChanging v4 obj2 ->
+						\subj -> transNP obj
+						(\agent -> transNP obj1
+						(\recipient -> transNP obj2
+						(\theme -> Rel ((lin v0) ++ "_to_" ++
+						(lin v1) ++ "_" ++ (lin v2) ++ "_" ++
+						(lin v3) ++ "_" ++ (lin v4))
+						[subj,agent,recipient,theme])))
 		GWithCl vp2 _ -> case vp2 of
 			GChanging v2 obj ->
 				\subj -> transNP obj
@@ -448,6 +458,35 @@ transVP (GIntens v0 vp) = case vp of
 			\subj -> transNP obj
 			(\theme -> Rel ((lin v0) ++ "_to_" ++
 			(lin v1) ++ "_to_" ++ (lin v2)) [subj,theme])
+		GCausative v2 obj vp2 -> case vp2 of
+			GWithStyle vp3 _ -> case vp3 of
+				GCausative v3 obj1 vp3 -> case vp3 of
+					GChanging v4 obj2 ->
+						\subj -> transNP obj
+						(\agent -> transNP obj1
+						(\recipient -> transNP obj2
+						(\theme -> Rel ((lin v0) ++ "_to_" ++
+						(lin v1) ++ "_" ++ (lin v2) ++ "_" ++
+						(lin v3) ++ "_" ++ (lin v4))
+						[subj,agent,recipient,theme])))
+			GCausative v3 obj1 vp3 -> case vp3 of
+				GWithStyle vp4 _ -> case vp4 of
+					GChanging v4 obj2 ->
+						\subj -> transNP obj
+						(\agent -> transNP obj1
+						(\recipient -> transNP obj2
+						(\theme -> Rel ((lin v0) ++ "_to_" ++
+						(lin v1) ++ "_" ++ (lin v2) ++ "_" ++
+						(lin v3) ++ "_" ++ (lin v4))
+						[subj,agent,recipient,theme])))
+				GChanging v4 obj2 ->
+					\subj -> transNP obj
+					(\agent -> transNP obj1
+					(\recipient -> transNP obj2
+					(\theme -> Rel ((lin v0) ++ "_to_" ++
+					(lin v1) ++ "_" ++ (lin v2) ++ "_" ++
+					(lin v3) ++ "_" ++ (lin v4))
+					[subj,agent,recipient,theme])))
 	GCausative v1 obj vp2 -> case vp2 of
 		GChanging v2 obj2 ->
 			\subj -> transNP obj
@@ -481,6 +520,16 @@ transVP (GIntens v0 vp) = case vp of
 				\subj -> transNP obj
 				(\theme -> Rel ((lin v0) ++ "_to_" ++
 				(lin v1) ++ (lin v2)) [subj,theme])
+			GCausative v2 obj vp2 -> case vp2 of
+				GCausative v3 obj1 vp3 -> case vp3 of
+					GChanging v4 obj2 ->
+						\subj -> transNP obj
+						(\agent -> transNP obj1
+						(\recipient -> transNP obj2
+						(\theme -> Rel ((lin v0) ++ "_to_" ++
+						(lin v1) ++ "_" ++ (lin v2) ++ "_" ++
+						(lin v3) ++ "_" ++ (lin v4))
+						[subj,agent,recipient,theme])))
 	GTriangulating v obj1 obj2 ->
 		\ agent   -> transNP obj1
 		(\ theme   -> transNP obj2
