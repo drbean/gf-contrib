@@ -208,7 +208,7 @@ origin	= theme
 destination = recipient
 
 --(worker,job,site)
-working	= [(B,Unspec,F),(T,Unspec,F),(E,Unspec,F)]
+working	= [(B,L,F),(T,L,F),(E,L,F),(D,L,F)]
 comms	= [ (I,Unspec,D),(F,Unspec,D),(F,Unspec,A),(A,Unspec,D),(A,Unspec,I) ]
 giving	= [ (I,J,D) ]
 --(agent,theme,location)
@@ -229,7 +229,7 @@ talk_about = pred3 $ map (\x->(agent x, recipient x, theme x) ) comms
 go_to	= pred2 $ map (\x->(recipient5 x,location5 x) ) schooling
 
 -- (teacher,school(location),subject,student,degree)
-schooling = [(Unspec,S,M,B,P),(Unspec,U,N,T,D),(Unspec,U,S,E,D)]
+schooling = [Unspec,Unspec,H,E,]
 --(person,school)
 education	= [ (B,H), (T,U), (E,U) ]
 --(person,subject)
