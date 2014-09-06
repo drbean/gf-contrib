@@ -65,10 +65,6 @@ predid2 :: String -> Maybe TwoPlacePred
 predid3 :: String -> Maybe ThreePlacePred
 predid4 :: String -> Maybe FourPlacePred
 
-predid2 name
-       | Just pred <- lookup name twoPlacers = Just pred
-        -- | otherwise    = Nothing
-        | otherwise    = error $ "no '" ++ name ++ "' two-place predicate."
 predid3 name
        | Just pred <- lookup name threePlacers = Just pred
         -- | otherwise    = Nothing
@@ -212,6 +208,11 @@ twoPlacers = [
     , ("studied", pred2 $ foldl (\hs (_,school,subject,student,_) ->
                     (student,subject): (student,school) : hs) [] schooling )
     ]
+
+predid2 name
+       | Just pred <- lookup name twoPlacers = Just pred
+        -- | otherwise    = Nothing
+        | otherwise    = error $ "no '" ++ name ++ "' two-place predicate."
 
 curry3 :: ((a,b,c) -> d) -> a -> b -> c -> d
 curry3 f x y z	= f (x,y,z)
