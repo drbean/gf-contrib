@@ -269,6 +269,7 @@ transMassDet :: GMassDet -> (Term -> LF) -> (Term -> LF) -> LF
 transMassDet Gthe_mass_Det = \ p q -> Exists (\v -> Conj [Single p, p v, q v] )
 transMassDet Gzero_Det_sg = \ p q -> Exists (\v -> Conj [p v, q v] )
 transMassDet Ga_lot_of_sg = \ p q -> Exists (\v -> Conj [p v, q v] )
+transMassDet Gany_sg = \ p q -> Exists (\v -> Conj [p v, q v] )
 
 transN :: GN -> Term -> LF
 transN name	= \x -> Rel (lin name) [x]
