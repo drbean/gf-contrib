@@ -287,6 +287,10 @@ transCN (GModified cn rel) = case (rel) of
 	(GSubjRel wh vp) -> \ x -> Conj [transCN cn x, transVP vp x]
 	(GObjRel wh (GVPClSlash np (GV2Slash v))) ->
 		\x -> Conj [transCN cn x, transNP np (\agent -> Rel (lin v) [agent,x])]
+transCN (GModInf cn vp) =
+	\x -> Conj [transCN cn x, transVP vp x] 
+transCN (GMassModInf n vp) =
+	\x -> Conj [transN n x, transVP vp x]
 transCN name          = \ x -> Rel (lin name) [x]
 --	case (np,vp) of
 --	    (_, (Branch (Cat _ "VP" _ _) vp)) -> case (vp) of
@@ -504,6 +508,7 @@ transVP (GIntens v0 vp) = case vp of
 --		    ( \recipient -> Rel (att++"_to_"++act) [subj,subj,theme,recipient] )))
 transVP (GCausative v0 obj0 vp) = case vp of
 	GWithPlace v _ -> transVP (GCausative v0 obj0 v)
+	GWithStyle v _ -> transVP (GCausative v0 obj0 v)
 	GHappening v ->
 		\subj -> transNP obj0
 			(\agent -> Rel ((lin v0) ++ "_to_" ++
