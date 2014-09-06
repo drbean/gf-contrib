@@ -140,6 +140,7 @@ yn_dic_test = [
   , "Does Eva like telling people to do things?"
   , "Does Eva say that Eva is a fast learner?"
   , "Would Eva enjoy doing a training course to help Eva do the job better?"
+  , "Would Eva enjoy going on a training course to help Eva do the job better?"
   , "Does Dr Bean try very hard to motivate the sales team?"
   , "Does Dr Bean try hard to motivate the sales team?"
   , "Does Dr Bean try to motivate the sales team?"
