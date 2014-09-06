@@ -221,6 +221,7 @@ transS _ = Nothing
 --
 transNP :: GNP -> (Term -> LF) -> LF
 transNP (GItem det cn) = (transDet det) (transCN cn)
+transNP (GMassItem det n) = (transMassDet det) (transN n)
 transNP (GEntity name)
 --	| name `elem` interrolist = \ p -> NonProposition
 	| entity <- (gent2ent name) , entity `elem` entities =
@@ -267,9 +268,13 @@ transDet Gno_pl_Det = transDet Gno_Det
 transMassDet :: GMassDet -> (Term -> LF) -> (Term -> LF) -> LF
 transMassDet Gthe_mass_Det = \ p q -> Exists (\v -> Conj [Single p, p v, q v] )
 transMassDet Gzero_Det_sg = \ p q -> Exists (\v -> Conj [p v, q v] )
+transMassDet Ga_lot_of_sg = \ p q -> Exists (\v -> Conj [p v, q v] )
 
+transN :: GN -> Term -> LF
+transN name	= \x -> Rel (lin name) [x]
 transN2 :: GN2 -> Term -> LF
 transN2 name	= \x -> Rel (lin name) [x]
+
 transCN :: GCN -> Term -> LF
 transCN (GKind ap cn) = \x -> Conj [ transCN cn x, Rel (lin ap) [x] ]
 transCN (GKindInPlace cn (GLocating prep place)) =
@@ -540,6 +545,7 @@ transVP (GCausative v0 obj0 vp) = case vp of
 transVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 	(GWithPlace v loc) -> (\x -> Rel "true" [x] )
 	(GWithCl v _) -> transVP (GPositing v0 (GPosS (GSentence np v)))
+	(GWithStyle v _) -> transVP (GPositing v0 (GPosS (GSentence np v)))
 	(GWithTime v _) -> transVP (GPositing v0 (GPosS (GSentence np v)))
 	(GHappening v) -> (\positer -> transNP np
 		(\referent -> Rel ((lin v0) ++ ":is_" ++ (lin v)) [positer, referent]))
