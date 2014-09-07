@@ -106,7 +106,7 @@ onePlaceStarters = [
 	, ("head",	 pred1 [] )
 
 	, ("fast",	 pred1 [B,E] )
-	, ("good",	 pred1 [T,E,J] )
+	, ("good",	 pred1 [T,E,J,R] )
 	, ("many",	 pred1 [I] )
 
 	, ("male",	 pred1 [T,D] )
@@ -208,6 +208,7 @@ idea = [
 	, ("experience", [(Agent,E),(Theme,X) ] )
 	, ("safe", [(Agent,T),(Theme,I) ] )
 	, ("help", [(Agent,E),(Theme,L),(Recipient,E) ] )
+	, ("result", [(Agent,E),(Theme,R),(Recipient,F),(Instrument,L)])
 	]
 
 attitude :: [ (Content, [(Case, Entity)]) ]
@@ -317,6 +318,7 @@ threePlacers = (genthreePlacer goal "think:can_to_become" "become" Agent Agent T
 	(genthreePlacer idea "feel:have" "able" Agent Agent Instrument) :
 	(genthreePlacer idea "say:is_" "safe" Agent Agent Theme) :
 	(genthreePlacer idea "think:should_to_help_V2" "help" Agent Theme Recipient) :
+	(genthreePlacer idea "think:can_to_get" "result" Agent Recipient Theme) :
 	threePlaceStarters
 
 data Case = Agent | Theme | Recipient | Feature | Location | Instrument
