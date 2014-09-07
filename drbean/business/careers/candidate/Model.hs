@@ -209,6 +209,7 @@ idea = [
 	, ("safe", [(Agent,T),(Theme,I) ] )
 	, ("help", [(Agent,E),(Theme,L),(Recipient,E) ] )
 	, ("result", [(Agent,E),(Theme,R),(Recipient,F),(Instrument,L)])
+	, ("lead", [(Agent,E),(Theme,L) ] )
 	]
 
 attitude :: [ (Content, [(Case, Entity)]) ]
@@ -319,6 +320,7 @@ threePlacers = (genthreePlacer goal "think:can_to_become" "become" Agent Agent T
 	(genthreePlacer idea "say:is_" "safe" Agent Agent Theme) :
 	(genthreePlacer idea "think:should_to_help_V2" "help" Agent Theme Recipient) :
 	(genthreePlacer idea "think:can_to_get" "result" Agent Recipient Theme) :
+	(genthreePlacer idea "think:can_to_lead" "lead" Agent Agent Theme) :
 	threePlaceStarters
 
 data Case = Agent | Theme | Recipient | Feature | Location | Instrument
