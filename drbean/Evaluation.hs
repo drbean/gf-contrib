@@ -45,7 +45,7 @@ term2ent _ = R
 
 eval :: LF -> Maybe Answer
 eval NonProposition = Nothing
-eval (Rel r as)	= int r $ reverse (map term2ent as)
+eval (Rel r as)	= int r (map term2ent as)
 eval (Eq a b)	= Just (Boolean (a == b))
 eval (Neg lf)	= eval lf >>= notLF
 eval (Impl f1 f2)	= liftM2 implLF (eval f1) (eval f2)
