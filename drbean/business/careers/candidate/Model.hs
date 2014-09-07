@@ -14,31 +14,31 @@ entities	=  [minBound..maxBound]
 
 entity_check :: [ (Entity, String) ]
 entity_check =  [
-    (A, "" )	-- aim
+    (A, "aim" )
     , (B, "Barbara" )
-    , (C, "" )	-- director
+    , (C, "director" )
     , (D, "Dr Bean" )
     , (E, "Eva" )
     , (F, "Fast-Track" )
-    , (G, "" )	-- judgement
-    , (H, "" )	-- training course
-    , (I, "" )	-- risks
-    , (J, "" )	-- job
-    , (K, "" )	-- competitive market
-    , (L, "" )	-- sales team
-    , (M, "" )	-- material
-    , (N, "" )	-- main thing
-    , (O, "" )	-- administration
-    , (P, "" )	-- Polish
-    , (Q, "" )	-- top
-    , (R, "" )	-- results
-    , (S, "" )	-- market share
+    , (G, "judgement" )
+    , (H, "training_course" )
+    , (I, "risks" )
+    , (J, "job" )
+    , (K, "competitive_market" )
+    , (L, "sales_team" )
+    , (M, "material" )
+    , (N, "main" )
+    , (O, "administration" )
+    , (P, "Polish" )
+    , (Q, "top" )
+    , (R, "results" )
+    , (S, "market_share" )
     , (T, "Tadeusz" )
-    , (U, "" )	-- biz club
+    , (U, "biz_club" )
     , (V, "" )
-    , (W, "" )	-- ability
-    , (X, "" )	-- experience
-    , (Y, "" )	-- interview
+    , (W, "ability" )
+    , (X, "experience" )
+    , (Y, "interview" )
     , (Z, "" )
     ]
 
@@ -78,17 +78,15 @@ predid5 name
         -- | otherwise    = Nothing
         | otherwise    = error $ "no '" ++ name ++ "' five-place predicate."
 
-onePlacers :: [(String, OnePlacePred)]
-onePlacers = [
+onePlacers, onePlaceStarters, genonePlacers :: [(String, OnePlacePred)]
+onePlaceStarters = [
         ("true",        pred1 entities )
         , ("false",     pred1 [] )
         , ("role",      pred1 [] )
 
-	, ("aim",	 pred1 [A] )
 	, ("company",	 pred1 [F] )
 	, ("director",	 pred1 [] )
 	, ("department",	 pred1 [F] )
-	, ("job",	 pred1 [J] )
 	, ("work",	 pred1 $ [J] ++ map agent working )
 	, ("worker",	 pred1 $ map agent working )
 	, ("learner",	 pred1 $ map recipient5 schooling )
@@ -103,8 +101,6 @@ onePlacers = [
 	, ("successful",	 pred1 [B,T,E] )
 
 	, ("realistic",	 pred1 [T,E] )
-	, ("judgement",	 pred1 [G] )
-	, ("experience",	 pred1 [X] )
 	, ("head",	 pred1 [] )
 
 	, ("fast",	 pred1 [B,E] )
@@ -114,6 +110,8 @@ onePlacers = [
 	, ("female",	 pred1 [B,E] )
 	]
 
+onePlacers = genonePlacers ++ onePlaceStarters
+
 predid1 "woman"  = predid1 "female"
 predid1 "man"  = predid1 "male"
 
@@ -121,6 +119,8 @@ predid1 name
        | Just pred <- lookup name onePlacers = Just pred
         -- | otherwise    = Nothing
        | otherwise    = error $ "no '" ++ name ++ "' one-place predicate."
+
+genonePlacers = map (\x -> (snd x, pred1 [fst x])) entity_check
 
 type OnePlacePred	= Entity -> Bool
 type TwoPlacePred	= Entity -> Entity -> Bool
@@ -177,6 +177,17 @@ goal = [
 	("get_to", [(Agent,B),(Theme,Q)])
 	, ("become", [(Agent,B),(Theme,C)])
 	]
+
+gentwoPlacers :: [ (Content, [(Case,Entity)]) ] ->
+	String -> String -> Case -> Case ->
+	(String, TwoPlacePred)
+gentwoPlacers area id content role1 role2 =
+	( id, pred2 [ (r1,r2) | (co,cs) <- area
+		, co == content
+		, Just r1 <-[lookup role1 cs]
+		, Just r2 <- [lookup role2 cs]
+		] )
+
 conflict	= []
 supervision	= [(D,L)]
 isBoss	= pred1 $ map fst supervision
@@ -195,8 +206,8 @@ knowledge	= [(B,F),(T,F),(E,F)]
 acquaintances	= []
 help	= pred2 $ supervision
 
-twoPlacers :: [(String, TwoPlacePred)]
-twoPlacers = [
+twoPlacers, twoPlaceStarters :: [(String, TwoPlacePred)]
+twoPlaceStarters = [
     ("know",    pred2 $ knowledge ++ acquaintances ++ map swap acquaintances)
     , ("have",  pred2 $ possessions ++ qualities ++
 					map (\(_,l,_,r,_) ->(r,l) ) schooling)
@@ -208,6 +219,10 @@ twoPlacers = [
     , ("studied", pred2 $ foldl (\hs (_,school,subject,student,_) ->
                     (student,subject): (student,school) : hs) [] schooling )
     ]
+
+twoPlacers = (gentwoPlacers goal "want_to_get_to" "get_to" Agent Theme) :
+	(gentwoPlacers goal "think:can_to_become" "become" Agent Theme) :
+	twoPlaceStarters
 
 predid2 name
        | Just pred <- lookup name twoPlacers = Just pred
