@@ -37,7 +37,7 @@ entity_check =  [
     , (U, "biz_club" )
     , (V, "" )
     , (W, "ability" )
-    , (X, "experience" )
+    , (X, "sales_experience" )
     , (Y, "interview" )
     , (Z, "" )
     ]
@@ -102,10 +102,12 @@ onePlaceStarters = [
 	, ("successful",	 pred1 [B,T,E] )
 
 	, ("realistic",	 pred1 [T,E] )
+	, ("safe_pair_of_hands", pred1 [T])
 	, ("head",	 pred1 [] )
 
 	, ("fast",	 pred1 [B,E] )
 	, ("good",	 pred1 [T,E,J] )
+	, ("many",	 pred1 [I] )
 
 	, ("male",	 pred1 [T,D] )
 	, ("female",	 pred1 [B,E] )
@@ -177,11 +179,13 @@ qualities	= [ (B,A),(T,G),(B,X),(T,X),(E,X) ]
 
 goal :: [ (Content, [(Case, Entity)]) ]
 goal = [
-	("get_to", [(Agent,B),(Theme,Q)])
-	, ("become", [(Agent,B),(Theme,C)])
-	, ("promote", [(Agent,F),(Recipient,B),(Theme,J)])
-	, ("promote", [(Agent,F),(Recipient,T),(Theme,J)])
-	, ("promote", [(Agent,F),(Recipient,E),(Theme,J)])
+	("get_to",	[(Agent,B),(Theme,Q)])
+	, ("become",	[(Agent,B),(Theme,C)])
+	, ("promote",	[(Agent,F),(Recipient,B),(Theme,J)])
+	, ("promote",	[(Agent,F),(Recipient,T),(Theme,J)])
+	, ("promote",	[(Agent,F),(Recipient,E),(Theme,J)])
+	, ("improve",	[(Agent,E),(Recipient,L),(Theme,W) ] )
+	, ("enjoy",	[(Agent,E),(Recipient,L),(Theme,J) ] )
 	]
 
 act :: [ (Content, [(Case, Entity)]) ]
@@ -194,6 +198,19 @@ idea = [
 	("achieve", [(Agent,B),(Theme,R),(Feature,N)])
 	, ("benefit", [(Agent,T),(Theme,J),(Recipient,F)])
 	, ("situate", [(Agent,T),(Theme,F),(Location,K)])
+	, ("avoid", [(Agent,T),(Theme,I),(Location,F)])
+	, ("increase", [(Agent,T),(Theme,S),(Location,F)])
+	, ("patient", [(Agent,T),(Theme,F)])
+	, ("realistic", [(Agent,T),(Theme,F)])
+	, ("able", [(Agent,T),(Theme,J),(Instrument,W)])
+	, ("experience", [(Agent,T),(Theme,X) ] )
+	, ("experience", [(Agent,E),(Theme,X) ] )
+	, ("safe", [(Agent,T),(Theme,I) ] )
+	]
+
+attitude :: [ (Content, [(Case, Entity)]) ]
+attitude = [
+	("respect", [(Agent,L),(Theme,G),(Recipient,T) ] )
 	]
 gentwoPlacer :: [ (Content, [(Case,Entity)]) ] ->
 	String -> String -> Case -> Case ->
@@ -240,6 +257,12 @@ twoPlaceStarters = [
 twoPlacers = (gentwoPlacer goal "want_to_get_to" "get_to" Agent Theme) :
 	(gentwoPlacer goal "apply" "promote" Recipient Theme) :
 	(gentwoPlacer act "get" "achieve" Agent Theme) :
+	(gentwoPlacer idea "think:should_be_patient" "patient" Agent Theme) :
+	(gentwoPlacer idea "think:should_be_realistic" "realistic" Agent Theme) :
+	(gentwoPlacer idea "do" "job" Instrument Theme) :
+	(gentwoPlacer attitude "respect" "respect" Agent Recipient) :
+	(gentwoPlacer goal "want_to_start_to_improve" "improve" Agent Recipient) :
+	(gentwoPlacer goal "want_sb_to_enjoy_ing_to_work" "enjoy" Agent Recipient) :
 	twoPlaceStarters
 
 predid2 name
@@ -273,9 +296,13 @@ threePlacers = (genthreePlacer goal "think:can_to_become" "become" Agent Agent T
 	(genthreePlacer idea "think:is_" "achieve" Agent Theme Feature) :
 	(genthreePlacer idea "want_to_do_for" "benefit" Agent Theme Recipient) :
 	(genthreePlacer idea "think:is_in_prep" "situate" Agent Theme Location) :
+	(genthreePlacer idea "think:should_not_to_take" "avoid" Agent Location Theme) :
+	(genthreePlacer idea "think:can_to_increase" "increase" Agent Location Theme) :
+	(genthreePlacer idea "feel:have" "able" Agent Agent Instrument) :
+	(genthreePlacer idea "say:is_" "safe" Agent Agent Theme) :
 	threePlaceStarters
 
-data Case = Agent | Theme | Recipient | Feature | Location
+data Case = Agent | Theme | Recipient | Feature | Location | Instrument
   deriving Eq
 
 agent, theme, recipient, location, instrument ::
