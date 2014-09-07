@@ -277,7 +277,7 @@ transN2 :: GN2 -> Term -> LF
 transN2 name	= \x -> Rel (lin name) [x]
 
 transCN :: GCN -> Term -> LF
-transCN (GKind ap cn) = \x -> Conj [ transCN cn x, Rel (lin ap) [x] ]
+transCN (GKind ap cn) = \x -> Conj [ transCN cn x, transAP ap x ]
 transCN (GKindInPlace cn (GLocating prep place)) =
 	\x -> Conj [transCN cn x, transPlace place 
 	(\p -> Rel (lin prep) [x,p])]
@@ -328,6 +328,11 @@ transCN name          = \ x -> Rel (lin name) [x]
 --  \ x -> (transS (Just s))
 --transREL (Branch (Cat _ "MOD" _ _ ) [s])     =
 --  \ x -> (transS (Just s))
+
+transAP ::GAP -> Term -> LF
+transAP (GToo a) = \x -> Rel (lin a) [x]
+transAP (GVery a) = \x -> Rel (lin a) [x]
+transAP ap = \x -> Rel (lin ap) [x]
 
 transPlace :: GPlace -> (Term -> LF) -> LF
 transPlace (GLocation _ (GPlaceKind _ name)) | rel <- lin name =
@@ -402,8 +407,7 @@ transVP (GWithTime vp _) = transVP vp
 --
 transVP (GBe_vp comp) = case comp of
     GBe_someone np -> \x -> transNP np (\pred -> Eq pred x)
-    GBe_bad (GVery ap) -> \x -> Rel (lin ap) [x]
-    GBe_bad ap -> \x -> Rel (lin ap) [x]
+    GBe_bad ap -> transAP ap
 transVP (GHappening v) =
         \ t -> ( Rel (lin v) [t] )
 transVP (GChanging v obj) = \subj -> transNP obj (\ e -> Rel (lin v) [subj,e])
