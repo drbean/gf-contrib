@@ -359,6 +359,7 @@ transClSlash cl = case cl of
 
 transVP :: GVP -> Term -> LF
 transVP (GWithCl vp _) = transVP vp
+transVP (GWithPlace vp _) = transVP vp
 transVP (GWithStyle vp _) = transVP vp
 transVP (GWithTime vp _) = transVP vp
 ----transVP (Branch (Cat "_" "VP" [Part] _) [Leaf (Cat part "V" _ _), obj] ) =
