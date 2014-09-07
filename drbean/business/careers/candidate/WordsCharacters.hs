@@ -42,6 +42,7 @@ a = [
 	, "fast"
 	, "good"
 	, "main"
+	, "many"
 	, "next"
 	, "outgoing"
 	, "patient"
@@ -91,7 +92,6 @@ det = [
 	, "five"
 	, "a few"
 	, "any"
-	, "many"
 	, "a lot of"
 	]
 
@@ -269,7 +269,7 @@ learner	: CN;
 like	: V;
 a lot of	: Det;
 main	: A;
-many	: Det;
+many	: A;
 market	: CN;
 market share	: CN;
 material	: NP;
