@@ -115,6 +115,7 @@ onePlaceStarters = [
 
 onePlacers = genonePlacers ++ onePlaceStarters
 
+predid1 "sales_department" = predid1 "sales_team"
 predid1 "woman"	= predid1 "female"
 predid1 "man"	= predid1 "male"
 predid1 "person"	= Just person
@@ -206,12 +207,26 @@ idea = [
 	, ("experience", [(Agent,T),(Theme,X) ] )
 	, ("experience", [(Agent,E),(Theme,X) ] )
 	, ("safe", [(Agent,T),(Theme,I) ] )
+	, ("help", [(Agent,E),(Theme,L),(Recipient,E) ] )
 	]
 
 attitude :: [ (Content, [(Case, Entity)]) ]
 attitude = [
 	("respect", [(Agent,L),(Theme,G),(Recipient,T) ] )
 	]
+
+affiliation :: [ (Content, [(Case, Entity)]) ]
+affiliation = [
+	("department", [(Agent,B),(Location,L) ] )
+	, ("department", [(Agent,T),(Location,L) ] )
+	, ("department", [(Agent,E),(Location,L) ] )
+	, ("department", [(Agent,D),(Location,L) ] )
+	, ("company", [(Agent,B),(Location,F) ] )
+	, ("company", [(Agent,T),(Location,F) ] )
+	, ("company", [(Agent,E),(Location,F) ] )
+	, ("company", [(Agent,D),(Location,F) ] )
+	]
+
 gentwoPlacer :: [ (Content, [(Case,Entity)]) ] ->
 	String -> String -> Case -> Case ->
 	(String, TwoPlacePred)
@@ -263,6 +278,7 @@ twoPlacers = (gentwoPlacer goal "want_to_get_to" "get_to" Agent Theme) :
 	(gentwoPlacer attitude "respect" "respect" Agent Recipient) :
 	(gentwoPlacer goal "want_to_start_to_improve" "improve" Agent Recipient) :
 	(gentwoPlacer goal "want_sb_to_enjoy_ing_to_work" "enjoy" Agent Recipient) :
+	(gentwoPlacer affiliation "in_prep" "department" Agent Location) :
 	twoPlaceStarters
 
 predid2 name
@@ -300,6 +316,7 @@ threePlacers = (genthreePlacer goal "think:can_to_become" "become" Agent Agent T
 	(genthreePlacer idea "think:can_to_increase" "increase" Agent Location Theme) :
 	(genthreePlacer idea "feel:have" "able" Agent Agent Instrument) :
 	(genthreePlacer idea "say:is_" "safe" Agent Agent Theme) :
+	(genthreePlacer idea "think:should_to_help_V2" "help" Agent Theme Recipient) :
 	threePlaceStarters
 
 data Case = Agent | Theme | Recipient | Feature | Location | Instrument
