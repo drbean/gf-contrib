@@ -178,10 +178,10 @@ goal = [
 	, ("become", [(Agent,B),(Theme,C)])
 	]
 
-gentwoPlacers :: [ (Content, [(Case,Entity)]) ] ->
+gentwoPlacer :: [ (Content, [(Case,Entity)]) ] ->
 	String -> String -> Case -> Case ->
 	(String, TwoPlacePred)
-gentwoPlacers area id content role1 role2 =
+gentwoPlacer area id content role1 role2 =
 	( id, pred2 [ (r1,r2) | (co,cs) <- area
 		, co == content
 		, Just r1 <-[lookup role1 cs]
@@ -206,7 +206,7 @@ knowledge	= [(B,F),(T,F),(E,F)]
 acquaintances	= []
 help	= pred2 $ supervision
 
-twoPlacers, twoPlaceStarters :: [(String, TwoPlacePred)]
+twoPlacers, twoPlaceStarters, gentwoPlacer :: [(String, TwoPlacePred)]
 twoPlaceStarters = [
     ("know",    pred2 $ knowledge ++ acquaintances ++ map swap acquaintances)
     , ("have",  pred2 $ possessions ++ qualities ++
@@ -220,8 +220,8 @@ twoPlaceStarters = [
                     (student,subject): (student,school) : hs) [] schooling )
     ]
 
-twoPlacers = (gentwoPlacers goal "want_to_get_to" "get_to" Agent Theme) :
-	(gentwoPlacers goal "think:can_to_become" "become" Agent Theme) :
+twoPlacers = (gentwoPlacer goal "want_to_get_to" "get_to" Agent Theme) :
+	(gentwoPlacer goal "think:can_to_become" "become" Agent Theme) :
 	twoPlaceStarters
 
 predid2 name
