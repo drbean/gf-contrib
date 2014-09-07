@@ -206,7 +206,7 @@ knowledge	= [(B,F),(T,F),(E,F)]
 acquaintances	= []
 help	= pred2 $ supervision
 
-twoPlacers, twoPlaceStarters, gentwoPlacer :: [(String, TwoPlacePred)]
+twoPlacers, twoPlaceStarters :: [(String, TwoPlacePred)]
 twoPlaceStarters = [
     ("know",    pred2 $ knowledge ++ acquaintances ++ map swap acquaintances)
     , ("have",  pred2 $ possessions ++ qualities ++
@@ -221,7 +221,6 @@ twoPlaceStarters = [
     ]
 
 twoPlacers = (gentwoPlacer goal "want_to_get_to" "get_to" Agent Theme) :
-	(gentwoPlacer goal "think:can_to_become" "become" Agent Theme) :
 	twoPlaceStarters
 
 predid2 name
@@ -233,12 +232,26 @@ curry3 :: ((a,b,c) -> d) -> a -> b -> c -> d
 curry3 f x y z	= f (x,y,z)
 curry4 f x y z w	= f (x,y,z,w)
 
-threePlacers = [
+genthreePlacer :: [ (Content, [(Case,Entity)]) ] ->
+	String -> String -> Case -> Case -> Case ->
+	(String, ThreePlacePred)
+genthreePlacer area id content role1 role2 role3 =
+	( id, pred3 [ (r1,r2,r3) | (co,cs) <- area
+		, co == content
+		, Just r1 <-[lookup role1 cs]
+		, Just r2 <- [lookup role2 cs]
+		, Just r3 <- [lookup role3 cs]
+		] )
+
+threePlacers, threePlaceStarters :: [(String, ThreePlacePred)]
+threePlaceStarters = [
     ("liked", pred3 appreciation )
     , ("work",        pred3 $ [(a,a,c) | (a,p,c) <- working ] )
     , ("studied_subj_at", pred3 $ map (\(_,school,subject,student,_) ->
                     (student,subject,school) ) schooling )
     ]
+threePlacers = (genthreePlacer goal "think:can_to_become" "become" Agent Agent Theme) :
+	threePlaceStarters
 
 data Case = Agent | Theme | Recipient | Feature | Location
   deriving Eq
