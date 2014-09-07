@@ -22,16 +22,16 @@ entity_check =  [
     , (F, "Fast-Track" )
     , (G, "judgement" )
     , (H, "training_course" )
-    , (I, "risks" )
+    , (I, "risk" )
     , (J, "job" )
-    , (K, "competitive_market" )
+    , (K, "market" )
     , (L, "sales_team" )
     , (M, "material" )
     , (N, "main" )
     , (O, "administration" )
     , (P, "Polish" )
     , (Q, "top" )
-    , (R, "results" )
+    , (R, "result" )
     , (S, "market_share" )
     , (T, "Tadeusz" )
     , (U, "biz_club" )
@@ -92,10 +92,11 @@ onePlaceStarters = [
 	, ("learner",	 pred1 $ map recipient5 schooling )
 
 	, ("ambitious",	 pred1 [B] )
-	, ("competitive",	 pred1 [B] )
+	, ("competitive",	 pred1 [B,K] )
 	, ("confident",	 pred1 [B] )
 	, ("outgoing",	 pred1 [B] )
 	, ("difficult",	 pred1 [B] )
+	, ("like_to_to_win",	 pred1 [B] )
 	, ("experienced",	 pred1 [B,T,E] )
 	, ("polish",	 pred1 [B,T] )
 	, ("successful",	 pred1 [B,T,E] )
@@ -104,7 +105,7 @@ onePlaceStarters = [
 	, ("head",	 pred1 [] )
 
 	, ("fast",	 pred1 [B,E] )
-	, ("good",	 pred1 [T,E] )
+	, ("good",	 pred1 [T,E,J] )
 
 	, ("male",	 pred1 [T,D] )
 	, ("female",	 pred1 [B,E] )
@@ -112,8 +113,10 @@ onePlaceStarters = [
 
 onePlacers = genonePlacers ++ onePlaceStarters
 
-predid1 "woman"  = predid1 "female"
-predid1 "man"  = predid1 "male"
+predid1 "woman"	= predid1 "female"
+predid1 "man"	= predid1 "male"
+predid1 "person"	= Just person
+predid1 "thing"	= Just thing
 
 predid1 name
        | Just pred <- lookup name onePlacers = Just pred
@@ -176,8 +179,22 @@ goal :: [ (Content, [(Case, Entity)]) ]
 goal = [
 	("get_to", [(Agent,B),(Theme,Q)])
 	, ("become", [(Agent,B),(Theme,C)])
+	, ("promote", [(Agent,F),(Recipient,B),(Theme,J)])
+	, ("promote", [(Agent,F),(Recipient,T),(Theme,J)])
+	, ("promote", [(Agent,F),(Recipient,E),(Theme,J)])
 	]
 
+act :: [ (Content, [(Case, Entity)]) ]
+act = [
+	("achieve", [(Agent,B),(Theme,R)] )
+	]
+
+idea :: [ (Content, [(Case, Entity)]) ]
+idea = [
+	("achieve", [(Agent,B),(Theme,R),(Feature,N)])
+	, ("benefit", [(Agent,T),(Theme,J),(Recipient,F)])
+	, ("situate", [(Agent,T),(Theme,F),(Location,K)])
+	]
 gentwoPlacer :: [ (Content, [(Case,Entity)]) ] ->
 	String -> String -> Case -> Case ->
 	(String, TwoPlacePred)
@@ -221,6 +238,8 @@ twoPlaceStarters = [
     ]
 
 twoPlacers = (gentwoPlacer goal "want_to_get_to" "get_to" Agent Theme) :
+	(gentwoPlacer goal "apply" "promote" Recipient Theme) :
+	(gentwoPlacer act "get" "achieve" Agent Theme) :
 	twoPlaceStarters
 
 predid2 name
@@ -251,6 +270,9 @@ threePlaceStarters = [
                     (student,subject,school) ) schooling )
     ]
 threePlacers = (genthreePlacer goal "think:can_to_become" "become" Agent Agent Theme) :
+	(genthreePlacer idea "think:is_" "achieve" Agent Theme Feature) :
+	(genthreePlacer idea "want_to_do_for" "benefit" Agent Theme Recipient) :
+	(genthreePlacer idea "think:is_in_prep" "situate" Agent Theme Location) :
 	threePlaceStarters
 
 data Case = Agent | Theme | Recipient | Feature | Location
