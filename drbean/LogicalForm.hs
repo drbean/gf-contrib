@@ -402,6 +402,7 @@ transVP (GWithTime vp _) = transVP vp
 --
 transVP (GBe_vp comp) = case comp of
     GBe_someone np -> \x -> transNP np (\pred -> Eq pred x)
+    GBe_bad (GVery ap) -> \x -> Rel (lin ap) [x]
     GBe_bad ap -> \x -> Rel (lin ap) [x]
 transVP (GHappening v) =
         \ t -> ( Rel (lin v) [t] )
