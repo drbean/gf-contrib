@@ -29,7 +29,7 @@ entity_check =  [
     , (M, "material" )
     , (N, "main" )
     , (O, "administration_of_team" )
-    , (P, "Polish" )
+    , (P, "polish" )
     , (Q, "top" )
     , (R, "result" )
     , (S, "market_share" )
@@ -98,7 +98,6 @@ onePlaceStarters = [
 	, ("difficult",	 pred1 [B] )
 	, ("like_to_to_win",	 pred1 [B] )
 	, ("experienced",	 pred1 [B,T,E] )
-	, ("polish",	 pred1 [B,T] )
 	, ("successful",	 pred1 [B,T,E] )
 
 	, ("realistic",	 pred1 [T,E] )
@@ -204,6 +203,7 @@ idea = [
 	, ("achieve", [(Agent,B),(Theme,R),(Feature,N)])
 	, ("avoid", [(Agent,T),(Theme,I),(Location,F)])
 	, ("benefit", [(Agent,T),(Theme,J),(Recipient,F)])
+	, ("difficult", [(Recipient,D),(Theme,O) ] )
 	, ("experience", [(Agent,E),(Theme,X) ] )
 	, ("experience", [(Agent,T),(Theme,X) ] )
 	, ("help", [(Agent,E),(Theme,L),(Recipient,E) ] )
@@ -267,13 +267,13 @@ manager = boss
 have	= pred2 $ possessions
 		++ ( map (\x->(recipient x, theme x) ) giving )
 
-knowledge	= [(B,F),(T,F),(E,F)]
+knowledge	= [(B,F),(T,F),(E,F),(B,P),(T,P),(E,P)]
 acquaintances	= []
 help	= pred2 $ supervision
 
 twoPlacers, twoPlaceStarters :: [(String, TwoPlacePred)]
 twoPlaceStarters = [
-    ("know",    pred2 $ knowledge ++ acquaintances ++ map swap acquaintances)
+    ("know_V2",    pred2 $ knowledge ++ acquaintances ++ map swap acquaintances)
     , ("have",  pred2 $ possessions ++ qualities ++
 					map (\(_,l,_,r,_) ->(r,l) ) schooling)
     , ("like",  pred2 $ map (\(a,t,r) -> (a,r)) appreciation)
@@ -299,6 +299,7 @@ twoPlacers =
 	(gentwoPlacer goal "want_to_get_to" "get_to" Agent Theme) :
 	(gentwoPlacer goal "want_to_start_to_improve" "improve" Agent Recipient) :
 	(gentwoPlacer idea "do" "able" Instrument Theme) :
+	(gentwoPlacer idea "think:is_difficult" "difficult" Recipient Theme) :
 	(gentwoPlacer idea "think:should_be_patient" "patient" Agent Theme) :
 	(gentwoPlacer idea "think:should_be_realistic" "realistic" Agent Theme) :
 	(gentwoPlacer interest "enjoy_V2" "administration" Agent Theme) :
