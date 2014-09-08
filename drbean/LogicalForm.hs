@@ -530,7 +530,7 @@ transVP (GIntens v0 vp) = case vp of
 			GChanging v2 obj ->
 				\subj -> transNP obj
 				(\theme -> Rel ((lin v0) ++ "_to_" ++
-				(lin v1) ++ (lin v2)) [subj,theme])
+				(lin v1) ++ "_to_" ++ (lin v2)) [subj,theme])
 			GCausative v2 obj vp2 -> case vp2 of
 				GCausative v3 obj1 vp3 -> case vp3 of
 					GChanging v4 obj2 ->
