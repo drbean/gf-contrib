@@ -107,6 +107,7 @@ onePlaceStarters = [
 
 	, ("fast",	 pred1 [B,E] )
 	, ("good",	 pred1 [T,E,J,R] )
+	, ("bad",	 pred1 [J] )
 	, ("many",	 pred1 [I] )
 
 	, ("male",	 pred1 [T,D] )
@@ -198,6 +199,7 @@ act = [
 idea :: [ (Content, [(Case, Entity)]) ]
 idea = [
 	("able", [(Agent,T),(Theme,J),(Instrument,W)])
+	, ("bad", [(Recipient,D),(Agent,L),(Theme,J) ] )
 	, ("achieve", [(Agent,B),(Theme,R),(Feature,N)])
 	, ("avoid", [(Agent,T),(Theme,I),(Location,F)])
 	, ("benefit", [(Agent,T),(Theme,J),(Recipient,F)])
@@ -332,6 +334,7 @@ threePlacers =
 	(genthreePlacer idea "think:can_to_get" "result" Agent Recipient Theme) :
 	(genthreePlacer idea "think:can_to_increase" "increase" Agent Location Theme) :
 	(genthreePlacer idea "think:can_to_lead" "lead" Agent Agent Theme) :
+	(genthreePlacer idea "think:do" "bad" Recipient Agent Theme) :
 	(genthreePlacer idea "think:is_" "achieve" Agent Theme Feature) :
 	(genthreePlacer idea "think:is_in_prep" "situate" Agent Theme Location) :
 	(genthreePlacer idea "think:should_not_to_take" "avoid" Agent Location Theme) :
