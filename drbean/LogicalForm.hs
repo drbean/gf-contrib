@@ -601,6 +601,10 @@ transVP (GCausative v0 obj0 vp) = case vp of
 			(GWithPlace (GHappening v3) _) ->
 				\subj -> transNP obj0
 				(\agent -> Rel ((lin v0) ++ "_to_" ++ (lin v) ++ "_to_" ++ (lin v3)) [subj,agent])
+			GChanging v3 obj1 ->
+				\subj -> transNP obj0
+				(\agent -> transNP obj1
+				(\theme -> Rel ((lin v0) ++ "_to_" ++ (lin v) ++ (lin v3)) [subj,agent,theme]))
 --transVP (Branch (Cat _ "AT" _ _)
 --    [Leaf (Cat att "V" _ [_]), obj0, Leaf (Cat "to" "TO" [ToInf] []),
 --       (Branch (Cat _ "VP" _ _) [Leaf (Cat act "V" _ _),obj])]) =
