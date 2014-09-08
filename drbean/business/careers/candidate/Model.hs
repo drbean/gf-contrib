@@ -28,7 +28,7 @@ entity_check =  [
     , (L, "sales_team" )
     , (M, "material" )
     , (N, "main" )
-    , (O, "administration" )
+    , (O, "administration_of_team" )
     , (P, "Polish" )
     , (Q, "top" )
     , (R, "result" )
@@ -194,6 +194,7 @@ act :: [ (Content, [(Case, Entity)]) ]
 act = [
 	("achieve", [(Agent,B),(Theme,R)] )
 	, ("motivate", [(Agent,D),(Recipient,L) ] )
+	, ("enjoy", [(Agent,D),(Recipient,L),(Theme,M) ] )
 	]
 
 idea :: [ (Content, [(Case, Entity)]) ]
@@ -238,6 +239,8 @@ interest = [
 	("organize", [(Agent,E),(Recipient,L) ] )
 	, ("tell", [(Agent,E),(Theme,Unspec),(Recipient,L) ] )
 	, ("training", [(Agent,E),(Theme,H),(Recipient,H),(Location,J) ] )
+	, ("administration", [(Agent,E),(Theme,O) ] )
+	, ("administration", [(Agent,D),(Theme,O) ] )
 	]
 
 gentwoPlacer :: [ (Content, [(Case,Entity)]) ] ->
@@ -283,7 +286,10 @@ twoPlaceStarters = [
     ]
 
 twoPlacers =
+	(gentwoPlacer act "can_to_get" "enjoy" Agent Recipient) :
+	(gentwoPlacer act "enjoy_ing_to_sell" "enjoy" Recipient Theme) :
 	(gentwoPlacer act "get" "achieve" Agent Theme) :
+	(gentwoPlacer act "try_hard_to_get" "enjoy" Agent Recipient) :
 	(gentwoPlacer act "try_hard_to_motivate" "motivate" Agent Recipient) :
 	(gentwoPlacer act "try_to_motivate" "motivate" Agent Recipient) :
 	(gentwoPlacer affiliation "in_prep" "department" Agent Location) :
@@ -295,6 +301,7 @@ twoPlacers =
 	(gentwoPlacer idea "do" "able" Instrument Theme) :
 	(gentwoPlacer idea "think:should_be_patient" "patient" Agent Theme) :
 	(gentwoPlacer idea "think:should_be_realistic" "realistic" Agent Theme) :
+	(gentwoPlacer interest "enjoy_V2" "administration" Agent Theme) :
 	(gentwoPlacer interest "like_ing_to_organize" "organize" Agent Recipient) :
 	(gentwoPlacer interest "would_to_enjoy_ing_to_do" "training" Agent Theme) :
 	twoPlaceStarters
@@ -341,6 +348,8 @@ threePlacers =
 	(genthreePlacer idea "think:should_to_help_V2" "help" Agent Theme Recipient) :
 	(genthreePlacer idea "want_to_do_for" "benefit" Agent Theme Recipient) :
 	(genthreePlacer interest "like_ing_to_tell_to_do" "tell" Agent Theme Recipient) :
+	(genthreePlacer act "can_to_get_V2V_enjoy_ing_to_sell" "enjoy" Agent Recipient Theme) :
+	(genthreePlacer act "try_hard_to_get_V2V_enjoy_ing_to_sell" "enjoy" Agent Recipient Theme) :
 	threePlaceStarters
 
 data Case = Agent | Theme | Recipient | Feature | Location | Instrument
