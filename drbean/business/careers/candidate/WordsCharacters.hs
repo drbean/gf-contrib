@@ -195,7 +195,7 @@ v = [
 	, "like"
 	, "motivate"
 	, "offer"
-	, "organize"
+	, "organize organizing"
 	, "respect"
 	, "say"
 	, "sell"

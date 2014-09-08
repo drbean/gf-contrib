@@ -144,7 +144,7 @@ test1 :: String -> OnePlacePred
 test1 p = fromMaybe (\_ -> False) (predid1 p)
 
 person, thing :: OnePlacePred
-person	= \ x -> (test1 "male" x || test1 "female" x || test1 "role" x || x == Someone)
+person	= \ x -> (test1 "male" x || test1 "female" x || test1 "role" x || test1 "sales_team" x || x == Someone)
 thing	= \ x -> (x == Unspec || x == Something || not ( person x ) )
 
 pred2 :: [(Entity,Entity)] -> TwoPlacePred
