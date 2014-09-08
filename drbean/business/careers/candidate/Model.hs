@@ -348,7 +348,7 @@ threePlacers =
 	(genthreePlacer idea "think:should_not_to_take" "avoid" Agent Location Theme) :
 	(genthreePlacer idea "think:should_to_help_V2" "help" Agent Theme Recipient) :
 	(genthreePlacer idea "want_to_do_for" "benefit" Agent Theme Recipient) :
-	(genthreePlacer interest "like_ing_to_tell_to_do" "tell" Agent Theme Recipient) :
+	(genthreePlacer interest "like_ing_to_tell_to_do" "tell" Agent Recipient Theme) :
 	(genthreePlacer act "can_to_get_V2V_enjoy_ing_to_sell" "enjoy" Agent Recipient Theme) :
 	(genthreePlacer act "try_hard_to_get_V2V_enjoy_ing_to_sell" "enjoy" Agent Recipient Theme) :
 	threePlaceStarters
