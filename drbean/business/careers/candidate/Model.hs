@@ -192,6 +192,7 @@ goal = [
 act :: [ (Content, [(Case, Entity)]) ]
 act = [
 	("achieve", [(Agent,B),(Theme,R)] )
+	, ("motivate", [(Agent,D),(Recipient,L) ] )
 	]
 
 idea :: [ (Content, [(Case, Entity)]) ]
@@ -281,6 +282,8 @@ twoPlaceStarters = [
 
 twoPlacers =
 	(gentwoPlacer act "get" "achieve" Agent Theme) :
+	(gentwoPlacer act "try_hard_to_motivate" "motivate" Agent Recipient) :
+	(gentwoPlacer act "try_to_motivate" "motivate" Agent Recipient) :
 	(gentwoPlacer affiliation "in_prep" "department" Agent Location) :
 	(gentwoPlacer attitude "respect" "respect" Agent Recipient) :
 	(gentwoPlacer goal "apply" "promote" Recipient Theme) :
@@ -397,9 +400,25 @@ told	= pred3 comms
 
 recite = pred2 $ map ( \x -> (agent x, theme x) ) comms
 
-fourPlacers = [
+genfourPlacer :: [ (Content, [(Case,Entity)]) ] ->
+	String -> String -> Case -> Case -> Case ->
+	Case -> (String, FourPlacePred)
+genfourPlacer area id content role1 role2 role3 role4 =
+	( id, pred4 [ (r1,r2,r3,r4) | (co,cs) <- area
+		, co == content
+		, Just r1 <-[lookup role1 cs]
+		, Just r2 <- [lookup role2 cs]
+		, Just r3 <- [lookup role3 cs]
+		, Just r4 <- [lookup role4 cs]
+		] )
+
+fourPlacers, fourPlaceStarters :: [(String, FourPlacePred)]
+fourPlaceStarters = [
         ]
 
+fourPlacers =
+	(genfourPlacer interest "would_to_enjoy_ing_go_on_help_do" "training" Agent Theme Recipient Location) :
+	fourPlaceStarters
 
 agent4, theme4, recipient4, location4 :: (Entity,Entity,Entity,Entity) -> Entity
 agent4 (a,_,_,_) = a
