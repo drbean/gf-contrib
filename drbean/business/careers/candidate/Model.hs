@@ -292,7 +292,7 @@ twoPlacers =
 	(gentwoPlacer goal "want_sb_to_enjoy_ing_to_work" "enjoy" Agent Recipient) :
 	(gentwoPlacer goal "want_to_get_to" "get_to" Agent Theme) :
 	(gentwoPlacer goal "want_to_start_to_improve" "improve" Agent Recipient) :
-	(gentwoPlacer idea "do" "job" Instrument Theme) :
+	(gentwoPlacer idea "do" "able" Instrument Theme) :
 	(gentwoPlacer idea "think:should_be_patient" "patient" Agent Theme) :
 	(gentwoPlacer idea "think:should_be_realistic" "realistic" Agent Theme) :
 	(gentwoPlacer interest "like_ing_to_organize" "organize" Agent Recipient) :
