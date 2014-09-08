@@ -282,8 +282,8 @@ transCN (GKindInPlace cn (GLocating prep place)) =
 	\x -> Conj [transCN cn x, transPlace place 
 	(\p -> Rel (lin prep) [x,p])]
 transCN (GOfpos cn np) =
-    \owner -> Conj [(transN2 cn owner), (transNP np
-	(\thing -> Rel "have" [owner, thing]))]
+    \thing -> Conj [(transN2 cn thing), (transNP np
+	(\owner -> Rel "have" [owner, thing]))]
 transCN (GModified cn rel) = case (rel) of
 	(GSubjRel wh vp) -> \ x -> Conj [transCN cn x, transVP vp x]
 	(GObjRel wh (GVPClSlash np (GV2Slash v))) ->
