@@ -213,7 +213,8 @@ idea = [
 	, ("patient", [(Agent,T),(Theme,F)])
 	, ("realistic", [(Agent,T),(Theme,F)])
 	, ("result", [(Agent,E),(Theme,R),(Recipient,F),(Instrument,L)])
-	, ("safe", [(Agent,T),(Theme,I) ] )
+	, ("self_image", [(Agent,T),(Theme,T) ] )
+	, ("self_image", [(Agent,E),(Theme,E) ] )
 	, ("situate", [(Agent,T),(Theme,F),(Location,K)])
 	]
 
@@ -338,7 +339,7 @@ threePlacers =
 	(genthreePlacer goal "think:can_to_become" "become" Agent Agent Theme) :
 	(genthreePlacer idea "feel:have" "able" Agent Agent Instrument) :
 	(genthreePlacer idea "help_to_do" "help" Agent Recipient Theme) :
-	(genthreePlacer idea "say:is_" "safe" Agent Agent Theme) :
+	(genthreePlacer idea "say:is_" "self_image" Agent Agent Theme) :
 	(genthreePlacer idea "think:can_to_get" "result" Agent Recipient Theme) :
 	(genthreePlacer idea "think:can_to_increase" "increase" Agent Location Theme) :
 	(genthreePlacer idea "think:can_to_lead" "lead" Agent Agent Theme) :
