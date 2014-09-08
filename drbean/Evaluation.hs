@@ -112,6 +112,8 @@ notNull [] = Just (Boolean False )
 notNull [_] = Just (Boolean True )
 notNull [_,_] = Just (Boolean True )
 notNull [_,_,_] = Just (Boolean True )
+notNull [_,_,_,_] = Just (Boolean True )
+notNull [_,_,_,_,_] = Just (Boolean True )
 notNull _ = Nothing
 
 -- ttest :: (Term -> LF) -> Term -> Bool
