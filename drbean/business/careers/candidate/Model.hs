@@ -34,7 +34,7 @@ entity_check =  [
     , (R, "result" )
     , (S, "market_share" )
     , (T, "Tadeusz" )
-    , (U, "biz_club" )
+    , (U, "local_business_club" )
     , (V, "" )
     , (W, "ability" )
     , (X, "sales_experience" )
@@ -103,7 +103,7 @@ onePlaceStarters = [
 
 	, ("realistic",	 pred1 [T,E] )
 	, ("safe_pair_of_hands", pred1 [T])
-	, ("head",	 pred1 [] )
+	, ("head_of",	 pred1 [E] )
 
 	, ("fast",	 pred1 [B,E] )
 	, ("good",	 pred1 [T,E,J,R] )
@@ -180,13 +180,13 @@ qualities	= [ (B,A),(T,G),(B,X),(T,X),(E,X) ]
 
 goal :: [ (Content, [(Case, Entity)]) ]
 goal = [
-	("get_to",	[(Agent,B),(Theme,Q)])
-	, ("become",	[(Agent,B),(Theme,C)])
-	, ("promote",	[(Agent,F),(Recipient,B),(Theme,J)])
-	, ("promote",	[(Agent,F),(Recipient,T),(Theme,J)])
-	, ("promote",	[(Agent,F),(Recipient,E),(Theme,J)])
-	, ("improve",	[(Agent,E),(Recipient,L),(Theme,W) ] )
+	("become",	[(Agent,B),(Theme,C)])
 	, ("enjoy",	[(Agent,E),(Recipient,L),(Theme,J) ] )
+	, ("get_to",	[(Agent,B),(Theme,Q)])
+	, ("improve",	[(Agent,E),(Recipient,L),(Theme,W) ] )
+	, ("promote",	[(Agent,F),(Recipient,B),(Theme,J)])
+	, ("promote",	[(Agent,F),(Recipient,E),(Theme,J)])
+	, ("promote",	[(Agent,F),(Recipient,T),(Theme,J)])
 	]
 
 act :: [ (Content, [(Case, Entity)]) ]
@@ -196,20 +196,21 @@ act = [
 
 idea :: [ (Content, [(Case, Entity)]) ]
 idea = [
-	("achieve", [(Agent,B),(Theme,R),(Feature,N)])
-	, ("benefit", [(Agent,T),(Theme,J),(Recipient,F)])
-	, ("situate", [(Agent,T),(Theme,F),(Location,K)])
+	("able", [(Agent,T),(Theme,J),(Instrument,W)])
+	, ("achieve", [(Agent,B),(Theme,R),(Feature,N)])
 	, ("avoid", [(Agent,T),(Theme,I),(Location,F)])
+	, ("benefit", [(Agent,T),(Theme,J),(Recipient,F)])
+	, ("experience", [(Agent,E),(Theme,X) ] )
+	, ("experience", [(Agent,T),(Theme,X) ] )
+	, ("help", [(Agent,E),(Theme,L),(Recipient,E) ] )
+	, ("help", [(Agent,H),(Theme,J),(Recipient,E) ] )
 	, ("increase", [(Agent,T),(Theme,S),(Location,F)])
+	, ("lead", [(Agent,E),(Theme,L) ] )
 	, ("patient", [(Agent,T),(Theme,F)])
 	, ("realistic", [(Agent,T),(Theme,F)])
-	, ("able", [(Agent,T),(Theme,J),(Instrument,W)])
-	, ("experience", [(Agent,T),(Theme,X) ] )
-	, ("experience", [(Agent,E),(Theme,X) ] )
-	, ("safe", [(Agent,T),(Theme,I) ] )
-	, ("help", [(Agent,E),(Theme,L),(Recipient,E) ] )
 	, ("result", [(Agent,E),(Theme,R),(Recipient,F),(Instrument,L)])
-	, ("lead", [(Agent,E),(Theme,L) ] )
+	, ("safe", [(Agent,T),(Theme,I) ] )
+	, ("situate", [(Agent,T),(Theme,F),(Location,K)])
 	]
 
 attitude :: [ (Content, [(Case, Entity)]) ]
@@ -227,6 +228,13 @@ affiliation = [
 	, ("company", [(Agent,T),(Location,F) ] )
 	, ("company", [(Agent,E),(Location,F) ] )
 	, ("company", [(Agent,D),(Location,F) ] )
+	]
+
+interest :: [ (Content, [(Case, Entity)]) ]
+interest = [
+	("organize", [(Agent,E),(Recipient,L) ] )
+	, ("tell", [(Agent,E),(Theme,Unspec),(Recipient,L) ] )
+	, ("training", [(Agent,E),(Theme,H),(Recipient,H),(Location,J) ] )
 	]
 
 gentwoPlacer :: [ (Content, [(Case,Entity)]) ] ->
@@ -271,16 +279,19 @@ twoPlaceStarters = [
                     (student,subject): (student,school) : hs) [] schooling )
     ]
 
-twoPlacers = (gentwoPlacer goal "want_to_get_to" "get_to" Agent Theme) :
-	(gentwoPlacer goal "apply" "promote" Recipient Theme) :
+twoPlacers =
 	(gentwoPlacer act "get" "achieve" Agent Theme) :
+	(gentwoPlacer affiliation "in_prep" "department" Agent Location) :
+	(gentwoPlacer attitude "respect" "respect" Agent Recipient) :
+	(gentwoPlacer goal "apply" "promote" Recipient Theme) :
+	(gentwoPlacer goal "want_sb_to_enjoy_ing_to_work" "enjoy" Agent Recipient) :
+	(gentwoPlacer goal "want_to_get_to" "get_to" Agent Theme) :
+	(gentwoPlacer goal "want_to_start_to_improve" "improve" Agent Recipient) :
+	(gentwoPlacer idea "do" "job" Instrument Theme) :
 	(gentwoPlacer idea "think:should_be_patient" "patient" Agent Theme) :
 	(gentwoPlacer idea "think:should_be_realistic" "realistic" Agent Theme) :
-	(gentwoPlacer idea "do" "job" Instrument Theme) :
-	(gentwoPlacer attitude "respect" "respect" Agent Recipient) :
-	(gentwoPlacer goal "want_to_start_to_improve" "improve" Agent Recipient) :
-	(gentwoPlacer goal "want_sb_to_enjoy_ing_to_work" "enjoy" Agent Recipient) :
-	(gentwoPlacer affiliation "in_prep" "department" Agent Location) :
+	(gentwoPlacer interest "like_ing_to_organize" "organize" Agent Recipient) :
+	(gentwoPlacer interest "would_to_enjoy_ing_to_do" "training" Agent Theme) :
 	twoPlaceStarters
 
 predid2 name
@@ -310,17 +321,20 @@ threePlaceStarters = [
     , ("studied_subj_at", pred3 $ map (\(_,school,subject,student,_) ->
                     (student,subject,school) ) schooling )
     ]
-threePlacers = (genthreePlacer goal "think:can_to_become" "become" Agent Agent Theme) :
+threePlacers =
+	(genthreePlacer goal "think:can_to_become" "become" Agent Agent Theme) :
+	(genthreePlacer idea "feel:have" "able" Agent Agent Instrument) :
+	(genthreePlacer idea "help_to_do" "help" Agent Recipient Theme) :
+	(genthreePlacer idea "say:is_" "safe" Agent Agent Theme) :
+	(genthreePlacer idea "think:can_to_get" "result" Agent Recipient Theme) :
+	(genthreePlacer idea "think:can_to_increase" "increase" Agent Location Theme) :
+	(genthreePlacer idea "think:can_to_lead" "lead" Agent Agent Theme) :
 	(genthreePlacer idea "think:is_" "achieve" Agent Theme Feature) :
-	(genthreePlacer idea "want_to_do_for" "benefit" Agent Theme Recipient) :
 	(genthreePlacer idea "think:is_in_prep" "situate" Agent Theme Location) :
 	(genthreePlacer idea "think:should_not_to_take" "avoid" Agent Location Theme) :
-	(genthreePlacer idea "think:can_to_increase" "increase" Agent Location Theme) :
-	(genthreePlacer idea "feel:have" "able" Agent Agent Instrument) :
-	(genthreePlacer idea "say:is_" "safe" Agent Agent Theme) :
 	(genthreePlacer idea "think:should_to_help_V2" "help" Agent Theme Recipient) :
-	(genthreePlacer idea "think:can_to_get" "result" Agent Recipient Theme) :
-	(genthreePlacer idea "think:can_to_lead" "lead" Agent Agent Theme) :
+	(genthreePlacer idea "want_to_do_for" "benefit" Agent Theme Recipient) :
+	(genthreePlacer interest "like_ing_to_tell_to_do" "tell" Agent Theme Recipient) :
 	threePlaceStarters
 
 data Case = Agent | Theme | Recipient | Feature | Location | Instrument
