@@ -70,7 +70,6 @@ lin
 
 	GoodMass n = mkN "good" n;
 	ability	= mkN "ability";
-	administration	= administration_N;
 	administration_of_team	= mkN "administration of the sales team";
 	aim	= mkCN( mkN "aim");
 	company	= mkCN( mkN "company");

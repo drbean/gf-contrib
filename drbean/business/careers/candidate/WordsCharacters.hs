@@ -98,7 +98,7 @@ det = [
 n = [
 
 	"ability"
-	, "administration"
+	, "administration of the sales team"
 	, "aim"
 	, "company"
 	, "department"

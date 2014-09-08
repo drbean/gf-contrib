@@ -74,7 +74,6 @@ fun
 
 	GoodMass: N -> N;
 	ability	: N;
-	administration	: N;
 	administration_of_team	: N;
 	aim	: CN;
 	company	: CN;
