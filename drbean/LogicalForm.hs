@@ -636,9 +636,8 @@ transVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 				(GHappening v) -> \positer -> transNP np
 					(\referent -> Rel ((lin v0) ++ ":is_" ++ (lin adj) ++ "_to_" ++ (lin v)) [positer,referent])
 				_ -> \x -> undefined
-			_ -> (\positer -> transNP np
-				(\referent -> Rel ((lin v0) ++ ":is_" ++
-				(lin attribute)) [positer,referent]))
+			_ -> \positer -> transNP np
+				(\referent -> transAP attribute referent)
 		(GBe_someone subjcomp ) -> (\positer -> transNP np
 			(\referent -> transNP subjcomp
 				(\pred -> Rel ((lin v0) ++ ":is_")
