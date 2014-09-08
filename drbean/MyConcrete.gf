@@ -174,7 +174,6 @@ lin
 	some_pl_Det = mkDet some_Quant pluralNum;
 	some_NP = mkNP( mkDet some_Quant);
 	some_pl_NP = mkNP( mkDet some_Quant pluralNum);
-	Genitive_NP	np = mkNP (mkDet (GenNP np));
 	List np1 np2 = mkListNP np1 np2;
 	AddList np list = mkListNP np list;
 	CloseList conj list = mkNP conj list;

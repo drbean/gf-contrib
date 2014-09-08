@@ -102,7 +102,6 @@ fun
 	some_NP	: NP;
 	some_pl_NP	: NP;
 	some_Predet	: Predet;
-	Genitive_NP	: NP -> NP;
 	List : NP -> NP -> ListNP;
 	AddList : NP -> ListNP -> ListNP;
 	CloseList	: Conj -> ListNP -> NP;
