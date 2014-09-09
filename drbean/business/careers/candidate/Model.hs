@@ -95,6 +95,7 @@ onePlaceStarters = [
 	, ("competitive",	 pred1 [B,K] )
 	, ("confident",	 pred1 [B] )
 	, ("outgoing",	 pred1 [B] )
+	, ("difficult",	 pred1 [O] )
 	, ("difficult_to_work_with",	 pred1 [B] )
 	, ("like_to_to_win",	 pred1 [B] )
 	, ("experienced",	 pred1 [B,T,E] )

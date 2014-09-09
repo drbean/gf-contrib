@@ -57,6 +57,7 @@ fun
 	bad	: AP;
 	competitive	: AP;
 	confident	: AP;
+	difficult	: AP;
 	difficult_to_work_with	: AP;
 	fast	: AP;
 	good	: AP;

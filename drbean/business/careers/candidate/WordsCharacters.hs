@@ -38,6 +38,7 @@ a = [
 	, "bad"
 	, "competitive"
 	, "confident"
+	, "difficult"
 	, "difficult to work with"
 	, "fast"
 	, "good"
@@ -235,6 +236,7 @@ company	: CN;
 competitive	: A;
 confident	: A;
 department	: CN;
+difficult	: A;
 difficult to work with	: A;
 director	: CN;
 do	: V2;
