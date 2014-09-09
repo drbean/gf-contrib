@@ -103,7 +103,7 @@ takeAnswer _ "yes" = "yes"
 takeAnswer "yes" _ = "yes"
 takeAnswer _ "no" = "no"
 takeAnswer "no" _  = "no"
-takeAnswer a b = collateAnswer a b
+-- takeAnswer a b = collateAnswer a b
 takeAnswer _ "Barbara" = "Barbara"
 takeAnswer "Barbara" _ = "Barbara"
 takeAnswer _ "Tadeusz" = "Tadeusz"
@@ -120,7 +120,17 @@ takeAnswer "No answer" _ = "No answer"
 takeAnswer _ "No answer" = "No answer"
 takeAnswer _  _   = error "undefined answer, not Yes, No,Barbara, Tadeusz, Eva, Dr Bean or Fast-Track, none or No answer"
 
-collateAnswer a b = let extractNames = nub $ filter (\x -> x == "Barbara" || x == "Tadeusz" || x == "Eva" || x == "Dr Bean" || x == "Fast-Track" ) (words (a ++ b))
+collateAnswer a b = formatUp $ nub $ filter
+	(\x -> x ==	"Barbara"
+	|| x ==	"Tadeusz"
+	|| x ==	"Eva"
+	|| x ==	"Dr Bean"
+	|| x == "Fast-Track"
+		) (splitOn " , " (a ++ " " ++ b))
 
-
+formatUp es = let parts = splitAt 1 (reverse es)
+	in case (snd parts) of 
+		[] -> concat (fst parts)
+		_ -> concat  ((intersperse " , " (snd parts)) ++ [" or "] ++ (fst parts) )
+--
 -- vim: set ts=2 sts=2 sw=2 noet:
