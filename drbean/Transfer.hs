@@ -10,6 +10,7 @@ import WordsCharacters
 import Data.Maybe
 import Control.Monad
 import Data.List.Split
+import Data.List
 
 import GHC.IO.Handle
 import System.IO
@@ -102,19 +103,24 @@ takeAnswer _ "yes" = "yes"
 takeAnswer "yes" _ = "yes"
 takeAnswer _ "no" = "no"
 takeAnswer "no" _  = "no"
-takeAnswer _ "Dee or Uncle Alf" = "Dee or Uncle Alf"
-takeAnswer "Dee or Uncle Alf" _ = "Dee or Uncle Alf"
-takeAnswer _ "Uncle Alf or Dee" = "Dee or Uncle Alf"
-takeAnswer "Uncle Alf or Dee" _ = "Dee or Uncle Alf"
-takeAnswer _ "Dee or Uncle Alf" = "Dee or Uncle Alf"
-takeAnswer _ "Dee" = "Dee"
-takeAnswer "Dee" _ = "Dee"
-takeAnswer _ "Uncle Alf" = "Uncle Alf"
-takeAnswer "Uncle Alf" _ = "Uncle Alf"
-takeAnswer "none" _ = "none of Dee or Uncle Alf"
-takeAnswer _ "none" = "none of Dee or Uncle Alf"
+takeAnswer a b = collateAnswer a b
+takeAnswer _ "Barbara" = "Barbara"
+takeAnswer "Barbara" _ = "Barbara"
+takeAnswer _ "Tadeusz" = "Tadeusz"
+takeAnswer "Tadeusz" _ = "Tadeusz"
+takeAnswer _ "Eva" = "Eva"
+takeAnswer "Eva" _ = "Eva"
+takeAnswer _ "Dr Bean" = "Dr Bean"
+takeAnswer "Dr Bean" _ = "Dr Bean"
+takeAnswer _ "Fast-Track" = "Fast-Track"
+takeAnswer "Fast-Track" _ = "Fast-Track"
+takeAnswer "none" _ = "none of Barbara, Tadeusz, Eva, Dr Bean or Fast-Track"
+takeAnswer _ "none" = "none of Barbara, Tadeusz, Eva, Dr Bean or Fast-Track"
 takeAnswer "No answer" _ = "No answer"
 takeAnswer _ "No answer" = "No answer"
-takeAnswer _  _   = error "undefined answer, not Yes, No, Dee, Uncle Alf, Dee or Uncle Alf, none or No answer"
+takeAnswer _  _   = error "undefined answer, not Yes, No,Barbara, Tadeusz, Eva, Dr Bean or Fast-Track, none or No answer"
+
+collateAnswer a b = let extractNames = nub $ filter (\x -> x == "Barbara" || x == "Tadeusz" || x == "Eva" || x == "Dr Bean" || x == "Fast-Track" ) (words (a ++ b))
+
 
 -- vim: set ts=2 sts=2 sw=2 noet:
