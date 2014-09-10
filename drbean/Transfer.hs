@@ -103,17 +103,11 @@ takeAnswer _ "yes" = "yes"
 takeAnswer "yes" _ = "yes"
 takeAnswer _ "no" = "no"
 takeAnswer "no" _  = "no"
--- takeAnswer a b = collateAnswer a b
-takeAnswer _ "Barbara" = "Barbara"
-takeAnswer "Barbara" _ = "Barbara"
-takeAnswer _ "Tadeusz" = "Tadeusz"
-takeAnswer "Tadeusz" _ = "Tadeusz"
-takeAnswer _ "Eva" = "Eva"
-takeAnswer "Eva" _ = "Eva"
-takeAnswer _ "Dr Bean" = "Dr Bean"
-takeAnswer "Dr Bean" _ = "Dr Bean"
-takeAnswer _ "Fast-Track" = "Fast-Track"
-takeAnswer "Fast-Track" _ = "Fast-Track"
+takeAnswer a b@('B' : 'a' : _)  = collateAnswer a b
+takeAnswer a b@('T' : 'a' : _)  = collateAnswer a b
+takeAnswer a b@('E' : 'v' : _)  = collateAnswer a b
+takeAnswer a b@('D' : 'r' : _)  = collateAnswer a b
+takeAnswer a b@('F' : 'a' : _)  = collateAnswer a b
 takeAnswer "none" _ = "none of Barbara, Tadeusz, Eva, Dr Bean or Fast-Track"
 takeAnswer _ "none" = "none of Barbara, Tadeusz, Eva, Dr Bean or Fast-Track"
 takeAnswer "No answer" _ = "No answer"
@@ -126,7 +120,7 @@ collateAnswer a b = formatUp $ nub $ filter
 	|| x ==	"Eva"
 	|| x ==	"Dr Bean"
 	|| x == "Fast-Track"
-		) (splitOn " , " (a ++ " " ++ b))
+		) (concat $ map (splitOn " , " ) (splitOn " or " (a ++ " , " ++ b)))
 
 formatUp es = let parts = splitAt 1 (reverse es)
 	in case (snd parts) of 
