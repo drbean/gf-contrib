@@ -74,11 +74,14 @@ aux = [
 	, "are"
 	, "isn't"
 	, "aren't"
+	, "would"
+	, "should"
 	]
 	
 
 conj = [
 	"because"
+	, "if"
 	]
 
 
@@ -176,19 +179,19 @@ tag = [
 
 v = [
 
-	"become"
+	"become, becomes"
 	, "can"
 	, "know"
 
-	, "apply"
+	, "apply, applies"
 	, "choose"
 	, "do"
 	, "enjoy"
 	, "expand"
 	, "feel"
 	, "get to"
-	, "get"
-	, "have"
+	, "get, gets"
+	, "have, has"
 	, "help"
 	, "improve"
 	, "increase"
@@ -199,13 +202,13 @@ v = [
 	, "organize organizing"
 	, "respect"
 	, "say"
-	, "sell"
+	, "sell, selling"
 	, "start"
 	, "take"
-	, "tell telling"
-	, "think"
+	, "tell, telling"
+	, "think, thinks"
 	, "try"
-	, "want"
+	, "want, wants"
 	, "win"
 	, "work"
 	]
