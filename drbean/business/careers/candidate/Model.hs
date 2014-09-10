@@ -173,7 +173,7 @@ appreciation = [ (a,t,r) | (_,_,cs,_) <- appreciations
 resentments :: [(Judger, Content, [(Case,Entity)], Judged)]
 resentments = [
   (L,	"difficult_to_work_with", [(Theme,B)],B )
-  , (D,	"motivate", [(Agent,D),(Theme,L)], L )
+  , (D,	"fail", [(Agent,D),(Theme,L)], L )
   , (D, "poor", [(Theme, L)], L)
   , (D, "bad job", [(Agent, L)], L)
 	]
@@ -193,7 +193,8 @@ goal = [
 act :: [ (Content, [(Case, Entity)]) ]
 act = [
 	("achieve", [(Agent,B),(Theme,R)] )
-	, ("motivate", [(Agent,D),(Recipient,L) ] )
+	, ("fail", [(Agent,D),(Recipient,L) ] )
+	, ("motivate", [(Agent,Unspec),(Recipient,L),(Theme,M) ] )
 	, ("enjoy", [(Agent,D),(Recipient,L),(Theme,M) ] )
 	]
 
@@ -292,8 +293,8 @@ twoPlacers =
 	(gentwoPlacer act "enjoy_ing_to_sell" "enjoy" Recipient Theme) :
 	(gentwoPlacer act "get" "achieve" Agent Theme) :
 	(gentwoPlacer act "try_hard_to_get" "enjoy" Agent Recipient) :
-	(gentwoPlacer act "try_hard_to_motivate" "motivate" Agent Recipient) :
-	(gentwoPlacer act "try_to_motivate" "motivate" Agent Recipient) :
+	(gentwoPlacer act "try_hard_to_motivate" "fail" Agent Recipient) :
+	(gentwoPlacer act "try_to_motivate" "fail" Agent Recipient) :
 	(gentwoPlacer affiliation "in_prep" "department" Agent Location) :
 	(gentwoPlacer attitude "respect" "respect" Agent Recipient) :
 	(gentwoPlacer goal "apply" "promote" Recipient Theme) :
@@ -337,6 +338,7 @@ threePlaceStarters = [
                     (student,subject,school) ) schooling )
     ]
 threePlacers =
+	(genthreePlacer act "get_V2V_to_enjoy_ing_sell" "motivate" Agent Recipient Theme) :
 	(genthreePlacer goal "think:can_to_become" "become" Agent Agent Theme) :
 	(genthreePlacer idea "feel:have" "able" Agent Agent Instrument) :
 	(genthreePlacer idea "help_to_do" "help" Agent Recipient Theme) :
