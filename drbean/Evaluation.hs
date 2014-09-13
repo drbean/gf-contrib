@@ -60,6 +60,7 @@ eval (Many scope)	= Just (Boolean (bigN (map scope terms)))
 -- eval (Most scope)	= length ( mapMaybe bool2Maybe $ testents scope ) >
 -- 			length ( mapMaybe bool2Maybe $ testents scope )
 -- eval lf = Nothing
+-- eval (WH scope) = (notNull <=< evalW ) (WH scope)
 eval lf = error $ (show lf) ++ " logical formula unknown, not evaluated."
 
 notLF :: Answer -> Maybe Answer
@@ -111,6 +112,10 @@ evalW _ = Nothing
 -- ttest scope _ = evl (scope (Const R))
 
 -- revttest scope = \x -> not $ evl (scope (Const x))
+
+notNull :: [a] -> Maybe Answer
+notNull as | null as == True = Just (Boolean False)
+			| otherwise = Just (Boolean True)
 
 singleton :: [a] -> Bool
 singleton [x]	= True
