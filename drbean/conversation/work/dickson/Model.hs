@@ -203,10 +203,6 @@ supervision	= [(D,W),(D,W1),(D,W2),(D,W3)]
 disappointments = [(W1,D), (W2,D), (W3,D), (W4,D), (W5,D) ]
 disappoint	= pred2 $ disappointments
 resent	= pred2 $ map swap disappointments
-have	= pred2 $ possessions ++ marriages ++ parenting 
-		++ ( map swap $ marriages ++ parenting )
-		++ ( map (\x->(recipient x, theme x) ) giving )
-
 knowledge	= []
 acquaintances	= []
 help	= pred2 $ supervision
@@ -219,7 +215,9 @@ needing = [(D,D,M),(D,D,J)]
 twoPlacers :: [(String, TwoPlacePred)]
 twoPlacers = [
     ("know",    pred2 $ knowledge ++ acquaintances ++ map swap acquaintances)
-    , ("have",  pred2 $ possessions ++ parenting ++
+    , ("have",  pred2 $ possessions ++ marriages ++ parenting ++
+		  ( map swap $ marriages ++ parenting ) ++
+		  ( map (\x->(recipient x, theme x) ) giving ) ++
 			  [(a,J) | (a,_,_) <- working] ++
 			  map (\(_,l,_,r) ->(r,l) ) schooling)
     , ("become",  pred2 becoming )
@@ -244,6 +242,10 @@ twoPlacers = [
 					      pred == "is_little" ] )
     , ("say:is_too_little", pred2 $ [ (s,r) | (s, (pred, r) ,_) <- comms,
 					      pred == "is_too_little" ] )
+    , ("like_that:is_hire_ed", pred2 [(D,D),(A,D),(F,D)] )
+    , ("say:is_hire_ed", pred2 [ (s,r) | (s, (pred, r) ,_) <- comms
+			    , pred == "is_hire_ed"
+			    , r == D ] )
     , ("say:need_to_slow_down", pred2 $ [ (s,r) | (s, (pred, r), _) <- comms,
 					      pred == "need_to_slow_down" ] )
     , ("tell_to_to_slow_down", pred2 $ [ (s,r) | (s, (pred, r), _) <- comms,
@@ -315,6 +317,7 @@ working	= [(A,Unspec,V),(I,Unspec,V),(F,Unspec,Unspec),
 comms	= [
   (I, ("is_little",D), D)
   , (I, ("is_too_little",D), D)
+  , (I, ("is_hire_ed",D), D)
   ,(W1, ("need_to_slow_down",D), D)
   ,(W2, ("need_to_slow_down",D), D)
   ,(D, ("need_money",D), W1)
@@ -335,6 +338,7 @@ long_comms  = [
   , (W1, "belong_to",[(Theme,D),(Recipient,W5)], D)
   , (W2, "belong_to",[(Theme,D),(Recipient,W6)], D)
   , (F, "is", [(Agent,A),(Theme,A)], D)
+  , (F, "can_get_V3", [(Agent,A),(Theme,J),(Recipient,D)], D)
   , (I,  "say:can_not_to_get_along", [(Agent,D),(Theme,W1)], D)
   , (I,  "say:can_not_to_get_along", [(Agent,D),(Theme,W2)], D)
   ]
@@ -379,6 +383,13 @@ fourPlacers = [
 				, Just t <- [lookup Theme c]
 				, Just r <- [lookup Recipient c]
 				] )
+    , ("say:can_get_V3", pred4 [ (s,a,r,t) | (s, content,c, l) <- long_comms
+		    , content == "can_get_V3"
+		    , Just a <- [lookup Agent c]
+		    , Just r <- [lookup Recipient c]
+		    , Just t <- [lookup Theme c]
+		    ])
+    , ("let_V2V_to_take_to_see", pred4 [ (D,F,D,A) ] )
         ]
 
 

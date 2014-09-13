@@ -123,6 +123,8 @@ relations = [
 	, ( "tell_to_to_slow_down",	\[x,y]	-> unmay2 (predid2 "tell_to_to_slow_down") y x	)
 	, ( "want_to_work_with",	\[x,y]	-> unmay2 (predid2 "want_to_work_with") y x	)
 	, ( "work_with",	\[x,y]	-> unmay2 (predid2 "work_with") y x	)
+	, ( "like_that:is_hire_ed",	\[x,y]	-> unmay2 (predid2 "like_that:is_hire_ed") y x	)
+	, ( "say:is_hire_ed",	\[x,y]	-> unmay2 (predid2 "say:is_hire_ed") y x	)
 
 	, ( "find_to_do_V2",	\[x,y,z]	-> unmay3 (predid3 "find_to_do") z y x	)
 	, ( "have_VV_to_do_V2_different",	\[x,y,z]	-> unmay3 (predid3 "have_to_do_different") z y x	)
@@ -139,6 +141,8 @@ relations = [
 
 
 	, ( "say:take_away",	\[x,y,z,w]	-> unmay4 (predid4 "say:take_away") w z y x	)
+	, ( "say:can_get_V3",	\[x,y,z,w]	-> unmay4 (predid4 "say:can_get_V3") w z y x	)
+	, ( "let_V2V_to_take_to_see",	\[x,y,z,w]	-> unmay4 (predid4 "let_V2V_to_take_to_see") w z y x	)
 	]
 
 
