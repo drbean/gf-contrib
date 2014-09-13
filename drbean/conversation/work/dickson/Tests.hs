@@ -112,6 +112,7 @@ yn_dic_test = [
 		, "Does the interviewer say that the superintendent tells the shipyard to hire Dee."
 		, "Doesn't the guy like that Dee is hired."
 		, "Does the guy say that Dee is hired."
+		, "Does the interviewer say that Dee is hired."
 
     , "Does Dee go to the ship."
 		, "Does no man want to work with Dee."
