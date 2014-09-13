@@ -151,7 +151,7 @@ yn_dic_test = [
 
 	]
 
-who_dic_test = [
+wh_dic_test = [
 	"Who does the guy who interviews Dee say is too little?"
 	, "Who does the interviewer say is little?"
 	, "Who does the interviewer say cannot get along with the guys?"
