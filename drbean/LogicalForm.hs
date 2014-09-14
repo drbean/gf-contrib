@@ -112,7 +112,7 @@ transS :: GUtt -> Maybe LF
 transS (GQUt (GPosQ (GWH_Pred wh vp))) =
 	Just (WH (\x -> Conj [ transW wh x, transVP vp x ]))
 transS (GQUt (GPosQ (GWH_ClSlash wh cl))) =
-	Just (WH (\x -> Conj [ transW wh x, transClSlash cl ]))
+	Just (WH (\x -> Conj [ transW wh x, transClSlash cl x]))
 transS (GQUt (GNegQ (GWH_Pred wh vp))) =
 	Just (WH (\x -> Conj [ transW wh x, Neg (transVP vp x)]))
 transS (GQUt (GPosQ (GYN (GSentence np vp)))) = Just ((transNP np) (transVP vp))
@@ -302,18 +302,18 @@ transPlace place	| rel <- lin place =
 --transPP (Leaf   (Cat "#" "PP" _ _)) = \ p -> p (Var 0)
 --transPP (Branch (Cat _   "PP" _ _) [prep,np]) = transNP np
 
-transClSlash :: GClSlash -> LF
+transClSlash :: GClSlash -> Term -> LF
 transClSlash cl = case cl of
 	(GVPClSlash np vpslash) -> case vpslash of
-		(GV2Slash v) -> WH (\x -> transNP np (\subj->
-			Rel (lin v) [subj,x]))
+		(GV2Slash v) -> \x -> transNP np (\subj->
+			Rel (lin v) [subj,x])
 		(GV2VSlash v vp) -> case vp of
-			(GLook_bad va a) -> WH (\x -> transNP np (\subj ->
+			(GLook_bad va a) -> \x -> transNP np (\subj ->
 				Rel ((lin v) ++ "_" ++ (lin va)
-					++ "_" ++ (lin a)) [subj,x]))
-			(GChanging v2 obj) -> WH (\x -> transNP np (\subj ->
+					++ "_" ++ (lin a)) [subj,x])
+			(GChanging v2 obj) -> \x -> transNP np (\subj ->
 				transNP obj (\theme -> Rel ((lin v) ++ "_to_" ++
-				(lin v2)) [subj,x,theme])))
+				(lin v2)) [subj,x,theme]))
 
 transVP :: GVP -> Term -> LF
 ----transVP (Branch (Cat "_" "VP" [Part] _) [Leaf (Cat part "V" _ _), obj] ) =
