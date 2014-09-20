@@ -745,7 +745,7 @@ transVP (GPositing v0 (GNegS (GSentence np vp))) = case vp of
 --    GNegS (GCop item comp) ->
 --	(\positer -> transNP item
 --	    (\subj -> transNP comp (\x -> Rel ((lin v0) ++"_isn't") [positer, subj, x])))
-transVP	(GWithPlace vp (GLocating prep destination)) =
+transVP	(GToPlace vp (GLocating prep destination)) =
 	\mover -> transPlace destination
 	(\place -> Rel ((lin vp) ++ "_" ++ (lin prep)) [mover,place])
 transVP _ = \x -> NonProposition
