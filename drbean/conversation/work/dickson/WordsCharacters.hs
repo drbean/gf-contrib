@@ -123,7 +123,6 @@ n = [
 pn = [
 	"Uncle Alf"
 	, "Dee"
-	, "Monday"
 	]
 
 pron = [
