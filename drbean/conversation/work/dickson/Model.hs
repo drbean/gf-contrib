@@ -22,14 +22,14 @@ entity_check =  [
     , (E, "" )
     , (F, "" )	-- Dee's father
     , (G, "" )	-- upbringing
-    , (H, "Dee's ex-husband" )
+    , (H, "" )	-- Dee's ex-husband
     , (I, "" )	-- interviewer
     , (J, "" )	-- job
     , (K, "" )	-- disappointment
     , (L, "" )
-    , (M, "money" )	-- money
+    , (M, "" )	-- money
     , (N, "" )	-- construction
-    , (O, "Monday" )
+    , (O, "" )	-- Monday
     , (P, "" )
     , (Q, "" )
     , (R, "" )	-- electrician job
@@ -37,7 +37,7 @@ entity_check =  [
     , (T, "" )	-- transformer
     , (U, "" )
     , (V, "" )	-- shipyard
-    , (W, "Wednesday" )
+    , (W, "" )	-- Wednesday
     , (X, "" )
     , (Y, "" )	-- way
     , (Z, "" )	-- story
