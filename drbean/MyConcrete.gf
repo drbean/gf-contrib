@@ -66,6 +66,23 @@ oper
 
 	know_V = IrregEng.know_V;
 
+	ModalVV	: Str -> Str -> Str -> Str -> Str ->
+		{s : R.VVForm => Str; p : Str; typ : R.VVType } =
+		\inf, pres, pp, prespp, presN -> {
+		s = table {
+			R.VVF R.VInf	=> inf ;
+			R.VVF R.VPres => pres;
+			R.VVF R.VPPart	=> pp ;
+			R.VVF R.VPresPart	=> prespp ;
+			-- R.VVF R.VPast	=> past ;
+			-- R.VVPastNeg	=> pastN ;
+			R.VVPresNeg	=> presN
+			} ;
+		p = [];
+		typ	= R.VVAux;
+		lock_VV = {}
+		};
+
   tag : NP -> {s : Auxiliary => Polarity => Str} =
     \subj -> { s = case <(fromAgr subj.a).n, (fromAgr subj.a).g> of {
       <Sg,Fem> => table {
