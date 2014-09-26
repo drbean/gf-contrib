@@ -34,6 +34,8 @@ posMap = Map.fromList [
 	]
 
 a = [
+	, "beautiful"
+	, "big"
 	]
 
 adv = [
@@ -68,9 +70,16 @@ det = [
 	]
 
 n = [
+	"ten-dollar bill"
+	, "age"
+	, "apartment"
+	, "bag"
 	]
 
 pn = [
+	"Christmas"
+	, "the state of Colorado"
+	, "Queen"
 	]
 
 pron = [
@@ -106,48 +115,32 @@ tag = [
 	]
 
 v = [
+	"work"
 	]
 
-10-dollar
-30s
-40s
-60
-And
-But
-Christmas
-Colorado
-I
-I'll
-I'm
-It
-Jackson
-My
-Not
-One
-Queen
-That
-Therefore
-Well
-Whatever
-Work
-You
-a
-age
+ten-dollar bill	: CN;
+thirties
+forties
+sixty
+Christmas	: PN;
+the state of Colorado	: PN;
+one
+Queen	: PN;
+work	: V;
+age	: CN;
 all
-and
 another
-apartment
+apartment	: CN;
 as
 at
 back
 badly
-bag
+bag	: CN;
 be
-beautiful
+beautiful	: AP;
 because
 becoming
-big
-bill
+big	: A;
 birthday
 bottle
 bought
