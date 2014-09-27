@@ -36,9 +36,17 @@ posMap = Map.fromList [
 a = [
 	, "beautiful"
 	, "big"
+	, "first"
+	, "great"
+	, "homeless"
+	, "little"
+	, "lonely"
+	, "middle-class"
 	]
 
 adv = [
+	, "back"
+	, "pretty"
 	]
 
 aux = [
@@ -67,15 +75,45 @@ det = [
 	, "some"
 	, "the"
 	, "five"
+	, "one"
 	]
 
-n = [
+n = cn ++ un
+
+cn = [
 	"ten-dollar bill"
 	, "age"
 	, "apartment"
-	, "bag"
+	, "gift bag"
+	, "birthday"
+	, "bottle"
+	, "budget"
+	, "card"
+	, "children"
+	, "daughter"
+	, "dummy"
+	, "fragrance"
+	, "idea"
+	, "job"
+	, "man"
+	, "month"
+	, "shelter"
+	, "sign"
+	, "smell"
+	, "spirit"
+	, "week"
+	, "women"
 	]
 
+un = [
+	"cooking"
+	, "life"
+	, "lotion"
+	, "money"
+	, "rent"
+	, "savings"
+	, "unemployment"
+]
 pn = [
 	"Christmas"
 	, "the state of Colorado"
@@ -116,6 +154,30 @@ tag = [
 
 v = [
 	"work"
+	, "buy"
+	, "lose"
+	, "take care"
+	, "cover"
+	, "cry"
+	, "dress"
+	, "feel"
+	, "get"
+	, "go"
+	, "hand"
+	, "lay off"
+	, "lift"
+	, "look"
+	, "move in"
+	, "open"
+	, "receive"
+	, "remember"
+	, "smell"
+	, "take"
+	, "thank"
+	, "turn"
+	, "want"
+	, "sit"
+	, "enjoy"
 	]
 
 ten-dollar bill	: CN;
@@ -133,150 +195,102 @@ another
 apartment	: CN;
 as
 at
-back
+back	: Adv;
 badly
-bag	: CN;
 be
 beautiful	: AP;
 because
-becoming
 big	: A;
-birthday
-bottle
-bought
-budget
-bullet
-buy
-can
-card
-care
-children
-class
-coming
-cooking
-could
-covering
-crying
-daughter
-daughters
+birthday	: CN;
+bottle	: CN;
+budget	: CN;
+buy	: V;
+card	: CN;
+children	: CN;
+cooking	: N;
+cover	: V;
+cry	: V;
+daughter	: CN;
 deal
-didn't
-don't
-dressed
-dummy
-enjoying
+dress	: V;
+dummy	: CN;
+enjoy	: V;
 ever
-felt
-first
-five
+feel	: V;
+first	: A;
+five	: Det;
 for
-forget
-fragrance
-generation
-get
-gift
-girls
-go
-going
-gonna
-got
-great
-had
-handed
-happen
-have
-her
-here
-him
-homeless
-ideas
+fragrance	: CN;
+get	: V;
+gift bag	: CN;
+go	: V;
+great	: A;
+hand	: V;
+homeless	: A;
+idea	: CN;
 in
 interview
 into
 it
-job
+job	: CN;
 joy
 just
-know
-laid
-laugh
-life
-lifted
+lay off	: V;
+life	: N;
+lift	: V;
 like
-little
-lonely
-looking
-lost
-lotion
-man
-me
-meant
-middle
-money
-month
-months
+little	: A;
+lonely	: A;
+look	: V;
+lose	: V;
+lotion	: N;
+man	: CN;
+middle-class	: A;
+money	: N;
+month	: CN;
 most
-move
-much
-my
-myself
+move in	: V;
 never
 no
 nobody
 not
 of
 off
-one
-opened
+one	: Det;
+open	: V;
 or
 out
-pretty
-received
-remember
-remembering
-rent
+pretty	: Adv;
+receive	: V;
+remember	: V;
+rent	: N;
 retiring
-savings
-see
-she
-shelter
-sign
-sitting
-smelled
-smells
+savings	: N;
+shelter	: CN;
+sign	: CN;
+sit	: V;
+smell	: V;
+smell	: CN;
 so
 some
-spirits
-started
-state
-strained
-take
-thanked
-that
-the
-these
-this
+spirit	: CN;
+take	: V;
+thank	: V;
 thought
 to
-told
-turned
+turn	: V;
 um
-unemployment
+unemployment	: N;
 up
 very
-wants
-was
+want	: V;
 way
-week
+week	: CN;
 were
 when
 which
 with
-women
+women	: CN;
 working
-you
-you're
-you
-your
 
 -- vim: set ts=2 sts=2 sw=2 noet:
