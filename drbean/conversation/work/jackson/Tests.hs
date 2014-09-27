@@ -113,6 +113,7 @@ yn_dic_test = [
   , "Is Queen in the shelter."
   , "Does Queen remember Queen's daughters as little girls."
   , "Does Queen remember the smell of cooking."
+  , "Does Queen remember the smells of cooking."
   , "Does Queen remember the joy of Christmas."
   , "Does Queen feel so lonely."
   , "Do the women receive a gift bag."
