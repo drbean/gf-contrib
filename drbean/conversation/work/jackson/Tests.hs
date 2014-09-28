@@ -4,7 +4,7 @@ import Control.Monad
 import Data.Maybe
 
 import PGF
-import Candidate
+import Jackson
 import LogicalForm
 import Evaluation
 import Model
@@ -15,7 +15,7 @@ import WordsCharacters
 -- import System.Environment.FindBin
 
 ans tests = do
-  gr	<- readPGF ( "./Candidate.pgf" )
+  gr	<- readPGF ( "./Jackson.pgf" )
   let ss = map (chomp . lc_first) tests
   let ps = map ( parses gr ) ss
   let ls = map (map ( (linear gr) <=< transform ) ) ps
@@ -25,7 +25,7 @@ ans tests = do
 displayResult = fromMaybe "Nothing"
 
 trans tests = do
-  gr	<- readPGF ( "./Candidate.pgf" )
+  gr	<- readPGF ( "./Jackson.pgf" )
   let ss = map (chomp . lc_first) tests
   let ps = map ( parses gr ) ss
   let ls = map id ps
@@ -33,20 +33,12 @@ trans tests = do
   putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
 
 logic tests = do
-  gr	<- readPGF ( "./Candidate.pgf" )
+  gr	<- readPGF ( "./Jackson.pgf" )
   let ss = map (chomp . lc_first) tests
   let ps = map ( parses gr ) ss
   let ts = map (map lf) ps
   let zs = zip (map (++"\t") tests) ts
   putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
-
-all_tests =
-		student_tag_tests ++ student_yn_tests ++ student_tests_wh ++
-		test_text ++ comp_test1 ++ comp_test2 ++ tag_test ++ neg_tag_test ++
-		test_possessives ++ haves ++ intransitives ++ transitives ++ 
-		ditransitive_tests ++ relclauses ++ relppR_test
-		-- ++ wh_questions ++ comp_wh_questions
-		-- ++ ungrammatical
 
 dic_test = [
   "Queen works for the State of Colorado."
@@ -56,14 +48,14 @@ dic_test = [
   , "Queen is laid off."
   , "Queen has some money in savings."
   , "Queen thinks no big deal."
-  , "Queen thinks Queen can get another job."
+  , "Queen thinks that Queen can get another job."
   , "One week turns into a month."
   , "One week turns into five months."
   , "Unemployment does not cover Queen's rent."
   , "Queen loses Queen's apartment."
   , "Queen's daughter wants Queen to move in."
-  , "Queen thinks Queen's daughter should not look after Queen."
-  , "Queen thinks Queen should take care of Queen's children."
+  , "Queen thinks that Queen's daughter should not take care of Queen."
+  , "Queen thinks that Queen should take care of Queen's children."
   , "Queen doesn't have money to buy a birthday card."
   , "Queen goes out with a sign."
   , "Queen gets dressed up."
@@ -91,25 +83,26 @@ yn_dic_test = [
   , "Does Queen have great ideas of retiring."
   , "Does Queen have great ideas of sitting back."
   , "Does Queen have great ideas of enjoying life."
-  , "Does Queen is laid off."
+  , "Is Queen laid off."
   , "Does Queen have some money in savings."
   , "Does Queen think that being laid off is no big deal."
   , "Does Queen think that Queen can get another job."
   , "Does one week turn into a month."
   , "Does one week turn into five months."
-  , "Does unemployment does not cover Queen's rent."
+  , "Does unemployment cover Queen's rent."
   , "Does Queen lose Queen's apartment."
   , "Does Queen's daughter want Queen to move in."
-  , "Does Queen think Queen's daughter should not look after Queen."
-  , "Does Queen think Queen should take care of Queen's children."
+  , "Does Queen think that Queen's daughter should not take care of Queen."
+  , "Does Queen think that Queen's daughter shouldn't take care of Queen."
+  , "Does Queen think that Queen should take care of Queen's children."
   , "Does Queen have money to buy a birthday card."
   , "Does Queen go out with a sign."
   , "Does Queen get dressed up."
   , "Does Queen look pretty middle-class."
   , "Does a man hand Queen a 10-dollar bill."
-  , "Does Queen thankthe man."
-  , "Does Queen buyQueen's daughter a card."
-  , "Does Queen rememberChristmas."
+  , "Does Queen thank the man."
+  , "Does Queen buy Queen's daughter a card."
+  , "Does Queen remember Christmas."
   , "Is Queen in the shelter."
   , "Does Queen remember Queen's daughters as little girls."
   , "Does Queen remember the smell of cooking."
