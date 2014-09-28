@@ -1,4 +1,4 @@
-concrete MyConcrete of MyAbstract = open (R=ResEng), Prelude, ConstructorsEng, ParadigmsEng, ExtraEng, IrregEng, StructuralEng in {
+concrete MyConcrete of MyAbstract = open ResEng, Prelude, ConstructorsEng, ParadigmsEng, ExtraEng, IrregEng, StructuralEng in {
 
 lincat
   Utt	= Utt;
@@ -67,19 +67,19 @@ oper
 	know_V = IrregEng.know_V;
 
 	ModalVV	: Str -> Str -> Str -> Str -> Str ->
-		{s : R.VVForm => Str; p : Str; typ : R.VVType } =
+		{s : VVForm => Str; p : Str; typ : VVType } =
 		\inf, pres, pp, prespp, presN -> {
 		s = table {
-			R.VVF R.VInf	=> inf ;
-			R.VVF R.VPres => pres;
-			R.VVF R.VPPart	=> pp ;
-			R.VVF R.VPresPart	=> prespp ;
-			-- R.VVF R.VPast	=> past ;
-			-- R.VVPastNeg	=> pastN ;
-			R.VVPresNeg	=> presN
+			VVF VInf	=> inf ;
+			VVF VPres => pres;
+			VVF VPPart	=> pp ;
+			VVF VPresPart	=> prespp ;
+			-- VVF VPast	=> past ;
+			-- VVPastNeg	=> pastN ;
+			VVPresNeg	=> presN
 			} ;
 		p = [];
-		typ	= R.VVAux;
+		typ	= VVAux;
 		lock_VV = {}
 		};
 
@@ -182,6 +182,7 @@ lin
 	theSg_Det	= theSg_Det;
 	thePlural_Det = thePl_Det;
 	Apos np	= mkDet (GenNP np);
+	MassApos np	= mkDet (GenNP np);
 	Apos_pl np	= mkDet (GenNP np) pluralNum;
 	no_Det	= mkDet no_Quant;
 	no_pl_Det	= mkDet no_Quant pluralNum;

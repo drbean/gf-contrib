@@ -92,6 +92,7 @@ fun
 	theSg_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
 	thePlural_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
 	Apos  : NP -> Det;
+	MassApos	: NP -> MassDet;
 	Apos_pl  : NP -> Det;
 	no_Det	: Det;
 	no_pl_Det	: Det;
