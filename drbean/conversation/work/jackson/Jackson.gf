@@ -7,35 +7,36 @@ fun
 
 	one	: Det;
 	five	: Det;
-	several	: Det;
-	about	: Predet;
+	another	: Det;
+	some	: MassDet;
 
 	for_prep	: Prep;
+	into_prep	: Prep;
 
 	good	: AP;
 	beautiful	: AP;
 	big	: AP;
+	first	: AP;
+	great	: AP;
+	homeless	: AP;
+	little	: AP;
+	lonely	: AP;
+	middle_class	: AP;
 
 	on_time	: Adv;
 	back	: Adv;
 	pretty	: Adv;
-	first	: A;
-	great	: A;
-	homeless	: A;
-	little	: A;
-	lonely	: A;
-	middle_class	: A;
 
 	ten_dollar_bill	: CN;
 	family	: CN;
 	age	: CN;
 	apartment	: CN;
 	bag	: CN;
-	birthday	: CN;
-	bottle	: CN;
+	birthday_card	: CN;
+	bottle	: N2;
 	budget	: CN;
 	card	: CN;
-	children	: CN;
+	child	: CN;
 	daughter	: CN;
 	dummy	: CN;
 	fragrance	: CN;
@@ -51,9 +52,9 @@ fun
 	women	: CN;
 
 	queen	: PN;
-	Christmas	: PN;
-	the_state_of_Colorado	: PN;
-	Queen	: PN;
+	christmas	: PN;
+	colorado	: PN;
+
 	cooking	: N;
 	life	: N;
 	lotion	: N;
@@ -62,30 +63,33 @@ fun
 	savings	: N;
 	unemployment	: N;
 
-	work	: V;
-	buy	: V;
-	lose	: V;
-	take_care	: V;
-	cover	: V;
+	buy	: V3;
+	lose	: V2;
+	take_care	: V2;
+	cover	: V2;
 	cry	: V;
 	dress	: V;
 	feel	: V;
-	get	: V;
+	get	: V2;
 	go	: V;
-	hand	: V;
+	hand	: V3;
+	have	: V2;
 	off	: V;
-	lay_off	: V;
+	lay_off	: V2;
 	lift	: V;
 	look	: V;
 	move_in	: V;
 	Open	: V;
-	receive	: V;
-	remember	: V;
+	receive	: V2;
+	remember	: V2;
+	should	: VV;
 	smell_V2	: V2;
 	take	: V;
-	thank	: V;
-	turn	: V;
-	want	: V;
+	thank	: V2;
+	think	: VS;
+	turn	: V2;
+	want	: VV;
+	work	: V2;
 	sit	: V;
 	enjoy	: V;
 
