@@ -34,7 +34,7 @@ posMap = Map.fromList [
 	]
 
 a = [
-	, "beautiful"
+	"beautiful"
 	, "big"
 	, "first"
 	, "great"
@@ -45,7 +45,7 @@ a = [
 	]
 
 adv = [
-	, "back"
+	"back"
 	, "pretty"
 	]
 
@@ -113,7 +113,8 @@ un = [
 	, "rent"
 	, "savings"
 	, "unemployment"
-]
+	]
+
 pn = [
 	"Christmas"
 	, "the state of Colorado"
@@ -126,6 +127,7 @@ pron = [
 	]
 
 prep = [
+	"for"
 	]
 
 rel = [
@@ -164,6 +166,7 @@ v = [
 	, "get"
 	, "go"
 	, "hand"
+	, "have"
 	, "lay off"
 	, "lift"
 	, "look"
@@ -174,11 +177,15 @@ v = [
 	, "smell"
 	, "take"
 	, "thank"
+	, "think"
 	, "turn"
 	, "want"
 	, "sit"
 	, "enjoy"
+	, "work for"
 	]
+
+{-
 
 ten-dollar bill	: CN;
 thirties
@@ -188,7 +195,7 @@ Christmas	: PN;
 the state of Colorado	: PN;
 one
 Queen	: PN;
-work	: V;
+work	: V2;
 age	: CN;
 all
 another
@@ -219,13 +226,14 @@ ever
 feel	: V;
 first	: A;
 five	: Det;
-for
+for	: Prep;
 fragrance	: CN;
-get	: V;
+get	: V2;
 gift bag	: CN;
 go	: V;
 great	: A;
 hand	: V;
+have	: V2;
 homeless	: A;
 idea	: CN;
 in
@@ -269,21 +277,21 @@ savings	: N;
 shelter	: CN;
 sign	: CN;
 sit	: V;
-smell	: V;
+smell	: V2;
 smell	: CN;
 so
 some
 spirit	: CN;
 take	: V;
 thank	: V;
-thought
+think	: VS;
 to
 turn	: V;
 um
 unemployment	: N;
 up
 very
-want	: V;
+want	: VV;
 way
 week	: CN;
 were
@@ -292,5 +300,7 @@ which
 with
 women	: CN;
 working
+
+-}
 
 -- vim: set ts=2 sts=2 sw=2 noet:
