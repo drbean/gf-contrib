@@ -1,6 +1,6 @@
 module Main where
 
-import Candidate
+import Jackson
 import LogicalForm hiding ((==))
 import Evaluation
 
@@ -20,7 +20,7 @@ import System.Environment.FindBin
 main :: IO ()
 main = do
 	path <- getProgPath
-	gr <- readPGF ( path ++ "/Candidate.pgf" )
+	gr <- readPGF ( path ++ "/Jackson.pgf" )
 	hClose stderr
 	hDuplicateTo stdout stderr
 	s <- getLine
