@@ -1,6 +1,6 @@
-module LogicalForm (module LogicalForm, module Candidate) where
+module LogicalForm (module LogicalForm, module Jackson) where
 
-import Candidate
+import Jackson
 import PGF
 
 import Model
@@ -13,19 +13,15 @@ import Data.Tuple
 
 entuples :: [(Entity,GPN)]
 entuples = [
-	(B,Gbarbara)
-	, (D,Gdrbean)
-	, (E,Geva)
-	, (T,Gtadeusz)
-	, (F,Gfast_track)
+	(Q,Gqueen)
+	, (C,Gcolorado)
+	, (X, Gchristmas)
 	]
 
 instance Eq GPN where
-	(==) Gbarbara Gbarbara = True
-	(==) Gdrbean Gdrbean = True
-	(==) Geva Geva = True
-	(==) Gtadeusz Gtadeusz = True
-	(==) Gfast_track Gfast_track = True
+	(==) Gqueen Gqueen = True
+	(==) Gcolorado Gcolorado = True
+	(==) Gchristmas Gchristmas = True
 	(==) _ _ = False
 
 gent2ent :: GPN -> Entity
@@ -252,7 +248,6 @@ transDet Gsome_Det = \ p q -> Exists (\v -> Conj [p v, q v] )
 transDet Gsome_pl_Det = transDet Gsome_Det
 transDet Ga_Det = \ p q -> Exists (\v -> Conj [p v, q v] )
 transDet Gzero_Det_pl = \ p q -> Exists (\v -> Conj [p v, q v] )
-transDet Ga_few = \ p q -> Several (\v -> Conj [p v, q v] )
 transDet Gno_Det = \ p q -> Neg (Exists (\v -> Conj [p v, q v]))
 transDet Gno_pl_Det = transDet Gno_Det
 --transDet (Leaf (Cat "most" "DET" _ _)) =
@@ -268,8 +263,6 @@ transDet Gno_pl_Det = transDet Gno_Det
 transMassDet :: GMassDet -> (Term -> LF) -> (Term -> LF) -> LF
 transMassDet Gthe_mass_Det = \ p q -> Exists (\v -> Conj [Single p, p v, q v] )
 transMassDet Gzero_Det_sg = \ p q -> Exists (\v -> Conj [p v, q v] )
-transMassDet Ga_lot_of_sg = \ p q -> Exists (\v -> Conj [p v, q v] )
-transMassDet Gany_sg = \ p q -> Exists (\v -> Conj [p v, q v] )
 
 transN :: GN -> Term -> LF
 transN name	= \x -> Rel (lin name) [x]
