@@ -45,7 +45,7 @@ lin
 	daughter	= mkCN( mkN "daughter");
 	dummy	= mkCN( mkN "dummy");
 	fragrance	= mkCN( mkN "fragrance");
-	idea	= mkCN( mkN "idea");
+	idea	= mkN2( mkN "idea");
 	job	= mkCN( mkN "job");
 	joy	= mkN2( mkN "joy");
 	man	= mkCN( mkN "man");
@@ -95,7 +95,7 @@ lin
 	thank	= mkV2 "thank";
 	think	= mkVS( mkV "think");
 	turn	= mkV2 "turn" into_prep;
-	want	= mkVV( mkV "want");
+	want	= mkV2V( mkV "want") noPrep to_Prep;
 	work	= mkV2 "work" for_prep;
 	sit	= mkV "sit";
 

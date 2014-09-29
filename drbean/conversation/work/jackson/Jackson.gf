@@ -40,7 +40,7 @@ fun
 	daughter	: CN;
 	dummy	: CN;
 	fragrance	: CN;
-	idea	: CN;
+	idea	: N2;
 	job	: CN;
 	joy	: N2;
 	man	: CN;
@@ -89,7 +89,7 @@ fun
 	thank	: V2;
 	think	: VS;
 	turn	: V2;
-	want	: VV;
+	want	: V2V;
 	work	: V2;
 	sit	: V;
 	enjoy	: V;
