@@ -1,7 +1,7 @@
 --# -path=.:/home/drbean/GF/gf-contrib/drbean:./gf-contrib/drbean/conversation/work/dickson:present
 
 concrete JacksonEng of Jackson = MyConcrete  **
-open ConstructorsEng, ParadigmsEng, StructuralEng, IrregEng, ExtraEng, ConstructX, Prelude in {
+open ConstructorsEng, ParadigmsEng, StructuralEng, IrregEng, ExtraEng, Prelude in {
 
 oper
 
@@ -23,7 +23,8 @@ lin
 
 	on_time	= mkAdv "on time";
 	back	= mkAdv "back";
-	pretty	= mkAdv "pretty";
+	pretty	= mkAdA "pretty";
+
 	first	= mkAP( mkA "first");
 	great	= mkAP( mkA "great");
 	homeless	= mkAP( mkA "homeless");
@@ -46,14 +47,14 @@ lin
 	fragrance	= mkCN( mkN "fragrance");
 	idea	= mkCN( mkN "idea");
 	job	= mkCN( mkN "job");
+	joy	= mkN2( mkN "joy");
 	man	= mkCN( mkN "man");
 	month	= mkCN( mkN "month");
 	shelter	= mkCN( mkN "shelter");
 	sign	= mkCN( mkN "sign");
-	smell_CN	= mkCN( mkN "smell");
-	spirit	= mkCN( mkN "spirit");
+	smell_N2	= mkN2( mkN "smell");
 	week	= mkCN( mkN "week");
-	women	= mkCN( mkN "women");
+	woman	= mkCN( mkN  "woman" "women");
 
   queen	= mkPN( mkN feminine (mkN "Queen") );
 	christmas	= mkPN( mkN nonhuman (mkN "Christmas") );
@@ -65,6 +66,7 @@ lin
 	money	= mkN "money";
 	rent	= mkN "rent";
 	savings	= mkN "savings";
+	spirits	= mkN "spirits";
 	unemployment	= mkN "unemployment";
 
 	buy	= mkV3 "buy";
@@ -73,17 +75,17 @@ lin
 	cry	= mkV "cry";
 	dress	= mkV "dress";
 	enjoy	= mkV "enjoy";
-	feel	= mkV "feel";
+	feel	= mkVA( mkV "feel");
 	get	= mkV2 "get";
 	go	= mkV "go";
 	hand	= mkV3 "hand";
 	off	= mkV "off";
 	lay_off	= mkV2( partV lay_V "off");
-	lift	= mkV "lift";
-	look	= mkV "look";
+	lift	= mkV2 "lift";
+	look	= mkVA( mkV "look");
 	lose	= mkV2 "lose";
 	move_in	= partV (mkV "move") "in";
-	Open	= mkV "open";
+	Open	= mkV2 "open";
 	receive	= mkV2 "receive";
 	remember	= mkV2 "remember";
 	should = ModalVV "should" "should" nonExist nonExist (variants {"shouldn't"; "should not"});

@@ -25,7 +25,7 @@ fun
 
 	on_time	: Adv;
 	back	: Adv;
-	pretty	: Adv;
+	pretty	: AdA;
 
 	ten_dollar_bill	: CN;
 	family	: CN;
@@ -42,14 +42,14 @@ fun
 	fragrance	: CN;
 	idea	: CN;
 	job	: CN;
+	joy	: N2;
 	man	: CN;
 	month	: CN;
 	shelter	: CN;
 	sign	: CN;
-	smell_CN	: CN;
-	spirit	: CN;
+	smell_N2	: N2;
 	week	: CN;
-	women	: CN;
+	woman	: CN;
 
 	queen	: PN;
 	christmas	: PN;
@@ -61,6 +61,7 @@ fun
 	money	: N;
 	rent	: N;
 	savings	: N;
+	spirits	: N;
 	unemployment	: N;
 
 	buy	: V3;
@@ -69,17 +70,17 @@ fun
 	cover	: V2;
 	cry	: V;
 	dress	: V;
-	feel	: V;
+	feel	: VA;
 	get	: V2;
 	go	: V;
 	hand	: V3;
 	have	: V2;
 	off	: V;
 	lay_off	: V2;
-	lift	: V;
-	look	: V;
+	lift	: V2;
+	look	: VA;
 	move_in	: V;
-	Open	: V;
+	Open	: V2;
 	receive	: V2;
 	remember	: V2;
 	should	: VV;
