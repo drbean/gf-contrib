@@ -292,7 +292,7 @@ um
 unemployment	: N;
 up
 very
-want	: VV;
+want	: V2V;
 way
 week	: CN;
 were
