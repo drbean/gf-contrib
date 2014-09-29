@@ -207,6 +207,7 @@ lin
 	ComparaS a s = mkAP a s;
 	AdjModified	a s = mkAP a s;
 	As_as ap np	= mkAP as_CAdv ap np;
+	AdvAdj adv adj = mkAP adv adj;
 
   about_prep	= mkPrep "about";
   as_prep	= mkPrep "as";

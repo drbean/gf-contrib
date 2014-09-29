@@ -119,6 +119,7 @@ fun
 	More	: A -> AP;
 	AdjModified	: AP -> VP -> AP;
 	As_as	: AP -> NP -> AP;
+	AdvAdj	: AdA -> AP -> AP;
 
 	about_prep	: Prep;
 	as_prep	: Prep;
