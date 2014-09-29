@@ -102,7 +102,7 @@ cn = [
 	, "smell"
 	, "spirit"
 	, "week"
-	, "women"
+	, "woman"
 	]
 
 un = [
@@ -170,6 +170,7 @@ v = [
 	, "lay off"
 	, "lift"
 	, "look"
+	, "look"
 	, "move in"
 	, "open"
 	, "receive"
@@ -223,7 +224,7 @@ dress	: V;
 dummy	: CN;
 enjoy	: V;
 ever
-feel	: V;
+feel	: VA;
 first	: A;
 five	: Det;
 for	: Prep;
@@ -249,7 +250,7 @@ lift	: V;
 like
 little	: A;
 lonely	: A;
-look	: V;
+look	: VA;
 lose	: V;
 lotion	: N;
 man	: CN;
@@ -298,7 +299,7 @@ were
 when
 which
 with
-women	: CN;
+woman	: CN;
 working
 
 -}
