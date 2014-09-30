@@ -137,35 +137,9 @@ type Judger = Entity
 type Judged = Entity
 type Content  = String
 
-appreciations :: [(Judger, Content, [(Case,Entity)], Judged)]
-appreciations	= [
-	(L, "has", [(Agent,T),(Theme,G)],T)
-	--, (E, "likes", [(Agent,E),(Theme,O)], O)
-	]
-appreciation = [ (a,t,r) | (_,_,cs,_) <- appreciations
-		, Just a <- [lookup Agent cs]
-		, Just t <- [lookup Theme cs]
-		, Just r <- [lookup Recipient cs]
-		]
-
-resentments :: [(Judger, Content, [(Case,Entity)], Judged)]
-resentments = [
-  (L,	"difficult_to_work_with", [(Theme,B)],B )
-  , (D,	"fail", [(Agent,D),(Theme,L)], L )
-  , (D, "poor", [(Theme, L)], L)
-  , (D, "bad job", [(Agent, L)], L)
-	]
-qualities	= [ (B,A),(T,G),(B,X),(T,X),(E,X) ]
-
 goal :: [ (Content, [(Case, Entity)]) ]
 goal = [
-	("great_idea",	[(Agent,A),(Theme,C)])
-	, ("enjoy",	[(Agent,E),(Recipient,L),(Theme,J) ] )
-	, ("get_to",	[(Agent,B),(Theme,Q)])
-	, ("improve",	[(Agent,E),(Recipient,L),(Theme,W) ] )
-	, ("promote",	[(Agent,F),(Recipient,B),(Theme,J)])
-	, ("promote",	[(Agent,F),(Recipient,E),(Theme,J)])
-	, ("promote",	[(Agent,F),(Recipient,T),(Theme,J)])
+	("great_idea",	[(Agent,Q),(Theme,R)])
 	]
 
 act :: [ (Content, [(Case, Entity)]) ]
