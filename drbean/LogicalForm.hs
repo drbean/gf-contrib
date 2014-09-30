@@ -247,6 +247,7 @@ transDet GthePlural_Det =  \ p q -> Several (\v -> Conj [p v, q v] )
 transDet Gsome_Det = \ p q -> Exists (\v -> Conj [p v, q v] )
 transDet Gsome_pl_Det = transDet Gsome_Det
 transDet Ga_Det = \ p q -> Exists (\v -> Conj [p v, q v] )
+transDet Ganother = transDet Ga_Det
 transDet Gzero_Det_pl = \ p q -> Exists (\v -> Conj [p v, q v] )
 transDet Gno_Det = \ p q -> Neg (Exists (\v -> Conj [p v, q v]))
 transDet Gno_pl_Det = transDet Gno_Det
