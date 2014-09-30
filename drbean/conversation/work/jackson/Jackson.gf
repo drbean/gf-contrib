@@ -23,8 +23,6 @@ fun
 	lonely	: AP;
 	middle_class	: AP;
 
-	on_time	: Adv;
-	back	: Adv;
 	pretty	: AdA;
 
 	ten_dollar_bill	: CN;
@@ -56,13 +54,15 @@ fun
 	colorado	: PN;
 
 	cooking	: N;
-	life	: N;
 	lotion	: N;
 	money	: N;
 	rent	: N;
 	savings	: N;
 	spirits	: N;
 	unemployment	: N;
+	enjoying_life	: N;
+	retiring	: N;
+	sitting_back	: N;
 
 	buy	: V3;
 	lose	: V2;
@@ -91,8 +91,6 @@ fun
 	turn	: V2;
 	want	: V2V;
 	work	: V2;
-	sit	: V;
-	enjoy	: V;
 
 }
 

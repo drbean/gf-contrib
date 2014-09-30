@@ -21,8 +21,6 @@ lin
 	beautiful	= mkAP( mkA "beautiful");
 	big	= mkAP( mkA "big");
 
-	on_time	= mkAdv "on time";
-	back	= mkAdv "back";
 	pretty	= mkAdA "pretty";
 
 	first	= mkAP( mkA "first");
@@ -61,20 +59,21 @@ lin
 	colorado	= mkPN( mkN nonhuman (mkN "the State of Colorado") );
 
 	cooking	= mkN "cooking";
-	life	= mkN "life";
 	lotion	= mkN "lotion";
 	money	= mkN "money";
 	rent	= mkN "rent";
 	savings	= mkN "savings";
 	spirits	= mkN "spirits";
 	unemployment	= mkN "unemployment";
+	enjoying_life	= mkN "enjoying life";
+	retiring	= mkN "retiring";
+	sitting_back	= mkN "sitting back";
 
 	buy	= mkV3 "buy";
 	take_care	= mkV2 (partV (mkV "take") "care") of_prep;
 	cover	= mkV2 "cover";
 	cry	= mkV "cry";
 	dress	= mkV "dress";
-	enjoy	= mkV "enjoy";
 	feel	= mkVA( mkV "feel");
 	get	= mkV2 "get";
 	go	= mkV "go";
@@ -97,7 +96,6 @@ lin
 	turn	= mkV2 "turn" into_prep;
 	want	= mkV2V( mkV "want") noPrep to_Prep;
 	work	= mkV2 "work" for_prep;
-	sit	= mkV "sit";
 
 }
 
