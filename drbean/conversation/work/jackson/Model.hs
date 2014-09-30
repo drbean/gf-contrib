@@ -146,33 +146,17 @@ act :: [ (Content, [(Case, Entity)]) ]
 act = [
 	("hand", [(Agent,N),(Theme,M),(Recipient,Q)] )
 	, ("hand", [(Agent,N),(Theme,T),(Recipient,Q)] )
+	, ("lay_off", [(Agent,C),(Recipient,Q)] )
 	]
 
 idea :: [ (Content, [(Case, Entity)]) ]
 idea = [
-	("able", [(Agent,T),(Theme,J),(Instrument,W)])
-	, ("bad", [(Recipient,D),(Agent,L),(Theme,J) ] )
-	, ("achieve", [(Agent,B),(Theme,R),(Feature,N)])
-	, ("avoid", [(Agent,T),(Theme,I),(Location,F)])
-	, ("benefit", [(Agent,T),(Theme,J),(Recipient,F)])
-	, ("difficult", [(Recipient,D),(Theme,O) ] )
-	, ("experience", [(Agent,E),(Theme,X) ] )
-	, ("experience", [(Agent,T),(Theme,X) ] )
-	, ("help", [(Agent,E),(Theme,L),(Recipient,E) ] )
-	, ("help", [(Agent,H),(Theme,J),(Recipient,E) ] )
-	, ("increase", [(Agent,T),(Theme,S),(Location,F)])
-	, ("lead", [(Agent,E),(Theme,L) ] )
-	, ("patient", [(Agent,T),(Theme,F)])
-	, ("realistic", [(Agent,T),(Theme,F)])
-	, ("result", [(Agent,E),(Theme,R),(Recipient,F),(Instrument,L)])
-	, ("self_image", [(Agent,T),(Theme,T) ] )
-	, ("self_image", [(Agent,E),(Theme,E) ] )
-	, ("situate", [(Agent,T),(Theme,F),(Location,K)])
+	("another_job", [(Agent,Q),(Theme,J)] )
 	]
 
 attitude :: [ (Content, [(Case, Entity)]) ]
 attitude = [
-	("respect", [(Agent,L),(Theme,G),(Recipient,T) ] )
+	("no_big_deal", [(Agent,Q),(Theme,U)] )
 	]
 
 affiliation :: [ (Content, [(Case, Entity)]) ]
@@ -183,11 +167,7 @@ affiliation = [
 
 interest :: [ (Content, [(Case, Entity)]) ]
 interest = [
-	("organize", [(Agent,E),(Recipient,L) ] )
-	, ("tell", [(Agent,E),(Theme,Unspec),(Recipient,L) ] )
-	, ("training", [(Agent,E),(Theme,H),(Recipient,H),(Location,J) ] )
-	, ("administration", [(Agent,E),(Theme,O) ] )
-	, ("administration", [(Agent,D),(Theme,O) ] )
+	("smell", [(Agent,Q),(Theme,L) ] )
 	]
 
 gentwoPlacer :: [ (Content, [(Case,Entity)]) ] ->
