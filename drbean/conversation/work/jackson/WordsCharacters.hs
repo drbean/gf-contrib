@@ -45,8 +45,7 @@ a = [
 	]
 
 adv = [
-	"back"
-	, "pretty"
+	"pretty"
 	]
 
 aux = [
@@ -107,12 +106,14 @@ cn = [
 
 un = [
 	"cooking"
-	, "life"
 	, "lotion"
 	, "money"
 	, "rent"
 	, "savings"
 	, "unemployment"
+	, "enjoying life"
+	, "retiring"
+	, "sitting back"
 	]
 
 pn = [
@@ -181,8 +182,6 @@ v = [
 	, "think"
 	, "turn"
 	, "want"
-	, "sit"
-	, "enjoy"
 	, "work for"
 	]
 
@@ -203,7 +202,6 @@ another
 apartment	: CN;
 as
 at
-back	: Adv;
 badly
 be
 beautiful	: AP;
@@ -222,7 +220,7 @@ daughter	: CN;
 deal
 dress	: V;
 dummy	: CN;
-enjoy	: V;
+enjoying life	: N;
 ever
 feel	: VA;
 first	: A;
@@ -273,11 +271,11 @@ pretty	: Adv;
 receive	: V;
 remember	: V;
 rent	: N;
-retiring
+retiring	: N;
 savings	: N;
 shelter	: CN;
 sign	: CN;
-sit	: V;
+sitting back	: N;
 smell	: V2;
 smell	: CN;
 so
