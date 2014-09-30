@@ -201,9 +201,8 @@ help	= pred2 $ supervision
 twoPlacers, twoPlaceStarters :: [(String, TwoPlacePred)]
 twoPlaceStarters = [
     ("know_V2",    pred2 $ knowledge ++ acquaintances ++ map swap acquaintances)
-    , ("have",  pred2 $ possessions ++ qualities ++
+    , ("have",  pred2 $ possessions ++ 
 					map (\(_,l,_,r,_) ->(r,l) ) schooling)
-    , ("like",  pred2 $ map (\(a,t,r) -> (a,r)) appreciation)
     , ("work",  pred2 $ [(a,c) | (a,p,c) <- working] )
     , ("kind",  pred2 $ [(student, H) | (_,_,_,student,_) <- schooling ])
     , ("placing",       pred2 $ [(student, school) | (_,school,_,student,_) <- schooling ]
@@ -256,8 +255,7 @@ genthreePlacer area id content role1 role2 role3 =
 
 threePlacers, threePlaceStarters :: [(String, ThreePlacePred)]
 threePlaceStarters = [
-    ("liked", pred3 appreciation )
-    , ("work",        pred3 $ [(a,a,c) | (a,p,c) <- working ] )
+    ("work",        pred3 $ [(a,a,c) | (a,p,c) <- working ] )
     , ("studied_subj_at", pred3 $ map (\(_,school,subject,student,_) ->
                     (student,subject,school) ) schooling )
     ]
