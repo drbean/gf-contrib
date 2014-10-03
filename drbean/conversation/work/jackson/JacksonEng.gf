@@ -70,6 +70,7 @@ lin
 	sitting_back	= mkN "sitting back";
 
 	buy	= mkV3 "buy";
+	buy_V2	= mkV2 "buy";
 	take_care	= mkV2 (partV (mkV "take") "care") of_prep;
 	cover	= mkV2 "cover";
 	cry	= mkV "cry";

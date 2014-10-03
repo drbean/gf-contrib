@@ -65,6 +65,7 @@ fun
 	sitting_back	: N;
 
 	buy	: V3;
+	buy_V2	: V2;
 	lose	: V2;
 	take_care	: V2;
 	cover	: V2;
