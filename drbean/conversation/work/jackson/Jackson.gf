@@ -24,6 +24,8 @@ fun
 	middle_class	: AP;
 
 	pretty	: AdA;
+	very	: AdA;
+	so	: AdA;
 
 	ten_dollar_bill	: CN;
 	family	: CN;

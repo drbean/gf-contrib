@@ -22,6 +22,8 @@ lin
 	big	= mkAP( mkA "big");
 
 	pretty	= mkAdA "pretty";
+	very	= mkAdA "very";
+	so	= mkAdA "so";
 
 	first	= mkAP( mkA "first");
 	great	= mkAP( mkA "great");
