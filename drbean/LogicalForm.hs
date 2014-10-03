@@ -409,6 +409,12 @@ transVP (GWithTime vp _) = transVP vp
 transVP (GBe_vp comp) = case comp of
     GBe_someone np -> \x -> transNP np (\pred -> Eq pred x)
     GBe_bad ap -> transAP ap
+transVP (GLook_bad v ap) = case ap of
+	(GToo a)	-> \x -> Rel ((lin v) ++ "_" ++ (lin a)) [x]
+	(GVery a)	-> \x -> Rel ((lin v) ++ "_" ++ (lin a)) [x]
+	(GAdvAdj _ a)	-> \x -> Rel ((lin v) ++ "_" ++ (lin a)) [x]
+	_	-> \x -> Rel ((lin v) ++ "_" ++ (lin ap)) [x]
+
 transVP (GHappening v) =
         \ t -> ( Rel (lin v) [t] )
 transVP (GChanging v obj) = \subj -> transNP obj (\ e -> Rel (lin v) [subj,e])
