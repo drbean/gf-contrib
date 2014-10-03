@@ -79,7 +79,7 @@ lin
 	dress	= mkV "dress";
 	feel	= mkVA( mkV "feel");
 	get	= mkV2 "get";
-	go	= mkV "go";
+	go_out	= partV (mkV "go") "out";
 	hand	= mkV3 "hand";
 	off	= mkV "off";
 	lay_off	= mkV2( partV lay_V "off");

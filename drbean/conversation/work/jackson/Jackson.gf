@@ -75,7 +75,7 @@ fun
 	dress	: V;
 	feel	: VA;
 	get	: V2;
-	go	: V;
+	go_out	: V;
 	hand	: V3;
 	have	: V2;
 	have_V2V	: V2V;
