@@ -329,8 +329,6 @@ transCN name          = \ x -> Rel (lin name) [x]
 --  \ x -> (transS (Just s))
 
 transAP ::GAP -> Term -> LF
-transAP (GToo a) = \x -> Rel (lin a) [x]
-transAP (GVery a) = \x -> Rel (lin a) [x]
 transAP (GAdvAdj _ a) = \x -> Rel (lin a) [x]
 transAP ap = \x -> Rel (lin ap) [x]
 
@@ -410,8 +408,6 @@ transVP (GBe_vp comp) = case comp of
     GBe_someone np -> \x -> transNP np (\pred -> Eq pred x)
     GBe_bad ap -> transAP ap
 transVP (GLook_bad v ap) = case ap of
-	(GToo a)	-> \x -> Rel ((lin v) ++ "_" ++ (lin a)) [x]
-	(GVery a)	-> \x -> Rel ((lin v) ++ "_" ++ (lin a)) [x]
 	(GAdvAdj _ a)	-> \x -> Rel ((lin v) ++ "_" ++ (lin a)) [x]
 	_	-> \x -> Rel ((lin v) ++ "_" ++ (lin ap)) [x]
 
@@ -646,7 +642,7 @@ transVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 				(GHappening v) -> \positer -> transNP np
 					(\referent -> Rel ((lin v0) ++ ":is_" ++ (lin adj) ++ "_to_" ++ (lin v)) [positer,referent])
 				_ -> \x -> undefined
-			GVery a -> \positer -> transNP np
+			GAdvAdj _ a -> \positer -> transNP np
 				(\referent -> Rel ((lin v0) ++ ":is_" ++
 				(lin a)) [positer,referent])
 		(GBe_someone subjcomp ) -> (\positer -> transNP np
