@@ -99,6 +99,7 @@ yn_dic_test = [
   , "Does Queen go out with a sign?"
   , "Does Queen get dressed up?"
   , "Is Queen middle-class?"
+  , "Is Queen very middle-class?"
   , "Does Queen look pretty middle-class?"
   , "Does Queen look very middle-class?"
   , "Does Queen look middle-class?"
