@@ -17,29 +17,29 @@ entity_check =  [
     (A, "apartment" )
     , (B, "birthday_card" )
     , (C, "the_State_of_Colorado" )
-    , (D, "Queen's_daughter" )
-    , (E, "smells" )
+    , (D, "daughter" )
+    , (E, "rent" )
     , (F, "" )
     , (G, "gift_bag" )
     , (H, "shelter" )
-    , (I, "" )
+    , (I, "idea" )
     , (J, "job" )
-    , (K, "market" )
+    , (K, "week" )
     , (L, "lotion" )
     , (M, "money" )
     , (N, "a man" )
-    , (O, "" )
+    , (O, "month" )
     , (P, "" )
     , (Q, "Queen" )
     , (R, "retiring" )
     , (S, "sign" )
-    , (T, "10-dollar bill" )
+    , (T, "ten_dollar_bill" )
     , (U, "unemployment" )
     , (V, "" )
-    , (W, "" )
+    , (W, "joy" )
     , (X, "Christmas" )
-    , (Y, "" )
-    , (Z, "" )
+    , (Y, "cooking" )
+    , (Z, "smell_N2" )
     ]
 
 ent_ided :: String -> Entity
@@ -65,6 +65,7 @@ predid2 :: String -> Maybe TwoPlacePred
 predid3 :: String -> Maybe ThreePlacePred
 predid4 :: String -> Maybe FourPlacePred
 
+predid3 "hand"	= predid3 "give"
 predid3 name
        | Just pred <- lookup name threePlacers = Just pred
         -- | otherwise    = Nothing
@@ -78,23 +79,32 @@ predid5 name
         -- | otherwise    = Nothing
         | otherwise    = error $ "no '" ++ name ++ "' five-place predicate."
 
-onePlacers, onePlaceStarters, genonePlacers :: [(String, OnePlacePred)]
+onePlacers, onePlaceStarters, entityonePlacers :: [(String, OnePlacePred)]
 onePlaceStarters = [
         ("true",        pred1 entities )
         , ("false",     pred1 [] )
         , ("role",      pred1 [] )
 
-	, ("lonely",	 pred1 [Q] )
-	, ("middle-class",	 pred1 [Q] )
+        , ("great",     pred1 [I] )
 
-	, ("male",	 pred1 [N] )
-	, ("female",	 pred1 [Q,D] )
+	, ("lonely",	pred1 [Q] )
+	, ("middle-class",	 pred1 [Q] )
+	, ("little",	pred1 [L] )
+
+	, ("male",	pred1 [N] )
+	, ("female",	pred1 [Q,D] )
 	]
 
-onePlacers = genonePlacers ++ onePlaceStarters
+onePlacers = 
+	(genonePlacer event "is_lay_off_ed" "lay_off" Patient) :
+	(genonePlacer event "cry" "cry" Patient) :
+	entityonePlacers ++ onePlaceStarters
 
+predid1 "bottle"	= predid1 "true"
 predid1 "sitting_back"	= predid1 "retiring"
 predid1 "enjoying_life"	= predid1 "retiring"
+predid1 "child"	= predid1 "daughter"
+predid1 "card"	= predid1 "birthday_card"
 predid1 "woman"	= predid1 "female"
 predid1 "man"	= predid1 "male"
 predid1 "person"	= Just person
@@ -105,7 +115,17 @@ predid1 name
         -- | otherwise    = Nothing
        | otherwise    = error $ "no '" ++ name ++ "' one-place predicate."
 
-genonePlacers = map (\x -> (snd x, pred1 [fst x])) entity_check
+entityonePlacers =
+	map (\x -> (snd x, pred1 [fst x])) entity_check
+
+genonePlacer :: [ (Content, [(Case,Entity)]) ] ->
+	String -> String -> Case -> 
+	(String, OnePlacePred)
+genonePlacer area id content role =
+	( id, pred1 [ r | (co,cs) <- area
+		, co == content
+		, Just r <-[lookup role cs]
+		] )
 
 type OnePlacePred	= Entity -> Bool
 type TwoPlacePred	= Entity -> Entity -> Bool
@@ -132,7 +152,7 @@ pred2 xs	= curry ( `elem` xs )
 pred3 xs	= curry3 ( `elem` xs )
 pred4 xs	= curry4 ( `elem` xs )
 
-possessions	= [(U,E),(B,A),(T,A),(E,A),(D,A),(B,J),(T,J),(E,J),(B,X),(T,X),(E,X),(T,G),(F,S)]
+possessions	= []
 type Judger = Entity
 type Judged = Entity
 type Content  = String
@@ -142,16 +162,36 @@ goal = [
 	("great_idea",	[(Agent,Q),(Theme,R)])
 	]
 
-act :: [ (Content, [(Case, Entity)]) ]
-act = [
-	("hand", [(Agent,N),(Theme,M),(Recipient,Q)] )
-	, ("hand", [(Agent,N),(Theme,T),(Recipient,Q)] )
-	, ("lay_off", [(Agent,C),(Recipient,Q)] )
+event :: [ (Content, [(Case, Entity)]) ]
+event = [
+	("lay_off", [(Agent,C),(Patient,Q)] )
+	, ("turn", [(Agent,K),(Theme,O)] )
+	, ("oust", [(Agent,Unspec),(Theme,A),(Patient,Q)] )
+	, ("give", [(Agent,N),(Theme,M),(Recipient,Q)] )
+	, ("give", [(Agent,N),(Theme,T),(Recipient,Q)] )
+	, ("thank", [(Agent,Q),(Recipient,N)] )
+	, ("buy", [(Agent,Q),(Recipient,D),(Theme,C)] )
+	, ("give", [(Agent,N),(Recipient,Q),(Theme,T)] )
+	, ("give", [(Agent,H),(Recipient,Q),(Theme,L)] )
+	, ("open", [(Agent,Q),(Patient,L)] )
+	, ("smell", [(Agent,Q),(Patient,L) ] )
+	, ("cry", [(Patient,Q) ] )
+
+	]
+
+condition :: [ (Content, [(Case, Entity)]) ]
+condition = [
+	("cover", [(Agent,U),(Theme,E)] )
+	, ("have", [(Agent,Y),(Theme,Z)] )
+	, ("have", [(Agent,X),(Theme,W)] )
 	]
 
 idea :: [ (Content, [(Case, Entity)]) ]
 idea = [
 	("another_job", [(Agent,Q),(Theme,J)] )
+	, ("move_in", [(Agent,D),(Patient,Q)] )
+	, ("care", [(Agent,Q),(Patient,D)] )
+	, ("remember", [(Agent,Q),(Theme,X)] )
 	]
 
 attitude :: [ (Content, [(Case, Entity)]) ]
@@ -163,11 +203,6 @@ affiliation :: [ (Content, [(Case, Entity)]) ]
 affiliation = [
 	("employment", [(Agent,C),(Recipient,Q) ] )
 	, ("shelter", [(Agent,H),(Recipient,Q) ] )
-	]
-
-interest :: [ (Content, [(Case, Entity)]) ]
-interest = [
-	("smell", [(Agent,Q),(Theme,L) ] )
 	]
 
 gentwoPlacer :: [ (Content, [(Case,Entity)]) ] ->
@@ -212,25 +247,17 @@ twoPlaceStarters = [
     ]
 
 twoPlacers =
-	(gentwoPlacer act "can_to_get" "enjoy" Agent Recipient) :
-	(gentwoPlacer act "enjoy_ing_to_sell" "enjoy" Recipient Theme) :
-	(gentwoPlacer act "get" "achieve" Agent Theme) :
-	(gentwoPlacer act "try_hard_to_get" "enjoy" Agent Recipient) :
-	(gentwoPlacer act "try_hard_to_motivate" "fail" Agent Recipient) :
-	(gentwoPlacer act "try_to_motivate" "fail" Agent Recipient) :
-	(gentwoPlacer affiliation "in_prep" "department" Agent Location) :
-	(gentwoPlacer attitude "respect" "respect" Agent Recipient) :
-	(gentwoPlacer goal "apply" "promote" Recipient Theme) :
-	(gentwoPlacer goal "want_sb_to_enjoy_ing_to_work" "enjoy" Agent Recipient) :
-	(gentwoPlacer goal "want_to_get_to" "get_to" Agent Theme) :
-	(gentwoPlacer goal "want_to_start_to_improve" "improve" Agent Recipient) :
-	(gentwoPlacer idea "do" "able" Instrument Theme) :
-	(gentwoPlacer idea "think:is_difficult" "difficult" Recipient Theme) :
-	(gentwoPlacer idea "think:should_be_patient" "patient" Agent Theme) :
-	(gentwoPlacer idea "think:should_be_realistic" "realistic" Agent Theme) :
-	(gentwoPlacer interest "enjoy_V2" "administration" Agent Theme) :
-	(gentwoPlacer interest "like_ing_to_organize" "organize" Agent Recipient) :
-	(gentwoPlacer interest "would_to_enjoy_ing_to_do" "training" Agent Theme) :
+	(gentwoPlacer affiliation "work" "work" Recipient Agent) :
+	(gentwoPlacer event "turn" "turn" Agent Theme) :
+	(gentwoPlacer condition "cover" "cover" Agent Theme) :
+	(gentwoPlacer event "lose" "oust" Patient Theme) :
+	(gentwoPlacer idea "want_to_move_in" "move_in" Agent Patient) :
+	(gentwoPlacer event "thank" "thank" Agent Recipient) :
+	(gentwoPlacer idea "buy_V2" "buy" Agent Theme) :
+	(gentwoPlacer idea "remember" "remember" Agent Theme) :
+	(gentwoPlacer event "get" "give" Recipient Theme) :
+	(gentwoPlacer event "Open" "open" Agent Patient) :
+	(gentwoPlacer event "smell_V2" "smell" Agent Patient) :
 	twoPlaceStarters
 
 predid2 name
@@ -260,26 +287,14 @@ threePlaceStarters = [
                     (student,subject,school) ) schooling )
     ]
 threePlacers =
-	(genthreePlacer act "get_V2V_to_enjoy_ing_sell" "motivate" Agent Recipient Theme) :
-	(genthreePlacer goal "think:can_to_become" "become" Agent Agent Theme) :
-	(genthreePlacer idea "feel:have" "able" Agent Agent Instrument) :
-	(genthreePlacer idea "help_to_do" "help" Agent Recipient Theme) :
-	(genthreePlacer idea "say:is_" "self_image" Agent Agent Theme) :
-	(genthreePlacer idea "think:can_to_get" "result" Agent Recipient Theme) :
-	(genthreePlacer idea "think:can_to_increase" "increase" Agent Location Theme) :
-	(genthreePlacer idea "think:can_to_lead" "lead" Agent Agent Theme) :
-	(genthreePlacer idea "think:do" "bad" Recipient Agent Theme) :
-	(genthreePlacer idea "think:is_" "achieve" Agent Theme Feature) :
-	(genthreePlacer idea "think:is_in_prep" "situate" Agent Theme Location) :
-	(genthreePlacer idea "think:should_not_to_take" "avoid" Agent Location Theme) :
-	(genthreePlacer idea "think:should_to_help_V2" "help" Agent Theme Recipient) :
-	(genthreePlacer idea "want_to_do_for" "benefit" Agent Theme Recipient) :
-	(genthreePlacer interest "like_ing_to_tell_to_do" "tell" Agent Recipient Theme) :
-	(genthreePlacer act "can_to_get_V2V_enjoy_ing_to_sell" "enjoy" Agent Recipient Theme) :
-	(genthreePlacer act "try_hard_to_get_V2V_enjoy_ing_to_sell" "enjoy" Agent Recipient Theme) :
+	(genthreePlacer idea "think:can_to_get" "another_job" Agent Agent Theme) :
+	(genthreePlacer idea "think:should_not_to_take_care" "care" Agent Patient Patient) :
+	(genthreePlacer idea "think:should_to_take_care" "care" Agent Agent Patient) :
+	(genthreePlacer event "give" "give" Agent Recipient Theme) :
+	(genthreePlacer event "buy" "buy" Agent Recipient Theme) :
 	threePlaceStarters
 
-data Case = Agent | Theme | Recipient | Feature | Location | Instrument
+data Case = Agent | Theme | Patient | Recipient | Feature | Location | Instrument
   deriving Eq
 
 agent, theme, recipient, location, instrument ::
@@ -356,7 +371,6 @@ fourPlaceStarters = [
         ]
 
 fourPlacers =
-	(genfourPlacer interest "would_to_enjoy_ing_go_on_help_do" "training" Agent Theme Recipient Location) :
 	fourPlaceStarters
 
 agent4, theme4, recipient4, location4 :: (Entity,Entity,Entity,Entity) -> Entity
@@ -412,3 +426,5 @@ passivize4 r = \x y z -> or ( map (\u -> r u x y z ) entities )
 
 self ::  (a -> a -> b) -> a -> b
 self p	= \ x -> p x x 
+
+-- vim: set ts=2 sts=2 sw=2 noet:
