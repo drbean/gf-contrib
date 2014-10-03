@@ -108,18 +108,16 @@ takeAnswer a b@('T' : 'a' : _)  = collateAnswer a b
 takeAnswer a b@('E' : 'v' : _)  = collateAnswer a b
 takeAnswer a b@('D' : 'r' : _)  = collateAnswer a b
 takeAnswer a b@('F' : 'a' : _)  = collateAnswer a b
-takeAnswer "none" _ = "none of Barbara, Tadeusz, Eva, Dr Bean or Fast-Track"
-takeAnswer _ "none" = "none of Barbara, Tadeusz, Eva, Dr Bean or Fast-Track"
+takeAnswer "none" _ = "none of Queen, the State of Colorado or Christmas"
+takeAnswer _ "none" = "none of Queen, the State of Colorado or Christmas"
 takeAnswer "No answer" _ = "No answer"
 takeAnswer _ "No answer" = "No answer"
-takeAnswer _  _   = error "undefined answer, not Yes, No,Barbara, Tadeusz, Eva, Dr Bean or Fast-Track, none or No answer"
+takeAnswer _  _   = error "undefined answer, not Yes, No, Queen, the State of Colorado, or Christmas, none or No answer"
 
 collateAnswer a b = formatUp $ nub $ filter
-	(\x -> x ==	"Barbara"
-	|| x ==	"Tadeusz"
-	|| x ==	"Eva"
-	|| x ==	"Dr Bean"
-	|| x == "Fast-Track"
+	(\x -> x ==	"Queen"
+	|| x ==	"the State of Colorado"
+	|| x ==	"Christmas"
 		) (concat $ map (splitOn " , " ) (splitOn " or " (a ++ " , " ++ b)))
 
 formatUp es = let parts = splitAt 1 (reverse es)
