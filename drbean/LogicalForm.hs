@@ -246,8 +246,10 @@ transDet GthePlural_Det =  \ p q -> Several (\v -> Conj [p v, q v] )
 --  \ p q -> Forall (\v -> Impl (p v) (q v) )
 transDet Gsome_Det = \ p q -> Exists (\v -> Conj [p v, q v] )
 transDet Gsome_pl_Det = transDet Gsome_Det
+transDet Gfive	= transDet Gsome_pl_Det
 transDet Ga_Det = \ p q -> Exists (\v -> Conj [p v, q v] )
 transDet Ganother = transDet Ga_Det
+transDet Gone = transDet Ga_Det
 transDet Gzero_Det_pl = \ p q -> Exists (\v -> Conj [p v, q v] )
 transDet Gno_Det = \ p q -> Neg (Exists (\v -> Conj [p v, q v]))
 transDet Gno_pl_Det = transDet Gno_Det
@@ -264,6 +266,9 @@ transDet Gno_pl_Det = transDet Gno_Det
 transMassDet :: GMassDet -> (Term -> LF) -> (Term -> LF) -> LF
 transMassDet Gthe_mass_Det = \ p q -> Exists (\v -> Conj [Single p, p v, q v] )
 transMassDet Gzero_Det_sg = \ p q -> Exists (\v -> Conj [p v, q v] )
+transMassDet (GMassApos owner) =
+	\ p q -> Exists (\v -> Conj [ Single p, p v, q v, transNP owner
+		(\mod -> Rel "have" [mod, v] )])
 
 transN :: GN -> Term -> LF
 transN name	= \x -> Rel (lin name) [x]
@@ -326,6 +331,7 @@ transCN name          = \ x -> Rel (lin name) [x]
 transAP ::GAP -> Term -> LF
 transAP (GToo a) = \x -> Rel (lin a) [x]
 transAP (GVery a) = \x -> Rel (lin a) [x]
+transAP (GAdvAdj _ a) = \x -> Rel (lin a) [x]
 transAP ap = \x -> Rel (lin ap) [x]
 
 transPlace :: GPlace -> (Term -> LF) -> LF
