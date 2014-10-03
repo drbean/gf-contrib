@@ -205,7 +205,7 @@ attitude = [
 
 affiliation :: [ (Content, [(Case, Entity)]) ]
 affiliation = [
-	("employment", [(Agent,C),(Recipient,Q) ] )
+	("employment", [(Agent,C),(Patient,Q) ] )
 	, ("shelter", [(Agent,H),(Recipient,Q) ] )
 	]
 
@@ -242,16 +242,15 @@ twoPlaceStarters = [
     ("know_V2",    pred2 $ knowledge ++ acquaintances ++ map swap acquaintances)
     , ("have",  pred2 $ possessions ++ 
 					map (\(_,l,_,r,_) ->(r,l) ) schooling)
-    , ("work",  pred2 $ [(a,c) | (a,p,c) <- working] )
     , ("kind",  pred2 $ [(student, H) | (_,_,_,student,_) <- schooling ])
     , ("placing",       pred2 $ [(student, school) | (_,school,_,student,_) <- schooling ]
-                ++ [(worker, place) | (worker,period,place) <- working ])
+                )
     , ("studied", pred2 $ foldl (\hs (_,school,subject,student,_) ->
                     (student,subject): (student,school) : hs) [] schooling )
     ]
 
 twoPlacers =
-	(gentwoPlacer affiliation "work" "work" Recipient Agent) :
+	(gentwoPlacer affiliation "work" "employment" Patient Agent) :
 	(gentwoPlacer event "turn" "turn" Agent Theme) :
 	(gentwoPlacer condition "cover" "cover" Agent Theme) :
 	(gentwoPlacer event "lose" "oust" Patient Theme) :
@@ -286,8 +285,7 @@ genthreePlacer area id content role1 role2 role3 =
 
 threePlacers, threePlaceStarters :: [(String, ThreePlacePred)]
 threePlaceStarters = [
-    ("work",        pred3 $ [(a,a,c) | (a,p,c) <- working ] )
-    , ("studied_subj_at", pred3 $ map (\(_,school,subject,student,_) ->
+    ("studied_subj_at", pred3 $ map (\(_,school,subject,student,_) ->
                     (student,subject,school) ) schooling )
     ]
 threePlacers =
@@ -312,8 +310,6 @@ instrument = recipient
 origin	= theme
 destination = recipient
 
---(worker,job,site/employer)
-working	= [(A,Unspec,C)]
 comms	= []
 giving	= [ (N,T,Q) ]
 --(agent,theme,location)
@@ -321,8 +317,6 @@ looking_back	= [(D,C,V),(I,C,V)]
 seeing	= []
 --(agent,origin,destination)
 
-work_where	= pred2 $ map (\x -> (agent x, location x) ) working
-work_as = pred2 $ map (\x -> (agent x, theme x) ) working
 look_back	= pred1 $ map agent looking_back
 look_back_on	= pred2 $ map (\x->(agent x, theme x) ) looking_back
 said	= pred2 $ map (\x->(agent x, theme x) ) comms
