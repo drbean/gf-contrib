@@ -229,8 +229,6 @@ lin
 	know_V2	= mkV2 know_V;
 	know_VS	= mkVS know_V;
 
-	Too a = mkAP too_AdA a;
-	Very a = mkAP very_AdA a;
 	Very_Style a = mkAdv ("very" ++ a.s);
 	because_Subj	= because_Subj;
 	if_Subj	= if_Subj;

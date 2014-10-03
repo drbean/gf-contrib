@@ -141,8 +141,6 @@ fun
 	know_V2	: V2;
 	know_VS	: VS;
 
-	Too	: AP -> AP;
-	Very	: AP -> AP;
 	Very_Style	: Style -> Style;
 	because_Subj	: Subj;
 	if_Subj	: Subj;
