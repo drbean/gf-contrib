@@ -87,8 +87,6 @@ onePlaceStarters = [
 
         , ("great",     pred1 [I] )
 
-	, ("lonely",	pred1 [Q] )
-	, ("middle_class",	 pred1 [Q] )
 	, ("little",	pred1 [L] )
 
 	, ("male",	pred1 [N] )
@@ -97,6 +95,10 @@ onePlaceStarters = [
 
 onePlacers = 
 	(genonePlacer event "is_lay_off_ed" "lay_off" Patient) :
+	(genonePlacer condition "middle_class" "middle_class" Patient) :
+	(genonePlacer condition "look_middle_class" "middle_class" Patient) :
+	(genonePlacer condition "lonely" "lonely" Patient) :
+	(genonePlacer condition "feel_lonely" "lonely" Patient) :
 	(genonePlacer event "cry" "cry" Patient) :
 	entityonePlacers ++ onePlaceStarters
 
@@ -184,6 +186,8 @@ condition = [
 	("cover", [(Agent,U),(Theme,E)] )
 	, ("have", [(Agent,Y),(Theme,Z)] )
 	, ("have", [(Agent,X),(Theme,W)] )
+	, ("middle_class", [(Patient,Q)] )
+	, ("lonely", [(Patient,Q)] )
 	]
 
 idea :: [ (Content, [(Case, Entity)]) ]
