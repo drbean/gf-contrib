@@ -93,6 +93,7 @@ lin
 	should = ModalVV "should" "should" nonExist nonExist (variants {"shouldn't"; "should not"});
 	smell_V2	= mkV2 "smell";
 	have	= mkV2 "have";
+	have_V2V	= mkV2V (mkV "have") noPrep to_Prep;
 	take	= mkV "take";
 	thank	= mkV2 "thank";
 	think	= mkVS( mkV "think");

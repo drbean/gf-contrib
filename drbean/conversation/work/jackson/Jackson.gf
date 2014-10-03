@@ -78,6 +78,7 @@ fun
 	go	: V;
 	hand	: V3;
 	have	: V2;
+	have_V2V	: V2V;
 	off	: V;
 	lay_off	: V2;
 	lift	: V2;
