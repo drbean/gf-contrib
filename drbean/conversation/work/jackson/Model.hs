@@ -65,7 +65,6 @@ predid2 :: String -> Maybe TwoPlacePred
 predid3 :: String -> Maybe ThreePlacePred
 predid4 :: String -> Maybe FourPlacePred
 
-predid3 "hand"	= predid3 "give"
 predid3 name
        | Just pred <- lookup name threePlacers = Just pred
         -- | otherwise    = Nothing
@@ -169,11 +168,14 @@ event = [
 	("lay_off", [(Agent,C),(Patient,Q)] )
 	, ("turn", [(Agent,K),(Theme,O)] )
 	, ("oust", [(Agent,Unspec),(Theme,A),(Patient,Q)] )
+	, ("hand", [(Agent,N),(Theme,M),(Recipient,Q)] )
+	, ("hand", [(Agent,N),(Theme,T),(Recipient,Q)] )
 	, ("give", [(Agent,N),(Theme,M),(Recipient,Q)] )
 	, ("give", [(Agent,N),(Theme,T),(Recipient,Q)] )
 	, ("thank", [(Agent,Q),(Recipient,N)] )
 	, ("buy", [(Agent,Q),(Recipient,D),(Theme,C)] )
-	, ("give", [(Agent,N),(Recipient,Q),(Theme,T)] )
+	, ("give", [(Agent,Q),(Recipient,D),(Theme,C)] )
+	, ("give", [(Agent,H),(Recipient,Q),(Theme,B)] )
 	, ("give", [(Agent,H),(Recipient,Q),(Theme,L)] )
 	, ("open", [(Agent,Q),(Patient,L)] )
 	, ("smell", [(Agent,Q),(Patient,L) ] )
@@ -292,6 +294,7 @@ threePlacers =
 	(genthreePlacer idea "think:can_to_get" "another_job" Agent Agent Theme) :
 	(genthreePlacer idea "think:should_not_to_take_care" "care" Agent Patient Patient) :
 	(genthreePlacer idea "think:should_to_take_care" "care" Agent Agent Patient) :
+	(genthreePlacer event "hand" "hand" Agent Recipient Theme) :
 	(genthreePlacer event "give" "give" Agent Recipient Theme) :
 	(genthreePlacer event "buy" "buy" Agent Recipient Theme) :
 	threePlaceStarters
