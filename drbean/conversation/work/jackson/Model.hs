@@ -173,9 +173,9 @@ event = [
 	, ("give", [(Agent,N),(Theme,M),(Recipient,Q)] )
 	, ("give", [(Agent,N),(Theme,T),(Recipient,Q)] )
 	, ("thank", [(Agent,Q),(Recipient,N)] )
-	, ("buy", [(Agent,Q),(Recipient,D),(Theme,C)] )
-	, ("give", [(Agent,Q),(Recipient,D),(Theme,C)] )
-	, ("give", [(Agent,H),(Recipient,Q),(Theme,B)] )
+	, ("buy", [(Agent,Q),(Recipient,D),(Theme,B)] )
+	, ("give", [(Agent,Q),(Recipient,D),(Theme,B)] )
+	, ("give", [(Agent,H),(Recipient,Q),(Theme,G)] )
 	, ("give", [(Agent,H),(Recipient,Q),(Theme,L)] )
 	, ("open", [(Agent,Q),(Patient,L)] )
 	, ("smell", [(Agent,Q),(Patient,L) ] )
@@ -190,6 +190,7 @@ condition = [
 	, ("have", [(Agent,X),(Theme,W)] )
 	, ("middle_class", [(Patient,Q)] )
 	, ("lonely", [(Patient,Q)] )
+	, ("savings", [(Patient,Q),(Instrument,M),(Theme,Unspec)] )
 	]
 
 idea :: [ (Content, [(Case, Entity)]) ]
@@ -296,6 +297,7 @@ threePlacers =
 	(genthreePlacer idea "think:should_to_take_care" "care" Agent Agent Patient) :
 	(genthreePlacer event "hand" "hand" Agent Recipient Theme) :
 	(genthreePlacer event "give" "give" Agent Recipient Theme) :
+	(genthreePlacer condition "have_V2V_to_buy_V2" "have" Patient Instrument Theme) :
 	(genthreePlacer event "buy" "buy" Agent Recipient Theme) :
 	threePlaceStarters
 
