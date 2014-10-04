@@ -94,6 +94,7 @@ onePlaceStarters = [
 
 onePlacers = 
 	(genonePlacer event "is_lay_off_ed" "lay_off" Patient) :
+	(genonePlacer event "go_out" "go_out" Agent) :
 	(genonePlacer condition "middle_class" "middle_class" Patient) :
 	(genonePlacer condition "look_middle_class" "middle_class" Patient) :
 	(genonePlacer condition "lonely" "lonely" Patient) :
@@ -168,6 +169,7 @@ event = [
 	("lay_off", [(Agent,C),(Patient,Q)] )
 	, ("turn", [(Agent,K),(Theme,O)] )
 	, ("oust", [(Agent,Unspec),(Theme,A),(Patient,Q)] )
+	, ("go_out", [(Agent,Q),(Instrument,S),(Theme,M)] )
 	, ("hand", [(Agent,N),(Theme,M),(Recipient,Q)] )
 	, ("hand", [(Agent,N),(Theme,T),(Recipient,Q)] )
 	, ("give", [(Agent,N),(Theme,M),(Recipient,Q)] )
@@ -259,7 +261,7 @@ twoPlacers =
 	(gentwoPlacer event "lose" "oust" Patient Theme) :
 	(gentwoPlacer idea "want_to_move_in" "move_in" Agent Patient) :
 	(gentwoPlacer event "thank" "thank" Agent Recipient) :
-	(gentwoPlacer idea "buy_V2" "buy" Agent Theme) :
+	(gentwoPlacer event "buy_V2" "buy" Agent Theme) :
 	(gentwoPlacer idea "remember" "remember" Agent Theme) :
 	(gentwoPlacer event "get" "give" Recipient Theme) :
 	(gentwoPlacer event "Open" "open" Agent Patient) :
