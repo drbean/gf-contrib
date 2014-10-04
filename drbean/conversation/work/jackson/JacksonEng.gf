@@ -21,6 +21,8 @@ lin
 	beautiful	= mkAP( mkA "beautiful");
 	big	= mkAP( mkA "big");
 
+	with_sign = mkAdv "with a sign";
+
 	pretty	= mkAdA "pretty";
 	very	= mkAdA "very";
 	so	= mkAdA "so";

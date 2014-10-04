@@ -23,6 +23,8 @@ fun
 	lonely	: AP;
 	middle_class	: AP;
 
+	with_sign	: Style;
+
 	pretty	: AdA;
 	very	: AdA;
 	so	: AdA;
