@@ -47,7 +47,7 @@ fun
 	joy	: N2;
 	man	: CN;
 	month	: CN;
-	shelter	: CN;
+	shelter	: PlaceName;
 	sign	: CN;
 	smell_N2	: N2;
 	week	: CN;
