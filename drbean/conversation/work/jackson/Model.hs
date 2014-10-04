@@ -211,7 +211,7 @@ attitude = [
 affiliation :: [ (Content, [(Case, Entity)]) ]
 affiliation = [
 	("employment", [(Agent,C),(Patient,Q) ] )
-	, ("shelter", [(Agent,H),(Recipient,Q) ] )
+	, ("shelter", [(Agent,H),(Patient,Q) ] )
 	]
 
 gentwoPlacer :: [ (Content, [(Case,Entity)]) ] ->
@@ -262,6 +262,7 @@ twoPlacers =
 	(gentwoPlacer idea "want_to_move_in" "move_in" Agent Patient) :
 	(gentwoPlacer event "thank" "thank" Agent Recipient) :
 	(gentwoPlacer event "buy_V2" "buy" Agent Theme) :
+	(gentwoPlacer affiliation "in_prep" "shelter" Patient Agent) :
 	(gentwoPlacer idea "remember" "remember" Agent Theme) :
 	(gentwoPlacer event "get" "give" Recipient Theme) :
 	(gentwoPlacer event "Open" "open" Agent Patient) :
