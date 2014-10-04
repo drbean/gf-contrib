@@ -405,8 +405,11 @@ transVP (GWithTime vp _) = transVP vp
 --        \x -> Neg ((transVP vp) x)
 --
 transVP (GBe_vp comp) = case comp of
-    GBe_someone np -> \x -> transNP np (\pred -> Eq pred x)
-    GBe_bad ap -> transAP ap
+		GBe_someone np -> \x -> transNP np (\pred -> Eq pred x)
+		GBe_bad ap -> transAP ap
+		GBe_somewhere (GLocating prep place) ->
+			\x -> transPlace place
+			(\name -> Rel (lin prep) [x,name])
 transVP (GLook_bad v ap) = case ap of
 	(GAdvAdj _ a)	-> \x -> Rel ((lin v) ++ "_" ++ (lin a)) [x]
 	_	-> \x -> Rel ((lin v) ++ "_" ++ (lin ap)) [x]
