@@ -20,7 +20,7 @@ entity_check =  [
     , (D, "daughter" )
     , (E, "rent" )
     , (F, "" )
-    , (G, "gift_bag" )
+    , (G, "bag" )
     , (H, "shelter" )
     , (I, "idea" )
     , (J, "job" )
@@ -268,6 +268,8 @@ twoPlacers =
 	(gentwoPlacer event "Open" "open" Agent Patient) :
 	(gentwoPlacer event "smell_V2" "smell" Agent Patient) :
 	twoPlaceStarters
+
+predid2 "receive" = predid2 "get"
 
 predid2 name
        | Just pred <- lookup name twoPlacers = Just pred
