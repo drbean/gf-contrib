@@ -12,7 +12,6 @@ lin
 	one	= mkDet( mkCard (mkNumeral n1_Unit));
 	five	= mkDet( mkCard (mkNumeral n5_Unit));
 	another = mkDet (mkQuant "another" "other");
-	some	= someSg_Det;
 
 	for_prep	= mkPrep "for";
 	into_prep	= mkPrep "into";

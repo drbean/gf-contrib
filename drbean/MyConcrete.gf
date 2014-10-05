@@ -179,6 +179,7 @@ lin
 	zero_Det_pl	= aPl_Det;
 	zero_Det_sg	= mkDet zero_mass_Quant singularNum;
 	the_mass_Det	= theSg_Det;
+	some_mass_Det = mkDet some_Quant singularNum;
 	theSg_Det	= theSg_Det;
 	thePlural_Det = thePl_Det;
 	Apos np	= mkDet (GenNP np);

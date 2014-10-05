@@ -8,7 +8,6 @@ fun
 	one	: Det;
 	five	: Det;
 	another	: Det;
-	some	: MassDet;
 
 	for_prep	: Prep;
 	into_prep	: Prep;
