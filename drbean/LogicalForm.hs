@@ -269,6 +269,7 @@ transMassDet Gzero_Det_sg = \ p q -> Exists (\v -> Conj [p v, q v] )
 transMassDet (GMassApos owner) =
 	\ p q -> Exists (\v -> Conj [ Single p, p v, q v, transNP owner
 		(\mod -> Rel "have" [mod, v] )])
+transMassDet Gsome_mass_Det = transMassDet Gzero_Det_sg
 
 transN :: GN -> Term -> LF
 transN name	= \x -> Rel (lin name) [x]
