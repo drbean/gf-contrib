@@ -16,6 +16,7 @@ cat
 	Style;
 	MassDet;
 	SubordCl;
+	Partitive;
 
 fun
 	Look_bad	: VA -> AP -> VP;
@@ -84,6 +85,7 @@ fun
 	Titular	: Title -> NP;
 	PredetItem	: Predet -> NP -> NP;
 	Ofpos	: N2 -> NP -> CN;
+	Ofpart	: Partitive -> N -> CN;
 
 	a_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
 	zero_Det_pl : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));

@@ -39,7 +39,7 @@ lin
 	apartment	= mkCN( mkN "apartment");
 	bag	= mkCN( mkN "gift bag");
 	birthday_card	= mkCN( mkN "birthday" card_N);
-	bottle	= mkN2( mkN "bottle");
+	bottle	= mkN2( mkN "bottle") part_prep;
 	budget	= mkCN( mkN "budget");
 	card	= mkCN card_N;
 	child	= mkCN( mkN "child" "children");

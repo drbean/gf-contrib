@@ -34,7 +34,7 @@ fun
 	apartment	: CN;
 	bag	: CN;
 	birthday_card	: CN;
-	bottle	: N2;
+	bottle	: Partitive;
 	budget	: CN;
 	card	: CN;
 	child	: CN;

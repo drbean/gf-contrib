@@ -54,6 +54,7 @@ lincat
 	Motion	= VP;
 	Style	= Adv;
 	MassDet = Det;
+	Partitive = N2;
 
 param
   Auxiliary	= Do | Be;
@@ -170,6 +171,7 @@ lin
 	KindInPlace cn adv	= mkCN cn adv;
 	PlaceKind ap n = mkCN ap n;
 	Ofpos n2 np	= mkCN n2 np;
+	Ofpart part n = mkCN part (mkNP n);
 	Item det noun	= mkNP det noun;
 	MassItem udet ucn	= mkNP udet ucn;
 	Titular cn = mkNP cn;
