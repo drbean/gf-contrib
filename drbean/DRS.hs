@@ -1,4 +1,6 @@
-module LogicalForm (module LogicalForm, module Jackson) where
+module DRS (module DRS, module Jackson) where
+
+import Data.DRS
 
 import Jackson
 import PGF
