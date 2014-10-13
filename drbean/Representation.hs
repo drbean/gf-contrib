@@ -1,4 +1,4 @@
-module DRS (module DRS, module Jackson) where
+module Representation (module Representation, module Jackson) where
 
 import Data.DRS
 
