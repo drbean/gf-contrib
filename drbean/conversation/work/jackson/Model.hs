@@ -16,7 +16,7 @@ entity_check :: [ (Entity, String) ]
 entity_check =  [
     (A, "apartment" )
     , (B, "birthday_card" )
-    , (C, "the_State_of_Colorado" )
+    , (C, "the_state_of_Colorado" )
     , (D, "daughter" )
     , (E, "rent" )
     , (F, "" )
@@ -48,7 +48,7 @@ ent_ided name = head [entity | (entity,string) <- entity_check ,
 				]
 
 characters :: [(String,Entity)]
-characters = map findEnt [Q,D]
+characters = map findEnt [Q]
 	where findEnt e
 		| Just name <- lookup e entity_check
 			= (name,e)
@@ -97,6 +97,7 @@ onePlacers =
 	(genonePlacer event "go_out" "go_out" Agent) :
 	(genonePlacer condition "middle_class" "middle_class" Patient) :
 	(genonePlacer condition "look_middle_class" "middle_class" Patient) :
+	(genonePlacer condition "homeless" "homeless" Patient) :
 	(genonePlacer condition "lonely" "lonely" Patient) :
 	(genonePlacer condition "feel_lonely" "lonely" Patient) :
 	(genonePlacer event "cry" "cry" Patient) :
@@ -191,6 +192,7 @@ condition = [
 	, ("have", [(Agent,Y),(Theme,Z)] )
 	, ("have", [(Agent,X),(Theme,W)] )
 	, ("middle_class", [(Patient,Q)] )
+	, ("homeless", [(Patient,Q)] )
 	, ("lonely", [(Patient,Q)] )
 	, ("savings", [(Patient,Q),(Instrument,M),(Theme,Unspec)] )
 	]
