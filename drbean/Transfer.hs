@@ -103,11 +103,9 @@ takeAnswer _ "yes" = "yes"
 takeAnswer "yes" _ = "yes"
 takeAnswer _ "no" = "no"
 takeAnswer "no" _  = "no"
-takeAnswer a b@('B' : 'a' : _)  = collateAnswer a b
-takeAnswer a b@('T' : 'a' : _)  = collateAnswer a b
-takeAnswer a b@('E' : 'v' : _)  = collateAnswer a b
-takeAnswer a b@('D' : 'r' : _)  = collateAnswer a b
-takeAnswer a b@('F' : 'a' : _)  = collateAnswer a b
+takeAnswer a b@('Q' : 'u' : _)  = collateAnswer a b
+takeAnswer a b@('t' : 'h' : _)  = collateAnswer a b
+takeAnswer a b@('C' : 'h' : _)  = collateAnswer a b
 takeAnswer "none" _ = "none of Queen, the State of Colorado or Christmas"
 takeAnswer _ "none" = "none of Queen, the State of Colorado or Christmas"
 takeAnswer "No answer" _ = "No answer"
@@ -116,7 +114,7 @@ takeAnswer _  _   = error "undefined answer, not Yes, No, Queen, the State of Co
 
 collateAnswer a b = formatUp $ nub $ filter
 	(\x -> x ==	"Queen"
-	|| x ==	"the State of Colorado"
+	|| x ==	"the state of Colorado"
 	|| x ==	"Christmas"
 		) (concat $ map (splitOn " , " ) (splitOn " or " (a ++ " , " ++ b)))
 
