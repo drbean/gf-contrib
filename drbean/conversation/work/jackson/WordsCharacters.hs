@@ -157,7 +157,7 @@ tag = [
 
 v = [
 	"work"
-	, "buy"
+	, "buy, buys"
 	, "lose"
 	, "take care"
 	, "cover"
