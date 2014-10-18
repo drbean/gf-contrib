@@ -827,6 +827,7 @@ transW :: GIP -> (Term -> LF)
 --                            \e -> transCN cn e
 transW Gwho_WH	= \e -> Relation "person"    [e]
 transW Gwhat_WH	= \e -> Relation "thing"    [e]
+repW Gwho_WH = Merge (DRS [DRSRef "x"] [Rel (DRSRel "person") [DRSRef "x"] ] )
 --transW (Branch (Cat _ "PP" fs _) [prep,np])
 --      | Masc      `elem` fs = \e -> Relation "man"    [e]
 --      | Fem       `elem` fs = \e -> Relation "woman"  [e]
