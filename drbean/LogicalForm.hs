@@ -281,6 +281,7 @@ transCN (GKind ap cn) = \x -> Conj [ transCN cn x, transAP ap x ]
 transCN (GKindInPlace cn (GLocating prep place)) =
 	\x -> Conj [transCN cn x, transPlace place 
 	(\p -> Rel (lin prep) [x,p])]
+transCN (GOfpart part n) = transN n
 transCN (GOfpos cn np) =
     \thing -> Conj [(transN2 cn thing), (transNP np
 	(\owner -> Rel "have" [owner, thing]))]
