@@ -127,6 +127,10 @@ unmaybe (Just x) = x
 --	s2@(Branch (Cat _ "TXT" _ _) _)])) =
 --	    Conj [ transS (Just s), transTXT (Just s2) ]
 --
+repS :: GUtt -> Maybe (DRSRef -> DRS)
+repS (GQUt (GPosQ (GWH_Pred wh vp))) =
+	Just (\x -> drsResolveMerges ((repW wh x) (repVP vp x )))
+
 transS :: GUtt -> Maybe LF
 --transS (Just Ep) = NonProposition
 transS (GQUt (GPosQ (GWH_Pred wh vp))) =
@@ -233,6 +237,11 @@ transNP thing	| rel <- lin thing =
 --transNP (Branch (Cat _ "NP" _ _) [np,Leaf (Cat "'s" "APOS" _ _),cn]) =
 --    \p -> Exists (\thing -> Conj [ p thing, transCN cn thing, transNP np (\owner -> (Relation "had" [owner,thing]))])
 
+repNP :: GNP -> (DRSRef -> DRS) -> DRS
+repNP (GEntity name)
+	| entity <- (gent2ent name) , entity `elem` entities =
+		\ p -> p (DRSRef (lin name))
+
 transDet :: GDet -> (Term -> LF) -> (Term -> LF) -> LF
 transDet (GApos owner) =
 	\ p q -> Exists (\v -> Conj [ Single p, p v, q v, transNP owner
@@ -334,6 +343,10 @@ transCN name          = \ x -> Relation (lin name) [x]
 transAP ::GAP -> Term -> LF
 transAP (GAdvAdj _ a) = \x -> Relation (lin a) [x]
 transAP ap = \x -> Relation (lin ap) [x]
+
+repAP :: GAP -> DRSRef -> DRS
+repAP (GAdvAdj _ a) = \x -> DRS [] [Rel (DRSRel (lin a)) [x]]
+repAP ap = \x -> DRS [] [Rel (DRSRel (lin ap)) [x]]
 
 transPlace :: GPlace -> (Term -> LF) -> LF
 transPlace (GLocation _ (GPlaceKind _ name)) | rel <- lin name =
@@ -758,6 +771,15 @@ transVP	(GToPlace vp (GLocating prep destination)) =
 	(\place -> Relation ((lin vp) ++ "_" ++ (lin prep)) [mover,place])
 transVP _ = \x -> NonProposition
 --
+repVP :: GVP -> DRSRef -> DRS
+repVP (GHappening v) =
+        \ t -> DRS [ ] [Rel (DRSRel (lin v)) [t]]
+repVP (GBe_vp comp) = case comp of
+		-- GBe_someone np -> \x -> repNP np (\pred -> Eq pred x)
+		GBe_bad ap -> repAP ap
+repVP (GChanging v obj) = \subj -> repNP obj
+		(\ e -> DRS [] [Rel (DRSRel (lin v)) [subj,e]])
+
 transCOMP :: GComp -> Term -> LF
 transCOMP (GBe_someone np) = \x -> transNP np (\pred -> Eq pred x)
 transCOMP (GBe_bad ap) = \x -> Relation (lin ap) [x]
@@ -827,7 +849,11 @@ transW :: GIP -> (Term -> LF)
 --                            \e -> transCN cn e
 transW Gwho_WH	= \e -> Relation "person"    [e]
 transW Gwhat_WH	= \e -> Relation "thing"    [e]
-repW Gwho_WH = Merge (DRS [DRSRef "x"] [Rel (DRSRel "person") [DRSRef "x"] ] )
+
+repW :: GIP -> DRSRef -> (DRS -> DRS)
+repW Gwho_WH x = Merge (DRS [x] [Rel (DRSRel "person") [x] ] )
+repW Gwhat_WH x = Merge (DRS [x] [Rel (DRSRel "thing") [x] ] )
+
 --transW (Branch (Cat _ "PP" fs _) [prep,np])
 --      | Masc      `elem` fs = \e -> Relation "man"    [e]
 --      | Fem       `elem` fs = \e -> Relation "woman"  [e]
