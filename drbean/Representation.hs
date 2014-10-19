@@ -287,6 +287,11 @@ transN name	= \x -> Relation (lin name) [x]
 transN2 :: GN2 -> Term -> LF
 transN2 name	= \x -> Relation (lin name) [x]
 
+repN :: GN -> DRSRef -> DRS
+repN name = \x -> DRS [] [Rel (DRSRel (lin name)) [x]]
+repN2 :: GN2 -> DRSRef -> DRS
+repN2 name	= \x -> DRS [] [Rel (DRSRel (lin name)) [x]]
+
 transCN :: GCN -> Term -> LF
 transCN (GKind ap cn) = \x -> Conj [ transCN cn x, transAP ap x ]
 transCN (GKindInPlace cn (GLocating prep place)) =
@@ -304,6 +309,10 @@ transCN (GModInf cn vp) =
 transCN (GMassModInf n vp) =
 	\x -> Conj [transN n x, transVP vp x]
 transCN name          = \ x -> Relation (lin name) [x]
+
+repCN :: GCN -> DRSRef -> DRS
+repCN name	= \x -> DRS [x] [Rel (DRSRel (lin name)) [x]]
+
 --	case (np,vp) of
 --	    (_, (Branch (Cat _ "VP" _ _) vp)) -> case (vp) of
 --		[Leaf (Cat name "V" _ _),Leaf (Cat "#" "NP" _ _)]->
@@ -340,7 +349,7 @@ transCN name          = \ x -> Relation (lin name) [x]
 --transREL (Branch (Cat _ "MOD" _ _ ) [s])     =
 --  \ x -> (transS (Just s))
 
-transAP ::GAP -> Term -> LF
+transAP :: GAP -> Term -> LF
 transAP (GAdvAdj _ a) = \x -> Relation (lin a) [x]
 transAP ap = \x -> Relation (lin ap) [x]
 
@@ -779,6 +788,14 @@ repVP (GBe_vp comp) = case comp of
 		GBe_bad ap -> repAP ap
 repVP (GChanging v obj) = \subj -> repNP obj
 		(\ e -> DRS [] [Rel (DRSRel (lin v)) [subj,e]])
+repVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
+	(GChanging v2 obj) -> (\positer -> repNP np
+		(\referent -> repNP obj
+			(\theme -> (DRS
+				[positer, referent, theme]
+				[Rel (DRSRel (lin v0)) [positer, DRSRef "p"]
+				, Prop (DRSRef "p") (DRS []
+					[Rel (DRSRel (lin v2)) [referent, theme]])]))))
 
 transCOMP :: GComp -> Term -> LF
 transCOMP (GBe_someone np) = \x -> transNP np (\pred -> Eq pred x)
