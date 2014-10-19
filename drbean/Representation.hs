@@ -130,6 +130,8 @@ unmaybe (Just x) = x
 repS :: GUtt -> Maybe (DRSRef -> DRS)
 repS (GQUt (GPosQ (GWH_Pred wh vp))) =
 	Just (\x -> drsResolveMerges ((repW wh x) (repVP vp x )))
+-- repS :: GUtt -> Maybe DRS
+-- repS (GQUt (GPosQ (GYN (GSentence np vp)))) = Just ((repNP np) (repVP vp))
 
 transS :: GUtt -> Maybe LF
 --transS (Just Ep) = NonProposition
