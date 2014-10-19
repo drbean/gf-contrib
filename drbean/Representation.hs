@@ -130,8 +130,7 @@ unmaybe (Just x) = x
 repS :: GUtt -> Maybe (DRSRef -> DRS)
 repS (GQUt (GPosQ (GWH_Pred wh vp))) =
 	Just (\x -> drsResolveMerges ((repW wh x) (repVP vp x )))
--- repS :: GUtt -> Maybe DRS
--- repS (GQUt (GPosQ (GYN (GSentence np vp)))) = Just ((repNP np) (repVP vp))
+repS (GQUt (GPosQ (GYN (GSentence np vp)))) = Just (\x -> (repNP np (repVP vp) x))
 
 transS :: GUtt -> Maybe LF
 --transS (Just Ep) = NonProposition
@@ -242,7 +241,7 @@ transNP thing	| rel <- lin thing =
 repNP :: GNP -> (DRSRef -> DRS) -> DRS
 repNP (GEntity name)
 	| entity <- (gent2ent name) , entity `elem` entities =
-		\ p -> p (DRSRef (lin name))
+		\ p r -> Merge (p r) (DRS [r] [Rel (DRSRel (lin name)) [r] ] )
 
 transDet :: GDet -> (Term -> LF) -> (Term -> LF) -> LF
 transDet (GApos owner) =
