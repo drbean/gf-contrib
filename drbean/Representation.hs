@@ -127,10 +127,10 @@ unmaybe (Just x) = x
 --	s2@(Branch (Cat _ "TXT" _ _) _)])) =
 --	    Conj [ transS (Just s), transTXT (Just s2) ]
 --
-repS :: GUtt -> Maybe (DRSRef -> DRS)
+repS :: GUtt -> Maybe ([DRSRef] -> DRS)
 repS (GQUt (GPosQ (GWH_Pred wh vp))) =
-	Just (\x -> drsResolveMerges ((repW wh x) (repVP vp x )))
-repS (GQUt (GPosQ (GYN (GSentence np vp)))) = Just (\x -> (repNP np x (repVP vp x)))
+	Just (\xs -> drsResolveMerges ((repW wh xs) (repVP vp xs )))
+repS (GQUt (GPosQ (GYN (GSentence np vp)))) = Just (\xs -> (repNP np xs (repVP vp xs)))
 
 transS :: GUtt -> Maybe LF
 --transS (Just Ep) = NonProposition
@@ -238,10 +238,10 @@ transNP thing	| rel <- lin thing =
 --transNP (Branch (Cat _ "NP" _ _) [np,Leaf (Cat "'s" "APOS" _ _),cn]) =
 --    \p -> Exists (\thing -> Conj [ p thing, transCN cn thing, transNP np (\owner -> (Relation "had" [owner,thing]))])
 
-repNP :: GNP -> DRSRef -> (DRS -> DRS)
+repNP :: GNP -> [DRSRef] -> (DRS -> DRS)
 repNP (GEntity name)
 	| entity <- (gent2ent name) , entity `elem` entities =
-		\x -> Merge (DRS [x] [Rel (DRSRel (lin name)) [x] ] )
+		\[x] -> Merge (DRS [x] [Rel (DRSRel (lin name)) [x] ] )
 
 transDet :: GDet -> (Term -> LF) -> (Term -> LF) -> LF
 transDet (GApos owner) =
@@ -354,9 +354,9 @@ transAP :: GAP -> Term -> LF
 transAP (GAdvAdj _ a) = \x -> Relation (lin a) [x]
 transAP ap = \x -> Relation (lin ap) [x]
 
-repAP :: GAP -> DRSRef -> DRS
-repAP (GAdvAdj _ a) = \x -> DRS [] [Rel (DRSRel (lin a)) [x]]
-repAP ap = \x -> DRS [] [Rel (DRSRel (lin ap)) [x]]
+repAP :: GAP -> [DRSRef] -> DRS
+repAP (GAdvAdj _ a) = \[x] -> DRS [] [Rel (DRSRel (lin a)) [x]]
+repAP ap = \[x] -> DRS [] [Rel (DRSRel (lin ap)) [x]]
 
 transPlace :: GPlace -> (Term -> LF) -> LF
 transPlace (GLocation _ (GPlaceKind _ name)) | rel <- lin name =
@@ -781,14 +781,14 @@ transVP	(GToPlace vp (GLocating prep destination)) =
 	(\place -> Relation ((lin vp) ++ "_" ++ (lin prep)) [mover,place])
 transVP _ = \x -> NonProposition
 --
-repVP :: GVP -> DRSRef -> DRS
+repVP :: GVP -> [DRSRef] -> DRS
 repVP (GHappening v) =
-        \ t -> DRS [ ] [Rel (DRSRel (lin v)) [t]]
+        \ (t:[]) -> DRS [ ] [Rel (DRSRel (lin v)) [t]]
 repVP (GBe_vp comp) = case comp of
 		-- GBe_someone np -> \x -> repNP np (\pred -> Eq pred x)
 		GBe_bad ap -> repAP ap
-repVP (GChanging v obj) = \subj -> repNP obj
-		(\ e -> DRS [] [Rel (DRSRel (lin v)) [subj,e]])
+repVP (GChanging v obj) = \[subj,e] -> repNP obj [e]
+		(DRS [] [Rel (DRSRel (lin v)) [subj,e]])
 repVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 	(GBe_vp comp) -> case comp of
 		(GBe_someone subjcomp ) -> (\positer -> repNP np
@@ -875,9 +875,9 @@ transW :: GIP -> (Term -> LF)
 transW Gwho_WH	= \e -> Relation "person"    [e]
 transW Gwhat_WH	= \e -> Relation "thing"    [e]
 
-repW :: GIP -> DRSRef -> (DRS -> DRS)
-repW Gwho_WH x = Merge (DRS [x] [Rel (DRSRel "person") [x] ] )
-repW Gwhat_WH x = Merge (DRS [x] [Rel (DRSRel "thing") [x] ] )
+repW :: GIP -> [DRSRef] -> (DRS -> DRS)
+repW Gwho_WH (x:xs) = Merge (DRS [x] [Rel (DRSRel "person") [x] ] )
+repW Gwhat_WH (x:xs) = Merge (DRS [x] [Rel (DRSRel "thing") [x] ] )
 
 --transW (Branch (Cat _ "PP" fs _) [prep,np])
 --      | Masc      `elem` fs = \e -> Relation "man"    [e]
