@@ -127,6 +127,9 @@ unmaybe (Just x) = x
 --	s2@(Branch (Cat _ "TXT" _ _) _)])) =
 --	    Conj [ transS (Just s), transTXT (Just s2) ]
 --
+data DRSRefTuple = OneRef (DRSRef) | TwoRef (DRSRef,DRSRef) |
+	ThreeRef (DRSRef,DRSRef,DRSRef) | FourRef (DRSRef,DRSRef,DRSRef)
+
 repS :: GUtt -> Maybe ([DRSRef] -> DRS)
 repS (GQUt (GPosQ (GWH_Pred wh vp))) =
 	Just (\xs -> drsResolveMerges ((repW wh xs) (repVP vp xs )))
