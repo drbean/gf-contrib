@@ -138,7 +138,7 @@ repS (GQUt (GPosQ (GYN (GSentence np vp)))) = Just (\xs -> (repNP np xs (repVP v
 unlist :: (GUtt -> (DRSRef -> DRS)) -> GUtt -> [DRSRef] -> (DRSRef -> DRS)
 unlist f a [] = error "no DRSRef"
 unlist f a (x:[]) = \x -> f a x
-unlist f a (x:xs) = \x -> unlist f a xs
+unlist f a (x:xs) = \x -> unlist f a xs x
 
 repS' :: GUtt -> Maybe (DRSRef -> DRS)
 repS' (GQUt (GPosQ (GWH_Pred wh vp))) =
