@@ -132,6 +132,11 @@ repS (GQUt (GPosQ (GWH_Pred wh vp))) =
 	Just (\xs -> drsResolveMerges ((repW wh xs) (repVP vp xs )))
 repS (GQUt (GPosQ (GYN (GSentence np vp)))) = Just (\xs -> (repNP np xs (repVP vp xs)))
 
+unlist :: (GUtt -> (DRSRef -> DRS)) -> GUtt -> [DRSRef] -> (DRSRef -> DRS)
+unlist f a [] = error "no DRSRef"
+unlist f a (x:[]) = \x -> f a x
+unlist f a (x:xs) = \x -> unlist f a xs
+
 repS' :: GUtt -> Maybe (DRSRef -> DRS)
 repS' (GQUt (GPosQ (GWH_Pred wh vp))) =
 	Just (\x -> drsResolveMerges ((repW wh [x]) (repVP vp [x] )))
