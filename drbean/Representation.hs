@@ -259,7 +259,7 @@ transNP thing	| rel <- lin thing =
 repNP :: GNP -> [DRSRef] -> (DRS -> DRS)
 repNP (GEntity name)
 	| entity <- (gent2ent name) , entity `elem` entities =
-		\[x] -> Merge (DRS [x] [Rel (DRSRel (lin name)) [x] ] )
+		\x -> Merge (DRS x [Rel (DRSRel (lin name)) x ] )
 
 transDet :: GDet -> (Term -> LF) -> (Term -> LF) -> LF
 transDet (GApos owner) =
