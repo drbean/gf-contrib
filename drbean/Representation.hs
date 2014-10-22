@@ -257,9 +257,9 @@ transNP thing	| rel <- lin thing =
 --    \p -> Exists (\thing -> Conj [ p thing, transCN cn thing, transNP np (\owner -> (Relation "had" [owner,thing]))])
 
 repNP :: GNP -> [DRSRef] -> (DRS -> DRS)
-repNP (GEntity name)
+repNP (GEntity name) (x:_)
 	| entity <- (gent2ent name) , entity `elem` entities =
-		\x -> Merge (DRS x [Rel (DRSRel (lin name)) x ] )
+		Merge (DRS [x] [Rel (DRSRel (lin name)) [x] ] )
 
 transDet :: GDet -> (Term -> LF) -> (Term -> LF) -> LF
 transDet (GApos owner) =
@@ -803,7 +803,8 @@ repVP :: GVP -> [DRSRef] -> DRS
 repVP (GHappening v) =
         \ (t:[]) -> DRS [ ] [Rel (DRSRel (lin v)) [t]]
 repVP (GBe_vp comp) = case comp of
-		-- GBe_someone np -> \x -> repNP np (\pred -> Eq pred x)
+		GBe_someone np -> \[x,pred] -> repNP np [pred]
+			(DRS [] [Rel (DRSRel "is") [x,pred]])
 		GBe_bad ap -> repAP ap
 repVP (GChanging v obj) = \[subj,e] -> repNP obj [e]
 		(DRS [] [Rel (DRSRel (lin v)) [subj,e]])
