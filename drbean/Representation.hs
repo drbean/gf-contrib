@@ -130,7 +130,7 @@ unmaybe (Just x) = x
 
 repS :: GUtt -> Maybe DRS
 repS (GQUt (GPosQ (GWH_Pred wh vp))) =
-	Just (\x -> drsResolveMerges ((repW wh x) (repVP vp x )))
+	Just (repW wh (DRSRef "x") (repVP vp))
 repS (GQUt (GPosQ (GYN (GSentence np vp)))) = Just (repNP np (repVP vp))
 
 transS :: GUtt -> Maybe LF
@@ -877,9 +877,9 @@ transW :: GIP -> (Term -> LF)
 transW Gwho_WH	= \e -> Relation "person"    [e]
 transW Gwhat_WH	= \e -> Relation "thing"    [e]
 
-repW :: GIP -> DRSRef -> (DRS -> DRS)
-repW Gwho_WH x = Merge (DRS [x] [Rel (DRSRel "person") [x] ] )
-repW Gwhat_WH x = Merge (DRS [x] [Rel (DRSRel "thing") [x] ] )
+repW :: GIP -> DRSRef -> (DRSRef -> DRS) -> DRS
+repW Gwho_WH x p = Merge (DRS [x] [Rel (DRSRel "person") [x] ] ) (p x)
+repW Gwhat_WH x p = Merge (DRS [x] [Rel (DRSRel "thing") [x] ] ) (p x)
 
 --transW (Branch (Cat _ "PP" fs _) [prep,np])
 --      | Masc      `elem` fs = \e -> Relation "man"    [e]
