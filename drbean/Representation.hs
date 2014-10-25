@@ -128,7 +128,7 @@ unmaybe (Just x) = x
 --	    Conj [ transS (Just s), transTXT (Just s2) ]
 --
 
-repS :: GUtt -> Maybe (DRSRef -> DRS)
+repS :: GUtt -> Maybe DRS
 repS (GQUt (GPosQ (GWH_Pred wh vp))) =
 	Just (\x -> drsResolveMerges ((repW wh x) (repVP vp x )))
 repS (GQUt (GPosQ (GYN (GSentence np vp)))) = Just (repNP np (repVP vp))
