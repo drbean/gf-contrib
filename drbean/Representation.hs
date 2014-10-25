@@ -133,16 +133,6 @@ repS (GQUt (GPosQ (GWH_Pred wh vp))) =
 	Just (\x -> drsResolveMerges ((repW wh x) (repVP vp x )))
 repS (GQUt (GPosQ (GYN (GSentence np vp)))) = Just (repNP np (repVP vp))
 
-repS' :: GUtt -> Maybe (DRSRef -> DRS)
-repS' (GQUt (GPosQ (GWH_Pred wh vp))) =
-	Just (\x -> drsResolveMerges ((repW wh [x]) (repVP vp [x] )))
-repS' (GQUt (GPosQ (GYN (GSentence np vp)))) = Just (\x -> (repNP np [x] (repVP vp [x])))
-
-repS'' :: GUtt -> Maybe (DRSRef -> DRSRef -> DRS)
-repS'' (GQUt (GPosQ (GWH_Pred wh vp))) =
-	Just (\x y -> drsResolveMerges ((repW wh [x,y]) (repVP vp [x,y] )))
-repS'' (GQUt (GPosQ (GYN (GSentence np vp)))) = Just (\x y -> (repNP np [x,y] (repVP vp [x,y])))
-
 transS :: GUtt -> Maybe LF
 --transS (Just Ep) = NonProposition
 transS (GQUt (GPosQ (GWH_Pred wh vp))) =
