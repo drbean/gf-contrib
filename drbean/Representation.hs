@@ -240,9 +240,15 @@ transNP thing	| rel <- lin thing =
 --    \p -> Exists (\thing -> Conj [ p thing, transCN cn thing, transNP np (\owner -> (Relation "had" [owner,thing]))])
 
 repNP :: GNP -> (DRSRef -> DRS) -> DRS
+repNP (GItem det cn) = (repDet det) (repCN cn)
 repNP (GEntity name)
 	| entity <- (gent2ent name) , entity `elem` entities =
-		\p -> Merge (DRS [DRSRef "x"] [Rel (DRSRel (lin name)) [DRSRef "x"] ] )(p (DRSRef "x") )
+		\p -> Merge (DRS [DRSRef "x"] [Rel (DRSRel (lin name)) [DRSRef "x"] ] )
+			(p (DRSRef "x") )
+
+repDet :: GDet -> (DRSRef -> DRS) -> (DRSRef -> DRS) -> DRS
+
+repDet Ga_Det = \ p q -> Merge (p (DRSRef "x")) (q (DRSRef "x"))
 
 transDet :: GDet -> (Term -> LF) -> (Term -> LF) -> LF
 transDet (GApos owner) =
