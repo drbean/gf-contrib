@@ -241,6 +241,7 @@ transNP thing	| rel <- lin thing =
 
 repNP :: GNP -> (DRSRef -> DRS) -> DRS
 repNP (GItem det cn) = (repDet det) (repCN cn)
+repNP (GMassItem det n) = (repMassDet det) (repN n)
 repNP (GEntity name)
 	| entity <- (gent2ent name) , entity `elem` entities =
 		\p -> Merge (DRS [DRSRef "x"] [Rel (DRSRel (lin name)) [DRSRef "x"] ] )
@@ -282,6 +283,10 @@ transDet Gno_pl_Det = transDet Gno_Det
 --  \ p q -> WH (\v1 -> Conj
 --  		[Forall (\v2 -> Equi (p v2) (Eq v1 v2)),
 --		q v1])
+
+repMassDet :: GMassDet -> (DRSRef -> DRS) -> (DRSRef -> DRS) -> DRS
+repMassDet Gzero_Det_sg = \ p q -> Merge (p (DRSRef "x")) (q (DRSRef "x"))
+
 transMassDet :: GMassDet -> (Term -> LF) -> (Term -> LF) -> LF
 transMassDet Gthe_mass_Det = \ p q -> Exists (\v -> Conj [Single p, p v, q v] )
 transMassDet Gzero_Det_sg = \ p q -> Exists (\v -> Conj [p v, q v] )
