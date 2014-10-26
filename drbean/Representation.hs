@@ -286,6 +286,7 @@ transDet Gno_pl_Det = transDet Gno_Det
 
 repMassDet :: GMassDet -> (DRSRef -> DRS) -> (DRSRef -> DRS) -> DRS
 repMassDet Gzero_Det_sg = \ p q -> Merge (p (DRSRef "x")) (q (DRSRef "x"))
+repMassDet Gthe_mass_Det = repMassDet Gzero_Det_sg
 
 transMassDet :: GMassDet -> (Term -> LF) -> (Term -> LF) -> LF
 transMassDet Gthe_mass_Det = \ p q -> Exists (\v -> Conj [Single p, p v, q v] )
