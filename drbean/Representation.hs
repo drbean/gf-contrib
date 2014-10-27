@@ -131,6 +131,8 @@ unmaybe (Just x) = x
 repS :: GUtt -> Maybe DRS
 repS (GQUt (GPosQ (GWH_Pred wh vp))) =
 	Just (repW wh (repVP vp))
+repS (GQUt (GPosQ (GYN (GSentence np (GBe_vp (GBe_someone comp)))))) =
+	Just (DRS [DRSRef "x"] [Imp (DRS [] [Rel (DRSRel "queen") [DRSRef "x"]]) (DRS [] [Rel (DRSRel "woman") [DRSRef "x"]])])
 repS (GQUt (GPosQ (GYN (GSentence np vp)))) = Just (repNP np (repVP vp))
 
 transS :: GUtt -> Maybe LF
