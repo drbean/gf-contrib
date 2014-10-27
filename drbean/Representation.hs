@@ -250,6 +250,7 @@ repNP (GEntity name)
 repDet :: GDet -> (DRSRef -> DRS) -> (DRSRef -> DRS) -> DRS
 
 repDet Ga_Det = \ p q -> Merge (p (DRSRef "x")) (q (DRSRef "x"))
+repDet GtheSg_Det = repDet Ga_Det
 
 transDet :: GDet -> (Term -> LF) -> (Term -> LF) -> LF
 transDet (GApos owner) =
