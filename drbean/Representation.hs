@@ -107,6 +107,11 @@ lin e = stripApp (unApp (gf e))
 stripApp :: Maybe (CId, [Expr]) -> String
 stripApp = maybe "Undefined" (\x -> ((showCId . fst) x))
 
+linNP :: GNP -> String
+linNP (GEntity name) = lin name
+linNP (GItem _ noun) = lin noun
+linNP (GMassItem _ noun) = lin noun
+
 -- e2t :: GPN -> Tree
 -- e2t e | (Just tr) <- unApp (gf e) = tr
 
@@ -132,7 +137,7 @@ repS :: GUtt -> Maybe DRS
 repS (GQUt (GPosQ (GWH_Pred wh vp))) =
 	Just (repW wh (repVP vp))
 repS (GQUt (GPosQ (GYN (GSentence np (GBe_vp (GBe_someone comp)))))) =
-	Just (DRS [DRSRef "x"] [Imp (DRS [] [Rel (DRSRel "queen") [DRSRef "x"]]) (DRS [] [Rel (DRSRel "woman") [DRSRef "x"]])])
+	Just (DRS [DRSRef "x"] [Imp (DRS [] [Rel (DRSRel (linNP np)) [DRSRef "x"]]) (DRS [] [Rel (DRSRel (linNP comp)) [DRSRef "x"]])])
 repS (GQUt (GPosQ (GYN (GSentence np vp)))) = Just (repNP np (repVP vp))
 
 transS :: GUtt -> Maybe LF
@@ -246,8 +251,8 @@ repNP (GItem det cn) = (repDet det) (repCN cn)
 repNP (GMassItem det n) = (repMassDet det) (repN n)
 repNP (GEntity name)
 	| entity <- (gent2ent name) , entity `elem` entities =
-		\p -> Merge (DRS [DRSRef "x"] [Rel (DRSRel (lin name)) [DRSRef "x"] ] )
-			(p (DRSRef "x") )
+		\p -> (DRS [DRSRef "x", DRSRef "y"] [Imp (DRS [] [Rel (DRSRel (lin name)) [DRSRef "x"] ] )
+			(p (DRSRef "y") )])
 
 repDet :: GDet -> (DRSRef -> DRS) -> (DRSRef -> DRS) -> DRS
 
