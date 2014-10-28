@@ -138,11 +138,17 @@ unmaybe (Just x) = x
 --
 
 repS :: GUtt -> Maybe DRS
+repS (GQUt (GPosQ (GWH_Pred wh (GBe_vp (GBe_bad comp))))) =
+	Just (DRS [DRSRef "x"] [Imp (DRS [] [Rel (DRSRel (linIP wh)) [DRSRef "x"]])
+	(DRS [] [Rel (DRSRel (lin comp)) [DRSRef "x"]])])
 repS (GQUt (GPosQ (GWH_Pred wh (GBe_vp (GBe_someone comp))))) =
 	Just (DRS [DRSRef "x"] [Imp (DRS [] [Rel (DRSRel (linIP wh)) [DRSRef "x"]])
 	(DRS [] [Rel (DRSRel (linNP comp)) [DRSRef "x"]])])
 repS (GQUt (GPosQ (GWH_Pred wh vp))) =
 	Just (repW wh (repVP vp))
+repS (GQUt (GPosQ (GYN (GSentence np (GBe_vp (GBe_bad comp)))))) =
+	Just (DRS [DRSRef "x"] [Imp (DRS [] [Rel (DRSRel (linNP np)) [DRSRef "x"]])
+	(DRS [] [Rel (DRSRel (lin comp)) [DRSRef "x"]])])
 repS (GQUt (GPosQ (GYN (GSentence np (GBe_vp (GBe_someone comp)))))) =
 	Just (DRS [DRSRef "x"] [Imp (DRS [] [Rel (DRSRel (linNP np)) [DRSRef "x"]])
 	(DRS [] [Rel (DRSRel (linNP comp)) [DRSRef "x"]])])
@@ -813,10 +819,6 @@ transVP _ = \x -> NonProposition
 repVP :: GVP -> DRSRef -> DRS
 repVP (GHappening v) =
         \ t -> DRS [ ] [Rel (DRSRel (lin v)) [t]]
-repVP (GBe_vp comp) = case comp of
-		GBe_someone np -> \x -> repNP np (\pred ->
-			(DRS [] [Rel (DRSRel "is") [x,pred]]))
-		GBe_bad ap -> repAP ap
 repVP (GChanging v obj) = \subj -> repNP obj (\e ->
 		(DRS [] [Rel (DRSRel (lin v)) [subj,e]]))
 repVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
