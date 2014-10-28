@@ -266,7 +266,7 @@ repNP (GMassItem det n) = (repMassDet det) (repN n)
 repNP (GEntity name)
 	| entity <- (gent2ent name) , entity `elem` entities =
 		\p -> (DRS [DRSRef "x", DRSRef "y"] [Imp (DRS [] [Rel (DRSRel (lin name)) [DRSRef "x"] ] )
-			(p (DRSRef "y") )])
+			(p (DRSRef "x") )])
 
 repDet :: GDet -> (DRSRef -> DRS) -> (DRSRef -> DRS) -> DRS
 
