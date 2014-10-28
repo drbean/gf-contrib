@@ -112,6 +112,10 @@ linNP (GEntity name) = lin name
 linNP (GItem _ noun) = lin noun
 linNP (GMassItem _ noun) = lin noun
 
+linIP :: GIP -> String
+linIP who_WH = "person"
+linIP what_WH = "thing"
+
 -- e2t :: GPN -> Tree
 -- e2t e | (Just tr) <- unApp (gf e) = tr
 
@@ -134,10 +138,14 @@ unmaybe (Just x) = x
 --
 
 repS :: GUtt -> Maybe DRS
+repS (GQUt (GPosQ (GWH_Pred wh (GBe_vp (GBe_someone comp))))) =
+	Just (DRS [DRSRef "x"] [Imp (DRS [] [Rel (DRSRel (linIP wh)) [DRSRef "x"]])
+	(DRS [] [Rel (DRSRel (linNP comp)) [DRSRef "x"]])])
 repS (GQUt (GPosQ (GWH_Pred wh vp))) =
 	Just (repW wh (repVP vp))
 repS (GQUt (GPosQ (GYN (GSentence np (GBe_vp (GBe_someone comp)))))) =
-	Just (DRS [DRSRef "x"] [Imp (DRS [] [Rel (DRSRel (linNP np)) [DRSRef "x"]]) (DRS [] [Rel (DRSRel (linNP comp)) [DRSRef "x"]])])
+	Just (DRS [DRSRef "x"] [Imp (DRS [] [Rel (DRSRel (linNP np)) [DRSRef "x"]])
+	(DRS [] [Rel (DRSRel (linNP comp)) [DRSRef "x"]])])
 repS (GQUt (GPosQ (GYN (GSentence np vp)))) = Just (repNP np (repVP vp))
 
 transS :: GUtt -> Maybe LF
