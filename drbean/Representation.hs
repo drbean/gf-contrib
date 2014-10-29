@@ -152,6 +152,11 @@ repS (GQUt (GPosQ (GYN (GSentence np (GBe_vp (GBe_bad comp)))))) =
 repS (GQUt (GPosQ (GYN (GSentence np (GBe_vp (GBe_someone comp)))))) =
 	Just (DRS [DRSRef "x"] [Imp (DRS [] [Rel (DRSRel (linNP np)) [DRSRef "x"]])
 	(DRS [] [Rel (DRSRel (linNP comp)) [DRSRef "x"]])])
+repS (GQUt (GPosQ (GYN (GSentence subj (GChanging v obj))))) =
+	Just (DRS [DRSRef "x", DRSRef "y"] [
+	Rel (DRSRel (linNP subj)) [DRSRef "x"]
+	, Rel (DRSRel (linNP obj)) [DRSRef "y"]
+	, Rel (DRSRel (lin v)) [DRSRef "x", DRSRef "y"]])
 repS (GQUt (GPosQ (GYN (GSentence np vp)))) = Just (repNP np (repVP vp))
 
 transS :: GUtt -> Maybe LF
