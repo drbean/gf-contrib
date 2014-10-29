@@ -6,6 +6,7 @@ import Data.Maybe
 import PGF
 import Jackson
 import LogicalForm
+import Representation
 import Evaluation
 import Model
 import WordsCharacters
@@ -30,6 +31,14 @@ trans tests = do
   let ps = map ( parses gr ) ss
   let ls = map id ps
   let zs = zip (map (++"\t") tests) (map (map (showExpr []) ) ps)
+  putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
+
+fol tests = do
+  gr	<- readPGF ( "./Jackson.pgf" )
+  let ss = map (chomp . lc_first) tests
+  let ps = map ( parses gr ) ss
+  let ts = map (map rep) ps
+  let zs = zip (map (++"\t") tests) ts
   putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
 
 logic tests = do

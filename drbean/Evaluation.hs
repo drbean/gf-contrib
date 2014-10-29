@@ -1,7 +1,8 @@
-module Evaluation (readPGF, chomp, lc_first, lf, parses, linear, showExpr, transform) where
+module Evaluation (readPGF, chomp, lc_first, rep, lf, parses, linear, showExpr, transform) where
 
 import PGF
-import LogicalForm hiding ((==))
+import Data.DRS
+import Representation hiding ((==))
 import Interpretation
 import Model
 
@@ -45,9 +46,9 @@ term2ent _ = R
 
 eval :: LF -> Maybe Answer
 eval NonProposition = Nothing
-eval (Rel r as)	= int r (map term2ent as)
+eval (Relation r as)	= int r (map term2ent as)
 eval (Eq a b)	= Just (Boolean (a == b))
-eval (Neg lf)	= eval lf >>= notLF
+eval (Negation lf)	= eval lf >>= notLF
 eval (Impl f1 f2)	= liftM2 implLF (eval f1) (eval f2)
 eval (Equi f1 f2)	= liftM2 equiLF (eval f1) (eval f2)
 eval (Conj lfs)	= foldM conjLF (Boolean True) (map (fromMaybe NoAnswer . eval ) lfs)
@@ -149,6 +150,9 @@ gfmaybe (GYes) = Just (gf GYes)
 gfmaybe (GNo) = Just (gf GNo)
 gfmaybe (GAnswer x) = Just (gf (GAnswer x))
 gfmaybe _ = Nothing
+
+rep :: Tree -> Maybe DRS
+rep x =  (repS . fg) x
 
 lf :: Tree -> Maybe LF
 lf x =  (transS . fg) x
