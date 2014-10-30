@@ -109,6 +109,8 @@ stripApp = maybe "Undefined" (\x -> ((showCId . fst) x))
 
 linNP :: GNP -> String
 linNP (GEntity name) = lin name
+linNP (GItem _ (GKind _ (GOfpos noun _))) = lin noun
+linNP (GItem _ (GKind _ noun)) = lin noun
 linNP (GItem _ noun) = lin noun
 linNP (GMassItem _ noun) = lin noun
 
