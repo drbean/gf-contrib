@@ -139,6 +139,9 @@ unmaybe (Just x) = x
 --	    Conj [ transS (Just s), transTXT (Just s2) ]
 --
 
+data DRSRefTuple = OneRef (DRSRef) | TwoRef (DRSRef,DRSRef) |
+       ThreeRef (DRSRef,DRSRef,DRSRef) | FourRef (DRSRef,DRSRef,DRSRef,DRSRef)
+
 repS :: GUtt -> Maybe DRS
 repS (GQUt (GPosQ (GWH_Pred wh (GBe_vp (GBe_bad comp))))) =
 	Just (DRS [DRSRef "x"] [Imp (DRS [] [Rel (DRSRel (linIP wh)) [DRSRef "x"]])
