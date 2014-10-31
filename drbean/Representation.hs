@@ -159,7 +159,8 @@ repS (GQUt (GPosQ (GYN (GSentence subj (GChanging v obj))))) =
 	Rel (DRSRel (linNP subj)) [DRSRef "x"]
 	, Rel (DRSRel (linNP obj)) [DRSRef "y"]
 	, Rel (DRSRel (lin v)) [DRSRef "x", DRSRef "y"]])
-repS (GQUt (GPosQ (GYN (GSentence np vp)))) = Just (repNP np (repVP vp))
+repS (GQUt (GPosQ (GYN (GSentence np vp)))) = Just (DRS [DRSRef "x"] conds)
+	where conds = repNP np (repVP vp)
 
 transS :: GUtt -> Maybe LF
 --transS (Just Ep) = NonProposition
