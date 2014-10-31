@@ -826,8 +826,8 @@ transVP _ = \x -> NonProposition
 repVP :: GVP -> DRSRef -> DRSCon
 repVP (GHappening v) =
         \ t -> Rel (DRSRel (lin v)) [t]
-repVP (GChanging v obj) = \subj -> repNP obj (\e ->
-		(DRS [] [Rel (DRSRel (lin v)) [subj,e]]))
+repVP (GChanging v obj) = \x -> repNP obj (\y ->
+		(DRS [] [Rel (DRSRel (lin v)) [x,y]]))
 repVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 	(GBe_vp comp) -> case comp of
 		(GBe_someone subjcomp ) -> (\positer -> repNP np
