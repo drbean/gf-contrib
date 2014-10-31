@@ -268,12 +268,12 @@ transNP thing	| rel <- lin thing =
 --transNP (Branch (Cat _ "NP" _ _) [np,Leaf (Cat "'s" "APOS" _ _),cn]) =
 --    \p -> Exists (\thing -> Conj [ p thing, transCN cn thing, transNP np (\owner -> (Relation "had" [owner,thing]))])
 
-repNP :: GNP -> (DRSRef -> DRSCon) -> [DRSCon]
+repNP :: GNP -> (DRSRef -> [DRSCon]) -> [DRSCon]
 repNP (GItem det cn) = (repDet det) (repCN cn)
 repNP (GMassItem det n) = (repMassDet det) (repN n)
 repNP (GEntity name)
 	| entity <- (gent2ent name) , entity `elem` entities =
-		\p -> [Rel (DRSRel (lin name)) [DRSRef "x"], p (DRSRef "x")]
+		\p -> (Rel (DRSRel (lin name)) [DRSRef "x"]) : (p (DRSRef "x"))
 
 repDet :: GDet -> (DRSRef -> DRS) -> (DRSRef -> DRS) -> DRS
 
@@ -823,11 +823,11 @@ transVP	(GToPlace vp (GLocating prep destination)) =
 	(\place -> Relation ((lin vp) ++ "_" ++ (lin prep)) [mover,place])
 transVP _ = \x -> NonProposition
 --
-repVP :: GVP -> DRSRef -> DRSCon
+repVP :: GVP -> DRSRef -> [DRSCon]
 repVP (GHappening v) =
-        \ t -> Rel (DRSRel (lin v)) [t]
+        \ t -> [Rel (DRSRel (lin v)) [t]]
 repVP (GChanging v obj) = \x -> repNP obj (\y ->
-		(DRS [] [Rel (DRSRel (lin v)) [x,y]]))
+		[Rel (DRSRel (lin v)) [x,y]])
 repVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 	(GBe_vp comp) -> case comp of
 		(GBe_someone subjcomp ) -> (\positer -> repNP np
