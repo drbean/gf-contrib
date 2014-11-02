@@ -156,8 +156,8 @@ repS (GQUt (GPosQ (GWH_Pred wh (GBe_vp (GBe_bad comp))))) =
 repS (GQUt (GPosQ (GWH_Pred wh (GBe_vp (GBe_someone comp))))) =
 	Just (DRS [DRSRef "x"] [Imp (DRS [] [Rel (DRSRel (linIP wh)) [DRSRef "x"]])
 	(DRS [] [Rel (DRSRel (linNP comp)) [DRSRef "x"]])])
-repS (GQUt (GPosQ (GWH_Pred wh vp))) =
-	Just (repW wh (repVP vp))
+repS (GQUt (GPosQ (GWH_Pred wh vp))) = Just (DRS [DRSRef "x"] conds)
+	where conds = repW wh (repVP vp) 0
 repS (GQUt (GPosQ (GYN (GSentence np (GBe_vp (GBe_bad comp)))))) =
 	Just (DRS [DRSRef "x"] [Imp (DRS [] [Rel (DRSRel (linNP np)) [DRSRef "x"]])
 	(DRS [] [Rel (DRSRel (lin comp)) [DRSRef "x"]])])
@@ -278,7 +278,7 @@ repNP (GItem det cn) = (repDet det) (repCN cn)
 repNP (GMassItem det n) = (repMassDet det) (repN n)
 repNP (GEntity name)
 	| entity <- (gent2ent name) , entity `elem` entities =
-		\p n -> (Rel (DRSRel (lin name)) [DRSRef ("x" ++ (show n))]) : p n
+		\p n -> Rel (DRSRel (lin name)) [DRSRef ("x" ++ (show n))] : p n
 
 repDet :: GDet -> (DRSRef -> DRS) -> (DRSRef -> DRS) -> DRS
 
@@ -919,9 +919,9 @@ transW :: GIP -> (Term -> LF)
 transW Gwho_WH	= \e -> Relation "person"    [e]
 transW Gwhat_WH	= \e -> Relation "thing"    [e]
 
-repW :: GIP -> (DRSRef -> DRS) -> DRS
-repW Gwho_WH p = Merge (DRS [DRSRef "x"] [Rel (DRSRel "person") [DRSRef "x"] ] ) (p (DRSRef "x"))
-repW Gwhat_WH p = Merge (DRS [DRSRef "x"] [Rel (DRSRel "thing") [DRSRef "x"] ] ) (p (DRSRef "x"))
+repW :: GIP -> (Int -> [DRSCon]) -> Int -> [DRSCon]
+repW Gwho_WH p n = Rel (DRSRel "person") [DRSRef ("x" ++ (show n))] : p n
+repW Gwhat_WH p n = Rel (DRSRel "thing") [DRSRef ("x" ++ (show n))] : p n
 
 --transW (Branch (Cat _ "PP" fs _) [prep,np])
 --      | Masc      `elem` fs = \e -> Relation "man"    [e]
