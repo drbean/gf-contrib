@@ -280,7 +280,7 @@ repNP (GEntity name)
 	| entity <- (gent2ent name) , entity `elem` entities =
 		\p n -> Rel (DRSRel (lin name)) [DRSRef ("x" ++ (show n))] : p n
 
-repDet :: GDet -> (DRSRef -> DRS) -> (DRSRef -> DRS) -> DRS
+repDet :: GDet -> (Int -> [DRSCon]) -> (Int -> [DRSCon]) -> [DRSCon]
 
 repDet Ga_Det = \ p q -> Merge (p (DRSRef "x")) (q (DRSRef "x"))
 repDet GtheSg_Det = repDet Ga_Det
@@ -318,7 +318,7 @@ transDet Gno_pl_Det = transDet Gno_Det
 --  		[Forall (\v2 -> Equi (p v2) (Eq v1 v2)),
 --		q v1])
 
-repMassDet :: GMassDet -> (DRSRef -> DRS) -> (DRSRef -> DRS) -> DRS
+repMassDet :: GMassDet -> (Int -> [DRSCon]) -> (Int -> [DRSCon]) -> [DRSCon]
 repMassDet Gzero_Det_sg = \ p q -> Merge (p (DRSRef "x")) (q (DRSRef "x"))
 repMassDet Gthe_mass_Det = repMassDet Gzero_Det_sg
 
