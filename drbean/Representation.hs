@@ -170,7 +170,7 @@ repS (GQUt (GPosQ (GYN (GSentence subj (GChanging v obj))))) =
 	, Rel (DRSRel (linNP obj)) [DRSRef "y"]
 	, Rel (DRSRel (lin v)) [DRSRef "x", DRSRef "y"]])
 repS (GQUt (GPosQ (GYN (GSentence np vp)))) = Just (DRS [DRSRef "x"] conds)
-	where conds = repNP np (repVP vp)
+	where conds = repNP np (repVP vp) 0
 
 transS :: GUtt -> Maybe LF
 --transS (Just Ep) = NonProposition
@@ -278,12 +278,12 @@ transNP thing	| rel <- lin thing =
 --transNP (Branch (Cat _ "NP" _ _) [np,Leaf (Cat "'s" "APOS" _ _),cn]) =
 --    \p -> Exists (\thing -> Conj [ p thing, transCN cn thing, transNP np (\owner -> (Relation "had" [owner,thing]))])
 
-repNP :: GNP -> (DRSRefTuple -> [DRSCon]) -> [DRSCon]
+repNP :: GNP -> (Int -> [DRSCon]) -> Int -> [DRSCon]
 repNP (GItem det cn) = (repDet det) (repCN cn)
 repNP (GMassItem det n) = (repMassDet det) (repN n)
 repNP (GEntity name)
 	| entity <- (gent2ent name) , entity `elem` entities =
-		\p -> (Rel (DRSRel (lin name)) [DRSRef "y"]) : (p (TwoRef (DRSRef "x", DRSRef "y")))
+		\p n -> (Rel (DRSRel (lin name)) [DRSRef ("x" ++ (show n))]) : p n
 
 repDet :: GDet -> (DRSRef -> DRS) -> (DRSRef -> DRS) -> DRS
 
@@ -833,11 +833,11 @@ transVP	(GToPlace vp (GLocating prep destination)) =
 	(\place -> Relation ((lin vp) ++ "_" ++ (lin prep)) [mover,place])
 transVP _ = \x -> NonProposition
 --
-repVP :: GVP -> DRSRefTuple -> [DRSCon]
+repVP :: GVP -> Int -> [DRSCon]
 repVP (GHappening v) =
-        \ t -> [Rel (DRSRel (lin v)) [first t]]
-repVP (GChanging v obj) = \x -> repNP obj (\y ->
-		[Rel (DRSRel (lin v)) [(first x),(second y)]])
+        \ n -> [Rel (DRSRel (lin v)) [DRSRef ("x" ++ (show n))]]
+repVP (GChanging v obj) = \i -> repNP obj (\m ->
+		[Rel (DRSRel (lin v)) [DRSRef ("x" ++ (show (i))),DRSRef ("x" ++ (show (m)))]]) (i+1)
 repVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 	(GBe_vp comp) -> case comp of
 		(GBe_someone subjcomp ) -> (\positer -> repNP np
