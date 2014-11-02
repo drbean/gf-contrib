@@ -283,7 +283,14 @@ repNP (GEntity name)
 repDet :: GDet -> (Int -> [DRSCon]) -> (Int -> [DRSCon]) -> Int -> [DRSCon]
 
 repDet Ga_Det = \ p q n-> p n ++ (q n)
+repDet Gone = repDet Ga_Det
+repDet Gsome_Det = repDet Ga_Det
 repDet GtheSg_Det = repDet Ga_Det
+repDet Gsome_pl_Det = repDet Gsome_Det
+repDet Gfive	= repDet Gsome_pl_Det
+repDet (GApos owner) = \p q n -> p n ++ q n ++ (repNP owner
+	(\mod -> [Rel (DRSRel "have")
+	[DRSRef ("x" ++ (show mod)), DRSRef ("x" ++ (show n))]]) (n+1))
 
 transDet :: GDet -> (Term -> LF) -> (Term -> LF) -> LF
 transDet (GApos owner) =
@@ -322,6 +329,9 @@ repMassDet :: GMassDet -> (Int -> [DRSCon]) -> (Int -> [DRSCon]) -> Int -> [DRSC
 
 repMassDet Gzero_Det_sg = \ p q n -> p n ++ (q n)
 repMassDet Gthe_mass_Det = repMassDet Gzero_Det_sg
+repMassDet (GMassApos owner) = \p q n -> p n ++ q n ++ (repNP owner
+	(\mod -> [Rel (DRSRel "have")
+	[DRSRef ("x" ++ (show mod)), DRSRef ("x" ++ (show n))]]) (n+1))
 
 transMassDet :: GMassDet -> (Term -> LF) -> (Term -> LF) -> LF
 transMassDet Gthe_mass_Det = \ p q -> Exists (\v -> Conj [Single p, p v, q v] )
