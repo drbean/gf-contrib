@@ -280,9 +280,9 @@ repNP (GEntity name)
 	| entity <- (gent2ent name) , entity `elem` entities =
 		\p n -> Rel (DRSRel (lin name)) [DRSRef ("x" ++ (show n))] : p n
 
-repDet :: GDet -> (Int -> [DRSCon]) -> (Int -> [DRSCon]) -> [DRSCon]
+repDet :: GDet -> (Int -> [DRSCon]) -> (Int -> [DRSCon]) -> Int -> [DRSCon]
 
-repDet Ga_Det = \ p q -> Merge (p (DRSRef "x")) (q (DRSRef "x"))
+repDet Ga_Det = \ p q n-> p n ++ (q n)
 repDet GtheSg_Det = repDet Ga_Det
 
 transDet :: GDet -> (Term -> LF) -> (Term -> LF) -> LF
@@ -318,8 +318,9 @@ transDet Gno_pl_Det = transDet Gno_Det
 --  		[Forall (\v2 -> Equi (p v2) (Eq v1 v2)),
 --		q v1])
 
-repMassDet :: GMassDet -> (Int -> [DRSCon]) -> (Int -> [DRSCon]) -> [DRSCon]
-repMassDet Gzero_Det_sg = \ p q -> Merge (p (DRSRef "x")) (q (DRSRef "x"))
+repMassDet :: GMassDet -> (Int -> [DRSCon]) -> (Int -> [DRSCon]) -> Int -> [DRSCon]
+
+repMassDet Gzero_Det_sg = \ p q n -> p n ++ (q n)
 repMassDet Gthe_mass_Det = repMassDet Gzero_Det_sg
 
 transMassDet :: GMassDet -> (Term -> LF) -> (Term -> LF) -> LF
@@ -335,10 +336,10 @@ transN name	= \x -> Relation (lin name) [x]
 transN2 :: GN2 -> Term -> LF
 transN2 name	= \x -> Relation (lin name) [x]
 
-repN :: GN -> DRSRef -> DRS
-repN name = \x -> DRS [] [Rel (DRSRel (lin name)) [x]]
+repN :: GN -> Int -> [DRSCon]
+repN name = \n -> [Rel (DRSRel (lin name)) [DRSRef ("x" ++ (show n))]]
 repN2 :: GN2 -> DRSRef -> DRS
-repN2 name	= \x -> DRS [] [Rel (DRSRel (lin name)) [x]]
+repN2 name	= \n -> DRS [] [Rel (DRSRel (lin name)) [DRSRef ("x" ++ (show n))]]
 
 transCN :: GCN -> Term -> LF
 transCN (GKind ap cn) = \x -> Conj [ transCN cn x, transAP ap x ]
@@ -358,8 +359,8 @@ transCN (GMassModInf n vp) =
 	\x -> Conj [transN n x, transVP vp x]
 transCN name          = \ x -> Relation (lin name) [x]
 
-repCN :: GCN -> DRSRef -> DRS
-repCN name	= \x -> DRS [x] [Rel (DRSRel (lin name)) [x]]
+repCN :: GCN -> Int -> [DRSCon]
+repCN name	= \n -> [Rel (DRSRel (lin name)) [DRSRef ("x" ++ (show n))]]
 
 --	case (np,vp) of
 --	    (_, (Branch (Cat _ "VP" _ _) vp)) -> case (vp) of
