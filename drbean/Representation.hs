@@ -835,12 +835,13 @@ repVP (GChanging v obj) = \i -> repNP obj (\m ->
 		[Rel (DRSRel (lin v)) [DRSRef ("x" ++ (show (i))),DRSRef ("x" ++ (show (m)))]]) (i+1)
 repVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 	(GBe_vp comp) -> case comp of
-		(GBe_someone subjcomp ) -> (\positer -> repNP np
-			(\referent -> repNP subjcomp
-				(\theme -> DRS [positer, referent, theme ]
-					[Rel (DRSRel (lin v0)) [positer, DRSRef "p"]
-					, Prop (DRSRef "p") (DRS [] [Rel (DRSRel ":is_")
-						[referent, theme]])])))
+		(GBe_someone subjcomp ) -> \positer -> repNP np
+			(\referent -> repNP subjcomp (\theme ->
+				[Rel (DRSRel (lin v0)) [DRSRef ("x" ++ (show positer)), DRSRef "p"]
+				, Prop (DRSRef "p") (DRS []
+				[Rel (DRSRel (linNP np)) [DRSRef ("x" ++ (show referent))],
+				Rel (DRSRel (linNP subjcomp)) [DRSRef ("x" ++ (show theme))]])])
+						(referent) ) (positer+1)
 	(GChanging v2 obj) -> \positer -> repNP np
 		(\referent -> repNP obj (\theme ->
 				[Rel (DRSRel (lin v0)) [DRSRef ("x" ++ (show positer)), DRSRef "p"]
