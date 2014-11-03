@@ -859,6 +859,14 @@ repVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 				, Prop (DRSRef "p") (DRS [] [Rel (DRSRel (lin v2))
 					[DRSRef ("x" ++ (show referent)), DRSRef ("x" ++ (show theme))]])])
 						(referent+1) ) (positer+1)
+repVP (GPositing v0 (GNegS (GSentence np vp))) = case vp of
+	(GIntens vv vp2) -> case vp2 of
+		(GChanging v obj) -> \positer -> repNP np
+			(\referent -> repNP obj (\theme ->
+			[Rel (DRSRel (lin v0)) [DRSRef ("x" ++ (show positer)), DRSRef "p"]
+			, Prop (DRSRef "p") (DRS [] [(Neg (DRS [] [Rel (DRSRel (lin v))
+			[DRSRef ("x" ++ (show referent)), DRSRef ("x" ++ (show theme))]]))])])
+			(referent+1) ) (positer+1)
 
 transCOMP :: GComp -> Term -> LF
 transCOMP (GBe_someone np) = \x -> transNP np (\pred -> Eq pred x)
