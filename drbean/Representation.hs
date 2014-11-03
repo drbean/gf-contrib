@@ -281,6 +281,7 @@ repDet Gone = repDet Ga_Det
 repDet Gsome_Det = repDet Ga_Det
 repDet GtheSg_Det = repDet Ga_Det
 repDet Gsome_pl_Det = repDet Gsome_Det
+repDet GthePlural_Det =  repDet Gsome_pl_Det
 repDet Gfive	= repDet Gsome_pl_Det
 repDet (GApos owner) = \p q n -> p n ++ q n ++ (repNP owner
 	(\mod -> [Rel (DRSRel "have")
