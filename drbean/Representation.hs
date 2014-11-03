@@ -158,12 +158,6 @@ repS (GQUt (GPosQ (GWH_Pred wh (GBe_vp (GBe_someone comp))))) =
 	(DRS [] [Rel (DRSRel (linNP comp)) [DRSRef "x"]])])
 repS (GQUt (GPosQ (GWH_Pred wh vp))) = Just (DRS [DRSRef "x"] conds)
 	where conds = repW wh (repVP vp) 0
-repS (GQUt (GPosQ (GYN (GSentence np (GBe_vp (GBe_bad comp)))))) =
-	Just (DRS [DRSRef "x"] [Imp (DRS [] [Rel (DRSRel (linNP np)) [DRSRef "x"]])
-	(DRS [] [Rel (DRSRel (lin comp)) [DRSRef "x"]])])
-repS (GQUt (GPosQ (GYN (GSentence np (GBe_vp (GBe_someone comp)))))) =
-	Just (DRS [DRSRef "x"] [Imp (DRS [] [Rel (DRSRel (linNP np)) [DRSRef "x"]])
-	(DRS [] [Rel (DRSRel (linNP comp)) [DRSRef "x"]])])
 repS (GQUt (GPosQ (GYN (GSentence np vp)))) = Just (DRS [DRSRef "x"] conds)
 	where conds = repNP np (repVP vp) 0
 
@@ -412,9 +406,9 @@ transAP :: GAP -> Term -> LF
 transAP (GAdvAdj _ a) = \x -> Relation (lin a) [x]
 transAP ap = \x -> Relation (lin ap) [x]
 
-repAP :: GAP -> DRSRef -> DRS
-repAP (GAdvAdj _ a) = \x -> DRS [] [Rel (DRSRel (lin a)) [x]]
-repAP ap = \x -> DRS [] [Rel (DRSRel (lin ap)) [x]]
+repAP :: GAP -> Int -> [DRSCon]
+repAP (GAdvAdj _ a) = \n -> [Rel (DRSRel (lin a)) [DRSRef ("x" ++ (show n))]]
+repAP ap = \n -> [Rel (DRSRel (lin ap)) [DRSRef ("x" ++ (show n))]]
 
 transPlace :: GPlace -> (Term -> LF) -> LF
 transPlace (GLocation _ (GPlaceKind _ name)) | rel <- lin name =
@@ -844,6 +838,12 @@ repVP (GWithCl vp _) = repVP vp
 repVP (GWithPlace vp _) = repVP vp
 repVP (GWithStyle vp _) = repVP vp
 repVP (GWithTime vp _) = repVP vp
+repVP (GBe_vp comp) = case comp of
+	(GBe_someone np) -> \subj -> repNP np
+		(\hyper -> [
+			Rel (DRSRel (linNP np)) [DRSRef ("x" ++ (show hyper))]])
+			subj
+	GBe_bad ap -> repAP ap
 repVP (GHappening v) =
         \ n -> [Rel (DRSRel (lin v)) [DRSRef ("x" ++ (show n))]]
 repVP (GChanging v obj) = \i -> repNP obj (\m ->
