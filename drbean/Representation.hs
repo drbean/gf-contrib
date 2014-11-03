@@ -844,6 +844,10 @@ repVP (GBe_vp comp) = case comp of
 			Rel (DRSRel (linNP np)) [DRSRef ("x" ++ (show hyper))]])
 			subj
 	GBe_bad ap -> repAP ap
+repVP (GLook_bad v ap) = \subj -> 
+	[Rel (DRSRel (lin v)) [DRSRef ("x" ++ (show subj)), DRSRef "p"]
+	, Prop (DRSRef "p") (DRS []
+	[Rel (DRSRel (lin ap)) [DRSRef ("x" ++ (show subj))]])]
 repVP (GHappening v) =
         \ n -> [Rel (DRSRel (lin v)) [DRSRef ("x" ++ (show n))]]
 repVP (GChanging v obj) = \i -> repNP obj (\m ->
