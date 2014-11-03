@@ -840,6 +840,10 @@ transVP	(GToPlace vp (GLocating prep destination)) =
 transVP _ = \x -> NonProposition
 --
 repVP :: GVP -> Int -> [DRSCon]
+repVP (GWithCl vp _) = repVP vp
+repVP (GWithPlace vp _) = repVP vp
+repVP (GWithStyle vp _) = repVP vp
+repVP (GWithTime vp _) = repVP vp
 repVP (GHappening v) =
         \ n -> [Rel (DRSRel (lin v)) [DRSRef ("x" ++ (show n))]]
 repVP (GChanging v obj) = \i -> repNP obj (\m ->
