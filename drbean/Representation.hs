@@ -365,6 +365,7 @@ transCN (GMassModInf n vp) =
 transCN name          = \ x -> Relation (lin name) [x]
 
 repCN :: GCN -> Int -> [DRSCon]
+repCN (GKind ap cn) = \n -> (repCN cn n) ++ (repAP ap n)
 repCN (GOfpart part n) = repN n
 repCN (GOfpos cn np) = \thing -> ((repN2 cn thing) ++ (repNP np
 	(\owner -> [Rel (DRSRel "have") [DRSRef ("x"++(show owner)), DRSRef ("x"++(show thing))]]) (thing+1)))
