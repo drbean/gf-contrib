@@ -416,6 +416,14 @@ transPlace (GLocation _ (GPlaceKind _ name)) | rel <- lin name =
 transPlace (GLocation _ name) | rel <- lin name =
 	\p -> Exists ( \v -> Conj [ p v, Relation rel [v] ] )
 
+repPlace :: GPlace -> (Int -> [DRSCon]) -> Int -> [DRSCon]
+repPlace (GLocation _ (GPlaceKind _ name)) | rel <- lin name =
+	\p n -> (Rel (DRSRel rel) [DRSRef ("x"++(show n))]) :
+	p (n+1)
+repPlace (GLocation _ name) | rel <- lin name =
+	\p n -> (Rel (DRSRel rel) [DRSRef ("x"++(show n))]) :
+	p (n+1)
+
 --transPP :: ParseTree Cat Cat -> (Term -> LF) -> LF
 --transPP (Leaf   (Cat "#" "PP" _ _)) = \ p -> p (Var 0)
 --transPP (Branch (Cat _   "PP" _ _) [prep,np]) = transNP np
@@ -844,6 +852,9 @@ repVP (GBe_vp comp) = case comp of
 			Rel (DRSRel (linNP np)) [DRSRef ("x" ++ (show hyper))]])
 			subj
 	GBe_bad ap -> repAP ap
+	GBe_somewhere (GLocating prep place) ->
+		\subj -> repPlace place (\name -> [ Rel (DRSRel (lin prep))
+		[DRSRef ("x"++(show subj)), DRSRef ("x"++(show name))]]) subj
 repVP (GLook_bad v ap) = \subj -> 
 	[Rel (DRSRel (lin v)) [DRSRef ("x" ++ (show subj)), DRSRef "p"]
 	, Prop (DRSRef "p") (DRS []
