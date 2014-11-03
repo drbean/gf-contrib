@@ -852,6 +852,10 @@ repVP (GHappening v) =
         \ n -> [Rel (DRSRel (lin v)) [DRSRef ("x" ++ (show n))]]
 repVP (GChanging v obj) = \i -> repNP obj (\m ->
 		[Rel (DRSRel (lin v)) [DRSRef ("x" ++ (show (i))),DRSRef ("x" ++ (show (m)))]]) (i+1)
+repVP (GTriangulating v obj1 obj2) = \agent -> repNP obj1 (\theme->
+	repNP obj2 (\recipient -> [Rel (DRSRel (lin v)) [DRSRef ("x" ++ (show agent))
+	, DRSRef ("x" ++ (show theme)), DRSRef ("x" ++ (show recipient))]])
+	(theme+1) ) (agent+1)
 repVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 	(GBe_vp comp) -> case comp of
 		(GBe_someone subjcomp ) -> \positer -> repNP np
