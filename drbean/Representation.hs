@@ -343,8 +343,8 @@ transN2 name	= \x -> Relation (lin name) [x]
 
 repN :: GN -> Int -> [DRSCon]
 repN name = \n -> [Rel (DRSRel (lin name)) [DRSRef ("x" ++ (show n))]]
-repN2 :: GN2 -> DRSRef -> DRS
-repN2 name	= \n -> DRS [] [Rel (DRSRel (lin name)) [DRSRef ("x" ++ (show n))]]
+repN2 :: GN2 -> Int -> [DRSCon]
+repN2 name	= \n -> [Rel (DRSRel (lin name)) [DRSRef ("x" ++ (show n))]]
 
 transCN :: GCN -> Term -> LF
 transCN (GKind ap cn) = \x -> Conj [ transCN cn x, transAP ap x ]
@@ -365,6 +365,9 @@ transCN (GMassModInf n vp) =
 transCN name          = \ x -> Relation (lin name) [x]
 
 repCN :: GCN -> Int -> [DRSCon]
+repCN (GOfpart part n) = repN n
+repCN (GOfpos cn np) = \thing -> ((repN2 cn thing) ++ (repNP np
+	(\owner -> [Rel (DRSRel "have") [DRSRef ("x"++(show owner)), DRSRef ("x"++(show thing))]]) (thing+1)))
 repCN name	= \n -> [Rel (DRSRel (lin name)) [DRSRef ("x" ++ (show n))]]
 
 --	case (np,vp) of
