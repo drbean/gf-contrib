@@ -158,8 +158,9 @@ repS (GQUt (GPosQ (GWH_Pred wh (GBe_vp (GBe_someone comp))))) =
 	(DRS [] [Rel (DRSRel (linNP comp)) [DRSRef "x"]])])
 repS (GQUt (GPosQ (GWH_Pred wh vp))) = Just (DRS [DRSRef "x"] (repW wh (repVP vp) 0))
 repS (GQUt (GPosQ (GYN (GSentence np vp)))) = Just (DRS refs conds) where
-	conds = repNP np (repVP vp) 0
-	refs   = zipWith (\x n -> DRSRef (x++(show n))) (repeat "x") [0..(length conds)-1]
+	rep = repNP np (repVP vp) ((DRSRef "x1"),[])
+	conds = snd rep
+	refs   = fst rep
 
 transS :: GUtt -> Maybe LF
 --transS (Just Ep) = NonProposition
@@ -267,12 +268,17 @@ transNP thing	| rel <- lin thing =
 --transNP (Branch (Cat _ "NP" _ _) [np,Leaf (Cat "'s" "APOS" _ _),cn]) =
 --    \p -> Exists (\thing -> Conj [ p thing, transCN cn thing, transNP np (\owner -> (Relation "had" [owner,thing]))])
 
-repNP :: GNP -> (Int -> [DRSCon]) -> Int -> [DRSCon]
+repNP :: GNP -> ((DRSRef,[DRSRef]) -> ([DRSRef],[DRSCon])) -> (DRSRef,[DRSRef]) -> ([DRSRef],[DRSCon])
 repNP (GItem det cn) = (repDet det) (repCN cn)
 repNP (GMassItem det n) = (repMassDet det) (repN n)
 repNP (GEntity name)
 	| entity <- (gent2ent name) , entity `elem` entities =
-		\p n -> Rel (DRSRel (lin name)) [DRSRef ("x" ++ (show n))] : p n
+			\p refs -> let
+				ref = fst refs
+				reflist = ref : snd refs
+				conds = (Rel (DRSRel (lin name)) [ref]) : snd (p refs)
+				in (reflist, conds)
+
 
 repDet :: GDet -> (Int -> [DRSCon]) -> (Int -> [DRSCon]) -> Int -> [DRSCon]
 
@@ -846,7 +852,7 @@ transVP	(GToPlace vp (GLocating prep destination)) =
 	(\place -> Relation ((lin vp) ++ "_" ++ (lin prep)) [mover,place])
 transVP _ = \x -> NonProposition
 --
-repVP :: GVP -> Int -> [DRSCon]
+repVP :: GVP -> (DRSRef,[DRSRef]) -> ([DRSRef],[DRSCon])
 repVP (GWithCl vp _) = repVP vp
 repVP (GWithPlace vp _) = repVP vp
 repVP (GWithStyle vp _) = repVP vp
@@ -863,10 +869,21 @@ repVP (GBe_vp comp) = case comp of
 repVP (GLook_bad v ap) = \subj -> 
 	[Rel (DRSRel (lin v)) [DRSRef ("x" ++ (show subj)), DRSRef "p"]
 	, Prop (DRSRef "p") (DRS [] (repAP ap subj))]
-repVP (GHappening v) =
-        \ n -> [Rel (DRSRel (lin v)) [DRSRef ("x" ++ (show n))]]
-repVP (GChanging v obj) = \i -> repNP obj (\m ->
-		[Rel (DRSRel (lin v)) [DRSRef ("x" ++ (show (i))),DRSRef ("x" ++ (show (m)))]]) (i+1)
+repVP (GHappening v) = \refs -> let
+	rerefs = fst refs : snd refs
+	conds =  [Rel (DRSRel (lin v)) rerefs]
+	in (rerefs, conds)
+repVP (GChanging v obj) = \refs -> let
+	lastref = fst refs
+	oldrefs = snd refs
+	newrefs = newDRSRefs [lastref] oldrefs
+	newref = head newrefs
+	in
+	repNP obj (\nrefs -> let
+	nref = fst nrefs
+	conds = [Rel (DRSRel (lin v)) [fst refs, fst nrefs]]
+	in (nref,conds) ) (newref,lastref : oldrefs)
+
 repVP (GTriangulating v obj1 obj2) = \agent -> repNP obj1 (\theme->
 	repNP obj2 (\recipient -> [Rel (DRSRel (lin v)) [DRSRef ("x" ++ (show agent))
 	, DRSRef ("x" ++ (show theme)), DRSRef ("x" ++ (show recipient))]])
