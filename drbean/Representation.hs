@@ -156,10 +156,10 @@ repS (GQUt (GPosQ (GWH_Pred wh (GBe_vp (GBe_bad comp))))) =
 repS (GQUt (GPosQ (GWH_Pred wh (GBe_vp (GBe_someone comp))))) =
 	Just (DRS [DRSRef "x"] [Imp (DRS [] [Rel (DRSRel (linIP wh)) [DRSRef "x"]])
 	(DRS [] [Rel (DRSRel (linNP comp)) [DRSRef "x"]])])
-repS (GQUt (GPosQ (GWH_Pred wh vp))) = Just (DRS [DRSRef "x"] conds)
-	where conds = repW wh (repVP vp) 0
-repS (GQUt (GPosQ (GYN (GSentence np vp)))) = Just (DRS [DRSRef "x"] conds)
-	where conds = repNP np (repVP vp) 0
+repS (GQUt (GPosQ (GWH_Pred wh vp))) = Just (DRS [DRSRef "x"] (repW wh (repVP vp) 0))
+repS (GQUt (GPosQ (GYN (GSentence np vp)))) = Just (DRS refs conds) where
+	conds = repNP np (repVP vp) 0
+	refs   = zipWith (\x n -> DRSRef (x++(show n))) (repeat "x") [0..(length conds)-1]
 
 transS :: GUtt -> Maybe LF
 --transS (Just Ep) = NonProposition
