@@ -304,26 +304,28 @@ repDet Gfive	= repDet Gsome_pl_Det
 --repDet (GApos owner) = \p q n -> p n ++ q n ++ (repNP owner
 --	(\mod -> [Rel (DRSRel "have")
 --	[DRSRef ("x" ++ (show mod)), DRSRef ("x" ++ (show n))]]) (n+1))
-repDet (GApos owner) = repDet Ga_Det
-repDet (GApos_pl owner) = repDet Gsome_pl_Det
---repDet (GApos owner) = \p q rs -> let 
---	owner_ref = fst rs
---	erefs = snd rs
---	newrefs = newDRSRefs [owner_ref] erefs
---	newprefs = fst (p rs)
---	newqrefs = fst (q rs)
---	reflist = nub (newrefs ++ newprefs ++ newqrefs ++ erefs)
---	newpconds = snd (p rs)
---	newqconds = snd (q rs)
---	conds = newpconds ++ newqconds
---	in repNP owner (\rs -> let 
---	lastref = fst rs
---	erefs = snd rs
---	newrefs = newDRSRefs [owner_ref, lastref] erefs
---	newreflist = newrefs ++ erefs
---	thing_ref = head newreflist
---	thing_conds =  Rel (DRSRel "have") [owner_ref, thing_ref] : conds
---	in (newreflist, thing_conds) ) (owner_ref, reflist)
+--repDet (GApos owner) = repDet Ga_Det
+--repDet (GApos_pl owner) = repDet Gsome_pl_Det
+repDet (GApos owner) = \p q rs -> let 
+	owner_ref = fst rs
+	es = snd rs
+	us = newDRSRefs [owner_ref] es
+	es' = nub ( us ++ owner_ref : es )
+	rs' = (head es', tail es')
+	prs = fst (p rs')
+	pconds = snd (p rs')
+	pr = head prs
+	us' = newDRSRefs [pr] es
+	es'' = nub ( us' ++ es' )
+	rs'' = (head es'', tail es'')
+	qrs = fst (q rs'')
+	qconds = snd (q rs'')
+	reflist = nub ( qrs ++ prs ++ [owner_ref] ++ es)
+	conds = pconds ++ qconds
+	in repNP owner (\rs -> let 
+	thing_ref = fst rs
+	thing_conds =  Rel (DRSRel "have") [owner_ref, thing_ref] : conds
+	in (reflist, thing_conds) ) (owner_ref, reflist)
 
 transDet :: GDet -> (Term -> LF) -> (Term -> LF) -> LF
 transDet (GApos owner) =
