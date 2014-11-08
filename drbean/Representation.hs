@@ -318,8 +318,8 @@ repDet (GApos owner) = \p q rs -> let
 	us' = newDRSRefs [pr] es
 	es'' = nub ( us' ++ es' )
 	rs'' = (head es'', tail es'')
-	qrs = fst (q rs'')
-	qconds = snd (q rs'')
+	qrs = fst (q rs')
+	qconds = snd (q rs')
 	reflist = nub ( qrs ++ prs ++ [owner_ref] ++ es)
 	conds = pconds ++ qconds
 	in repNP owner (\rs -> let 
