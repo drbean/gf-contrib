@@ -280,7 +280,7 @@ repNP (GEntity name)
 				ref = fst refs
 				newrefs = fst (p refs)
 				reflist = nub ( newrefs ++ [ref])
-				conds = (Rel (DRSRel (lin name)) [ref]) : snd (p refs)
+				conds = nub ( Rel (DRSRel (lin name)) [ref] : snd (p refs) )
 				in (reflist, conds)
 
 
