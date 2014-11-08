@@ -523,7 +523,9 @@ repPlace (GLocation _ (GPlaceKind _ name)) = \p rs -> let
 repPlace (GLocation _ name) = \p rs -> let
 	place = fst rs
 	erefs = snd rs
-	conds = [Rel (DRSRel (lin name)) [place]]
+	newrefs = fst (p rs)
+	reflist = nub ( newrefs ++ [place])
+	conds = (Rel (DRSRel (lin name)) [place]) : snd (p rs)
 	in (place : erefs, conds)
 
 --transPP :: ParseTree Cat Cat -> (Term -> LF) -> LF
@@ -956,13 +958,16 @@ repVP (GBe_vp comp) = case comp of
 	GBe_bad ap -> repAP ap
 	GBe_somewhere (GLocating prep place) -> \lastrefs -> let
 		situatee = fst lastrefs
-		erefs = snd lastrefs in
+		erefs = snd lastrefs
+		newrefs = newDRSRefs [situatee] erefs
+		newreflist = newrefs ++ [situatee] ++ erefs
+		newref = head newreflist in
 		repPlace place (\lastrefs -> let
 		name = fst lastrefs
 		erefs = snd lastrefs
 		conds = [ Rel (DRSRel (lin prep)) [situatee, name]]
 		in (name : erefs, conds)
-		) lastrefs
+		) (newref, newreflist)
 repVP (GLook_bad v ap) = \lastrefs -> let
 	patient = fst lastrefs
 	erefs = snd lastrefs
