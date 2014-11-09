@@ -307,25 +307,25 @@ repDet Gfive	= repDet Gsome_pl_Det
 --repDet (GApos owner) = repDet Ga_Det
 --repDet (GApos_pl owner) = repDet Gsome_pl_Det
 repDet (GApos owner) = \p q rs -> let 
-	owner_ref = fst rs
+	thing_ref = fst rs
 	es = snd rs
-	us = newDRSRefs [owner_ref] es
-	es' = nub ( us ++ owner_ref : es )
-	rs' = (head es', tail es')
-	prs = fst (p rs')
-	pconds = snd (p rs')
+	us = newDRSRefs [thing_ref] es
+	es' = nub ( thing_ref : es ++ us )
+	rs' = (head us, es')
+	prs = fst (p rs)
+	pconds = snd (p rs)
 	pr = head prs
-	us' = newDRSRefs [pr] es
+	us' = newDRSRefs [pr] es'
 	es'' = nub ( us' ++ es' )
-	rs'' = (head es'', tail es'')
-	qrs = fst (q rs')
-	qconds = snd (q rs')
-	reflist = nub ( qrs ++ prs ++ [owner_ref] ++ es)
+	rs'' = (thing_ref, es)
+	qrs = fst (q rs'')
+	qconds = snd (q rs'')
+	reflist = nub ( qrs ++ prs ++ [thing_ref] ++ es)
 	conds = pconds ++ qconds
 	in repNP owner (\rs -> let 
-	thing_ref = fst rs
+	owner_ref = fst rs
 	thing_conds =  Rel (DRSRel "have") [owner_ref, thing_ref] : conds
-	in (reflist, thing_conds) ) (owner_ref, reflist)
+	in (reflist, thing_conds) ) rs'
 
 transDet :: GDet -> (Term -> LF) -> (Term -> LF) -> LF
 transDet (GApos owner) =
