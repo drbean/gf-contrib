@@ -991,7 +991,7 @@ repVP (GTriangulating v obj1 obj2) =
 		(\(theme,es') -> repNP obj2
 			(\(recipient,es'') -> let
 			conds = [Rel (DRSRel (lin v)) [agent, theme, recipient]]
-		in (r'':es'',conds) ) (r',r':es') ) (r,r:es)
+		in (recipient:es'',conds) ) (theme,theme:es') ) (agent,agent:es)
 repVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 	(GBe_vp comp) -> case comp of
 		(GBe_someone subjcomp ) -> \rs -> let
