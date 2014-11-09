@@ -157,11 +157,11 @@ repS (GQUt (GPosQ (GWH_Pred wh (GBe_vp (GBe_someone comp))))) =
 	Just (DRS [DRSRef "x"] [Imp (DRS [] [Rel (DRSRel (linIP wh)) [DRSRef "x"]])
 	(DRS [] [Rel (DRSRel (linNP comp)) [DRSRef "x"]])])
 repS (GQUt (GPosQ (GWH_Pred wh vp))) = Just (DRS refs  conds) where
-	rep = repW wh (repVP vp) ((DRSRef "x1"),[])
+	rep = repW wh (repVP vp) ((DRSRef "x0"),[])
 	conds = snd rep
 	refs   = fst rep
 repS (GQUt (GPosQ (GYN (GSentence np vp)))) = Just (DRS refs conds) where
-	rep = repNP np (repVP vp) ((DRSRef "x1"),[])
+	rep = repNP np (repVP vp) ((DRSRef "x0"),[])
 	conds = snd rep
 	refs   = fst rep
 
@@ -276,12 +276,17 @@ repNP (GItem det cn) = (repDet det) (repCN cn)
 repNP (GMassItem det n) = (repMassDet det) (repN n)
 repNP (GEntity name)
 	| entity <- (gent2ent name) , entity `elem` entities =
-			\p refs -> let
-				ref = fst refs
-				newrefs = fst (p refs)
-				reflist = nub ( newrefs ++ [ref])
-				conds = nub ( Rel (DRSRel (lin name)) [ref] : snd (p refs) )
-				in (reflist, conds)
+			\p rs -> let
+				r = fst rs
+				es = snd rs
+				us = newDRSRefs [r] es
+				es' = r : es
+				r' = head us
+				rs' = (r',es')
+				prs = fst (p rs')
+				pconds = snd (p rs')
+				conds = ( Rel (DRSRel (lin name)) [r'] : pconds )
+				in (prs, conds)
 
 
 repDet :: GDet -> ((DRSRef,[DRSRef]) -> ([DRSRef],[DRSCon])) -> ((DRSRef,[DRSRef]) -> ([DRSRef],[DRSCon])) -> (DRSRef,[DRSRef]) -> ([DRSRef],[DRSCon])
@@ -981,18 +986,11 @@ repVP (GHappening v) = \refs -> let
 	rerefs = fst refs : snd refs
 	conds =  [Rel (DRSRel (lin v)) rerefs]
 	in (rerefs, conds)
-repVP (GChanging v obj) = \refs -> let
-	lastref = fst refs
-	erefs = snd refs
-	newrefs = newDRSRefs [lastref] erefs
-	newreflist = newrefs ++ [lastref] ++ erefs
-	newref = head newreflist
-	in
-	repNP obj (\nrefs -> let
-	ref = fst nrefs
-	reflist = ref : snd nrefs
-	conds = [Rel (DRSRel (lin v)) [fst refs, newref]]
-	in ([newref],conds) ) (newref, newreflist)
+repVP (GChanging v obj) = \rs -> repNP obj (\rs' -> let
+	r = fst rs'
+	reflist = r : snd rs'
+	conds = [Rel (DRSRel (lin v)) [fst rs, fst rs']]
+	in (reflist,conds) ) rs
 repVP (GTriangulating v obj1 obj2) = \lastrefs -> let
 	agent = fst lastrefs
 	erefs = snd lastrefs
