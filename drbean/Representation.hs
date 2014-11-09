@@ -311,11 +311,6 @@ repDet GtheSg_Det = repDet Ga_Det
 repDet Gsome_pl_Det = repDet Gsome_Det
 repDet GthePlural_Det =  repDet Gsome_pl_Det
 repDet Gfive	= repDet Gsome_pl_Det
---repDet (GApos owner) = \p q n -> p n ++ q n ++ (repNP owner
---	(\mod -> [Rel (DRSRel "have")
---	[DRSRef ("x" ++ (show mod)), DRSRef ("x" ++ (show n))]]) (n+1))
---repDet (GApos owner) = repDet Ga_Det
---repDet (GApos_pl owner) = repDet Gsome_pl_Det
 repDet (GApos owner) = \p q rs -> let 
 	r = fst rs
 	es = snd rs
@@ -334,6 +329,7 @@ repDet (GApos owner) = \p q rs -> let
 	owner_ref = fst rs
 	ownership_conds =  Rel (DRSRel "have") [owner_ref, r'] : conds
 	in (qrs, ownership_conds) ) rs'
+repDet (GApos_pl owner) = repDet (GApos owner)
 
 transDet :: GDet -> (Term -> LF) -> (Term -> LF) -> LF
 transDet (GApos owner) =
