@@ -984,10 +984,10 @@ repVP (GLook_bad v ap) = \lastrefs -> let
 	look_conds = [Rel (DRSRel (lin v)) [patient, DRSRef "p"]
 		, Prop (DRSRef "p") (DRS [] conds)]
 	in DRS (patient : erefs) look_conds
-repVP (GHappening v) = \refs -> let
-	rerefs = fst refs : snd refs
-	conds =  [Rel (DRSRel (lin v)) rerefs]
-	in DRS rerefs conds
+repVP (GHappening v) = \rs -> let
+	r = fst rs
+	conds =  [Rel (DRSRel (lin v)) [r]]
+	in DRS [r] conds
 repVP (GChanging v obj) = \rs -> repNP obj (\rs' -> let
 	r = fst rs'
 	reflist = r : snd rs'
