@@ -396,10 +396,12 @@ repMassDet (GMassApos owner) = \p q rs -> let
 	qrs = fst (q prs')
 	qconds = snd (q prs')
 	conds = pconds ++ qconds
+	r'' = head qrs
+	rs'' = (r'',qrs)
 	in repNP owner (\rs -> let 
 	owner_ref = fst rs
 	ownership_conds =  Rel (DRSRel "have") [owner_ref, r'] : conds
-	in (qrs, ownership_conds) ) rs'
+	in (qrs, ownership_conds) ) rs''
 
 transMassDet :: GMassDet -> (Term -> LF) -> (Term -> LF) -> LF
 transMassDet Gthe_mass_Det = \ p q -> Exists (\v -> Conj [Single p, p v, q v] )
