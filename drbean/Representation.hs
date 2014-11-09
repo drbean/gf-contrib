@@ -292,14 +292,19 @@ repNP (GEntity name)
 repDet :: GDet -> ((DRSRef,[DRSRef]) -> ([DRSRef],[DRSCon])) -> ((DRSRef,[DRSRef]) -> ([DRSRef],[DRSCon])) -> (DRSRef,[DRSRef]) -> ([DRSRef],[DRSCon])
 
 repDet Ga_Det = \ p q rs-> let 
-	ref = fst rs
-	newprefs = fst (p rs)
-	newqrefs = fst (q rs)
-	reflist = nub (newprefs ++ newqrefs ++ [ref])
-	newpconds = snd (p rs)
-	newqconds = snd (q rs)
-	conds = newpconds ++ newqconds
-	in (reflist, conds)
+	r = fst rs
+	es = snd rs
+	us = newDRSRefs [r] es
+	es' = r : es
+	r' = head us
+	rs' = (r', es')
+	prs = fst (p rs')
+	qrs = fst (q rs')
+	reflist = (prs ++ qrs ++ [r])
+	pconds = snd (p rs')
+	qconds = snd (q rs')
+	conds = pconds ++ qconds
+	in (qrs, conds)
 repDet Gone = repDet Ga_Det
 repDet Gsome_Det = repDet Ga_Det
 repDet GtheSg_Det = repDet Ga_Det
