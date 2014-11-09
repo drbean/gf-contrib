@@ -990,25 +990,12 @@ repVP (GChanging v obj) = \rs -> repNP obj (\rs' -> let
 	reflist = r : snd rs'
 	conds = [Rel (DRSRel (lin v)) [fst rs, fst rs']]
 	in (reflist,conds) ) rs
-repVP (GTriangulating v obj1 obj2) = \lastrefs -> let
-	agent = fst lastrefs
-	erefs = snd lastrefs
-	newrefs = newDRSRefs [agent] erefs
-	newreflist = newrefs ++ [agent] ++ erefs
-	newref = head newreflist
-	in
-	repNP obj1 (\lastrefs-> let
-	patient = fst lastrefs
-	erefs = snd lastrefs
-	newrefs = newDRSRefs [patient] erefs
-	newreflist = newrefs ++ [patient] ++ erefs
-	newref = head newreflist
-	in
-	repNP obj2 (\lastrefs -> let
-	recipient = fst lastrefs
-	reflist = recipient : snd lastrefs
-	conds = [Rel (DRSRel (lin v)) [agent, patient, recipient]]
-	in (reflist,conds) ) (newref, newreflist) ) (newref, newreflist)
+repVP (GTriangulating v obj1 obj2) =
+	\(agent,es) -> repNP obj1
+		(\(theme,es') -> repNP obj2
+			(\(recipient,es'') -> let
+			conds = [Rel (DRSRel (lin v)) [agent, theme, recipient]]
+		in (r'':es'',conds) ) (r',r':es') ) (r,r:es)
 repVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 	(GBe_vp comp) -> case comp of
 		(GBe_someone subjcomp ) -> \rs -> let
