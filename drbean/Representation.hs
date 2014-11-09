@@ -371,15 +371,20 @@ transDet Gno_pl_Det = transDet Gno_Det
 --		q v1])
 
 repMassDet :: GMassDet -> ((DRSRef,[DRSRef]) -> ([DRSRef],[DRSCon])) -> ((DRSRef,[DRSRef]) -> ([DRSRef],[DRSCon])) -> (DRSRef,[DRSRef]) -> ([DRSRef],[DRSCon])
-repMassDet Gzero_Det_sg = \ p q rs-> let 
-	ref = fst rs
-	newprefs = fst (p rs)
-	newqrefs = fst (q rs)
-	reflist = nub (newprefs ++ newqrefs ++ [ref])
-	newpconds = snd (p rs)
-	newqconds = snd (q rs)
-	conds = newpconds ++ newqconds
-	in (reflist, conds)
+repMassDet Gzero_Det_sg  = \ p q rs-> let 
+	r = fst rs
+	es = snd rs
+	us = newDRSRefs [r] es
+	es' = r : es
+	r' = head us
+	rs' = (r', es')
+	prs = fst (p rs')
+	qrs = fst (q rs')
+	reflist = (prs ++ qrs ++ [r])
+	pconds = snd (p rs')
+	qconds = snd (q rs')
+	conds = pconds ++ qconds
+	in (qrs, conds)
 repMassDet Gthe_mass_Det = repMassDet Gzero_Det_sg
 repMassDet (GMassApos owner) = repMassDet Gzero_Det_sg
 --repMassDet (GMassApos owner) = \p rs -> let 
