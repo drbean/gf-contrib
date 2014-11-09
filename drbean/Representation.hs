@@ -332,9 +332,8 @@ repDet (GApos owner) = \p q rs -> let
 	conds = pconds ++ qconds
 	in repNP owner (\rs -> let 
 	owner_ref = fst rs
-	rs' = owner_ref : snd rs
 	ownership_conds =  Rel (DRSRel "have") [owner_ref, r'] : conds
-	in (rs', ownership_conds) ) rs'
+	in (qrs, ownership_conds) ) rs'
 
 transDet :: GDet -> (Term -> LF) -> (Term -> LF) -> LF
 transDet (GApos owner) =
@@ -385,31 +384,24 @@ repMassDet Gzero_Det_sg  = \ p q rs-> let
 	conds = pconds ++ qconds
 	in (qrs, conds)
 repMassDet Gthe_mass_Det = repMassDet Gzero_Det_sg
-repMassDet (GMassApos owner) = repMassDet Gzero_Det_sg
---repMassDet (GMassApos owner) = \p rs -> let 
---	refs = fst (p rs)
---	ref = DRSRef "x"
---	newrefs = newDRSRefs [ref] refs
---	newpconds = snd (p rs)
---	refplist = nub (newrefs ++ refs)
---	owner_ref = head refplist
---	in (\q rs -> let
---	refs = fst (q rs)
---	ref = DRSRef "x"
---	newrefs = newDRSRefs [ref] refs
---	newqconds = snd (p rs)
---	refqlist = nub (newrefs ++ refs)
---	thing_ref = head refqlist
---	newreflist = refqlist ++ refplist
---	in repNP owner (\rs -> let 
---	lastref = fst rs
---	erefs = snd rs
---	reflist = nub (refqlist ++ refplist ++ erefs)
---	thing_ref = head newreflist
---	thing_conds =  Rel (DRSRel "have") [owner_ref, thing_ref] : (newqconds ++ newpconds)
---	in (reflist, thing_conds) ) ((head (refqlist)), refqlist) ) ((head (refplist)), refplist)
-
---	[DRSRef ("x" ++ (show mod)), DRSRef ("x" ++ (show n))]]) (n+1))
+repMassDet (GMassApos owner) = \p q rs -> let 
+	r = fst rs
+	es = snd rs
+	us = newDRSRefs [r] es
+	es' = r : es
+	r' = head us
+	rs' = (r', es')
+	prs = fst (p rs')
+	pconds = snd (p rs')
+	pr = head prs
+	prs' = (pr,prs)
+	qrs = fst (q prs')
+	qconds = snd (q prs')
+	conds = pconds ++ qconds
+	in repNP owner (\rs -> let 
+	owner_ref = fst rs
+	ownership_conds =  Rel (DRSRel "have") [owner_ref, r'] : conds
+	in (qrs, ownership_conds) ) rs'
 
 transMassDet :: GMassDet -> (Term -> LF) -> (Term -> LF) -> LF
 transMassDet Gthe_mass_Det = \ p q -> Exists (\v -> Conj [Single p, p v, q v] )
