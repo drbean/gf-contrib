@@ -427,7 +427,7 @@ repN2 name	= \rs -> let
 	ref = fst rs
 	reflist = snd rs
 	conds = [Rel (DRSRel (lin name)) [ref]]
-	in (reflist, conds)
+	in (ref : reflist, conds)
 
 transCN :: GCN -> Term -> LF
 transCN (GKind ap cn) = \x -> Conj [ transCN cn x, transAP ap x ]
@@ -453,17 +453,15 @@ repCN (GKind ap cn) = \rs -> let
 	(attri_refs,attri_conds) = (repAP ap rs)
 	in (thing_refs ++ attri_refs, thing_conds ++ attri_conds)
 repCN (GOfpart part n) = repN n
-repCN (GOfpos cn np) = \rs -> let
-	(refs, conds) = repN2 cn rs
+repCN (GOfpos n2 np) = \rs -> let
+	(refs, conds) = repN2 n2 rs
 	thing = head refs
-	newrefs = newDRSRefs [thing] refs
-	newreflist = newrefs ++ [thing] ++ refs
-	newref = head newreflist in
+	es = tail refs in
 	repNP np (\lastrefs -> let
 	owner = fst lastrefs
 	erefs = snd lastrefs
 	newconds = Rel (DRSRel "have") [owner, thing] : conds
-	in (newreflist,newconds) ) (newref,newreflist)
+	in (owner : erefs,newconds) ) (thing,es)
 repCN name	= \rs -> let 
 	ref = fst rs
 	reflist = fst rs : snd rs
