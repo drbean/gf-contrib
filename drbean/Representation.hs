@@ -160,11 +160,11 @@ repS (GQUt (GPosQ (GWH_Pred wh (GBe_vp (GBe_someone comp))))) =
 	Just (DRS [DRSRef "x"] [Imp (DRS [] [Rel (DRSRel (linIP wh)) [DRSRef "x"]])
 	(DRS [] [Rel (DRSRel (linNP comp)) [DRSRef "x"]])])
 repS (GQUt (GPosQ (GWH_Pred wh vp))) = Just (DRS refs  conds) where
-	rep = repW wh (repVP vp) ((DRSRef "x0"),[])
+	rep = repW wh (repVP vp) (DRSRef "x0")
 	conds = drsCons rep
 	refs   = drsUniverse rep
 repS (GQUt (GPosQ (GYN (GSentence np vp)))) = Just (DRS refs conds) where
-	rep = repNP np (repVP vp) ((DRSRef "x0"),[])
+	rep = repNP np (repVP vp) (DRSRef "x0")
 	conds = drsCons rep
 	refs   = drsUniverse rep
 
@@ -274,38 +274,32 @@ transNP thing	| rel <- lin thing =
 --transNP (Branch (Cat _ "NP" _ _) [np,Leaf (Cat "'s" "APOS" _ _),cn]) =
 --    \p -> Exists (\thing -> Conj [ p thing, transCN cn thing, transNP np (\owner -> (Relation "had" [owner,thing]))])
 
-repNP :: GNP -> ((DRSRef,[DRSRef]) -> DRS) -> (DRSRef,[DRSRef]) -> DRS
+repNP :: GNP -> (DRSRef -> DRS) -> DRSRef -> DRS
 repNP (GItem det cn) = (repDet det) (repCN cn)
 repNP (GMassItem det n) = (repMassDet det) (repN n)
 repNP (GEntity name)
 	| entity <- (gent2ent name) , entity `elem` entities =
-			\p rs -> let
-				r = fst rs
-				es = snd rs
+			\p r -> let
+				es = [r]
 				us = newDRSRefs [r] es
-				es' = r : es
 				r' = head us
-				rs' = (r',es')
-				prs = drsUniverse (p rs')
-				pconds = drsCons (p rs')
+				prs = drsUniverse (p r')
+				pconds = drsCons (p r')
 				conds = ( Rel (DRSRel (lin name)) [r'] : pconds )
 				in DRS prs conds
 
 
-repDet :: GDet -> ((DRSRef,[DRSRef]) -> DRS) -> ((DRSRef,[DRSRef]) -> DRS) -> (DRSRef,[DRSRef]) -> DRS
+repDet :: GDet -> (DRSRef -> DRS) -> (DRSRef -> DRS) -> DRSRef -> DRS
 
-repDet Ga_Det = \ p q rs-> let 
-	r = fst rs
-	es = snd rs
+repDet Ga_Det = \ p q r-> let 
+	es = [r]
 	us = newDRSRefs [r] es
-	es' = r : es
 	r' = head us
-	rs' = (r', es')
-	prs = drsUniverse (p rs')
-	qrs = drsUniverse (q rs')
+	prs = drsUniverse (p r')
+	qrs = drsUniverse (q r')
 	reflist = (prs ++ qrs ++ [r])
-	pconds = drsCons (p rs')
-	qconds = drsCons (q rs')
+	pconds = drsCons (p r')
+	qconds = drsCons (q r')
 	conds = pconds ++ qconds
 	in DRS qrs conds
 repDet Gone = repDet Ga_Det
@@ -314,26 +308,20 @@ repDet GtheSg_Det = repDet Ga_Det
 repDet Gsome_pl_Det = repDet Gsome_Det
 repDet GthePlural_Det =  repDet Gsome_pl_Det
 repDet Gfive	= repDet Gsome_pl_Det
-repDet (GApos owner) = \p q rs -> let 
-	r = fst rs
-	es = snd rs
+repDet (GApos owner) = \p q r -> let 
+	es = [r]
 	us = newDRSRefs [r] es
-	es' = r : es
 	r' = head us
-	rs' = (r', es')
-	prs = drsUniverse (p rs')
-	pconds = drsCons (p rs')
+	prs = drsUniverse (p r')
+	pconds = drsCons (p r')
 	pr = head prs
-	prs' = (pr,prs)
-	qrs = drsUniverse (q prs')
-	qconds = drsCons (q prs')
+	qrs = drsUniverse (q pr)
+	qconds = drsCons (q pr)
 	conds = pconds ++ qconds
 	r'' = head qrs
-	rs'' = (r'',qrs)
-	in repNP owner (\rs -> let 
-	owner_ref = fst rs
+	in repNP owner (\owner_ref -> let 
 	ownership_conds =  Rel (DRSRel "have") [owner_ref, r'] : conds
-	in DRS qrs ownership_conds ) rs''
+	in DRS qrs ownership_conds ) r''
 repDet (GApos_pl owner) = repDet (GApos owner)
 
 transDet :: GDet -> (Term -> LF) -> (Term -> LF) -> LF
@@ -369,42 +357,33 @@ transDet Gno_pl_Det = transDet Gno_Det
 --  		[Forall (\v2 -> Equi (p v2) (Eq v1 v2)),
 --		q v1])
 
-repMassDet :: GMassDet -> ((DRSRef,[DRSRef]) -> DRS) -> ((DRSRef,[DRSRef]) -> DRS) -> (DRSRef,[DRSRef]) -> DRS
-repMassDet Gzero_Det_sg  = \ p q rs-> let 
-	r = fst rs
-	es = snd rs
+repMassDet :: GMassDet -> (DRSRef -> DRS) -> (DRSRef -> DRS) -> DRSRef -> DRS
+repMassDet Gzero_Det_sg  = \ p q r-> let 
+	es = [r]
 	us = newDRSRefs [r] es
-	es' = r : es
 	r' = head us
-	rs' = (r', es')
-	prs = drsUniverse (p rs')
-	qrs = drsUniverse (q rs')
+	prs = drsUniverse (p r')
+	qrs = drsUniverse (q r')
 	reflist = (prs ++ qrs ++ [r])
-	pconds = drsCons (p rs')
-	qconds = drsCons (q rs')
+	pconds = drsCons (p r')
+	qconds = drsCons (q r')
 	conds = pconds ++ qconds
 	in DRS qrs conds
 repMassDet Gthe_mass_Det = repMassDet Gzero_Det_sg
-repMassDet (GMassApos owner) = \p q rs -> let 
-	r = fst rs
-	es = snd rs
+repMassDet (GMassApos owner) = \p q r -> let 
+	es = [r]
 	us = newDRSRefs [r] es
-	es' = r : es
 	r' = head us
-	rs' = (r', es')
-	prs = drsUniverse (p rs')
-	pconds = drsCons (p rs')
+	prs = drsUniverse (p r')
+	pconds = drsCons (p r')
 	pr = head prs
-	prs' = (pr,prs)
-	qrs = drsUniverse (q prs')
-	qconds = drsCons (q prs')
+	qrs = drsUniverse (q pr)
+	qconds = drsCons (q pr)
 	conds = pconds ++ qconds
 	r'' = head qrs
-	rs'' = (r'',qrs)
-	in repNP owner (\rs -> let 
-	owner_ref = fst rs
+	in repNP owner (\owner_ref -> let 
 	ownership_conds =  Rel (DRSRel "have") [owner_ref, r'] : conds
-	in DRS qrs ownership_conds ) rs''
+	in DRS qrs ownership_conds ) r''
 
 transMassDet :: GMassDet -> (Term -> LF) -> (Term -> LF) -> LF
 transMassDet Gthe_mass_Det = \ p q -> Exists (\v -> Conj [Single p, p v, q v] )
@@ -419,18 +398,14 @@ transN name	= \x -> Relation (lin name) [x]
 transN2 :: GN2 -> Term -> LF
 transN2 name	= \x -> Relation (lin name) [x]
 
-repN :: GN -> (DRSRef,[DRSRef]) -> DRS
-repN name = \rs -> let
-	ref = fst rs
-	reflist = snd rs
-	conds = [Rel (DRSRel (lin name)) [ref]]
-	in DRS [ref] conds
-repN2 :: GN2 -> (DRSRef,[DRSRef]) -> DRS
-repN2 name	= \rs -> let
-	ref = fst rs
-	reflist = snd rs
-	conds = [Rel (DRSRel (lin name)) [ref]]
-	in DRS [ref] conds
+repN :: GN -> DRSRef -> DRS
+repN name = \r -> let
+	conds = [Rel (DRSRel (lin name)) [r]]
+	in DRS [r] conds
+repN2 :: GN2 -> DRSRef -> DRS
+repN2 name	= \r -> let
+	conds = [Rel (DRSRel (lin name)) [r]]
+	in DRS [r] conds
 
 transCN :: GCN -> Term -> LF
 transCN (GKind ap cn) = \x -> Conj [ transCN cn x, transAP ap x ]
@@ -450,26 +425,22 @@ transCN (GMassModInf n vp) =
 	\x -> Conj [transN n x, transVP vp x]
 transCN name          = \ x -> Relation (lin name) [x]
 
-repCN :: GCN -> (DRSRef,[DRSRef]) -> DRS
-repCN (GKind ap cn) = \rs -> let
-	DRS thing_refs thing_conds = (repCN cn rs)
-	DRS attri_refs attri_conds = (repAP ap rs)
+repCN :: GCN -> DRSRef -> DRS
+repCN (GKind ap cn) = \r -> let
+	DRS thing_refs thing_conds = (repCN cn r)
+	DRS attri_refs attri_conds = (repAP ap r)
 	in DRS (thing_refs ++ attri_refs) (thing_conds ++ attri_conds)
 repCN (GOfpart part n) = repN n
-repCN (GOfpos n2 np) = \rs -> let
-	DRS refs conds = repN2 n2 rs
+repCN (GOfpos n2 np) = \r -> let
+	DRS refs conds = repN2 n2 r
 	thing = head refs
 	es = tail refs in
-	repNP np (\lastrefs -> let
-	owner = fst lastrefs
-	erefs = snd lastrefs
+	repNP np (\owner -> let
 	newconds = Rel (DRSRel "have") [owner, thing] : conds
-	in DRS [owner, thing] newconds ) (thing,es)
-repCN name	= \rs -> let 
-	ref = fst rs
-	reflist = fst rs : snd rs
-	conds = [Rel (DRSRel (lin name)) [ref]]
-	in DRS reflist conds
+	in DRS [owner, thing] newconds ) thing
+repCN name	= \r -> let 
+	conds = [Rel (DRSRel (lin name)) [r]]
+	in DRS [r] conds
 
 --	case (np,vp) of
 --	    (_, (Branch (Cat _ "VP" _ _) vp)) -> case (vp) of
@@ -511,9 +482,9 @@ transAP :: GAP -> Term -> LF
 transAP (GAdvAdj _ a) = \x -> Relation (lin a) [x]
 transAP ap = \x -> Relation (lin ap) [x]
 
-repAP :: GAP -> (DRSRef,[DRSRef]) -> DRS
-repAP (GAdvAdj _ a) = \(r,rs) -> DRS [r] [Rel (DRSRel (lin a)) [r]]
-repAP ap = \(r,rs) -> DRS [r] [Rel (DRSRel (lin ap)) [r]]
+repAP :: GAP -> DRSRef -> DRS
+repAP (GAdvAdj _ a) = \r -> DRS [r] [Rel (DRSRel (lin a)) [r]]
+repAP ap = \r -> DRS [r] [Rel (DRSRel (lin ap)) [r]]
 
 transPlace :: GPlace -> (Term -> LF) -> LF
 transPlace (GLocation _ (GPlaceKind _ name)) | rel <- lin name =
@@ -521,21 +492,19 @@ transPlace (GLocation _ (GPlaceKind _ name)) | rel <- lin name =
 transPlace (GLocation _ name) | rel <- lin name =
 	\p -> Exists ( \v -> Conj [ p v, Relation rel [v] ] )
 
-repPlace :: GPlace -> ((DRSRef,[DRSRef])-> DRS) -> (DRSRef,[DRSRef]) -> DRS
-repPlace (GLocation _ (GPlaceKind _ name)) = \p rs -> let
-	place = fst rs
-	erefs = snd rs
-	newrefs = drsUniverse (p rs)
-	reflist = nub ( newrefs ++ [place])
-	conds = (Rel (DRSRel (lin name)) [place]) : drsCons (p rs)
-	in DRS (place : erefs) conds
-repPlace (GLocation _ name) = \p rs -> let
-	place = fst rs
-	erefs = snd rs
-	newrefs = drsUniverse (p rs)
-	reflist = nub ( newrefs ++ [place])
-	conds = (Rel (DRSRel (lin name)) [place]) : drsCons (p rs)
-	in DRS (place : erefs) conds
+repPlace :: GPlace -> (DRSRef-> DRS) -> DRSRef -> DRS
+repPlace (GLocation _ (GPlaceKind _ name)) = \p place -> let
+	es = [place]
+	newrefs = drsUniverse (p place)
+	rs = ( newrefs ++ es)
+	conds = (Rel (DRSRel (lin name)) [place]) : drsCons (p place)
+	in DRS rs conds
+repPlace (GLocation _ name) = \p place -> let
+	es = [place]
+	newrefs = drsUniverse (p place)
+	rs = ( newrefs ++ es)
+	conds = (Rel (DRSRel (lin name)) [place]) : drsCons (p place)
+	in DRS rs conds
 
 --transPP :: ParseTree Cat Cat -> (Term -> LF) -> LF
 --transPP (Leaf   (Cat "#" "PP" _ _)) = \ p -> p (Var 0)
@@ -954,120 +923,69 @@ transVP	(GToPlace vp (GLocating prep destination)) =
 	(\place -> Relation ((lin vp) ++ "_" ++ (lin prep)) [mover,place])
 transVP _ = \x -> NonProposition
 --
-repVP :: GVP -> (DRSRef,[DRSRef]) -> DRS
+repVP :: GVP -> DRSRef -> DRS
 repVP (GWithCl vp _) = repVP vp
 repVP (GWithPlace vp _) = repVP vp
 repVP (GWithStyle vp _) = repVP vp
 repVP (GWithTime vp _) = repVP vp
 repVP (GBe_vp comp) = case comp of
-	(GBe_someone np) -> \refs -> let
-		ref = fst refs
-		newrefs = fst refs : snd refs in
-		repNP np (\hyper -> DRS [fst hyper, ref] [Rel (DRSRel (linNP np)) [ref]] ) refs
+	(GBe_someone np) -> \r -> repNP np
+		(\hyper -> DRS [hyper, r] [Rel (DRSRel (linNP np)) [r]] ) r
 	GBe_bad ap -> repAP ap
-	GBe_somewhere (GLocating prep place) -> \lastrefs -> let
-		situatee = fst lastrefs
-		erefs = snd lastrefs
-		newrefs = newDRSRefs [situatee] erefs
-		newreflist = newrefs ++ [situatee] ++ erefs
-		newref = head newreflist in
-		repPlace place (\lastrefs -> let
-		name = fst lastrefs
-		erefs = snd lastrefs
+	GBe_somewhere (GLocating prep place) -> \situatee -> let
+		es = [situatee]
+		us = newDRSRefs [situatee] es
+		r' = head us in
+		repPlace place (\name -> let
 		conds = [ Rel (DRSRel (lin prep)) [situatee, name]]
 		in DRS [name, situatee] conds
-		) (newref, newreflist)
-repVP (GLook_bad v ap) = \lastrefs -> let
-	patient = fst lastrefs
-	erefs = snd lastrefs
-	DRS rs conds = repAP ap (patient,erefs)
+		) r'
+repVP (GLook_bad v ap) = \patient -> let
+	DRS rs conds = repAP ap patient
 	look_conds = [Rel (DRSRel (lin v)) [patient, DRSRef "p"]
 		, Prop (DRSRef "p") (DRS [] conds)]
 	in DRS [patient] look_conds
-repVP (GHappening v) = \rs -> let
-	r = fst rs
+repVP (GHappening v) = \r -> let
 	conds =  [Rel (DRSRel (lin v)) [r]]
 	in DRS [r] conds
-repVP (GChanging v obj) = \rs -> repNP obj (\rs' -> let
-	agent = fst rs
-	patient = fst rs'
+repVP (GChanging v obj) = \agent -> repNP obj (\patient -> let
 	conds = [Rel (DRSRel (lin v)) [agent, patient]]
-	in DRS [patient, agent] conds ) rs
+	in DRS [patient, agent] conds ) agent
 repVP (GTriangulating v obj1 obj2) =
-	\(agent,es) -> repNP obj1
-		(\(theme,es') -> repNP obj2
-			(\(recipient,es'') -> let
+	\agent -> repNP obj1
+		(\theme -> repNP obj2
+			(\recipient -> let
 			conds = [Rel (DRSRel (lin v)) [agent, theme, recipient]]
-		in DRS [recipient, theme, agent] conds ) (theme,theme:es') ) (agent,agent:es)
+		in DRS [recipient, theme, agent] conds ) theme ) agent
 repVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 	(GBe_vp comp) -> case comp of
-		(GBe_someone subjcomp ) -> \rs -> let
-			positer = fst rs
-			erefs = snd rs
-			newrs = newDRSRefs [positer] erefs
-			newrlist = newrs ++ [positer] ++ erefs
-			newr = head newrlist
-			in repNP np (\rs -> let
-			referent = fst rs
-			erefs = snd rs
-			newrs = newDRSRefs [referent] erefs
-			newrlist = newrs ++ [referent] ++ erefs
-			newr = head newrlist
-			in repNP subjcomp (\rs -> let
-			hyper = fst rs
-			erefs = snd rs
-			cond = [Rel (DRSRel (lin v0)) [positer, DRSRef "p"]
-				, Prop (DRSRef "p") (DRS []
-				[Rel (DRSRel (linNP subjcomp)) [referent] ])]
-			in DRS [hyper, referent, positer] cond )
-						(newr, newrlist) ) (newr, newrlist)
+		(GBe_someone subjcomp ) -> \positer -> 
+			repNP np (\referent ->
+			repNP subjcomp (\hyper -> let
+				cond = [Rel (DRSRel (lin v0)) [positer, DRSRef "p"]
+					, Prop (DRSRef "p") (DRS []
+					[Rel (DRSRel (linNP subjcomp)) [referent] ])]
+				in DRS [hyper, referent, positer] cond )
+						referent ) positer
 	(GIntens vv vp2) -> case vp2 of
-		(GChanging v obj) -> \lastrefs -> let
-			positer = fst lastrefs
-			erefs = snd lastrefs
-			newrefs = newDRSRefs [positer] erefs
-			newreflist = newrefs ++ [positer] ++ erefs
-			newref = head newreflist
-			in
-			repNP np (\lastrefs -> let
-			referent = fst lastrefs
-			erefs = snd lastrefs
-			newrefs = newDRSRefs [referent] erefs
-			newreflist = newrefs ++ [referent] ++ erefs
-			newref = head newreflist
-			in
-			repNP obj (\lastrefs -> let
-			theme = fst lastrefs
-			erefs = snd lastrefs
+		(GChanging v obj) -> \positer -> 
+			repNP np (\referent ->
+			repNP obj (\theme -> let
 			conds = [Rel (DRSRel (lin v0)) [positer, DRSRef "p"]
 				, Prop (DRSRef "p") (DRS [] [Rel (DRSRel (lin v))
 				[referent, theme]])]
 			in DRS [theme, referent, positer] conds )
-			(newref, newreflist) ) (newref, newreflist)
+			referent ) positer
 repVP (GPositing v0 (GNegS (GSentence np vp))) = case vp of
 	(GIntens vv vp2) -> case vp2 of
-		(GChanging v obj) -> \lastrefs -> let
-			positer = fst lastrefs
-			erefs = snd lastrefs
-			newrefs = newDRSRefs [positer] erefs
-			newreflist = newrefs ++ [positer] ++ erefs
-			newref = head newreflist
-			in
-			repNP np (\lastrefs -> let
-			referent = fst lastrefs
-			erefs = snd lastrefs
-			newrefs = newDRSRefs [referent] erefs
-			newreflist = newrefs ++ [referent] ++ erefs
-			newref = head newreflist
-			in
-			repNP obj (\lastrefs -> let
-			theme = fst lastrefs
-			erefs = snd lastrefs
+		(GChanging v obj) -> \positer -> 
+			repNP np (\referent ->
+			repNP obj (\theme -> let
 			conds = [Rel (DRSRel (lin v0)) [positer, DRSRef "p"]
 				, Prop (DRSRef "p") (DRS [] [Neg (DRS [] [Rel (DRSRel (lin v))
 				[referent, theme]])])]
 			in DRS [theme, referent, positer] conds )
-			(newref, newreflist) ) (newref, newreflist)
+			referent ) positer
 
 transCOMP :: GComp -> Term -> LF
 transCOMP (GBe_someone np) = \x -> transNP np (\pred -> Eq pred x)
@@ -1139,17 +1057,13 @@ transW :: GIP -> (Term -> LF)
 transW Gwho_WH	= \e -> Relation "person"    [e]
 transW Gwhat_WH	= \e -> Relation "thing"    [e]
 
-repW :: GIP -> ((DRSRef,[DRSRef]) -> DRS) -> (DRSRef,[DRSRef]) -> DRS
-repW Gwho_WH p rs = let 
-	who = fst rs
-	pred = snd rs
-	DRS refs conds = p rs
+repW :: GIP -> (DRSRef -> DRS) -> DRSRef -> DRS
+repW Gwho_WH p who = let 
+	DRS refs conds = p who
 	newconds = Rel (DRSRel "person") [who] : conds
 	in DRS refs newconds
-repW Gwhat_WH p rs = let 
-	what = fst rs
-	pred = snd rs
-	DRS refs conds = p rs
+repW Gwhat_WH p what = let 
+	DRS refs conds = p what
 	newconds = Rel (DRSRel "person") [what] : conds
 	in DRS refs newconds
 
