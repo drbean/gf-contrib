@@ -424,13 +424,13 @@ repN name = \rs -> let
 	ref = fst rs
 	reflist = snd rs
 	conds = [Rel (DRSRel (lin name)) [ref]]
-	in DRS reflist conds
+	in DRS [ref] conds
 repN2 :: GN2 -> (DRSRef,[DRSRef]) -> DRS
 repN2 name	= \rs -> let
 	ref = fst rs
 	reflist = snd rs
 	conds = [Rel (DRSRel (lin name)) [ref]]
-	in DRS (ref : reflist) conds
+	in DRS [ref] conds
 
 transCN :: GCN -> Term -> LF
 transCN (GKind ap cn) = \x -> Conj [ transCN cn x, transAP ap x ]
@@ -464,7 +464,7 @@ repCN (GOfpos n2 np) = \rs -> let
 	owner = fst lastrefs
 	erefs = snd lastrefs
 	newconds = Rel (DRSRel "have") [owner, thing] : conds
-	in DRS (owner : erefs) newconds ) (thing,es)
+	in DRS [owner, thing] newconds ) (thing,es)
 repCN name	= \rs -> let 
 	ref = fst rs
 	reflist = fst rs : snd rs
@@ -512,8 +512,8 @@ transAP (GAdvAdj _ a) = \x -> Relation (lin a) [x]
 transAP ap = \x -> Relation (lin ap) [x]
 
 repAP :: GAP -> (DRSRef,[DRSRef]) -> DRS
-repAP (GAdvAdj _ a) = \(r,rs) -> DRS rs [Rel (DRSRel (lin a)) [r]]
-repAP ap = \(r,rs) -> DRS rs [Rel (DRSRel (lin ap)) [r]]
+repAP (GAdvAdj _ a) = \(r,rs) -> DRS [r] [Rel (DRSRel (lin a)) [r]]
+repAP ap = \(r,rs) -> DRS [r] [Rel (DRSRel (lin ap)) [r]]
 
 transPlace :: GPlace -> (Term -> LF) -> LF
 transPlace (GLocation _ (GPlaceKind _ name)) | rel <- lin name =
@@ -963,7 +963,7 @@ repVP (GBe_vp comp) = case comp of
 	(GBe_someone np) -> \refs -> let
 		ref = fst refs
 		newrefs = fst refs : snd refs in
-		repNP np (\hyper -> DRS newrefs [Rel (DRSRel (linNP np)) [ref]] ) refs
+		repNP np (\hyper -> DRS [fst hyper, ref] [Rel (DRSRel (linNP np)) [ref]] ) refs
 	GBe_bad ap -> repAP ap
 	GBe_somewhere (GLocating prep place) -> \lastrefs -> let
 		situatee = fst lastrefs
@@ -975,7 +975,7 @@ repVP (GBe_vp comp) = case comp of
 		name = fst lastrefs
 		erefs = snd lastrefs
 		conds = [ Rel (DRSRel (lin prep)) [situatee, name]]
-		in DRS (name : erefs) conds
+		in DRS [name, situatee] conds
 		) (newref, newreflist)
 repVP (GLook_bad v ap) = \lastrefs -> let
 	patient = fst lastrefs
@@ -983,7 +983,7 @@ repVP (GLook_bad v ap) = \lastrefs -> let
 	DRS rs conds = repAP ap (patient,erefs)
 	look_conds = [Rel (DRSRel (lin v)) [patient, DRSRef "p"]
 		, Prop (DRSRef "p") (DRS [] conds)]
-	in DRS (patient : erefs) look_conds
+	in DRS [patient] look_conds
 repVP (GHappening v) = \rs -> let
 	r = fst rs
 	conds =  [Rel (DRSRel (lin v)) [r]]
@@ -1019,7 +1019,7 @@ repVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 			cond = [Rel (DRSRel (lin v0)) [positer, DRSRef "p"]
 				, Prop (DRSRef "p") (DRS []
 				[Rel (DRSRel (linNP subjcomp)) [referent] ])]
-			in DRS (hyper : erefs) cond )
+			in DRS [hyper, referent, positer] cond )
 						(newr, newrlist) ) (newr, newrlist)
 	(GIntens vv vp2) -> case vp2 of
 		(GChanging v obj) -> \lastrefs -> let
@@ -1042,7 +1042,7 @@ repVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 			conds = [Rel (DRSRel (lin v0)) [positer, DRSRef "p"]
 				, Prop (DRSRef "p") (DRS [] [Rel (DRSRel (lin v))
 				[referent, theme]])]
-			in DRS (theme : erefs) conds )
+			in DRS [theme, referent, positer] conds )
 			(newref, newreflist) ) (newref, newreflist)
 repVP (GPositing v0 (GNegS (GSentence np vp))) = case vp of
 	(GIntens vv vp2) -> case vp2 of
@@ -1066,7 +1066,7 @@ repVP (GPositing v0 (GNegS (GSentence np vp))) = case vp of
 			conds = [Rel (DRSRel (lin v0)) [positer, DRSRef "p"]
 				, Prop (DRSRef "p") (DRS [] [Neg (DRS [] [Rel (DRSRel (lin v))
 				[referent, theme]])])]
-			in DRS (theme : erefs) conds )
+			in DRS [theme, referent, positer] conds )
 			(newref, newreflist) ) (newref, newreflist)
 
 transCOMP :: GComp -> Term -> LF
