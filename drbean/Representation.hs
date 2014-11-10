@@ -989,16 +989,16 @@ repVP (GHappening v) = \rs -> let
 	conds =  [Rel (DRSRel (lin v)) [r]]
 	in DRS [r] conds
 repVP (GChanging v obj) = \rs -> repNP obj (\rs' -> let
-	r = fst rs'
-	reflist = r : snd rs'
-	conds = [Rel (DRSRel (lin v)) [fst rs, fst rs']]
-	in DRS reflist conds ) rs
+	agent = fst rs
+	patient = fst rs'
+	conds = [Rel (DRSRel (lin v)) [agent, patient]]
+	in DRS [patient, agent] conds ) rs
 repVP (GTriangulating v obj1 obj2) =
 	\(agent,es) -> repNP obj1
 		(\(theme,es') -> repNP obj2
 			(\(recipient,es'') -> let
 			conds = [Rel (DRSRel (lin v)) [agent, theme, recipient]]
-		in DRS (recipient:es'') conds ) (theme,theme:es') ) (agent,agent:es)
+		in DRS [recipient, theme, agent] conds ) (theme,theme:es') ) (agent,agent:es)
 repVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 	(GBe_vp comp) -> case comp of
 		(GBe_someone subjcomp ) -> \rs -> let
