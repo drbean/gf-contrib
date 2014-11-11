@@ -299,7 +299,7 @@ repDet Ga_Det = \ p q r-> let
 	pconds = drsCons (p r)
 	qconds = drsCons (q r)
 	conds = pconds ++ qconds
-	in DRS qrs conds
+	in DRS (prs ++ qrs) conds
 repDet Gone = repDet Ga_Det
 repDet Gsome_Det = repDet Ga_Det
 repDet GtheSg_Det = repDet Ga_Det
@@ -420,7 +420,7 @@ repCN (GOfpos n2 np) = \r -> let
 	es = tail refs in
 	repNP np (\owner -> let
 	newconds = Rel (DRSRel "have") [owner, thing] : conds
-	in DRS [owner, thing] newconds ) (newR thing)
+	in DRS [owner] newconds ) (newR thing)
 repCN name	= \r -> let 
 	conds = [Rel (DRSRel (lin name)) [r]]
 	in DRS [r] conds
