@@ -414,10 +414,8 @@ repCN (GKind ap cn) = \r -> let
 	DRS attri_refs attri_conds = (repAP ap r)
 	in DRS (thing_refs ++ attri_refs) (thing_conds ++ attri_conds)
 repCN (GOfpart part n) = repN n
-repCN (GOfpos n2 np) = \r -> let
-	DRS refs conds = repN2 n2 r
-	thing = head refs
-	es = tail refs in
+repCN (GOfpos n2 np) = \thing -> let
+	DRS refs conds = repN2 n2 thing in
 	repNP np (\owner -> let
 	newconds = Rel (DRSRel "have") [owner, thing] : conds
 	in DRS [owner] newconds ) (newR thing)
