@@ -164,7 +164,7 @@ repS (GQUt (GPosQ (GWH_Pred wh vp))) = Just (DRS refs  conds) where
 	conds = drsCons rep
 	refs   = drsUniverse rep
 repS (GQUt (GPosQ (GYN (GSentence np vp)))) = Just (DRS refs conds) where
-	rep = repNP np (repVP vp) (DRSRef "x0")
+	rep = repNP np (repVP vp) (DRSRef "x1")
 	conds = drsCons rep
 	refs   = drsUniverse rep
 
@@ -274,19 +274,20 @@ transNP thing	| rel <- lin thing =
 --transNP (Branch (Cat _ "NP" _ _) [np,Leaf (Cat "'s" "APOS" _ _),cn]) =
 --    \p -> Exists (\thing -> Conj [ p thing, transCN cn thing, transNP np (\owner -> (Relation "had" [owner,thing]))])
 
+newR :: DRSRef -> DRSRef
+newR r = let
+	es = [r]
+	rs = newDRSRefs [r] es
+	r' = head rs in r'
+
 repNP :: GNP -> (DRSRef -> DRS) -> DRSRef -> DRS
 repNP (GItem det cn) = (repDet det) (repCN cn)
 repNP (GMassItem det n) = (repMassDet det) (repN n)
 repNP (GEntity name)
 	| entity <- (gent2ent name) , entity `elem` entities =
 			\p r -> let
-				es = [r]
-				us = newDRSRefs [r] es
-				r' = head us
-				prs = drsUniverse (p r')
-				pconds = drsCons (p r')
-				conds = ( Rel (DRSRel (lin name)) [r'] : pconds )
-				in DRS prs conds
+				DRS prs conds = p r
+				in DRS prs ( Rel (DRSRel (lin name)) [r] : conds )
 
 
 repDet :: GDet -> (DRSRef -> DRS) -> (DRSRef -> DRS) -> DRSRef -> DRS
@@ -948,9 +949,10 @@ repVP (GLook_bad v ap) = \patient -> let
 repVP (GHappening v) = \r -> let
 	conds =  [Rel (DRSRel (lin v)) [r]]
 	in DRS [r] conds
-repVP (GChanging v obj) = \agent -> repNP obj (\patient -> let
+repVP (GChanging v obj) = \agent -> let
+	in repNP obj (\patient -> let
 	conds = [Rel (DRSRel (lin v)) [agent, patient]]
-	in DRS [patient, agent] conds ) agent
+	in DRS [patient, agent] conds ) (newR agent)
 repVP (GTriangulating v obj1 obj2) =
 	\agent -> repNP obj1
 		(\theme -> repNP obj2
