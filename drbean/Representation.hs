@@ -307,19 +307,13 @@ repDet Gsome_pl_Det = repDet Gsome_Det
 repDet GthePlural_Det =  repDet Gsome_pl_Det
 repDet Gfive	= repDet Gsome_pl_Det
 repDet (GApos owner) = \p q r -> let 
-	es = [r]
-	us = newDRSRefs [r] es
-	r' = head us
-	prs = drsUniverse (p r')
-	pconds = drsCons (p r')
-	pr = head prs
-	qrs = drsUniverse (q pr)
-	qconds = drsCons (q pr)
+	DRS prs pconds = p r
+	DRS qrs qconds = q r
 	conds = pconds ++ qconds
-	r'' = head qrs
+	r' = head qrs
 	in repNP owner (\owner_ref -> let 
-	ownership_conds =  Rel (DRSRel "have") [owner_ref, r'] : conds
-	in DRS (owner_ref : qrs) ownership_conds ) (newR r'')
+	ownership_conds =  Rel (DRSRel "have") [owner_ref, r] : conds
+	in DRS (owner_ref : qrs) ownership_conds ) (newR r')
 repDet (GApos_pl owner) = repDet (GApos owner)
 
 transDet :: GDet -> (Term -> LF) -> (Term -> LF) -> LF
@@ -366,19 +360,13 @@ repMassDet Gzero_Det_sg  = \ p q r-> let
 	in DRS qrs conds
 repMassDet Gthe_mass_Det = repMassDet Gzero_Det_sg
 repMassDet (GMassApos owner) = \p q r -> let 
-	es = [r]
-	us = newDRSRefs [r] es
-	r' = head us
-	prs = drsUniverse (p r')
-	pconds = drsCons (p r')
-	pr = head prs
-	qrs = drsUniverse (q pr)
-	qconds = drsCons (q pr)
+	DRS prs pconds = p r
+	DRS qrs qconds = q r
 	conds = pconds ++ qconds
-	r'' = head qrs
+	r' = head qrs
 	in repNP owner (\owner_ref -> let 
-	ownership_conds =  Rel (DRSRel "have") [owner_ref, r'] : conds
-	in DRS (owner_ref : qrs) ownership_conds ) (newR r'')
+	ownership_conds =  Rel (DRSRel "have") [owner_ref, r] : conds
+	in DRS (owner_ref : qrs) ownership_conds ) (newR r')
 
 transMassDet :: GMassDet -> (Term -> LF) -> (Term -> LF) -> LF
 transMassDet Gthe_mass_Det = \ p q -> Exists (\v -> Conj [Single p, p v, q v] )
