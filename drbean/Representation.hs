@@ -319,7 +319,7 @@ repDet (GApos owner) = \p q r -> let
 	r'' = head qrs
 	in repNP owner (\owner_ref -> let 
 	ownership_conds =  Rel (DRSRel "have") [owner_ref, r'] : conds
-	in DRS qrs ownership_conds ) (newR r'')
+	in DRS (owner_ref : qrs) ownership_conds ) (newR r'')
 repDet (GApos_pl owner) = repDet (GApos owner)
 
 transDet :: GDet -> (Term -> LF) -> (Term -> LF) -> LF
@@ -378,7 +378,7 @@ repMassDet (GMassApos owner) = \p q r -> let
 	r'' = head qrs
 	in repNP owner (\owner_ref -> let 
 	ownership_conds =  Rel (DRSRel "have") [owner_ref, r'] : conds
-	in DRS qrs ownership_conds ) (newR r'')
+	in DRS (owner_ref : qrs) ownership_conds ) (newR r'')
 
 transMassDet :: GMassDet -> (Term -> LF) -> (Term -> LF) -> LF
 transMassDet Gthe_mass_Det = \ p q -> Exists (\v -> Conj [Single p, p v, q v] )
