@@ -293,14 +293,11 @@ repNP (GEntity name)
 repDet :: GDet -> (DRSRef -> DRS) -> (DRSRef -> DRS) -> DRSRef -> DRS
 
 repDet Ga_Det = \ p q r-> let 
-	es = [r]
-	us = newDRSRefs [r] es
-	r' = head us
-	prs = drsUniverse (p r')
-	qrs = drsUniverse (q r')
+	prs = drsUniverse (p r)
+	qrs = drsUniverse (q r)
 	reflist = (prs ++ qrs ++ [r])
-	pconds = drsCons (p r')
-	qconds = drsCons (q r')
+	pconds = drsCons (p r)
+	qconds = drsCons (q r)
 	conds = pconds ++ qconds
 	in DRS qrs conds
 repDet Gone = repDet Ga_Det
@@ -322,7 +319,7 @@ repDet (GApos owner) = \p q r -> let
 	r'' = head qrs
 	in repNP owner (\owner_ref -> let 
 	ownership_conds =  Rel (DRSRel "have") [owner_ref, r'] : conds
-	in DRS qrs ownership_conds ) r''
+	in DRS qrs ownership_conds ) (newR r'')
 repDet (GApos_pl owner) = repDet (GApos owner)
 
 transDet :: GDet -> (Term -> LF) -> (Term -> LF) -> LF
@@ -360,14 +357,11 @@ transDet Gno_pl_Det = transDet Gno_Det
 
 repMassDet :: GMassDet -> (DRSRef -> DRS) -> (DRSRef -> DRS) -> DRSRef -> DRS
 repMassDet Gzero_Det_sg  = \ p q r-> let 
-	es = [r]
-	us = newDRSRefs [r] es
-	r' = head us
-	prs = drsUniverse (p r')
-	qrs = drsUniverse (q r')
+	prs = drsUniverse (p r)
+	qrs = drsUniverse (q r)
 	reflist = (prs ++ qrs ++ [r])
-	pconds = drsCons (p r')
-	qconds = drsCons (q r')
+	pconds = drsCons (p r)
+	qconds = drsCons (q r)
 	conds = pconds ++ qconds
 	in DRS qrs conds
 repMassDet Gthe_mass_Det = repMassDet Gzero_Det_sg
@@ -384,7 +378,7 @@ repMassDet (GMassApos owner) = \p q r -> let
 	r'' = head qrs
 	in repNP owner (\owner_ref -> let 
 	ownership_conds =  Rel (DRSRel "have") [owner_ref, r'] : conds
-	in DRS qrs ownership_conds ) r''
+	in DRS qrs ownership_conds ) (newR r'')
 
 transMassDet :: GMassDet -> (Term -> LF) -> (Term -> LF) -> LF
 transMassDet Gthe_mass_Det = \ p q -> Exists (\v -> Conj [Single p, p v, q v] )
@@ -438,7 +432,7 @@ repCN (GOfpos n2 np) = \r -> let
 	es = tail refs in
 	repNP np (\owner -> let
 	newconds = Rel (DRSRel "have") [owner, thing] : conds
-	in DRS [owner, thing] newconds ) thing
+	in DRS [owner, thing] newconds ) (newR thing)
 repCN name	= \r -> let 
 	conds = [Rel (DRSRel (lin name)) [r]]
 	in DRS [r] conds
@@ -931,7 +925,7 @@ repVP (GWithStyle vp _) = repVP vp
 repVP (GWithTime vp _) = repVP vp
 repVP (GBe_vp comp) = case comp of
 	(GBe_someone np) -> \r -> repNP np
-		(\hyper -> DRS [hyper, r] [Rel (DRSRel (linNP np)) [r]] ) r
+		(\hyper -> DRS [hyper, r] [Rel (DRSRel (linNP np)) [r]] ) (newR r)
 	GBe_bad ap -> repAP ap
 	GBe_somewhere (GLocating prep place) -> \situatee -> let
 		es = [situatee]
@@ -958,7 +952,7 @@ repVP (GTriangulating v obj1 obj2) =
 		(\theme -> repNP obj2
 			(\recipient -> let
 			conds = [Rel (DRSRel (lin v)) [agent, theme, recipient]]
-		in DRS [recipient, theme, agent] conds ) theme ) agent
+		in DRS [recipient, theme, agent] conds ) (newR theme) ) (newR agent)
 repVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 	(GBe_vp comp) -> case comp of
 		(GBe_someone subjcomp ) -> \positer -> 
@@ -968,7 +962,7 @@ repVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 					, Prop (DRSRef "p") (DRS []
 					[Rel (DRSRel (linNP subjcomp)) [referent] ])]
 				in DRS [hyper, referent, positer] cond )
-						referent ) positer
+						(newR referent) ) (newR positer)
 	(GIntens vv vp2) -> case vp2 of
 		(GChanging v obj) -> \positer -> 
 			repNP np (\referent ->
@@ -977,7 +971,7 @@ repVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 				, Prop (DRSRef "p") (DRS [] [Rel (DRSRel (lin v))
 				[referent, theme]])]
 			in DRS [theme, referent, positer] conds )
-			referent ) positer
+			(newR referent) ) (newR positer)
 repVP (GPositing v0 (GNegS (GSentence np vp))) = case vp of
 	(GIntens vv vp2) -> case vp2 of
 		(GChanging v obj) -> \positer -> 
@@ -987,7 +981,7 @@ repVP (GPositing v0 (GNegS (GSentence np vp))) = case vp of
 				, Prop (DRSRef "p") (DRS [] [Neg (DRS [] [Rel (DRSRel (lin v))
 				[referent, theme]])])]
 			in DRS [theme, referent, positer] conds )
-			referent ) positer
+			(newR referent) ) (newR positer)
 
 transCOMP :: GComp -> Term -> LF
 transCOMP (GBe_someone np) = \x -> transNP np (\pred -> Eq pred x)
