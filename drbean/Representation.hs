@@ -911,7 +911,7 @@ repVP (GWithStyle vp _) = repVP vp
 repVP (GWithTime vp _) = repVP vp
 repVP (GBe_vp comp) = case comp of
 	(GBe_someone np) -> \r -> repNP np
-		(\hyper -> DRS [hyper, r] [Rel (DRSRel (linNP np)) [r]] ) (newR r)
+		(\hyper -> DRS [r] [] ) r
 	GBe_bad ap -> repAP ap
 	GBe_somewhere (GLocating prep place) -> \situatee -> let
 		es = [situatee]
