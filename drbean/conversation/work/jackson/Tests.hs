@@ -33,7 +33,7 @@ trans tests = do
   let zs = zip (map (++"\t") tests) (map (map (showExpr []) ) ps)
   putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
 
-fol tests = do
+rep tests = do
   gr	<- readPGF ( "./Jackson.pgf" )
   let ss = map (chomp . lc_first) tests
   let ps = map ( parses gr ) ss
@@ -89,22 +89,22 @@ dic_test = [
 
 yn_dic_test = [
   "Does Queen work for the State of Colorado?"
-  , "Does Queen have great ideas of retiring?"
-  , "Does Queen have great ideas of sitting back?"
-  , "Does Queen have great ideas of enjoying life?"
-  , "Is Queen laid off?"
+  -- , "Does Queen have great ideas of retiring?"
+  -- , "Does Queen have great ideas of sitting back?"
+  -- , "Does Queen have great ideas of enjoying life?"
+  -- , "Is Queen laid off?"
   , "Does Queen have some money in savings?"
   , "Does Queen think that being laid off is no big deal?"
-  , "Does Queen think that Queen can get another job?"
+  -- , "Does Queen think that Queen can get another job?"
   , "Does one week turn into a month?"
   , "Does one week turn into five months?"
   , "Does unemployment cover Queen's rent?"
   , "Does Queen lose Queen's apartment?"
-  , "Does Queen's daughter want Queen to move in?"
+  -- , "Does Queen's daughter want Queen to move in?"
   , "Does Queen think that Queen's daughter should not take care of Queen?"
-  , "Does Queen think that Queen's daughter shouldn't take care of Queen?"
-  , "Does Queen think that Queen should take care of Queen's children?"
-  , "Does Queen have money to buy a birthday card?"
+  , "Does Queen think that Queen's daughter shouldn't take care of the rent?"
+  , "Does Queen think that Queen should take care of Queen's daughter?"
+  -- , "Does Queen have money to buy a birthday card?"
   , "Does Queen go out with a sign?"
   , "Does Queen get dressed up?"
   , "Is Queen middle-class?"
@@ -120,6 +120,11 @@ yn_dic_test = [
   , "Does Queen buy Queen's daughter a card?"
   , "Does Queen buy a birthday card?"
   , "Does Queen remember Christmas?"
+  , "Does Queen remember the rent of the apartment?"
+  , "Is Queen a woman?"
+  , "Is Queen Queen?"
+  , "Is Queen a lonely woman?"
+  , "Is Queen lonely?"
   , "Is Queen in the shelter?"
   , "Does Queen remember Queen's daughters as little girls?"
   , "Does Queen remember the smell of cooking?"
@@ -127,6 +132,7 @@ yn_dic_test = [
   , "Does Queen remember the joy of Christmas?"
   , "Does Queen feel so lonely?"
   , "Do the women receive a gift bag?"
+  , "Does Queen get a bottle of lotion?"
   , "Does Queen get a little bottle of lotion?"
   , "Does Queen open the little bottle of lotion?"
   , "Does Queen smell the lotion?"
