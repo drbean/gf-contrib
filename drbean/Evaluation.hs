@@ -23,28 +23,6 @@ realents :: [Entity]
 namedents = map snd characters
 realents = entities
 
---type TVal = Term -> Entity
---
---lift :: FInterp -> TVal
---lift fint (Const a)   = a
---lift fint (Struct str ts) =
---           fint str (map (lift fint) ts)
---lift fint _     = R
-
-termed :: Entity -> Term
-termed = Const
-
-terms :: [Term]
-terms = map Const entities
-
-nameterms :: [Term]
-nameterms = map termed namedents
-
-term2ent :: Term -> Entity
-term2ent (Const a) = a
-term2ent _ = R
-
-
 eval :: FOLForm -> Maybe Answer
 eval (Exists _ _) = Just (Boolean True)
 eval (ForAll _ _) = Just (Boolean True)
@@ -84,14 +62,6 @@ unJustAnswer = \lf -> fromMaybe NoAnswer (eval lf)
 bool2Maybe :: Bool -> Maybe Bool
 bool2Maybe = \x -> case x of False -> Nothing; True -> Just True
 
--- testents :: (Term -> LF) -> [Bool]
--- testents scope = map ( \e -> evl (scope (Const e)) ) realents
-
-
--- ent2Maybe :: (Term -> LF) -> Entity -> Maybe Entity
--- ent2Maybe scope = \e -> case evl (scope (Const e)) of
--- 	False -> Nothing; True -> Just e
-
 --evalW :: FOLForm -> Maybe [Entity]
 --evalW (scope)	= Just [ e | e <- namedents
 --				, t <- [termed e]
@@ -108,12 +78,6 @@ notNull [_,_,_] = Just (Boolean True )
 notNull [_,_,_,_] = Just (Boolean True )
 notNull [_,_,_,_,_] = Just (Boolean True )
 notNull _ = Nothing
-
--- ttest :: (Term -> LF) -> Term -> Bool
--- ttest scope (Const a) = evl (scope (Const a))
--- ttest scope _ = evl (scope (Const R))
-
--- revttest scope = \x -> not $ evl (scope (Const x))
 
 singleton :: [a] -> Bool
 singleton [x]	= True
