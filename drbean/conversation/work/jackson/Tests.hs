@@ -3,9 +3,10 @@ module Tests where
 import Control.Monad
 import Data.Maybe
 
+import Data.DRS
+
 import PGF
 import Jackson
-import LogicalForm
 import Representation
 import Evaluation
 import Model
@@ -33,7 +34,7 @@ trans tests = do
   let zs = zip (map (++"\t") tests) (map (map (showExpr []) ) ps)
   putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
 
-rep tests = do
+reps tests = do
   gr	<- readPGF ( "./Jackson.pgf" )
   let ss = map (chomp . lc_first) tests
   let ps = map ( parses gr ) ss
@@ -45,7 +46,7 @@ logic tests = do
   gr	<- readPGF ( "./Jackson.pgf" )
   let ss = map (chomp . lc_first) tests
   let ps = map ( parses gr ) ss
-  let ts = map (map lf) ps
+  let ts = map (map (drsToFOL . unmaybe . rep)) ps
   let zs = zip (map (++"\t") tests) ts
   putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
 
