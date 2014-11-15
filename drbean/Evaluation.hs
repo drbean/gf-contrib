@@ -1,7 +1,8 @@
-module Evaluation (readPGF, chomp, lc_first, rep, lf, parses, linear, showExpr, transform) where
+module Evaluation (readPGF, chomp, lc_first, rep, parses, linear, showExpr, transform) where
 
 import PGF
 import Data.DRS
+import Data.FOL.Formula
 import Representation hiding ((==))
 import Interpretation
 import Model
@@ -44,25 +45,16 @@ term2ent (Const a) = a
 term2ent _ = R
 
 
-eval :: LF -> Maybe Answer
-eval NonProposition = Nothing
-eval (Relation r as)	= int r (map term2ent as)
-eval (Eq a b)	= Just (Boolean (a == b))
-eval (Negation lf)	= eval lf >>= notLF
-eval (Impl f1 f2)	= liftM2 implLF (eval f1) (eval f2)
-eval (Equi f1 f2)	= liftM2 equiLF (eval f1) (eval f2)
-eval (Conj lfs)	= foldM conjLF (Boolean True) (map (fromMaybe NoAnswer . eval ) lfs)
-eval (Disj lfs)	= foldM disjLF (Boolean False) (map (fromMaybe NoAnswer . eval ) lfs)
-eval (Forall scope)	= eval (Conj (map scope terms))
-eval (Exists scope)	= eval (Disj (map scope terms))
-eval (Single scope)	= Just (Boolean (singleton (map scope terms)))
-eval (Several scope)	= Just (Boolean (smallN (map scope terms)))
-eval (Many scope)	= Just (Boolean (bigN (map scope terms)))
--- eval (Most scope)	= length ( mapMaybe bool2Maybe $ testents scope ) >
--- 			length ( mapMaybe bool2Maybe $ testents scope )
-eval (WH scope)	= ( notNull <=< evalW ) (WH scope)
--- eval lf = Nothing
-eval lf = error $ (show lf) ++ " logical formula unknown, not evaluated."
+eval :: FOLForm -> Maybe Answer
+eval (Exists _ _) = Just (Boolean True)
+eval (ForAll _ _) = Just (Boolean True)
+eval (And f1 f2) = Just (conjLF (eval f1) (eval f2))
+eval (Data.FOL.Formula.Or f1 f2) = Just (disjLF (eval f1) (eval f2))
+eval (Data.FOL.Formula.Neg form) = eval form >>= notLF
+eval (Data.FOL.Formula.Imp f1 f2) = liftM2 implLF (eval f1) (eval f2)
+eval (Data.FOL.Formula.Rel _ _) = Just (Boolean True)
+eval Top = Just (Boolean True)
+eval Bottom = Just (Boolean False)
 
 notLF :: Answer -> Maybe Answer
 notLF (Boolean b) = Just (Boolean (not b))
@@ -78,15 +70,15 @@ implLF = lifting (\b1 b2 -> not (b1 && (not b2)))
 equiLF :: Answer -> Answer -> Answer
 equiLF = lifting (==)
 
-conjLF :: Answer -> Answer -> Maybe Answer
-conjLF (Boolean b1) (Boolean b2) = Just (Boolean (b1 && b2))
-conjLF _ _ = Nothing
+conjLF :: Maybe Answer -> Maybe Answer -> Answer
+conjLF (Just b1) (Just b2) = lifting (\x y -> x && y) b1 b2
+conjLF _ _ = NoAnswer
 
-disjLF :: Answer -> Answer -> Maybe Answer
-disjLF (Boolean b1) (Boolean b2) = Just (Boolean (b1 || b2))
-disjLF _ _ = Nothing
+disjLF :: Maybe Answer -> Maybe Answer -> Answer
+disjLF (Just b1) (Just b2) = lifting (\x y -> (x || y)) b1 b2
+disjLF _ _ = NoAnswer
 
-unJustAnswer :: LF -> Answer
+unJustAnswer :: FOLForm -> Answer
 unJustAnswer = \lf -> fromMaybe NoAnswer (eval lf)
 
 bool2Maybe :: Bool -> Maybe Bool
@@ -100,13 +92,13 @@ bool2Maybe = \x -> case x of False -> Nothing; True -> Just True
 -- ent2Maybe scope = \e -> case evl (scope (Const e)) of
 -- 	False -> Nothing; True -> Just e
 
-evalW :: LF -> Maybe [Entity]
-evalW (WH scope)	= Just [ e | e <- namedents
-				, t <- [termed e]
-				, a <- [(eval.scope) t]
-				, a == Just (Boolean True)
-							]
-evalW _ = Nothing
+--evalW :: FOLForm -> Maybe [Entity]
+--evalW (scope)	= Just [ e | e <- namedents
+--				, t <- [termed e]
+--				, a <- [(eval.scope) t]
+--				, a == Just (Boolean True)
+--							]
+--evalW _ = Nothing
 
 notNull :: [Entity] -> Maybe Answer
 notNull [] = Just (Boolean False )
@@ -154,33 +146,30 @@ gfmaybe _ = Nothing
 rep :: Tree -> Maybe DRS
 rep x =  (repS . fg) x
 
-lf :: Tree -> Maybe LF
-lf x =  (transS . fg) x
-
 answer :: GUtt -> Maybe GUtt
 answer	utt@(GQUt (GPosQ (GYN _)))
-		| (eval <=< transS) utt == (Just (Boolean True)) = Just GYes
-		| (eval <=< transS) utt == (Just (Boolean False)) = Just GNo
-		| (eval <=< transS) utt == Nothing = Just GNoAnswer
+		| (eval . drsToFOL . unmaybe . repS) utt == (Just (Boolean True)) = Just GYes
+		| (eval . drsToFOL . unmaybe . repS) utt == (Just (Boolean False)) = Just GNo
+		| (eval . drsToFOL . unmaybe . repS) utt == Nothing = Just GNoAnswer
 answer	utt@(GQUt (GNegQ (GYN _)))
-		| (eval <=< transS) utt == (Just (Boolean True)) = Just GYes
-		| (eval <=< transS) utt == (Just (Boolean False)) = Just GNo
-		| (eval <=< transS) utt == Nothing = Just GNoAnswer
+		| (eval . drsToFOL . unmaybe . repS) utt == (Just (Boolean True)) = Just GYes
+		| (eval . drsToFOL . unmaybe . repS) utt == (Just (Boolean False)) = Just GNo
+		| (eval . drsToFOL . unmaybe . repS) utt == Nothing = Just GNoAnswer
 answer	utt@(GQUt (GPosQ (GTagQ _ _)))
-		| (eval <=< transS) utt == (Just (Boolean True)) = Just GYes
-		| (eval <=< transS) utt == (Just (Boolean False)) = Just GNo
-		| (eval <=< transS) utt == Nothing = Just GNoAnswer
+		| (eval . drsToFOL . unmaybe . repS) utt == (Just (Boolean True)) = Just GYes
+		| (eval . drsToFOL . unmaybe . repS) utt == (Just (Boolean False)) = Just GNo
+		| (eval . drsToFOL . unmaybe . repS) utt == Nothing = Just GNoAnswer
 answer	utt@(GQUt (GNegQ (GTagQ _ _)))
-		| (eval <=< transS) utt == (Just (Boolean True)) = Just GYes
-		| (eval <=< transS) utt == (Just (Boolean False)) = Just GNo
-		| (eval <=< transS) utt == Nothing = Just GNoAnswer
-answer	utt@(GQUt _) = case (evalW <=< transS) utt of
-	(Just []) -> Just (GAnswer Gno_pl_NP)
-	(Just [x]) -> Just (GAnswer (GEntity (ent2gent x)))
-	(Just [x,y]) -> Just (GAnswer (GCloseList Gor_Conj (GList (GEntity (ent2gent x)) (GEntity (ent2gent y)))))
-	(Just [x,y,z]) -> Just (GAnswer (GCloseList Gor_Conj (GAddList (GEntity (ent2gent x)) (GList (GEntity (ent2gent y)) (GEntity (ent2gent z))))))
-	(Just [x,y,z,w]) -> Nothing
-	otherwise	-> Nothing
+		| (eval . drsToFOL . unmaybe . repS) utt == (Just (Boolean True)) = Just GYes
+		| (eval . drsToFOL . unmaybe . repS) utt == (Just (Boolean False)) = Just GNo
+		| (eval . drsToFOL . unmaybe . repS) utt == Nothing = Just GNoAnswer
+--answer	utt@(GQUt _) = case (evalW . drsToFOL . unmaybe . repS) utt of
+--	(Just []) -> Just (GAnswer Gno_pl_NP)
+--	(Just [x]) -> Just (GAnswer (GEntity (ent2gent x)))
+--	(Just [x,y]) -> Just (GAnswer (GCloseList Gor_Conj (GList (GEntity (ent2gent x)) (GEntity (ent2gent y)))))
+--	(Just [x,y,z]) -> Just (GAnswer (GCloseList Gor_Conj (GAddList (GEntity (ent2gent x)) (GList (GEntity (ent2gent y)) (GEntity (ent2gent z))))))
+--	(Just [x,y,z,w]) -> Nothing
+--	otherwise	-> Nothing
 
 linear :: PGF -> Tree -> Maybe String
 linear gr p = Just (linearize gr (myLanguage gr) p)
