@@ -78,6 +78,7 @@ newR r = let
 
 repNP :: GNP -> ([DRSRef] -> DRS) -> ([DRSRef] -> DRS)
 repNP (GItem det cn) p = (repDet det) (repCN cn) p
+repNP (GMassItem det n) p = (repMassDet det) (repN n) p
 repNP (GEntity name) p
 	| entity <- (gent2ent name) , entity `elem` entities =
 	\rs -> case (p rs) of
@@ -90,6 +91,30 @@ repDet Ga_Det = \ p q rs-> let
        reflist = (prs ++ qrs ++ rs)
        conds = pconds ++ qconds
        in DRS (qrs) conds
+repDet Gone = repDet Ga_Det
+repDet Gsome_Det = repDet Ga_Det
+repDet GtheSg_Det = repDet Ga_Det
+repDet Gsome_pl_Det = repDet Gsome_Det
+repDet GthePlural_Det =  repDet Gsome_pl_Det
+repDet Gfive   = repDet Gsome_pl_Det
+
+repMassDet :: GMassDet -> ([DRSRef] -> DRS) -> ([DRSRef] -> DRS) -> ([DRSRef] -> DRS)
+repMassDet Gzero_Det_sg = \ p q rs-> let
+       DRS prs pconds = p rs
+       DRS qrs qconds = q rs
+       reflist = (prs ++ qrs ++ rs)
+       conds = pconds ++ qconds
+       in DRS (qrs) conds
+repMassDet Gthe_mass_Det = repMassDet Gzero_Det_sg
+
+repN :: GN -> [DRSRef] -> DRS
+repN name = \rs -> let
+       conds = [Rel (DRSRel (lin name)) [(head . reverse) rs]]
+       in DRS rs conds
+repN2 :: GN2 -> [DRSRef] -> DRS
+repN2 name     = \rs -> let
+       conds = [Rel (DRSRel (lin name)) [(head . reverse) rs]]
+       in DRS rs conds
 
 repCN :: GCN -> [DRSRef] -> DRS
 repCN name     = \rs -> let
