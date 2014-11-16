@@ -77,11 +77,24 @@ newR r = let
 	r' = head rs in r'
 
 repNP :: GNP -> ([DRSRef] -> DRS) -> ([DRSRef] -> DRS)
+repNP (GItem det cn) p = (repDet det) (repCN cn) p
 repNP (GEntity name) p
 	| entity <- (gent2ent name) , entity `elem` entities =
 	\rs -> case (p rs) of
 		(DRS rs' conds) -> (DRS rs' ((Rel (DRSRel (lin name)) [(head . reverse) rs]) : conds))
 
+repDet :: GDet -> ([DRSRef] -> DRS) -> ([DRSRef] -> DRS) -> ([DRSRef] -> DRS)
+repDet Ga_Det = \ p q rs-> let
+       DRS prs pconds = p rs
+       DRS qrs qconds = q rs
+       reflist = (prs ++ qrs ++ rs)
+       conds = pconds ++ qconds
+       in DRS (prs ++ qrs) conds
+
+repCN :: GCN -> [DRSRef] -> DRS
+repCN name     = \rs -> let
+       conds = [Rel (DRSRel (lin name)) rs]
+       in DRS rs conds
 
 repVP :: GVP -> [DRSRef] -> DRS
 repVP (GWithCl vp _) = repVP vp
