@@ -74,14 +74,8 @@ repS (GQUt (GPosQ (GWH_Pred wh (GBe_vp (GBe_bad comp))))) =
 repS (GQUt (GPosQ (GWH_Pred wh (GBe_vp (GBe_someone comp))))) =
 	Just (DRS [DRSRef "x"] [Imp (DRS [] [Rel (DRSRel (linIP wh)) [DRSRef "x"]])
 	(DRS [] [Rel (DRSRel (linNP comp)) [DRSRef "x"]])])
-repS (GQUt (GPosQ (GWH_Pred wh vp))) = Just (DRS refs  conds) where
-	rep = repW wh (repVP vp) (DRSRef "x0")
-	conds = drsCons rep
-	refs   = drsUniverse rep
-repS (GQUt (GPosQ (GYN (GSentence np vp)))) = Just (DRS refs conds) where
-	rep = repNP np (repVP vp) (DRSRef "x1")
-	conds = drsCons rep
-	refs   = drsUniverse rep
+repS (GQUt (GPosQ (GWH_Pred wh vp))) = Just (repW wh (repVP vp) (DRSRef "x0"))
+repS (GQUt (GPosQ (GYN (GSentence np vp)))) = Just (repNP np (repVP vp) (DRSRef "x1"))
 
 newR :: DRSRef -> DRSRef
 newR r = let
