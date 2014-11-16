@@ -89,7 +89,7 @@ repDet Ga_Det = \ p q rs-> let
        DRS qrs qconds = q rs
        reflist = (prs ++ qrs ++ rs)
        conds = pconds ++ qconds
-       in DRS (prs ++ qrs) conds
+       in DRS (qrs) conds
 
 repCN :: GCN -> [DRSRef] -> DRS
 repCN name     = \rs -> let
