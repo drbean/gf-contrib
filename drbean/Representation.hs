@@ -97,6 +97,15 @@ repDet GtheSg_Det = repDet Ga_Det
 repDet Gsome_pl_Det = repDet Gsome_Det
 repDet GthePlural_Det =  repDet Gsome_pl_Det
 repDet Gfive   = repDet Gsome_pl_Det
+repDet (GApos owner) = \p q rs -> let
+       DRS prs pconds = p rs
+       DRS qrs qconds = q rs
+       conds = pconds ++ qconds
+       r' = head qrs
+       in repNP owner (\[owner_ref] -> let
+       ownership_conds =  Rel (DRSRel "have") [owner_ref, r'] : conds
+       in DRS (owner_ref : qrs) ownership_conds ) [r']
+repDet (GApos_pl owner) = repDet (GApos owner)
 
 repMassDet :: GMassDet -> ([DRSRef] -> DRS) -> ([DRSRef] -> DRS) -> ([DRSRef] -> DRS)
 repMassDet Gzero_Det_sg = \ p q rs-> let
