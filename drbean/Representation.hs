@@ -76,18 +76,20 @@ newR r = let
 	rs = newDRSRefs [r] es
 	r' = head rs in r'
 
-repNP :: GNP -> (DRSRef -> DRS) -> ([DRSRef] -> DRS)
+repNP :: GNP -> ([DRSRef] -> DRS) -> ([DRSRef] -> DRS)
 repNP (GEntity name) p
 	| entity <- (gent2ent name) , entity `elem` entities =
-	\rs -> case (p (head rs)) of
-		(DRS rs' conds) -> (DRS rs' ((Rel (DRSRel (lin name)) [(head rs)]) : conds))
+	\rs -> case (p rs) of
+		(DRS rs' conds) -> (DRS rs' ((Rel (DRSRel (lin name)) [(head . reverse) rs]) : conds))
 
 
-repVP :: GVP -> DRSRef -> DRS
+repVP :: GVP -> [DRSRef] -> DRS
 repVP (GWithCl vp _) = repVP vp
 repVP (GWithPlace vp _) = repVP vp
 repVP (GWithStyle vp _) = repVP vp
 repVP (GWithTime vp _) = repVP vp
 repVP (GHappening v) = \r -> let
-	conds =  [Rel (DRSRel (lin v)) [r]]
-	in DRS [r] conds
+	conds =  [Rel (DRSRel (lin v)) r]
+	in DRS r conds
+repVP (GChanging v obj) = \[x,agent] -> repNP obj
+	(\[patient] -> DRS [patient, agent] [Rel (DRSRel (lin v)) [agent, patient]] ) [x]
