@@ -67,7 +67,7 @@ second (TwoRef (one,two)) = two
 drsCons :: DRS -> [DRSCon]
 drsCons (DRS _ cs) = cs
 
-repS :: GUtt -> Maybe (DRSRef -> DRSRef -> DRS)
+repS :: GUtt -> Maybe ([DRSRef] -> DRS)
 repS (GQUt (GPosQ (GYN (GSentence np vp)))) = Just (repNP np (repVP vp))
 
 newR :: DRSRef -> DRSRef
@@ -76,12 +76,11 @@ newR r = let
 	rs = newDRSRefs [r] es
 	r' = head rs in r'
 
-repNP :: GNP -> (DRSRef -> DRS) -> DRSRef -> (DRSRef -> DRS)
-repNP (GEntity name)
+repNP :: GNP -> (DRSRef -> DRS) -> ([DRSRef] -> DRS)
+repNP (GEntity name) p
 	| entity <- (gent2ent name) , entity `elem` entities =
-			\p r -> let
-				DRS rs conds = p r
-				in \x -> (DRS (x : rs) ((Rel (DRSRel (lin name)) [x]) : conds))
+	\rs -> case (p (head rs)) of
+		(DRS rs' conds) -> (DRS rs' ((Rel (DRSRel (lin name)) [(head rs)]) : conds))
 
 
 repVP :: GVP -> DRSRef -> DRS
