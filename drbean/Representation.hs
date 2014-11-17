@@ -101,11 +101,11 @@ repDet (GApos owner) = \p q rs -> let
        DRS prs pconds = p rs
        DRS qrs qconds = q rs
        conds = pconds ++ qconds
-       pr = head prs
-       qr = head qrs
+       y = head qrs
+       x = (head . reverse) qrs
        in repNP owner (\[owner_ref] -> let
-       ownership_conds =  Rel (DRSRel "have") [owner_ref, ((head . reverse) qrs)] : conds
-       in DRS qrs ownership_conds ) [qr]
+       ownership_conds =  Rel (DRSRel "have") [owner_ref, x] : conds
+       in DRS qrs ownership_conds ) [y]
 repDet (GApos_pl owner) = repDet (GApos owner)
 
 repMassDet :: GMassDet -> ([DRSRef] -> DRS) -> ([DRSRef] -> DRS) -> ([DRSRef] -> DRS)
@@ -116,6 +116,15 @@ repMassDet Gzero_Det_sg = \ p q rs-> let
        conds = pconds ++ qconds
        in DRS (qrs) conds
 repMassDet Gthe_mass_Det = repMassDet Gzero_Det_sg
+repMassDet (GMassApos owner) = \p q rs -> let
+	DRS prs pconds = p rs
+	DRS qrs qconds = q rs
+	conds = pconds ++ qconds
+	y = head qrs
+	x = (head . reverse) qrs
+	in repNP owner (\[owner_ref] -> let
+	ownership_conds =  Rel (DRSRel "have") [owner_ref, x] : conds
+	in DRS qrs ownership_conds ) [y]
 
 repN :: GN -> [DRSRef] -> DRS
 repN name = \rs -> let
