@@ -136,9 +136,17 @@ repN2 name     = \rs -> let
        in DRS rs conds
 
 repCN :: GCN -> [DRSRef] -> DRS
+repCN (GKind ap cn) = \rs -> let
+       DRS thing_refs thing_conds = (repCN cn rs)
+       DRS attri_refs attri_conds = (repAP ap (head rs))
+       in DRS (thing_refs ++ attri_refs) (thing_conds ++ attri_conds)
 repCN name     = \rs -> let
        conds = [Rel (DRSRel (lin name)) [(head . reverse) rs]]
        in DRS rs conds
+
+repAP :: GAP -> DRSRef -> DRS
+repAP (GAdvAdj _ a) = \r -> DRS [r] [Rel (DRSRel (lin a)) [r]]
+repAP ap = \r -> DRS [r] [Rel (DRSRel (lin ap)) [r]]
 
 repVP :: GVP -> [DRSRef] -> DRS
 repVP (GWithCl vp _) = repVP vp
