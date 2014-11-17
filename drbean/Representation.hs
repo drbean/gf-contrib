@@ -101,10 +101,11 @@ repDet (GApos owner) = \p q rs -> let
        DRS prs pconds = p rs
        DRS qrs qconds = q rs
        conds = pconds ++ qconds
-       r' = head qrs
+       pr = head prs
+       qr = head qrs
        in repNP owner (\[owner_ref] -> let
-       ownership_conds =  Rel (DRSRel "have") [owner_ref, r'] : conds
-       in DRS (owner_ref : qrs) ownership_conds ) [r']
+       ownership_conds =  Rel (DRSRel "have") [owner_ref, ((head . reverse) qrs)] : conds
+       in DRS qrs ownership_conds ) [qr]
 repDet (GApos_pl owner) = repDet (GApos owner)
 
 repMassDet :: GMassDet -> ([DRSRef] -> DRS) -> ([DRSRef] -> DRS) -> ([DRSRef] -> DRS)
@@ -127,7 +128,7 @@ repN2 name     = \rs -> let
 
 repCN :: GCN -> [DRSRef] -> DRS
 repCN name     = \rs -> let
-       conds = [Rel (DRSRel (lin name)) rs]
+       conds = [Rel (DRSRel (lin name)) [(head . reverse) rs]]
        in DRS rs conds
 
 repVP :: GVP -> [DRSRef] -> DRS
@@ -136,7 +137,13 @@ repVP (GWithPlace vp _) = repVP vp
 repVP (GWithStyle vp _) = repVP vp
 repVP (GWithTime vp _) = repVP vp
 repVP (GHappening v) = \r -> let
-	conds =  [Rel (DRSRel (lin v)) r]
+	x = (head . reverse) r
+	conds =  [Rel (DRSRel (lin v)) [x]]
 	in DRS r conds
-repVP (GChanging v obj) = \[x,agent] -> repNP obj
-	(\[patient] -> DRS [patient, agent] [Rel (DRSRel (lin v)) [agent, patient]] ) [x]
+repVP (GChanging v obj) = \ rs -> let
+	z = head rs
+	rs' = tail rs
+	y = head rs'
+	x = (head . reverse) rs in
+	repNP obj
+	(\ [patient] -> DRS rs [Rel (DRSRel (lin v)) [x, patient]] ) [y]
