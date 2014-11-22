@@ -82,7 +82,7 @@ repNP (GMassItem det n) p = (repMassDet det) (repN n) p
 repNP (GEntity name) p
 	| entity <- (gent2ent name) , entity `elem` entities =
 	\rs -> case (p rs) of
-		(DRS rs' conds) -> (DRS rs' ((Rel (DRSRel (lin name)) [(head . reverse) rs]) : conds))
+		(DRS rs' conds) -> (DRS rs ((Rel (DRSRel (lin name)) [head rs]) : conds))
 
 repDet :: GDet -> ([DRSRef] -> DRS) -> ([DRSRef] -> DRS) -> ([DRSRef] -> DRS)
 repDet Ga_Det = \ p q rs-> let
@@ -159,10 +159,8 @@ repVP (GWithCl vp _) = repVP vp
 repVP (GWithPlace vp _) = repVP vp
 repVP (GWithStyle vp _) = repVP vp
 repVP (GWithTime vp _) = repVP vp
-repVP (GHappening v) = \r -> let
-	x = (head . reverse) r
-	conds =  [Rel (DRSRel (lin v)) [x]]
-	in DRS r conds
+repVP (GHappening v) = \rs ->
+	DRS rs [Rel (DRSRel (lin v)) [head rs]]
 repVP (GChanging v obj) = \ rs -> let
 	z = head rs
 	rs' = tail rs
