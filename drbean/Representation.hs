@@ -172,6 +172,12 @@ repVP (GBe_vp comp) = case comp of
 		repPlace place (\(name:_) -> DRS rs'
 		[ Rel (DRSRel (lin prep)) [situatee, name]]
 		) rs'
+repVP (GLook_bad v ap) = \rs -> let
+	patient = head rs
+	DRS rs' conds = repAP ap rs
+	look_conds = [Rel (DRSRel (lin v)) [patient, DRSRef "p"]
+		, Prop (DRSRef "p") (DRS [] conds)]
+	in DRS rs look_conds
 repVP (GHappening v) = \rs ->
 	DRS rs [Rel (DRSRel (lin v)) [head rs]]
 repVP (GChanging v obj) = \ rs -> let
