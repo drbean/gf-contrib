@@ -190,3 +190,15 @@ repVP (GTriangulating v obj1 obj2) = \rs -> let
 		repNP obj2 (\(recipient:_) ->
 			DRS rs [Rel (DRSRel (lin v)) [agent, theme, recipient]]
 			) rs'' ) rs'
+repVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
+	(GBe_vp comp) -> case comp of
+		(GBe_someone subjcomp ) -> \rs -> let
+			positer = head rs
+			rs' = tail rs in
+			repNP np (\(referent:rs'') ->
+			repNP subjcomp (\_ -> let
+			cond = [Rel (DRSRel (lin v0)) [positer, DRSRef "p"]
+				, Prop (DRSRef "p") (DRS []
+				[Rel (DRSRel (linNP subjcomp)) [referent] ])]
+			in DRS rs cond )
+			rs'' ) rs'
