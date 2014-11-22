@@ -162,6 +162,16 @@ repVP (GWithCl vp _) = repVP vp
 repVP (GWithPlace vp _) = repVP vp
 repVP (GWithStyle vp _) = repVP vp
 repVP (GWithTime vp _) = repVP vp
+repVP (GBe_vp comp) = case comp of
+	(GBe_someone np) -> \rs -> repNP np
+		(\ (hypernym:_) -> DRS rs [] ) rs
+	GBe_bad ap -> repAP ap
+	GBe_somewhere (GLocating prep place) -> \rs -> let
+		situatee = head rs
+		rs' = tail rs in
+		repPlace place (\(name:_) -> DRS rs'
+		[ Rel (DRSRel (lin prep)) [situatee, name]]
+		) rs'
 repVP (GHappening v) = \rs ->
 	DRS rs [Rel (DRSRel (lin v)) [head rs]]
 repVP (GChanging v obj) = \ rs -> let
