@@ -87,10 +87,10 @@ repNP (GEntity name) p
 repDet :: GDet -> ([DRSRef] -> DRS) -> ([DRSRef] -> DRS) -> ([DRSRef] -> DRS)
 repDet Ga_Det = \ p q rs-> let
        DRS prs pconds = p rs
-       DRS qrs qconds = q rs
+       DRS qrs qconds = q prs
        reflist = (prs ++ qrs ++ rs)
        conds = pconds ++ qconds
-       in DRS (qrs) conds
+       in DRS rs conds
 repDet Gone = repDet Ga_Det
 repDet Gsome_Det = repDet Ga_Det
 repDet GtheSg_Det = repDet Ga_Det
@@ -139,11 +139,12 @@ repCN (GKind ap cn) = \rs -> let
        DRS attri_refs attri_conds = (repAP ap (head rs))
        in DRS (thing_refs ++ attri_refs) (thing_conds ++ attri_conds)
 repCN (GOfpos n2 np) = \rs -> let
-       thing = head (tail rs)
-       DRS refs conds = repN2 n2 [thing] in
+       thing = head rs
+       rs' = (tail . tail) rs
+       DRS _ conds = repN2 n2 rs in
        repNP np (\ (owner:_) -> let
        newconds = Rel (DRSRel "have") [owner, thing] : conds
-       in DRS [owner] newconds ) rs
+       in DRS (thing:rs') newconds ) (tail rs)
 repCN name     = \rs ->
 	DRS rs [Rel (DRSRel (lin name)) [head rs]]
 
@@ -159,9 +160,6 @@ repVP (GWithTime vp _) = repVP vp
 repVP (GHappening v) = \rs ->
 	DRS rs [Rel (DRSRel (lin v)) [head rs]]
 repVP (GChanging v obj) = \ rs -> let
-	z = head rs
-	rs' = tail rs
-	y = head rs'
-	x = (head . reverse) rs in
+	x = head rs; rs' = tail rs in
 	repNP obj
 	(\ (patient:_) -> DRS rs' [Rel (DRSRel (lin v)) [x, patient]] ) rs'
