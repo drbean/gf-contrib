@@ -134,7 +134,7 @@ repN2 name     = \rs ->
 repCN :: GCN -> [DRSRef] -> DRS
 repCN (GKind ap cn) = \rs -> let
        DRS thing_refs thing_conds = (repCN cn rs)
-       DRS attri_refs attri_conds = (repAP ap (head rs))
+       DRS attri_refs attri_conds = (repAP ap thing_refs)
        in DRS (thing_refs ++ attri_refs) (thing_conds ++ attri_conds)
 repCN (GOfpos n2 np) = \rs -> let
        thing = head rs
@@ -146,9 +146,9 @@ repCN (GOfpos n2 np) = \rs -> let
 repCN name     = \rs ->
 	DRS rs [Rel (DRSRel (lin name)) [head rs]]
 
-repAP :: GAP -> DRSRef -> DRS
-repAP (GAdvAdj _ a) = \r -> DRS [r] [Rel (DRSRel (lin a)) [r]]
-repAP ap = \r -> DRS [r] [Rel (DRSRel (lin ap)) [r]]
+repAP :: GAP -> [DRSRef] -> DRS
+repAP (GAdvAdj _ a) = \ rs@(r:_) -> DRS rs [Rel (DRSRel (lin a)) [r]]
+repAP ap = \rs@(r:_) -> DRS rs [Rel (DRSRel (lin ap)) [r]]
 
 repPlace :: GPlace -> ([DRSRef] -> DRS) -> ([DRSRef] -> DRS)
 repPlace (GLocation _ (GPlaceKind _ name)) = \p rs -> case (p rs) of
