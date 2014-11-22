@@ -150,6 +150,13 @@ repAP :: GAP -> DRSRef -> DRS
 repAP (GAdvAdj _ a) = \r -> DRS [r] [Rel (DRSRel (lin a)) [r]]
 repAP ap = \r -> DRS [r] [Rel (DRSRel (lin ap)) [r]]
 
+repPlace :: GPlace -> ([DRSRef] -> DRS) -> ([DRSRef] -> DRS)
+repPlace (GLocation _ (GPlaceKind _ name)) = \p rs -> case (p rs) of
+	(DRS rs conds) -> (DRS rs ((Rel (DRSRel (lin name)) [head rs]) : conds))
+repPlace (GLocation _ name) = \p rs -> case (p rs) of
+	(DRS rs conds) -> (DRS rs ((Rel (DRSRel (lin name)) [head rs]) : conds))
+
+
 repVP :: GVP -> [DRSRef] -> DRS
 repVP (GWithCl vp _) = repVP vp
 repVP (GWithPlace vp _) = repVP vp
