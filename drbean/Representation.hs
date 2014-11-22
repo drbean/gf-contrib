@@ -127,13 +127,11 @@ repMassDet (GMassApos owner) = \p q rs -> let
 	in DRS qrs ownership_conds ) [y]
 
 repN :: GN -> [DRSRef] -> DRS
-repN name = \rs -> let
-       conds = [Rel (DRSRel (lin name)) [(head . reverse) rs]]
-       in DRS rs conds
+repN name = \rs ->
+	DRS rs [Rel (DRSRel (lin name)) [head rs]]
 repN2 :: GN2 -> [DRSRef] -> DRS
-repN2 name     = \rs -> let
-       conds = [Rel (DRSRel (lin name)) [(head . reverse) rs]]
-       in DRS rs conds
+repN2 name     = \rs ->
+	DRS rs [Rel (DRSRel (lin name)) [head rs]]
 
 repCN :: GCN -> [DRSRef] -> DRS
 repCN (GKind ap cn) = \rs -> let
@@ -146,9 +144,8 @@ repCN (GOfpos n2 np) = \rs -> let
        repNP np (\ (owner:_) -> let
        newconds = Rel (DRSRel "have") [owner, thing] : conds
        in DRS [owner] newconds ) rs
-repCN name     = \rs -> let
-       conds = [Rel (DRSRel (lin name)) [(head . reverse) rs]]
-       in DRS rs conds
+repCN name     = \rs ->
+	DRS rs [Rel (DRSRel (lin name)) [head rs]]
 
 repAP :: GAP -> DRSRef -> DRS
 repAP (GAdvAdj _ a) = \r -> DRS [r] [Rel (DRSRel (lin a)) [r]]
