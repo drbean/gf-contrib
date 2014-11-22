@@ -202,3 +202,14 @@ repVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 				[Rel (DRSRel (linNP subjcomp)) [referent] ])]
 			in DRS rs cond )
 			rs'' ) rs'
+	(GIntens vv vp2) -> case vp2 of
+		(GChanging v obj) -> \rs -> let
+			positer = head rs
+			rs' = tail rs in
+			repNP np (\(referent:rs'') ->
+			repNP obj (\(theme:_) -> let
+			conds = [Rel (DRSRel (lin v0)) [positer, DRSRef "p"]
+				, Prop (DRSRef "p") (DRS [] [Rel (DRSRel (lin v))
+				[referent, theme]])]
+			in DRS [theme, referent, positer] conds )
+			rs'' ) rs'
