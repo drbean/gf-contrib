@@ -184,3 +184,9 @@ repVP (GChanging v obj) = \ rs -> let
 	x = head rs; rs' = tail rs in
 	repNP obj
 	(\ (patient:_) -> DRS rs' [Rel (DRSRel (lin v)) [x, patient]] ) rs'
+repVP (GTriangulating v obj1 obj2) = \rs -> let
+	agent = head rs
+	rs' = tail rs in repNP obj1 (\(theme:rs'') ->
+		repNP obj2 (\(recipient:_) ->
+			DRS rs [Rel (DRSRel (lin v)) [agent, theme, recipient]]
+			) rs'' ) rs'
