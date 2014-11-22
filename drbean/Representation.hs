@@ -140,6 +140,12 @@ repCN (GKind ap cn) = \rs -> let
        DRS thing_refs thing_conds = (repCN cn rs)
        DRS attri_refs attri_conds = (repAP ap (head rs))
        in DRS (thing_refs ++ attri_refs) (thing_conds ++ attri_conds)
+repCN (GOfpos n2 np) = \rs -> let
+       thing = head (tail rs)
+       DRS refs conds = repN2 n2 [thing] in
+       repNP np (\ (owner:_) -> let
+       newconds = Rel (DRSRel "have") [owner, thing] : conds
+       in DRS [owner] newconds ) rs
 repCN name     = \rs -> let
        conds = [Rel (DRSRel (lin name)) [(head . reverse) rs]]
        in DRS rs conds
@@ -163,4 +169,4 @@ repVP (GChanging v obj) = \ rs -> let
 	y = head rs'
 	x = (head . reverse) rs in
 	repNP obj
-	(\ [patient] -> DRS rs [Rel (DRSRel (lin v)) [x, patient]] ) [y]
+	(\ (patient:_) -> DRS rs' [Rel (DRSRel (lin v)) [x, patient]] ) rs'
