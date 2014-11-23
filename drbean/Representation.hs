@@ -70,6 +70,8 @@ drsCons (DRS _ cs) = cs
 repS :: GUtt -> Maybe ([DRSRef] -> DRS)
 repS (GQUt (GPosQ (GYN (GSentence np vp)))) = Just (repNP np (repVP vp))
 
+xyzw = [DRSRef "x", DRSRef "y", DRSRef "z", DRSRef "w"] 
+
 newR :: DRSRef -> DRSRef
 newR r = let
 	es = [r]
@@ -211,5 +213,17 @@ repVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 			conds = [Rel (DRSRel (lin v0)) [positer, DRSRef "p"]
 				, Prop (DRSRef "p") (DRS [] [Rel (DRSRel (lin v))
 				[referent, theme]])]
+			in DRS [theme, referent, positer] conds )
+			rs'' ) rs'
+repVP (GPositing v0 (GNegS (GSentence np vp))) = case vp of
+	(GIntens vv vp2) -> case vp2 of
+		(GChanging v obj) -> \rs -> let
+			positer = head rs
+			rs' = tail rs in
+			repNP np (\(referent:rs'') ->
+			repNP obj (\(theme:_) -> let
+			conds = [Rel (DRSRel (lin v0)) [positer, DRSRef "p"]
+				, Prop (DRSRef "p") (DRS [] [Neg (DRS [] [Rel (DRSRel (lin v))
+				[referent, theme]])])]
 			in DRS [theme, referent, positer] conds )
 			rs'' ) rs'
