@@ -138,6 +138,7 @@ repCN (GKind ap cn) = \rs -> let
        DRS thing_refs thing_conds = (repCN cn rs)
        DRS attri_refs attri_conds = (repAP ap thing_refs)
        in DRS (thing_refs ++ attri_refs) (thing_conds ++ attri_conds)
+repCN (GOfpart part n) = repN n
 repCN (GOfpos n2 np) = \rs -> let
        thing = head rs
        rs' = (tail . tail) rs
