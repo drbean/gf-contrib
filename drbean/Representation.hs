@@ -112,10 +112,10 @@ repDet (GApos_pl owner) = repDet (GApos owner)
 repMassDet :: GMassDet -> ([DRSRef] -> DRS) -> ([DRSRef] -> DRS) -> ([DRSRef] -> DRS)
 repMassDet Gzero_Det_sg = \ p q rs-> let
        DRS prs pconds = p rs
-       DRS qrs qconds = q rs
+       DRS qrs qconds = q prs
        reflist = (prs ++ qrs ++ rs)
        conds = pconds ++ qconds
-       in DRS (qrs) conds
+       in DRS rs conds
 repMassDet Gthe_mass_Det = repMassDet Gzero_Det_sg
 repMassDet (GMassApos owner) = \p q rs -> let
 	owner_ref = head rs
