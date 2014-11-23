@@ -107,33 +107,34 @@ gfmaybe (GNo) = Just (gf GNo)
 gfmaybe (GAnswer x) = Just (gf (GAnswer x))
 gfmaybe _ = Nothing
 
-rep :: Tree -> Maybe DRS
+rep :: Tree -> Maybe ([DRSRef] -> DRS)
 rep x =  (repS . fg) x
 
 answer :: GUtt -> Maybe GUtt
-answer	utt@(GQUt (GPosQ (GYN _)))
-		| (eval . drsToFOL . unmaybe . repS) utt == (Just (Boolean True)) = Just GYes
-		| (eval . drsToFOL . unmaybe . repS) utt == (Just (Boolean False)) = Just GNo
-		| (eval . drsToFOL . unmaybe . repS) utt == Nothing = Just GNoAnswer
-answer	utt@(GQUt (GNegQ (GYN _)))
-		| (eval . drsToFOL . unmaybe . repS) utt == (Just (Boolean True)) = Just GYes
-		| (eval . drsToFOL . unmaybe . repS) utt == (Just (Boolean False)) = Just GNo
-		| (eval . drsToFOL . unmaybe . repS) utt == Nothing = Just GNoAnswer
-answer	utt@(GQUt (GPosQ (GTagQ _ _)))
-		| (eval . drsToFOL . unmaybe . repS) utt == (Just (Boolean True)) = Just GYes
-		| (eval . drsToFOL . unmaybe . repS) utt == (Just (Boolean False)) = Just GNo
-		| (eval . drsToFOL . unmaybe . repS) utt == Nothing = Just GNoAnswer
-answer	utt@(GQUt (GNegQ (GTagQ _ _)))
-		| (eval . drsToFOL . unmaybe . repS) utt == (Just (Boolean True)) = Just GYes
-		| (eval . drsToFOL . unmaybe . repS) utt == (Just (Boolean False)) = Just GNo
-		| (eval . drsToFOL . unmaybe . repS) utt == Nothing = Just GNoAnswer
---answer	utt@(GQUt _) = case (evalW . drsToFOL . unmaybe . repS) utt of
---	(Just []) -> Just (GAnswer Gno_pl_NP)
---	(Just [x]) -> Just (GAnswer (GEntity (ent2gent x)))
---	(Just [x,y]) -> Just (GAnswer (GCloseList Gor_Conj (GList (GEntity (ent2gent x)) (GEntity (ent2gent y)))))
---	(Just [x,y,z]) -> Just (GAnswer (GCloseList Gor_Conj (GAddList (GEntity (ent2gent x)) (GList (GEntity (ent2gent y)) (GEntity (ent2gent z))))))
---	(Just [x,y,z,w]) -> Nothing
---	otherwise	-> Nothing
+answer _ = Just GYes
+--answer	utt@(GQUt (GPosQ (GYN _)))
+--		| (eval . drsToFOL . unmaybe . repS) utt == (Just (Boolean True)) = Just GYes
+--		| (eval . drsToFOL . unmaybe . repS) utt == (Just (Boolean False)) = Just GNo
+--		| (eval . drsToFOL . unmaybe . repS) utt == Nothing = Just GNoAnswer
+--answer	utt@(GQUt (GNegQ (GYN _)))
+--		| (eval . drsToFOL . unmaybe . repS) utt == (Just (Boolean True)) = Just GYes
+--		| (eval . drsToFOL . unmaybe . repS) utt == (Just (Boolean False)) = Just GNo
+--		| (eval . drsToFOL . unmaybe . repS) utt == Nothing = Just GNoAnswer
+--answer	utt@(GQUt (GPosQ (GTagQ _ _)))
+--		| (eval . drsToFOL . unmaybe . repS) utt == (Just (Boolean True)) = Just GYes
+--		| (eval . drsToFOL . unmaybe . repS) utt == (Just (Boolean False)) = Just GNo
+--		| (eval . drsToFOL . unmaybe . repS) utt == Nothing = Just GNoAnswer
+--answer	utt@(GQUt (GNegQ (GTagQ _ _)))
+--		| (eval . drsToFOL . unmaybe . repS) utt == (Just (Boolean True)) = Just GYes
+--		| (eval . drsToFOL . unmaybe . repS) utt == (Just (Boolean False)) = Just GNo
+--		| (eval . drsToFOL . unmaybe . repS) utt == Nothing = Just GNoAnswer
+----answer	utt@(GQUt _) = case (evalW . drsToFOL . unmaybe . repS) utt of
+----	(Just []) -> Just (GAnswer Gno_pl_NP)
+----	(Just [x]) -> Just (GAnswer (GEntity (ent2gent x)))
+----	(Just [x,y]) -> Just (GAnswer (GCloseList Gor_Conj (GList (GEntity (ent2gent x)) (GEntity (ent2gent y)))))
+----	(Just [x,y,z]) -> Just (GAnswer (GCloseList Gor_Conj (GAddList (GEntity (ent2gent x)) (GList (GEntity (ent2gent y)) (GEntity (ent2gent z))))))
+----	(Just [x,y,z,w]) -> Nothing
+----	otherwise	-> Nothing
 
 linear :: PGF -> Tree -> Maybe String
 linear gr p = Just (linearize gr (myLanguage gr) p)
