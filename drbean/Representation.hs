@@ -132,13 +132,23 @@ repN name = \rs ->
 repN2 :: GN2 -> [DRSRef] -> DRS
 repN2 name     = \rs ->
 	DRS rs [Rel (DRSRel (lin name)) [head rs]]
+repPartitive :: GPartitive -> [DRSRef] -> DRS
+repPartitive name     = \rs ->
+	DRS rs [Rel (DRSRel (lin name)) [head rs]]
 
 repCN :: GCN -> [DRSRef] -> DRS
 repCN (GKind ap cn) = \rs -> let
        DRS thing_refs thing_conds = (repCN cn rs)
        DRS attri_refs attri_conds = (repAP ap thing_refs)
        in DRS (thing_refs ++ attri_refs) (thing_conds ++ attri_conds)
-repCN (GOfpart part n) = repN n
+repCN (GOfpart part n) = \rs -> let
+	form = head rs
+	rs' = tail rs
+	thing = head rs'
+	DRS _ partconds = repPartitive part rs
+	DRS _ thingconds = repN n rs'
+	formcond = [ Rel (DRSRel "in_form_of") [thing,form] ]
+	in DRS rs' (thingconds ++ partconds ++ formcond)
 repCN (GOfpos n2 np) = \rs -> let
        thing = head rs
        rs' = (tail . tail) rs
