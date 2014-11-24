@@ -1,9 +1,9 @@
 module Evaluation (readPGF, chomp, lc_first, rep, parses, linear, showExpr, transform) where
 
 import PGF
-import Data.DRS
-import Data.FOL.Formula
+import Data.DRS hiding (Or,Neg,Imp,Rel)
 import Representation hiding ((==))
+import LogicalForm
 import Interpretation
 import Model
 
@@ -23,14 +23,14 @@ realents :: [Entity]
 namedents = map snd characters
 realents = entities
 
-eval :: FOLForm -> Maybe Answer
-eval (Exists _ _) = Just (Boolean True)
-eval (ForAll _ _) = Just (Boolean True)
+eval :: LF -> Maybe Answer
+eval (Exists _) = Just (Boolean True)
+eval (ForAll _) = Just (Boolean True)
 eval (And f1 f2) = Just (conjLF (eval f1) (eval f2))
-eval (Data.FOL.Formula.Or f1 f2) = Just (disjLF (eval f1) (eval f2))
-eval (Data.FOL.Formula.Neg form) = eval form >>= notLF
-eval (Data.FOL.Formula.Imp f1 f2) = liftM2 implLF (eval f1) (eval f2)
-eval (Data.FOL.Formula.Rel _ _) = Just (Boolean True)
+eval (Or f1 f2) = Just (disjLF (eval f1) (eval f2))
+eval (Neg form) = eval form >>= notLF
+eval (Imp f1 f2) = liftM2 implLF (eval f1) (eval f2)
+eval (Rel _ _) = Just (Boolean True)
 eval Top = Just (Boolean True)
 eval Bottom = Just (Boolean False)
 
@@ -56,13 +56,13 @@ disjLF :: Maybe Answer -> Maybe Answer -> Answer
 disjLF (Just b1) (Just b2) = lifting (\x y -> (x || y)) b1 b2
 disjLF _ _ = NoAnswer
 
-unJustAnswer :: FOLForm -> Answer
+unJustAnswer :: LF -> Answer
 unJustAnswer = \lf -> fromMaybe NoAnswer (eval lf)
 
 bool2Maybe :: Bool -> Maybe Bool
 bool2Maybe = \x -> case x of False -> Nothing; True -> Just True
 
---evalW :: FOLForm -> Maybe [Entity]
+--evalW :: LF -> Maybe [Entity]
 --evalW (scope)	= Just [ e | e <- namedents
 --				, t <- [termed e]
 --				, a <- [(eval.scope) t]
