@@ -4,6 +4,7 @@ import Control.Monad
 import Data.Maybe
 
 import Data.DRS
+import Data.FOL.Formula
 
 import PGF
 import Jackson
@@ -38,7 +39,7 @@ reps tests = do
   gr	<- readPGF ( "./Jackson.pgf" )
   let ss = map (chomp . lc_first) tests
   let ps = map ( parses gr ) ss
-  let ts = map (map rep) ps
+  let ts = map (map (\x -> (((unmaybe . rep) x) xyzw ))) ps
   let zs = zip (map (++"\t") tests) ts
   putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
 
@@ -46,7 +47,7 @@ logic tests = do
   gr	<- readPGF ( "./Jackson.pgf" )
   let ss = map (chomp . lc_first) tests
   let ps = map ( parses gr ) ss
-  let ts = map (map (drsToFOL . unmaybe . rep)) ps
+  let ts = map (map (\x -> (drsToFOL (((unmaybe . rep) x) xyzw )))) ps
   let zs = zip (map (++"\t") tests) ts
   putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
 
