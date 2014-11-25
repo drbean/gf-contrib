@@ -3,6 +3,7 @@ module Evaluation (readPGF, chomp, lc_first, rep, parses, linear, showExpr, tran
 import PGF
 import Data.DRS hiding (Or,Neg,Imp,Rel)
 import Representation hiding ((==))
+import Translate
 import LogicalForm
 import Interpretation
 import Model
@@ -112,8 +113,8 @@ rep x =  (repS . fg) x
 
 answer :: GUtt -> Maybe GUtt
 answer _ = Just GYes
---answer	utt@(GQUt (GPosQ (GYN _)))
---		| (eval . drsToFOL . unmaybe . repS) utt == (Just (Boolean True)) = Just GYes
+answer	utt@(GQUt (GPosQ (GYN _)))
+		| (eval . drsToLF . unmaybe . repS) utt == (Just (Boolean True)) = Just GYes
 --		| (eval . drsToFOL . unmaybe . repS) utt == (Just (Boolean False)) = Just GNo
 --		| (eval . drsToFOL . unmaybe . repS) utt == Nothing = Just GNoAnswer
 --answer	utt@(GQUt (GNegQ (GYN _)))
