@@ -112,23 +112,22 @@ rep :: Tree -> Maybe ([DRSRef] -> DRS)
 rep x =  (repS . fg) x
 
 answer :: GUtt -> Maybe GUtt
-answer _ = Just GYes
 answer	utt@(GQUt (GPosQ (GYN _)))
-		| (eval . drsToLF . unmaybe . repS) utt == (Just (Boolean True)) = Just GYes
---		| (eval . drsToFOL . unmaybe . repS) utt == (Just (Boolean False)) = Just GNo
---		| (eval . drsToFOL . unmaybe . repS) utt == Nothing = Just GNoAnswer
---answer	utt@(GQUt (GNegQ (GYN _)))
---		| (eval . drsToFOL . unmaybe . repS) utt == (Just (Boolean True)) = Just GYes
---		| (eval . drsToFOL . unmaybe . repS) utt == (Just (Boolean False)) = Just GNo
---		| (eval . drsToFOL . unmaybe . repS) utt == Nothing = Just GNoAnswer
---answer	utt@(GQUt (GPosQ (GTagQ _ _)))
---		| (eval . drsToFOL . unmaybe . repS) utt == (Just (Boolean True)) = Just GYes
---		| (eval . drsToFOL . unmaybe . repS) utt == (Just (Boolean False)) = Just GNo
---		| (eval . drsToFOL . unmaybe . repS) utt == Nothing = Just GNoAnswer
---answer	utt@(GQUt (GNegQ (GTagQ _ _)))
---		| (eval . drsToFOL . unmaybe . repS) utt == (Just (Boolean True)) = Just GYes
---		| (eval . drsToFOL . unmaybe . repS) utt == (Just (Boolean False)) = Just GNo
---		| (eval . drsToFOL . unmaybe . repS) utt == Nothing = Just GNoAnswer
+		| eval (resolveDrsToLF ((unmaybe . repS) utt) xyzw) == Just (Boolean True) = Just GYes
+		| eval (resolveDrsToLF ((unmaybe . repS) utt) xyzw) == Just (Boolean False) = Just GNo
+		| eval (resolveDrsToLF ((unmaybe . repS) utt) xyzw) == Nothing = Just GNoAnswer
+answer	utt@(GQUt (GNegQ (GYN _)))
+		| eval (resolveDrsToLF ((unmaybe . repS) utt) xyzw) == Just (Boolean True) = Just GYes
+		| eval (resolveDrsToLF ((unmaybe . repS) utt) xyzw) == Just (Boolean False) = Just GNo
+		| eval (resolveDrsToLF ((unmaybe . repS) utt) xyzw) == Nothing = Just GNoAnswer
+answer	utt@(GQUt (GPosQ (GTagQ _ _)))
+		| eval (resolveDrsToLF ((unmaybe . repS) utt) xyzw) == Just (Boolean True) = Just GYes
+		| eval (resolveDrsToLF ((unmaybe . repS) utt) xyzw) == Just (Boolean False) = Just GNo
+		| eval (resolveDrsToLF ((unmaybe . repS) utt) xyzw) == Nothing = Just GNoAnswer
+answer	utt@(GQUt (GNegQ (GTagQ _ _)))
+		| eval (resolveDrsToLF ((unmaybe . repS) utt) xyzw) == Just (Boolean True) = Just GYes
+		| eval (resolveDrsToLF ((unmaybe . repS) utt) xyzw) == Just (Boolean False) = Just GNo
+		| eval (resolveDrsToLF ((unmaybe . repS) utt) xyzw) == Nothing = Just GNoAnswer
 ----answer	utt@(GQUt _) = case (evalW . drsToFOL . unmaybe . repS) utt of
 ----	(Just []) -> Just (GAnswer Gno_pl_NP)
 ----	(Just [x]) -> Just (GAnswer (GEntity (ent2gent x)))
