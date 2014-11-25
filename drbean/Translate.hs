@@ -1,11 +1,16 @@
 module Translate
 (
-  drsToLF
+  resolveDrsToLF
 ) where
 
 import Data.DRS.DataType
 import Data.DRS.Variables
 import qualified LogicalForm as L
+
+type DRSUnresolved = [DRSRef] -> DRS
+
+resolveDrsToLF :: DRSUnresolved -> [DRSRef] -> L.LF
+resolveDrsToLF ud rs | (DRS _ cs) <- (ud rs) = drsConsToLF cs
 
 drsToLF :: DRS -> L.LF
 drsToLF (LambdaDRS _)  = error "infelicitous LF formula"
