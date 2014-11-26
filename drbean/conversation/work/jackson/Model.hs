@@ -153,7 +153,6 @@ pred2 xs	= curry ( `elem` xs )
 pred3 xs	= curry3 ( `elem` xs )
 pred4 xs	= curry4 ( `elem` xs )
 
-possessions	= []
 type Judger = Entity
 type Judged = Entity
 type Content  = String
@@ -236,9 +235,6 @@ subordinate	= pred1 $ map snd supervision
 employee	= subordinate
 manager = boss
 
-have	= pred2 $ possessions
-		++ ( map (\x->(recipient x, theme x) ) giving )
-
 knowledge	= [(B,F),(T,F),(E,F),(B,P),(T,P),(E,P)]
 acquaintances	= []
 help	= pred2 $ supervision
@@ -246,8 +242,6 @@ help	= pred2 $ supervision
 twoPlacers, twoPlaceStarters :: [(String, TwoPlacePred)]
 twoPlaceStarters = [
     ("know_V2",    pred2 $ knowledge ++ acquaintances ++ map swap acquaintances)
-    , ("have",  pred2 $ possessions ++ 
-					map (\(_,l,_,r,_) ->(r,l) ) schooling)
     , ("kind",  pred2 $ [(student, H) | (_,_,_,student,_) <- schooling ])
     , ("placing",       pred2 $ [(student, school) | (_,school,_,student,_) <- schooling ]
                 )
@@ -256,19 +250,20 @@ twoPlaceStarters = [
     ]
 
 twoPlacers =
-	(gentwoPlacer affiliation "work" "employment" Patient Agent) :
-	(gentwoPlacer event "turn" "turn" Agent Theme) :
-	(gentwoPlacer condition "cover" "cover" Agent Theme) :
-	(gentwoPlacer condition "in_form_of" "in_form_of" Patient Instrument) :
-	(gentwoPlacer event "lose" "oust" Patient Theme) :
-	(gentwoPlacer idea "want_to_move_in" "move_in" Agent Patient) :
-	(gentwoPlacer event "thank" "thank" Agent Recipient) :
 	(gentwoPlacer event "buy_V2" "buy" Agent Theme) :
-	(gentwoPlacer affiliation "in_prep" "shelter" Patient Agent) :
-	(gentwoPlacer idea "remember" "remember" Agent Theme) :
+	(gentwoPlacer condition "cover" "cover" Agent Theme) :
 	(gentwoPlacer event "get" "give" Recipient Theme) :
+	(gentwoPlacer affiliation "have" "mother" Agent Patient) :
+	(gentwoPlacer condition "in_form_of" "in_form_of" Patient Instrument) :
+	(gentwoPlacer affiliation "in_prep" "shelter" Patient Agent) :
+	(gentwoPlacer event "lose" "oust" Patient Theme) :
 	(gentwoPlacer event "Open" "open" Agent Patient) :
+	(gentwoPlacer idea "remember" "remember" Agent Theme) :
 	(gentwoPlacer event "smell_V2" "smell" Agent Patient) :
+	(gentwoPlacer event "thank" "thank" Agent Recipient) :
+	(gentwoPlacer event "turn" "turn" Agent Theme) :
+	(gentwoPlacer idea "want_to_move_in" "move_in" Agent Patient) :
+	(gentwoPlacer affiliation "work" "employment" Patient Agent) :
 	twoPlaceStarters
 
 predid2 "receive" = predid2 "get"
