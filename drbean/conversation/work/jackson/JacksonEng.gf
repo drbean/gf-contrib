@@ -59,7 +59,7 @@ lin
 
   queen	= mkPN( mkN feminine (mkN "Queen") );
 	christmas	= mkPN( mkN nonhuman (mkN "Christmas") );
-	colorado	= mkPN( mkN nonhuman (mkN "the State of Colorado") );
+	colorado	= mkPN( mkN nonhuman (mkN "the state of Colorado") );
 
 	cooking	= mkN "cooking";
 	lotion	= mkN "lotion";
