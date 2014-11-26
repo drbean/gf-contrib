@@ -35,7 +35,7 @@ entity_check =  [
     , (S, "sign" )
     , (T, "ten_dollar_bill" )
     , (U, "unemployment" )
-    , (V, "" )
+    , (V, "bottle" )
     , (W, "joy" )
     , (X, "christmas" )
     , (Y, "cooking" )
@@ -102,7 +102,6 @@ onePlacers =
 	(genonePlacer event "cry" "cry" Patient) :
 	entityonePlacers ++ onePlaceStarters
 
-predid1 "bottle"	= predid1 "true"
 predid1 "sitting_back"	= predid1 "retiring"
 predid1 "enjoying_life"	= predid1 "retiring"
 predid1 "child"	= predid1 "daughter"
@@ -190,6 +189,7 @@ condition = [
 	("cover", [(Agent,U),(Theme,E)] )
 	, ("have", [(Agent,Y),(Theme,Z)] )
 	, ("have", [(Agent,X),(Theme,W)] )
+	, ("in_form_of", [(Patient,L),(Instrument,V)] )
 	, ("middle_class", [(Patient,Q)] )
 	, ("lonely", [(Patient,Q)] )
 	, ("savings", [(Patient,Q),(Instrument,M),(Theme,Unspec)] )
@@ -212,6 +212,7 @@ affiliation :: [ (Content, [(Case, Entity)]) ]
 affiliation = [
 	("employment", [(Agent,C),(Patient,Q) ] )
 	, ("shelter", [(Agent,H),(Patient,Q) ] )
+	, ("mother", [(Agent,Q),(Patient,D) ] )
 	]
 
 gentwoPlacer :: [ (Content, [(Case,Entity)]) ] ->
@@ -258,6 +259,7 @@ twoPlacers =
 	(gentwoPlacer affiliation "work" "employment" Patient Agent) :
 	(gentwoPlacer event "turn" "turn" Agent Theme) :
 	(gentwoPlacer condition "cover" "cover" Agent Theme) :
+	(gentwoPlacer condition "in_form_of" "in_form_of" Patient Instrument) :
 	(gentwoPlacer event "lose" "oust" Patient Theme) :
 	(gentwoPlacer idea "want_to_move_in" "move_in" Agent Patient) :
 	(gentwoPlacer event "thank" "thank" Agent Recipient) :
