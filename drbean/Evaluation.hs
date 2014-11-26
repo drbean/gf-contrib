@@ -24,6 +24,12 @@ realents :: [Entity]
 namedents = map snd characters
 realents = entities
 
+ref2ent :: DRSRef -> Entity
+ref2ent (DRSRef "x") = Q
+ref2ent (DRSRef "y") = C
+ref2ent (DRSRef "z") = D
+ref2ent (DRSRef "w") = M
+
 eval :: LF -> Maybe Answer
 eval (Exists _) = Just (Boolean True)
 eval (ForAll _) = Just (Boolean True)
@@ -31,7 +37,7 @@ eval (And f1 f2) = Just (conjLF (eval f1) (eval f2))
 eval (Or f1 f2) = Just (disjLF (eval f1) (eval f2))
 eval (Neg form) = eval form >>= notLF
 eval (Imp f1 f2) = liftM2 implLF (eval f1) (eval f2)
-eval (Rel _ _) = Just (Boolean True)
+eval (Rel (DRSRel r) rs) = int r (map ref2ent rs)
 eval Top = Just (Boolean True)
 eval Bottom = Just (Boolean False)
 
