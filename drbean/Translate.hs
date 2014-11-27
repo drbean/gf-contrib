@@ -12,7 +12,7 @@ type DRSUnresolved = [DRSRef] -> DRS
 resolveDrsToLF :: DRSUnresolved -> [DRSRef] -> L.LF
 resolveDrsToLF ud rs | (LambdaDRS _) <- (ud rs) = error "infelicitous LF formula"
 resolveDrsToLF ud rs | (Merge _  _) <- (ud rs) = error "infelicitous LF formula"
-resolveDrsToLF ud rs | (DRS _ cs) <- (ud rs) = drsConsToLF cs
+resolveDrsToLF ud rs | (DRS _ cs) <- (ud rs) = L.Exists ((drsConsToLF cs) rs)
 
 drsToLF :: DRS -> L.LF
 drsToLF (DRS _ cs) = drsConsToLF cs
