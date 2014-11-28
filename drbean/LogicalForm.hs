@@ -3,8 +3,8 @@ module LogicalForm (module LogicalForm) where
 import Data.DRS.DataType hiding (Rel)
 
 data LF = NonProposition
-	| ForAll (DRSRef -> LF)
-	| Exists (DRSRef -> LF)
+	| ForAll ([DRSRef] -> LF)
+	| Exists ([DRSRef] -> LF)
 	| And LF LF
 	| Or LF LF
 	| Imp LF LF
@@ -13,6 +13,9 @@ data LF = NonProposition
 	| Top
 	| Bottom
 --	deriving (Eq)
+
+instance Show LF where
+	show (Rel r rs) = show r ++ " " ++ show rs
 
 relname :: LF -> String
 relname (Rel (DRSRel name) _) = name
