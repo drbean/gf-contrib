@@ -4,7 +4,6 @@ import Control.Monad
 import Data.Maybe
 
 import Data.DRS
-import Data.FOL.Formula
 
 import PGF
 import Jackson
@@ -44,12 +43,12 @@ reps tests = do
   putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
 
 logic tests = do
-  gr	<- readPGF ( "./Jackson.pgf" )
-  let ss = map (chomp . lc_first) tests
-  let ps = map ( parses gr ) ss
-  let ts = map (map (\x -> (drsToFOL (((unmaybe . rep) x) xyzw )))) ps
-  let zs = zip (map (++"\t") tests) ts
-  putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
+	gr	<- readPGF ( "./Jackson.pgf" )
+	let ss = map (chomp . lc_first) tests
+	let ps = map ( parses gr ) ss
+	let ts = map (\ps' -> (\rs -> drsToLF (unmaybe (rep (head ps'))) rs) ) ps
+	let zs = zip (map (++"\t") tests) ts
+	putStrLn (unlines (map (\(x,y) -> x ++ (show (y xyzw) ) ) zs) )
 
 dic_test = [
   "Queen works for the State of Colorado."
