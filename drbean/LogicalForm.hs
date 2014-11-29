@@ -23,7 +23,8 @@ instance Show LF where
 showLForm :: LF -> String
 showLForm f = '\n' : showFormula f ++ "\n"
   where showFormula :: LF -> String
-        -- showFormula (Exists v f1) = opExists ++ v ++ showFormula f1
+        showFormula (Exists udrs) = opExists ++ "xyzw" ++ showFormula (udrs 
+					[DRSRef "x", DRSRef "y", DRSRef "z", DRSRef "w"])
         -- showFormula (ForAll v f1) = opForAll ++ v ++ showFormula f1
         showFormula (And f1 f2)   = "(" ++ showFormula f1 ++ " "  ++ opAnd ++ " "  ++ showFormula f2 ++ ")"
         showFormula (Or f1 f2)    = "(" ++ showFormula f1 ++ ") " ++ opOr  ++ " (" ++ showFormula f2 ++ ")"
