@@ -309,7 +309,11 @@ threePlacers =
 	(genthreePlacer event "buy" "buy" Agent Recipient Theme) :
 	threePlaceStarters
 
-data Case = Agent | Theme | Patient | Recipient | Feature | Location | Instrument
+data Case = Agent | Asset | Attribute | Beneficiary | Cause | CoAgent |
+	CoPatient | CoTheme | Destination | Experiencer | Extent | Goal |
+	InitialLocation | Instrument | Location | Material | Patient | Pivot |
+	Predicate | Product | Recipient | Reflexive | Result | Source |
+	Stimulus | Theme | Time | Topic | Trajectory | Value
   deriving Eq
 
 agent, theme, recipient, location, instrument ::
