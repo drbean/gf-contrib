@@ -186,11 +186,13 @@ event = [
 condition :: [ (Content, [(Case, Entity)]) ]
 condition = [
 	("cover", [(Agent,U),(Theme,E)] )
-	, ("have", [(Agent,Y),(Theme,Z)] )
 	, ("have", [(Agent,X),(Theme,W)] )
+	, ("have", [(Agent,Y),(Theme,Z)] )
+	, ("feel", [(Patient,Q),(Theme,P)] )
 	, ("in_form_of", [(Patient,L),(Instrument,V)] )
-	, ("middle_class", [(Patient,Q)] )
 	, ("lonely", [(Patient,Q)] )
+	, ("look", [(Patient,Q),(Theme,P)] )
+	, ("middle_class", [(Patient,Q)] )
 	, ("savings", [(Patient,Q),(Instrument,M),(Theme,Unspec)] )
 	]
 
@@ -253,10 +255,12 @@ twoPlaceStarters = [
 twoPlacers =
 	(gentwoPlacer event "buy_V2" "buy" Agent Theme) :
 	(gentwoPlacer condition "cover" "cover" Agent Theme) :
+	(gentwoPlacer condition "feel" "feel" Patient Theme) :
 	(gentwoPlacer event "get" "give" Recipient Theme) :
 	(gentwoPlacer affiliation "have" "mother" Agent Patient) :
 	(gentwoPlacer condition "in_form_of" "in_form_of" Patient Instrument) :
 	(gentwoPlacer affiliation "in_prep" "shelter" Patient Agent) :
+	(gentwoPlacer condition "look" "look" Patient Theme) :
 	(gentwoPlacer event "lose" "oust" Patient Theme) :
 	(gentwoPlacer event "Open" "open" Agent Patient) :
 	(gentwoPlacer idea "remember" "remember" Agent Theme) :
