@@ -14,9 +14,11 @@ drsToLF ud rs = case (ud rs) of
 	(LambdaDRS _) -> error "infelicitous FOL formula"
 	(Merge _ _) -> error "infelicitous FOL formula"
 	(DRS _ []) -> (\rs' -> L.Top ) rs
-	(DRS _ (Rel name rs' : [])) -> (\rs'' -> (L.Rel name rs'') ) rs'
-	(DRS _ (Rel name rs' : cs)) -> L.Exists (\rs'' -> L.And (L.Rel name rs') (drsToLF ( \rs'' -> DRS rs'' cs) rs) )
-	(DRS _ _) -> (\rs' -> (mkLF rs' (L.Rel (DRSRel "queen") rs') )) [DRSRef "x"]
+	(DRS _ (Rel name rs' : cs)) -> L.Exists (\rs'' -> L.And (L.Rel name rs') (drsConsToLF ( \rs'' -> cs) rs) )
 
-mkLF :: [DRSRef] -> L.LF -> L.LF
-mkLF _ (L.Rel r rs) = L.Rel r rs
+drsConsToLF :: ([DRSRef] -> [DRSCon]) -> ([DRSRef] -> L.LF)
+drsConsToLF uc rs = case (uc rs) of
+	([]) -> L.Top
+	([Rel r rs']) -> L.Rel r rs'
+	(Prop r d: []) -> L.And (L.Rel (DRSRel (drsRefToDRSVar r)) rs) (drsToLF (\rs' -> d) rs)
+	(c:cs) -> L.And (drsConsToLF (\rs'' -> [c]) rs) (drsConsToLF (\rs'' -> cs) rs)
