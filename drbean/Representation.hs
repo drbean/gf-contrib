@@ -212,7 +212,7 @@ repVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 			repNP subjcomp (\_ -> let
 			cond = [Rel (DRSRel (lin v0)) [positer, DRSRef "p"]
 				, Prop (DRSRef "p") (DRS []
-				[Rel (DRSRel (linNP subjcomp)++"_prop") [referent] ])]
+				[Rel (DRSRel ((linNP subjcomp)++"_prop")) [referent] ])]
 			in DRS rs cond )
 			rs'' ) rs'
 	(GIntens vv vp2) -> case vp2 of
@@ -222,7 +222,7 @@ repVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 			repNP np (\(referent:rs'') ->
 			repNP obj (\(theme:_) -> let
 			conds = [Rel (DRSRel (lin v0)) [positer, DRSRef "p"]
-				, Prop (DRSRef "p") (DRS [] [Rel (DRSRel (lin v)++"_prop")
+				, Prop (DRSRef "p") (DRS [] [Rel (DRSRel ((lin v)++"_prop"))
 				[referent, theme]])]
 			in DRS [theme, referent, positer] conds )
 			rs'' ) rs'
@@ -234,7 +234,7 @@ repVP (GPositing v0 (GNegS (GSentence np vp))) = case vp of
 			repNP np (\(referent:rs'') ->
 			repNP obj (\(theme:_) -> let
 			conds = [Rel (DRSRel (lin v0)) [positer, DRSRef "p"]
-				, Prop (DRSRef "p") (DRS [] [Neg (DRS [] [Rel (DRSRel (lin v)++"_prop")
+				, Prop (DRSRef "p") (DRS [] [Neg (DRS [] [Rel (DRSRel ((lin v)++"_prop"))
 				[referent, theme]])])]
 			in DRS [theme, referent, positer] conds )
 			rs'' ) rs'
