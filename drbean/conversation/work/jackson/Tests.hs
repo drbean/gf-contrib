@@ -42,13 +42,21 @@ reps tests = do
   let zs = zip (map (++"\t") tests) ts
   putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
 
-logic tests = do
+lf tests = do
 	gr	<- readPGF ( "./Jackson.pgf" )
 	let ss = map (chomp . lc_first) tests
 	let ps = map ( parses gr ) ss
-	let ts = map (\ps' -> (\rs -> drsToLF (unmaybe (rep (head ps'))) rs) ) ps
+	let ts = concat (map (map (\p -> (\rs -> drsToLF ((unmaybe . rep) p) rs)) ) ps)
 	let zs = zip (map (++"\t") tests) ts
 	putStrLn (unlines (map (\(x,y) -> x ++ (show (y xyzw) ) ) zs) )
+
+fol tests = do
+	gr	<- readPGF ( "./Jackson.pgf" )
+	let ss = map (chomp . lc_first) tests
+	let ps = map ( parses gr ) ss
+	let ts = map (map (\p -> (drsToFOL ( (unmaybe . rep) p xyzw) ) ) ) ps
+	let zs = zip (map (++"\t") tests) ts
+	putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
 
 dic_test = [
   "Queen works for the State of Colorado."
