@@ -29,6 +29,7 @@ ref2ent (DRSRef "x") = Q
 ref2ent (DRSRef "y") = C
 ref2ent (DRSRef "z") = D
 ref2ent (DRSRef "w") = M
+ref2ent (DRSRef "p") = P
 
 eval :: LF -> Maybe Answer
 eval (Exists _) = Just (Boolean True)
