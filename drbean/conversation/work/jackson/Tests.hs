@@ -46,9 +46,9 @@ lf tests = do
 	gr	<- readPGF ( "./Jackson.pgf" )
 	let ss = map (chomp . lc_first) tests
 	let ps = map ( parses gr ) ss
-	let ts = concat (map (map (\p -> (\rs -> drsToLF ((unmaybe . rep) p) rs)) ) ps)
+	let ts = concat (map (map (\p -> drsToLF ((unmaybe . rep) p) xyzw) ) ps)
 	let zs = zip (map (++"\t") tests) ts
-	putStrLn (unlines (map (\(x,y) -> x ++ (show (y xyzw) ) ) zs) )
+	putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
 
 fol tests = do
 	gr	<- readPGF ( "./Jackson.pgf" )
