@@ -11,7 +11,8 @@ type DRSUnresolved = [DRSRef] -> DRS
 
 drsToLF :: DRSUnresolved -> ([DRSRef] -> L.LF)
 drsToLF ud rs = case (ud rs) of
-	(DRS _ (Rel r d : [])) -> (\rs' -> (mkLF rs' (L.Rel r rs') )) d
+	(DRS _ (Rel name rs' : [])) -> (\rs'' -> (L.Rel name rs'') ) rs'
+	(DRS _ (Rel name rs' : cs)) -> (\rs'' -> L.And (L.Rel name rs') (drsToLF ( \rs'' -> DRS rs'' cs) rs) ) rs
 	(DRS _ _) -> (\rs' -> (mkLF rs' (L.Rel (DRSRel "queen") rs') )) [DRSRef "x"]
 
 mkLF :: [DRSRef] -> L.LF -> L.LF
