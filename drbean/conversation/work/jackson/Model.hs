@@ -200,6 +200,7 @@ idea = [
 	, ("move_in", [(Agent,D),(Patient,Q)] )
 	, ("care", [(Agent,Q),(Patient,D)] )
 	, ("remember", [(Agent,Q),(Theme,X)] )
+	, ("think", [(Agent,Q),(Theme,P)] )
 	]
 
 attitude :: [ (Content, [(Case, Entity)]) ]
@@ -261,6 +262,7 @@ twoPlacers =
 	(gentwoPlacer idea "remember" "remember" Agent Theme) :
 	(gentwoPlacer event "smell_V2" "smell" Agent Patient) :
 	(gentwoPlacer event "thank" "thank" Agent Recipient) :
+	(gentwoPlacer idea "think" "think" Agent Theme) :
 	(gentwoPlacer event "turn" "turn" Agent Theme) :
 	(gentwoPlacer idea "want_to_move_in" "move_in" Agent Patient) :
 	(gentwoPlacer affiliation "work" "employment" Patient Agent) :
