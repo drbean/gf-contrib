@@ -31,6 +31,10 @@ ref2ent (DRSRef "z") = D
 ref2ent (DRSRef "w") = M
 ref2ent (DRSRef "p") = P
 
+ent2ref :: Entity -> DRSRef
+ent2ref e = let [r] = [ r | r <- [DRSRef "x", DRSRef "y", DRSRef "z", DRSRef "w", DRSRef "p"]
+			, ref2ent r == e ] in r
+
 eval :: LF -> Maybe Answer
 eval (Exists _) = Just (Boolean True)
 eval (ForAll _) = Just (Boolean True)
