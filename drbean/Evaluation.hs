@@ -24,12 +24,8 @@ realents :: [Entity]
 namedents = map snd characters
 realents = entities
 
-ref2ent :: DRSRef -> Entity
-ref2ent (DRSRef "x") = Q
-ref2ent (DRSRef "y") = C
-ref2ent (DRSRef "z") = D
-ref2ent (DRSRef "w") = M
-ref2ent (DRSRef "p") = P
+ref2ent :: Entity -> DRSRef -> Entity
+ref2ent e x = e
 
 ent2ref :: Entity -> DRSRef
 ent2ref e = let [r] = [ r | r <- [DRSRef "x", DRSRef "y", DRSRef "z", DRSRef "w", DRSRef "p"]
