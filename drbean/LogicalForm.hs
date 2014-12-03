@@ -29,7 +29,7 @@ data LF = NonProposition
 
 instance Show Term where
   show (Const name) = show name
-  show (Var i)      = 'x': show i
+  show (Var x)      = show x
   show (Struct s []) = s
   show (Struct s ts) = s ++ show ts
 
