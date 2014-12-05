@@ -28,17 +28,20 @@ ref2ent :: Entity -> DRSRef -> Entity
 ref2ent e x = e
 
 ent2ref :: Entity -> DRSRef
-ent2ref e = let [r] = [ r | r <- [DRSRef "x", DRSRef "y", DRSRef "z", DRSRef "w", DRSRef "p"]
-			, ref2ent r == e ] in r
+ent2ref e = let [ref] = [ r | r <- [DRSRef "x", DRSRef "y", DRSRef "z", DRSRef "w", DRSRef "p"]
+			, ref2ent e r == e ] in ref
+
+term2ent :: Term -> Entity
+term2ent (Const e) = e
 
 eval :: LF -> Maybe Answer
 eval (Exists _) = Just (Boolean True)
-eval (ForAll _) = Just (Boolean True)
+eval (Forall _) = Just (Boolean True)
 eval (And f1 f2) = Just (conjLF (eval f1) (eval f2))
 eval (Or f1 f2) = Just (disjLF (eval f1) (eval f2))
 eval (Neg form) = eval form >>= notLF
 eval (Imp f1 f2) = liftM2 implLF (eval f1) (eval f2)
-eval (Rel (DRSRel r) rs) = int r (map ref2ent rs)
+eval (Rel name ts) = int name (map term2ent ts)
 eval Top = Just (Boolean True)
 eval Bottom = Just (Boolean False)
 
