@@ -90,6 +90,7 @@ onePlaceStarters = [
 
 	, ("male",	pred1 [N] )
 	, ("female",	pred1 [Q,D] )
+	, ("take_care_prop",	pred1 [Q] )
 	]
 
 onePlacers = 
