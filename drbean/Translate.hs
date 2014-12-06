@@ -15,7 +15,7 @@ drsToLF ud rs = case (ud rs) of
 	(Merge _ _) -> error "infelicitous FOL formula"
 	(DRS _ []) -> (\rs' -> L.Top ) rs
 	(DRS _ (Rel (DRSRel name) rs' : cs)) -> let ts = map (L.Var . drsRefToDRSVar) rs'
-		in L.Exists (\ts -> L.And (L.Rel name ts)
+		in L.Exists (\t -> L.And (L.Rel name ts)
 		(drsConsToLF ( \rs'' -> cs) rs) )
 	(DRS _ [Neg d]) -> (\rs' -> L.Neg (drsToLF (\rs'' -> d) rs') ) rs
 

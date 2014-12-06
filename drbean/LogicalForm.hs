@@ -18,7 +18,7 @@ data LF = NonProposition
 	| And LF LF
 	| Or LF LF
 	| Forall ([Term] -> LF)
-	| Exists ([Term] -> LF)
+	| Exists (Term -> LF)
 	| Single ([Term] -> LF)
 	| The ([Term] -> LF)
 	| Several ([Term] -> LF)
@@ -39,8 +39,8 @@ instance Show LF where
 showLForm :: LF -> String
 showLForm f = '\n' : showFormula f ++ "\n"
   where showFormula :: LF -> String
-        showFormula (Exists udrs) = opExists ++ "xyzw" ++ showFormula (udrs
-					[Var "x", Var "y", Var "z", Var "w"])
+        showFormula (Exists scope) = opExists ++ "xyzw" ++ showFormula (scope
+					(Var "x"))
         -- showFormula (ForAll v f1) = opForAll ++ v ++ showFormula f1
         showFormula (And f1 f2)   = "(" ++ showFormula f1 ++ " "  ++ opAnd ++ " "  ++ showFormula f2 ++ ")"
         showFormula (Or f1 f2)    = "(" ++ showFormula f1 ++ ") " ++ opOr  ++ " (" ++ showFormula f2 ++ ")"
