@@ -96,7 +96,7 @@ onePlacers =
 	(genonePlacer event "is_lay_off_ed" "lay_off" Patient) :
 	(genonePlacer event "go_out" "go_out" Agent) :
 	(genonePlacer condition "middle_class" "middle_class" Patient) :
-	(genonePlacer condition "look_middle_class" "middle_class" Patient) :
+	(genonePlacer condition "look:middle_class" "middle_class" Patient) :
 	(genonePlacer condition "lonely" "lonely" Patient) :
 	(genonePlacer condition "feel_lonely" "lonely" Patient) :
 	(genonePlacer event "cry" "cry" Patient) :
@@ -200,7 +200,8 @@ idea :: [ (Content, [(Case, Entity)]) ]
 idea = [
 	("another_job", [(Agent,Q),(Theme,J)] )
 	, ("move_in", [(Agent,D),(Patient,Q)] )
-	, ("care", [(Agent,Q),(Patient,D)] )
+	, ("care", [(Experiencer,Q),(Agent,Q),(Patient,D)] )
+	, ("care", [(Experiencer,Q),(Agent,D),(Patient,Q)] )
 	, ("remember", [(Agent,Q),(Theme,X)] )
 	, ("think", [(Agent,Q),(Theme,P)] )
 	]
@@ -254,6 +255,7 @@ twoPlaceStarters = [
 
 twoPlacers =
 	(gentwoPlacer event "buy_V2" "buy" Agent Theme) :
+	(gentwoPlacer idea "take_care_prop" "care" Agent Theme) :
 	(gentwoPlacer condition "cover" "cover" Agent Theme) :
 	(gentwoPlacer condition "feel" "feel" Patient Theme) :
 	(gentwoPlacer event "get" "give" Recipient Theme) :
@@ -386,6 +388,7 @@ fourPlaceStarters = [
         ]
 
 fourPlacers =
+	(genfourPlacer idea "think:take_care" "care" Experiencer Experiencer Agent Patient) :
 	fourPlaceStarters
 
 agent4, theme4, recipient4, location4 :: (Entity,Entity,Entity,Entity) -> Entity
