@@ -33,12 +33,16 @@ ent2ref e = let [ref] = [ r | r <- [DRSRef "x", DRSRef "y", DRSRef "z", DRSRef "
 
 term2ent :: Term -> Entity
 term2ent (Const e) = e
+term2ent _ = Something
+
+terms :: [Term]
+terms = map Const entities
 
 eval :: LF -> Maybe Answer
-eval (Exists _) = Just (Boolean True)
-eval (Forall _) = Just (Boolean True)
-eval (And f1 f2) = Just (conjLF (eval f1) (eval f2))
-eval (Or f1 f2) = Just (disjLF (eval f1) (eval f2))
+eval (Exists scope)     = eval (Disj (map scope terms))
+-- eval (Forall scope)     = eval (Conj (map scope terms))
+eval (Conj lfs) = foldM conjLF (Boolean True) (map (fromMaybe NoAnswer . eval ) lfs)
+eval (Disj lfs) = foldM disjLF (Boolean False) (map (fromMaybe NoAnswer . eval ) lfs)
 eval (Neg form) = eval form >>= notLF
 eval (Imp f1 f2) = liftM2 implLF (eval f1) (eval f2)
 eval (Rel name ts) = int name (map term2ent ts)
@@ -59,13 +63,13 @@ implLF = lifting (\b1 b2 -> not (b1 && (not b2)))
 equiLF :: Answer -> Answer -> Answer
 equiLF = lifting (==)
 
-conjLF :: Maybe Answer -> Maybe Answer -> Answer
-conjLF (Just b1) (Just b2) = lifting (\x y -> x && y) b1 b2
-conjLF _ _ = NoAnswer
+conjLF :: Answer -> Answer -> Maybe Answer
+conjLF (Boolean b1) (Boolean b2) = Just (Boolean ( b1 && b2 ) )
+conjLF _ _ = Nothing
 
-disjLF :: Maybe Answer -> Maybe Answer -> Answer
-disjLF (Just b1) (Just b2) = lifting (\x y -> (x || y)) b1 b2
-disjLF _ _ = NoAnswer
+disjLF :: Answer -> Answer -> Maybe Answer
+disjLF (Boolean b1) (Boolean b2) = Just (Boolean ( b1 || b2 ) )
+disjLF _ _ = Nothing
 
 unJustAnswer :: LF -> Answer
 unJustAnswer = \lf -> fromMaybe NoAnswer (eval lf)
