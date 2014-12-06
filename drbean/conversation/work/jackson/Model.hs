@@ -90,7 +90,9 @@ onePlaceStarters = [
 
 	, ("male",	pred1 [N] )
 	, ("female",	pred1 [Q,D] )
-	, ("take_care_prop",	pred1 [Q] )
+	, ("lonely_prop",	pred1 [P] )
+	, ("middle_class_prop",	pred1 [P] )
+	, ("take_care_prop",	pred1 [P] )
 	]
 
 onePlacers = 
@@ -201,8 +203,8 @@ idea :: [ (Content, [(Case, Entity)]) ]
 idea = [
 	("another_job", [(Agent,Q),(Theme,J)] )
 	, ("move_in", [(Agent,D),(Patient,Q)] )
-	, ("care", [(Experiencer,Q),(Agent,Q),(Patient,D)] )
-	, ("care", [(Experiencer,Q),(Agent,D),(Patient,Q)] )
+	, ("care", [(Experiencer,Q),(Topic,P),(Agent,Q),(Patient,D)] )
+	, ("care", [(Experiencer,Q),(Topic,P),(Agent,D),(Patient,Q)] )
 	, ("remember", [(Agent,Q),(Theme,X)] )
 	, ("think", [(Agent,Q),(Theme,P)] )
 	]
@@ -256,7 +258,6 @@ twoPlaceStarters = [
 
 twoPlacers =
 	(gentwoPlacer event "buy_V2" "buy" Agent Theme) :
-	(gentwoPlacer idea "take_care_prop" "care" Agent Theme) :
 	(gentwoPlacer condition "cover" "cover" Agent Theme) :
 	(gentwoPlacer condition "feel" "feel" Patient Theme) :
 	(gentwoPlacer event "get" "give" Recipient Theme) :
@@ -303,9 +304,8 @@ threePlaceStarters = [
                     (student,subject,school) ) schooling )
     ]
 threePlacers =
+	(genthreePlacer idea "take_care" "care" Topic Agent Patient) :
 	(genthreePlacer idea "think:can_to_get" "another_job" Agent Agent Theme) :
-	(genthreePlacer idea "think:should_not_to_take_care" "care" Agent Patient Patient) :
-	(genthreePlacer idea "think:should_to_take_care" "care" Agent Agent Patient) :
 	(genthreePlacer event "hand" "hand" Agent Recipient Theme) :
 	(genthreePlacer event "give" "give" Agent Recipient Theme) :
 	(genthreePlacer condition "have_V2V_to_buy_V2" "have" Patient Instrument Theme) :
@@ -389,7 +389,6 @@ fourPlaceStarters = [
         ]
 
 fourPlacers =
-	(genfourPlacer idea "think:take_care" "care" Experiencer Experiencer Agent Patient) :
 	fourPlaceStarters
 
 agent4, theme4, recipient4, location4 :: (Entity,Entity,Entity,Entity) -> Entity
