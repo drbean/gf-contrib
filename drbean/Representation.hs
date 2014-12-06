@@ -44,6 +44,10 @@ linNP (GItem _ (GKind _ noun)) = lin noun
 linNP (GItem _ noun) = lin noun
 linNP (GMassItem _ noun) = lin noun
 
+linAP :: GAP -> String
+linAP (GAdvAdj _ a) = lin a
+linAP a = lin a
+
 linIP :: GIP -> String
 linIP who_WH = "person"
 linIP what_WH = "thing"
@@ -188,8 +192,8 @@ repVP (GBe_vp comp) = case comp of
 repVP (GLook_bad v ap) = \rs -> let
 	patient = head rs
 	DRS rs' conds = repAP ap rs
-	look_conds = [Rel (DRSRel (lin v)) [patient, DRSRef "p"]
-		, Prop (DRSRef "p") (DRS [] conds)]
+	look_conds = [Rel (DRSRel (lin v)) [patient, DRSRef ((linAP ap)++"_prop")]
+		, Prop (DRSRef ((linAP ap)++"_prop")) (DRS [] conds)]
 	in DRS rs look_conds
 repVP (GHappening v) = \rs ->
 	DRS rs [Rel (DRSRel (lin v)) [head rs]]
@@ -210,8 +214,8 @@ repVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 			rs' = tail rs in
 			repNP np (\(referent:rs'') ->
 			repNP subjcomp (\_ -> let
-			cond = [Rel (DRSRel (lin v0)) [positer, DRSRef "p"]
-				, Prop (DRSRef "p") (DRS []
+			cond = [Rel (DRSRel (lin v0)) [positer, DRSRef ((lin v0)++":be")]
+				, Prop (DRSRef ((lin v0)++":be")) (DRS []
 				[Rel (DRSRel ((linNP subjcomp)++"_prop")) [referent] ])]
 			in DRS rs cond )
 			rs'' ) rs'
@@ -221,9 +225,9 @@ repVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 			rs' = tail rs in
 			repNP np (\(referent:rs'') ->
 			repNP obj (\(theme:_) -> let
-			conds = [Rel (DRSRel (lin v0)) [positer, DRSRef "p"]
-				, Prop (DRSRef "p") (DRS [] [Rel (DRSRel ((lin v)++"_prop"))
-				[referent, theme]])]
+			conds = [Rel (DRSRel (lin v0)) [positer, DRSRef ((lin v)++"_prop")]
+				, Prop (DRSRef ((lin v)++"_prop")) (DRS [] [Rel 
+				(DRSRel ((lin v0)++":"++(lin v))) [referent, theme]])]
 			in DRS [theme, referent, positer] conds )
 			rs'' ) rs'
 repVP (GPositing v0 (GNegS (GSentence np vp))) = case vp of
@@ -233,8 +237,9 @@ repVP (GPositing v0 (GNegS (GSentence np vp))) = case vp of
 			rs' = tail rs in
 			repNP np (\(referent:rs'') ->
 			repNP obj (\(theme:_) -> let
-			conds = [Rel (DRSRel (lin v0)) [positer, DRSRef "p"]
-				, Prop (DRSRef "p") (DRS [] [Neg (DRS [] [Rel (DRSRel ((lin v)++"_prop"))
+			conds = [Rel (DRSRel (lin v0)) [positer, DRSRef ((lin v)++"_prop")]
+				, Prop (DRSRef ((lin v)++"_prop")) (DRS [] [Neg (DRS []
+				[Rel (DRSRel ((lin v0)++":"++(lin v)))
 				[referent, theme]])])]
 			in DRS [theme, referent, positer] conds )
 			rs'' ) rs'
