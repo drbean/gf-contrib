@@ -225,9 +225,11 @@ repVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 			rs' = tail rs in
 			repNP np (\(referent:rs'') ->
 			repNP obj (\(theme:_) -> let
-			conds = [Rel (DRSRel (lin v0)) [positer, DRSRef ((lin v)++"_prop")]
-				, Prop (DRSRef ((lin v)++"_prop")) (DRS [] [Rel 
-				(DRSRel ((lin v0)++":"++(lin v))) [referent, theme]])]
+			lin_v = lin v
+			p = DRSRef (lin_v ++ "_prop")
+			conds = [Rel (DRSRel (lin v0)) [positer, p]
+				, Prop p (DRS [] [Rel 
+				(DRSRel lin_v) [p, referent, theme]])]
 			in DRS [theme, referent, positer] conds )
 			rs'' ) rs'
 repVP (GPositing v0 (GNegS (GSentence np vp))) = case vp of
@@ -237,9 +239,11 @@ repVP (GPositing v0 (GNegS (GSentence np vp))) = case vp of
 			rs' = tail rs in
 			repNP np (\(referent:rs'') ->
 			repNP obj (\(theme:_) -> let
-			conds = [Rel (DRSRel (lin v0)) [positer, DRSRef ((lin v)++"_prop")]
-				, Prop (DRSRef ((lin v)++"_prop")) (DRS [] [Neg (DRS []
-				[Rel (DRSRel ((lin v0)++":"++(lin v)))
-				[referent, theme]])])]
+			lin_v = lin v
+			p = DRSRef (lin_v ++ "_prop")
+			conds = [Rel (DRSRel (lin v0)) [positer, p]
+				, Prop p (DRS [] [Neg (DRS []
+				[Rel (DRSRel lin_v)
+				[p, referent, theme]])])]
 			in DRS [theme, referent, positer] conds )
 			rs'' ) rs'
