@@ -15,8 +15,8 @@ data LF = NonProposition
 	| Rel String [Term]
 	| Neg  LF
 	| Imp LF LF
-	| And LF LF
-	| Or LF LF
+	| Conj [LF]
+	| Disj [LF]
 	| Forall ([Term] -> LF)
 	| Exists (Term -> LF)
 	| Single ([Term] -> LF)
@@ -42,8 +42,8 @@ showLForm f = '\n' : showFormula f ++ "\n"
         showFormula (Exists scope) = opExists ++ "xyzw" ++ showFormula (scope
 					(Var "x"))
         -- showFormula (ForAll v f1) = opForAll ++ v ++ showFormula f1
-        showFormula (And f1 f2)   = "(" ++ showFormula f1 ++ " "  ++ opAnd ++ " "  ++ showFormula f2 ++ ")"
-        showFormula (Or f1 f2)    = "(" ++ showFormula f1 ++ ") " ++ opOr  ++ " (" ++ showFormula f2 ++ ")"
+        showFormula (Conj [f1,f2])   = "(" ++ showFormula f1 ++ " "  ++ opAnd ++ " "  ++ showFormula f2 ++ ")"
+        showFormula (Disj [f1,f2])    = "(" ++ showFormula f1 ++ ") " ++ opOr  ++ " (" ++ showFormula f2 ++ ")"
         showFormula (Imp f1 f2)   = "(" ++ showFormula f1 ++ ") " ++ opImp ++ " (" ++ showFormula f2 ++ ")"
         showFormula (Neg f1)      = opNeg ++ showFormula f1
         showFormula (Rel r d)     = r ++ "(" ++ intercalate "," (map show d) ++ ")"
