@@ -39,7 +39,7 @@ instance Show LF where
 showLForm :: LF -> String
 showLForm f = '\n' : showFormula f ++ "\n"
   where showFormula :: LF -> String
-        showFormula (Exists scope) = opExists ++ "xyzw" ++ showFormula (scope
+        showFormula (Exists scope) = opExists ++ "x" ++ showFormula (scope
 					(Var "x"))
         -- showFormula (ForAll v f1) = opForAll ++ v ++ showFormula f1
         showFormula (Conj [f1,f2])   = "(" ++ showFormula f1 ++ " "  ++ opAnd ++ " "  ++ showFormula f2 ++ ")"
