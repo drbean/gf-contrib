@@ -74,7 +74,7 @@ drsCons (DRS _ cs) = cs
 repS :: GUtt -> Maybe ([DRSRef] -> DRS)
 repS (GQUt (GPosQ (GYN (GSentence np vp)))) = Just (repNP np (repVP vp))
 
-xyzw = [DRSRef "x", DRSRef "y", DRSRef "z", DRSRef "w"] 
+xyzw = [DRSRef "x1", DRSRef "x2", DRSRef "x3", DRSRef "x4"] 
 
 newR :: DRSRef -> DRSRef
 newR r = let

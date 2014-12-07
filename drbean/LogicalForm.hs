@@ -34,21 +34,22 @@ instance Show Term where
   show (Struct s ts) = s ++ show ts
 
 instance Show LF where
-  show = showLForm
+  show = showLForm 1
 
-showLForm :: LF -> String
-showLForm f = '\n' : showFormula f ++ "\n"
-  where showFormula :: LF -> String
-        showFormula (Exists scope) = opExists ++ "x " ++ showFormula (scope
-					(Var (DRSRef "x")))
-        -- showFormula (ForAll v f1) = opForAll ++ v ++ showFormula f1
-        showFormula (Conj [f1,f2])   = "(" ++ showFormula f1 ++ " "  ++ opAnd ++ " "  ++ showFormula f2 ++ ")"
-        showFormula (Disj [f1,f2])    = "(" ++ showFormula f1 ++ ") " ++ opOr  ++ " (" ++ showFormula f2 ++ ")"
-        showFormula (Imp f1 f2)   = "(" ++ showFormula f1 ++ ") " ++ opImp ++ " (" ++ showFormula f2 ++ ")"
-        showFormula (Neg f1)      = opNeg ++ showFormula f1
-        showFormula (Rel r d)     = r ++ "(" ++ intercalate "," (map show d) ++ ")"
-        showFormula (Top)         = opTop
-        showFormula (Bottom)      = opBottom
+showLForm :: Int -> LF -> String
+showLForm i f = '\n' : showFormula i f ++ "\n"
+  where showFormula :: Int -> LF -> String
+        showFormula i (Exists scope) = opExists ++ "x" ++ (show i) ++ " " ++ showFormula (i+1) (scope
+					(Var (DRSRef ("x"++show i))))
+        showFormula i (Forall scope) = opForAll ++ "x" ++ (show i) ++ " " ++ showFormula (i+1) (scope
+					[(Var (DRSRef ("x"++show i)))])
+        showFormula i (Conj [f1,f2])   = "(" ++ showFormula i f1 ++ " "  ++ opAnd ++ " "  ++ showFormula i f2 ++ ")"
+        showFormula i (Disj [f1,f2])    = "(" ++ showFormula i f1 ++ ") " ++ opOr  ++ " (" ++ showFormula i f2 ++ ")"
+        showFormula i (Imp f1 f2)   = "(" ++ showFormula i f1 ++ ") " ++ opImp ++ " (" ++ showFormula i f2 ++ ")"
+        showFormula i (Neg f1)      = opNeg ++ showFormula i f1
+        showFormula i (Rel r d)     = r ++ "(" ++ intercalate "," (map show d) ++ ")"
+        showFormula i (Top)         = opTop
+        showFormula i (Bottom)      = opBottom
 
 
 relname :: LF -> String
