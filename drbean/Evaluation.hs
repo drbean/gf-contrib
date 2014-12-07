@@ -1,4 +1,4 @@
-module Evaluation (readPGF, chomp, lc_first, rep, parses, drsToLF, linear, showExpr, transform) where
+module Evaluation (readPGF, chomp, lc_first, xyzw, unmaybe, rep, parses, drsToLF, linear, showExpr, transform) where
 
 import PGF
 import Data.DRS hiding (Or,Neg,Imp,Rel)
