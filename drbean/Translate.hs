@@ -22,10 +22,9 @@ drsToLF ud rs = case (ud rs) of
 drsConsToLF :: ([DRSRef] -> [DRSCon]) -> ([DRSRef] -> L.LF)
 drsConsToLF uc rs = case (uc rs) of
 	[] -> L.Top
-	[Rel (DRSRel name) rs'] -> case rs' of
-		[r] -> L.Exists (\t -> L.Rel name [t])
+	[Rel (DRSRel name) rs'] -> L.Exists (\t -> L.Rel name ts) where ts = map L.Var rs'
 	[Neg d] -> L.Neg (drsToLF (\rs' -> d) rs)
-	[Prop p d] -> L.Conj [ (L.Rel (drsRefToDRSVar p) [head ts]), (drsToLF (\rs' -> d) rs) ] where ts = map (L.Var . drsRefToDRSVar) rs
+	[Prop p d] -> L.Conj [ (L.Rel (drsRefToDRSVar p) [head ts]), (drsToLF (\rs' -> d) rs) ] where ts = map L.Var rs
 	(c:cs) -> L.Conj [ (drsConsToLF (\rs'' -> [c]) rs), (drsConsToLF (\rs'' -> cs) rs) ]
 
 -- vim: set ts=2 sts=2 sw=2 noet:

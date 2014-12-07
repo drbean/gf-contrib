@@ -6,7 +6,7 @@ import Data.List
 
 import Model
 
-data Term = Const Entity | Var String | Struct String [Term]
+data Term = Const Entity | Var DRSRef | Struct String [Term]
         deriving (Eq)
 
 data LF = NonProposition
@@ -40,7 +40,7 @@ showLForm :: LF -> String
 showLForm f = '\n' : showFormula f ++ "\n"
   where showFormula :: LF -> String
         showFormula (Exists scope) = opExists ++ "x" ++ showFormula (scope
-					(Var "x"))
+					(Const Something))
         -- showFormula (ForAll v f1) = opForAll ++ v ++ showFormula f1
         showFormula (Conj [f1,f2])   = "(" ++ showFormula f1 ++ " "  ++ opAnd ++ " "  ++ showFormula f2 ++ ")"
         showFormula (Disj [f1,f2])    = "(" ++ showFormula f1 ++ ") " ++ opOr  ++ " (" ++ showFormula f2 ++ ")"
