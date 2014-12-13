@@ -130,7 +130,10 @@ answer	utt@(GQUt (GPosQ (GYN _)))
 	| eval lf == Just (Boolean True) = Just GYes
 	| eval lf == Just (Boolean False) = Just GNo
 	| eval lf == Nothing = Just GNoAnswer
-	where lf = drsToLF ((unmaybe . repS) utt) xyzw
+	where
+		drs = (unmaybe . repS) utt
+		d2l = drsToLF drs
+		lf = d2l xyzw
 answer	utt@(GQUt (GNegQ (GYN _)))
 	| eval lf == Just (Boolean True) = Just GYes
 	| eval lf == Just (Boolean False) = Just GNo
