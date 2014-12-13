@@ -127,21 +127,25 @@ rep x =  (repS . fg) x
 
 answer :: GUtt -> Maybe GUtt
 answer	utt@(GQUt (GPosQ (GYN _)))
-		| eval (drsToLF ((unmaybe . repS) utt) xyzw) == Just (Boolean True) = Just GYes
-		| eval (drsToLF ((unmaybe . repS) utt) xyzw) == Just (Boolean False) = Just GNo
-		| eval (drsToLF ((unmaybe . repS) utt) xyzw) == Nothing = Just GNoAnswer
+	| eval lf == Just (Boolean True) = Just GYes
+	| eval lf == Just (Boolean False) = Just GNo
+	| eval lf == Nothing = Just GNoAnswer
+	where lf = drsToLF ((unmaybe . repS) utt) xyzw
 answer	utt@(GQUt (GNegQ (GYN _)))
-		| eval (drsToLF ((unmaybe . repS) utt) xyzw) == Just (Boolean True) = Just GYes
-		| eval (drsToLF ((unmaybe . repS) utt) xyzw) == Just (Boolean False) = Just GNo
-		| eval (drsToLF ((unmaybe . repS) utt) xyzw) == Nothing = Just GNoAnswer
+	| eval lf == Just (Boolean True) = Just GYes
+	| eval lf == Just (Boolean False) = Just GNo
+	| eval lf == Nothing = Just GNoAnswer
+	where lf = drsToLF ((unmaybe . repS) utt) xyzw
 answer	utt@(GQUt (GPosQ (GTagQ _ _)))
-		| eval (drsToLF ((unmaybe . repS) utt) xyzw) == Just (Boolean True) = Just GYes
-		| eval (drsToLF ((unmaybe . repS) utt) xyzw) == Just (Boolean False) = Just GNo
-		| eval (drsToLF ((unmaybe . repS) utt) xyzw) == Nothing = Just GNoAnswer
+	| eval lf == Just (Boolean True) = Just GYes
+	| eval lf == Just (Boolean False) = Just GNo
+	| eval lf == Nothing = Just GNoAnswer
+	where lf = drsToLF ((unmaybe . repS) utt) xyzw
 answer	utt@(GQUt (GNegQ (GTagQ _ _)))
-		| eval (drsToLF ((unmaybe . repS) utt) xyzw) == Just (Boolean True) = Just GYes
-		| eval (drsToLF ((unmaybe . repS) utt) xyzw) == Just (Boolean False) = Just GNo
-		| eval (drsToLF ((unmaybe . repS) utt) xyzw) == Nothing = Just GNoAnswer
+	| eval lf == Just (Boolean True) = Just GYes
+	| eval lf == Just (Boolean False) = Just GNo
+	| eval lf == Nothing = Just GNoAnswer
+	where lf = drsToLF ((unmaybe . repS) utt) xyzw
 ----answer	utt@(GQUt _) = case (evalW . drsToFOL . unmaybe . repS) utt of
 ----	(Just []) -> Just (GAnswer Gno_pl_NP)
 ----	(Just [x]) -> Just (GAnswer (GEntity (ent2gent x)))
