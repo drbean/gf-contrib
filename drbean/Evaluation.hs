@@ -1,4 +1,4 @@
-module Evaluation (readPGF, chomp, lc_first, xyzw, unmaybe, rep, parses, drsToLF, linear, showExpr, transform) where
+module Evaluation (readPGF, chomp, lc_first, term2ref, xyzw, unmaybe, rep, parses, drsToLF, linear, showExpr, transform) where
 
 import PGF
 import Data.DRS hiding (Or,Neg,Imp,Rel)
@@ -37,6 +37,9 @@ term2ent _ = Something
 
 terms :: [Term]
 terms = map Const entities
+
+xyzw = [Var (DRSRef "x1"), Var (DRSRef "x2"), Var (DRSRef "x3"), Var (DRSRef "x4")]
+
 
 eval :: LF -> Maybe Answer
 eval (Exists scope)     = eval (Disj (map scope terms))

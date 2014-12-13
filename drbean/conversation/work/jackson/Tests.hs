@@ -38,7 +38,7 @@ reps tests = do
   gr	<- readPGF ( "./Jackson.pgf" )
   let ss = map (chomp . lc_first) tests
   let ps = map ( parses gr ) ss
-  let ts = map (map (\x -> (((unmaybe . rep) x) xyzw ))) ps
+  let ts = map (map (\x -> (((unmaybe . rep) x) (map term2ref xyzw) ))) ps
   let zs = zip (map (++"\t") tests) ts
   putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
 
@@ -54,7 +54,7 @@ fol tests = do
 	gr	<- readPGF ( "./Jackson.pgf" )
 	let ss = map (chomp . lc_first) tests
 	let ps = map ( parses gr ) ss
-	let ts = map (map (\p -> drsToFOL ( (unmaybe . rep) p xyzw) ) ) ps
+	let ts = map (map (\p -> drsToFOL ( (unmaybe . rep) p (map term2ref xyzw) ) ) ) ps
 	let zs = zip (map (++"\t") tests) ts
 	putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
 
