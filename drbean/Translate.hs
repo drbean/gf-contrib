@@ -1,6 +1,7 @@
 module Translate
 (
 	drsToLF
+	, term2ref
 ) where
 
 import Data.DRS.DataType
@@ -15,7 +16,10 @@ term2ref _ = undefined
 
 drsToLF :: DRSUnresolved -> ([L.Term] -> L.LF)
 drsToLF ud ts = case (map term2ref ts) of
-	[r] -> case (ud [r]) of
+	[r] -> L.Bottom
+	[r,s] -> undefined
+	[r,s,t] -> L.Top
+	[r,s,t,u] -> case (ud [r,s,t,u]) of
 		(LambdaDRS _) -> error "infelicitous FOL formula"
 		(Merge _ _) -> error "infelicitous FOL formula"
 		(DRS _ []) -> (\t -> L.Top ) (L.Var r)
@@ -25,7 +29,6 @@ drsToLF ud ts = case (map term2ref ts) of
 			_ -> L.Conj [ (L.Rel name (map L.Var r')),
 				(drsConsToLF ( \rs'' -> cs) [r]) ]
 		(DRS _ [Neg d]) -> (\rs' -> L.Neg (drsToLF (\rs'' -> d) rs') ) ts
-	_ -> undefined
 
 drsConsToLF :: ([DRSRef] -> [DRSCon]) -> ([DRSRef] -> L.LF)
 drsConsToLF uc rs = case (uc rs) of
