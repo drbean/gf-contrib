@@ -15,20 +15,17 @@ term2ref (L.Var r) = r
 term2ref _ = undefined
 
 drsToLF :: DRSUnresolved -> ([L.Term] -> L.LF)
-drsToLF ud ts = case (map term2ref ts) of
-	[r] -> L.Bottom
-	[r,s] -> undefined
-	[r,s,t] -> L.Top
-	[r,s,t,u] -> case (ud [r,s,t,u]) of
-		(LambdaDRS _) -> error "infelicitous FOL formula"
-		(Merge _ _) -> error "infelicitous FOL formula"
-		(DRS _ []) -> (\t -> L.Top ) (L.Var r)
-		(DRS _ (Rel (DRSRel name) r' : cs)) -> case r' of
-			[r''] -> L.Exists (\t -> L.Conj [ (L.Rel name [t]) ,
-				(drsConsToLF ( \rs'' -> cs) [r]) ])
-			_ -> L.Conj [ (L.Rel name (map L.Var r')),
-				(drsConsToLF ( \rs'' -> cs) [r]) ]
-		(DRS _ [Neg d]) -> (\rs' -> L.Neg (drsToLF (\rs'' -> d) rs') ) ts
+drsToLF ud ts = case (ud rs) of
+	(LambdaDRS _) -> error "infelicitous FOL formula"
+	(Merge _ _) -> error "infelicitous FOL formula"
+	(DRS _ []) -> (\t -> L.Top ) ts
+	(DRS _ (Rel (DRSRel name) rs' : cs)) -> case rs' of
+		[r] -> L.Exists (\t -> L.Conj [ (L.Rel name [t]) ,
+			(drsConsToLF ( \rs'' -> cs) (tail rs)) ])
+		_ -> L.Conj [ (L.Rel name (map L.Var rs')),
+			(drsConsToLF ( \rs'' -> cs) rs') ]
+	(DRS _ [Neg d]) -> (\rs' -> L.Neg (drsToLF (\rs'' -> d) rs') ) ts
+	where rs = map term2ref ts
 
 drsConsToLF :: ([DRSRef] -> [DRSCon]) -> ([DRSRef] -> L.LF)
 drsConsToLF uc rs = case (uc rs) of
