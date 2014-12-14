@@ -136,7 +136,7 @@ answer	utt@(GQUt (GPosQ (GYN _)))
 	where
 		drs = (unmaybe . repS) utt
 		d2l = drsToLF drs
-		lf = d2l xyzw
+		lf = d2l terms
 answer	utt@(GQUt (GNegQ (GYN _)))
 	| eval lf == Just (Boolean True) = Just GYes
 	| eval lf == Just (Boolean False) = Just GNo
