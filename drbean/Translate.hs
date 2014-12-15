@@ -20,10 +20,8 @@ drsToLF ud ts = case (ud rs) of
 	(Merge _ _) -> error "infelicitous FOL formula"
 	(DRS _ []) -> (\t -> L.Top ) ts
 	(DRS _ (Rel (DRSRel name) rs' : cs)) -> case rs' of
-		[r] -> L.Exists (\t -> case t of 
-			(L.Var r) -> L.Conj [ (L.Rel name [L.Var r]) ,
+		[r] -> L.Exists (\t -> L.Conj [ (L.Rel name [t]) ,
 				(drsConsToLF ( \rs'' -> cs) (tail rs)) ]
-			(L.Const e) -> error ("e: " ++ (show e))
 			 )
 		_ -> L.Conj [ (L.Rel name (map L.Var rs')),
 			(drsConsToLF ( \rs'' -> cs) rs') ]
