@@ -29,7 +29,7 @@ data LF = NonProposition
 
 instance Show Term where
   show (Const name) = show name
-  show (Var x)      = show x
+  show (Var e)      = show e
   show (Struct s []) = s
   show (Struct s ts) = s ++ show ts
 
@@ -39,10 +39,10 @@ instance Show LF where
 showLForm :: Int -> LF -> String
 showLForm i f = '\n' : showFormula i f ++ "\n"
   where showFormula :: Int -> LF -> String
-        showFormula i (Exists scope) = opExists ++ "x" ++ (show i) ++ " " ++ showFormula (i+1) (scope
-					(Var (DRSRef ("x"++show i))))
-        showFormula i (Forall scope) = opForAll ++ "x" ++ (show i) ++ " " ++ showFormula (i+1) (scope
-					[Var (DRSRef ("x"++show i))])
+        showFormula i (Exists scope) = opExists ++ "e" ++ (show i) ++ " " ++ showFormula (i+1) (scope
+					(Var (DRSRef ("e"++show i))))
+        showFormula i (Forall scope) = opForAll ++ "e" ++ (show i) ++ " " ++ showFormula (i+1) (scope
+					[Var (DRSRef ("e"++show i))])
         showFormula i (Conj [f1,f2])   = "(" ++ showFormula i f1 ++ " "  ++ opAnd ++ " "  ++ showFormula i f2 ++ ")"
         showFormula i (Disj [f1,f2])    = "(" ++ showFormula i f1 ++ ") " ++ opOr  ++ " (" ++ showFormula i f2 ++ ")"
         showFormula i (Imp f1 f2)   = "(" ++ showFormula i f1 ++ ") " ++ opImp ++ " (" ++ showFormula i f2 ++ ")"
