@@ -38,7 +38,7 @@ term2ent _ = Something
 terms :: [Term]
 terms = map Const entities
 
-xyzw = [Var (DRSRef "x1"), Var (DRSRef "x2"), Var (DRSRef "x3"), Var (DRSRef "x4")]
+xyzw = [Var (DRSRef "r1"), Var (DRSRef "r2"), Var (DRSRef "r3"), Var (DRSRef "r4")]
 
 
 eval :: LF -> Maybe Answer
