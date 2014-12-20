@@ -97,10 +97,6 @@ notNull [_,_,_,_] = Just (Boolean True )
 notNull [_,_,_,_,_] = Just (Boolean True )
 notNull _ = Nothing
 
-singleton :: [a] -> Bool
-singleton [x]	= True
-singleton _	= False
-
 smallN :: [a] -> Bool
 smallN [_,_]	= True
 smallN [_,_,_]	= True

@@ -32,21 +32,25 @@ replace (DRSRef "r2") = L.Var (DRSRef "e2")
 replace (DRSRef "r3") = L.Var (DRSRef "e3")
 replace (DRSRef "r4") = L.Var (DRSRef "e4")
 
+singleton :: [a] -> Bool
+singleton [x]	= True
+singleton _	= False
+
 drsToLF :: DRSUnresolved -> ([L.Term] -> L.LF)
-drsToLF ud ts = case (ud rs) of
-	(LambdaDRS _) -> error "infelicitous FOL formula"
-	(Merge _ _) -> error "infelicitous FOL formula"
-	(DRS _ []) -> (\t -> L.Top ) ts
-	(DRS _ cs) -> case (all isRel cs) of
-			True -> L.Conj [ (L.Rel (rel c) [replace r | r <- refs c]) | c <- cs]
-			_ -> undefined
-	(DRS _ (Rel (DRSRel name) rs' : cs)) -> case rs' of
-		[r] -> L.Exists (\t -> L.Conj [ (L.Rel name [t]) ,
+drsToLF ud ts
+	| (LambdaDRS _) <- ud rs = error "infelicitous FOL formula"
+	| (Merge _ _) <- ud rs = error "infelicitous FOL formula"
+	| (DRS _ []) <- ud rs = (\t -> L.Top ) ts
+	| (DRS _ cs) <- ud rs
+		, all isRel cs = L.Conj [ (L.Rel (rel c) [replace r | r <- refs c]) | c <- cs]
+	| (DRS _ (Rel (DRSRel name) rs' : cs)) <- ud rs
+		, (singleton rs') = L.Exists (\t -> L.Conj [ (L.Rel name [t]) ,
 				(drsConsToLF ( \rs'' -> cs) (tail rs)) ]
 			 )
-		_ -> L.Conj [ (L.Rel name (map L.Var rs')),
+	| (DRS _ (Rel (DRSRel name) rs' : cs)) <- ud rs
+		= L.Conj [ (L.Rel name (map L.Var rs')),
 			(drsConsToLF ( \rs'' -> cs) rs') ]
-	(DRS _ [Neg d]) -> (\rs' -> L.Neg (drsToLF (\rs'' -> d) rs') ) ts
+	| (DRS _ [Neg d]) <- ud rs = (\rs' -> L.Neg (drsToLF (\rs'' -> d) rs') ) ts
 	where rs = map term2ref ts
 
 drsConsToLF :: ([DRSRef] -> [DRSCon]) -> ([DRSRef] -> L.LF)
