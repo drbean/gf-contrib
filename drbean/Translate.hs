@@ -4,6 +4,7 @@ module Translate
 	, term2ref
 ) where
 
+import Data.List
 import Data.DRS.DataType
 import Data.DRS.Variables
 import qualified LogicalForm as L
@@ -31,6 +32,7 @@ replace (DRSRef "r1") = L.Var (DRSRef "e1")
 replace (DRSRef "r2") = L.Var (DRSRef "e2")
 replace (DRSRef "r3") = L.Var (DRSRef "e3")
 replace (DRSRef "r4") = L.Var (DRSRef "e4")
+replace (DRSRef p) | isSuffixOf "_prop" p = L.Var (DRSRef "e5")
 
 singleton :: [a] -> Bool
 singleton [x]	= True
