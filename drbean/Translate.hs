@@ -27,12 +27,13 @@ rel :: DRSCon -> String
 rel (Rel (DRSRel r) _) = r
 rel _ = undefined
 
-replace :: DRSRef -> L.Term
-replace (DRSRef "r1") = L.Var (DRSRef "e1")
-replace (DRSRef "r2") = L.Var (DRSRef "e2")
-replace (DRSRef "r3") = L.Var (DRSRef "e3")
-replace (DRSRef "r4") = L.Var (DRSRef "e4")
-replace (DRSRef p) | isSuffixOf "_prop" p = L.Var (DRSRef "e5")
+replace :: [L.Term] -> DRSRef -> L.Term
+replace ts (DRSRef "r1") = ts !! 0
+replace ts (DRSRef "r2") = ts !! 1
+replace ts (DRSRef "r3") = ts !! 2
+replace ts (DRSRef "r4") = ts !! 3
+replace ts (DRSRef p) | isSuffixOf "_prop" p = ts !! 4
+replace _ _ = undefined
 
 singleton :: [a] -> Bool
 singleton [x]	= True
@@ -44,7 +45,7 @@ drsToLF ud ts
 	| (Merge _ _) <- ud rs = error "infelicitous FOL formula"
 	| (DRS _ []) <- ud rs = (\t -> L.Top ) ts
 	| (DRS _ cs) <- ud rs
-		, all isRel cs = L.Conj [ (L.Rel (rel c) [replace r | r <- refs c]) | c <- cs]
+		, all isRel cs = L.Conj [ (L.Rel (rel c) [replace ts r | r <- refs c]) | c <- cs]
 	| (DRS _ (Rel (DRSRel name) rs' : cs)) <- ud rs
 		, (singleton rs') = L.Exists (\t -> L.Conj [ (L.Rel name [t]) ,
 				(drsConsToLF ( \rs'' -> cs) (tail rs)) ]
