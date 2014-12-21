@@ -30,9 +30,9 @@ main = do
 	let ls = map ((linear gr) <=< transform) ps
 	putStrLn ("Parsed: " ++ (show (map (showExpr []) ps) ) )
 	let urs = map (unmaybe . rep) ps
-	let reps = map (\ur -> ur xyzw) urs
+	let reps = map (\ur -> ur xyzwp) urs
 	putStrLn ("Representation: " ++ show reps )
-	let lfs = map (\ur -> drsToLF ur xyzw) urs
+	let lfs = map (\ur -> drsToLF ur xyzwp) urs
 	putStrLn ("LF: " ++ show lfs )
 	putStrLn ("Answer: " ++ (bestAnswer ls) )
 	let courses = map (label . fg) ps

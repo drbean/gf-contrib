@@ -2,6 +2,7 @@ module Translate
 (
 	drsToLF
 	, term2ref
+	, drsRefs
 ) where
 
 import Data.List
@@ -11,9 +12,16 @@ import qualified LogicalForm as L
 
 type DRSUnresolved = [DRSRef] -> DRS
 
-term2ref :: L.Term -> DRSRef
-term2ref (L.Var r) = r
-term2ref _ = undefined
+drsRefs = [ DRSRef "r1", DRSRef "r2", DRSRef "r3", DRSRef "r4",
+	DRSRef "prop"]
+
+term2ref :: [DRSRef] -> L.Term -> DRSRef
+term2ref rs (L.Var "e1") = rs !! 0
+term2ref rs (L.Var "e2") = rs !! 1
+term2ref rs (L.Var "e3") = rs !! 2
+term2ref rs (L.Var "e4") = rs !! 3
+term2ref rs (L.Var "p") = rs !! 4
+term2ref rs _ = undefined
 
 isRel :: DRSCon -> Bool
 isRel (Rel _ _) = True
@@ -33,7 +41,7 @@ replace ts (DRSRef "r2") = ts !! 1
 replace ts (DRSRef "r3") = ts !! 2
 replace ts (DRSRef "r4") = ts !! 3
 replace ts (DRSRef p) | isSuffixOf "_prop" p = ts !! 4
-replace _ _ = undefined
+replace ts _ = undefined
 
 singleton :: [a] -> Bool
 singleton [x]	= True
@@ -51,20 +59,20 @@ drsToLF ud ts
 				(drsConsToLF ( \rs'' -> cs) (tail rs)) ]
 			 )
 	| (DRS _ (Rel (DRSRel name) rs' : cs)) <- ud rs
-		= L.Conj [ (L.Rel name (map L.Var rs')),
+		= L.Conj [ (L.Rel name (map (replace ts) rs')),
 			(drsConsToLF ( \rs'' -> cs) rs') ]
 	| (DRS _ [Neg d]) <- ud rs = (\rs' -> L.Neg (drsToLF (\rs'' -> d) rs') ) ts
-	where rs = map term2ref ts
+	where rs = map (term2ref drsRefs) ts
 
 drsConsToLF :: ([DRSRef] -> [DRSCon]) -> ([DRSRef] -> L.LF)
 drsConsToLF uc rs = case (uc rs) of
 	[] -> L.Top
 	[Rel (DRSRel name) rs'] -> case rs' of
 		[r] -> L.Exists (\t -> L.Rel name [t])
-		_ -> L.Rel name (map L.Var rs')
+		_ -> L.Rel name (map (replace ts) rs')
 	[Neg d] -> L.Neg (drsToLF (\rs' -> d) ts)
 	[Prop p d] -> L.Conj [ (L.Rel (drsRefToDRSVar p) [head ts]), (drsToLF (\rs' -> d) ts) ]
 	(c:cs) -> L.Conj [ (drsConsToLF (\rs'' -> [c]) rs), (drsConsToLF (\rs'' -> cs) rs) ]
-	where ts = map L.Var rs
+	where ts = map (replace ts) rs
 
 -- vim: set ts=2 sts=2 sw=2 noet:
