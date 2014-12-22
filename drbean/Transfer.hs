@@ -30,7 +30,7 @@ main = do
 	let ls = map ((linear gr) <=< transform) ps
 	putStrLn ("Parsed: " ++ (show (map (showExpr []) ps) ) )
 	let urs = map (unmaybe . rep) ps
-	let reps = map (\ur -> ur xyzwp) urs
+	let reps = map (\ur -> ur (map (term2ref drsRefs) xyzwp)) urs
 	putStrLn ("Representation: " ++ show reps )
 	let lfs = map (\ur -> drsToLF ur xyzwp) urs
 	putStrLn ("LF: " ++ show lfs )
