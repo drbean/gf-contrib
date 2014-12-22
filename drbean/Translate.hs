@@ -1,6 +1,6 @@
 module Translate
 (
-	drsToLF
+	drsUnToLF
 	, term2ref
 	, drsRefs
 ) where
@@ -47,32 +47,39 @@ singleton :: [a] -> Bool
 singleton [x]	= True
 singleton _	= False
 
-drsToLF :: DRSUnresolved -> ([L.Term] -> L.LF)
-drsToLF ud ts
+drsUnToLF :: DRSUnresolved -> ([L.Term] -> L.LF)
+drsUnToLF ud ts
 	| (LambdaDRS _) <- ud rs = error "infelicitous FOL formula"
 	| (Merge _ _) <- ud rs = error "infelicitous FOL formula"
 	| (DRS _ []) <- ud rs = (\t -> L.Top ) ts
-	| (DRS _ cs) <- ud rs
-		, all isRel cs = L.Conj [ (L.Rel (rel c) [ref2term ts r | r <- refs c]) | c <- cs]
-	| (DRS _ (Rel (DRSRel name) rs' : cs)) <- ud rs
-		, (singleton rs') = L.Exists (\t -> L.Conj [ (L.Rel name [t]) ,
-				(drsConsToLF ( \rs'' -> cs) (tail rs)) ]
+	| (DRS rl (Rel (DRSRel name) rs' : cs)) <- ud rs
+		, r : [] <- rs
+		, rl' <- filter (/= r) rl
+		, e <- ref2term ts r
+		= L.Exists (\e -> L.Conj [ (L.Rel name [e]) ,
+				(drsToLF (DRS rl' cs)) ]
 			 )
-	| (DRS _ (Rel (DRSRel name) rs' : cs)) <- ud rs
+	| (DRS rl (Rel (DRSRel name) rs' : cs)) <- ud rs
 		= L.Conj [ (L.Rel name (map (ref2term ts) rs')),
-			(drsConsToLF ( \rs'' -> cs) rs') ]
-	| (DRS _ [Neg d]) <- ud rs = (\rs' -> L.Neg (drsToLF (\rs'' -> d) rs') ) ts
+			(drsToLF (DRS rl cs) ) ]
+	| (DRS _ [Neg d]) <- ud rs = (\rs' -> L.Neg (drsToLF d) ) ts
 	where rs = map (term2ref drsRefs) ts
 
-drsConsToLF :: ([DRSRef] -> [DRSCon]) -> ([DRSRef] -> L.LF)
-drsConsToLF uc rs = case (uc rs) of
-	[] -> L.Top
-	[Rel (DRSRel name) rs'] -> case rs' of
-		[r] -> L.Exists (\t -> L.Rel name [t])
-		_ -> L.Rel name (map (ref2term ts) rs')
-	[Neg d] -> L.Neg (drsToLF (\rs' -> d) ts)
-	[Prop p d] -> L.Conj [ (L.Rel (drsRefToDRSVar p) [head ts]), (drsToLF (\rs' -> d) ts) ]
-	(c:cs) -> L.Conj [ (drsConsToLF (\rs'' -> [c]) rs), (drsConsToLF (\rs'' -> cs) rs) ]
+drsToLF :: DRS -> L.LF
+drsToLF (DRS _ []) = L.Top
+drsToLF (DRS rl (Rel (DRSRel name) rs : cs))
+	| r : [] <- rs
+		, rl' <- filter (/= r) rl
+		, e <- ref2term ts r
+		= L.Exists (\e -> L.Conj [ (L.Rel name [e]) ,
+				(drsToLF (DRS rl' cs )) ])
 	where ts = map (ref2term ts) rs
+drsToLF (DRS rl (Rel (DRSRel name) rs : cs))
+		= L.Conj [ (L.Rel name (map (ref2term ts) rs)),
+			(drsToLF (DRS rl cs)) ]
+	where ts = map (ref2term ts) rs
+--drsToLF [Neg d] = L.Neg (drsToLF d)
+--drsToLF [Prop p d] = L.Conj [ (L.Rel (drsRefToDRSVar p) [head ts]), (drsToLF d) ]
+--	where ts = map (ref2term ts) rs
 
 -- vim: set ts=2 sts=2 sw=2 noet:
