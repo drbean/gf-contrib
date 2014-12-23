@@ -32,7 +32,7 @@ main = do
 	let urs = map (unmaybe . rep) ps
 	let reps = map (\ur -> ur (map (term2ref drsRefs) xyzwp)) urs
 	putStrLn ("Representation: " ++ show reps )
-	let lfs = map (\ur -> drsToLF ur xyzwp) urs
+	let lfs = map (\ur -> drsUnToLF ur xyzwp) urs
 	putStrLn ("LF: " ++ show lfs )
 	putStrLn ("Answer: " ++ (bestAnswer ls) )
 	let courses = map (label . fg) ps
