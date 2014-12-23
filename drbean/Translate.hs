@@ -24,7 +24,7 @@ term2ref rs (L.Var "e2") = rs !! 1
 term2ref rs (L.Var "e3") = rs !! 2
 term2ref rs (L.Var "e4") = rs !! 3
 term2ref rs (L.Var "p") = rs !! 4
-term2ref rs _ = undefined
+term2ref rs x = error ("term2ref " ++ (show x) ++ ": undefined")
 
 isRel :: DRSCon -> Bool
 isRel (Rel _ _) = True
@@ -66,15 +66,15 @@ drsToLF (DRS rl (Rel (DRSRel name) rs : cs))
 	= L.Exists (\e -> L.Conj [ (L.Rel name [e]) ,
 			(drsToLF (DRS rl' cs)) ]
 		 )
-	where ts = map (ref2term xyzwp) rs
+	where ts = map (ref2term xyzwp) drsRefs
 drsToLF (DRS rl (Rel (DRSRel name) rs : cs))
 	= L.Conj [ (L.Rel name (map (ref2term ts) rs)),
 		(drsToLF (DRS rl cs) ) ]
-	where ts = map (ref2term xyzwp) rs
+	where ts = map (ref2term xyzwp) drsRefs
 drsToLF (DRS rl (Rel (DRSRel name) rs : cs))
 		= L.Conj [ (L.Rel name (map (ref2term ts) rs)),
 			(drsToLF (DRS rl cs)) ]
-	where ts = map (ref2term xyzwp) rs
+	where ts = map (ref2term xyzwp) drsRefs
 --drsToLF [Neg d] = L.Neg (drsToLF d)
 --drsToLF [Prop p d] = L.Conj [ (L.Rel (drsRefToDRSVar p) [head ts]), (drsToLF d) ]
 --	where ts = map (ref2term ts) rs
