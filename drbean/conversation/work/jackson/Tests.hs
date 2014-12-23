@@ -97,7 +97,7 @@ dic_test = [
   ]
 
 yn_dic_test = [
-  "Does Queen work for the State of Colorado?"
+  "Does Queen work for the state of Colorado?"
   -- , "Does Queen have great ideas of retiring?"
   -- , "Does Queen have great ideas of sitting back?"
   -- , "Does Queen have great ideas of enjoying life?"
