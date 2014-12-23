@@ -62,7 +62,7 @@ drsUnToLF ud ts
 	| (DRS rl (Rel (DRSRel name) rs' : cs)) <- ud rs
 		= L.Conj [ (L.Rel name (map (ref2term ts) rs')),
 			(drsToLF (DRS rl cs) ) ]
-	| (DRS _ [Neg d]) <- ud rs = (\rs' -> L.Neg (drsToLF d) ) ts
+--	| (DRS _ [Neg d]) <- ud rs = (\rs' -> L.Neg (drsToLF d) ) ts
 	where rs = map (term2ref drsRefs) ts
 
 drsToLF :: DRS -> L.LF
