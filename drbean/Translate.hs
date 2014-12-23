@@ -60,6 +60,7 @@ drsToLF (Merge _ _) = error "infelicitous FOL formula"
 drsToLF (DRS _ []) = L.Top
 drsToLF (DRS rl (Rel (DRSRel name) rs : cs))
 	| r : [] <- rs
+	, r `elem` rl
 	, rl' <- filter (/= r) rl
 	, e <- ref2term ts r
 	= L.Exists (\e -> L.Conj [ (L.Rel name [e]) ,
