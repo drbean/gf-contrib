@@ -3,6 +3,7 @@ module Translate
 	drsUnToLF
 	, term2ref
 	, drsRefs
+	, xyzwp
 ) where
 
 import Data.List
@@ -14,6 +15,8 @@ type DRSUnresolved = [DRSRef] -> DRS
 
 drsRefs = [ DRSRef "r1", DRSRef "r2", DRSRef "r3", DRSRef "r4",
 	DRSRef "prop"]
+
+xyzwp = [L.Var "e1", L.Var "e2", L.Var "e3", L.Var "e4", L.Var "p"]
 
 term2ref :: [DRSRef] -> L.Term -> DRSRef
 term2ref rs (L.Var "e1") = rs !! 0
@@ -48,36 +51,29 @@ singleton [x]	= True
 singleton _	= False
 
 drsUnToLF :: DRSUnresolved -> ([L.Term] -> L.LF)
-drsUnToLF ud ts
-	| (LambdaDRS _) <- ud rs = error "infelicitous FOL formula"
-	| (Merge _ _) <- ud rs = error "infelicitous FOL formula"
-	| (DRS _ []) <- ud rs = (\t -> L.Top ) ts
-	| (DRS rl (Rel (DRSRel name) rs' : cs)) <- ud rs
-		, r : [] <- rs
-		, rl' <- filter (/= r) rl
-		, e <- ref2term ts r
-		= L.Exists (\e -> L.Conj [ (L.Rel name [e]) ,
-				(drsToLF (DRS rl' cs)) ]
-			 )
-	| (DRS rl (Rel (DRSRel name) rs' : cs)) <- ud rs
-		= L.Conj [ (L.Rel name (map (ref2term ts) rs')),
-			(drsToLF (DRS rl cs) ) ]
---	| (DRS _ [Neg d]) <- ud rs = (\rs' -> L.Neg (drsToLF d) ) ts
-	where rs = map (term2ref drsRefs) ts
+drsUnToLF ud ts = drsToLF d
+	where d = ud ( map (term2ref drsRefs) ts )
 
 drsToLF :: DRS -> L.LF
+drsToLF (LambdaDRS _) = error "infelicitous FOL formula"
+drsToLF (Merge _ _) = error "infelicitous FOL formula"
 drsToLF (DRS _ []) = L.Top
 drsToLF (DRS rl (Rel (DRSRel name) rs : cs))
 	| r : [] <- rs
-		, rl' <- filter (/= r) rl
-		, e <- ref2term ts r
-		= L.Exists (\e -> L.Conj [ (L.Rel name [e]) ,
-				(drsToLF (DRS rl' cs )) ])
-	where ts = map (ref2term ts) rs
+	, rl' <- filter (/= r) rl
+	, e <- ref2term ts r
+	= L.Exists (\e -> L.Conj [ (L.Rel name [e]) ,
+			(drsToLF (DRS rl' cs)) ]
+		 )
+	where ts = map (ref2term xyzwp) rs
+drsToLF (DRS rl (Rel (DRSRel name) rs : cs))
+	= L.Conj [ (L.Rel name (map (ref2term ts) rs)),
+		(drsToLF (DRS rl cs) ) ]
+	where ts = map (ref2term xyzwp) rs
 drsToLF (DRS rl (Rel (DRSRel name) rs : cs))
 		= L.Conj [ (L.Rel name (map (ref2term ts) rs)),
 			(drsToLF (DRS rl cs)) ]
-	where ts = map (ref2term ts) rs
+	where ts = map (ref2term xyzwp) rs
 --drsToLF [Neg d] = L.Neg (drsToLF d)
 --drsToLF [Prop p d] = L.Conj [ (L.Rel (drsRefToDRSVar p) [head ts]), (drsToLF d) ]
 --	where ts = map (ref2term ts) rs

@@ -38,9 +38,6 @@ term2ent _ = Something
 terms :: [Term]
 terms = map Const entities
 
-xyzwp = [Var "e1", Var "e2", Var "e3", Var "e4", Var "p"]
-
-
 eval :: LF -> Maybe Answer
 eval (Exists scope)     = eval (Disj (map scope terms))
 -- eval (Forall scope)     = eval (Conj (map scope terms))
