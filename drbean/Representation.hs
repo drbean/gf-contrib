@@ -156,7 +156,7 @@ repCN (GOfpos n2 np) = \rs -> let
        rs' = (tail . tail) rs
        DRS _ conds = repN2 n2 rs in
        repNP np (\ (owner:_) -> let
-       newconds = Rel (DRSRel "have") [owner, thing] : conds
+       newconds = conds ++ [Rel (DRSRel "have") [owner, thing]]
        in DRS (thing:rs') newconds ) (tail rs)
 repCN name     = \rs ->
 	DRS rs [Rel (DRSRel (lin name)) [head rs]]
