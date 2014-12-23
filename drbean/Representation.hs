@@ -125,7 +125,7 @@ repMassDet (GMassApos owner) = \p q rs -> let
 	thing = head prs
 	ownership_cond =  Rel (DRSRel "have") [owner_ref, thing]
 	DRS qrs qconds = q prs
-	conds = ownership_cond : (pconds ++ qconds)
+	conds = pconds ++ [ownership_cond] ++ qconds
 	in repNP owner (\ rs' -> DRS rs' conds ) rs
 
 repN :: GN -> [DRSRef] -> DRS
