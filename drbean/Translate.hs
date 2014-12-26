@@ -1,6 +1,6 @@
 module Translate
 (
-	drsUnToLF
+	drsToLF
 	, term2ref
 	, drsRefs
 	, xyzwp

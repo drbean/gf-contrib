@@ -1,4 +1,4 @@
-module Evaluation (readPGF, chomp, lc_first, term2ref, drsRefs, xyzwp, unmaybe, rep, parses, drsUnToLF, linear, showExpr, transform) where
+module Evaluation (readPGF, chomp, lc_first, term2ref, drsRefs, xyzwp, unmaybe, rep, parses, drsToLF, linear, showExpr, transform) where
 
 import PGF
 import Data.DRS hiding (Or,Neg,Imp,Rel)
@@ -127,24 +127,29 @@ answer	utt@(GQUt (GPosQ (GYN _)))
 	| eval lf == Just (Boolean False) = Just GNo
 	| eval lf == Nothing = Just GNoAnswer
 	where
-		drs = (unmaybe . repS) utt
-		d2l = drsUnToLF drs
-		lf = d2l terms
+		drs = ((unmaybe . repS) utt) drsRefs
+		lf = drsToLF drs
 answer	utt@(GQUt (GNegQ (GYN _)))
 	| eval lf == Just (Boolean True) = Just GYes
 	| eval lf == Just (Boolean False) = Just GNo
 	| eval lf == Nothing = Just GNoAnswer
-	where lf = drsUnToLF ((unmaybe . repS) utt) xyzwp
+	where
+		drs = ((unmaybe . repS) utt) drsRefs
+		lf = drsToLF drs
 answer	utt@(GQUt (GPosQ (GTagQ _ _)))
 	| eval lf == Just (Boolean True) = Just GYes
 	| eval lf == Just (Boolean False) = Just GNo
 	| eval lf == Nothing = Just GNoAnswer
-	where lf = drsUnToLF ((unmaybe . repS) utt) xyzwp
+	where
+		drs = ((unmaybe . repS) utt) drsRefs
+		lf = drsToLF drs
 answer	utt@(GQUt (GNegQ (GTagQ _ _)))
 	| eval lf == Just (Boolean True) = Just GYes
 	| eval lf == Just (Boolean False) = Just GNo
 	| eval lf == Nothing = Just GNoAnswer
-	where lf = drsUnToLF ((unmaybe . repS) utt) xyzwp
+	where
+		drs = ((unmaybe . repS) utt) drsRefs
+		lf = drsToLF drs
 ----answer	utt@(GQUt _) = case (evalW . drsToFOL . unmaybe . repS) utt of
 ----	(Just []) -> Just (GAnswer Gno_pl_NP)
 ----	(Just [x]) -> Just (GAnswer (GEntity (ent2gent x)))
