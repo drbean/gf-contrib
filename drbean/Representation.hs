@@ -58,19 +58,6 @@ linIP what_WH = "thing"
 unmaybe (Just x) = x
 -- unmaybe Nothing = I
 
-data DRSRefTuple = OneRef DRSRef | TwoRef (DRSRef,DRSRef) |
-       ThreeRef (DRSRef,DRSRef,DRSRef) | FourRef (DRSRef,DRSRef,DRSRef,DRSRef)
-
-first :: DRSRefTuple -> DRSRef
-first (OneRef one) = one
-first (TwoRef (one,two)) = one
-
-second :: DRSRefTuple -> DRSRef
-second (TwoRef (one,two)) = two
-
-drsCons :: DRS -> [DRSCon]
-drsCons (DRS _ cs) = cs
-
 repS :: GUtt -> Maybe ([DRSRef] -> DRS)
 repS (GQUt (GPosQ (GYN (GSentence np vp)))) = Just (repNP np (repVP vp))
 
