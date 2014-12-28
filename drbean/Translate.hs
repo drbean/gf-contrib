@@ -63,9 +63,8 @@ drsToLF (DRS rl (Rel (DRSRel name) rs : cs))
 	, r `elem` rl
 	, rl' <- filter (/= r) rl
 	, e <- ref2term xyzwp r
-	= L.Exists (\e -> L.Conj [ (L.Rel name [e]) ,
-			(drsToLF (DRS rl' cs)) ]
-		 )
+	= L.Exists e (L.Conj [ (L.Rel name [e]) ,
+			(drsToLF (DRS rl' cs)) ])
 drsToLF (DRS rl (Rel (DRSRel name) rs : cs))
 	= L.Conj [ (L.Rel name (map (ref2term xyzwp) rs)),
 		(drsToLF (DRS rl cs) ) ]
