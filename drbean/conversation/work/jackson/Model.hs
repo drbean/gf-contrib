@@ -169,7 +169,7 @@ event :: [ (Content, [(Case, Entity)]) ]
 event = [
 	("lay_off", [(Agent,C),(Patient,Q)] )
 	, ("turn", [(Agent,K),(Theme,O)] )
-	, ("oust", [(Agent,Unspec),(Theme,A),(Patient,Q)] )
+	, ("remove", [(Agent,Unspec),(Source,A),(Theme,Q)] )
 	, ("go_out", [(Agent,Q),(Instrument,S),(Theme,M)] )
 	, ("hand", [(Agent,N),(Theme,M),(Recipient,Q)] )
 	, ("hand", [(Agent,N),(Theme,T),(Recipient,Q)] )
@@ -189,6 +189,7 @@ event = [
 condition :: [ (Content, [(Case, Entity)]) ]
 condition = [
 	("cover", [(Agent,U),(Theme,E)] )
+	, ("rent", [(Agent,Q),(Theme,A)] )
 	, ("have", [(Agent,X),(Theme,W)] )
 	, ("have", [(Agent,Y),(Theme,Z)] )
 	, ("feel", [(Patient,Q),(Theme,P)] )
@@ -259,13 +260,14 @@ twoPlaceStarters = [
 twoPlacers =
 	(gentwoPlacer event "buy_V2" "buy" Agent Theme) :
 	(gentwoPlacer condition "cover" "cover" Agent Theme) :
+	(gentwoPlacer condition "have" "rent" Agent Theme) :
 	(gentwoPlacer condition "feel" "feel" Patient Theme) :
 	(gentwoPlacer event "get" "give" Recipient Theme) :
 	(gentwoPlacer affiliation "have" "mother" Agent Patient) :
 	(gentwoPlacer condition "in_form_of" "in_form_of" Patient Instrument) :
 	(gentwoPlacer affiliation "in_prep" "shelter" Patient Agent) :
 	(gentwoPlacer condition "look" "look" Patient Theme) :
-	(gentwoPlacer event "lose" "oust" Patient Theme) :
+	(gentwoPlacer event "lose" "remove" Theme Source) :
 	(gentwoPlacer event "Open" "open" Agent Patient) :
 	(gentwoPlacer idea "remember" "remember" Agent Theme) :
 	(gentwoPlacer event "smell_V2" "smell" Agent Patient) :
