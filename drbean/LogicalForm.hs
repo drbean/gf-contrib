@@ -14,11 +14,11 @@ data LF = NonProposition
 	| Bottom
 	| Rel String [Term]
 	| Neg  LF
-	| Imp LF LF
+	| Imp [LF]
 	| Conj [LF]
 	| Disj [LF]
-	| Forall ([Term] -> LF)
-	| Exists (Term -> LF)
+	| Forall Term LF
+	| Exists Term LF
 	| Single ([Term] -> LF)
 	| The ([Term] -> LF)
 	| Several ([Term] -> LF)
@@ -39,12 +39,12 @@ instance Show LF where
 showLForm :: Int -> LF -> String
 showLForm i f = '\n' : showFormula i f ++ "\n" where
 	showFormula :: Int -> LF -> String
-	showFormula i (Exists scope) = opExists ++ "e" ++ (show i) ++ " " ++ showFormula (i+1) (scope (Var ("e"++show i)))
-	showFormula i (Forall scope) = opForAll ++ "e" ++ (show i) ++ " " ++ showFormula (i+1) (scope [Var ("e"++show i)])
+	showFormula i (Exists v f) = opExists ++ "e" ++ (show i) ++ " " ++ showFormula (i+1) f
+	showFormula i (Forall v f) = opForAll ++ "e" ++ (show i) ++ " " ++ showFormula (i+1) f
 	showFormula i (Conj [])     = opTop
 	showFormula i (Conj lfs)    = "(" ++ intercalate (" " ++ opAnd ++ " ") (map (showFormula i) lfs) ++ ")"
 	showFormula i (Disj [f1,f2])    = "(" ++ showFormula i f1 ++ ") " ++ opOr  ++ " (" ++ showFormula i f2 ++ ")"
-	showFormula i (Imp f1 f2)   = "(" ++ showFormula i f1 ++ ") " ++ opImp ++ " (" ++ showFormula i f2 ++ ")"
+	showFormula i (Imp [f1, f2])   = "(" ++ showFormula i f1 ++ ") " ++ opImp ++ " (" ++ showFormula i f2 ++ ")"
 	showFormula i (Neg f1)      = opNeg ++ showFormula i f1
 	showFormula i (Rel r d)     = r ++ "(" ++ intercalate "," (map show d) ++ ")"
 	showFormula i (Top)         = opTop
