@@ -219,14 +219,14 @@ affiliation :: [ (Content, [(Case, Entity)]) ]
 affiliation = [
 	("employment", [(Agent,C),(Patient,Q) ] )
 	, ("shelter", [(Agent,H),(Patient,Q) ] )
-	, ("mother", [(Agent,Q),(Patient,D) ] )
+	, ("mother", [(Pivot,Q),(Theme,D) ] )
 	]
 
 gentwoPlacer :: [ (Content, [(Case,Entity)]) ] ->
 	String -> String -> Case -> Case ->
-	(String, TwoPlacePred)
+	(String, [(Entity,Entity)] )
 gentwoPlacer area id content role1 role2 =
-	( id, pred2 [ (r1,r2) | (co,cs) <- area
+	( id, [ (r1,r2) | (co,cs) <- area
 		, co == content
 		, Just r1 <-[lookup role1 cs]
 		, Just r2 <- [lookup role2 cs]
@@ -247,13 +247,13 @@ knowledge	= [(B,F),(T,F),(E,F),(B,P),(T,P),(E,P)]
 acquaintances	= []
 help	= pred2 $ supervision
 
-twoPlacers, twoPlaceStarters :: [(String, TwoPlacePred)]
+twoPlacers, twoPlaceStarters :: [(String, [(Entity,Entity)])]
 twoPlaceStarters = [
-    ("know_V2",    pred2 $ knowledge ++ acquaintances ++ map swap acquaintances)
-    , ("kind",  pred2 $ [(student, H) | (_,_,_,student,_) <- schooling ])
-    , ("placing",       pred2 $ [(student, school) | (_,school,_,student,_) <- schooling ]
+    ("know_V2",    knowledge ++ acquaintances ++ map swap acquaintances)
+    , ("kind",  [(student, H) | (_,_,_,student,_) <- schooling ])
+    , ("placing",       [(student, school) | (_,school,_,student,_) <- schooling ]
                 )
-    , ("studied", pred2 $ foldl (\hs (_,school,subject,student,_) ->
+    , ("studied", foldl (\hs (_,school,subject,student,_) ->
                     (student,subject): (student,school) : hs) [] schooling )
     ]
 
@@ -263,7 +263,8 @@ twoPlacers =
 	(gentwoPlacer condition "have" "rent" Agent Theme) :
 	(gentwoPlacer condition "feel" "feel" Patient Theme) :
 	(gentwoPlacer event "get" "give" Recipient Theme) :
-	(gentwoPlacer affiliation "have" "mother" Agent Patient) :
+	(gentwoPlacer affiliation "have" "mother" Pivot Theme) :
+	(gentwoPlacer affiliation "have" "mother" Theme Pivot) :
 	(gentwoPlacer condition "in_form_of" "in_form_of" Patient Instrument) :
 	(gentwoPlacer affiliation "in_prep" "shelter" Patient Agent) :
 	(gentwoPlacer condition "look" "look" Patient Theme) :
@@ -280,10 +281,11 @@ twoPlacers =
 
 predid2 "receive" = predid2 "get"
 
-predid2 name
-       | Just pred <- lookup name twoPlacers = Just pred
-        -- | otherwise    = Nothing
-        | otherwise    = error $ "no '" ++ name ++ "' two-place predicate."
+predid2 name = if name `elem` (map fst twoPlacers) then
+	Just (pred2 (concat [ twople | (id, twople) <- twoPlacers
+		, id == name] ) ) else
+		-- Nothing
+		error $ "no '" ++ name ++ "' two-place predicate."
 
 curry3 :: ((a,b,c) -> d) -> a -> b -> c -> d
 curry3 f x y z	= f (x,y,z)
