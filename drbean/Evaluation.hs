@@ -35,44 +35,41 @@ term2ent :: Term -> Entity
 term2ent (Const e) = e
 term2ent _ = Something
 
-terms :: [Term]
-terms = map Const entities
+subst :: (Term -> Entity) -> Term -> Entity -> (Term -> Entity) 
+subst g x d = \ v -> if x == v then d else g v
 
-eval :: LF -> Maybe Answer
-eval (Exists scope)     = eval (Disj (map scope terms))
--- eval (Forall scope)     = eval (Conj (map scope terms))
-eval (Conj lfs) = foldM conjLF (Boolean True) (map (fromMaybe NoAnswer . eval ) lfs)
-eval (Disj lfs) = foldM disjLF (Boolean False) (map (fromMaybe NoAnswer . eval ) lfs)
-eval (Neg form) = eval form >>= notLF
-eval (Imp f1 f2) = liftM2 implLF (eval f1) (eval f2)
-eval (Rel name ts) = int name (map term2ent ts)
-eval Top = Just (Boolean True)
-eval Bottom = Just (Boolean False)
+eval :: (Term -> Entity) -> LF -> Maybe Answer
+eval g (Exists v f)     = Just (disjLF [ fromMaybe NoAnswer ( eval (subst g v d) f) | d <- entities ])
+eval g (Forall v f)     = Just (conjLF [ fromMaybe NoAnswer ( eval (subst g v d) f) | d <- entities ])
+eval g (Conj lfs) = Just (conjLF (map (fromMaybe NoAnswer . eval g) lfs))
+eval g (Disj lfs) = Just (disjLF (map (fromMaybe NoAnswer . eval g) lfs))
+eval g (Neg form) = eval g form >>= notLF
+eval g (Imp lfs@[f1, f2]) = Just (implLF (map (fromMaybe NoAnswer . eval g) lfs))
+eval g (Rel name ts) = int name (map g ts)
+eval g Top = Just (Boolean True)
+eval g Bottom = Just (Boolean False)
+
+answer2bool :: Answer -> Bool
+answer2bool (Boolean b) = b
+answer2bool _ = False
 
 notLF :: Answer -> Maybe Answer
 notLF (Boolean b) = Just (Boolean (not b))
 notLF _	= Nothing
 
-lifting :: (Bool -> Bool -> Bool) -> Answer -> Answer -> Answer
-lifting f (Boolean b1) (Boolean b2) = Boolean (f b1 b2)
-lifting _ _ _ = NoAnswer
+lifting :: ([Bool] -> Bool) -> [Answer] -> Answer
+lifting f as = if (elem NoAnswer as) then NoAnswer
+	else Boolean (f (map debooled as)) where
+		debooled (Boolean b) = b
 
-implLF :: Answer -> Answer -> Answer
-implLF = lifting (\b1 b2 -> not (b1 && (not b2)))
+implLF :: [Answer] -> Answer
+implLF = lifting (\[b1, b2] -> not (b1 && (not b2)))
 
-equiLF :: Answer -> Answer -> Answer
-equiLF = lifting (==)
+conjLF :: [Answer] -> Answer
+conjLF = lifting and
 
-conjLF :: Answer -> Answer -> Maybe Answer
-conjLF (Boolean b1) (Boolean b2) = Just (Boolean ( b1 && b2 ) )
-conjLF _ _ = Nothing
-
-disjLF :: Answer -> Answer -> Maybe Answer
-disjLF (Boolean b1) (Boolean b2) = Just (Boolean ( b1 || b2 ) )
-disjLF _ _ = Nothing
-
-unJustAnswer :: LF -> Answer
-unJustAnswer = \lf -> fromMaybe NoAnswer (eval lf)
+disjLF :: [Answer] -> Answer
+disjLF = lifting or
 
 bool2Maybe :: Bool -> Maybe Bool
 bool2Maybe = \x -> case x of False -> Nothing; True -> Just True
@@ -123,30 +120,30 @@ rep x =  (repS . fg) x
 
 answer :: GUtt -> Maybe GUtt
 answer	utt@(GQUt (GPosQ (GYN _)))
-	| eval lf == Just (Boolean True) = Just GYes
-	| eval lf == Just (Boolean False) = Just GNo
-	| eval lf == Nothing = Just GNoAnswer
+	| eval (\v -> Unspec) lf == Just (Boolean True) = Just GYes
+	| eval (\v -> Unspec) lf == Just (Boolean False) = Just GNo
+	| otherwise = Just GNoAnswer
 	where
 		drs = ((unmaybe . repS) utt) drsRefs
 		lf = drsToLF drs
 answer	utt@(GQUt (GNegQ (GYN _)))
-	| eval lf == Just (Boolean True) = Just GYes
-	| eval lf == Just (Boolean False) = Just GNo
-	| eval lf == Nothing = Just GNoAnswer
+	| eval (\v -> Unspec) lf == Just (Boolean True) = Just GYes
+	| eval (\v -> Unspec) lf == Just (Boolean False) = Just GNo
+	| otherwise = Just GNoAnswer
 	where
 		drs = ((unmaybe . repS) utt) drsRefs
 		lf = drsToLF drs
 answer	utt@(GQUt (GPosQ (GTagQ _ _)))
-	| eval lf == Just (Boolean True) = Just GYes
-	| eval lf == Just (Boolean False) = Just GNo
-	| eval lf == Nothing = Just GNoAnswer
+	| eval (\v -> Unspec) lf == Just (Boolean True) = Just GYes
+	| eval (\v -> Unspec) lf == Just (Boolean False) = Just GNo
+	| otherwise = Just GNoAnswer
 	where
 		drs = ((unmaybe . repS) utt) drsRefs
 		lf = drsToLF drs
 answer	utt@(GQUt (GNegQ (GTagQ _ _)))
-	| eval lf == Just (Boolean True) = Just GYes
-	| eval lf == Just (Boolean False) = Just GNo
-	| eval lf == Nothing = Just GNoAnswer
+	| eval (\v -> Unspec) lf == Just (Boolean True) = Just GYes
+	| eval (\v -> Unspec) lf == Just (Boolean False) = Just GNo
+	| otherwise = Just GNoAnswer
 	where
 		drs = ((unmaybe . repS) utt) drsRefs
 		lf = drsToLF drs
