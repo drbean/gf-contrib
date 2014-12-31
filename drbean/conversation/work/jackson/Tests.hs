@@ -38,7 +38,7 @@ reps tests = do
   gr	<- readPGF ( "./Jackson.pgf" )
   let ss = map (chomp . lc_first) tests
   let ps = map ( parses gr ) ss
-  let ts = map (map (\x -> (((unmaybe . rep) x) (map (term2ref drsRefs) xyzwp) ))) ps
+  let ts = map (map (\x -> (((unmaybe . rep) x) (term2ref drsRefs var_e) ))) ps
   let zs = zip (map (++"\t") tests) ts
   putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
 
@@ -46,7 +46,7 @@ lf tests = do
 	gr	<- readPGF ( "./Jackson.pgf" )
 	let ss = map (chomp . lc_first) tests
 	let ps = map ( parses gr ) ss
-	let ts = map (map (\p -> drsToLF (((unmaybe . rep) p) drsRefs)) ) ps
+	let ts = map (map (\p -> drsToLF (((unmaybe . rep) p) (DRSRef "r"))) ) ps
 	let zs = zip (map (++"\t") tests) ts
 	putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
 
@@ -54,7 +54,7 @@ fol tests = do
 	gr	<- readPGF ( "./Jackson.pgf" )
 	let ss = map (chomp . lc_first) tests
 	let ps = map ( parses gr ) ss
-	let ts = map (map (\p -> drsToFOL ( (unmaybe . rep) p (map (term2ref drsRefs) xyzwp) ) ) ) ps
+	let ts = map (map (\p -> drsToFOL ( (unmaybe . rep) p (term2ref drsRefs var_e) ) ) ) ps
 	let zs = zip (map (++"\t") tests) ts
 	putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
 

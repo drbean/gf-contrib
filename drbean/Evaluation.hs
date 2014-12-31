@@ -1,4 +1,4 @@
-module Evaluation (readPGF, chomp, lc_first, term2ref, drsRefs, xyzwp, unmaybe, rep, parses, drsToLF, linear, showExpr, transform) where
+module Evaluation (readPGF, chomp, lc_first, term2ref, drsRefs, xyzwp, var_e, unmaybe, rep, parses, drsToLF, linear, showExpr, transform) where
 
 import PGF
 import Data.DRS hiding (Or,Neg,Imp,Rel)
@@ -115,7 +115,7 @@ gfmaybe (GNo) = Just (gf GNo)
 gfmaybe (GAnswer x) = Just (gf (GAnswer x))
 gfmaybe _ = Nothing
 
-rep :: Tree -> Maybe ([DRSRef] -> DRS)
+rep :: Tree -> Maybe (DRSRef -> DRS)
 rep x =  (repS . fg) x
 
 answer :: GUtt -> Maybe GUtt
@@ -124,28 +124,28 @@ answer	utt@(GQUt (GPosQ (GYN _)))
 	| eval (\v -> Unspec) lf == Just (Boolean False) = Just GNo
 	| otherwise = Just GNoAnswer
 	where
-		drs = ((unmaybe . repS) utt) drsRefs
+		drs = ((unmaybe . repS) utt) (DRSRef "r")
 		lf = drsToLF drs
 answer	utt@(GQUt (GNegQ (GYN _)))
 	| eval (\v -> Unspec) lf == Just (Boolean True) = Just GYes
 	| eval (\v -> Unspec) lf == Just (Boolean False) = Just GNo
 	| otherwise = Just GNoAnswer
 	where
-		drs = ((unmaybe . repS) utt) drsRefs
+		drs = ((unmaybe . repS) utt) (DRSRef "r")
 		lf = drsToLF drs
 answer	utt@(GQUt (GPosQ (GTagQ _ _)))
 	| eval (\v -> Unspec) lf == Just (Boolean True) = Just GYes
 	| eval (\v -> Unspec) lf == Just (Boolean False) = Just GNo
 	| otherwise = Just GNoAnswer
 	where
-		drs = ((unmaybe . repS) utt) drsRefs
+		drs = ((unmaybe . repS) utt) (DRSRef "r")
 		lf = drsToLF drs
 answer	utt@(GQUt (GNegQ (GTagQ _ _)))
 	| eval (\v -> Unspec) lf == Just (Boolean True) = Just GYes
 	| eval (\v -> Unspec) lf == Just (Boolean False) = Just GNo
 	| otherwise = Just GNoAnswer
 	where
-		drs = ((unmaybe . repS) utt) drsRefs
+		drs = ((unmaybe . repS) utt) (DRSRef "r")
 		lf = drsToLF drs
 ----answer	utt@(GQUt _) = case (evalW . drsToFOL . unmaybe . repS) utt of
 ----	(Just []) -> Just (GAnswer Gno_pl_NP)

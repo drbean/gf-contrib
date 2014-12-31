@@ -4,6 +4,7 @@ module Translate
 	, term2ref
 	, drsRefs
 	, xyzwp
+	, var_e
 ) where
 
 import Data.List
@@ -14,9 +15,10 @@ import qualified LogicalForm as L
 type DRSUnresolved = [DRSRef] -> DRS
 
 drsRefs = [ DRSRef "r1", DRSRef "r2", DRSRef "r3", DRSRef "r4",
-	DRSRef "prop"]
+	DRSRef "prop", DRSRef "r"]
 
 xyzwp = [L.Var "e1", L.Var "e2", L.Var "e3", L.Var "e4", L.Var "p"]
+var_e = L.Var "e"
 
 term2ref :: [DRSRef] -> L.Term -> DRSRef
 term2ref rs (L.Var "e1") = rs !! 0
@@ -24,6 +26,7 @@ term2ref rs (L.Var "e2") = rs !! 1
 term2ref rs (L.Var "e3") = rs !! 2
 term2ref rs (L.Var "e4") = rs !! 3
 term2ref rs (L.Var "p") = rs !! 4
+term2ref rs (L.Var "e") = rs !! 5
 term2ref rs x = error ("term2ref " ++ (show x) ++ ": undefined")
 
 isRel :: DRSCon -> Bool
