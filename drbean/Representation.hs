@@ -106,9 +106,8 @@ repDet (GApos_pl owner) = repDet (GApos owner)
 
 repMassDet :: GMassDet -> (DRSRef -> DRS) -> (DRSRef -> DRS) -> DRSRef -> DRS
 repMassDet Gzero_Det_sg = \ p q r-> let
-	r' = newR r
-	DRS prs pconds = p r'
-	DRS qrs qconds = q r'
+	DRS prs pconds = p r
+	DRS qrs qconds = q (maximum prs)
 	len = length (nub (prs ++ qrs))
 	reflist = newDRSRefs (replicate len (DRSRef "r")) []
 	conds = pconds ++ qconds
