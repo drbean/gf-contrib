@@ -20,6 +20,9 @@ entuples = [
 	, (X, Gchristmas)
 	]
 
+instance Ord DRSRef where
+	(<=) (DRSRef a) (DRSRef b) = (a <= b)
+
 instance Eq GPN where
 	(==) Gqueen Gqueen = True
 	(==) Gcolorado Gcolorado = True
@@ -80,7 +83,7 @@ repNP (GEntity name) p r
 repDet :: GDet -> (DRSRef -> DRS) -> (DRSRef -> DRS) -> DRSRef -> DRS
 repDet Ga_Det = \ p q r-> let
 	DRS prs pconds = p r
-	DRS qrs qconds = q r
+	DRS qrs qconds = q (maximum prs)
 	len = length (nub (prs ++ qrs))
 	reflist = newDRSRefs (replicate len (DRSRef "r")) []
 	conds = pconds ++ qconds
