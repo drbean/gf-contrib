@@ -124,28 +124,28 @@ answer	utt@(GQUt (GPosQ (GYN _)))
 	| eval (\v -> Unspec) lf == Just (Boolean False) = Just GNo
 	| otherwise = Just GNoAnswer
 	where
-		drs = ((unmaybe . repS) utt) (DRSRef "r")
+		drs = ((unmaybe . repS) utt) (DRSRef "r1")
 		lf = drsToLF drs
 answer	utt@(GQUt (GNegQ (GYN _)))
 	| eval (\v -> Unspec) lf == Just (Boolean True) = Just GYes
 	| eval (\v -> Unspec) lf == Just (Boolean False) = Just GNo
 	| otherwise = Just GNoAnswer
 	where
-		drs = ((unmaybe . repS) utt) (DRSRef "r")
+		drs = ((unmaybe . repS) utt) (DRSRef "r1")
 		lf = drsToLF drs
 answer	utt@(GQUt (GPosQ (GTagQ _ _)))
 	| eval (\v -> Unspec) lf == Just (Boolean True) = Just GYes
 	| eval (\v -> Unspec) lf == Just (Boolean False) = Just GNo
 	| otherwise = Just GNoAnswer
 	where
-		drs = ((unmaybe . repS) utt) (DRSRef "r")
+		drs = ((unmaybe . repS) utt) (DRSRef "r1")
 		lf = drsToLF drs
 answer	utt@(GQUt (GNegQ (GTagQ _ _)))
 	| eval (\v -> Unspec) lf == Just (Boolean True) = Just GYes
 	| eval (\v -> Unspec) lf == Just (Boolean False) = Just GNo
 	| otherwise = Just GNoAnswer
 	where
-		drs = ((unmaybe . repS) utt) (DRSRef "r")
+		drs = ((unmaybe . repS) utt) (DRSRef "r1")
 		lf = drsToLF drs
 ----answer	utt@(GQUt _) = case (evalW . drsToFOL . unmaybe . repS) utt of
 ----	(Just []) -> Just (GAnswer Gno_pl_NP)

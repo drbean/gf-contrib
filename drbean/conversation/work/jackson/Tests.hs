@@ -46,7 +46,7 @@ lf tests = do
 	gr	<- readPGF ( "./Jackson.pgf" )
 	let ss = map (chomp . lc_first) tests
 	let ps = map ( parses gr ) ss
-	let ts = map (map (\p -> drsToLF (((unmaybe . rep) p) (DRSRef "r"))) ) ps
+	let ts = map (map (\p -> drsToLF (((unmaybe . rep) p) (DRSRef "r1"))) ) ps
 	let zs = zip (map (++"\t") tests) ts
 	putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
 

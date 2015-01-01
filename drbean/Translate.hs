@@ -15,7 +15,7 @@ import qualified LogicalForm as L
 type DRSUnresolved = [DRSRef] -> DRS
 
 drsRefs = [ DRSRef "r1", DRSRef "r2", DRSRef "r3", DRSRef "r4",
-	DRSRef "prop", DRSRef "r"]
+	DRSRef "prop", DRSRef "r1"]
 
 xyzwp = [L.Var "e1", L.Var "e2", L.Var "e3", L.Var "e4", L.Var "p"]
 var_e = L.Var "e"
