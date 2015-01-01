@@ -71,16 +71,18 @@ repNP :: GNP -> (DRSRef -> DRS) -> DRSRef -> DRS
 repNP (GItem det cn) p r = (repDet det) (repCN cn) p r
 repNP (GMassItem det n) p r = (repMassDet det) (repN n) p r
 repNP (GEntity name) p r
-	| entity <- (gent2ent name) , entity `elem` entities = case (p r) of
-		(DRS rs conds) -> let len = length rs; reflist = newDRSRefs (replicate len (DRSRef "r")) [] in
-			(DRS reflist ((Rel (DRSRel (lin name)) [head rs]) : conds))
+	| entity <- (gent2ent name) , entity `elem` entities = let
+	DRS rs conds = p r
+	len = length (nub rs)
+	reflist = newDRSRefs (replicate len (DRSRef "r")) [] in
+	(DRS reflist ((Rel (DRSRel (lin name)) [head rs]) : conds))
 
 repDet :: GDet -> (DRSRef -> DRS) -> (DRSRef -> DRS) -> DRSRef -> DRS
 repDet Ga_Det = \ p q r-> let
-	r' = newR r
-	DRS prs pconds = p r'
-	DRS qrs qconds = q r'
-	reflist = (r' : prs ++ qrs)
+	DRS prs pconds = p r
+	DRS qrs qconds = q r
+	len = length (nub (prs ++ qrs))
+	reflist = newDRSRefs (replicate len (DRSRef "r")) []
 	conds = pconds ++ qconds
 	in DRS reflist conds
 repDet Gone = repDet Ga_Det
@@ -104,7 +106,8 @@ repMassDet Gzero_Det_sg = \ p q r-> let
 	r' = newR r
 	DRS prs pconds = p r'
 	DRS qrs qconds = q r'
-	reflist = (r' : prs ++ qrs)
+	len = length (nub (prs ++ qrs))
+	reflist = newDRSRefs (replicate len (DRSRef "r")) []
 	conds = pconds ++ qconds
 	in DRS reflist conds
 repMassDet Gthe_mass_Det = repMassDet Gzero_Det_sg
