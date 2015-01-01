@@ -221,3 +221,5 @@ repVP (GPositing v0 (GNegS (GSentence np vp))) = case vp of
 				[p, referent, theme]])])]
 			in DRS [theme, referent] conds )
 			r ) r
+
+-- vim: set ts=2 sts=2 sw=2 noet:
