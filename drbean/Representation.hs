@@ -187,10 +187,9 @@ repVP (GLook_bad v ap) = \r -> let
 	look_conds = [Rel (DRSRel (lin v)) [patient, DRSRef ((linAP ap)++"_prop")]
 		, Prop (DRSRef ((linAP ap)++"_prop")) (DRS [] conds)]
 	in DRS [patient] look_conds
-repVP (GHappening v) = \r -> let r' = newR r in
-	DRS [r'] [Rel (DRSRel (lin v)) [r']]
-repVP (GChanging v obj) = \r -> let r' = newR r; r'' = newR r' in repNP obj
-	(\patient -> DRS [r',patient] [Rel (DRSRel (lin v)) [r', patient]] ) r''
+repVP (GHappening v) = \r -> DRS [r] [Rel (DRSRel (lin v)) [r]]
+repVP (GChanging v obj) = \r -> repNP obj
+	(\patient -> DRS [r,patient] [Rel (DRSRel (lin v)) [r, patient]] ) (newR r)
 repVP (GTriangulating v obj1 obj2) = \r -> repNP obj1 (\theme ->
 		repNP obj2 (\recipient ->
 			DRS [theme,recipient] [Rel (DRSRel (lin v)) [r, theme, recipient]]
