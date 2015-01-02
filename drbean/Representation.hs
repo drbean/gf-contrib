@@ -128,23 +128,22 @@ repN name = \r ->
 repN2 :: GN2 -> DRSRef -> DRS
 repN2 name     = \r ->
 	DRS [r] [Rel (DRSRel (lin name)) [r]]
-repPartitive :: GPartitive -> [DRSRef] -> DRS
-repPartitive name     = \rs ->
-	DRS rs [Rel (DRSRel (lin name)) [head rs]]
+repPartitive :: GPartitive -> DRSRef -> DRS
+repPartitive name     = \r ->
+	DRS [r] [Rel (DRSRel (lin name)) [r]]
 
 repCN :: GCN -> DRSRef -> DRS
 repCN (GKind ap cn) = \r -> let
        DRS thing_refs thing_conds = (repCN cn r)
        DRS attri_refs attri_conds = (repAP ap r)
        in DRS (thing_refs ++ attri_refs) (thing_conds ++ attri_conds)
---repCN (GOfpart part n) = \rs -> let
---	form = head rs
---	rs' = tail rs
---	thing = head rs'
---	DRS _ partconds = repPartitive part rs
---	DRS _ thingconds = repN n rs'
---	formcond = [ Rel (DRSRel "in_form_of") [thing,form] ]
---	in DRS rs' (thingconds ++ partconds ++ formcond)
+repCN (GOfpart part n) = \r -> let
+	form = r
+	thing = new r
+	DRS _ partconds = repPartitive part form
+	DRS _ thingconds = repN n thing
+	formcond = [ Rel (DRSRel "in_form_of") [thing,form] ]
+	in DRS [form, thing] (partconds ++ thingconds ++ formcond)
 repCN (GOfpos n2 np) = \r -> let
 	owner = r
 	thing = new r
