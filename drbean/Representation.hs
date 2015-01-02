@@ -64,8 +64,8 @@ unmaybe (Just x) = x
 repS :: GUtt -> Maybe (DRSRef -> DRS)
 repS (GQUt (GPosQ (GYN (GSentence np vp)))) = Just (repNP np (repVP vp))
 
-newR :: DRSRef -> DRSRef
-newR r = let
+new :: DRSRef -> DRSRef
+new r = let
 	es = [r]
 	rs = newDRSRefs [r] es
 	r' = head rs in r'
@@ -114,7 +114,7 @@ repMassDet Gzero_Det_sg = \ p q r-> let
 	in DRS reflist conds
 repMassDet Gthe_mass_Det = repMassDet Gzero_Det_sg
 repMassDet (GMassApos owner) = \p q r -> let
-	owner_ref = newR r
+	owner_ref = new r
 	thing = head (newDRSRefs [owner_ref] [r])
 	DRS prs pconds = p thing
 	ownership_cond =  Rel (DRSRel "have") [owner_ref, thing]
@@ -177,7 +177,7 @@ repVP (GBe_vp comp) = case comp of
 	GBe_bad ap -> repAP ap
 	GBe_somewhere (GLocating prep place) -> \r -> let
 		situatee = r
-		rs' = newR situatee in
+		rs' = new situatee in
 		repPlace place (\name -> DRS [name]
 		[ Rel (DRSRel (lin prep)) [situatee, name]]
 		) rs'
@@ -189,7 +189,7 @@ repVP (GLook_bad v ap) = \r -> let
 	in DRS [patient] look_conds
 repVP (GHappening v) = \r -> DRS [r] [Rel (DRSRel (lin v)) [r]]
 repVP (GChanging v obj) = \r -> repNP obj
-	(\patient -> DRS [r,patient] [Rel (DRSRel (lin v)) [r, patient]] ) (newR r)
+	(\patient -> DRS [r,patient] [Rel (DRSRel (lin v)) [r, patient]] ) (new r)
 repVP (GTriangulating v obj1 obj2) = \r -> repNP obj1 (\theme ->
 		repNP obj2 (\recipient ->
 			DRS [theme,recipient] [Rel (DRSRel (lin v)) [r, theme, recipient]]
