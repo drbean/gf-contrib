@@ -38,8 +38,8 @@ entity_check =  [
     , (V, "bottle" )
     , (W, "joy" )
     , (X, "christmas" )
-    , (Y, "cooking" )
-    , (Z, "smell_N2" )
+    , (Y, "smell_N2" )
+    , (Z, "cooking" )
     ]
 
 ent_ided :: String -> Entity
@@ -190,8 +190,8 @@ condition :: [ (Content, [(Case, Entity)]) ]
 condition = [
 	("cover", [(Agent,U),(Theme,E)] )
 	, ("rent", [(Agent,Q),(Theme,A)] )
-	, ("have", [(Agent,X),(Theme,W)] )
-	, ("have", [(Agent,Y),(Theme,Z)] )
+	, ("joy", [(Agent,X),(Theme,W)] )
+	, ("smell", [(Agent,Z),(Theme,Y)] )
 	, ("feel", [(Patient,Q),(Theme,P)] )
 	, ("in_form_of", [(Patient,L),(Instrument,V)] )
 	, ("lonely", [(Patient,Q)] )
@@ -206,7 +206,8 @@ idea = [
 	, ("move_in", [(Agent,D),(Patient,Q)] )
 	, ("care", [(Experiencer,Q),(Topic,P),(Agent,Q),(Patient,D)] )
 	, ("care", [(Experiencer,Q),(Topic,P),(Agent,D),(Patient,Q)] )
-	, ("remember", [(Agent,Q),(Theme,X)] )
+	, ("remember", [(Agent,Q),(Theme,W)] )
+	, ("remember", [(Agent,Q),(Theme,Y)] )
 	, ("think", [(Agent,Q),(Theme,P)] )
 	]
 
@@ -260,6 +261,8 @@ twoPlaceStarters = [
 twoPlacers =
 	(gentwoPlacer event "buy_V2" "buy" Agent Theme) :
 	(gentwoPlacer condition "cover" "cover" Agent Theme) :
+	(gentwoPlacer condition "have" "joy" Agent Theme) :
+	(gentwoPlacer condition "have" "smell" Agent Theme) :
 	(gentwoPlacer condition "have" "rent" Agent Theme) :
 	(gentwoPlacer condition "feel" "feel" Patient Theme) :
 	(gentwoPlacer event "get" "give" Recipient Theme) :
