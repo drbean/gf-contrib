@@ -191,8 +191,8 @@ repVP (GChanging v obj) = \r -> repNP obj
 	(\patient -> DRS [r,patient] [Rel (DRSRel (lin v)) [r, patient]] ) (new r)
 repVP (GTriangulating v obj1 obj2) = \r -> repNP obj1 (\theme ->
 		repNP obj2 (\recipient ->
-			DRS [theme,recipient] [Rel (DRSRel (lin v)) [r, theme, recipient]]
-			) r ) r
+			DRS [r,theme,recipient] [Rel (DRSRel (lin v)) [r, theme, recipient]]
+			) (new theme) ) (new r)
 repVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 	(GBe_vp comp) -> case comp of
 		(GBe_someone subjcomp ) -> \r -> repNP np (\referent ->
