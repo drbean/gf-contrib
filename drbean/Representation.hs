@@ -125,9 +125,9 @@ repMassDet (GMassApos owner) = \p q r -> let
 repN :: GN -> DRSRef -> DRS
 repN name = \r ->
 	DRS [r] [Rel (DRSRel (lin name)) [r]]
-repN2 :: GN2 -> [DRSRef] -> DRS
-repN2 name     = \rs ->
-	DRS rs [Rel (DRSRel (lin name)) [head rs]]
+repN2 :: GN2 -> DRSRef -> DRS
+repN2 name     = \r ->
+	DRS [r] [Rel (DRSRel (lin name)) [r]]
 repPartitive :: GPartitive -> [DRSRef] -> DRS
 repPartitive name     = \rs ->
 	DRS rs [Rel (DRSRel (lin name)) [head rs]]
@@ -145,13 +145,13 @@ repCN (GKind ap cn) = \r -> let
 --	DRS _ thingconds = repN n rs'
 --	formcond = [ Rel (DRSRel "in_form_of") [thing,form] ]
 --	in DRS rs' (thingconds ++ partconds ++ formcond)
---repCN (GOfpos n2 np) = \rs -> let
---       thing = head rs
---       rs' = (tail . tail) rs
---       DRS _ conds = repN2 n2 rs in
---       repNP np (\ (owner:_) -> let
---       newconds = conds ++ [Rel (DRSRel "have") [owner, thing]]
---       in DRS (thing:rs') newconds ) (tail rs)
+repCN (GOfpos n2 np) = \r -> let
+	owner = r
+	thing = new r
+	DRS rs conds = repN2 n2 thing in
+	repNP np (\owner -> let
+	newconds = conds ++ [Rel (DRSRel "have") [owner, thing]]
+	in DRS [owner, thing, new thing] newconds ) owner
 repCN name     = \r ->
 	DRS [r] [Rel (DRSRel (lin name)) [r]]
 
