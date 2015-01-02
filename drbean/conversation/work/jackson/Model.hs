@@ -207,6 +207,7 @@ idea = [
 	, ("care", [(Experiencer,Q),(Topic,P),(Agent,Q),(Patient,D)] )
 	, ("care", [(Experiencer,Q),(Topic,P),(Agent,D),(Patient,Q)] )
 	, ("remember", [(Agent,Q),(Theme,W)] )
+	, ("remember", [(Agent,Q),(Theme,X)] )
 	, ("remember", [(Agent,Q),(Theme,Y)] )
 	, ("think", [(Agent,Q),(Theme,P)] )
 	]
