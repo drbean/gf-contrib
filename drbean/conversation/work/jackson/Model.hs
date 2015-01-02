@@ -86,7 +86,7 @@ onePlaceStarters = [
 
         , ("great",     pred1 [I] )
 
-	, ("little",	pred1 [L] )
+	, ("little",	pred1 [L,V] )
 
 	, ("male",	pred1 [N] )
 	, ("female",	pred1 [Q,D] )
