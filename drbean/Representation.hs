@@ -78,7 +78,7 @@ repNP (GEntity name) p r
 	DRS rs conds = p r
 	len = length (nub rs)
 	reflist = newDRSRefs (replicate len (DRSRef "r")) [] in
-	(DRS reflist ((Rel (DRSRel (lin name)) [head rs]) : conds))
+	(DRS reflist ((Rel (DRSRel (lin name)) [r]) : conds))
 
 repDet :: GDet -> (DRSRef -> DRS) -> (DRSRef -> DRS) -> DRSRef -> DRS
 repDet Ga_Det = \ p q r-> let
