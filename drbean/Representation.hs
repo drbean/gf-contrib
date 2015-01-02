@@ -114,7 +114,7 @@ repMassDet Gzero_Det_sg = \ p q r-> let
 	in DRS reflist conds
 repMassDet Gthe_mass_Det = repMassDet Gzero_Det_sg
 repMassDet (GMassApos owner) = \p q r -> let
-	owner_ref = new r
+	owner_ref = r
 	thing = head (newDRSRefs [owner_ref] [r])
 	DRS prs pconds = p thing
 	ownership_cond =  Rel (DRSRel "have") [owner_ref, thing]
