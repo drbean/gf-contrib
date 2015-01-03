@@ -10,6 +10,7 @@ import Interpretation
 -- import Story_Interpretation
 -- import qualified Topic_Interpretation as Topic
 
+import Data.Char
 import Data.List
 import Data.Tuple
 
@@ -22,6 +23,10 @@ entuples = [
 
 instance Ord DRSRef where
 	(<=) (DRSRef a) (DRSRef b) = (a <= b)
+
+ref2int :: DRSRef -> Int
+ref2int (DRSRef r@('r':[d])) | isDigit d , n <- digitToInt d = n
+ref2int r = error ("No digit for DRSRef " ++ (drsRefToDRSVar r))
 
 instance Eq GPN where
 	(==) Gqueen Gqueen = True
@@ -84,7 +89,7 @@ repDet :: GDet -> (DRSRef -> DRS) -> (DRSRef -> DRS) -> DRSRef -> DRS
 repDet Ga_Det = \ p q r-> let
 	DRS prs pconds = p r
 	DRS qrs qconds = q (maximum prs)
-	len = length (nub (prs ++ qrs))
+	len = ref2int (maximum qrs)
 	reflist = newDRSRefs (replicate len (DRSRef "r")) []
 	conds = pconds ++ qconds
 	in DRS reflist conds
@@ -99,9 +104,11 @@ repDet (GApos owner) = \p q r -> let
 	thing = new r
 	DRS prs pconds = p thing
 	ownership_cond =  Rel (DRSRel "have") [owner_ref, thing]
-	DRS qrs qconds = q thing
+	DRS qrs qconds = q (maximum prs)
+	len = length (nub (r: prs ++ qrs))
+	reflist = newDRSRefs (replicate len (DRSRef "r")) []
 	conds = pconds ++ [ownership_cond] ++ qconds
-	in repNP owner (\ ref -> DRS (ref : qrs) conds ) owner_ref
+	in repNP owner (\ ref -> DRS reflist conds ) owner_ref
 repDet (GApos_pl owner) = repDet (GApos owner)
 
 repMassDet :: GMassDet -> (DRSRef -> DRS) -> (DRSRef -> DRS) -> DRSRef -> DRS
