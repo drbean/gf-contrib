@@ -71,12 +71,9 @@ drsToLF (DRS rl (Rel (DRSRel name) rs : cs))
 drsToLF (DRS rl (Rel (DRSRel name) rs : cs))
 	= L.Conj [ (L.Rel name (map (ref2term xyzwp) rs)),
 		(drsToLF (DRS rl cs) ) ]
-drsToLF (DRS rl (Rel (DRSRel name) rs : cs))
-		= L.Conj [ (L.Rel name (map (ref2term xyzwp) rs)),
-			(drsToLF (DRS rl cs)) ]
 drsToLF (DRS rl (Neg d: cs))
-		= L.Conj [ (L.Neg (drsToLF d)),
-			(drsToLF (DRS rl cs)) ]
+	= L.Conj [ (L.Neg (drsToLF d)),
+		(drsToLF (DRS rl cs)) ]
 drsToLF (DRS rl (Prop p d: cs)) = L.Conj [
 	(L.Rel (drsRefToDRSVar p) [ref2term xyzwp p]), (drsToLF d)
 		, (drsToLF (DRS rl cs)) ]
