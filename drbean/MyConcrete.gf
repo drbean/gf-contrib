@@ -199,6 +199,10 @@ lin
 	AddList np list = mkListNP np list;
 	CloseList conj list = mkNP conj list;
 
+	her_Det	= mkDet she_Pron;
+	his	= mkDet he_Pron;
+	its	= mkDet it_Pron;
+
 	who_WH	= whoSg_IP;
 	what_WH	= whatSg_IP;
 	which_RP	= which_RP;

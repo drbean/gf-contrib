@@ -110,6 +110,10 @@ fun
 	AddList : NP -> ListNP -> ListNP;
 	CloseList	: Conj -> ListNP -> NP;
 
+	her	: Det;
+	his	: Det;
+	its	: Det;
+
 	who_WH	: IP;
 	what_WH	: IP;
 	which_RP	: RP;
