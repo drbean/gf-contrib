@@ -104,7 +104,7 @@ repDet Gher_Det = \ p q r-> let
 		(DRS [] [ female r, Rel (DRSRel "have") [r, thing] ] )
 		(DRS [] [ors])) false her_refs
 	conds = her_cond : pconds ++ qconds
-	in DRS reflist conds where 
+	in DRS reflist conds where
 	female :: DRSRef -> DRSCon
 	female r = (Rel (DRSRel "female") [r])
 	false = Rel (DRSRel "false") []
