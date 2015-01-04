@@ -101,13 +101,16 @@ repDet Gher_Det = \ p q r-> let
 	len = ref2int (maximum qrs)
 	reflist = newDRSRefs (replicate len (DRSRef "r")) []
 	her_cond = foldl (\ors r -> Or
-		(DRS [] [ female r, Rel (DRSRel "have") [r, thing] ] )
+		(DRS [] [ female r, have r thing] )
 		(DRS [] [ors])) false her_refs
 	conds = her_cond : pconds ++ qconds
 	in DRS reflist conds where
 	female :: DRSRef -> DRSCon
 	female r = (Rel (DRSRel "female") [r])
-	false = Rel (DRSRel "false") []
+	have :: DRSRef -> DRSRef -> DRSCon
+	have r thing = Rel (DRSRel "have") [r, thing]
+	false :: DRSCon
+	false = Rel (DRSRel "true") [DRSRef "r1"]
 repDet Gone = repDet Ga_Det
 repDet Gsome_Det = repDet Ga_Det
 repDet GtheSg_Det = repDet Ga_Det
