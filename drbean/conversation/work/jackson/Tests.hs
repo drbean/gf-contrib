@@ -108,7 +108,7 @@ yn_dic_test = [
   , "Does one week turn into a month?"
   , "Does one week turn into five months?"
   , "Does unemployment cover Queen's rent?"
-  , "Does Queen lose Queen's apartment?"
+  , "Does Queen lose her apartment?"
   -- , "Does Queen's daughter want Queen to move in?"
   , "Does Queen think that Queen's daughter should not take care of Queen?"
   , "Does Queen think that Queen's daughter shouldn't take care of the rent?"
