@@ -137,6 +137,24 @@ repMassDet Gzero_Det_sg = \ p q r-> let
 	reflist = newDRSRefs (replicate len (DRSRef "r")) []
 	conds = pconds ++ qconds
 	in DRS reflist conds
+repMassDet her_MassDet = \ p q r-> let
+	her_refs = newDRSRefs (replicate (ref2int r - 1) (DRSRef "r")) []
+	DRS prs pconds = p r
+	thing = maximum prs
+	DRS qrs qconds = q thing
+	len = ref2int (maximum qrs)
+	reflist = newDRSRefs (replicate len (DRSRef "r")) []
+	her_cond = foldl (\ors r -> Or
+		(DRS [] [ female r, have r thing] )
+		(DRS [] [ors])) false her_refs
+	conds = her_cond : pconds ++ qconds
+	in DRS reflist conds where
+	female :: DRSRef -> DRSCon
+	female r = (Rel (DRSRel "female") [r])
+	have :: DRSRef -> DRSRef -> DRSCon
+	have r thing = Rel (DRSRel "have") [r, thing]
+	false :: DRSCon
+	false = Rel (DRSRel "true") [DRSRef "r1"]
 repMassDet Gthe_mass_Det = repMassDet Gzero_Det_sg
 repMassDet (GMassApos owner) = \p q r -> let
 	owner_ref = r
