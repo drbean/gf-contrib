@@ -71,6 +71,8 @@ drsToLF (DRS rl (Rel (DRSRel name) rs : cs))
 drsToLF (DRS rl (Rel (DRSRel name) rs : cs))
 	= L.Conj [ (L.Rel name (map (ref2term xyzwp) rs)),
 		(drsToLF (DRS rl cs) ) ]
+drsToLF (DRS r1 (Or d1 d2 : cs))
+	= L.Conj [ L.Disj [ drsToLF d1, drsToLF d2], drsToLF (DRS r1 cs) ]
 drsToLF (DRS rl (Neg d: cs))
 	= L.Conj [ (L.Neg (drsToLF d)),
 		(drsToLF (DRS rl cs)) ]
