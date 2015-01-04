@@ -110,7 +110,7 @@ fun
 	AddList : NP -> ListNP -> ListNP;
 	CloseList	: Conj -> ListNP -> NP;
 
-	her	: Det;
+	her_Det	: Det;
 	his	: Det;
 	its	: Det;
 
