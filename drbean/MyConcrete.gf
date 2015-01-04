@@ -200,8 +200,13 @@ lin
 	CloseList conj list = mkNP conj list;
 
 	her_Det	= mkDet she_Pron;
+	her_MassDet	= mkDet she_Pron;
 	his	= mkDet he_Pron;
 	its	= mkDet it_Pron;
+
+	she = mkNP she_Pron;
+	he = mkNP he_Pron;
+	it = mkNP it_Pron;
 
 	who_WH	= whoSg_IP;
 	what_WH	= whatSg_IP;

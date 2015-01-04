@@ -111,8 +111,13 @@ fun
 	CloseList	: Conj -> ListNP -> NP;
 
 	her_Det	: Det;
+	her_MassDet	: MassDet;
 	his	: Det;
 	its	: Det;
+
+	he	: NP;
+	she	: NP;
+	it	: NP;
 
 	who_WH	: IP;
 	what_WH	: IP;
