@@ -84,6 +84,18 @@ repNP (GEntity name) p r
 	len = length (nub rs)
 	reflist = newDRSRefs (replicate len (DRSRef "r")) [] in
 	(DRS reflist ((Rel (DRSRel (lin name)) [r]) : conds))
+repNP she p r = let
+	she_refs = newDRSRefs (replicate (ref2int r - 1) (DRSRef "r")) []
+	DRS rs conds = p r
+	len = ref2int (maximum rs)
+	reflist = newDRSRefs (replicate len (DRSRef "r")) []
+	she_cond = foldl1 (\r1 r2 -> Or
+		(DRS [] [ r1] )
+		(DRS [] [ r2])) (map female reflist) in
+	(DRS reflist (she_cond : conds)) where
+	female :: DRSRef -> DRSCon
+	female r = (Rel (DRSRel "female") [r])
+
 
 repDet :: GDet -> (DRSRef -> DRS) -> (DRSRef -> DRS) -> DRSRef -> DRS
 repDet Ga_Det = \ p q r-> let
