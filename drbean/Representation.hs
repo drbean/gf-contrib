@@ -149,6 +149,15 @@ repMassDet Gzero_Det_sg = \ p q r-> let
 	reflist = newDRSRefs (replicate len (DRSRef "r")) []
 	conds = pconds ++ qconds
 	in DRS reflist conds
+repMassDet Gthe_mass_Det = repMassDet Gzero_Det_sg
+repMassDet (GMassApos owner) = \p q r -> let
+	owner_ref = r
+	thing = new r
+	DRS prs pconds = p thing
+	ownership_cond =  Rel (DRSRel "have") [owner_ref, thing]
+	DRS qrs qconds = q thing
+	conds = pconds ++ [ownership_cond] ++ qconds
+	in repNP owner (\ ref -> DRS (ref : qrs) conds ) owner_ref
 repMassDet her_MassDet = \ p q r-> let
 	her_refs = newDRSRefs (replicate (ref2int r - 1) (DRSRef "r")) []
 	DRS prs pconds = p r
@@ -167,15 +176,6 @@ repMassDet her_MassDet = \ p q r-> let
 	have r thing = Rel (DRSRel "have") [r, thing]
 	false :: DRSCon
 	false = Rel (DRSRel "true") [DRSRef "r1"]
-repMassDet Gthe_mass_Det = repMassDet Gzero_Det_sg
-repMassDet (GMassApos owner) = \p q r -> let
-	owner_ref = r
-	thing = new r
-	DRS prs pconds = p thing
-	ownership_cond =  Rel (DRSRel "have") [owner_ref, thing]
-	DRS qrs qconds = q thing
-	conds = pconds ++ [ownership_cond] ++ qconds
-	in repNP owner (\ ref -> DRS (ref : qrs) conds ) owner_ref
 
 repN :: GN -> DRSRef -> DRS
 repN name = \r ->
