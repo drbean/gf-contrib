@@ -91,7 +91,7 @@ repNP she p r = let
 	reflist = newDRSRefs (replicate len (DRSRef "r")) []
 	she_cond = foldl1 (\r1 r2 -> Or
 		(DRS [] [ r1] )
-		(DRS [] [ r2])) (map female reflist) in
+		(DRS [] [ r2])) (map female she_refs) in
 	(DRS reflist (she_cond : conds)) where
 	female :: DRSRef -> DRSCon
 	female r = (Rel (DRSRel "female") [r])
