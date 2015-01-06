@@ -28,6 +28,17 @@ ref2int :: DRSRef -> Int
 ref2int (DRSRef r@('r':[d])) | isDigit d , n <- digitToInt d = n
 ref2int r = error ("No digit for DRSRef " ++ (drsRefToDRSVar r))
 
+instance Show DRSCon where
+	show (Rel drsrel refs) = (show drsrel) ++ " " ++ (show refs)
+
+drsRelInRel :: DRSCon -> DRSRel
+drsRelInRel (Rel r _) = r
+drsRelInRel rel = error ("No DRSRel in Rel " ++ (show rel))
+
+refsInRel :: DRSCon -> [DRSRef]
+refsInRel (Rel _ rs) = rs
+refsInRel rel = error ("No DRSRefs in Rel " ++ (show rel))
+
 instance Eq GPN where
 	(==) Gqueen Gqueen = True
 	(==) Gcolorado Gcolorado = True
@@ -84,17 +95,24 @@ repNP (GEntity name) p r
 	len = length (nub rs)
 	reflist = newDRSRefs (replicate len (DRSRef "r")) [] in
 	(DRS reflist ((Rel (DRSRel (lin name)) [r]) : conds))
-repNP she p r = let
-	she_refs = newDRSRefs (replicate (ref2int r - 1) (DRSRef "r")) []
-	DRS rs conds = p r
+repNP she p dummy = let
+	she_refs = newDRSRefs (replicate (ref2int dummy - 1) (DRSRef "r")) []
+	DRS rs conds = p dummy
 	len = ref2int (maximum rs)
 	reflist = newDRSRefs (replicate len (DRSRef "r")) []
-	she_cond = foldl1 (\r1 r2 -> Or
-		(DRS [] [ r1] )
-		(DRS [] [ r2])) (map female she_refs) in
-	(DRS reflist (she_cond : conds)) where
+	she_conds = foldl1 (\cs1 cs2 -> [Or
+		(DRS [] cs1 )
+		(DRS [] cs2)]) (map (sheDRS conds dummy ) she_refs) in
+	(DRS reflist she_conds) where
+	sheDRS :: [DRSCon] -> DRSRef -> DRSRef -> [DRSCon]
+	sheDRS conds d r = (female r: (map (subst r d) conds))
 	female :: DRSRef -> DRSCon
 	female r = (Rel (DRSRel "female") [r])
+	subst :: DRSRef -> DRSRef -> DRSCon -> DRSCon
+	subst r d c = Rel (drsRelInRel c) (
+		map (\x -> if x == d then r else x) (refsInRel c)
+		)
+
 
 
 repDet :: GDet -> (DRSRef -> DRS) -> (DRSRef -> DRS) -> DRSRef -> DRS
