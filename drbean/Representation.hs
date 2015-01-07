@@ -99,7 +99,7 @@ repNP she p dummy = let
 	she_refs = newDRSRefs (replicate (ref2int dummy - 1) (DRSRef "r")) []
 	DRS rs conds = p dummy
 	len = ref2int (maximum rs)
-	reflist = newDRSRefs (replicate len (DRSRef "r")) []
+	reflist = filter (/= dummy) (newDRSRefs (replicate len (DRSRef "r")) [])
 	she_conds = foldl1 (\cs1 cs2 -> [Or
 		(DRS [] cs1 )
 		(DRS [] cs2)]) (map (sheDRS conds dummy ) she_refs) in
