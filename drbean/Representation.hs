@@ -232,11 +232,13 @@ repAP (GAdvAdj _ a) = \ r -> DRS [r] [Rel (DRSRel (lin a)) [r]]
 repAP ap = \r -> DRS [r] [Rel (DRSRel (lin ap)) [r]]
 
 repPlace :: GPlace -> (DRSRef -> DRS) -> DRSRef -> DRS
-repPlace (GLocation _ (GPlaceKind _ name)) = \p r -> let 
-	DRS rs conds = p r in (DRS rs ((Rel (DRSRel (lin name)) [head rs]) : conds))
-repPlace (GLocation _ name) = \p r -> let
-	DRS rs conds = p r in (DRS rs ((Rel (DRSRel (lin name)) [head rs]) : conds))
+repPlace (GLocation det name) p r = (repDet det) (repPlaceName name) p r
 
+repPlaceName (GPlaceKind ap name) = \r -> let
+       DRS name_refs name_conds = (repPlaceName name r)
+       DRS attri_refs attri_conds = (repAP ap r)
+       in DRS (name_refs ++ attri_refs) (name_conds ++ attri_conds)
+repPlaceName name = \r -> DRS [r] [Rel (DRSRel (lin name)) [r]]
 
 repVP :: GVP -> DRSRef -> DRS
 repVP (GWithCl vp _) = repVP vp
@@ -247,12 +249,10 @@ repVP (GBe_vp comp) = case comp of
 	(GBe_someone np) -> \r -> repNP np
 		(\ hypernym -> DRS [r] [] ) r
 	GBe_bad ap -> repAP ap
-	GBe_somewhere (GLocating prep place) -> \r -> let
-		situatee = r
-		rs' = new situatee in
-		repPlace place (\name -> DRS [name]
-		[ Rel (DRSRel (lin prep)) [situatee, name]]
-		) rs'
+	GBe_somewhere (GLocating prep place) -> \r -> 
+		repPlace place (\name -> DRS [r,name]
+		[ Rel (DRSRel (lin prep)) [r, name]]
+		) (new r)
 repVP (GLook_bad v ap) = \r -> let
 	patient = r
 	DRS rs' conds = repAP ap patient
