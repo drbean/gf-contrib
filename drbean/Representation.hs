@@ -96,7 +96,9 @@ repNP (GEntity name) p r
 	reflist = newDRSRefs (replicate len (DRSRef "r")) [] in
 	(DRS reflist ((Rel (DRSRel (lin name)) [r]) : conds))
 repNP she p dummy = let
-	she_refs = newDRSRefs (replicate (ref2int dummy - 1) (DRSRef "r")) []
+	she_refs = case dummy of
+		(DRSRef "r1") -> [DRSRef "r1"]
+		_ -> newDRSRefs (replicate (ref2int dummy - 1) (DRSRef "r")) []
 	DRS rs conds = p dummy
 	len = ref2int (maximum rs)
 	reflist = newDRSRefs (replicate len (DRSRef "r")) []
