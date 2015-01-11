@@ -1,6 +1,7 @@
 module Representation (module Representation, module Jackson) where
 
 import Data.DRS
+import Data.DRS.Show
 
 import Jackson
 import PGF
@@ -30,14 +31,21 @@ ref2int r = error ("No digit for DRSRef " ++ (drsRefToDRSVar r))
 
 instance Show DRSCon where
 	show (Rel drsrel refs) = (show drsrel) ++ " " ++ (show refs)
+	show (Prop drsref refs) = (show drsref) ++ " " ++ (show refs)
 
-drsRelInRel :: DRSCon -> DRSRel
-drsRelInRel (Rel r _) = r
-drsRelInRel rel = error ("No DRSRel in Rel " ++ (show rel))
+drsRelInCon :: DRSCon -> DRSRel
+drsRelInCon (Rel r _) = r
+drsRelInCon (Prop ref _) = DRSRel (drsRefToDRSVar ref)
+drsRelInCon rel = error ("No DRSRel in Con " ++ (show rel))
 
-refsInRel :: DRSCon -> [DRSRef]
-refsInRel (Rel _ rs) = rs
-refsInRel rel = error ("No DRSRefs in Rel " ++ (show rel))
+refsInCon :: DRSCon -> [DRSRef]
+refsInCon (Rel _ rs) = rs
+refsInCon (Prop _ (DRS _ cons)) = concat (map takeRefs cons) where
+	takeRefs :: DRSCon -> [DRSRef]
+	takeRefs (Rel _ rs) = rs
+	takeRefs (Neg (DRS _ cons)) = concat (map takeRefs cons)
+refsInCon con = error ("No DRSRefs in Con " ++ (show con))
+
 
 instance Eq GPN where
 	(==) Gqueen Gqueen = True
@@ -111,8 +119,8 @@ repNP she p dummy = let
 	female :: DRSRef -> DRSCon
 	female r = (Rel (DRSRel "female") [r])
 	subst :: DRSRef -> DRSRef -> DRSCon -> DRSCon
-	subst r d c = Rel (drsRelInRel c) (
-		map (\x -> if x == d then r else x) (refsInRel c)
+	subst r d c = Rel (drsRelInCon c) (
+		map (\x -> if x == d then r else x) (refsInCon c)
 		)
 
 
