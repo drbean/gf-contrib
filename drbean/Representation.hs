@@ -31,7 +31,7 @@ ref2int r = error ("No digit for DRSRef " ++ (drsRefToDRSVar r))
 
 instance Show DRSCon where
 	show (Rel drsrel refs) = (show drsrel) ++ " " ++ (show refs)
-	show (Prop drsref refs) = (show drsref) ++ " " ++ (show refs)
+	show (Prop drsref drs) = (show drsref) ++ ": " ++ (show drs)
 
 drsRelInCon :: DRSCon -> DRSRel
 drsRelInCon (Rel r _) = r
