@@ -22,9 +22,6 @@ entuples = [
 	, (X, Gchristmas)
 	]
 
-instance Ord DRSRef where
-	(<=) (DRSRef a) (DRSRef b) = (a <= b)
-
 ref2int :: DRSRef -> Int
 ref2int (DRSRef r@('r':[d])) | isDigit d , n <- digitToInt d = n
 ref2int r = error ("No digit for DRSRef " ++ (drsRefToDRSVar r))
