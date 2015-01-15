@@ -250,7 +250,7 @@ repVP (GLook_bad v ap) = \r -> let
 	lin_ap = lin ap
 	p = DRSRef "p"
 	look_conds = [Rel (DRSRel (lin v)) [patient, p]
-		, Prop p (DRS [] [Rel (DRSRel lin_ap) (p:rs)])]
+		, Prop p (DRS [] [Rel (DRSRel lin_ap) rs])]
 	in DRS [patient] look_conds
 repVP (GHappening v) = \r -> DRS [r] [Rel (DRSRel (lin v)) [r]]
 repVP (GChanging v obj) = \r -> repNP obj
