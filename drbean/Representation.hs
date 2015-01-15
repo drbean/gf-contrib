@@ -246,11 +246,11 @@ repVP (GBe_vp comp) = case comp of
 		) (new r)
 repVP (GLook_bad v ap) = \r -> let
 	patient = r
-	DRS rs' conds = repAP ap patient
+	DRS rs' [Rel rel rs] = repAP ap patient
 	lin_ap = lin ap
-	p = DRSRef (lin_ap ++ "_prop")
+	p = DRSRef "p"
 	look_conds = [Rel (DRSRel (lin v)) [patient, p]
-		, Prop p (DRS [] conds)]
+		, Prop p (DRS [] [Rel (DRSRel lin_ap) (p:rs)])]
 	in DRS [patient] look_conds
 repVP (GHappening v) = \r -> DRS [r] [Rel (DRSRel (lin v)) [r]]
 repVP (GChanging v obj) = \r -> repNP obj
