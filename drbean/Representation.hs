@@ -26,24 +26,6 @@ ref2int :: DRSRef -> Int
 ref2int (DRSRef r@('r':[d])) | isDigit d , n <- digitToInt d = n
 ref2int r = error ("No digit for DRSRef " ++ (drsRefToDRSVar r))
 
-instance Show DRSCon where
-	show (Rel drsrel refs) = (show drsrel) ++ " " ++ (show refs)
-	show (Prop drsref drs) = (show drsref) ++ ": " ++ (show drs)
-
-drsRelInCon :: DRSCon -> DRSRel
-drsRelInCon (Rel r _) = r
-drsRelInCon (Prop ref _) = DRSRel (drsRefToDRSVar ref)
-drsRelInCon rel = error ("No DRSRel in Con " ++ (show rel))
-
-refsInCon :: DRSCon -> [DRSRef]
-refsInCon (Rel _ rs) = rs
-refsInCon (Prop _ (DRS _ cons)) = concat (map takeRefs cons) where
-	takeRefs :: DRSCon -> [DRSRef]
-	takeRefs (Rel _ rs) = rs
-	takeRefs (Neg (DRS _ cons)) = concat (map takeRefs cons)
-refsInCon con = error ("No DRSRefs in Con " ++ (show con))
-
-
 instance Eq GPN where
 	(==) Gqueen Gqueen = True
 	(==) Gcolorado Gcolorado = True
@@ -116,9 +98,11 @@ repNP she p dummy = let
 	female :: DRSRef -> DRSCon
 	female r = (Rel (DRSRel "female") [r])
 	subst :: DRSRef -> DRSRef -> DRSCon -> DRSCon
-	subst r d c = Rel (drsRelInCon c) (
-		map (\x -> if x == d then r else x) (refsInCon c)
-		)
+	subst r d c = case c of
+		(Rel rel rs) -> Rel rel (
+			map (\x -> if x == d then r else x) rs
+			)
+		_	-> c
 
 
 
