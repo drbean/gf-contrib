@@ -272,12 +272,12 @@ repVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 		(GChanging v obj) -> \r -> 
 			repNP np (\referent -> repNP obj (\theme -> let
 			lin_v = lin v
-			p = DRSRef (lin_v ++ "_prop")
+			p = DRSRef "p"
 			conds = [Rel (DRSRel (lin v0)) [r, p]
 				, Prop p (DRS [] [Rel 
-				(DRSRel lin_v) [p, referent, theme]])]
-			in DRS [theme, referent] conds )
-			r ) r
+				(DRSRel lin_v) [referent, theme]])]
+			in DRS [r, theme, referent] conds )
+			(new referent) ) (new r)
 repVP (GPositing v0 (GNegS (GSentence np vp))) = case vp of
 	(GIntens vv vp2) -> case vp2 of
 		(GChanging v obj) -> \r -> repNP np (\referent ->
