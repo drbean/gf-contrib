@@ -247,7 +247,7 @@ repVP (GBe_vp comp) = case comp of
 repVP (GLook_bad v ap) = \r -> let
 	patient = r
 	DRS rs' [Rel rel rs] = repAP ap patient
-	lin_ap = lin ap
+	lin_ap = linAP ap
 	p = DRSRef "p"
 	look_conds = [Rel (DRSRel (lin v)) [patient, p]
 		, Prop p (DRS [] [Rel (DRSRel lin_ap) rs])]
