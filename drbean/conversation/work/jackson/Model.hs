@@ -192,11 +192,11 @@ condition = [
 	, ("rent", [(Agent,Q),(Theme,A)] )
 	, ("joy", [(Agent,X),(Theme,W)] )
 	, ("smell", [(Agent,Z),(Theme,Y)] )
-	, ("feel", [(Patient,Q),(Theme,P)] )
+	, ("feel", [(Patient,Q),(Predicate,P)] )
 	, ("in_form_of", [(Patient,L),(Instrument,V)] )
-	, ("lonely", [(Patient,Q)] )
-	, ("look", [(Patient,Q),(Theme,P)] )
-	, ("middle_class", [(Patient,Q)] )
+	, ("lonely", [(Predicate,P),(Patient,Q)] )
+	, ("look", [(Patient,Q),(Predicate,P)] )
+	, ("middle_class", [(Predicate,P),(Patient,Q)] )
 	, ("savings", [(Patient,Q),(Instrument,M),(Theme,Unspec)] )
 	]
 
@@ -209,7 +209,7 @@ idea = [
 	, ("remember", [(Agent,Q),(Theme,W)] )
 	, ("remember", [(Agent,Q),(Theme,X)] )
 	, ("remember", [(Agent,Q),(Theme,Y)] )
-	, ("think", [(Agent,Q),(Theme,P)] )
+	, ("think", [(Agent,Q),(Predicate,P)] )
 	]
 
 attitude :: [ (Content, [(Case, Entity)]) ]
@@ -265,19 +265,21 @@ twoPlacers =
 	(gentwoPlacer condition "have" "joy" Agent Theme) :
 	(gentwoPlacer condition "have" "smell" Agent Theme) :
 	(gentwoPlacer condition "have" "rent" Agent Theme) :
-	(gentwoPlacer condition "feel" "feel" Patient Theme) :
+	(gentwoPlacer condition "feel" "feel" Patient Predicate) :
+	(gentwoPlacer condition "lonely" "lonely" Predicate Patient) :
+	(gentwoPlacer condition "middle_class" "middle_class" Predicate Patient) :
 	(gentwoPlacer event "get" "give" Recipient Theme) :
 	(gentwoPlacer affiliation "have" "mother" Pivot Theme) :
 	(gentwoPlacer affiliation "have" "mother" Theme Pivot) :
 	(gentwoPlacer condition "in_form_of" "in_form_of" Patient Instrument) :
 	(gentwoPlacer affiliation "in_prep" "shelter" Patient Agent) :
-	(gentwoPlacer condition "look" "look" Patient Theme) :
+	(gentwoPlacer condition "look" "look" Patient Predicate) :
 	(gentwoPlacer event "lose" "remove" Theme Source) :
 	(gentwoPlacer event "Open" "open" Agent Patient) :
 	(gentwoPlacer idea "remember" "remember" Agent Theme) :
 	(gentwoPlacer event "smell_V2" "smell" Agent Patient) :
 	(gentwoPlacer event "thank" "thank" Agent Recipient) :
-	(gentwoPlacer idea "think" "think" Agent Theme) :
+	(gentwoPlacer idea "think" "think" Agent Predicate) :
 	(gentwoPlacer event "turn" "turn" Agent Theme) :
 	(gentwoPlacer idea "want_to_move_in" "move_in" Agent Patient) :
 	(gentwoPlacer affiliation "work" "employment" Patient Agent) :
