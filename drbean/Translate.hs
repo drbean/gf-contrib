@@ -35,11 +35,9 @@ isRel _ = False
 
 refs :: DRSCon -> [DRSRef]
 refs (Rel _ rs) = rs
-refs _ = undefined
 
 rel :: DRSCon -> String
 rel (Rel (DRSRel r) _) = r
-rel _ = undefined
 
 ref2term :: [L.Term] -> DRSRef -> L.Term
 ref2term ts (DRSRef "r1") = ts !! 0
@@ -48,7 +46,6 @@ ref2term ts (DRSRef "r3") = ts !! 2
 ref2term ts (DRSRef "r4") = ts !! 3
 ref2term ts (DRSRef "p") = ts !! 4
 ref2term ts (DRSRef p) | isSuffixOf "_prop" p = ts !! 4
-ref2term ts _ = undefined
 
 singleton :: [a] -> Bool
 singleton [x]	= True
