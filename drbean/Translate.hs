@@ -46,6 +46,7 @@ ref2term ts (DRSRef "r1") = ts !! 0
 ref2term ts (DRSRef "r2") = ts !! 1
 ref2term ts (DRSRef "r3") = ts !! 2
 ref2term ts (DRSRef "r4") = ts !! 3
+ref2term ts (DRSRef "p") = ts !! 4
 ref2term ts (DRSRef p) | isSuffixOf "_prop" p = ts !! 4
 ref2term ts _ = undefined
 
@@ -76,8 +77,9 @@ drsToLF (DRS r1 (Or d1 d2 : cs))
 drsToLF (DRS rl (Neg d: cs))
 	= L.Conj [ (L.Neg (drsToLF d)),
 		(drsToLF (DRS rl cs)) ]
-drsToLF (DRS rl (Prop p d: cs)) = L.Conj [
-	(L.Rel (drsRefToDRSVar p) [ref2term xyzwp p]), (drsToLF d)
+drsToLF (DRS rl (Prop p d: cs)) = case d of
+	DRS _ [cond] -> L.Conj [
+		L.Rel (rel cond) (map (ref2term xyzwp) (p : refs cond))
 		, (drsToLF (DRS rl cs)) ]
 
 -- vim: set ts=2 sts=2 sw=2 noet:
