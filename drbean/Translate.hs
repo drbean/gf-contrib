@@ -38,6 +38,7 @@ refs (Rel _ rs) = rs
 
 rel :: DRSCon -> String
 rel (Rel (DRSRel r) _) = r
+rel (Neg (DRS _ (Rel (DRSRel r) _ : _))) = r
 
 ref2term :: [L.Term] -> DRSRef -> L.Term
 ref2term ts (DRSRef "r1") = ts !! 0
