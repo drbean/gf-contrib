@@ -35,6 +35,7 @@ isRel _ = False
 
 refs :: DRSCon -> [DRSRef]
 refs (Rel _ rs) = rs
+refs (Neg (DRS _ (Rel _ rs : _))) = rs
 
 rel :: DRSCon -> String
 rel (Rel (DRSRel r) _) = r
