@@ -61,11 +61,9 @@ drsToLF :: DRS -> L.LF
 drsToLF (LambdaDRS _) = error "infelicitous FOL formula"
 drsToLF (Merge _ _) = error "infelicitous FOL formula"
 drsToLF (DRS _ []) = L.Top
-drsToLF (DRS rl (Rel posit [e,p]: Prop q d: cs))
+drsToLF (DRS rl (Rel posit [e,p]: Prop q (DRS _ [cond]): cs))
 	| p == q
-	, DRS _ [cond] <- d
-	, p' <- ref2term xyzwp p
-	= L.Exists p' (L.Conj [
+	= L.Exists (ref2term xyzwp p) (L.Conj [
 		L.Rel (drsRelToString posit) (map (ref2term xyzwp) [e,p])
 		, L.Rel (rel cond) (map (ref2term xyzwp) (p : refs cond))
 		, (drsToLF (DRS rl cs)) ])
