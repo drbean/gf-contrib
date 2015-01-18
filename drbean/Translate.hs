@@ -15,7 +15,7 @@ import qualified LogicalForm as L
 type DRSUnresolved = [DRSRef] -> DRS
 
 drsRefs = [ DRSRef "r1", DRSRef "r2", DRSRef "r3", DRSRef "r4",
-	DRSRef "prop", DRSRef "r1"]
+	DRSRef "p", DRSRef "r1"]
 
 xyzwp = [L.Var "e1", L.Var "e2", L.Var "e3", L.Var "e4", L.Var "p"]
 var_e = L.Var "e"
@@ -61,6 +61,14 @@ drsToLF :: DRS -> L.LF
 drsToLF (LambdaDRS _) = error "infelicitous FOL formula"
 drsToLF (Merge _ _) = error "infelicitous FOL formula"
 drsToLF (DRS _ []) = L.Top
+drsToLF (DRS rl (Rel posit [e,p]: Prop q d: cs))
+	| p == q
+	, DRS _ [cond] <- d
+	, p' <- ref2term xyzwp p
+	= L.Exists p' (L.Conj [
+		L.Rel (drsRelToString posit) (map (ref2term xyzwp) [e,p])
+		, L.Rel (rel cond) (map (ref2term xyzwp) (p : refs cond))
+		, (drsToLF (DRS rl cs)) ])
 drsToLF (DRS rl (Rel (DRSRel name) rs : cs))
 	| r : [] <- rs
 	, r `elem` rl
@@ -76,9 +84,5 @@ drsToLF (DRS r1 (Or d1 d2 : cs))
 drsToLF (DRS rl (Neg d: cs))
 	= L.Conj [ (L.Neg (drsToLF d)),
 		(drsToLF (DRS rl cs)) ]
-drsToLF (DRS rl (Prop p d: cs)) = case d of
-	DRS _ [cond] -> L.Conj [
-		L.Rel (rel cond) (map (ref2term xyzwp) (p : refs cond))
-		, (drsToLF (DRS rl cs)) ]
 
 -- vim: set ts=2 sts=2 sw=2 noet:
