@@ -39,7 +39,9 @@ instance Show LF where
 showLForm :: Int -> LF -> String
 showLForm i f = '\n' : showFormula i f ++ "\n" where
 	showFormula :: Int -> LF -> String
-	showFormula i (Exists v f) = opExists ++ "e" ++ (show i) ++ " " ++ showFormula (i+1) f
+	showFormula i (Exists v f)
+		| v == Var "p" = opExists ++ "p" ++ " " ++ showFormula i f
+		| otherwise = opExists ++ "e" ++ (show i) ++ " " ++ showFormula (i+1) f
 	showFormula i (Forall v f) = opForAll ++ "e" ++ (show i) ++ " " ++ showFormula (i+1) f
 	showFormula i (Conj [])     = opTop
 	showFormula i (Conj lfs)    = "(" ++ intercalate (" " ++ opAnd ++ " ") (map (showFormula i) lfs) ++ ")"
