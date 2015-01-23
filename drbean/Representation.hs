@@ -26,6 +26,9 @@ ref2int :: DRSRef -> Int
 ref2int (DRSRef r@('r':[d])) | isDigit d , n <- digitToInt d = n
 ref2int r = error ("No digit for DRSRef " ++ (drsRefToDRSVar r))
 
+int2ref :: Int -> DRSRef
+int2ref n = DRSRef ("r" ++ (show n) )
+
 instance Eq GPN where
 	(==) Gqueen Gqueen = True
 	(==) Gcolorado Gcolorado = True
@@ -55,8 +58,8 @@ linAP (GAdvAdj _ a) = lin a
 linAP a = lin a
 
 linIP :: GIP -> String
-linIP who_WH = "person"
-linIP what_WH = "thing"
+linIP Gwho_WH = "person"
+linIP Gwhat_WH = "thing"
 
 -- e2t :: GPN -> Tree
 -- e2t e | (Just tr) <- unApp (gf e) = tr
@@ -83,11 +86,13 @@ repNP (GEntity name) p r
 	reflist = newDRSRefs (replicate len (DRSRef "r")) [] in
 	(DRS reflist ((Rel (DRSRel (lin name)) [r]) : conds))
 repNP she p dummy = let
+	iminus = ref2int dummy - 1
+	rolled_ref = int2ref iminus
 	she_refs = case dummy of
 		(DRSRef "r1") -> [DRSRef "r1"]
-		_ -> newDRSRefs (replicate (ref2int dummy - 1) (DRSRef "r")) []
-	DRS rs conds = p dummy
-	len = ref2int (maximum rs)
+		_ -> newDRSRefs (replicate iminus (DRSRef "r")) []
+	DRS rs conds = p rolled_ref
+	len = ref2int (maximum rs) - 1
 	reflist = newDRSRefs (replicate len (DRSRef "r")) []
 	she_conds = foldl1 (\cs1 cs2 -> [Or
 		(DRS [] cs1 )
@@ -143,7 +148,9 @@ repDet (GApos owner) = \p q r -> let
 	thing = new r
 	DRS prs pconds = p thing
 	ownership_cond =  Rel (DRSRel "have") [owner_ref, thing]
-	DRS qrs qconds = q (maximum prs)
+	DRS qrs qconds = case owner of
+		Gshe -> q (int2ref (ref2int (maximum prs) -1))
+		_ -> q (maximum prs)
 	len = length (nub (r: prs ++ qrs))
 	reflist = newDRSRefs (replicate len (DRSRef "r")) []
 	conds = pconds ++ [ownership_cond] ++ qconds
