@@ -29,6 +29,10 @@ ref2int r = error ("No digit for DRSRef " ++ (drsRefToDRSVar r))
 int2ref :: Int -> DRSRef
 int2ref n = DRSRef ("r" ++ (show n) )
 
+instance Ord DRSRef where
+	(>=) (DRSRef r) (DRSRef q) | (>=) r q = True
+	(>=) _ _ = False
+
 instance Eq GPN where
 	(==) Gqueen Gqueen = True
 	(==) Gcolorado Gcolorado = True
