@@ -149,7 +149,9 @@ repDet GthePlural_Det =  repDet Gsome_pl_Det
 repDet Gfive   = repDet Gsome_pl_Det
 repDet (GApos owner) = \p q r -> let
 	owner_ref = r
-	thing = new r
+	thing = case owner of
+		Gshe -> r
+		_ -> new r
 	DRS prs pconds = p thing
 	ownership_cond =  Rel (DRSRel "have") [owner_ref, thing]
 	DRS qrs qconds = case owner of
