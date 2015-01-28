@@ -119,15 +119,19 @@ repDet Ga_Det = \ p q r-> let
 	reflist = newDRSRefs (replicate len (DRSRef "r")) []
 	conds = pconds ++ qconds
 	in DRS reflist conds
-repDet Gher_Det = \ p q r-> let
-	her_refs = newDRSRefs (replicate (ref2int r - 1) (DRSRef "r")) []
-	DRS prs pconds = p r
+repDet Gher_Det = \ p q dummy-> let
+	iminus = ref2int dummy - 1
+	rolled_ref = int2ref iminus
+	her_refs = case dummy of
+		(DRSRef "r1") -> [DRSRef "r1"]
+		_ -> newDRSRefs (replicate iminus (DRSRef "r")) []
+	DRS prs pconds = p dummy
 	thing = maximum prs
 	DRS qrs qconds = q thing
 	len = ref2int (maximum qrs)
 	reflist = newDRSRefs (replicate len (DRSRef "r")) []
-	her_cond = foldl (\ors r -> Or
-		(DRS [] [ female r, have r thing] )
+	her_cond = foldl (\ors dummy -> Or
+		(DRS [] [ female dummy, have dummy thing] )
 		(DRS [] [ors])) false her_refs
 	conds = her_cond : pconds ++ qconds
 	in DRS reflist conds where
