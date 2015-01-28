@@ -85,7 +85,7 @@ repNP (GEntity name) p r
 	len = length (nub rs)
 	reflist = newDRSRefs (replicate len (DRSRef "r")) [] in
 	(DRS reflist ((Rel (DRSRel (lin name)) [r]) : conds))
-repNP she p dummy = let
+repNP Gshe p dummy = let
 	iminus = ref2int dummy - 1
 	rolled_ref = int2ref iminus
 	she_refs = case dummy of
