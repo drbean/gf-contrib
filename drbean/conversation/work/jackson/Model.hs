@@ -206,6 +206,7 @@ idea = [
 	, ("move_in", [(Agent,D),(Patient,Q)] )
 	, ("care", [(Experiencer,Q),(Topic,P),(Agent,Q),(Patient,D)] )
 	, ("care", [(Experiencer,Q),(Topic,P),(Agent,D),(Patient,Q)] )
+	, ("care", [(Experiencer,Q),(Topic,P),(Agent,D),(Theme,E)] )
 	, ("remember", [(Agent,Q),(Theme,W)] )
 	, ("remember", [(Agent,Q),(Theme,X)] )
 	, ("remember", [(Agent,Q),(Theme,Y)] )
@@ -315,6 +316,7 @@ threePlaceStarters = [
     ]
 threePlacers =
 	(genthreePlacer idea "take_care" "care" Topic Agent Patient) :
+	(genthreePlacer idea "take_care" "care" Topic Agent Theme) :
 	(genthreePlacer idea "think:can_to_get" "another_job" Agent Agent Theme) :
 	(genthreePlacer event "hand" "hand" Agent Recipient Theme) :
 	(genthreePlacer event "give" "give" Agent Recipient Theme) :
