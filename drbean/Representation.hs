@@ -148,19 +148,20 @@ repDet Gsome_pl_Det = repDet Gsome_Det
 repDet GthePlural_Det =  repDet Gsome_pl_Det
 repDet Gfive   = repDet Gsome_pl_Det
 repDet (GApos owner) = \p q r -> let
-	owner_ref = r
-	thing = case owner of
-		Gshe -> r
-		_ -> new r
-	DRS prs pconds = p thing
-	ownership_cond =  Rel (DRSRel "have") [owner_ref, thing]
-	DRS qrs qconds = case owner of
-		Gshe -> q (int2ref (ref2int (maximum prs) -1))
-		_ -> q (maximum prs)
-	len = length (nub (r: prs ++ qrs))
+	len = ref2int r
+	iminus = len - 1
+	iplus = len + 1
+	(owner_ref,thing) = case owner of
+		Gshe -> (int2ref iminus, int2ref len)
+		_ -> (int2ref len, int2ref iplus)
 	reflist = newDRSRefs (replicate len (DRSRef "r")) []
+	ownership_cond =  Rel (DRSRel "have") [owner_ref, thing]
+	DRS prs pconds = p thing
+	DRS qrs qconds = q (maximum prs)
+	len' = length (nub (r: prs ++ qrs))
+	reflist' = newDRSRefs (replicate len' (DRSRef "r")) []
 	conds = pconds ++ [ownership_cond] ++ qconds
-	in repNP owner (\ ref -> DRS reflist conds ) owner_ref
+	in repNP owner (\ ref -> DRS reflist' conds ) owner_ref
 repDet (GApos_pl owner) = repDet (GApos owner)
 
 repMassDet :: GMassDet -> (DRSRef -> DRS) -> (DRSRef -> DRS) -> DRSRef -> DRS
