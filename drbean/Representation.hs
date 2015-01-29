@@ -100,11 +100,11 @@ repNP Gshe p r = let
 		(DRS [] cs2)]) (map (sheDRS conds dummy ) she_refs) in
 	(DRS reflist she_conds) where
 	sheDRS :: [DRSCon] -> DRSRef -> DRSRef -> [DRSCon]
-	sheDRS conds d r = (female r: (map (subst r d) conds))
+	sheDRS conds d r = (female r: (map (subst d r) conds))
 	female :: DRSRef -> DRSCon
 	female r = (Rel (DRSRel "female") [r])
 	subst :: DRSRef -> DRSRef -> DRSCon -> DRSCon
-	subst r d c = case c of
+	subst d r c = case c of
 		(Rel rel rs) -> Rel rel (
 			map (\x -> if x == d then r else x) rs
 			)
