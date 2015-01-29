@@ -134,7 +134,7 @@ repDet Gher_Det = \ p q dummy-> let
 	her_cond = foldl (\ors dummy -> Or
 		(DRS [] [ female dummy, have dummy thing] )
 		(DRS [] [ors])) false her_refs
-	conds = her_cond : pconds ++ qconds
+	conds = pconds ++ [her_cond] ++ qconds
 	in DRS reflist conds where
 	female :: DRSRef -> DRSCon
 	female r = (Rel (DRSRel "female") [r])
