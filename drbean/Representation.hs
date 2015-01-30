@@ -92,7 +92,7 @@ repNP Gshe p r = let
 	she_refs = case r of
 		(DRSRef "r1") -> [DRSRef "r1"]
 		_ -> newDRSRefs (replicate iminus (DRSRef "r")) []
-	DRS rs conds = p rolled_ref
+	DRS rs conds = p dummy
 	len = ref2int (maximum rs)
 	reflist = newDRSRefs (replicate len (DRSRef "r")) []
 	she_conds = foldl1 (\cs1 cs2 -> [Or
