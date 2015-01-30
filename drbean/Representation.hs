@@ -96,7 +96,7 @@ repNP Gshe p r = let
 	she_refs = case r of
 		(DRSRef "r1") -> [DRSRef "r1"]
 		_ -> newDRSRefs (replicate iminus (DRSRef "r")) []
-	DRS rs conds = p dummy
+	DRS rs conds = p r
 	reals = filter (not . isDummy) rs
 	len = ref2int (maximum reals)
 	reflist = newDRSRefs (replicate len (DRSRef "r")) []
@@ -296,7 +296,10 @@ repVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 			in DRS [referent] cond )
 			r ) r
 	(GIntens vv vp2) -> case vp2 of
-		(GChanging v obj) -> \r -> 
+		(GChanging v obj) -> \r -> let 
+			rr = case np of
+				Gshe -> DRSRef "dummy1"
+				_ -> new r in
 			repNP np (\referent -> repNP obj (\theme -> let
 			lin_v = lin v
 			p = DRSRef "p"
@@ -304,11 +307,13 @@ repVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 				, Prop p (DRS [] [Rel 
 				(DRSRel lin_v) [referent, theme]])]
 			in DRS [r, theme, referent] conds )
-			(new referent) ) (new r)
+			(new referent) ) rr
 repVP (GPositing v0 (GNegS (GSentence np vp))) = case vp of
 	(GIntens vv vp2) -> case vp2 of
-		(GChanging v obj) -> \r -> repNP np (\referent ->
-			repNP obj (\theme -> let
+		(GChanging v obj) -> \r -> repNP np (\referent -> let
+			tr = case obj of
+				Gshe -> DRSRef "dummy1"
+				_ -> new referent in repNP obj (\theme -> let
 			lin_v = lin v
 			p = DRSRef "p"
 			conds = [Rel (DRSRel (lin v0)) [r, p]
@@ -316,6 +321,6 @@ repVP (GPositing v0 (GNegS (GSentence np vp))) = case vp of
 				[Rel (DRSRel lin_v)
 				[referent, theme]])])]
 			in DRS [r, theme, referent] conds )
-			(new referent) ) (new r)
+			tr ) (new r)
 
 -- vim: set ts=2 sts=2 sw=2 noet:
