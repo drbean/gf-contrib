@@ -74,11 +74,13 @@ unmaybe (Just x) = x
 repS :: GUtt -> Maybe (DRSRef -> DRS)
 repS (GQUt (GPosQ (GYN (GSentence np vp)))) = Just (repNP np (repVP vp))
 
-new :: DRSRef -> DRSRef
-new r = let
-	es = [r]
-	rs = newDRSRefs [r] es
-	r' = head rs in r'
+new :: GNP -> DRSRef -> DRSRef
+new np r = case np of
+	Gshe -> r
+	_ -> let
+		es = [r]
+		rs = newDRSRefs [r] es
+		r' = head rs in r'
 
 repNP :: GNP -> (DRSRef -> DRS) -> DRSRef -> DRS
 repNP (GItem det cn) p r = (repDet det) (repCN cn) p r
