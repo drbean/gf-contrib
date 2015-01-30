@@ -298,7 +298,7 @@ repVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 	(GIntens vv vp2) -> case vp2 of
 		(GChanging v obj) -> \r -> let 
 			rr = case np of
-				Gshe -> DRSRef "dummy1"
+				Gshe -> r
 				_ -> new r in
 			repNP np (\referent -> repNP obj (\theme -> let
 			lin_v = lin v
@@ -312,7 +312,7 @@ repVP (GPositing v0 (GNegS (GSentence np vp))) = case vp of
 	(GIntens vv vp2) -> case vp2 of
 		(GChanging v obj) -> \r -> repNP np (\referent -> let
 			tr = case obj of
-				Gshe -> DRSRef "dummy1"
+				Gshe -> referent
 				_ -> new referent in repNP obj (\theme -> let
 			lin_v = lin v
 			p = DRSRef "p"
