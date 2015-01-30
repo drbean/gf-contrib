@@ -279,7 +279,7 @@ repVP (GLook_bad v ap) = \r -> let
 repVP (GHappening v) = \r -> DRS [r] [Rel (DRSRel (lin v)) [r]]
 repVP (GChanging v obj) = \r -> let
 	or = case obj of
-		Gshe -> DRSRef "dummy1"
+		Gshe -> r
 		_ -> new r in repNP obj
 	(\patient -> DRS [r,patient] [Rel (DRSRel (lin v)) [r, patient]] ) or
 repVP (GTriangulating v obj1 obj2) = \r -> repNP obj1 (\theme ->
