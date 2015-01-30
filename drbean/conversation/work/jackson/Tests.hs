@@ -111,7 +111,7 @@ yn_dic_test = [
   , "Does Queen lose her apartment?"
   -- , "Does Queen's daughter want Queen to move in?"
   , "Does Queen think that her daughter should not take care of her?"
-  , "Does Queen think that her daughter shouldn't take care of the rent?"
+  , "Does Queen think that her daughter shouldn't take care of her rent?"
   , "Does Queen think that she should take care of her daughter?"
   -- , "Does Queen have money to buy a birthday card?"
   , "Does Queen go out with a sign?"
