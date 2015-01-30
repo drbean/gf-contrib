@@ -108,6 +108,8 @@ repNP Gshe p r = let
 		(Rel rel rs) -> Rel rel (
 			map (\x -> if x == d then r else x) rs
 			)
+		(Prop ref (DRS reflist conds)) ->
+			Prop ref (DRS reflist (map (subst d r) conds))
 		_	-> c
 
 
