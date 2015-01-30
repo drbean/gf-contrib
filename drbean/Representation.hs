@@ -82,6 +82,15 @@ new np r = case np of
 		rs = newDRSRefs [r] es
 		r' = head rs in r'
 
+newOnPart :: GPartitive -> DRSRef -> DRSRef
+newOnPart _ r = new (GItem Ga_Det Gman) r
+
+newOnPos :: GN2 -> DRSRef -> DRSRef
+newOnPos _ r = new (GItem Ga_Det Gman) r
+
+newOnPlace :: GPlace -> DRSRef -> DRSRef
+newOnPlace _ r = new (GItem Ga_Det Gman) r
+
 repNP :: GNP -> (DRSRef -> DRS) -> DRSRef -> DRS
 repNP (GItem det cn) p r = (repDet det) (repCN cn) p r
 repNP (GMassItem det n) p r = (repMassDet det) (repN n) p r
@@ -187,7 +196,7 @@ repMassDet Gzero_Det_sg = \ p q r-> let
 repMassDet Gthe_mass_Det = repMassDet Gzero_Det_sg
 repMassDet (GMassApos owner) = \p q r -> let
 	owner_ref = r
-	thing = new r
+	thing = new owner r
 	DRS prs pconds = p thing
 	ownership_cond =  Rel (DRSRel "have") [owner_ref, thing]
 	DRS qrs qconds = q thing
@@ -229,18 +238,18 @@ repCN (GKind ap cn) = \r -> let
        in DRS (thing_refs ++ attri_refs) (thing_conds ++ attri_conds)
 repCN (GOfpart part n) = \r -> let
 	form = r
-	thing = new r
+	thing = newOnPart part r
 	DRS _ partconds = repPartitive part form
 	DRS _ thingconds = repN n thing
 	formcond = [ Rel (DRSRel "in_form_of") [thing,form] ]
 	in DRS [form, thing] (partconds ++ thingconds ++ formcond)
 repCN (GOfpos n2 np) = \r -> let
 	owner = r
-	thing = new r
+	thing = new np r
 	DRS rs conds = repN2 n2 thing in
 	repNP np (\owner -> let
 	newconds = conds ++ [Rel (DRSRel "have") [owner, thing]]
-	in DRS [owner, thing, new thing] newconds ) owner
+	in DRS [owner, thing, newOnPos n2 thing] newconds ) owner
 repCN name     = \r ->
 	DRS [r] [Rel (DRSRel (lin name)) [r]]
 
@@ -269,7 +278,7 @@ repVP (GBe_vp comp) = case comp of
 	GBe_somewhere (GLocating prep place) -> \r -> 
 		repPlace place (\name -> DRS [r,name]
 		[ Rel (DRSRel (lin prep)) [r, name]]
-		) (new r)
+		) (newOnPlace place r)
 repVP (GLook_bad v ap) = \r -> let
 	patient = r
 	DRS rs' [Rel rel rs] = repAP ap patient
@@ -279,15 +288,12 @@ repVP (GLook_bad v ap) = \r -> let
 		, Prop p (DRS [] [Rel (DRSRel lin_ap) rs])]
 	in DRS [patient] look_conds
 repVP (GHappening v) = \r -> DRS [r] [Rel (DRSRel (lin v)) [r]]
-repVP (GChanging v obj) = \r -> let
-	or = case obj of
-		Gshe -> r
-		_ -> new r in repNP obj
-	(\patient -> DRS [r,patient] [Rel (DRSRel (lin v)) [r, patient]] ) or
+repVP (GChanging v obj) = \r -> repNP obj
+	(\patient -> DRS [r,patient] [Rel (DRSRel (lin v)) [r, patient]] ) (new obj r)
 repVP (GTriangulating v obj1 obj2) = \r -> repNP obj1 (\theme ->
 		repNP obj2 (\recipient ->
 			DRS [r,theme,recipient] [Rel (DRSRel (lin v)) [r, theme, recipient]]
-			) (new theme) ) (new r)
+			) (new obj2 theme) ) (new obj1 r)
 repVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 	(GBe_vp comp) -> case comp of
 		(GBe_someone subjcomp ) -> \r -> repNP np (\referent ->
@@ -295,13 +301,9 @@ repVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 			cond = [Rel (DRSRel (lin v0)) [r, DRSRef ((lin v0)++":be")]
 				, Prop (DRSRef ((lin v0)++":be")) (DRS []
 				[Rel (DRSRel ((linNP subjcomp)++"_prop")) [referent] ])]
-			in DRS [referent] cond )
-			r ) r
+			in DRS [referent] cond ) r ) r
 	(GIntens vv vp2) -> case vp2 of
-		(GChanging v obj) -> \r -> let 
-			rr = case np of
-				Gshe -> r
-				_ -> new r in
+		(GChanging v obj) -> \r ->
 			repNP np (\referent -> repNP obj (\theme -> let
 			lin_v = lin v
 			p = DRSRef "p"
@@ -309,13 +311,11 @@ repVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 				, Prop p (DRS [] [Rel 
 				(DRSRel lin_v) [referent, theme]])]
 			in DRS [r, theme, referent] conds )
-			(new referent) ) rr
+			(new obj referent) ) (new np r)
 repVP (GPositing v0 (GNegS (GSentence np vp))) = case vp of
 	(GIntens vv vp2) -> case vp2 of
-		(GChanging v obj) -> \r -> repNP np (\referent -> let
-			tr = case obj of
-				Gshe -> referent
-				_ -> new referent in repNP obj (\theme -> let
+		(GChanging v obj) -> \r -> repNP np (\referent ->
+			repNP obj (\theme -> let
 			lin_v = lin v
 			p = DRSRef "p"
 			conds = [Rel (DRSRel (lin v0)) [r, p]
@@ -323,6 +323,6 @@ repVP (GPositing v0 (GNegS (GSentence np vp))) = case vp of
 				[Rel (DRSRel lin_v)
 				[referent, theme]])])]
 			in DRS [r, theme, referent] conds )
-			tr ) (new r)
+			(new obj referent) ) (new np r)
 
 -- vim: set ts=2 sts=2 sw=2 noet:
