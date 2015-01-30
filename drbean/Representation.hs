@@ -26,6 +26,10 @@ ref2int :: DRSRef -> Int
 ref2int (DRSRef r@('r':[d])) | isDigit d , n <- digitToInt d = n
 ref2int r = error ("No digit for DRSRef " ++ (drsRefToDRSVar r))
 
+isDummy :: DRSRef -> Bool
+isDummy (DRSRef ('d':'u':'m':'m':'y':[d])) | isDigit d = True
+isDummy _ = False
+
 int2ref :: Int -> DRSRef
 int2ref n = DRSRef ("r" ++ (show n) )
 
@@ -86,14 +90,15 @@ repNP (GEntity name) p r
 	reflist = newDRSRefs (replicate len (DRSRef "r")) [] in
 	(DRS reflist ((Rel (DRSRel (lin name)) [r]) : conds))
 repNP Gshe p r = let
-	dummy =DRSRef "dummy"
+	dummy =DRSRef "dummy1"
 	iminus = ref2int r - 1
 	rolled_ref = int2ref iminus
 	she_refs = case r of
 		(DRSRef "r1") -> [DRSRef "r1"]
 		_ -> newDRSRefs (replicate iminus (DRSRef "r")) []
 	DRS rs conds = p dummy
-	len = ref2int (maximum rs)
+	reals = filter (not . isDummy) rs
+	len = ref2int (maximum reals)
 	reflist = newDRSRefs (replicate len (DRSRef "r")) []
 	she_conds = foldl1 (\cs1 cs2 -> [Or
 		(DRS [] cs1 )
@@ -274,7 +279,7 @@ repVP (GLook_bad v ap) = \r -> let
 repVP (GHappening v) = \r -> DRS [r] [Rel (DRSRel (lin v)) [r]]
 repVP (GChanging v obj) = \r -> let
 	or = case obj of
-		Gshe -> DRSRef "dummy"
+		Gshe -> DRSRef "dummy1"
 		_ -> new r in repNP obj
 	(\patient -> DRS [r,patient] [Rel (DRSRel (lin v)) [r, patient]] ) or
 repVP (GTriangulating v obj1 obj2) = \r -> repNP obj1 (\theme ->
