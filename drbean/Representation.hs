@@ -73,6 +73,7 @@ unmaybe (Just x) = x
 
 repS :: GUtt -> Maybe (DRSRef -> DRS)
 repS (GQUt (GPosQ (GYN (GSentence np vp)))) = Just (repNP np (repVP vp))
+repS (GQUt (GPosQ (GWH_Pred wh vp))) = Just (repW wh (repVP vp))
 
 new :: GNP -> DRSRef -> DRSRef
 new np r = case np of
@@ -324,5 +325,14 @@ repVP (GPositing v0 (GNegS (GSentence np vp))) = case vp of
 				[referent, theme]])])]
 			in DRS [r, theme, referent] conds )
 			(new obj referent) ) (new np r)
+
+repW :: GIP -> (DRSRef -> DRS) -> DRSRef -> DRS
+repW Gwho_WH p r = let
+	person = Rel (DRSRel "person") [r]
+	DRS rs conds = p r
+	len = length (nub rs)
+	reflist = newDRSRefs (replicate len (DRSRef "r")) [] in
+	(DRS reflist ( person : conds))
+-- repW Gwhat_WH p = Merge (DRS [x] [Rel (DRSRel "thing") [x] ] ) (p x)
 
 -- vim: set ts=2 sts=2 sw=2 noet:
