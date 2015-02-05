@@ -196,13 +196,20 @@ repMassDet Gzero_Det_sg = \ p q r-> let
 	in DRS reflist conds
 repMassDet Gthe_mass_Det = repMassDet Gzero_Det_sg
 repMassDet (GMassApos owner) = \p q r -> let
-	owner_ref = r
-	thing = new owner r
-	DRS prs pconds = p thing
+	len = ref2int r
+	iminus = len - 1
+	iplus = len + 1
+	(owner_ref,thing) = case owner of
+		Gshe -> (int2ref iminus, int2ref len)
+		_ -> (int2ref len, int2ref iplus)
+	reflist = newDRSRefs (replicate len (DRSRef "r")) []
 	ownership_cond =  Rel (DRSRel "have") [owner_ref, thing]
-	DRS qrs qconds = q thing
+	DRS prs pconds = p thing
+	DRS qrs qconds = q (maximum prs)
+	len' = length (nub (r: prs ++ qrs))
+	reflist' = newDRSRefs (replicate len' (DRSRef "r")) []
 	conds = pconds ++ [ownership_cond] ++ qconds
-	in repNP owner (\ ref -> DRS (ref : qrs) conds ) owner_ref
+	in repNP owner (\ ref -> DRS reflist' conds ) owner_ref
 repMassDet her_MassDet = \ p q r-> let
 	her_refs = newDRSRefs (replicate (ref2int r - 1) (DRSRef "r")) []
 	DRS prs pconds = p r
