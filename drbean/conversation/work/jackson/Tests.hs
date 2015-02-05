@@ -163,7 +163,7 @@ wh_dic_test = [
   -- , "What turns into five months?"
   -- , "What covers Queen's rent?"
   , "Who loses her apartment?"
-  , "Whose daughter wants her to move in?"
+  -- , "Whose daughter wants her to move in?"
   , "Who thinks that her daughter should not take care of her?"
   , "Who thinks that her daughter shouldn't take care of her?"
   , "Who thinks that she should take care of her children?"
