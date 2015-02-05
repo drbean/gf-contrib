@@ -342,7 +342,7 @@ repW Gwho_WH p r = let
 	(DRS reflist ( person : conds))
 repW (GWHose cn) p r = let
 	owned = new (GItem Ga_Det cn) r
-	ownership_conds =  [ Rel (DRSRel "person") [r], Rel (DRSRel "have") [r, owned] ]
+	ownership_conds =  [ Rel (DRSRel "have") [r, owned] ]
 	DRS rs conds = repCN cn owned
 	DRS prs pconds = p owned
 	len = length (nub rs ++ prs)
