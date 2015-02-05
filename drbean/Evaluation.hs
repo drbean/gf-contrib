@@ -74,13 +74,12 @@ disjLF = lifting or
 bool2Maybe :: Bool -> Maybe Bool
 bool2Maybe = \x -> case x of False -> Nothing; True -> Just True
 
---evalW :: LF -> Maybe [Entity]
---evalW (scope)	= Just [ e | e <- namedents
---				, t <- [termed e]
---				, a <- [(eval.scope) t]
---				, a == Just (Boolean True)
---							]
---evalW _ = Nothing
+evalW :: LF -> Maybe [Entity]
+evalW (scope)	= Just [ e | e <- namedents
+				, a <- [eval (\v -> e) scope]
+				, a == Just (Boolean True)
+							]
+evalW _ = Nothing
 
 notNull :: [Entity] -> Maybe Answer
 notNull [] = Just (Boolean False )
@@ -147,13 +146,13 @@ answer	utt@(GQUt (GNegQ (GTagQ _ _)))
 	where
 		drs = ((unmaybe . repS) utt) (DRSRef "r1")
 		lf = drsToLF drs
-----answer	utt@(GQUt _) = case (evalW . drsToFOL . unmaybe . repS) utt of
-----	(Just []) -> Just (GAnswer Gno_pl_NP)
-----	(Just [x]) -> Just (GAnswer (GEntity (ent2gent x)))
-----	(Just [x,y]) -> Just (GAnswer (GCloseList Gor_Conj (GList (GEntity (ent2gent x)) (GEntity (ent2gent y)))))
-----	(Just [x,y,z]) -> Just (GAnswer (GCloseList Gor_Conj (GAddList (GEntity (ent2gent x)) (GList (GEntity (ent2gent y)) (GEntity (ent2gent z))))))
-----	(Just [x,y,z,w]) -> Nothing
-----	otherwise	-> Nothing
+answer	utt@(GQUt _) = case (evalW . drsToLF) (((unmaybe . repS) utt) (DRSRef "r1")) of
+	(Just []) -> Just (GAnswer Gno_pl_NP)
+	(Just [x]) -> Just (GAnswer (GEntity (ent2gent x)))
+	(Just [x,y]) -> Just (GAnswer (GCloseList Gor_Conj (GList (GEntity (ent2gent x)) (GEntity (ent2gent y)))))
+	(Just [x,y,z]) -> Just (GAnswer (GCloseList Gor_Conj (GAddList (GEntity (ent2gent x)) (GList (GEntity (ent2gent y)) (GEntity (ent2gent z))))))
+	(Just [x,y,z,w]) -> Nothing
+	otherwise	-> Nothing
 
 linear :: PGF -> Tree -> Maybe String
 linear gr p = Just (linearize gr (myLanguage gr) p)
