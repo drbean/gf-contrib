@@ -151,7 +151,7 @@ yn_dic_test = [
   ]
 
 wh_dic_test = [
-  "Who works for the State of Colorado?"
+  "Who works for the state of Colorado?"
   , "Who has great ideas of retiring?"
   , "Who has great ideas of sitting back?"
   , "Who has great ideas of enjoying life?"
