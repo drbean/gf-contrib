@@ -212,7 +212,7 @@ repMassDet her_MassDet = \ p q r-> let
 	her_cond = foldl (\ors r -> Or
 		(DRS [] [ female r, have r thing] )
 		(DRS [] [ors])) false her_refs
-	conds = her_cond : pconds ++ qconds
+	conds = pconds ++ [her_cond] ++ qconds
 	in DRS reflist conds where
 	female :: DRSRef -> DRSCon
 	female r = (Rel (DRSRel "female") [r])
