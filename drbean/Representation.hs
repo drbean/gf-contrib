@@ -20,7 +20,6 @@ entuples = [
 	(Q,Gqueen)
 	, (C,Gcolorado)
 	, (X, Gchristmas)
-	, (D, Gqueen_s_daughter)
 	]
 
 ref2int :: DRSRef -> Int
