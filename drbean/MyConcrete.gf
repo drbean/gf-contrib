@@ -151,6 +151,7 @@ lin
   -- Be_made_sth vp np = PassV3 vp np;
 	YN cl	= mkQCl cl;
 	WH_Pred ip vp	= mkQCl ip vp;
+	WHose cn = mkIP (GenIP who_WH) cn;
 	WH_ClSlash ip cslash	= mkQCl ip cslash;
 	PosQ qcl	= mkQS qcl;
 	NegQ qcl	= mkQS negativePol qcl;

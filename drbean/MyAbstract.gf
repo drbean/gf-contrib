@@ -63,6 +63,7 @@ fun
 	-- TagAP	: NP -> AP -> QCl;
 
 	WH_Pred	: IP -> VP -> QCl;
+	WHose	: CN -> IP;
 	WH_ClSlash	: IP -> ClSlash -> QCl;
 	PosQ	: QCl -> QS;
 	NegQ	: QCl -> QS;
