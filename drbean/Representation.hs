@@ -340,6 +340,15 @@ repW Gwho_WH p r = let
 	len = length (nub rs)
 	reflist = newDRSRefs (replicate len (DRSRef "r")) [] in
 	(DRS reflist ( person : conds))
+repW (GWHose cn) p r = let
+	owned = new (GItem Ga_Det cn) r
+	ownership_conds =  [ Rel (DRSRel "person") [r], Rel (DRSRel "have") [r, owned] ]
+	DRS rs conds = repCN cn owned
+	DRS prs pconds = p owned
+	len = length (nub rs ++ prs)
+	reflist = newDRSRefs (replicate len (DRSRef "r")) [] in
+	DRS reflist (conds ++ ownership_conds ++ pconds)
+
 -- repW Gwhat_WH p = Merge (DRS [x] [Rel (DRSRel "thing") [x] ] ) (p x)
 
 -- vim: set ts=2 sts=2 sw=2 noet:
