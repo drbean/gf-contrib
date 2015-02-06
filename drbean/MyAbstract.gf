@@ -48,6 +48,7 @@ fun
 	Modified	: CN -> RCl -> CN;
 	SubjRel	: RP -> VP -> RCl;
 	ObjRel	: RP -> ClSlash -> RCl;
+	EmptyRel : ClSlash -> RCl;
 	VPClSlash	: NP -> VPSlash -> ClSlash;
 	ToPlace	:  Motion -> Located -> VP;
 	WithPlace	:  VP -> Located -> VP;

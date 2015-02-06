@@ -140,6 +140,7 @@ lin
 	Modified cn rcl = mkCN cn ( mkRS rcl);
 	SubjRel	rp vp = mkRCl rp vp;
 	ObjRel rp clslash = mkRCl rp clslash;
+	EmptyRel slash = EmptyRelSlash slash;
 	VPClSlash	np vpslash = mkClSlash np vpslash;
 	ToPlace vp located = mkVP vp located;
   WithPlace vp located	= mkVP vp located;
