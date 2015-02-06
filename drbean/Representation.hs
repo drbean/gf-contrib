@@ -258,6 +258,13 @@ repCN (GOfpos n2 np) = \r -> let
 	repNP np (\owner -> let
 	newconds = conds ++ [Rel (DRSRel "have") [owner, thing]]
 	in DRS [owner, thing, newOnPos n2 thing] newconds ) owner
+repCN (GModified cn rs) = \r -> let
+	DRS thing_refs thing_conds = repCN cn r
+	DRS attri_refs attri_conds = case rs of
+		(GSubjRel wh vp) -> repVP vp r
+	len = ref2int (maximum (thing_refs ++ attri_refs))
+	reflist = newDRSRefs (replicate len (DRSRef "r")) [] in
+	DRS reflist (thing_conds ++ attri_conds)
 repCN name     = \r ->
 	DRS [r] [Rel (DRSRel (lin name)) [r]]
 
@@ -280,8 +287,12 @@ repVP (GWithPlace vp _) = repVP vp
 repVP (GWithStyle vp _) = repVP vp
 repVP (GWithTime vp _) = repVP vp
 repVP (GBe_vp comp) = case comp of
-	(GBe_someone np) -> \r -> repNP np
-		(\ hypernym -> DRS [r] [] ) r
+	(GBe_someone np) -> \r -> let
+		DRS rs conds = repNP np
+			(\ hypernym -> DRS [hypernym] [] ) r
+		len = ref2int (maximum rs)
+		reflist = newDRSRefs (replicate len (DRSRef "r")) [] in
+		DRS rs conds
 	GBe_bad ap -> repAP ap
 	GBe_somewhere (GLocating prep place) -> \r -> 
 		repPlace place (\name -> DRS [r,name]
@@ -337,7 +348,7 @@ repW :: GIP -> (DRSRef -> DRS) -> DRSRef -> DRS
 repW Gwho_WH p r = let
 	person = Rel (DRSRel "person") [r]
 	DRS rs conds = p r
-	len = length (nub rs)
+	len = ref2int (maximum rs)
 	reflist = newDRSRefs (replicate len (DRSRef "r")) [] in
 	(DRS reflist ( person : conds))
 repW (GWHose cn) p r = let
@@ -345,7 +356,7 @@ repW (GWHose cn) p r = let
 	ownership_conds =  [ Rel (DRSRel "have") [r, owned] ]
 	DRS rs conds = repCN cn owned
 	DRS prs pconds = p owned
-	len = length (nub rs ++ prs)
+	len = ref2int (maximum (rs ++ prs))
 	reflist = newDRSRefs (replicate len (DRSRef "r")) [] in
 	DRS reflist (conds ++ ownership_conds ++ pconds)
 
