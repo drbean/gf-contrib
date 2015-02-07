@@ -112,6 +112,7 @@ yn_dic_test = [
 		, "Does the interviewer say that the superintendent tells the shipyard to hire Dee."
 		, "Doesn't the interviewer like that Dee is hired."
 		, "Does the guy say that Dee is hired."
+		, "Does the interviewer say that Dee is hired."
 
     , "Does Dee go to the ship."
 		, "Does no man want to work with Dee."
@@ -150,7 +151,7 @@ yn_dic_test = [
 
 	]
 
-who_dic_test = [
+wh_dic_test = [
 	"Who does the guy who interviews Dee say is too little?"
 	, "Who does the interviewer say is little?"
 	, "Who does the interviewer say cannot get along with the guys?"
@@ -163,7 +164,8 @@ who_dic_test = [
 	, "When does Dee go to the shipyard?"
 	, "Who does the interviewer say tells the shipyard to hire Dee?"
 	, "Who doesn't like that Dee is hired?"
-	, "Who does the guy say is hired?"
+	, "Who does the guy say that is hired?"
+	, "Whom does the guy say that is hired?"
 	, "Where does Dee go?"
 	, "Who wants to work with Dee?"
 	, "With whom do none of the guys want to work?"
