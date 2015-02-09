@@ -198,5 +198,42 @@ wh_dic_test = [
 
   ]
 
+tag_dic_test = [
+  "Queen works for the State of Colorado, doesn't she?"
+  , "Queen has great ideas of retiring, doesn't she?"
+  , "Queen has great ideas of sitting back, doesn't she?"
+  , "Queen has great ideas of enjoying life, doesn't she?"
+  , "Queen is laid off, isn't she?"
+  , "Queen has some money in savings, doesn't she?"
+  , "Queen thinks no big deal, doesn't she?"
+  , "Queen thinks that Queen can get another job, doesn't she?"
+  , "One week turns into a month, doesn't it?"
+  , "One week turns into five months, doesn't it?"
+  , "Unemployment does not cover Queen's rent, doesn't it?"
+  , "Queen loses Queen's apartment, doesn't she?"
+  , "Queen's daughter wants Queen to move in, doesn't she?"
+  , "Queen thinks that Queen's daughter should not take care of Queen, doesn't she?"
+  , "Queen thinks that Queen should take care of Queen's children, doesn't she?"
+  , "Queen doesn't have money to buy a birthday card, doesn't she?"
+  , "Queen goes out with a sign, doesn't she?"
+  , "Queen gets dressed up, doesn't she?"
+  , "Queen looks pretty middle-class, doesn't she?"
+  , "A man hands Queen a 10-dollar bill, doesn't it?"
+  , "Queen thanks the man, doesn't she?"
+  , "Queen buys Queen's daughter a card, doesn't she?"
+  , "Queen remembers Christmas, doesn't she?"
+  , "Queen is in the shelter, isn't she?"
+  , "Queen remembers Queen's daughters as little girls, doesn't she?"
+  , "Queen remembers the smells of cooking, doesn't she?"
+  , "Queen remembers the joy of Christmas, doesn't she?"
+  , "Queen feels pretty lonely, doesn't she?"
+  , "The women receive a gift bag, don't they?"
+  , "Queen gets a little bottle of lotion, doesn't she?"
+  , "Queen opens the little bottle of lotion, doesn't she?"
+  , "Queen smells the lotion, doesn't she?"
+  , "The lotion is the most beautiful fragrance Queen has ever smelled, isn't it?"
+  , "Queen cries because the lotion lifts Queen's spirits, doesn't she?"
+	]
+
 
 -- vim: set ts=2 sts=2 sw=2 noet:
