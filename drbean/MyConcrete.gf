@@ -57,7 +57,9 @@ lincat
 	Partitive = N2;
 
 param
-  Auxiliary	= Do | Be;
+  Auxiliary	= Do | Be | Should;
+	-- VPs = Look_bad | Be_bad | Be_vp | Happening | Changing | Causative | Intens | Positing | Informing | Triangulating | Pred2A | Pass | ToPlace | WithPlace | WithTime | WithStyle | WithCl ;
+
 
 oper
 
@@ -75,8 +77,8 @@ oper
 			VVF VPres => pres;
 			VVF VPPart	=> pp ;
 			VVF VPresPart	=> prespp ;
-			-- VVF VPast	=> past ;
-			-- VVPastNeg	=> pastN ;
+			-- VVF VPast	=> nonExist ;
+			-- VVPastNeg	=> nonExist ;
 			VVPresNeg	=> presN
 			} ;
 		p = [];
@@ -88,28 +90,52 @@ oper
     \subj -> { s = case <(fromAgr subj.a).n, (fromAgr subj.a).g> of {
       <Sg,Fem> => table {
 		      Do => table {Pos => "doesn't she"; Neg => "does she" };
-		      Be => table {Pos => "isn't she"; Neg => "is she" }
+		      Be => table {Pos => "isn't she"; Neg => "is she" };
+		      Should => table {Pos => "shouldn't she"; Neg => "should she" }
 		      };
       <Sg,Masc>  => table {
 		      Do => table { Pos => "doesn't he"; Neg => "does he" };
-		      Be => table {Pos => "isn't he"; Neg => "is he" }
+		      Be => table {Pos => "isn't he"; Neg => "is he" };
+		      Should => table {Pos => "shouldn't he"; Neg => "should he" }
 		      };
       <Sg,Neutr> => table {
 		      Do => table { Pos => "doesn't it"; Neg => "does it" };
-		      Be => table {Pos => "isn't it"; Neg => "is it" }
+		      Be => table {Pos => "isn't it"; Neg => "is it" };
+		      Should => table {Pos => "shouldn't it"; Neg => "should it" }
 		      };
       <Pl,_>	=> table {
 		      Do => table { Pos => "don't they"; Neg => "do they" };
-		      Be => table {Pos => "aren't they"; Neg => "are they" }
+		      Be => table {Pos => "aren't they"; Neg => "are they" };
+		      Should => table {Pos => "shouldn't they"; Neg => "should they" }
 		      }
     }
   };
 
-  auxiliary : VP -> Auxiliary =
-    \vp -> case vp of {
-      vp => Be;
-      _	=> Do
-    };
+  --TagModal : NP -> VV -> VP -> QCl =
+  --  \np, vv, vp2  -> let
+  --  vp = Intens vv vp2;
+  --  cl = Sentence np vp;
+  --  aux = case ((vv . s) ! VVF VInf) of {
+  --    "should" => Should
+  --  };
+  --in
+  --{s = table {
+  --  Pres => table {
+  --    Simul => table {
+  --      CPos => table {
+  --        QDir => (cl.s ! Pres ! Simul ! CPos ! ODir False) ++ ((tag np).s ! aux ! Pos );
+  --        QIndir => "nonExist" };
+  --      CNeg True => table {
+  --        QDir => (cl.s ! Pres ! Simul ! (CNeg True) ! ODir False) ++ ((tag np).s ! aux ! Neg );
+  --        QIndir => "nonExist" };
+  --      CNeg False => table {
+  --        QDir => (cl.s ! Pres ! Simul ! (CNeg False) ! ODir False) ++ ((tag np).s ! aux ! Neg );
+  --        QIndir => "nonExist" }
+  --        }
+  --      }
+  -- };
+  --lock_QCl = <>;
+  --};
 
 lin
 	Be_bad ap	= mkComp ap;
@@ -257,13 +283,13 @@ lin
      Pres => table {
        Simul => table {
          CPos => table {
-           QDir => (cl.s ! Pres ! Simul ! CPos ! ODir False) ++ ((tag np).s ! Do ! Pos );
+           QDir => (cl.s ! Pres ! Simul ! CPos ! ODir False) ++ ((tag np).s ! ((vp . s ! Pres ! Simul ! CPos ! OQuest ! AgP1 Sg ) . aux) ! Pos );
            QIndir => "nonExist" };
          CNeg True => table {
-           QDir => (cl.s ! Pres ! Simul ! (CNeg True) ! ODir False) ++ ((tag np).s ! Do ! Neg );
+           QDir => (cl.s ! Pres ! Simul ! (CNeg True) ! ODir False) ++ ((tag np).s ! ((vp . s ! Pres ! Simul ! CPos ! OQuest ! AgP1 Sg ) . aux) ! Neg );
            QIndir => "nonExist" };
          CNeg False => table {
-           QDir => (cl.s ! Pres ! Simul ! (CNeg False) ! ODir False) ++ ((tag np).s ! Do ! Neg );
+           QDir => (cl.s ! Pres ! Simul ! (CNeg False) ! ODir False) ++ ((tag np).s ! ((vp . s ! Pres ! Simul ! CPos ! OQuest ! AgP1 Sg ) . aux) ! Neg );
            QIndir => "nonExist" }
            }
          }
