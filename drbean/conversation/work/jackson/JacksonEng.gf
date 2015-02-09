@@ -9,8 +9,8 @@ oper
 
 lin
 
-	one	= mkDet( mkCard (mkNumeral n1_Unit));
-	five	= mkDet( mkCard (mkNumeral n5_Unit));
+	one	= mkDet( mkNumeral n1_Unit);
+	five	= mkDet( mkNumeral n5_Unit);
 	another = mkDet (mkQuant "another" "other");
 
 	for_prep	= mkPrep "for";
