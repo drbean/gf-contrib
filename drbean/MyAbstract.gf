@@ -60,6 +60,7 @@ fun
 
 	TagQ	: NP -> VP -> QCl;
 	TagComp	: NP -> Comp -> QCl;
+	TagModal	: NP -> VV -> VP -> QCl;
 	-- TagNP	: NP -> NP -> QCl;
 	-- TagAP	: NP -> AP -> QCl;
 
