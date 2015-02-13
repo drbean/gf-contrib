@@ -146,6 +146,10 @@ answer	utt@(GQUt (GNegQ (GTagQ _ _)))
 	where
 		drs = ((unmaybe . repS) utt) (DRSRef "r1")
 		lf = drsToLF drs
+answer	(GQUt (GPosQ (GTagComp np comp))) = 
+	answer	(GQUt (GPosQ (GYN (GSentence np (GBe_vp comp)))))
+answer	(GQUt (GNegQ (GTagComp np comp))) = 
+	answer	(GQUt (GNegQ (GYN (GSentence np (GBe_vp comp)))))
 answer	utt@(GQUt _) = case (evalW . drsToLF) (((unmaybe . repS) utt) (DRSRef "r1")) of
 	(Just []) -> Just (GAnswer Gno_pl_NP)
 	(Just [x]) -> Just (GAnswer (GEntity (ent2gent x)))
