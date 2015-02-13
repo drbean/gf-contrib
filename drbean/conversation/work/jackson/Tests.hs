@@ -206,7 +206,7 @@ tag_dic_test = [
   , "Queen is laid off, isn't she?"
   , "Queen has some money in savings, doesn't she?"
   , "Queen thinks no big deal, doesn't she?"
-  , "Queen thinks that she can get another job, doesn't she?"
+  -- , "Queen thinks that she can get another job, doesn't she?"
   , "One week turns into a month, doesn't it?"
   , "One week turns into five months, doesn't it?"
   , "Unemployment does not cover Queen's rent, does it?"
