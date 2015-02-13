@@ -160,7 +160,7 @@ linear gr p = Just (linearize gr (myLanguage gr) p)
 myLanguage gr = (head . languages) gr
 
 lc_first :: String -> String
-lc_first str@(s:ss) = case ( or $ map (flip isPrefixOf str) ["Barbara", "Tadeusz", "Eva", "Dr Bean", "Fast-Track"] ) of
+lc_first str@(s:ss) = case ( or $ map (flip isPrefixOf str) ["Queen", "Christmas"] ) of
 	True  -> (s:ss)
 	False -> ((toLower s):ss)
 
