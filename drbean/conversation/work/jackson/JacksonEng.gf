@@ -49,13 +49,13 @@ lin
 	idea	= mkN2( mkN "idea");
 	job	= mkCN( mkN "job");
 	joy	= mkN2( mkN "joy");
-	man	= mkCN( mkN "man");
+	man	= mkCN( mkN masculine (mkN "man"));
 	month	= mkCN( mkN "month");
 	shelter	= mkCN( mkN "shelter");
 	sign	= mkCN( mkN "sign");
 	smell_N2	= mkN2( mkN "smell");
 	week	= mkCN( mkN "week");
-	woman	= mkCN( mkN  "woman" "women");
+	woman	= mkCN( mkN feminine (mkN  "woman" "women"));
 
   queen	= mkPN( mkN feminine (mkN "Queen") );
 	christmas	= mkPN( mkN nonhuman (mkN "Christmas") );
