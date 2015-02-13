@@ -283,13 +283,13 @@ lin
      Pres => table {
        Simul => table {
          CPos => table {
-           QDir => (cl.s ! Pres ! Simul ! CPos ! ODir False) ++ ((tag np).s ! ((vp . s ! Pres ! Simul ! CPos ! OQuest ! AgP1 Sg ) . aux) ! Pos );
+           QDir => (cl.s ! Pres ! Simul ! CPos ! ODir False) ++ ((tag np).s ! Do ! Pos );
            QIndir => "nonExist" };
          CNeg True => table {
-           QDir => (cl.s ! Pres ! Simul ! (CNeg True) ! ODir False) ++ ((tag np).s ! ((vp . s ! Pres ! Simul ! CPos ! OQuest ! AgP1 Sg ) . aux) ! Neg );
+           QDir => (cl.s ! Pres ! Simul ! (CNeg True) ! ODir False) ++ ((tag np).s ! Do ! Neg );
            QIndir => "nonExist" };
          CNeg False => table {
-           QDir => (cl.s ! Pres ! Simul ! (CNeg False) ! ODir False) ++ ((tag np).s ! ((vp . s ! Pres ! Simul ! CPos ! OQuest ! AgP1 Sg ) . aux) ! Neg );
+           QDir => (cl.s ! Pres ! Simul ! (CNeg False) ! ODir False) ++ ((tag np).s ! Do ! Neg );
            QIndir => "nonExist" }
            }
          }
