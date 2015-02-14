@@ -276,20 +276,67 @@ lin
 
 	Subjunct subj s	= ConstructorsEng.mkAdv subj s;
 
- TagQ np vp	= let
+ TagQ np vp = let
    cl = mkCl np vp;
+   agreement = fromAgr np.a;
+   number = agreement.n;
+   gender = agreement.g;
+   pos_tag = case <number,gender> of {
+      <Sg,Fem> => table {
+          "do" => "does she";
+          "be" => "is she";
+          "should" => "should she"
+          };
+      <Sg,Masc>  => table {
+          "do" => "does he";
+          "be" => "is he";
+          "should" => "should he"
+          };
+      <Sg,Neutr> => table {
+          "do" => "does it";
+          "be" => "is it";
+          "should" => "should it"
+          };
+      <Pl,_>  => table {
+          "do" => "do they";
+          "be" => "are they";
+          "should" => "should they"
+          }
+   };
+   neg_tag = case <number,gender> of {
+      <Sg,Fem> => table {
+          "do" => "doesn't she";
+          "be" => "isn't she";
+          "should" => "shouldn't she"
+          };
+      <Sg,Masc>  => table {
+          "do" => "doesn't he";
+          "be" => "isn't he";
+          "should" => "shouldn't he"
+          };
+      <Sg,Neutr> => table {
+          "do" => "doesn't it";
+          "be" => "isn't it";
+          "should" => "shouldn't it"
+          };
+      <Pl,_>  => table {
+          "do" => "don't they";
+          "be" => "aren't they";
+          "should" => "shouldn't they"
+          }
+  };
  in
  {s = table {
      Pres => table {
        Simul => table {
          CPos => table {
-           QDir => (cl.s ! Pres ! Simul ! CPos ! ODir False) ++ ((tag np).s ! ((vp . s ! Pres ! Simul ! CPos ! OQuest ! AgP1 Sg ) . aux) ! Pos );
+           QDir => ((cl.s ! Pres ! Simul ! CPos ! ODir False) ++ (neg_tag ! ((vp . s ! Pres ! Simul ! CPos ! OQuest ! AgP1 Sg ) . aux) ));
            QIndir => "nonExist" };
          CNeg True => table {
-           QDir => (cl.s ! Pres ! Simul ! (CNeg True) ! ODir False) ++ ((tag np).s ! ((vp . s ! Pres ! Simul ! CPos ! OQuest ! AgP1 Sg ) . aux) ! Neg );
+           QDir => ((cl.s ! Pres ! Simul ! (CNeg True) ! ODir False) ++ (pos_tag ! ((vp . s ! Pres ! Simul ! CPos ! OQuest ! AgP1 Sg ) . aux)));
            QIndir => "nonExist" };
          CNeg False => table {
-           QDir => (cl.s ! Pres ! Simul ! (CNeg False) ! ODir False) ++ ((tag np).s ! ((vp . s ! Pres ! Simul ! CPos ! OQuest ! AgP1 Sg ) . aux) ! Neg );
+           QDir => ((cl.s ! Pres ! Simul ! (CNeg False) ! ODir False) ++ (pos_tag ! ((vp . s ! Pres ! Simul ! CPos ! OQuest ! AgP1 Sg ) . aux)));
            QIndir => "nonExist" }
            }
          }
