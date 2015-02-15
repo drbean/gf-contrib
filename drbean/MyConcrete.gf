@@ -1,4 +1,4 @@
-concrete MyConcrete of MyAbstract = open ResEng, Prelude, ConstructorsEng, ParadigmsEng, ExtraEng, IrregEng, StructuralEng in {
+concrete MyConcrete of MyAbstract = open Predef, ResEng, Prelude, ConstructorsEng, ParadigmsEng, ExtraEng, IrregEng, StructuralEng in {
 
 lincat
   Utt	= Utt;
@@ -86,27 +86,27 @@ oper
 		lock_VV = {}
 		};
 
-  tag : NP -> {s : Str => Polarity => Str} =
+  tag : NP -> {s : Auxiliary => Polarity => Str} =
     \subj -> { s = case <(fromAgr subj.a).n, (fromAgr subj.a).g> of {
       <Sg,Fem> => table {
-		      "do" => table {Pos => "doesn't she"; Neg => "does she" };
-		      "be" => table {Pos => "isn't she"; Neg => "is she" };
-		      "should" => table {Pos => "shouldn't she"; Neg => "should she" }
+		      Do => table {Pos => "doesn't she"; Neg => "does she" };
+		      Be => table {Pos => "isn't she"; Neg => "is she" };
+		      Should => table {Pos => "shouldn't she"; Neg => "should she" }
 		      };
       <Sg,Masc>  => table {
-		      "do" => table { Pos => "doesn't he"; Neg => "does he" };
-		      "be" => table {Pos => "isn't he"; Neg => "is he" };
-		      "should" => table {Pos => "shouldn't he"; Neg => "should he" }
+		      Do => table { Pos => "doesn't he"; Neg => "does he" };
+		      Be => table {Pos => "isn't he"; Neg => "is he" };
+		      Should => table {Pos => "shouldn't he"; Neg => "should he" }
 		      };
       <Sg,Neutr> => table {
-		      "do" => table { Pos => "doesn't it"; Neg => "does it" };
-		      "be" => table {Pos => "isn't it"; Neg => "is it" };
-		      "should" => table {Pos => "shouldn't it"; Neg => "should it" }
+		      Do => table { Pos => "doesn't it"; Neg => "does it" };
+		      Be => table {Pos => "isn't it"; Neg => "is it" };
+		      Should => table {Pos => "shouldn't it"; Neg => "should it" }
 		      };
       <Pl,_>	=> table {
-		      "do" => table { Pos => "don't they"; Neg => "do they" };
-		      "be" => table {Pos => "aren't they"; Neg => "are they" };
-		      "should" => table {Pos => "shouldn't they"; Neg => "should they" }
+		      Do => table { Pos => "don't they"; Neg => "do they" };
+		      Be => table {Pos => "aren't they"; Neg => "are they" };
+		      Should => table {Pos => "shouldn't they"; Neg => "should they" }
 		      }
     }
   };
@@ -330,13 +330,13 @@ lin
      Pres => table {
        Simul => table {
          CPos => table {
-           QDir => ((cl.s ! Pres ! Simul ! CPos ! ODir False) ++ (neg_tag ! ((vp . s ! Pres ! Simul ! CPos ! OQuest ! AgP1 Sg ) . aux) ));
+           QDir => ((cl.s ! Pres ! Simul ! CPos ! ODir False) ++ SOFT_BIND ++ "," ++ (neg_tag ! "do" ));
            QIndir => "nonExist" };
          CNeg True => table {
-           QDir => ((cl.s ! Pres ! Simul ! (CNeg True) ! ODir False) ++ (pos_tag ! ((vp . s ! Pres ! Simul ! CPos ! OQuest ! AgP1 Sg ) . aux)));
+           QDir => ((cl.s ! Pres ! Simul ! (CNeg True) ! ODir False) ++ SOFT_BIND ++ "," ++ (pos_tag ! "do"));
            QIndir => "nonExist" };
          CNeg False => table {
-           QDir => ((cl.s ! Pres ! Simul ! (CNeg False) ! ODir False) ++ (pos_tag ! ((vp . s ! Pres ! Simul ! CPos ! OQuest ! AgP1 Sg ) . aux)));
+           QDir => ((cl.s ! Pres ! Simul ! (CNeg False) ! ODir False) ++ SOFT_BIND ++ "," ++ (pos_tag ! "do"));
            QIndir => "nonExist" }
            }
          }
@@ -386,25 +386,25 @@ lin
  --lock_QCl = <>;
  --};
 
-  --TagComp np comp	= let cl = mkCl np (mkVP comp)
-  --in
-  --{s = table {
-  --  Pres => table {
-  --    Simul => table {
-  --      CPos => table {
-  --        QDir => (cl.s ! Pres ! Simul ! CPos ! ODir False) ++ ((tag np).s ! Be ! Pos );
-  --        QIndir => "nonExist" };
-  --      CNeg True => table {
-  --        QDir => (cl.s ! Pres ! Simul ! CNeg True ! ODir False) ++ ((tag np).s ! Be ! Neg );
-  --        QIndir => "nonExist" };
-  --      CNeg False => table {
-  --        QDir => (cl.s ! Pres ! Simul ! CNeg False ! ODir False) ++ ((tag np).s ! Be ! Neg );
-  --        QIndir => "nonExist" }
-  --        }
-  --      }
-  --   };
-  --lock_QCl = <>;
-  --};
+  TagComp np comp	= let cl = mkCl np (mkVP comp)
+  in
+  {s = table {
+    Pres => table {
+      Simul => table {
+        CPos => table {
+          QDir => (cl.s ! Pres ! Simul ! CPos ! ODir False) ++ ((tag np).s ! Be ! Pos );
+          QIndir => "nonExist" };
+        CNeg True => table {
+          QDir => (cl.s ! Pres ! Simul ! CNeg True ! ODir False) ++ ((tag np).s ! Be ! Neg );
+          QIndir => "nonExist" };
+        CNeg False => table {
+          QDir => (cl.s ! Pres ! Simul ! CNeg False ! ODir False) ++ ((tag np).s ! Be ! Neg );
+          QIndir => "nonExist" }
+          }
+        }
+     };
+  lock_QCl = <>;
+  };
 
 }
 
