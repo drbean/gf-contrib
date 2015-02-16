@@ -1,4 +1,4 @@
-concrete MyConcrete of MyAbstract = open Predef, ResEng, Prelude, ConstructorsEng, ParadigmsEng, ExtraEng, IrregEng, StructuralEng in {
+concrete MyConcrete of MyAbstract = open Predef, ResEng, Prelude, ConstructorsEng, (P = ParadigmsEng), ExtraEng, IrregEng, StructuralEng, SentenceEng in {
 
 lincat
   Utt	= Utt;
@@ -64,8 +64,8 @@ param
 oper
 
 	no_Quant	= StructuralEng.no_Quant;
-	some_Quant	= mkQuant "some" "some" "some" "some";
-	zero_mass_Quant = mkQuant "" nonExist;
+	some_Quant	= P.mkQuant "some" "some" "some" "some";
+	zero_mass_Quant = P.mkQuant "" nonExist;
 
 	know_V = IrregEng.know_V;
 
@@ -145,7 +145,7 @@ lin
 	Look_bad verb adj	= mkVP verb adj;
   Locating prep item	= ConstructorsEng.mkAdv prep item;
 	Location det placename = mkNP det placename;
-	FreqAdv times period	= ConstructorsEng.mkAdv noPrep (mkNP times period);
+	FreqAdv times period	= ConstructorsEng.mkAdv P.noPrep (mkNP times period);
 	Happening action	=	mkVP action;
 	Changing action patient	= mkVP action patient;
 	Causative causal patient predicate	= mkVP causal patient predicate;
@@ -249,27 +249,27 @@ lin
 	As_as ap np	= mkAP as_CAdv ap np;
 	AdvAdj adv adj = mkAP adv adj;
 
-  about_prep	= mkPrep "about";
-  as_prep	= mkPrep "as";
-  at_prep	= mkPrep "at";
-	before_prep	= mkPrep "before";
-  from_prep	= mkPrep "from";
-  in_prep	= mkPrep "in";
-  like_prep	= mkPrep "like";
+  about_prep	= P.mkPrep "about";
+  as_prep	= P.mkPrep "as";
+  at_prep	= P.mkPrep "at";
+	before_prep	= P.mkPrep "before";
+  from_prep	= P.mkPrep "from";
+  in_prep	= P.mkPrep "in";
+  like_prep	= P.mkPrep "like";
 	of_prep	= possess_Prep;
-  on_prep	= mkPrep "on";
-  over_prep	= mkPrep "over";
+  on_prep	= P.mkPrep "on";
+  over_prep	= P.mkPrep "over";
   part_prep	= part_Prep;
   to_prep	= to_Prep;
-  up_prep	= mkPrep "up";
-  with_prep	= mkPrep "with";
+  up_prep	= P.mkPrep "up";
+  with_prep	= P.mkPrep "with";
 
 	can	= can_VV;
-	become	= mkV2 IrregEng.become_V;
-	know_V2	= mkV2 know_V;
-	know_VS	= mkVS know_V;
+	become	= P.mkV2 IrregEng.become_V;
+	know_V2	= P.mkV2 know_V;
+	know_VS	= P.mkVS know_V;
 
-	Very_Style a = mkAdv ("very" ++ a.s);
+	Very_Style a = ParadigmsEng.mkAdv ("very" ++ a.s);
 	because_Subj	= because_Subj;
 	if_Subj	= if_Subj;
 	or_Conj	= or_Conj;
@@ -330,13 +330,13 @@ lin
      Pres => table {
        Simul => table {
          CPos => table {
-           QDir => ((cl.s ! Pres ! Simul ! CPos ! ODir False) ++ SOFT_BIND ++ "," ++ (neg_tag ! "do" ));
+           QDir => ((cl.s ! Pres ! Simul ! CPos ! ODir False) ++ (neg_tag ! "do" ));
            QIndir => "nonExist" };
          CNeg True => table {
-           QDir => ((cl.s ! Pres ! Simul ! (CNeg True) ! ODir False) ++ SOFT_BIND ++ "," ++ (pos_tag ! "do"));
+           QDir => ((cl.s ! Pres ! Simul ! (CNeg True) ! ODir False) ++ (pos_tag ! "do"));
            QIndir => "nonExist" };
          CNeg False => table {
-           QDir => ((cl.s ! Pres ! Simul ! (CNeg False) ! ODir False) ++ SOFT_BIND ++ "," ++ (pos_tag ! "do"));
+           QDir => ((cl.s ! Pres ! Simul ! (CNeg False) ! ODir False) ++ (pos_tag ! "do"));
            QIndir => "nonExist" }
            }
          }
