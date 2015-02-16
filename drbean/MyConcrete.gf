@@ -14,8 +14,10 @@ lincat
   Comp	= Comp;
   Cl	= Cl;
   QCl	= QCl;
+	TagCl = Cl ** { pron : Number => Gender => Str; auxV : Auxiliary => Tense => Polarity => Str};
   S	= S;
   QS	= QS;
+	TagS	= S ** { tag : Str};
   SC	= SC;
   V	= V;
   VP	= VP;
@@ -186,6 +188,7 @@ lin
 	NegS cl	= mkS negativePol cl;
 	QUt q	= mkUtt q;
 	Ut s	= mkUtt s;
+	UttTagS	ts = { s = ts.s ++ ts.tag; lock_Utt = <>};
 	Sentence subject predicate	= mkCl subject predicate;
 
 	Yes	= yes_Utt;
@@ -276,115 +279,27 @@ lin
 
 	Subjunct subj s	= ConstructorsEng.mkAdv subj s;
 
- TagQ np vp = let
-   cl = mkCl np vp;
-   agreement = fromAgr np.a;
-   number = agreement.n;
-   gender = agreement.g;
-   pos_tag = case <number,gender> of {
-      <Sg,Fem> => table {
-          "do" => "does she";
-          "be" => "is she";
-          "should" => "should she"
-          };
-      <Sg,Masc>  => table {
-          "do" => "does he";
-          "be" => "is he";
-          "should" => "should he"
-          };
-      <Sg,Neutr> => table {
-          "do" => "does it";
-          "be" => "is it";
-          "should" => "should it"
-          };
-      <Pl,_>  => table {
-          "do" => "do they";
-          "be" => "are they";
-          "should" => "should they"
-          }
-   };
-   neg_tag = case <number,gender> of {
-      <Sg,Fem> => table {
-          "do" => "doesn't she";
-          "be" => "isn't she";
-          "should" => "shouldn't she"
-          };
-      <Sg,Masc>  => table {
-          "do" => "doesn't he";
-          "be" => "isn't he";
-          "should" => "shouldn't he"
-          };
-      <Sg,Neutr> => table {
-          "do" => "doesn't it";
-          "be" => "isn't it";
-          "should" => "shouldn't it"
-          };
-      <Pl,_>  => table {
-          "do" => "don't they";
-          "be" => "aren't they";
-          "should" => "shouldn't they"
-          }
-  };
- in
- {s = table {
-     Pres => table {
-       Simul => table {
-         CPos => table {
-           QDir => ((cl.s ! Pres ! Simul ! CPos ! ODir False) ++ (neg_tag ! "do" ));
-           QIndir => "nonExist" };
-         CNeg True => table {
-           QDir => ((cl.s ! Pres ! Simul ! (CNeg True) ! ODir False) ++ (pos_tag ! "do"));
-           QIndir => "nonExist" };
-         CNeg False => table {
-           QDir => ((cl.s ! Pres ! Simul ! (CNeg False) ! ODir False) ++ (pos_tag ! "do"));
-           QIndir => "nonExist" }
-           }
-         }
-   };
- lock_QCl = <>;
- };
+TagClause np vp = let
+	cl = mkCl np vp;
+	pron = table {
+		Sg => table {
+			Fem => "she";
+			Masc => "he";
+			Neutr => "it"
+			};
+		Pl => table {
+			Fem => "they";
+			Masc => "they";
+			Neutr => "they"
+			}
+		};
+	in cl ** { pron = pron; auxV = Do};
 
- --TagNP np1 np2	= let
- --  cl = mkCl np1 np2;
- --in
- --{s = table {
- --    Pres => table {
- --      Simul => table {
- --        CPos => table {
- --          QDir => (cl.s ! Pres ! Simul ! CPos ! ODir False) ++ ((tag np1).s ! Be ! Pos );
- --          QIndir => "nonExist" };
- --        CNeg True => table {
- --          QDir => (cl.s ! Pres ! Simul ! (CNeg True) ! ODir False) ++ ((tag np1).s ! Be ! Neg );
- --          QIndir => "nonExist" };
- --        CNeg False => table {
- --          QDir => (cl.s ! Pres ! Simul ! (CNeg False) ! ODir False) ++ ((tag np1).s ! Be ! Neg );
- --          QIndir => "nonExist" }
- --          }
- --        }
- --  };
- --lock_QCl = <>;
- --};
+TagSentence tcl = let
+	s = UseCl {s = "is"; t = Pres; a = Simul } {s = "is"; p = CPos} tcl;
+	tag = "isn't it";
+	in s ** {tag = tag};
 
- --TagAP np ap	= let
- --  cl = mkCl np ap;
- --in
- --{s = table {
- --    Pres => table {
- --      Simul => table {
- --        CPos => table {
- --          QDir => (cl.s ! Pres ! Simul ! CPos ! ODir False) ++ ((tag np).s ! Be ! Pos );
- --          QIndir => "nonExist" };
- --        CNeg True => table {
- --          QDir => (cl.s ! Pres ! Simul ! (CNeg True) ! ODir False) ++ ((tag np).s ! Be ! Neg );
- --          QIndir => "nonExist" };
- --        CNeg False => table {
- --          QDir => (cl.s ! Pres ! Simul ! (CNeg False) ! ODir False) ++ ((tag np).s ! Be ! Neg );
- --          QIndir => "nonExist" }
- --          }
- --        }
- --  };
- --lock_QCl = <>;
- --};
 
   TagComp np comp	= let cl = mkCl np (mkVP comp)
   in

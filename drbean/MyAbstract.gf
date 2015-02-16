@@ -17,6 +17,8 @@ cat
 	MassDet;
 	SubordCl;
 	Partitive;
+	TagCl;
+	TagS;
 
 fun
 	Look_bad	: VA -> AP -> VP;
@@ -58,9 +60,8 @@ fun
 
 	YN	: Cl -> QCl;
 
-	TagQ	: NP -> VP -> QCl;
+	TagClause	: NP -> VP -> TagCl;
 	TagComp	: NP -> Comp -> QCl;
-	TagModal	: NP -> VV -> VP -> QCl;
 	-- TagNP	: NP -> NP -> QCl;
 	-- TagAP	: NP -> AP -> QCl;
 
@@ -71,7 +72,9 @@ fun
 	NegQ	: QCl -> QS;
 	PosS	: Cl -> S;
 	NegS	: Cl -> S;
+	TagSentence	: TagCl -> TagS;
 	QUt	: QS -> Utt;
+	UttTagS	: TagS -> Utt;
 	Ut	: S -> Utt;
 	Sentence	: NP -> VP -> Cl;
 
