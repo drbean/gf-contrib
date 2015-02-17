@@ -1,155 +1,46 @@
-module Model where
+module Model where 
 
 import Data.Tuple
 import Data.List
 import Data.Maybe
-
-data Entity	=
-
-		  A | B | C | D | E | F | G
-		| H | I | J | K | L | M | N
-		| O | P | Q | R | S | T | U
-		| V | W | X | Y | Z
-
-		| BA | BB | BC
-		| BE | BM | BN
-		| BO | BP | BS
-		| BU | BY
-
-		| IF | IM | IP
-		| IT | IY
-
-		| JC | JD | JP
-		| JF | JG | JM
-		| JS | JT | JW
-		| JY
-
-		| MH | MP
-
-		| OF | OM | ON
-		| OP | OS | OT
-
-		| QB | QF | QI | QM
-		| QS | QW | QY
-
-		| SD | SE | SF | SG
-		| SM | SO | ST
-
-		| TD | TF | TJ
-		| TL | TM | TN
-
-		| UF | UM
-		| UT | UY
-
-
-		| Someone | Something | Unspec
-		deriving (Eq,Show,Bounded,Enum,Ord)
+data Entity	= A | B | C | D | E | F | G
+            | H | I | J | K | L | M | N 
+            | O | P | Q | R | S | T | U 
+            | V | W | X | Y | Z | Someone | Something | Unspec
+     deriving (Eq,Show,Bounded,Enum,Ord)
 
 entities :: [Entity]
-entities	=  [minBound..maxBound]
+entities	=  [minBound..maxBound] 
 
 entity_check :: [ (Entity, String) ]
 entity_check =  [
-    (A, "" )
-    , (B, "Betty" )
-    , (C, "playing computer games" )
-    , (D, "dream" )
-    , (E, "English" )
-    , (F, "Japanese" )
-    , (G, "Dr Bean" )
-    , (H, "Minghsin University" )
-    , (I, "Iris" )
-    , (J, "Jeremy" )
-    , (K, "basketball" )
-    , (L, "listening_to_music" )
-    , (M, "May" )
-    , (N, "" )
-    , (O, "Oliver" )
-    , (P, "going_shopping" )
-    , (Q, "Roger" )
-    , (R, "reading" )
-    , (S, "Silvi")
-    , (T, "Emily2" )
-    , (U, "Bruce2" )
-    , (V, "watching_TV")
-    , (W, "Taiwan" )
-    , (X, "Hsinchu" )
-    , (Y, "exercising" )
-    , (Z, "watching movies" )
-
--- betty
-    , (BA, "watching action movies")
-    , (BB, "Betty's brother")
-    , (BC, "watching scary movies")
-    , (BE, "dogs_and_cats")
-    , (BM, "Betty's mother")
-    , (BN, "Betty's first nephew")
-    , (BO, "Betty's second nephew")
-    , (BP, "playing_with_her_nephews")
-    , (BS, "senior")
-    , (BU, "Fast and Furious")
-    , (BY, "21")
-
--- bruce2
-    , (UF, "going fishing")
-    , (UM, "Bruce2's mother")
-    , (UT, "English teacher")
-    , (UY, "19")
-
--- emily2
-    , (TF, "friend")
-    , (TL, "London")
-    , (TM, "freshman")
-    , (TN, "new_york")
-
--- iris
-    , (IF, "Iris's father")
-    , (IM, "Iris's mother")
-    , (IP, "playing piano")
-    , (IT, "Taoyuan")
-    , (IY, "18")
-
--- jeremy
-    , (JC, "chatting")
-    , (JD, "fashion designer")
-    , (JP, "soccer player")
-    , (JF, "playing soccer")
-    , (JM, "Jeremy's mother")
-    , (JS, "Jeremy's younger sister")
-    , (JT, "Tucheng")
-    , (JW, "travel")
-    , (JY, "19")
-
--- may
-    , (MH, "XinXing High School")
-    , (MP, "playing_computer_games")
-
--- oliver
-    , (OF, "Oliver's father")
-    , (OM, "Oliver's mother")
-    , (ON, "Pan YanMin")
-    , (OP, "PingZhen")
-    , (OS, "Oliver's older sister")
-    , (OT, "Taipei")
-
--- roger
-    , (QB, "Roger's older brother")
-    , (QF, "Roger's father")
-    , (QI, "YiLan")
-    , (QM, "Roger's mother")
-    , (QS, "business man")
-    , (QW, "Dwyane Wade")
-    , (QY, "18")
-
--- silvi
-    , (SD, "dancing")
-    , (SF, "Silvi's father")
-    , (SG, "Gucci")
-    , (SM, "Silvi's mother")
-    , (SO, "Omo")
-    , (ST, "Taichung")
-
-	]
+    (A, "apartment" )
+    , (B, "birthday_card" )
+    , (C, "colorado" )
+    , (D, "daughter" )
+    , (E, "rent" )
+    , (F, "" )
+    , (G, "bag" )
+    , (H, "shelter" )
+    , (I, "idea" )
+    , (J, "job" )
+    , (K, "week" )
+    , (L, "lotion" )
+    , (M, "money" )
+    , (N, "a man" )
+    , (O, "month" )
+    , (P, "" )
+    , (Q, "queen" )
+    , (R, "retiring" )
+    , (S, "sign" )
+    , (T, "ten_dollar_bill" )
+    , (U, "unemployment" )
+    , (V, "bottle" )
+    , (W, "joy" )
+    , (X, "christmas" )
+    , (Y, "smell_N2" )
+    , (Z, "cooking" )
+    ]
 
 ent_ided :: String -> Entity
 ent_ided name = head [entity | (entity,string) <- entity_check ,
@@ -157,99 +48,94 @@ ent_ided name = head [entity | (entity,string) <- entity_check ,
 				]
 
 characters :: [(String,Entity)]
-characters = [(string,entity) | (entity,string) <- entity_check,
-				string /= ""
-				]
+characters = map findEnt [Q]
+	where findEnt e
+		| Just name <- lookup e entity_check
+			= (name,e)
+		| otherwise = error ("No " ++ (show e))
+
+stringEntity :: [(String,Entity)]
+stringEntity = map swap entity_check
+
 namelist :: [String]
 namelist = [string | (entity,string) <- entity_check, string /= "" ]
 
-predid1 :: String -> OnePlacePred
-predid2 :: String -> TwoPlacePred
-predid3 :: String -> ThreePlacePred
-predid4 :: String -> FourPlacePred
+predid1 :: String -> Maybe OnePlacePred
+predid2 :: String -> Maybe TwoPlacePred
+predid3 :: String -> Maybe ThreePlacePred
+predid4 :: String -> Maybe FourPlacePred
 
-predid2 name = lookup2 name twoPlacers where
-	lookup2 n []	= error $ "no '" ++ name ++ "' two-place predicate."
-	lookup2 n ((name,pred):is) | n == name	= pred
-	lookup2 n (i:is) = lookup2 name is
-predid3 name = lookupPred name threePlacers where
-	lookupPred n []	= error $ "no '" ++ name ++ "' three-place predicate."
-	lookupPred n ((name,pred):is) | n == name      = pred
-	lookupPred n (i:is) = lookupPred name is
-predid4 name = lookupPred name fourPlacers where
-	lookupPred n []	= error $ "no '" ++ name ++ "' four-place predicate."
-	lookupPred n ((name,pred):is) | n == name     = pred
-	lookupPred n (i:is) = lookupPred name is
-predid5 name = lookupPred name fivePlacers where
-	lookupPred n []	= error $ "no '" ++ name ++ "' five-place predicate."
-	lookupPred n ((name,pred):is) | n == name	= pred
-	lookupPred n (i:is) = lookupPred name is
+predid3 name
+       | Just pred <- lookup name threePlacers = Just pred
+        -- | otherwise    = Nothing
+        | otherwise    = error $ "no '" ++ name ++ "' three-place predicate."
+predid4 name
+       | Just pred <- lookup name fourPlacers = Just pred
+        -- | otherwise    = Nothing
+        | otherwise    = error $ "no '" ++ name ++ "' four-place predicate."
+predid5 name
+       | Just pred <- lookup name fivePlacers = Just pred
+        -- | otherwise    = Nothing
+        | otherwise    = error $ "no '" ++ name ++ "' five-place predicate."
 
-afld_freshman    = [J,M,O,T]
-afld_senior    = [B]
-other_students = [JS,OS,QB]
-students = afld_freshman ++ afld_senior ++ other_students
+onePlacers, onePlaceStarters, entityonePlacers :: [(String, OnePlacePred)]
+onePlaceStarters = [
+        ("true",        pred1 entities )
+        , ("false",     pred1 [] )
+        , ("role",      pred1 [] )
 
-onePlacers :: [(String, OnePlacePred)]
-onePlacers = [
-	("true",	pred1 entities )
-	, ("false",	pred1 [] )
-	, ("role",	pred1 [] )
-	, ("teacher",	pred1 [ t | (t,_,_,_,_) <- schooling,
-				    t /= Unspec ] ) 
-	, ("student",	pred1 students )
-	, ("worker",	pred1 [ w | (w,period,_) <- careers,
-				    period == Present ] )
-	, ("father",	pred1 [OF] )
-	, ("mother",	pred1 [ m | (m,_,_,_) <- births,
-				    m /= Unspec ] )
-	, ("dream", pred1 [D] )
-	, ("brother", pred1 [BB] )
-	, ("sister", pred1 [JS,OS] )
+        , ("great",     pred1 [I] )
 
-	, ("male",	pred1 [J,O] )
-	, ("female",	pred1 [M] )
-	, ("thing",	thing )
-	, ("basketball",	pred1 [B] )
-	, ("soccer",	pred1 [JF] )
-	, ("dancing",	pred1 [SD] )
+	, ("little",	pred1 [L,V] )
 
-
-	, ("humorous",	pred1 [O] )
-	, ("optimistic",	pred1 [O,Q] )
-
-	, ("18",	pred1 [I,Q] )
-	, ("19",	pred1 [J,U] )
-	, ("21",	pred1 [B] )
--- betty
-	, ("cute",	pred1 [BN,BO] )
-	, ("study",	pred1 [T] )
-
--- emily2
-	, ("friend", pred1 [TF] )
-
-	, ("difficult",	pred1 [J,E])
-
--- silvi
-  , ("pet", pred1 [SO,SG])
-
+	, ("male",	pred1 [N] )
+	, ("female",	pred1 [Q,D] )
+	, ("lonely_prop",	pred1 [P] )
+	, ("middle_class_prop",	pred1 [P] )
+	, ("take_care_prop",	pred1 [P] )
 	]
 
--- predid1 "sibling"   = or [(pred1 [JS]) (predid1 "brother") (predid1 "sister")]
-predid1 "dogs_and_cats"	= predid1 "pet"
-predid1 "dog"	= predid1 "pet"
-predid1 "english"	= predid1 "applied_foreign_languages"
-predid1 "positive"	= predid1 "optimistic"
-predid1 name = lookup1 name onePlacers where
-	lookup1 name []	= error $ "no '" ++ name ++ "' one-place predicate."
-	lookup1 name ((n,p):_) | n == name	= p
-	lookup1 name (i:is) = lookup1 name is
+onePlacers = 
+	(genonePlacer event "is_lay_off_ed" "lay_off" Patient) :
+	(genonePlacer event "go_out" "go_out" Agent) :
+	(genonePlacer condition "middle_class" "middle_class" Patient) :
+	(genonePlacer condition "look:middle_class" "middle_class" Patient) :
+	(genonePlacer condition "lonely" "lonely" Patient) :
+	(genonePlacer condition "feel_lonely" "lonely" Patient) :
+	(genonePlacer event "cry" "cry" Patient) :
+	entityonePlacers ++ onePlaceStarters
+
+predid1 "sitting_back"	= predid1 "retiring"
+predid1 "enjoying_life"	= predid1 "retiring"
+predid1 "child"	= predid1 "daughter"
+predid1 "card"	= predid1 "birthday_card"
+predid1 "woman"	= predid1 "female"
+predid1 "man"	= predid1 "male"
+predid1 "person"	= Just person
+predid1 "thing"	= Just thing
+
+predid1 name
+       | Just pred <- lookup name onePlacers = Just pred
+        -- | otherwise    = Nothing
+       | otherwise    = error $ "no '" ++ name ++ "' one-place predicate."
+
+entityonePlacers =
+	map (\x -> (snd x, pred1 [fst x])) entity_check
+
+genonePlacer :: [ (Content, [(Case,Entity)]) ] ->
+	String -> String -> Case -> 
+	(String, OnePlacePred)
+genonePlacer area id content role =
+	( id, pred1 [ r | (co,cs) <- area
+		, co == content
+		, Just r <-[lookup role cs]
+		] )
 
 type OnePlacePred	= Entity -> Bool
 type TwoPlacePred	= Entity -> Entity -> Bool
 type ThreePlacePred	= Entity -> Entity -> Entity -> Bool
-type FourPlacePred	= Entity -> Entity -> Entity -> Entity -> Bool
-type FivePlacePred	= Entity -> Entity -> Entity -> Entity -> Entity -> Bool
+type FourPlacePred      = Entity -> Entity -> Entity -> Entity -> Bool
+type FivePlacePred      = Entity -> Entity -> Entity -> Entity -> Entity ->  Bool
 
 list2OnePlacePred :: [Entity] -> OnePlacePred
 list2OnePlacePred xs	= \ x -> elem x xs
@@ -257,8 +143,11 @@ list2OnePlacePred xs	= \ x -> elem x xs
 pred1 :: [Entity] -> OnePlacePred
 pred1	= flip elem
 
+test1 :: String -> OnePlacePred
+test1 p = fromMaybe (\_ -> False) (predid1 p)
+
 person, thing :: OnePlacePred
-person	= \ x -> (predid1 "male" x || predid1 "female" x || predid1 "role" x || x == Someone)
+person	= \ x -> (test1 "male" x || test1 "female" x || test1 "role" x || x == Someone)
 thing	= \ x -> (x == Unspec || x == Something || not ( person x ) )
 
 pred2 :: [(Entity,Entity)] -> TwoPlacePred
@@ -266,82 +155,181 @@ pred3 :: [(Entity,Entity,Entity)] -> ThreePlacePred
 pred2 xs	= curry ( `elem` xs )
 pred3 xs	= curry3 ( `elem` xs )
 pred4 xs	= curry4 ( `elem` xs )
-pred5 xs	= curry5 ( `elem` xs )
 
--- (agent,theme,result,aim)
-features	= []
-services    = []
+type Judger = Entity
+type Judged = Entity
+type Content  = String
 
-knowledge	= []
-acquaintances	= [(T,TF)]
-residents   = [(O,OP),(B,X),(I,IT),(Q,QI)]
-family	= [
-  (B,BB),(B,BM),(B,BN),(B,BO)
-  ,(O,OF),(O,OM),(O,OS)
-  ,(J,JM),(J,JS)
-  ,(I,IF),(I,IM)
-  ,(Q,QB),(Q,QF),(Q,QM)
-  ,(S,SO),(S,SG)
+goal :: [ (Content, [(Case, Entity)]) ]
+goal = [
+	("great_idea",	[(Agent,Q),(Theme,R)])
+	]
 
-  ]
--- (planner,situation,achiever,goal)
-goals	= []
-dream = [
-  (J,Future,JD),(J,Future,JP),(J,Future,JW)
-  ,(T,Future,TL),(T,Future,TN)
-  ,(U,Future,UT)
-  ]
--- see births
-possessions = family ++ acquaintances ++ [ (e,D) | (e,_,_) <- dream]
+event :: [ (Content, [(Case, Entity)]) ]
+event = [
+	("lay_off", [(Agent,C),(Patient,Q)] )
+	, ("turn", [(Agent,K),(Theme,O)] )
+	, ("remove", [(Agent,Unspec),(Source,A),(Theme,Q)] )
+	, ("go_out", [(Agent,Q),(Instrument,S),(Theme,M)] )
+	, ("hand", [(Agent,N),(Theme,M),(Recipient,Q)] )
+	, ("hand", [(Agent,N),(Theme,T),(Recipient,Q)] )
+	, ("give", [(Agent,N),(Theme,M),(Recipient,Q)] )
+	, ("give", [(Agent,N),(Theme,T),(Recipient,Q)] )
+	, ("thank", [(Agent,Q),(Recipient,N)] )
+	, ("buy", [(Agent,Q),(Recipient,D),(Theme,B)] )
+	, ("give", [(Agent,Q),(Recipient,D),(Theme,B)] )
+	, ("give", [(Agent,H),(Recipient,Q),(Theme,G)] )
+	, ("give", [(Agent,H),(Recipient,Q),(Theme,L)] )
+	, ("open", [(Agent,Q),(Patient,L)] )
+	, ("smell", [(Agent,Q),(Patient,L) ] )
+	, ("cry", [(Patient,Q) ] )
 
-twoPlacers :: [(String, TwoPlacePred)]
-twoPlacers = [
-    ("know",	pred2 $ knowledge ++ acquaintances ++ map swap acquaintances)
-    , ("come",	pred2 $ [ (p,o) | (_,p,o,_) <- births ])
-    , ("have",	pred2 $ possessions ++ (foldl  (\hs (t,_,_,s,d) -> (t,s): (s,t): (s,d): hs )
-			[] schooling )
-	)
-    , ("like",	pred2 appreciation)
-    , ("live",	pred2 residents )
-    , ("work",	pred2 $ [(a,c) | (a,p,c) <- careers, p == Present ] )
-    , ("kind",	pred2 $ [(student, H) | (_,_,_,student,_) <- schooling ])
-    , ("placing",	pred2 $ [(student, school) | (_,school,_,student,_) <- schooling ]
-		++ [(worker, place) | (worker,period,place) <- careers,
-						    period == Present ]
-		++ residents )
-    , ("study", pred2 $ foldl (\hs (_,school,subject,student,_) ->
-		    (student,subject): (student,school) : hs) [] schooling )
-    , ("want_to_become",	pred2 $ [(a,c) | (a,p,c) <- dream,
-					    p == Future ] )
+	]
+
+condition :: [ (Content, [(Case, Entity)]) ]
+condition = [
+	("cover", [(Agent,U),(Theme,E)] )
+	, ("rent", [(Agent,Q),(Theme,A)] )
+	, ("joy", [(Agent,X),(Theme,W)] )
+	, ("smell", [(Agent,Z),(Theme,Y)] )
+	, ("feel", [(Patient,Q),(Predicate,P)] )
+	, ("in_form_of", [(Patient,L),(Instrument,V)] )
+	, ("lonely", [(Predicate,P),(Patient,Q)] )
+	, ("look", [(Patient,Q),(Predicate,P)] )
+	, ("middle_class", [(Predicate,P),(Patient,Q)] )
+	, ("savings", [(Patient,Q),(Instrument,M),(Theme,Unspec)] )
+	]
+
+idea :: [ (Content, [(Case, Entity)]) ]
+idea = [
+	("another_job", [(Agent,Q),(Theme,J)] )
+	, ("move_in", [(Agent,D),(Patient,Q)] )
+	, ("care", [(Experiencer,Q),(Topic,P),(Agent,Q),(Patient,D)] )
+	, ("care", [(Experiencer,Q),(Topic,P),(Agent,D),(Patient,Q)] )
+	, ("care", [(Experiencer,Q),(Topic,P),(Agent,D),(Theme,E)] )
+	, ("remember", [(Agent,Q),(Theme,W)] )
+	, ("remember", [(Agent,Q),(Theme,X)] )
+	, ("remember", [(Agent,Q),(Theme,Y)] )
+	, ("think", [(Agent,Q),(Predicate,P)] )
+	]
+
+attitude :: [ (Content, [(Case, Entity)]) ]
+attitude = [
+	("no_big_deal", [(Agent,Q),(Theme,U)] )
+	]
+
+affiliation :: [ (Content, [(Case, Entity)]) ]
+affiliation = [
+	("employment", [(Agent,C),(Patient,Q) ] )
+	, ("shelter", [(Agent,H),(Patient,Q) ] )
+	, ("mother", [(Pivot,Q),(Theme,D) ] )
+	]
+
+gentwoPlacer :: [ (Content, [(Case,Entity)]) ] ->
+	String -> String -> Case -> Case ->
+	(String, [(Entity,Entity)] )
+gentwoPlacer area id content role1 role2 =
+	( id, [ (r1,r2) | (co,cs) <- area
+		, co == content
+		, Just r1 <-[lookup role1 cs]
+		, Just r2 <- [lookup role2 cs]
+		] )
+
+conflict	= []
+supervision	= [(D,L)]
+isBoss	= pred1 $ map fst supervision
+isWorker	= pred1 $ map snd supervision
+
+supervisor	= pred1 $ map fst supervision
+boss	= supervisor
+subordinate	= pred1 $ map snd supervision
+employee	= subordinate
+manager = boss
+
+knowledge	= [(B,F),(T,F),(E,F),(B,P),(T,P),(E,P)]
+acquaintances	= []
+help	= pred2 $ supervision
+
+twoPlacers, twoPlaceStarters :: [(String, [(Entity,Entity)])]
+twoPlaceStarters = [
+    ("know_V2",    knowledge ++ acquaintances ++ map swap acquaintances)
+    , ("kind",  [(student, H) | (_,_,_,student,_) <- schooling ])
+    , ("placing",       [(student, school) | (_,school,_,student,_) <- schooling ]
+                )
+    , ("studied", foldl (\hs (_,school,subject,student,_) ->
+                    (student,subject): (student,school) : hs) [] schooling )
     ]
+
+twoPlacers =
+	(gentwoPlacer event "buy_V2" "buy" Agent Theme) :
+	(gentwoPlacer condition "cover" "cover" Agent Theme) :
+	(gentwoPlacer condition "have" "joy" Agent Theme) :
+	(gentwoPlacer condition "have" "smell" Agent Theme) :
+	(gentwoPlacer condition "have" "rent" Agent Theme) :
+	(gentwoPlacer condition "feel" "feel" Patient Predicate) :
+	(gentwoPlacer condition "lonely" "lonely" Predicate Patient) :
+	(gentwoPlacer condition "middle_class" "middle_class" Predicate Patient) :
+	(gentwoPlacer event "get" "give" Recipient Theme) :
+	(gentwoPlacer affiliation "have" "mother" Pivot Theme) :
+	(gentwoPlacer affiliation "have" "mother" Theme Pivot) :
+	(gentwoPlacer condition "in_form_of" "in_form_of" Patient Instrument) :
+	(gentwoPlacer affiliation "in_prep" "shelter" Patient Agent) :
+	(gentwoPlacer condition "look" "look" Patient Predicate) :
+	(gentwoPlacer event "lose" "remove" Theme Source) :
+	(gentwoPlacer event "Open" "open" Agent Patient) :
+	(gentwoPlacer idea "remember" "remember" Agent Theme) :
+	(gentwoPlacer event "smell_V2" "smell" Agent Patient) :
+	(gentwoPlacer event "thank" "thank" Agent Recipient) :
+	(gentwoPlacer idea "think" "think" Agent Predicate) :
+	(gentwoPlacer event "turn" "turn" Agent Theme) :
+	(gentwoPlacer idea "want_to_move_in" "move_in" Agent Patient) :
+	(gentwoPlacer affiliation "work" "employment" Patient Agent) :
+	twoPlaceStarters
+
+predid2 "receive" = predid2 "get"
+
+predid2 name = if name `elem` (map fst twoPlacers) then
+	Just (pred2 (concat [ twople | (id, twople) <- twoPlacers
+		, id == name] ) ) else
+		-- Nothing
+		error $ "no '" ++ name ++ "' two-place predicate."
 
 curry3 :: ((a,b,c) -> d) -> a -> b -> c -> d
 curry3 f x y z	= f (x,y,z)
 curry4 f x y z w	= f (x,y,z,w)
-curry5 f x y z w v	= f (x,y,z,w,v)
 
--- was (appreciator, performance, actor)
-appreciation	= [
-  (B,BA),(B,BC),(B,BE),(B,BP),(B,BU)
-  ,(J,U),(J,JC),(J,JF)
-  ,(M,V),(M,R),(M,P),(M,C)
-  ,(O,U),(O,B)
-  ,(U,E),(U,UF),(U,P),(U,Y)
-  ,(I,E),(I,IP),(I,P)
-  ,(Q,L),(Q,QW)
-  ,(S,SD),(S,SG),(S,SO)
-  ]
-data Period	= Present | Future
-		deriving (Eq,Show,Bounded,Enum,Ord)
-periods :: [Period]
-periods	=  [minBound..maxBound]
--- (agent, status, ie present or future, career)
-careers	    = [(J,Future,JP),(J,Future,JD),(QF,Present,QM)]
+genthreePlacer :: [ (Content, [(Case,Entity)]) ] ->
+	String -> String -> Case -> Case -> Case ->
+	(String, ThreePlacePred)
+genthreePlacer area id content role1 role2 role3 =
+	( id, pred3 [ (r1,r2,r3) | (co,cs) <- area
+		, co == content
+		, Just r1 <-[lookup role1 cs]
+		, Just r2 <- [lookup role2 cs]
+		, Just r3 <- [lookup role3 cs]
+		] )
 
-threePlacers = [
-    ("study_subj_at", pred3 $ map (\(_,school,subject,student,_) ->
-		    (student,subject,school) ) schooling )
+threePlacers, threePlaceStarters :: [(String, ThreePlacePred)]
+threePlaceStarters = [
+    ("studied_subj_at", pred3 $ map (\(_,school,subject,student,_) ->
+                    (student,subject,school) ) schooling )
     ]
+threePlacers =
+	(genthreePlacer idea "take_care" "care" Topic Agent Patient) :
+	(genthreePlacer idea "take_care" "care" Topic Agent Theme) :
+	(genthreePlacer idea "think:can_to_get" "another_job" Agent Agent Theme) :
+	(genthreePlacer event "hand" "hand" Agent Recipient Theme) :
+	(genthreePlacer event "give" "give" Agent Recipient Theme) :
+	(genthreePlacer condition "have_V2V_to_buy_V2" "have" Patient Instrument Theme) :
+	(genthreePlacer event "buy" "buy" Agent Recipient Theme) :
+	threePlaceStarters
+
+data Case = Agent | Asset | Attribute | Beneficiary | Cause | CoAgent |
+	CoPatient | CoTheme | Destination | Experiencer | Extent | Goal |
+	InitialLocation | Instrument | Location | Material | Patient | Pivot |
+	Predicate | Product | Recipient | Reflexive | Result | Source |
+	Stimulus | Theme | Time | Topic | Trajectory | Value
+  deriving Eq
 
 agent, theme, recipient, location, instrument ::
 	(Entity,Entity,Entity) -> Entity
@@ -349,85 +337,102 @@ agent (a,_,_) = a
 theme (_,t,_) = t
 recipient (_,_,r) = r
 patient = theme
-mode = theme
 location = recipient
-source	= recipient
 instrument = recipient
 origin	= theme
 destination = recipient
 
-acceptances = []
--- (seller, item, buyer)
-selling	= []
-
-said	= pred2 $ map (\x->(agent4 x, theme4 x) ) comms
-asked	= pred2 $ map (\x->(agent4 x, recipient4 x) ) comms
-ask_about = pred3 $ map (\x->(agent4 x, recipient4 x, theme4 x) ) comms
-talked	= pred2 $ map (\x->(agent4 x, recipient4 x) ) comms
-              ++  map (\(agent,theme,recipient,_)->(recipient, agent) ) comms
-talk_about = pred3 $ map (\x->(agent4 x, recipient4 x, theme4 x) ) comms
-
--- (teacher,school(location),subject,student,year)
-schooling   = [(Unspec,H,TJ,T,TM)]
-  ++ map (\s -> (Unspec,H,E,s,TM) ) afld_freshman
-  ++ map (\s -> (Unspec,H,E,s,BS) ) afld_senior
-  ++ map (\s -> (Unspec,Unspec,Unspec,s,Unspec) ) other_students
-
-recite = pred2 $ map ( \x -> (agent4 x, theme4 x) ) comms
-giving	= map (\(a,t,p,_) -> (a,t,p) ) services
--- (speaker,(predicate,referent),listener)
 comms	= []
--- (instigator,act,agent,situation)
-directives  = []
--- (mother,baby,place,age)
-births	= [
-  (BM,B,T,BY)
-  ,(Unspec,F,Unspec,Unspec)
-  ,(JM,J,JT,JY)
-  ,(Unspec,M,Unspec,Unspec)
-  ,(OM,O,OT,Unspec)
-  ,(SM,S,ST,Unspec)
-  ,(UM,U,Unspec,UY)
-  ,(IM,I,Unspec,IY)
-  ,(QM,Q,QI,QY)
-  ]
+giving	= [ (N,T,Q) ]
+--(agent,theme,location)
+looking_back	= [(D,C,V),(I,C,V)]
+seeing	= []
+--(agent,origin,destination)
 
-fourPlacers = [
-    ("born",	pred4 $ foldl (\cc (a,r,l,t) -> (a,r,l,t): (a,r,t,l): cc) [] births)
-    , ("held", pred4 $ map (\(_,school,subject,student,degree) ->
-				(student,degree,subject,school) ) schooling )
+look_back	= pred1 $ map agent looking_back
+look_back_on	= pred2 $ map (\x->(agent x, theme x) ) looking_back
+said	= pred2 $ map (\x->(agent x, theme x) ) comms
+asked	= pred2 $ map (\x->(agent x, recipient x) ) comms
+ask_about = pred3 $ map (\x->(agent x, recipient x, theme x) ) comms
+talked	= pred2 $ map (\x->(agent x, recipient x) ) comms
+              ++  map (\(agent,theme,recipient)->(recipient, agent) ) comms
+talk_about = pred3 $ map (\x->(agent x, recipient x, theme x) ) comms
+go_to	= pred2 $ map (\x->(recipient5 x,location5 x) ) schooling
 
-	]
+-- (teacher,school(location),subject,student,degree)
+schooling = [(Unspec,Unspec,Unspec,Q,Unspec)]
+--(person,school)
+education	= []
+--(person,subject)
+subjects	= []
+
+studied = pred3 $ map ( \x -> (recipient5 x, theme5 x, location5 x) )
+				schooling
+studied_what = pred2 $ map (\x -> (recipient5 x, theme5 x) ) schooling
+studied_where = pred2 $ map (\x -> (recipient5 x, location5 x) ) schooling
+student = pred1 $ map recipient5 schooling
+-- graduated_from ::  TwoPlacePred
+
+
+
+
+gave	= pred3 giving
+got	= pred2 $ map (\x -> (recipient x, patient x) ) giving
+got_from	= pred3 $ map (\x -> (recipient x, patient x, agent x) ) giving
+
+told	= pred3 comms
+
+recite = pred2 $ map ( \x -> (agent x, theme x) ) comms
+
+genfourPlacer :: [ (Content, [(Case,Entity)]) ] ->
+	String -> String -> Case -> Case -> Case ->
+	Case -> (String, FourPlacePred)
+genfourPlacer area id content role1 role2 role3 role4 =
+	( id, pred4 [ (r1,r2,r3,r4) | (co,cs) <- area
+		, co == content
+		, Just r1 <-[lookup role1 cs]
+		, Just r2 <- [lookup role2 cs]
+		, Just r3 <- [lookup role3 cs]
+		, Just r4 <- [lookup role4 cs]
+		] )
+
+fourPlacers, fourPlaceStarters :: [(String, FourPlacePred)]
+fourPlaceStarters = [
+        ]
+
+fourPlacers =
+	fourPlaceStarters
 
 agent4, theme4, recipient4, location4 :: (Entity,Entity,Entity,Entity) -> Entity
-agent4 (a,_,_,_)	= a
-theme4 (_,t,_,_)	= t
-recipient4 (_,_,r,_)	= r
-provider4	= recipient4
-location4 (_,_,_,l)	= l
-mode4	= location4
-purpose4	= location4
-aim4	= purpose4
-result4	= recipient4
-
+agent4 (a,_,_,_) = a
+location4 (_,l,_,_) = l
+theme4 (_,_,t,_) = t
+recipient4 (_,_,_,r) = r
+provider4       = recipient4
+location4' (_,_,_,l)     = l
+mode4   = location4'
+purpose4        = location4'
+aim4    = purpose4
+result4 = recipient4
 
 fivePlacers = [
-	]
+        ]
 
 
-agent5, theme5, recipient5, location5 :: (Entity,Entity,Entity,Entity,Entity) -> Entity
-agent5 (a,_,_,_,_)	= a
-theme5 (_,t,_,_,_)	= t
+agent5, theme5, recipient5, location5 :: (Entity,Entity,Entity,Entity, Entity) -> Entity
+-- for schooling
+agent5		(a,_,_,_,_) = a
+location5	(_,l,_,_,_) = l
+theme5		(_,_,t,_,_) = t
 destination5 = theme5
-recipient5 (_,_,r,_,_)	= r
-provider5	= recipient5
-result5	= recipient5
-style5	= recipient5
-feature5 (_,_,_,f,_)	= f
-location5 (_,_,_,_,l)	= l
-purpose5	= location5
-aim5	= purpose5
-vehicle5	= location5
+recipient5	(_,_,_,r,_) = r
+feature5	(_,_,_,_,f) = f
+provider5       = location5
+result5 = feature5
+style5  = recipient5
+purpose5        = feature5
+aim5    = purpose5
+vehicle5        = location5
 
 forgetful5 :: FivePlacePred -> FourPlacePred
 forgetful5 r u v w t = or ( map ( r u v w t ) entities )
@@ -442,14 +447,14 @@ forgetful2 :: TwoPlacePred -> OnePlacePred
 forgetful2 r u = or ( map ( r u ) entities )
 
 passivize :: TwoPlacePred -> OnePlacePred
-passivize r	= \ x -> or ( map ( flip  r x ) entities )
+passivize r     = \ x -> or ( map ( flip  r x ) entities )
 
 passivize3 :: ThreePlacePred -> TwoPlacePred
-passivize3 r	= \x y -> or ( map ( \u -> r u x y ) entities )
+passivize3 r    = \x y -> or ( map ( \u -> r u x y ) entities )
 
 passivize4 r = \x y z -> or ( map (\u -> r u x y z ) entities )
 
 self ::  (a -> a -> b) -> a -> b
-self p	= \ x -> p x x
+self p	= \ x -> p x x 
 
--- vim: set ts=8 sts=2 sw=2 noet:
+-- vim: set ts=2 sts=2 sw=2 noet:

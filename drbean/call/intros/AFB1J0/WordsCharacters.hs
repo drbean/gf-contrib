@@ -1,21 +1,20 @@
-
-
 module WordsCharacters where 
 
 import qualified Data.Map as Map
 
-gfWords = Map.fromList [("A",a),
-	-- ("ADV",adv),
-	("Aux",aux),
-	-- ("CONJ",conj),
-	("Det",det),
-	("N",n),
-	("PN",pn),
-	-- ("Pron",pron),
-	("Prep",prep),
-	-- ("Rel",rel),
-	("Tag",tag),
-	("V",v) ]
+gfWords = Map.fromList [
+	("A",a)
+	, ("ADV",adv)
+	, ("Aux",aux)
+	, ("CONJ",conj)
+	, ("Det",det)
+	, ("N",n)
+	, ("PN",pn)
+	, ("Pron",pron)
+	, ("Prep",prep)
+	, ("Rel",rel)
+	, ("Tag",tag)
+	, ("V",v) ]
 
 wordlist = concat ( map (gfWords Map.!) (Map.keys gfWords) )
 
@@ -35,12 +34,18 @@ posMap = Map.fromList [
 	]
 
 a = [
-  "cute"
-  , "difficult"
+	"beautiful"
+	, "big"
+	, "first"
+	, "great"
+	, "homeless"
+	, "little"
+	, "lonely"
+	, "middle-class"
 	]
 
 adv = [
-
+	"pretty"
 	]
 
 aux = [
@@ -56,159 +61,245 @@ aux = [
 	
 
 conj = [
-	"and"
-	, "if"
+	"because"
 	]
 
 
 det = [
 	"'s"
 	, "a"
+	, "about"
 	, "an"
 	, "no"
 	, "some"
-	, "that"
 	, "the"
+	, "five"
+	, "one"
 	]
 
-n = [
-	"child"
+n = cn ++ un
+
+cn = [
+	"ten-dollar bill"
+	, "age"
+	, "apartment"
+	, "gift bag"
+	, "birthday"
+	, "bottle"
+	, "budget"
+	, "card"
 	, "children"
-	, "brother"
-	, "dog"
-	, "dogs_and_cats"
-	, "dream"
-	, "family"
-	, "fashion_designer"
-	, "father"
-	, "friend"
-	, "freshman"
-	, "graduation"
+	, "daughter"
+	, "dummy"
+	, "fragrance"
+	, "idea"
 	, "job"
-	, "jobs"
-	, "life"
 	, "man"
-	, "money"
-	, "mother"
-	, "nephew"
-  , "pet"
-
-	, "playing_basketball"
-	, "playing_soccer"
-	, "dancing"
-
-
-	, "playing_with_her_nephews"
-	, "school"
-	, "senior"
-	, "sister"
-	, "time"
-	, "thing"
-	, "things"
-	, "21"
-	, "watching_action_movies"
-	, "watching_scary_movies"
-	, "way"
+	, "month"
+	, "shelter"
+	, "sign"
+	, "smell"
+	, "spirit"
+	, "week"
 	, "woman"
-	, "work"
-	, "senior"
+	]
 
+un = [
+	"cooking"
+	, "lotion"
+	, "money"
+	, "rent"
+	, "savings"
+	, "unemployment"
+	, "enjoying life"
+	, "retiring"
+	, "sitting back"
 	]
 
 pn = [
-  "Oliver"
-  , "Japanese"
-  , "Jeremy"
-  , "London"
-  , "May"
-  , "New York"
-  , "Tucheng"
-  , "Taoyuan"
-  , "Taichung"
-  , "Minghsin University"
-  , "Taiwan"
-  , "Hsinchu"
-  , "Fast and Furious"
-  , "Tucheng"
-  , "PingZhen"
-  , "Taipei"
-  , "London"
-  , "New York"
-  , "Gucci"
-  , "Omo"
-  , "Taichung"
-  , "YiLan"
-  , "Dwyane Wade"
-
-  , "Omo"
-  , "Gucci"
-  , "Bruce2"
-  , "Iris"
-  , "Roger"
-
+	"Christmas"
+	, "the state of Colorado"
+	, "Queen"
 	]
 
 pron = [
+	"who"
+	, "whom"
 	]
 
 prep = [
-	"of"
-	-- , "about"
-	-- , "at"
-	-- , "for"
-	, "from"
-	-- , "like"
-	-- , "than"
-	, "to"
-	-- , "with"
+	"for"
 	]
 
 rel = [
 	"that"
+	, "who"
 	]
 
 tag = [
-	"doesn't he,"
-	, "doesn't she,"
-	, "doesn't it,"
-	, "don't they,"
-	, "does he,"
-	, "does she,"
-	, "does it,"
-	, "do they,"
-	, "isn't he,"
-	, "isn't she,"
-	, "isn't it,"
-	, "aren't they,"
-	, "is he,"
-	, "is she,"
-	, "is it,"
-	, "are they,"
+	"doesn't he"
+	, "doesn't she"
+	, "doesn't it"
+	, "don't they"
+	, "does he"
+	, "does she"
+	, "does it"
+	, "do they"
+	, "isn't he"
+	, "isn't she"
+	, "isn't it"
+	, "aren't they"
+	, "is he"
+	, "is she"
+	, "is it"
+	, "are they"
 	]
 
 v = [
-	"are"
-	, "be"
-	, "become"
-	, "call"
-	, "can"
-	, "come"
+	"work"
+	, "buy"
+	, "lose"
+	, "take care"
+	, "cover"
+	, "cry"
+	, "dress"
+	, "feel"
+	, "get"
 	, "go"
+	, "hand"
 	, "have"
-	, "like"
-	, "live"
-	, "say"
-	, "study"
+	, "lay off"
+	, "lift"
+	, "look"
+	, "look"
+	, "move in"
+	, "open"
+	, "receive"
+	, "remember"
+	, "smell"
+	, "take"
+	, "thank"
 	, "think"
+	, "turn"
 	, "want"
-
+	, "work for"
 	]
 
+{-
 
--- dog	: N;
--- playing_basketball	: CN;
--- playing_soccer	: N;
--- dancing	: PN;
--- call	: V;
+ten-dollar bill	: CN;
+thirties
+forties
+sixty
+Christmas	: PN;
+the state of Colorado	: PN;
+one
+Queen	: PN;
+work	: V2;
+age	: CN;
+all
+another
+apartment	: CN;
+as
+at
+badly
+be
+beautiful	: AP;
+because
+big	: A;
+birthday	: CN;
+bottle	: CN;
+budget	: CN;
+buy	: V;
+card	: CN;
+children	: CN;
+cooking	: N;
+cover	: V;
+cry	: V;
+daughter	: CN;
+deal
+dress	: V;
+dummy	: CN;
+enjoying life	: N;
+ever
+feel	: VA;
+first	: A;
+five	: Det;
+for	: Prep;
+fragrance	: CN;
+get	: V2;
+gift bag	: CN;
+go	: V;
+great	: A;
+hand	: V;
+have	: V2;
+homeless	: A;
+idea	: CN;
+in
+interview
+into
+it
+job	: CN;
+joy
+just
+lay off	: V;
+life	: N;
+lift	: V;
+like
+little	: A;
+lonely	: A;
+look	: VA;
+lose	: V;
+lotion	: N;
+man	: CN;
+middle-class	: A;
+money	: N;
+month	: CN;
+most
+move in	: V;
+never
+no
+nobody
+not
+of
+off
+one	: Det;
+open	: V;
+or
+out
+pretty	: Adv;
+receive	: V;
+remember	: V;
+rent	: N;
+retiring	: N;
+savings	: N;
+shelter	: CN;
+sign	: CN;
+sitting back	: N;
+smell	: V2;
+smell	: CN;
+so
+some
+spirit	: CN;
+take	: V;
+thank	: V;
+think	: VS;
+to
+turn	: V;
+um
+unemployment	: N;
+up
+very
+want	: V2V;
+way
+week	: CN;
+were
+when
+which
+with
+woman	: CN;
+working
 
--- vim: set ts=8 sts=2 sw=2 noet:
+-}
+
+-- vim: set ts=2 sts=2 sw=2 noet:
