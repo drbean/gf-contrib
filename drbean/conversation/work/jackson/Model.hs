@@ -99,7 +99,7 @@ onePlacers =
 	(genonePlacer event "is_lay_off_ed" "lay_off" Patient) :
 	(genonePlacer event "go_out" "go_out" Agent) :
 	(genonePlacer condition "middle_class" "middle_class" Patient) :
-	(genonePlacer condition "look:middle_class" "middle_class" Patient) :
+	(genonePlacer condition "homeless" "homeless" Patient) :
 	(genonePlacer condition "lonely" "lonely" Patient) :
 	(genonePlacer condition "feel_lonely" "lonely" Patient) :
 	(genonePlacer event "cry" "cry" Patient) :
@@ -197,6 +197,7 @@ condition = [
 	, ("lonely", [(Predicate,P),(Patient,Q)] )
 	, ("look", [(Patient,Q),(Predicate,P)] )
 	, ("middle_class", [(Predicate,P),(Patient,Q)] )
+	, ("homeless", [(Patient,Q)] )
 	, ("savings", [(Patient,Q),(Instrument,M),(Theme,Unspec)] )
 	]
 
