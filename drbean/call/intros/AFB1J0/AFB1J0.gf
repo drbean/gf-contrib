@@ -7,13 +7,13 @@ fun
 
   four : Det;
 
-	Chinese	: A;
-	favorite	: A;
-	happy	: A;
-	humorous	: A;
-	optimistic	: A;
-	positive	: A;
-	relaxed	: A;
+	chinese	: AP;
+	favorite	: AP;
+	happy	: AP;
+	humorous	: AP;
+	optimistic	: AP;
+	positive	: AP;
+	relaxed	: AP;
 
 	as	: Prep;
 	on	: Prep;
@@ -23,7 +23,7 @@ fun
 	have	: V2;
 	live	: V2;
 	love	: V2;
-	make	: V2A;
+	make	: V2V;
 	study	: V2;
 	think	: VA;
 
@@ -42,12 +42,12 @@ fun
 	music	: N;
 	what_wants	: N;
 
-	Facebook	: PN;
-	Oliver	: PN;
-	PanYanMin	: PN;
-	PingZhen	: PN;
-	Taipei	: PN;
-	ABC_University	: PN;
+	facebook	: PN;
+	oliver	: PN;
+	panYanMin	: PN;
+	pingZhen	: PN;
+	taipei	: PN;
+	abc_university	: PN;
 
 }
 

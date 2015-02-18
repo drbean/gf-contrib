@@ -7,7 +7,7 @@ lin
 
   four	= mkDet( mkNumeral n4_Unit);
 
-  Chinese	= mkAP( mkA "Chinese");
+  chinese	= mkAP( mkA "Chinese");
 	favorite	= mkAP( mkA "favorite");
 	happy	= mkAP( mkA "happy");
 	humorous	= mkAP( mkA "humorous");
@@ -23,11 +23,11 @@ lin
 	have	= mkV2 "have";
 	live	= mkV2 "live";
 	love	= mkV2 "love";
-	make	= mkV2A "make";
+	make	= mkV2V IrregEng.make_V noPrep noPrep;
 	study	= mkV2 "study";
 	think	= mkVA( mkV "think");
 
-	court	= mkCN( mkN "court");
+	court	= mkCN( mkN "basketball court");
 	family	= mkCN( mkN "family");
 	father	= mkCN( mkN "father");
 	mother	= mkCN( mkN "mother");
@@ -41,12 +41,12 @@ lin
 	free_time	= mkN "free_time";
 	music	= mkN "listening_to_music";
 
-	Facebook	= mkPN( mkN (mkN "Facebook") );
-	Oliver	= mkPN( mkN masculine (mkN "Oliver") );
-	PanYanMin	= mkPN( mkN masculine (mkN "Pan YanMin") );
-	PingZhen	= mkPN( mkN (mkN "PingZhen") );
-	Taipei	= mkPN( mkN (mkN "Taipei") );
-	ABC	= mkPN( mkN (mkN "ABC_University") );
+	facebook	= mkPN( mkN nonhuman (mkN "Facebook") );
+	oliver	= mkPN( mkN masculine (mkN "Oliver") );
+	panYanMin	= mkPN( mkN masculine (mkN "Pan YanMin") );
+	pingZhen	= mkPN( mkN nonhuman (mkN "PingZhen") );
+	taipei	= mkPN( mkN nonhuman (mkN "Taipei") );
+	abc_university	= mkPN( mkN nonhuman (mkN "ABC_University") );
 	what_wants	= mkN "what he wants";
 
 }
