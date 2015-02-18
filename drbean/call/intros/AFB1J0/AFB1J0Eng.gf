@@ -1,10 +1,7 @@
---# -path=.:./gf-contrib/drbean/call/intros/1J0:present
+--# -path=.:../../../::./gf-contrib/drbean/call/intros/AFB1J0:present
 
-concrete 1J0Eng of 1J0 = MyConcrete **
+concrete AFB1J0Eng of AFB1J0 = MyConcrete **
 open ConstructorsEng, ParadigmsEng, StructuralEng, IrregEng, ExtraEng, Prelude in {
-
-oper
-
 
 lin
 
@@ -19,7 +16,6 @@ lin
 	relaxed	= mkAP( mkA "relaxed");
 
 	as	= mkPrep "as";
-	in	= mkPrep "in";
 	on	= mkPrep "on";
 
 	feel	= mkVA( mkV "feel");

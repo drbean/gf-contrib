@@ -1,4 +1,4 @@
-abstract 1J0 = Cat ** {
+abstract AFB1J0 = Cat ** {
 
 
   flags startcat = Utt ;
@@ -16,7 +16,6 @@ fun
 	relaxed	: A;
 
 	as	: Prep;
-	in	: Prep;
 	on	: Prep;
 
 	feel	: VA;
