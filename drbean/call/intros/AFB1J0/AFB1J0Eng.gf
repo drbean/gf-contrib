@@ -1,4 +1,4 @@
---# -path=.:../../../::./gf-contrib/drbean/call/intros/AFB1J0:present
+--# -path=.:/home/drbean/GF/gf-contrib/drbean:/home/drbean/GF/gf-contrib/drbean/call/intros/AFB1J0:present
 
 concrete AFB1J0Eng of AFB1J0 = MyConcrete **
 open ConstructorsEng, ParadigmsEng, StructuralEng, IrregEng, ExtraEng, Prelude in {
