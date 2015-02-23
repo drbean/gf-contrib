@@ -1,4 +1,4 @@
---# -path=.:/home/drbean/GF/gf-contrib/drbean:/home/drbean/GF/gf-contrib/drbean/call/intros/AFB1J0:present
+--# -path=.:/home/drbean/GF/gf-contrib/drbean:present
 
 concrete AFB1J0Eng of AFB1J0 = MyConcrete **
 open ConstructorsEng, ParadigmsEng, StructuralEng, IrregEng, ExtraEng, Prelude in {
@@ -32,21 +32,21 @@ lin
 	father	= mkCN( mkN "father");
 	mother	= mkCN( mkN "mother");
 	name	= mkCN( mkN "name");
-	older_sister	= mkCN( (mkN feminine (mkN "older_sister")));
+	older_sister	= mkCN( (mkN feminine (mkN "older sister")));
 	people	= mkCN( mkN "people");
 	person	= mkCN( mkN "person");
 	sport	= mkCN( mkN "sport");
 
 	basketball	= mkN "basketball";
-	free_time	= mkN "free_time";
-	music	= mkN "listening_to_music";
+	free_time	= mkN "free time";
+	music	= mkN "listening to music";
 
 	facebook	= mkPN( mkN nonhuman (mkN "Facebook") );
 	oliver	= mkPN( mkN masculine (mkN "Oliver") );
 	panYanMin	= mkPN( mkN masculine (mkN "Pan YanMin") );
 	pingZhen	= mkPN( mkN nonhuman (mkN "PingZhen") );
 	taipei	= mkPN( mkN nonhuman (mkN "Taipei") );
-	abc_university	= mkPN( mkN nonhuman (mkN "ABC_University") );
+	abc_university	= mkPN( mkN nonhuman (mkN "ABC University") );
 	what_wants	= mkN "what he wants";
 
 }
