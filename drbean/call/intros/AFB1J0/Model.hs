@@ -19,7 +19,7 @@ entity_check =  [
     , (C, "" )
     , (D, "" )
     , (E, "" )
-    , (F, "" )
+    , (F, "father" )
     , (G, "" )
     , (H, "" )
     , (I, "" )
@@ -27,18 +27,18 @@ entity_check =  [
     , (K, "" )
     , (L, "" )
     , (M, "" )
-    , (N, "oliver_name" )
+    , (N, "" )
     , (O, "oliver" )
-    , (P, "" )
+    , (P, "oliverPan" )
     , (Q, "" )
     , (R, "" )
-    , (S, "" )
+    , (S, "older_sister" )
     , (T, "" )
     , (U, "" )
     , (V, "" )
     , (W, "" )
     , (X, "" )
-    , (Y, "" )
+    , (Y, "panYanMin" )
     , (Z, "" )
     ]
 
@@ -48,7 +48,7 @@ ent_ided name = head [entity | (entity,string) <- entity_check ,
 				]
 
 characters :: [(String,Entity)]
-characters = map findEnt [Q]
+characters = map findEnt [O]
 	where findEnt e
 		| Just name <- lookup e entity_check
 			= (name,e)
@@ -87,11 +87,15 @@ onePlaceStarters = [
 
 	, ("male",	pred1 [O,F] )
 	, ("female",	pred1 [M,S] )
+	, ("chinese",	pred1 [Y] )
 	]
 
+
 onePlacers = 
-	(genonePlacer event "is_lay_off_ed" "lay_off" Patient) :
-	(genonePlacer event "go_out" "go_out" Agent) :
+	(genonePlacer affiliation "name" "name" Result) :
+	(genonePlacer affiliation "mother" "mother" Pivot) :
+	-- (genonePlacer affiliation "father" "father" Pivot) :
+	-- (genonePlacer affiliation "older_sister" "older_sister" Pivot) :
 	(genonePlacer condition "middle_class" "middle_class" Patient) :
 	(genonePlacer condition "look:middle_class" "middle_class" Patient) :
 	(genonePlacer condition "lonely" "lonely" Patient) :
@@ -211,8 +215,11 @@ affiliation = [
 	("resident", [(Theme,O),(Location,P) ] )
 	, ("mother", [(Pivot,M),(Theme,O) ] )
 	, ("father", [(Pivot,F),(Theme,O) ] )
-	, ("sister", [(Pivot,S),(Theme,O) ] )
+	, ("older_sister", [(Pivot,S),(Theme,O) ] )
 	, ("student", [(Agent,S),(Location,U) ] )
+	, ("name", [(Theme,O),(Result,O) ] )
+	, ("name", [(Theme,O),(Result,Y) ] )
+	, ("name", [(Theme,O),(Result,P) ] )
 	]
 
 gentwoPlacer :: [ (Content, [(Case,Entity)]) ] ->
@@ -251,7 +258,7 @@ twoPlaceStarters = [
     ]
 
 twoPlacers =
-	(gentwoPlacer event "buy_V2" "buy" Agent Theme) :
+	(gentwoPlacer affiliation "have" "name" Theme Result) :
 	(gentwoPlacer condition "cover" "cover" Agent Theme) :
 	(gentwoPlacer condition "have" "joy" Agent Theme) :
 	(gentwoPlacer condition "have" "smell" Agent Theme) :
@@ -260,8 +267,9 @@ twoPlacers =
 	(gentwoPlacer condition "lonely" "lonely" Predicate Patient) :
 	(gentwoPlacer condition "middle_class" "middle_class" Predicate Patient) :
 	(gentwoPlacer event "get" "give" Recipient Theme) :
-	(gentwoPlacer affiliation "have" "mother" Pivot Theme) :
 	(gentwoPlacer affiliation "have" "mother" Theme Pivot) :
+	(gentwoPlacer affiliation "have" "father" Theme Pivot) :
+	(gentwoPlacer affiliation "have" "older_sister" Theme Pivot) :
 	(gentwoPlacer condition "in_form_of" "in_form_of" Patient Instrument) :
 	(gentwoPlacer affiliation "in_prep" "shelter" Patient Agent) :
 	(gentwoPlacer condition "look" "look" Patient Predicate) :
