@@ -14,32 +14,32 @@ entities	=  [minBound..maxBound]
 
 entity_check :: [ (Entity, String) ]
 entity_check =  [
-    (A, "apartment" )
-    , (B, "birthday_card" )
-    , (C, "colorado" )
-    , (D, "daughter" )
-    , (E, "rent" )
+    (A, "" )
+    , (B, "" )
+    , (C, "" )
+    , (D, "" )
+    , (E, "" )
     , (F, "" )
-    , (G, "bag" )
-    , (H, "shelter" )
-    , (I, "idea" )
-    , (J, "job" )
-    , (K, "week" )
-    , (L, "lotion" )
-    , (M, "money" )
-    , (N, "a man" )
-    , (O, "month" )
+    , (G, "" )
+    , (H, "" )
+    , (I, "" )
+    , (J, "" )
+    , (K, "" )
+    , (L, "" )
+    , (M, "" )
+    , (N, "oliver_name" )
+    , (O, "oliver" )
     , (P, "" )
-    , (Q, "queen" )
-    , (R, "retiring" )
-    , (S, "sign" )
-    , (T, "ten_dollar_bill" )
-    , (U, "unemployment" )
-    , (V, "bottle" )
-    , (W, "joy" )
-    , (X, "christmas" )
-    , (Y, "smell_N2" )
-    , (Z, "cooking" )
+    , (Q, "" )
+    , (R, "" )
+    , (S, "" )
+    , (T, "" )
+    , (U, "" )
+    , (V, "" )
+    , (W, "" )
+    , (X, "" )
+    , (Y, "" )
+    , (Z, "" )
     ]
 
 ent_ided :: String -> Entity
@@ -84,15 +84,9 @@ onePlaceStarters = [
         , ("false",     pred1 [] )
         , ("role",      pred1 [] )
 
-        , ("great",     pred1 [I] )
 
-	, ("little",	pred1 [L,V] )
-
-	, ("male",	pred1 [N] )
-	, ("female",	pred1 [Q,D] )
-	, ("lonely_prop",	pred1 [P] )
-	, ("middle_class_prop",	pred1 [P] )
-	, ("take_care_prop",	pred1 [P] )
+	, ("male",	pred1 [O,F] )
+	, ("female",	pred1 [M,S] )
 	]
 
 onePlacers = 
@@ -105,12 +99,6 @@ onePlacers =
 	(genonePlacer event "cry" "cry" Patient) :
 	entityonePlacers ++ onePlaceStarters
 
-predid1 "sitting_back"	= predid1 "retiring"
-predid1 "enjoying_life"	= predid1 "retiring"
-predid1 "child"	= predid1 "daughter"
-predid1 "card"	= predid1 "birthday_card"
-predid1 "woman"	= predid1 "female"
-predid1 "man"	= predid1 "male"
 predid1 "person"	= Just person
 predid1 "thing"	= Just thing
 
@@ -215,14 +203,16 @@ idea = [
 
 attitude :: [ (Content, [(Case, Entity)]) ]
 attitude = [
-	("no_big_deal", [(Agent,Q),(Theme,U)] )
+	("music", [(Experiencer,O),(Stimulus,M)] )
 	]
 
 affiliation :: [ (Content, [(Case, Entity)]) ]
 affiliation = [
-	("employment", [(Agent,C),(Patient,Q) ] )
-	, ("shelter", [(Agent,H),(Patient,Q) ] )
-	, ("mother", [(Pivot,Q),(Theme,D) ] )
+	("resident", [(Theme,O),(Location,P) ] )
+	, ("mother", [(Pivot,M),(Theme,O) ] )
+	, ("father", [(Pivot,F),(Theme,O) ] )
+	, ("sister", [(Pivot,S),(Theme,O) ] )
+	, ("student", [(Agent,S),(Location,U) ] )
 	]
 
 gentwoPlacer :: [ (Content, [(Case,Entity)]) ] ->
