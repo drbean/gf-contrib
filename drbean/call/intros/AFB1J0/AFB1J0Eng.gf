@@ -44,6 +44,7 @@ lin
 	facebook	= mkPN( mkN nonhuman (mkN "Facebook") );
 	oliver	= mkPN( mkN masculine (mkN "Oliver") );
 	panYanMin	= mkPN( mkN masculine (mkN "Pan YanMin") );
+	oliverPan	= mkPN( mkN masculine (mkN "Oliver Pan") );
 	pingZhen	= mkPN( mkN nonhuman (mkN "PingZhen") );
 	taipei	= mkPN( mkN nonhuman (mkN "Taipei") );
 	abc_university	= mkPN( mkN nonhuman (mkN "ABC University") );

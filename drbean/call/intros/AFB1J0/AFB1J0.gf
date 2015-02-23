@@ -45,6 +45,7 @@ fun
 	facebook	: PN;
 	oliver	: PN;
 	panYanMin	: PN;
+	oliverPan	: PN;
 	pingZhen	: PN;
 	taipei	: PN;
 	abc_university	: PN;
