@@ -1,4 +1,4 @@
-abstract AFB1J0 = Cat, Conjunction ** {
+abstract AFB1J0 = MyAbstract ** {
 
 
   flags startcat = Utt ;
