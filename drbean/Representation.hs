@@ -17,9 +17,9 @@ import Data.Tuple
 
 entuples :: [(Entity,GPN)]
 entuples = [
-	(Q,Gqueen)
-	, (C,Gcolorado)
-	, (X, Gchristmas)
+	(O,Goliver)
+	, (P, GpanYanMin)
+	, (U, GoliverPan)
 	]
 
 ref2int :: DRSRef -> Int
@@ -34,9 +34,9 @@ int2ref :: Int -> DRSRef
 int2ref n = DRSRef ("r" ++ (show n) )
 
 instance Eq GPN where
-	(==) Gqueen Gqueen = True
-	(==) Gcolorado Gcolorado = True
-	(==) Gchristmas Gchristmas = True
+	(==) Goliver Goliver = True
+	(==) GpanYanMin GpanYanMin = True
+	(==) GoliverPan GoliverPan = True
 	(==) _ _ = False
 
 gent2ent :: GPN -> Entity
@@ -86,13 +86,13 @@ new np r = case np of
 		r' = head rs in r'
 
 newOnPart :: GPartitive -> DRSRef -> DRSRef
-newOnPart _ r = new (GItem Ga_Det Gman) r
+newOnPart _ r = new (GItem Ga_Det Gperson) r
 
 newOnPos :: GN2 -> DRSRef -> DRSRef
-newOnPos _ r = new (GItem Ga_Det Gman) r
+newOnPos _ r = new (GItem Ga_Det Gperson) r
 
 newOnPlace :: GPlace -> DRSRef -> DRSRef
-newOnPlace _ r = new (GItem Ga_Det Gman) r
+newOnPlace _ r = new (GItem Ga_Det Gperson) r
 
 repNP :: GNP -> (DRSRef -> DRS) -> DRSRef -> DRS
 repNP (GItem det cn) p r = (repDet det) (repCN cn) p r
@@ -165,12 +165,11 @@ repDet Gher_Det = \ p q dummy-> let
 	have r thing = Rel (DRSRel "have") [r, thing]
 	false :: DRSCon
 	false = Rel (DRSRel "true") [DRSRef "r1"]
-repDet Gone = repDet Ga_Det
 repDet Gsome_Det = repDet Ga_Det
 repDet GtheSg_Det = repDet Ga_Det
 repDet Gsome_pl_Det = repDet Gsome_Det
 repDet GthePlural_Det =  repDet Gsome_pl_Det
-repDet Gfive   = repDet Gsome_pl_Det
+repDet Gfour   = repDet Gsome_pl_Det
 repDet (GApos owner) = \p q r -> let
 	len = ref2int r
 	iminus = len - 1
