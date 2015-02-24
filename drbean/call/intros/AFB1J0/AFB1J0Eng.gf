@@ -15,7 +15,6 @@ lin
 	positive	= mkAP( mkA "positive");
 	relaxed	= mkAP( mkA "relaxed");
 
-	as	= mkPrep "as";
 	on	= mkPrep "on";
 
 	feel	= mkVA( mkV "feel");

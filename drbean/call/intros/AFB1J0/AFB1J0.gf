@@ -15,7 +15,6 @@ fun
 	positive	: AP;
 	relaxed	: AP;
 
-	as	: Prep;
 	on	: Prep;
 
 	feel	: VA;
