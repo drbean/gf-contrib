@@ -148,66 +148,33 @@ pred2 xs	= curry ( `elem` xs )
 pred3 xs	= curry3 ( `elem` xs )
 pred4 xs	= curry4 ( `elem` xs )
 
-type Judger = Entity
-type Judged = Entity
-type Content  = String
-
 goal :: [ (Content, [(Case, Entity)]) ]
 goal = [
-	("great_idea",	[(Agent,Q),(Theme,R)])
 	]
 
 event :: [ (Content, [(Case, Entity)]) ]
 event = [
-	("lay_off", [(Agent,C),(Patient,Q)] )
-	, ("turn", [(Agent,K),(Theme,O)] )
-	, ("remove", [(Agent,Unspec),(Source,A),(Theme,Q)] )
-	, ("go_out", [(Agent,Q),(Instrument,S),(Theme,M)] )
-	, ("hand", [(Agent,N),(Theme,M),(Recipient,Q)] )
-	, ("hand", [(Agent,N),(Theme,T),(Recipient,Q)] )
-	, ("give", [(Agent,N),(Theme,M),(Recipient,Q)] )
-	, ("give", [(Agent,N),(Theme,T),(Recipient,Q)] )
-	, ("thank", [(Agent,Q),(Recipient,N)] )
-	, ("buy", [(Agent,Q),(Recipient,D),(Theme,B)] )
-	, ("give", [(Agent,Q),(Recipient,D),(Theme,B)] )
-	, ("give", [(Agent,H),(Recipient,Q),(Theme,G)] )
-	, ("give", [(Agent,H),(Recipient,Q),(Theme,L)] )
-	, ("open", [(Agent,Q),(Patient,L)] )
-	, ("smell", [(Agent,Q),(Patient,L) ] )
-	, ("cry", [(Patient,Q) ] )
+	("make", [(Agent,M),(Patient,O),(Result,R)] )
 
 	]
 
 condition :: [ (Content, [(Case, Entity)]) ]
 condition = [
-	("cover", [(Agent,U),(Theme,E)] )
-	, ("rent", [(Agent,Q),(Theme,A)] )
-	, ("joy", [(Agent,X),(Theme,W)] )
-	, ("smell", [(Agent,Z),(Theme,Y)] )
-	, ("feel", [(Patient,Q),(Predicate,P)] )
-	, ("in_form_of", [(Patient,L),(Instrument,V)] )
-	, ("lonely", [(Predicate,P),(Patient,Q)] )
-	, ("look", [(Patient,Q),(Predicate,P)] )
-	, ("middle_class", [(Predicate,P),(Patient,Q)] )
-	, ("savings", [(Patient,Q),(Instrument,M),(Theme,Unspec)] )
+	("feel", [(Patient,O),(Predicate,P)] )
+	, ("happy", [(Predicate,P),(Patient,O)] )
+	, ("relaxed", [(Predicate,P),(Patient,O)] )
+	, ("happy", [(Result,R),(Patient,O)] )
+	, ("relaxed", [(Result,R),(Patient,O)] )
 	]
 
 idea :: [ (Content, [(Case, Entity)]) ]
 idea = [
-	("another_job", [(Agent,Q),(Theme,J)] )
-	, ("move_in", [(Agent,D),(Patient,Q)] )
-	, ("care", [(Experiencer,Q),(Topic,P),(Agent,Q),(Patient,D)] )
-	, ("care", [(Experiencer,Q),(Topic,P),(Agent,D),(Patient,Q)] )
-	, ("care", [(Experiencer,Q),(Topic,P),(Agent,D),(Theme,E)] )
-	, ("remember", [(Agent,Q),(Theme,W)] )
-	, ("remember", [(Agent,Q),(Theme,X)] )
-	, ("remember", [(Agent,Q),(Theme,Y)] )
-	, ("think", [(Agent,Q),(Predicate,P)] )
 	]
 
 attitude :: [ (Content, [(Case, Entity)]) ]
 attitude = [
 	("music", [(Experiencer,O),(Stimulus,M)] )
+	, ("basketball", [(Experiencer,O),(Stimulus,B)] )
 	]
 
 affiliation :: [ (Content, [(Case, Entity)]) ]
@@ -322,6 +289,7 @@ threePlacers =
 	(genthreePlacer event "buy" "buy" Agent Recipient Theme) :
 	threePlaceStarters
 
+type Content = String
 data Case = Agent | Asset | Attribute | Beneficiary | Cause | CoAgent |
 	CoPatient | CoTheme | Destination | Experiencer | Extent | Goal |
 	InitialLocation | Instrument | Location | Material | Patient | Pivot |
