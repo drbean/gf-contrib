@@ -344,6 +344,8 @@ repVP (GPositing v0 (GNegS (GSentence np vp))) = case vp of
 				[referent, theme]])])]
 			in DRS [r, theme, referent] conds )
 			(new obj referent) ) (new np r)
+repVP (GCausative v0 obj vp) = case vp of
+	(GLook_bad v ap) -> \r -> repNP obj (repVP (GLook_bad v ap)) (new obj r)
 
 repW :: GIP -> (DRSRef -> DRS) -> DRSRef -> DRS
 repW Gwho_WH p r = let
