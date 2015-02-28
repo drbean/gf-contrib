@@ -15,7 +15,7 @@ entities	=  [minBound..maxBound]
 entity_check :: [ (Entity, String) ]
 entity_check =  [
     (A, "" )
-    , (B, "" )
+    , (B, "basketball" )
     , (C, "music" )
     , (D, "" )
     , (E, "" )
@@ -155,7 +155,7 @@ goal = [
 event :: [ (Content, [(Case, Entity)]) ]
 event = [
 	("make", [(Agent,C),(Patient,O),(Result,R)] )
-	("make", [(Agent,C),(Predicate,P)] )
+	, ("make", [(Agent,C),(Predicate,P)] )
 
 	]
 
