@@ -115,7 +115,6 @@ fun
 
 	her_Det	: Det;
 	her_MassDet	: MassDet;
-	his	: Det;
 	its	: Det;
 
 	he	: NP;
