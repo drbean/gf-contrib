@@ -79,7 +79,8 @@ repS (GQUt (GPosQ (GWH_Pred wh vp))) = Just (repW wh (repVP vp))
 
 new :: GNP -> DRSRef -> DRSRef
 new np r = case np of
-	Gshe -> r
+	Gshe	-> r
+	Ghe	-> r
 	_ -> let
 		es = [r]
 		rs = newDRSRefs [r] es
@@ -122,6 +123,35 @@ repNP Gshe p r = let
 	sheDRS conds d r = (female r: (map (subst d r) conds))
 	female :: DRSRef -> DRSCon
 	female r = (Rel (DRSRel "female") [r])
+	subst :: DRSRef -> DRSRef -> DRSCon -> DRSCon
+	subst d r c = case c of
+		(Rel rel rs) -> Rel rel (
+			map (\x -> if x == d then r else x) rs
+			)
+		(Neg (DRS reflist conds)) ->
+			Neg (DRS reflist (map (subst d r) conds))
+		(Prop ref (DRS reflist conds)) ->
+			Prop ref (DRS reflist (map (subst d r) conds))
+		_	-> c
+repNP Ghe p r = let
+	dummy =DRSRef "dummy1"
+	iminus = ref2int r - 1
+	rolled_ref = int2ref iminus
+	he_refs = case r of
+		(DRSRef "r1") -> [DRSRef "r1"]
+		_ -> newDRSRefs (replicate iminus (DRSRef "r")) []
+	DRS rs conds = p r
+	reals = filter (not . isDummy) rs
+	len = ref2int (maximum reals)
+	reflist = newDRSRefs (replicate len (DRSRef "r")) []
+	he_conds = foldl1 (\cs1 cs2 -> [Or
+		(DRS [] cs1 )
+		(DRS [] cs2)]) (map (heDRS conds dummy ) he_refs) in
+	(DRS reflist he_conds) where
+	heDRS :: [DRSCon] -> DRSRef -> DRSRef -> [DRSCon]
+	heDRS conds d r = (male r: (map (subst d r) conds))
+	male :: DRSRef -> DRSCon
+	male r = (Rel (DRSRel "male") [r])
 	subst :: DRSRef -> DRSRef -> DRSCon -> DRSCon
 	subst d r c = case c of
 		(Rel rel rs) -> Rel rel (
@@ -176,6 +206,7 @@ repDet (GApos owner) = \p q r -> let
 	iplus = len + 1
 	(owner_ref,thing) = case owner of
 		Gshe -> (int2ref iminus, int2ref len)
+		Ghe -> (int2ref iminus, int2ref len)
 		_ -> (int2ref len, int2ref iplus)
 	reflist = newDRSRefs (replicate len (DRSRef "r")) []
 	ownership_cond =  Rel (DRSRel "have") [owner_ref, thing]
@@ -202,6 +233,7 @@ repMassDet (GMassApos owner) = \p q r -> let
 	iplus = len + 1
 	(owner_ref,thing) = case owner of
 		Gshe -> (int2ref iminus, int2ref len)
+		Ghe -> (int2ref iminus, int2ref len)
 		_ -> (int2ref len, int2ref iplus)
 	reflist = newDRSRefs (replicate len (DRSRef "r")) []
 	ownership_cond =  Rel (DRSRel "have") [owner_ref, thing]
