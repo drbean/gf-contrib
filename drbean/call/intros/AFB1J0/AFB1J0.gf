@@ -25,6 +25,7 @@ fun
 	make	: V2V;
 	study	: V2;
 	think	: VA;
+	say	: VS;
 
 	court	: CN;
 	family	: CN;

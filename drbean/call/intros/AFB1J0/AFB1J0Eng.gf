@@ -25,6 +25,7 @@ lin
 	make	= mkV2V IrregEng.make_V noPrep noPrep;
 	study	= mkV2 "study";
 	think	= mkVA( mkV "think");
+	say	= mkVS IrregEng.say_V;
 
 	court	= mkCN( mkN "basketball court");
 	family	= mkCN( mkN "family");
