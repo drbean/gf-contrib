@@ -91,6 +91,8 @@ yn_dic_test = [
 	, "Does Oliver love listening to music in his free time?"
 	, "Does listening to music make Oliver feel happy?"
 	, "Does listening to music make Oliver feel relaxed?"
+	, "Does Oliver feel relaxed?"
+	, "Does Oliver say that he is relaxed?"
 	, "Is basketball Oliver's favorite sport?"
 	, "When Oliver is on the court, does he focus on what he wants?"
 	, "Is Oliver a humorous person?"
