@@ -16,7 +16,7 @@ entity_check :: [ (Entity, String) ]
 entity_check =  [
     (A, "" )
     , (B, "" )
-    , (C, "" )
+    , (C, "music" )
     , (D, "" )
     , (E, "" )
     , (F, "father" )
@@ -26,7 +26,7 @@ entity_check =  [
     , (J, "" )
     , (K, "" )
     , (L, "" )
-    , (M, "" )
+    , (M, "mother" )
     , (N, "" )
     , (O, "oliver" )
     , (P, "oliverPan" )
@@ -154,7 +154,8 @@ goal = [
 
 event :: [ (Content, [(Case, Entity)]) ]
 event = [
-	("make", [(Agent,M),(Patient,O),(Result,R)] )
+	("make", [(Agent,C),(Patient,O),(Result,R)] )
+	("make", [(Agent,C),(Predicate,P)] )
 
 	]
 
@@ -226,13 +227,10 @@ twoPlaceStarters = [
 
 twoPlacers =
 	(gentwoPlacer affiliation "have" "name" Theme Result) :
-	(gentwoPlacer condition "cover" "cover" Agent Theme) :
-	(gentwoPlacer condition "have" "joy" Agent Theme) :
-	(gentwoPlacer condition "have" "smell" Agent Theme) :
-	(gentwoPlacer condition "have" "rent" Agent Theme) :
+	(gentwoPlacer condition "make" "make" Agent Predicate) :
 	(gentwoPlacer condition "feel" "feel" Patient Predicate) :
-	(gentwoPlacer condition "lonely" "lonely" Predicate Patient) :
-	(gentwoPlacer condition "middle_class" "middle_class" Predicate Patient) :
+	(gentwoPlacer condition "happy" "happy" Predicate Patient) :
+	(gentwoPlacer condition "relaxed" "relaxed" Predicate Patient) :
 	(gentwoPlacer event "get" "give" Recipient Theme) :
 	(gentwoPlacer affiliation "have" "mother" Theme Pivot) :
 	(gentwoPlacer affiliation "have" "father" Theme Pivot) :
