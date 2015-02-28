@@ -345,7 +345,19 @@ repVP (GPositing v0 (GNegS (GSentence np vp))) = case vp of
 			in DRS [r, theme, referent] conds )
 			(new obj referent) ) (new np r)
 repVP (GCausative v0 obj vp) = case vp of
-	(GLook_bad v ap) -> \r -> repNP obj (repVP (GLook_bad v ap)) (new obj r)
+	(GLook_bad v ap) -> \r ->
+		repNP obj (\patient -> let
+			lin_v0 = lin v0
+			lin_v = lin v
+			DRS rs' [Rel rel rs] = repAP ap patient
+			lin_ap = linAP ap
+			p1 = DRSRef "p1"
+			p2 = DRSRef "p2"
+			conds = [Rel (DRSRel lin_v0) [r, p1]
+				, Prop p1 (DRS [] [Rel
+				(DRSRel lin_v) [patient, p2]
+					, Prop p2 (DRS [] [Rel (DRSRel lin_ap) rs])])]
+			in DRS [r, patient] conds ) (new obj r)
 
 repW :: GIP -> (DRSRef -> DRS) -> DRSRef -> DRS
 repW Gwho_WH p r = let
