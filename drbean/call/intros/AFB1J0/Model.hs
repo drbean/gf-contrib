@@ -96,6 +96,8 @@ onePlacers =
 	(genonePlacer affiliation "mother" "mother" Pivot) :
 	-- (genonePlacer affiliation "father" "father" Pivot) :
 	-- (genonePlacer affiliation "older_sister" "older_sister" Pivot) :
+	(genonePlacer attitude "sport" "basketball" Stimulus) :
+	(genonePlacer attitude "favorite" "basketball" Stimulus) :
 	(genonePlacer condition "middle_class" "middle_class" Patient) :
 	(genonePlacer condition "look:middle_class" "middle_class" Patient) :
 	(genonePlacer condition "lonely" "lonely" Patient) :
@@ -235,6 +237,7 @@ twoPlacers =
 	(gentwoPlacer affiliation "have" "mother" Theme Pivot) :
 	(gentwoPlacer affiliation "have" "father" Theme Pivot) :
 	(gentwoPlacer affiliation "have" "older_sister" Theme Pivot) :
+	(gentwoPlacer attitude "have" "basketball" Experiencer Stimulus) :
 	(gentwoPlacer condition "in_form_of" "in_form_of" Patient Instrument) :
 	(gentwoPlacer affiliation "in_prep" "shelter" Patient Agent) :
 	(gentwoPlacer condition "look" "look" Patient Predicate) :
