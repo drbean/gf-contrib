@@ -41,6 +41,8 @@ showLForm i f = '\n' : showFormula i f ++ "\n" where
 	showFormula :: Int -> LF -> String
 	showFormula i (Exists v f)
 		| v == Var "p" = opExists ++ "p" ++ " " ++ showFormula i f
+		| v == Var "p1" = opExists ++ "p1" ++ " " ++ showFormula i f
+		| v == Var "p2" = opExists ++ "p2" ++ " " ++ showFormula i f
 		| otherwise = opExists ++ "e" ++ (show i) ++ " " ++ showFormula (i+1) f
 	showFormula i (Forall v f) = opForAll ++ "e" ++ (show i) ++ " " ++ showFormula (i+1) f
 	showFormula i (Conj [])     = opTop
