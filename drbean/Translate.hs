@@ -73,8 +73,9 @@ drsToLF (DRS rl (Rel make [e1,p1] : Prop q1 (DRS _ (Rel posit [e2,p2] :
 	= L.Exists (ref2term xyzwp e1) (L.Conj [
 		L.Exists (ref2term xyzwp e2) (L.Conj [
 		L.Rel (drsRelToString make) (map (ref2term xyzwp) [e1,p1])
-		, L.Rel (lin_make ++ "_" ++ lin_posit) (map (ref2term xyzwp) [p1,p2])
+		, L.Rel "true" [ref2term xyzwp p1]
 		, L.Rel (drsRelToString posit) (map (ref2term xyzwp) [e2,p2])
+		, L.Rel "true" [ref2term xyzwp p2]
 		, L.Rel (rel cond) (map (ref2term xyzwp) (p2 : refs cond))
 		, (drsToLF (DRS rl cs)) ]) ]) where
 			lin_make = drsRelToString make
