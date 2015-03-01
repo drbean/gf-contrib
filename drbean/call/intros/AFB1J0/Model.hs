@@ -170,6 +170,7 @@ condition = [
 
 idea :: [ (Content, [(Case, Entity)]) ]
 idea = [
+	("say", [(Agent,O),(Predicate,P)] )
 	]
 
 attitude :: [ (Content, [(Case, Entity)]) ]
@@ -237,6 +238,7 @@ twoPlacers =
 	(gentwoPlacer affiliation "have" "older_sister" Theme Pivot) :
 	(gentwoPlacer attitude "have" "basketball" Experiencer Stimulus) :
 	(gentwoPlacer condition "in_form_of" "in_form_of" Patient Instrument) :
+	(gentwoPlacer idea "say" "say" Agent Predicate) :
 	twoPlaceStarters
 
 predid2 name = if name `elem` (map fst twoPlacers) then
