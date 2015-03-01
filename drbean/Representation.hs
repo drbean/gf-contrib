@@ -348,6 +348,11 @@ repVP (GTriangulating v obj1 obj2) = \r -> repNP obj1 (\theme ->
 			) (new obj2 theme) ) (new obj1 r)
 repVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 	(GBe_vp comp) -> case comp of
+		(GBe_bad ap ) -> \r -> repNP np (\referent -> let
+			d = repAP ap referent
+			p = DRSRef "p" in
+			DRS [referent] [Rel (DRSRel (lin v0)) [r,p]
+				, Prop p d] ) (new np r)
 		(GBe_someone subjcomp ) -> \r -> repNP np (\referent ->
 			repNP subjcomp (\_ -> let
 			cond = [Rel (DRSRel (lin v0)) [r, DRSRef ((lin v0)++":be")]
