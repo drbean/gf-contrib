@@ -66,15 +66,19 @@ drsToLF (LambdaDRS _) = error "infelicitous FOL formula"
 drsToLF (Merge _ _) = error "infelicitous FOL formula"
 drsToLF (DRS _ []) = L.Top
 
-drsToLF (DRS rl (Rel make [e1,p1] : Prop q1 (DRS _ (Rel posit [e2,p2] : 
+drsToLF (DRS rl (Rel make [e1,p1] : Prop q1 (DRS _ (Rel posit [e2,p2] :
 	[Prop q2 (DRS _ [cond] )])): cs))
 	| p1 == q1
 	, p2 == q2
 	= L.Exists (ref2term xyzwp e1) (L.Conj [
 		L.Exists (ref2term xyzwp e2) (L.Conj [
 		L.Rel (drsRelToString make) (map (ref2term xyzwp) [e1,p1])
-		, L.Rel (rel cond) (map (ref2term xyzwp) (p1 : refs cond))
-		, (drsToLF (DRS rl cs)) ]) ])
+		, L.Rel (lin_make ++ "_" ++ lin_posit) (map (ref2term xyzwp) [p1,p2])
+		, L.Rel (drsRelToString posit) (map (ref2term xyzwp) [e2,p2])
+		, L.Rel (rel cond) (map (ref2term xyzwp) (p2 : refs cond))
+		, (drsToLF (DRS rl cs)) ]) ]) where
+			lin_make = drsRelToString make
+			lin_posit = drsRelToString posit
 
 drsToLF (DRS rl (Rel posit [e,p]: Prop q (DRS _ [cond]): cs))
 	| p == q
@@ -97,5 +101,7 @@ drsToLF (DRS r1 (Or d1 d2 : cs))
 drsToLF (DRS rl (Neg d: cs))
 	= L.Conj [ (L.Neg (drsToLF d)),
 		(drsToLF (DRS rl cs)) ]
+drsToLF (DRS rl (Prop p (DRS _ conds) : cs))
+	= undefined
 
 -- vim: set ts=2 sts=2 sw=2 noet:
