@@ -98,11 +98,6 @@ onePlacers =
 	-- (genonePlacer affiliation "older_sister" "older_sister" Pivot) :
 	(genonePlacer attitude "sport" "basketball" Stimulus) :
 	(genonePlacer attitude "favorite" "basketball" Stimulus) :
-	(genonePlacer condition "middle_class" "middle_class" Patient) :
-	(genonePlacer condition "look:middle_class" "middle_class" Patient) :
-	(genonePlacer condition "lonely" "lonely" Patient) :
-	(genonePlacer condition "feel_lonely" "lonely" Patient) :
-	(genonePlacer event "cry" "cry" Patient) :
 	entityonePlacers ++ onePlaceStarters
 
 predid1 "person"	= Just person
@@ -239,20 +234,7 @@ twoPlacers =
 	(gentwoPlacer affiliation "have" "older_sister" Theme Pivot) :
 	(gentwoPlacer attitude "have" "basketball" Experiencer Stimulus) :
 	(gentwoPlacer condition "in_form_of" "in_form_of" Patient Instrument) :
-	(gentwoPlacer affiliation "in_prep" "shelter" Patient Agent) :
-	(gentwoPlacer condition "look" "look" Patient Predicate) :
-	(gentwoPlacer event "lose" "remove" Theme Source) :
-	(gentwoPlacer event "Open" "open" Agent Patient) :
-	(gentwoPlacer idea "remember" "remember" Agent Theme) :
-	(gentwoPlacer event "smell_V2" "smell" Agent Patient) :
-	(gentwoPlacer event "thank" "thank" Agent Recipient) :
-	(gentwoPlacer idea "think" "think" Agent Predicate) :
-	(gentwoPlacer event "turn" "turn" Agent Theme) :
-	(gentwoPlacer idea "want_to_move_in" "move_in" Agent Patient) :
-	(gentwoPlacer affiliation "work" "employment" Patient Agent) :
 	twoPlaceStarters
-
-predid2 "receive" = predid2 "get"
 
 predid2 name = if name `elem` (map fst twoPlacers) then
 	Just (pred2 (concat [ twople | (id, twople) <- twoPlacers
@@ -310,9 +292,9 @@ origin	= theme
 destination = recipient
 
 comms	= []
-giving	= [ (N,T,Q) ]
+giving	= []
 --(agent,theme,location)
-looking_back	= [(D,C,V),(I,C,V)]
+looking_back	= []
 seeing	= []
 --(agent,origin,destination)
 
@@ -327,7 +309,7 @@ talk_about = pred3 $ map (\x->(agent x, recipient x, theme x) ) comms
 go_to	= pred2 $ map (\x->(recipient5 x,location5 x) ) schooling
 
 -- (teacher,school(location),subject,student,degree)
-schooling = [(Unspec,Unspec,Unspec,Q,Unspec)]
+schooling = []
 --(person,school)
 education	= []
 --(person,subject)
