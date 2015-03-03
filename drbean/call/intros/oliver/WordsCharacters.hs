@@ -1,4 +1,39 @@
+	, "feel"
+	, "focus"
+	, "have"
+	, "live"
+	, "love"
+	, "make"
+	, "study"
+	, "think"
+	, "court"
+	, "family"
+	, "father"
+	, "mother"
+	, "name"
+	, "older_sister"
+	, "people"
+	, "person"
+	, "sport"
+	, "Facebook"
+	, "Oliver"
+	, "PanYanMin"
+	, "PingZhen"
+	, "Taipei"
+	, "ABC"
+	, "as"
+	, "in"
+	, "on"
 module WordsCharacters where 
+	, "favorite"
+	, "happy"
+	, "humorous"
+	, "optimistic"
+	, "positive"
+	, "relaxed"
+	, "music"
+	, "free_time"
+	, "what_wants"
 
 import qualified Data.Map as Map
 
@@ -34,18 +69,10 @@ posMap = Map.fromList [
 	]
 
 a = [
-	"beautiful"
-	, "big"
-	, "first"
-	, "great"
-	, "homeless"
-	, "little"
-	, "lonely"
-	, "middle-class"
+	"Chinese"
 	]
 
 adv = [
-	"pretty"
 	]
 
 aux = [
@@ -61,70 +88,29 @@ aux = [
 	
 
 conj = [
-	"because"
+	"when"
 	]
 
 
 det = [
-	"'s"
-	, "a"
-	, "about"
-	, "an"
-	, "no"
-	, "some"
-	, "the"
-	, "five"
-	, "one"
 	]
 
 n = cn ++ un
 
 cn = [
-	"ten-dollar bill"
-	, "age"
-	, "apartment"
-	, "gift bag"
-	, "birthday"
-	, "bottle"
-	, "budget"
-	, "card"
-	, "children"
-	, "daughter"
-	, "dummy"
-	, "fragrance"
-	, "idea"
-	, "job"
-	, "man"
-	, "month"
-	, "shelter"
-	, "sign"
-	, "smell"
-	, "spirit"
-	, "week"
-	, "woman"
 	]
 
 un = [
-	"cooking"
-	, "lotion"
-	, "money"
-	, "rent"
-	, "savings"
-	, "unemployment"
-	, "enjoying life"
-	, "retiring"
-	, "sitting back"
+	"basketball"
 	]
 
 pn = [
-	"Christmas"
-	, "the state of Colorado"
-	, "Queen"
 	]
 
 pron = [
 	"who"
 	, "whom"
+	, "whose"
 	]
 
 prep = [
@@ -156,150 +142,59 @@ tag = [
 	]
 
 v = [
-	"work"
-	, "buy"
-	, "lose"
-	, "take care"
-	, "cover"
-	, "cry"
-	, "dress"
-	, "feel"
-	, "get"
-	, "go"
-	, "hand"
-	, "have"
-	, "lay off"
-	, "lift"
-	, "look"
-	, "look"
-	, "move in"
-	, "open"
-	, "receive"
-	, "remember"
-	, "smell"
-	, "take"
-	, "thank"
-	, "think"
-	, "turn"
-	, "want"
-	, "work for"
 	]
 
 {-
 
-ten-dollar bill	: CN;
-thirties
-forties
-sixty
-Christmas	: PN;
-the state of Colorado	: PN;
-one
-Queen	: PN;
-work	: V2;
-age	: CN;
-all
-another
-apartment	: CN;
-as
-at
-badly
-be
-beautiful	: AP;
-because
-big	: A;
-birthday	: CN;
-bottle	: CN;
-budget	: CN;
-buy	: V;
-card	: CN;
-children	: CN;
-cooking	: N;
-cover	: V;
-cry	: V;
-daughter	: CN;
-deal
-dress	: V;
-dummy	: CN;
-enjoying life	: N;
-ever
-feel	: VA;
-first	: A;
-five	: Det;
-for	: Prep;
-fragrance	: CN;
-get	: V2;
-gift bag	: CN;
-go	: V;
-great	: A;
-hand	: V;
-have	: V2;
-homeless	: A;
-idea	: CN;
-in
-interview
-into
-it
-job	: CN;
-joy
-just
-lay off	: V;
-life	: N;
-lift	: V;
-like
-little	: A;
-lonely	: A;
-look	: VA;
-lose	: V;
-lotion	: N;
-man	: CN;
-middle-class	: A;
-money	: N;
-month	: CN;
-most
-move in	: V;
-never
-no
-nobody
-not
-of
-off
-one	: Det;
-open	: V;
-or
-out
-pretty	: Adv;
-receive	: V;
-remember	: V;
-rent	: N;
-retiring	: N;
-savings	: N;
-shelter	: CN;
-sign	: CN;
-sitting back	: N;
-smell	: V2;
-smell	: CN;
-so
-some
-spirit	: CN;
-take	: V;
-thank	: V;
-think	: VS;
-to
-turn	: V;
-um
-unemployment	: N;
-up
-very
-want	: V2V;
-way
-week	: CN;
-were
+basketball	: N;
+Chinese	: A;
+Facebook	: PN;
+listening_music	: N;
+Oliver	: PN;
+PanYanMin	: PN;
+PingZhen	: PN;
+Taipei	: PN;
+there
+ABC_University	: PN;
 when
-which
-with
-woman	: CN;
-working
-
+a
+an
+and
+are
+as	: Prep;
+born
+court	: CN;
+family	: CN;
+father	: CN;
+favorite	: A;
+feel	: VA;
+focus	: V2;
+four _ Det
+free_time	: N;
+happy	: A;
+have	: V2;
+he
+his
+humorous	: A;
+in	: Prep;
+is
+live	: V2;
+love	: V2;
+make	: V2A;
+mother	: CN;
+name	: CN;
+older_sister	: CN;
+on	: Prep;
+optimistic	: A;
+people	: CN;
+person	: CN;
+positive	: A;
+relaxed	: A;
+sport	: CN;
+study	: V2;
+think	: VA;
+was
+what_wants	: N;
 -}
 
 -- vim: set ts=2 sts=2 sw=2 noet:
