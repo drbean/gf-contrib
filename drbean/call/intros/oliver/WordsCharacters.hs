@@ -1,39 +1,4 @@
-	, "feel"
-	, "focus"
-	, "have"
-	, "live"
-	, "love"
-	, "make"
-	, "study"
-	, "think"
-	, "court"
-	, "family"
-	, "father"
-	, "mother"
-	, "name"
-	, "older_sister"
-	, "people"
-	, "person"
-	, "sport"
-	, "Facebook"
-	, "Oliver"
-	, "PanYanMin"
-	, "PingZhen"
-	, "Taipei"
-	, "ABC"
-	, "as"
-	, "in"
-	, "on"
 module WordsCharacters where 
-	, "favorite"
-	, "happy"
-	, "humorous"
-	, "optimistic"
-	, "positive"
-	, "relaxed"
-	, "music"
-	, "free_time"
-	, "what_wants"
 
 import qualified Data.Map as Map
 
@@ -70,6 +35,12 @@ posMap = Map.fromList [
 
 a = [
 	"Chinese"
+	, "favorite"
+	, "happy"
+	, "humorous"
+	, "optimistic"
+	, "positive"
+	, "relaxed"
 	]
 
 adv = [
@@ -98,13 +69,31 @@ det = [
 n = cn ++ un
 
 cn = [
+	"court"
+	, "family"
+	, "father"
+	, "mother"
+	, "name"
+	, "older sister"
+	, "people"
+	, "person"
+	, "sport"
 	]
 
 un = [
 	"basketball"
+	, "listening to music"
+	, "free time"
+	, "what he wants"
 	]
 
 pn = [
+	-- "Facebook"
+	"Oliver"
+	, "PanYanMin"
+	, "PingZhen"
+	, "Taipei"
+	, "ABC University"
 	]
 
 pron = [
@@ -114,7 +103,10 @@ pron = [
 	]
 
 prep = [
-	"for"
+	"as"
+	, "for"
+	, "in"
+	, "on"
 	]
 
 rel = [
@@ -142,6 +134,14 @@ tag = [
 	]
 
 v = [
+	"feel"
+	, "focus"
+	, "have"
+	, "live"
+	, "love"
+	, "make"
+	, "study"
+	, "think"
 	]
 
 {-
