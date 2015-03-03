@@ -1,6 +1,6 @@
 --# -path=.:/home/drbean/GF/gf-contrib/drbean:present
 
-concrete AFB1J0Eng of AFB1J0 = MyConcrete **
+concrete OliverEng of Oliver = MyConcrete **
 open ConstructorsEng, ParadigmsEng, StructuralEng, IrregEng, ExtraEng, Prelude in {
 
 lin

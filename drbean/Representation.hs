@@ -1,9 +1,9 @@
-module Representation (module Representation, module AFB1J0) where
+module Representation (module Representation, module Oliver) where
 
 import Data.DRS
 import Data.DRS.Show
 
-import AFB1J0
+import Oliver
 import PGF
 
 import Model

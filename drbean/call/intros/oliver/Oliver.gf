@@ -1,4 +1,4 @@
-abstract AFB1J0 = MyAbstract ** {
+abstract Oliver = MyAbstract ** {
 
 
   flags startcat = Utt ;

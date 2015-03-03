@@ -1,6 +1,6 @@
 module Main where
 
-import AFB1J0
+import Oliver
 import LogicalForm hiding ((==))
 import Evaluation
 
@@ -20,7 +20,7 @@ import System.Environment.FindBin
 main :: IO ()
 main = do
 	path <- getProgPath
-	gr <- readPGF ( path ++ "/AFB1J0.pgf" )
+	gr <- readPGF ( path ++ "/Oliver.pgf" )
 	hClose stderr
 	hDuplicateTo stdout stderr
 	s <- getLine
