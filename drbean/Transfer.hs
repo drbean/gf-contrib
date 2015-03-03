@@ -30,10 +30,10 @@ main = do
 	let ls = map ((linear gr) <=< transform) ps
 	putStrLn ("Parsed: " ++ (show (map (showExpr []) ps) ) )
 	let urs = map (unmaybe . rep) ps
-	let reps = map (\ur -> ur (term2ref drsRefs var_e)) urs
-	putStrLn ("Representation: " ++ show reps )
-	let lfs = map (\ur -> drsToLF (ur (term2ref drsRefs var_e))) urs
-	putStrLn ("LF: " ++ show lfs )
+	-- let reps = map (\ur -> ur (term2ref drsRefs var_e)) urs
+	-- putStrLn ("Representation: " ++ show reps )
+	-- let lfs = map (\ur -> drsToLF (ur (term2ref drsRefs var_e))) urs
+	-- putStrLn ("LF: " ++ show lfs )
 	putStrLn ("Answer: " ++ (bestAnswer ls) )
 	let courses = map (label . fg) ps
 	putStrLn ("Course: " ++ foldl takeCourse "Unparseable" courses )
