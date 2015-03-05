@@ -105,6 +105,7 @@ predid1 "thing"	= Just thing
 
 predid1 "humorous" = predid1 "oliver"
 predid1 "optimistic" = predid1 "oliver"
+predid1 "happy" = predid1 "oliver"
 
 predid1 name
        | Just pred <- lookup name onePlacers = Just pred
@@ -175,7 +176,7 @@ idea = [
 
 attitude :: [ (Content, [(Case, Entity)]) ]
 attitude = [
-	("music", [(Experiencer,O),(Stimulus,M)] )
+	("music", [(Experiencer,O),(Stimulus,C)] )
 	, ("basketball", [(Experiencer,O),(Stimulus,B)] )
 	]
 
@@ -232,6 +233,8 @@ twoPlacers =
 	(gentwoPlacer condition "feel" "feel" Patient Predicate) :
 	(gentwoPlacer condition "happy" "happy" Predicate Patient) :
 	(gentwoPlacer condition "relaxed" "relaxed" Predicate Patient) :
+	(gentwoPlacer attitude "love" "music" Experiencer Stimulus) :
+	(gentwoPlacer attitude "love" "basketball" Experiencer Stimulus) :
 	(gentwoPlacer event "get" "give" Recipient Theme) :
 	(gentwoPlacer affiliation "have" "mother" Theme Pivot) :
 	(gentwoPlacer affiliation "have" "father" Theme Pivot) :
