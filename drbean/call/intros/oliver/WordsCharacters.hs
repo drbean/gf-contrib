@@ -90,10 +90,10 @@ un = [
 pn = [
 	-- "Facebook"
 	"Oliver"
-	, "PanYanMin"
+	, "Pan YanMin"
 	, "PingZhen"
 	, "Taipei"
-	, "ABC University"
+	, "Kainan University"
 	]
 
 pron = [
@@ -155,7 +155,7 @@ PanYanMin	: PN;
 PingZhen	: PN;
 Taipei	: PN;
 there
-ABC_University	: PN;
+Kainan_University	: PN;
 when
 a
 an

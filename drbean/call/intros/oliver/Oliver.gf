@@ -48,7 +48,7 @@ fun
 	oliverPan	: PN;
 	pingZhen	: PN;
 	taipei	: PN;
-	abc_university	: PN;
+	kainan	: PN;
 
 }
 

@@ -47,7 +47,7 @@ lin
 	oliverPan	= mkPN( mkN masculine (mkN "Oliver Pan") );
 	pingZhen	= mkPN( mkN nonhuman (mkN "PingZhen") );
 	taipei	= mkPN( mkN nonhuman (mkN "Taipei") );
-	abc_university	= mkPN( mkN nonhuman (mkN "ABC University") );
+	kainan	= mkPN( mkN nonhuman (mkN "Kainan University") );
 	what_wants	= mkN "what he wants";
 
 }
