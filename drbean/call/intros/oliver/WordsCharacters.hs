@@ -64,6 +64,8 @@ conj = [
 
 
 det = [
+	"a"
+	, "the"
 	]
 
 n = cn ++ un
