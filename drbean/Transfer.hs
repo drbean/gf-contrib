@@ -39,7 +39,7 @@ main = do
 	putStrLn ("Course: " ++ foldl takeCourse "Unparseable" courses )
 
 unknown :: String -> String
-unknown ws = unwords ( filter (\x -> not (checkLists x ws) ) (words ws))
+unknown ws = intercalate ", " ( filter (\x -> not (checkLists x ws) ) (words ws))
 
 checkLists :: String -> String -> Bool
 checkLists w ws	=	if check_on_wordlist [w] then True
