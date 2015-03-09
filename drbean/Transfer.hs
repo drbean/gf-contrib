@@ -106,19 +106,15 @@ takeAnswer _ "yes" = "yes"
 takeAnswer "yes" _ = "yes"
 takeAnswer _ "no" = "no"
 takeAnswer "no" _  = "no"
-takeAnswer a b@('Q' : 'u' : _)  = collateAnswer a b
-takeAnswer a b@('t' : 'h' : _)  = collateAnswer a b
-takeAnswer a b@('C' : 'h' : _)  = collateAnswer a b
-takeAnswer "none" _ = "none of Queen, the State of Colorado or Christmas"
-takeAnswer _ "none" = "none of Queen, the State of Colorado or Christmas"
+takeAnswer a b@('O' : 'l' : _)  = collateAnswer a b
+takeAnswer "none" _ = "none of Oliver"
+takeAnswer _ "none" = "none of Oliver"
 takeAnswer "No answer" _ = "No answer"
 takeAnswer _ "No answer" = "No answer"
-takeAnswer _  _   = error "undefined answer, not Yes, No, Queen, the State of Colorado, or Christmas, none or No answer"
+takeAnswer _  _   = error "undefined answer, not Yes, No, Oliver, none or No answer"
 
 collateAnswer a b = formatUp $ nub $ filter
-	(\x -> x ==	"Queen"
-	|| x ==	"the state of Colorado"
-	|| x ==	"Christmas"
+	(\x -> x ==	"Oliver"
 		) (concat $ map (splitOn " , " ) (splitOn " or " (a ++ " , " ++ b)))
 
 formatUp es = let parts = splitAt 1 (reverse es)
