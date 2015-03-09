@@ -169,7 +169,7 @@ lin
 	EmptyRel slash = EmptyRelSlash slash;
 	VPClSlash	np vpslash = mkClSlash np vpslash;
 	ToPlace vp located = mkVP vp located;
-  WithPlace vp located	= mkVP vp located;
+  WithPlace v located	= mkVP (mkVP v) located;
   AdvVP adv vp	= mkVP adv vp;
 	VPAdv vp adv = mkVP vp adv;
   WithTime action time	= mkVP action time;

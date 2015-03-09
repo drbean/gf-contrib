@@ -20,10 +20,10 @@ fun
 	feel	: VA;
 	focus	: V2;
 	have	: V2;
-	live	: VP;
+	live	: V;
 	love	: V2;
 	make	: V2V;
-	study	: VP;
+	study	: V;
 	think	: VA;
 	say	: VS;
 

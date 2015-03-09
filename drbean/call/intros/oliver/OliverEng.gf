@@ -20,10 +20,10 @@ lin
 	feel	= mkVA( mkV "feel");
 	focus	= mkV2 "focus";
 	have	= mkV2 IrregEng.have_V;
-	live	= mkVP( mkV "live");
+	live	= mkV "live";
 	love	= mkV2 "love";
 	make	= mkV2V IrregEng.make_V noPrep noPrep;
-	study	= mkVP( mkV "study");
+	study	= mkV "study";
 	think	= mkVA( mkV "think");
 	say	= mkVS IrregEng.say_V;
 
