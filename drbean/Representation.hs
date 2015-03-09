@@ -313,6 +313,7 @@ repPlace place p r = let
 	reflist = newDRSRefs (replicate len (DRSRef "r")) [] in
 	(DRS reflist ((Rel (DRSRel (lin place)) [r]) : conds))
 
+repPlaceName :: GPlaceName -> DRSRef -> DRS
 repPlaceName (GPlaceKind ap name) = \r -> let
        DRS name_refs name_conds = (repPlaceName name r)
        DRS attri_refs attri_conds = (repAP ap r)
