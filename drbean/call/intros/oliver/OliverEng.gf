@@ -19,11 +19,11 @@ lin
 
 	feel	= mkVA( mkV "feel");
 	focus	= mkV2 "focus";
-	have	= mkV2 "have";
-	live	= mkV2 "live";
+	have	= mkV2 IrregEng.have_V;
+	live	= mkVP( mkV "live");
 	love	= mkV2 "love";
 	make	= mkV2V IrregEng.make_V noPrep noPrep;
-	study	= mkV2 "study";
+	study	= mkVP( mkV "study");
 	think	= mkVA( mkV "think");
 	say	= mkVS IrregEng.say_V;
 
@@ -45,9 +45,9 @@ lin
 	oliver	= mkPN( mkN masculine (mkN "Oliver") );
 	panYanMin	= mkPN( mkN masculine (mkN "Pan YanMin") );
 	oliverPan	= mkPN( mkN masculine (mkN "Oliver Pan") );
-	pingZhen	= mkPN( mkN nonhuman (mkN "PingZhen") );
-	taipei	= mkPN( mkN nonhuman (mkN "Taipei") );
-	kainan	= mkPN( mkN nonhuman (mkN "Kainan University") );
+	pingZhen	= mkNP( mkPN( mkN nonhuman (mkN "PingZhen") ) );
+	taipei	= mkNP( mkPN( mkN nonhuman (mkN "Taipei") ) );
+	kainan	= mkNP( mkPN( mkN nonhuman (mkN "Kainan University") ) );
 	what_wants	= mkN "what he wants";
 
 }

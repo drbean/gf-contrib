@@ -20,10 +20,10 @@ fun
 	feel	: VA;
 	focus	: V2;
 	have	: V2;
-	live	: V2;
+	live	: VP;
 	love	: V2;
 	make	: V2V;
-	study	: V2;
+	study	: VP;
 	think	: VA;
 	say	: VS;
 
@@ -46,9 +46,9 @@ fun
 	oliver	: PN;
 	panYanMin	: PN;
 	oliverPan	: PN;
-	pingZhen	: PN;
-	taipei	: PN;
-	kainan	: PN;
+	pingZhen	: Place;
+	taipei	: Place;
+	kainan	: Place;
 
 }
 
