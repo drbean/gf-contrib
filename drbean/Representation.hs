@@ -309,7 +309,7 @@ repPlace :: GPlace -> (DRSRef -> DRS) -> DRSRef -> DRS
 repPlace (GLocation det name) p r = (repDet det) (repPlaceName name) p r
 repPlace place p r = let
 	DRS rs conds = p r
-	len = length (nub rs)
+	len = ref2int (maximum rs)
 	reflist = newDRSRefs (replicate len (DRSRef "r")) [] in
 	(DRS reflist ((Rel (DRSRel (lin place)) [r]) : conds))
 
