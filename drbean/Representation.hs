@@ -307,6 +307,11 @@ repAP ap = \r -> DRS [r] [Rel (DRSRel (lin ap)) [r]]
 
 repPlace :: GPlace -> (DRSRef -> DRS) -> DRSRef -> DRS
 repPlace (GLocation det name) p r = (repDet det) (repPlaceName name) p r
+repPlace place p r = let
+	DRS rs conds = p r
+	len = length (nub rs)
+	reflist = newDRSRefs (replicate len (DRSRef "r")) [] in
+	(DRS reflist ((Rel (DRSRel (lin place)) [r]) : conds))
 
 repPlaceName (GPlaceKind ap name) = \r -> let
        DRS name_refs name_conds = (repPlaceName name r)
@@ -316,7 +321,6 @@ repPlaceName name = \r -> DRS [r] [Rel (DRSRel (lin name)) [r]]
 
 repVP :: GVP -> DRSRef -> DRS
 repVP (GWithCl vp _) = repVP vp
-repVP (GWithPlace vp _) = repVP vp
 repVP (GWithStyle vp _) = repVP vp
 repVP (GWithTime vp _) = repVP vp
 repVP (GBe_vp comp) = case comp of
@@ -331,6 +335,10 @@ repVP (GBe_vp comp) = case comp of
 		repPlace place (\name -> DRS [r,name]
 		[ Rel (DRSRel (lin prep)) [r, name]]
 		) (newOnPlace place r)
+repVP (GWithPlace v (GLocating prep place)) = \r ->
+	repPlace place (\name -> DRS [r,name]
+	[ Rel (DRSRel (lin v)) [r,name]]
+	) (newOnPlace place r)
 repVP (GLook_bad v ap) = \r -> let
 	patient = r
 	DRS rs' [Rel rel rs] = repAP ap patient
