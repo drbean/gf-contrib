@@ -34,12 +34,12 @@ entity_check =  [
     , (R, "" )
     , (S, "older_sister" )
     , (T, "" )
-    , (U, "" )
+    , (U, "kainan" )
     , (V, "" )
     , (W, "" )
     , (X, "" )
     , (Y, "panYanMin" )
-    , (Z, "" )
+    , (Z, "pingZhen" )
     ]
 
 ent_ided :: String -> Entity
@@ -85,6 +85,7 @@ onePlaceStarters = [
         , ("role",      pred1 [] )
 
 
+	, ("study",	pred1 [] )
 	, ("male",	pred1 [O,F] )
 	, ("female",	pred1 [M,S] )
 	, ("chinese",	pred1 [Y] )
@@ -182,7 +183,7 @@ attitude = [
 
 affiliation :: [ (Content, [(Case, Entity)]) ]
 affiliation = [
-	("resident", [(Theme,O),(Location,P) ] )
+	("resident", [(Theme,O),(Location,Z) ] )
 	, ("mother", [(Pivot,M),(Theme,O) ] )
 	, ("father", [(Pivot,F),(Theme,O) ] )
 	, ("older_sister", [(Pivot,S),(Theme,O) ] )
@@ -228,19 +229,22 @@ twoPlaceStarters = [
     ]
 
 twoPlacers =
+	(gentwoPlacer affiliation "have" "father" Theme Pivot) :
+	(gentwoPlacer affiliation "have" "mother" Theme Pivot) :
 	(gentwoPlacer affiliation "have" "name" Theme Result) :
-	(gentwoPlacer condition "make" "make" Agent Predicate) :
+	(gentwoPlacer affiliation "have" "older_sister" Theme Pivot) :
+	(gentwoPlacer affiliation "live" "resident" Theme Location) :
+	(gentwoPlacer affiliation "study" "student" Agent Location) :
+	(gentwoPlacer affiliation "in_prep" "student" Agent Location) :
+	(gentwoPlacer attitude "have" "basketball" Experiencer Stimulus) :
+	(gentwoPlacer attitude "love" "basketball" Experiencer Stimulus) :
+	(gentwoPlacer attitude "love" "music" Experiencer Stimulus) :
 	(gentwoPlacer condition "feel" "feel" Patient Predicate) :
 	(gentwoPlacer condition "happy" "happy" Predicate Patient) :
-	(gentwoPlacer condition "relaxed" "relaxed" Predicate Patient) :
-	(gentwoPlacer attitude "love" "music" Experiencer Stimulus) :
-	(gentwoPlacer attitude "love" "basketball" Experiencer Stimulus) :
-	(gentwoPlacer event "get" "give" Recipient Theme) :
-	(gentwoPlacer affiliation "have" "mother" Theme Pivot) :
-	(gentwoPlacer affiliation "have" "father" Theme Pivot) :
-	(gentwoPlacer affiliation "have" "older_sister" Theme Pivot) :
-	(gentwoPlacer attitude "have" "basketball" Experiencer Stimulus) :
 	(gentwoPlacer condition "in_form_of" "in_form_of" Patient Instrument) :
+	(gentwoPlacer condition "make" "make" Agent Predicate) :
+	(gentwoPlacer condition "relaxed" "relaxed" Predicate Patient) :
+	(gentwoPlacer event "get" "give" Recipient Theme) :
 	(gentwoPlacer idea "say" "say" Agent Predicate) :
 	twoPlaceStarters
 
