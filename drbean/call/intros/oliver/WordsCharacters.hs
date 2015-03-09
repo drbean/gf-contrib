@@ -65,7 +65,10 @@ conj = [
 
 det = [
 	"a"
+	, "an"
 	, "the"
+	, "four"
+	, "'s"
 	]
 
 n = cn ++ un
@@ -136,14 +139,14 @@ tag = [
 	]
 
 v = [
-	"feel"
-	, "focus"
-	, "have"
-	, "live"
-	, "love"
-	, "make"
-	, "study"
-	, "think"
+	"feel, feels"
+	, "focus, focuses"
+	, "have, has"
+	, "live, lives"
+	, "love, loves"
+	, "make, makes"
+	, "study, studies"
+	, "think, thinks"
 	]
 
 {-
