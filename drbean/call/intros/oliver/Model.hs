@@ -107,6 +107,7 @@ predid1 "thing"	= Just thing
 predid1 "humorous" = predid1 "oliver"
 predid1 "optimistic" = predid1 "oliver"
 predid1 "happy" = predid1 "oliver"
+predid1 "positive" = predid1 "oliver"
 
 predid1 name
        | Just pred <- lookup name onePlacers = Just pred
