@@ -169,11 +169,13 @@ condition = [
 	, ("relaxed", [(Predicate,P),(Patient,O)] )
 	, ("happy", [(Result,R),(Patient,O)] )
 	, ("relaxed", [(Result,R),(Patient,O)] )
+	, ("positive", [(Predicate,P),(Patient,O)] )
 	]
 
 idea :: [ (Content, [(Case, Entity)]) ]
 idea = [
 	("say", [(Agent,O),(Predicate,P)] )
+	, ("think", [(Agent,O),(Predicate,P)] )
 	]
 
 attitude :: [ (Content, [(Case, Entity)]) ]
