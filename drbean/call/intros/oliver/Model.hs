@@ -249,6 +249,8 @@ twoPlacers =
 	(gentwoPlacer condition "relaxed" "relaxed" Predicate Patient) :
 	(gentwoPlacer event "get" "give" Recipient Theme) :
 	(gentwoPlacer idea "say" "say" Agent Predicate) :
+	(gentwoPlacer idea "think" "think" Agent Predicate) :
+	(gentwoPlacer condition "positive" "positive" Predicate Patient) :
 	twoPlaceStarters
 
 predid2 name = if name `elem` (map fst twoPlacers) then
