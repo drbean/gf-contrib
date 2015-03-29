@@ -20,6 +20,7 @@ entuples = [
 	(S,Gsimon)
 	, (A, Gariel)
 	, (C, Gchiyuantien)
+	, (E, Genglish)
 	]
 
 ref2int :: DRSRef -> Int
@@ -37,6 +38,7 @@ instance Eq GPN where
 	(==) Gsimon Gsimon = True
 	(==) Gariel Gariel = True
 	(==) Gchiyuantien Gchiyuantien = True
+	(==) Genglish Genglish = True
 	(==) _ _ = False
 
 gent2ent :: GPN -> Entity
@@ -199,7 +201,8 @@ repDet Gsome_Det = repDet Ga_Det
 repDet GtheSg_Det = repDet Ga_Det
 repDet Gsome_pl_Det = repDet Gsome_Det
 repDet GthePlural_Det =  repDet Gsome_pl_Det
-repDet Gfour   = repDet Gsome_pl_Det
+repDet Gthree   = repDet Gsome_pl_Det
+repDet Gfive   = repDet Gsome_pl_Det
 repDet (GApos owner) = \p q r -> let
 	len = ref2int r
 	iminus = len - 1
