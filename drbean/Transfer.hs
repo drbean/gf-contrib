@@ -1,6 +1,6 @@
 module Main where
 
-import Oliver
+import Siar
 import LogicalForm hiding ((==))
 import Evaluation
 
@@ -20,7 +20,7 @@ import System.Environment.FindBin
 main :: IO ()
 main = do
 	path <- getProgPath
-	gr <- readPGF ( path ++ "/Oliver.pgf" )
+	gr <- readPGF ( path ++ "/Siar.pgf" )
 	hClose stderr
 	hDuplicateTo stdout stderr
 	s <- getLine
@@ -107,15 +107,17 @@ takeAnswer "yes" _ = "yes"
 takeAnswer _ "no" = "no"
 takeAnswer "no" _  = "no"
 takeAnswer a b@('O' : 'l' : _)  = collateAnswer a b
-takeAnswer "none" _ = "none of Oliver"
-takeAnswer _ "none" = "none of Oliver"
+takeAnswer "none" _ = "none of Simon, Ariel, or ChiYan Tien"
+takeAnswer _ "none" = "none of Simon, Ariel, or ChiYan Tien"
 takeAnswer "No answer" _ = "No answer"
 takeAnswer _ "No answer" = "No answer"
-takeAnswer _  _   = error "undefined answer, not Yes, No, Oliver, none or No answer"
+takeAnswer _  _   = error "undefined answer, not Yes, No, Simon, Ariel, or ChiYan Tien, none or No answer"
 
 collateAnswer a b = formatUp $ nub $ filter
-	(\x -> x ==	"Oliver"
-		) (concat $ map (splitOn " , " ) (splitOn " or " (a ++ " , " ++ b)))
+	(\x -> x ==	"Simon"
+	|| x ==	"Ariel"
+	|| x ==	"ChiYuan Tien"
+	) (concat $ map (splitOn " , " ) (splitOn " or " (a ++ " , " ++ b)))
 
 formatUp es = let parts = splitAt 1 (reverse es)
 	in case (snd parts) of 

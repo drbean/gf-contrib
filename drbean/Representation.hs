@@ -1,9 +1,9 @@
-module Representation (module Representation, module Oliver) where
+module Representation (module Representation, module Siar) where
 
 import Data.DRS
 import Data.DRS.Show
 
-import Oliver
+import Siar
 import PGF
 
 import Model
@@ -17,9 +17,9 @@ import Data.Tuple
 
 entuples :: [(Entity,GPN)]
 entuples = [
-	(O,Goliver)
-	, (P, GpanYanMin)
-	, (U, GoliverPan)
+	(S,Gsimon)
+	, (A, Gariel)
+	, (C, Gchiyuantien)
 	]
 
 ref2int :: DRSRef -> Int
@@ -34,9 +34,9 @@ int2ref :: Int -> DRSRef
 int2ref n = DRSRef ("r" ++ (show n) )
 
 instance Eq GPN where
-	(==) Goliver Goliver = True
-	(==) GpanYanMin GpanYanMin = True
-	(==) GoliverPan GoliverPan = True
+	(==) Gsimon Gsimon = True
+	(==) Gariel Gariel = True
+	(==) Gchiyuantien Gchiyuantien = True
 	(==) _ _ = False
 
 gent2ent :: GPN -> Entity
