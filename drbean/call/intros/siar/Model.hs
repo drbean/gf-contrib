@@ -20,9 +20,9 @@ entity_check =  [
     , (D, "" )
     , (E, "english" )
     , (F, "father" )
-    , (G, "minghu" )
-    , (H, "wenhua" )
-    , (I, "taipei" )
+    , (G, "" )
+    , (H, "" )
+    , (I, "" )
     , (J, "" )
     , (K, "" )
     , (L, "" )
@@ -35,9 +35,9 @@ entity_check =  [
     , (S, "simon" )
     , (T, "guitar" )
     , (U, "drums" )
-    , (V, "" )
-    , (W, "" )
-    , (X, "" )
+    , (V, "minghu" )
+    , (W, "wenhua" )
+    , (X, "taipei" )
     , (Y, "sister" )
     , (Z, "" )
     ]
@@ -185,14 +185,16 @@ attitude = [
 
 affiliation :: [ (Content, [(Case, Entity)]) ]
 affiliation = [
-	("resident", [(Theme,O),(Location,Z) ] )
-	, ("mother", [(Pivot,M),(Theme,O) ] )
-	, ("father", [(Pivot,F),(Theme,O) ] )
-	, ("sister", [(Pivot,S),(Theme,O) ] )
-	, ("student", [(Agent,S),(Location,U) ] )
-	, ("name", [(Theme,O),(Result,O) ] )
-	, ("name", [(Theme,O),(Result,Y) ] )
-	, ("name", [(Theme,O),(Result,P) ] )
+	("resident", [(Theme,S),(Location,X) ] )
+	, ("mother", [(Pivot,M),(Theme,S) ] )
+	, ("father", [(Pivot,F),(Theme,S) ] )
+	, ("sister", [(Pivot,Y),(Theme,S) ] )
+	, ("brother", [(Pivot,O),(Theme,S) ] )
+	, ("mother", [(Pivot,M),(Theme,A) ] )
+	, ("father", [(Pivot,F),(Theme,A) ] )
+	, ("student", [(Agent,Y),(Location,U) ] )
+	, ("name", [(Theme,A),(Result,A) ] )
+	, ("name", [(Theme,A),(Result,C) ] )
 	]
 
 gentwoPlacer :: [ (Content, [(Case,Entity)]) ] ->
