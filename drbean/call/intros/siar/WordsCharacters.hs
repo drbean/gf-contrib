@@ -99,6 +99,8 @@ un = [
 	"baseball"
 	, "drums"
 	, "guitar"
+	, "playing guitar"
+	, "playing drums"
 	]
 
 pn = [
