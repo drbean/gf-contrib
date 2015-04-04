@@ -43,7 +43,7 @@ lin
 
 	simon	= mkPN( mkN masculine (mkN "Simon") );
 	ariel	= mkPN( mkN feminine (mkN "Ariel") );
-	chiyuantien	= mkPN( mkN feminine (mkN "chiyuantien") );
+	chiyuantien	= mkPN( mkN feminine (mkN "ChiYuan Tien") );
 	english	= mkPN( mkN "English");
 	minghu	= mkNP( mkPN( mkN "Minghu Junior High School"));
 	taipei	= mkNP( mkPN( mkN "Taipei"));
