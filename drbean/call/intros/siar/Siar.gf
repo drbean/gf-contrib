@@ -50,6 +50,8 @@ fun
   baseball	: N;
 	drums	: N;
 	guitar	: N;
+	playing_drums	: N;
+	playing_guitar	: N;
 
 	chinese	: AP;
 	favorite	: AP;
