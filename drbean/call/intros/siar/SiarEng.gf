@@ -43,15 +43,17 @@ lin
 
 	simon	= mkPN( mkN masculine (mkN "Simon") );
 	ariel	= mkPN( mkN feminine (mkN "Ariel") );
-	chiyuantien	= mkPN( mkN masculine (mkN "chiyuantien") );
+	chiyuantien	= mkPN( mkN feminine (mkN "chiyuantien") );
 	english	= mkPN( mkN "English");
 	minghu	= mkPN( mkN "Minghu Junior High School");
-	taipei	= mkPN( mkN masculine (mkN "Taipei") );
-	wenhua	= mkPN( mkN masculine (mkN "WenHua University") );
+	taipei	= mkPN( mkN "Taipei");
+	wenhua	= mkPN( mkN "WenHua University");
 
 	baseball	= mkN "baseball";
 	drums	= mkN "drums";
 	guitar	= mkN "guitar";
+	playing_drums	= mkN "playing drums";
+	playing_guitar	= mkN "playing guitar";
 
   chinese	= mkAP( mkA "Chinese");
 	favorite	= mkAP( mkA "favorite");
