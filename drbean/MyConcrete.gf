@@ -198,6 +198,7 @@ lin
   KindOfKind cn adv	= mkCN cn adv;
 	KindInPlace cn adv	= mkCN cn adv;
 	PlaceKind ap n = mkCN ap n;
+	Membership det cn place = mkCl( Item det (KindInPlace cn place));
 	Ofpos n2 np	= mkCN n2 np;
 	Ofpart part n = mkCN part (mkNP n);
 	Item det noun	= mkNP det noun;

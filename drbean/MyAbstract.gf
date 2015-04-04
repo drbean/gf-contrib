@@ -83,6 +83,7 @@ fun
 	KindOfKind  : CN -> Adv -> CN;
 	KindInPlace	: CN -> Located -> CN;
 	PlaceKind	: AP -> PlaceName -> PlaceName;
+	Membership : Det -> CN -> Located -> Cl;
 	Item	: Det -> CN -> NP;
 	MassItem	: MassDet -> N	-> NP;
 	Titular	: Title -> NP;
