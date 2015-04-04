@@ -192,6 +192,7 @@ minghu	: PN;
 mother	: CN;
 name	: CN;
 person	: CN;
+people	: CN;
 play	: V2;
 relaxed	: A;
 simon	: PN;
