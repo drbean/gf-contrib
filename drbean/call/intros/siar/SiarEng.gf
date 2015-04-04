@@ -34,6 +34,7 @@ lin
 	mother	= mkCN( mkN "mother");
 	name	= mkCN( mkN "name");
 	person	= mkCN( mkN "person");
+	people	= mkCN( mkN nonExist "people");
 	sister	= mkCN( mkN "younger sister");
 	song	= mkCN( mkN "song");
 	sport	= mkCN( mkN "sport");

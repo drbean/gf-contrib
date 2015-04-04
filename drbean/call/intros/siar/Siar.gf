@@ -32,6 +32,7 @@ fun
 	mother	: CN;
 	name	: CN;
 	person	: CN;
+	people	: CN;
 	sister	: CN;
 	song	: CN;
 	sport	: CN;
