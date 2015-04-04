@@ -14,7 +14,7 @@ fun
 	have	: V2;
 	like	: V2;
 	listen	: V2;
-	live	: V2;
+	live	: V;
 	love	: V2;
 	make_V2V	: V2V;
 	make_V2	: V2;
@@ -43,9 +43,9 @@ fun
 	ariel	: PN;
 	chiyuantien	: PN;
 	english	: PN;
-	minghu	: PN;
-	taipei	: PN;
-	wenhua	: PN;
+	minghu	: Place;
+	taipei	: Place;
+	wenhua	: Place;
 
   baseball	: N;
 	drums	: N;

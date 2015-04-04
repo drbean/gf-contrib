@@ -14,7 +14,7 @@ lin
 	have	= mkV2 IrregEng.have_V;
 	like	= mkV2 "like";
 	listen	= mkV2 "listen";
-	live	= mkV2 "live";
+	live	= mkV "live";
 	love	= mkV2 "love";
 	make_V2V	= mkV2V IrregEng.make_V noPrep noPrep;
 	make_V2	= mkV2 "make";
@@ -45,9 +45,9 @@ lin
 	ariel	= mkPN( mkN feminine (mkN "Ariel") );
 	chiyuantien	= mkPN( mkN feminine (mkN "chiyuantien") );
 	english	= mkPN( mkN "English");
-	minghu	= mkPN( mkN "Minghu Junior High School");
-	taipei	= mkPN( mkN "Taipei");
-	wenhua	= mkPN( mkN "WenHua University");
+	minghu	= mkNP( mkPN( mkN "Minghu Junior High School"));
+	taipei	= mkNP( mkPN( mkN "Taipei"));
+	wenhua	= mkNP( mkPN( mkN "WenHua University"));
 
 	baseball	= mkN "baseball";
 	drums	= mkN "drums";
