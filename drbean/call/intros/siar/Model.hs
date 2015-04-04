@@ -233,10 +233,11 @@ twoPlaceStarters = [
     ]
 
 twoPlacers =
+	(gentwoPlacer affiliation "have" "name" Theme Result) :
 	(gentwoPlacer affiliation "have" "father" Theme Pivot) :
 	(gentwoPlacer affiliation "have" "mother" Theme Pivot) :
-	(gentwoPlacer affiliation "have" "name" Theme Result) :
-	(gentwoPlacer affiliation "have" "older_sister" Theme Pivot) :
+	(gentwoPlacer affiliation "have" "brother" Theme Pivot) :
+	(gentwoPlacer affiliation "have" "sister" Theme Pivot) :
 	(gentwoPlacer affiliation "live" "resident" Theme Location) :
 	(gentwoPlacer affiliation "study" "student" Agent Location) :
 	(gentwoPlacer affiliation "in_prep" "student" Agent Location) :
