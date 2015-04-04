@@ -27,7 +27,7 @@ fun
 	person	: CN;
 	sport	: CN;
 	brother	: CN;
-	family	: CN;
+	family	: PlaceName;
 	father	: CN;
 	mother	: CN;
 	name	: CN;
