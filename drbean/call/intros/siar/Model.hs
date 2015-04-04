@@ -192,9 +192,11 @@ affiliation = [
 	, ("brother", [(Pivot,O),(Theme,S) ] )
 	, ("mother", [(Pivot,M),(Theme,A) ] )
 	, ("father", [(Pivot,F),(Theme,A) ] )
-	, ("student", [(Agent,Y),(Location,U) ] )
+	, ("student", [(Agent,Y),(Location,V) ] )
+	, ("student", [(Agent,O),(Location,W) ] )
 	, ("name", [(Theme,A),(Result,A) ] )
 	, ("name", [(Theme,A),(Result,C) ] )
+	, ("name", [(Theme,S),(Result,S) ] )
 	]
 
 gentwoPlacer :: [ (Content, [(Case,Entity)]) ] ->
