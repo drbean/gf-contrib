@@ -20,25 +20,25 @@ entity_check =  [
     , (D, "" )
     , (E, "english" )
     , (F, "father" )
-    , (G, "" )
-    , (H, "" )
-    , (I, "" )
+    , (G, "minghu" )
+    , (H, "wenhua" )
+    , (I, "taipei" )
     , (J, "" )
     , (K, "" )
     , (L, "" )
     , (M, "mother" )
     , (N, "name" )
-    , (O, "older_brother" )
+    , (O, "brother" )
     , (P, "" )
     , (Q, "" )
     , (R, "" )
     , (S, "simon" )
-    , (T, "" )
-    , (U, "music" )
+    , (T, "guitar" )
+    , (U, "drums" )
     , (V, "" )
     , (W, "" )
     , (X, "" )
-    , (Y, "younger_sister" )
+    , (Y, "sister" )
     , (Z, "" )
     ]
 
@@ -106,6 +106,7 @@ predid1 "thing"	= Just thing
 
 predid1 "humorous" = predid1 "simon"
 predid1 "happy" = predid1 "simon"
+predid1 "nineteen" = predid1 "ariel"
 
 predid1 name
        | Just pred <- lookup name onePlacers = Just pred
@@ -187,7 +188,7 @@ affiliation = [
 	("resident", [(Theme,O),(Location,Z) ] )
 	, ("mother", [(Pivot,M),(Theme,O) ] )
 	, ("father", [(Pivot,F),(Theme,O) ] )
-	, ("older_sister", [(Pivot,S),(Theme,O) ] )
+	, ("sister", [(Pivot,S),(Theme,O) ] )
 	, ("student", [(Agent,S),(Location,U) ] )
 	, ("name", [(Theme,O),(Result,O) ] )
 	, ("name", [(Theme,O),(Result,Y) ] )
