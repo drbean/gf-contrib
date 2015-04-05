@@ -25,7 +25,7 @@ entity_check =  [
     , (I, "" )
     , (J, "" )
     , (K, "" )
-    , (L, "" )
+    , (L, "family" )
     , (M, "mother" )
     , (N, "name" )
     , (O, "brother" )
@@ -101,6 +101,7 @@ onePlacers =
 	(genonePlacer attitude "favorite" "basketball" Stimulus) :
 	entityonePlacers ++ onePlaceStarters
 
+predid1 "people"	= predid1 "person"
 predid1 "person"	= Just person
 predid1 "thing"	= Just thing
 
@@ -186,12 +187,12 @@ attitude = [
 affiliation :: [ (Content, [(Case, Entity)]) ]
 affiliation = [
 	("resident", [(Theme,S),(Location,X) ] )
-	, ("mother", [(Pivot,M),(Theme,S) ] )
-	, ("father", [(Pivot,F),(Theme,S) ] )
-	, ("sister", [(Pivot,Y),(Theme,S) ] )
-	, ("brother", [(Pivot,O),(Theme,S) ] )
-	, ("mother", [(Pivot,M),(Theme,A) ] )
-	, ("father", [(Pivot,F),(Theme,A) ] )
+	, ("mother", [(Pivot,S),(Theme,M) ] )
+	, ("father", [(Pivot,S),(Theme,F) ] )
+	, ("sister", [(Pivot,S),(Theme,Y) ] )
+	, ("brother", [(Pivot,S),(Theme,O) ] )
+	, ("mother", [(Pivot,A),(Theme,M) ] )
+	, ("father", [(Pivot,A),(Theme,F) ] )
 	, ("student", [(Agent,Y),(Location,V) ] )
 	, ("student", [(Agent,O),(Location,W) ] )
 	, ("name", [(Theme,A),(Result,A) ] )
@@ -236,10 +237,10 @@ twoPlaceStarters = [
 
 twoPlacers =
 	(gentwoPlacer affiliation "have" "name" Theme Result) :
-	(gentwoPlacer affiliation "have" "father" Theme Pivot) :
-	(gentwoPlacer affiliation "have" "mother" Theme Pivot) :
-	(gentwoPlacer affiliation "have" "brother" Theme Pivot) :
-	(gentwoPlacer affiliation "have" "sister" Theme Pivot) :
+	(gentwoPlacer affiliation "have" "father" Pivot Theme) :
+	(gentwoPlacer affiliation "have" "mother" Pivot Theme) :
+	(gentwoPlacer affiliation "have" "brother" Pivot Theme) :
+	(gentwoPlacer affiliation "have" "sister" Pivot Theme) :
 	(gentwoPlacer affiliation "live" "resident" Theme Location) :
 	(gentwoPlacer affiliation "study" "student" Agent Location) :
 	(gentwoPlacer affiliation "in_prep" "student" Agent Location) :
