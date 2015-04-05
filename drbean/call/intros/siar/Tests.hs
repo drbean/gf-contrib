@@ -114,7 +114,7 @@ yn_dic_test = [
 	-- , "Does playing guitar make Simon feel relaxed?"
 	-- , "Does playing drums make Simon feel happy?"
 	-- , "Does playing drums make Simon feel relaxed?"
-	, "Is Baseball Simon's favorite sport?"
+	, "Is baseball Simon's favorite sport?"
 	, "Does Ariel like listening to English songs?"
 	, "Is Ariel's favorite subject English?"
 	, "Does Simon think logically?"
