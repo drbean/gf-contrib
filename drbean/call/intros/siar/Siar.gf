@@ -12,7 +12,7 @@ fun
 
 	feel	: VA;
 	have	: V2;
-	like	: V2;
+	like	: VV;
 	listen	: V2;
 	live	: V;
 	love	: V2;
