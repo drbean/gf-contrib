@@ -23,8 +23,8 @@ entity_check =  [
     , (G, "" )
     , (H, "" )
     , (I, "" )
-    , (J, "" )
-    , (K, "" )
+    , (J, "subject" )
+    , (K, "sport" )
     , (L, "family" )
     , (M, "mother" )
     , (N, "name" )
@@ -86,9 +86,9 @@ onePlaceStarters = [
 
 
 	, ("study",	pred1 [] )
-	, ("male",	pred1 [S] )
-	, ("female",	pred1 [A] )
-	, ("chinese",	pred1 [N] )
+	, ("male",	pred1 [S,F,O] )
+	, ("female",	pred1 [A,Y] )
+	, ("chinese",	pred1 [N,C] )
 	]
 
 
@@ -108,6 +108,9 @@ predid1 "thing"	= Just thing
 predid1 "humorous" = predid1 "simon"
 predid1 "happy" = predid1 "simon"
 predid1 "nineteen" = predid1 "ariel"
+
+predid1 "playing_guitar" = predid1 "guitar"
+predid1 "playing_drums" = predid1 "drums"
 
 predid1 name
        | Just pred <- lookup name onePlacers = Just pred
@@ -157,19 +160,20 @@ goal = [
 
 event :: [ (Content, [(Case, Entity)]) ]
 event = [
-	("make", [(Agent,C),(Patient,O),(Result,R)] )
-	, ("make", [(Agent,C),(Predicate,P)] )
+	("make", [(Agent,T),(Patient,S),(Result,R)] )
+	, ("make", [(Agent,U),(Patient,S),(Result,R)] )
+	, ("make", [(Agent,T),(Predicate,P)] )
+	, ("make", [(Agent,U),(Predicate,P)] )
 
 	]
 
 condition :: [ (Content, [(Case, Entity)]) ]
 condition = [
-	("feel", [(Patient,O),(Predicate,P)] )
-	, ("happy", [(Predicate,P),(Patient,O)] )
-	, ("relaxed", [(Predicate,P),(Patient,O)] )
-	, ("happy", [(Result,R),(Patient,O)] )
-	, ("relaxed", [(Result,R),(Patient,O)] )
-	, ("positive", [(Predicate,P),(Patient,O)] )
+	("feel", [(Patient,S),(Predicate,P)] )
+	, ("happy", [(Predicate,P),(Patient,S)] )
+	, ("relaxed", [(Predicate,P),(Patient,S)] )
+	, ("happy", [(Result,R),(Patient,S)] )
+	, ("relaxed", [(Result,R),(Patient,S)] )
 	]
 
 idea :: [ (Content, [(Case, Entity)]) ]
@@ -193,6 +197,12 @@ affiliation = [
 	, ("brother", [(Pivot,S),(Theme,O) ] )
 	, ("mother", [(Pivot,A),(Theme,M) ] )
 	, ("father", [(Pivot,A),(Theme,F) ] )
+	, ("family", [(Pivot,S),(Theme,L) ] )
+	, ("family", [(Pivot,A),(Theme,L) ] )
+	, ("family", [(Pivot,L),(Theme,M) ] )
+	, ("family", [(Pivot,L),(Theme,F) ] )
+	, ("family", [(Pivot,L),(Theme,Y) ] )
+	, ("family", [(Pivot,L),(Theme,O) ] )
 	, ("student", [(Agent,Y),(Location,V) ] )
 	, ("student", [(Agent,O),(Location,W) ] )
 	, ("name", [(Theme,A),(Result,A) ] )
@@ -241,6 +251,7 @@ twoPlacers =
 	(gentwoPlacer affiliation "have" "mother" Pivot Theme) :
 	(gentwoPlacer affiliation "have" "brother" Pivot Theme) :
 	(gentwoPlacer affiliation "have" "sister" Pivot Theme) :
+	(gentwoPlacer affiliation "have" "family" Pivot Theme) :
 	(gentwoPlacer affiliation "live" "resident" Theme Location) :
 	(gentwoPlacer affiliation "study" "student" Agent Location) :
 	(gentwoPlacer affiliation "in_prep" "student" Agent Location) :
@@ -250,7 +261,7 @@ twoPlacers =
 	(gentwoPlacer condition "feel" "feel" Patient Predicate) :
 	(gentwoPlacer condition "happy" "happy" Predicate Patient) :
 	(gentwoPlacer condition "in_form_of" "in_form_of" Patient Instrument) :
-	(gentwoPlacer condition "make" "make" Agent Predicate) :
+	(gentwoPlacer condition "make_V2V" "make" Agent Predicate) :
 	(gentwoPlacer condition "relaxed" "relaxed" Predicate Patient) :
 	(gentwoPlacer event "get" "give" Recipient Theme) :
 	(gentwoPlacer idea "say" "say" Agent Predicate) :
