@@ -106,6 +106,7 @@ predid1 "thing"	= Just thing
 
 predid1 "humorous" = predid1 "simon"
 predid1 "happy" = predid1 "simon"
+predid1 "logical" = predid1 "simon"
 predid1 "nineteen" = predid1 "ariel"
 
 predid1 "playing_guitar" = predid1 "guitar"
