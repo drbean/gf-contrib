@@ -15,10 +15,10 @@ entities	=  [minBound..maxBound]
 entity_check :: [ (Entity, String) ]
 entity_check =  [
     (A, "ariel" )
-    , (B, "baseball" )
+    , (B, "" )
     , (C, "chiyuantien" )
     , (D, "" )
-    , (E, "english" )
+    , (E, "" )
     , (F, "father" )
     , (G, "" )
     , (H, "" )
@@ -87,7 +87,7 @@ onePlaceStarters = [
 
 	, ("study",	pred1 [] )
 	, ("male",	pred1 [S,F,O] )
-	, ("female",	pred1 [A,Y] )
+	, ("female",	pred1 [A,M,Y] )
 	, ("chinese",	pred1 [N,C] )
 	]
 
@@ -97,8 +97,7 @@ onePlacers =
 	(genonePlacer affiliation "mother" "mother" Pivot) :
 	-- (genonePlacer affiliation "father" "father" Pivot) :
 	-- (genonePlacer affiliation "older_sister" "older_sister" Pivot) :
-	(genonePlacer attitude "sport" "basketball" Stimulus) :
-	(genonePlacer attitude "favorite" "basketball" Stimulus) :
+	(genonePlacer attitude "favorite" "favorite" Stimulus) :
 	entityonePlacers ++ onePlaceStarters
 
 predid1 "people"	= predid1 "person"
@@ -111,6 +110,8 @@ predid1 "nineteen" = predid1 "ariel"
 
 predid1 "playing_guitar" = predid1 "guitar"
 predid1 "playing_drums" = predid1 "drums"
+predid1 "english" = predid1 "subject"
+predid1 "baseball" = predid1 "sport"
 
 predid1 name
        | Just pred <- lookup name onePlacers = Just pred
@@ -184,8 +185,8 @@ idea = [
 
 attitude :: [ (Content, [(Case, Entity)]) ]
 attitude = [
-	("music", [(Experiencer,O),(Stimulus,C)] )
-	, ("basketball", [(Experiencer,O),(Stimulus,B)] )
+	("favorite", [(Experiencer,A),(Stimulus,J)] )
+	, ("favorite", [(Experiencer,S),(Stimulus,K)] )
 	]
 
 affiliation :: [ (Content, [(Case, Entity)]) ]
@@ -255,7 +256,7 @@ twoPlacers =
 	(gentwoPlacer affiliation "live" "resident" Theme Location) :
 	(gentwoPlacer affiliation "study" "student" Agent Location) :
 	(gentwoPlacer affiliation "in_prep" "student" Agent Location) :
-	(gentwoPlacer attitude "have" "basketball" Experiencer Stimulus) :
+	(gentwoPlacer attitude "have" "favorite" Experiencer Stimulus) :
 	(gentwoPlacer attitude "love" "basketball" Experiencer Stimulus) :
 	(gentwoPlacer attitude "love" "music" Experiencer Stimulus) :
 	(gentwoPlacer condition "feel" "feel" Patient Predicate) :
