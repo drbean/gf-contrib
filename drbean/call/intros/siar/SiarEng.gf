@@ -15,7 +15,7 @@ lin
 	like	= mkV2 "like";
 	listen	= mkV2 "listen";
 	live	= mkV2 "live";
-	love	= mkV2 "love";
+	love	= mkVV( mkV "love");
 	make_V2V	= mkV2V IrregEng.make_V noPrep noPrep;
 	make_V2	= mkV2 "make";
 	play	= mkV2 "play";
