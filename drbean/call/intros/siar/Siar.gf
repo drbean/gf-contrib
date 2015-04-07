@@ -14,8 +14,8 @@ fun
 	have	: V2;
 	like	: VV;
 	listen	: V2;
-	live	: V;
-	love	: V2;
+	live	: V2;
+	love	: VV;
 	make_V2V	: V2V;
 	make_V2	: V2;
 	play	: V2;
