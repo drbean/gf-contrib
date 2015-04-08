@@ -300,16 +300,8 @@ genthreePlacer area id content role1 role2 role3 =
 
 threePlacers, threePlaceStarters :: [(String, ThreePlacePred)]
 threePlaceStarters = [
-    ("studied_subj_at", pred3 $ map (\(_,school,subject,student,_) ->
-                    (student,subject,school) ) schooling )
     ]
 threePlacers =
-	(genthreePlacer idea "take_care" "care" Topic Agent Patient) :
-	(genthreePlacer idea "take_care" "care" Topic Agent Theme) :
-	(genthreePlacer idea "think:can_to_get" "another_job" Agent Agent Theme) :
-	(genthreePlacer event "hand" "hand" Agent Recipient Theme) :
-	(genthreePlacer event "give" "give" Agent Recipient Theme) :
-	(genthreePlacer condition "have_V2V_to_buy_V2" "have" Patient Instrument Theme) :
 	(genthreePlacer event "buy" "buy" Agent Recipient Theme) :
 	threePlaceStarters
 
