@@ -188,6 +188,10 @@ attitude :: [ (Content, [(Case, Entity)]) ]
 attitude = [
 	("favorite", [(Experiencer,A),(Stimulus,J)] )
 	, ("favorite", [(Experiencer,S),(Stimulus,K)] )
+	, ("love", [(Experiencer,S),(Stimulus,T)] )
+	, ("love", [(Experiencer,S),(Stimulus,U)] )
+	, ("love", [(Experiencer,S),(Predicate,P)] )
+	, ("love", [(Experiencer,S),(Predicate,P)] )
 	]
 
 affiliation :: [ (Content, [(Case, Entity)]) ]
@@ -259,7 +263,7 @@ twoPlacers =
 	(gentwoPlacer affiliation "in_prep" "student" Agent Location) :
 	(gentwoPlacer attitude "have" "favorite" Experiencer Stimulus) :
 	(gentwoPlacer attitude "love" "basketball" Experiencer Stimulus) :
-	(gentwoPlacer attitude "love" "music" Experiencer Stimulus) :
+	(gentwoPlacer attitude "love" "love" Experiencer Stimulus) :
 	(gentwoPlacer condition "feel" "feel" Patient Predicate) :
 	(gentwoPlacer condition "happy" "happy" Predicate Patient) :
 	(gentwoPlacer condition "in_form_of" "in_form_of" Patient Instrument) :
@@ -270,6 +274,8 @@ twoPlacers =
 	(gentwoPlacer idea "think" "think" Agent Predicate) :
 	(gentwoPlacer condition "positive" "positive" Predicate Patient) :
 	twoPlaceStarters
+
+predid2 "like" = predid2 "love"
 
 predid2 name = if name `elem` (map fst twoPlacers) then
 	Just (pred2 (concat [ twople | (id, twople) <- twoPlacers
