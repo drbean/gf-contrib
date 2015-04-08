@@ -188,10 +188,8 @@ attitude :: [ (Content, [(Case, Entity)]) ]
 attitude = [
 	("favorite", [(Experiencer,A),(Stimulus,J)] )
 	, ("favorite", [(Experiencer,S),(Stimulus,K)] )
-	, ("love", [(Experiencer,S),(Stimulus,T)] )
-	, ("love", [(Experiencer,S),(Stimulus,U)] )
-	, ("love", [(Experiencer,S),(Predicate,P)] )
-	, ("love", [(Experiencer,S),(Predicate,P)] )
+	, ("love", [(Experiencer,S),(Stimulus,T),(Predicate,P)] )
+	, ("love", [(Experiencer,S),(Stimulus,U),(Predicate,P)] )
 	]
 
 affiliation :: [ (Content, [(Case, Entity)]) ]
@@ -264,6 +262,7 @@ twoPlacers =
 	(gentwoPlacer attitude "have" "favorite" Experiencer Stimulus) :
 	(gentwoPlacer attitude "love" "basketball" Experiencer Stimulus) :
 	(gentwoPlacer attitude "love" "love" Experiencer Stimulus) :
+	(gentwoPlacer attitude "love" "love" Experiencer Predicate) :
 	(gentwoPlacer condition "feel" "feel" Patient Predicate) :
 	(gentwoPlacer condition "happy" "happy" Predicate Patient) :
 	(gentwoPlacer condition "in_form_of" "in_form_of" Patient Instrument) :
@@ -302,7 +301,7 @@ threePlacers, threePlaceStarters :: [(String, ThreePlacePred)]
 threePlaceStarters = [
     ]
 threePlacers =
-	(genthreePlacer event "buy" "buy" Agent Recipient Theme) :
+	(genthreePlacer attitude "play" "love" Predicate Experiencer Stimulus) :
 	threePlaceStarters
 
 type Content = String
