@@ -410,6 +410,15 @@ repVP (GCausative v0 obj vp) = case vp of
 				(DRSRel lin_v) [patient, p2]
 					, Prop p2 (DRS [] [Rel (DRSRel lin_ap) rs])])]
 			in DRS [r, patient] conds ) (new obj r)
+repVP (GIntens v0 vp) = case vp of
+	(GChanging v obj) -> \r ->
+		repNP obj (\theme -> let
+		lin_v = lin v
+		p = DRSRef "p"
+		conds = [Rel (DRSRel (lin v0)) [r, p]
+			, Prop p (DRS [] [Rel (DRSRel lin_v)
+			[r, theme]])]
+		in DRS [theme] conds) (new obj r)
 
 repW :: GIP -> (DRSRef -> DRS) -> DRSRef -> DRS
 repW Gwho_WH p r = let
