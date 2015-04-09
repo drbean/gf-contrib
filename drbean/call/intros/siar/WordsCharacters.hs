@@ -124,6 +124,7 @@ prep = [
 	, "for"
 	, "in"
 	, "on"
+	, "to"
 	]
 
 rel = [
