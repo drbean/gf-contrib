@@ -117,6 +117,7 @@ yn_dic_test = [
 	, "Is baseball Simon's favorite sport?"
 	, "Is Simon's favorite sport baseball?"
 	, "Does Ariel like listening to English songs?"
+	, "Does Ariel like to listen to English songs?"
 	, "Is Ariel's favorite subject English?"
 	, "Does Simon think logically?"
 	, "Is Simon a logical person?"
