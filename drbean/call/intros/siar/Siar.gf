@@ -13,6 +13,7 @@ fun
 	feel	: VA;
 	have	: V2;
 	like	: VV;
+	like_ing	: VV;
 	listen	: V2;
 	live	: V2;
 	love	: VV;

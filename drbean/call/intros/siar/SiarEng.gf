@@ -13,7 +13,7 @@ lin
 	feel	= mkVA( mkV "feel");
 	have	= mkV2 IrregEng.have_V;
 	like	= mkVV( mkV "like");
-	listen	= mkV2 "listen";
+	like_ing	= ingVV( mkV "like");
 	live	= mkV2 "live";
 	love	= mkVV( mkV "love");
 	make_V2V	= mkV2V IrregEng.make_V noPrep noPrep;
