@@ -22,6 +22,7 @@ lin
 	play	= mkV2 "play";
 	study	= mkV "study";
 	feel	= mkVA( mkV "feel");
+	want	= mkVV( mkV "want");
 
 	family	= mkCN( mkN "family");
 	father	= mkCN( mkN "father");

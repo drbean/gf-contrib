@@ -21,6 +21,7 @@ fun
 	make_V2	: V2;
 	play	: V2;
 	study	: V;
+	want	: VV;
 
 	father	: CN;
 	mother	: CN;
