@@ -261,7 +261,7 @@ twoPlacers =
 	(gentwoPlacer affiliation "in_prep" "student" Agent Location) :
 	(gentwoPlacer attitude "have" "favorite" Experiencer Stimulus) :
 	(gentwoPlacer attitude "love" "love" Experiencer Stimulus) :
-	(gentwoPlacer attitude "love" "love" Experiencer Predicate) :
+	(gentwoPlacer attitude "play" "love" Experiencer Stimulus) :
 	(gentwoPlacer condition "feel" "feel" Patient Predicate) :
 	(gentwoPlacer condition "happy" "happy" Predicate Patient) :
 	(gentwoPlacer condition "in_form_of" "in_form_of" Patient Instrument) :
