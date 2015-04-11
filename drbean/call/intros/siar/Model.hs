@@ -20,7 +20,7 @@ entity_check =  [
     , (D, "" )
     , (E, "" )
     , (F, "father" )
-    , (G, "" )
+    , (G, "song" )
     , (H, "" )
     , (I, "" )
     , (J, "subject" )
@@ -190,6 +190,7 @@ attitude = [
 	, ("favorite", [(Experiencer,S),(Stimulus,K)] )
 	, ("love", [(Experiencer,S),(Stimulus,T),(Predicate,P)] )
 	, ("love", [(Experiencer,S),(Stimulus,U),(Predicate,P)] )
+	, ("like", [(Experiencer,A),(Stimulus,G),(Predicate,P)] )
 	]
 
 affiliation :: [ (Content, [(Case, Entity)]) ]
@@ -262,6 +263,7 @@ twoPlacers =
 	(gentwoPlacer attitude "have" "favorite" Experiencer Stimulus) :
 	(gentwoPlacer attitude "love" "love" Experiencer Stimulus) :
 	(gentwoPlacer attitude "play" "love" Experiencer Stimulus) :
+	(gentwoPlacer attitude "listen" "like" Experiencer Stimulus) :
 	(gentwoPlacer condition "feel" "feel" Patient Predicate) :
 	(gentwoPlacer condition "happy" "happy" Predicate Patient) :
 	(gentwoPlacer condition "in_form_of" "in_form_of" Patient Instrument) :
@@ -301,6 +303,7 @@ threePlaceStarters = [
     ]
 threePlacers =
 	(genthreePlacer attitude "play" "love" Predicate Experiencer Stimulus) :
+	(genthreePlacer attitude "listen" "like" Predicate Experiencer Stimulus) :
 	threePlaceStarters
 
 type Content = String
