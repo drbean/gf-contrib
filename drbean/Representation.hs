@@ -20,7 +20,6 @@ entuples = [
 	(S,Gsimon)
 	, (A, Gariel)
 	, (C, Gchiyuantien)
-	, (E, Genglish)
 	]
 
 ref2int :: DRSRef -> Int
@@ -38,7 +37,6 @@ instance Eq GPN where
 	(==) Gsimon Gsimon = True
 	(==) Gariel Gariel = True
 	(==) Gchiyuantien Gchiyuantien = True
-	(==) Genglish Genglish = True
 	(==) _ _ = False
 
 gent2ent :: GPN -> Entity
