@@ -44,7 +44,6 @@ fun
 	simon	: PN;
 	ariel	: PN;
 	chiyuantien	: PN;
-	english	: PN;
 	minghu	: Place;
 	taipei	: Place;
 	wenhua	: Place;
@@ -56,6 +55,7 @@ fun
 	playing_guitar	: N;
 
 	chinese	: AP;
+	english	: AP;
 	favorite	: AP;
 	happy	: AP;
 	humorous	: AP;
