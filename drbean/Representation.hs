@@ -201,6 +201,7 @@ repDet Gher_Det = \ p q dummy-> let
 repDet Gsome_Det = repDet Ga_Det
 repDet GtheSg_Det = repDet Ga_Det
 repDet Gsome_pl_Det = repDet Gsome_Det
+repDet Gzero_Det_pl = repDet Gsome_pl_Det
 repDet GthePlural_Det =  repDet Gsome_pl_Det
 repDet Gthree   = repDet Gsome_pl_Det
 repDet Gfive   = repDet Gsome_pl_Det
