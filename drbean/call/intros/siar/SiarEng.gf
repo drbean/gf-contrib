@@ -41,7 +41,7 @@ lin
 	song	= mkCN( mkN "song");
 	sport	= mkCN( mkN "sport");
 	subject	= mkCN( mkN "subject");
-	tourguide	= mkCN( mkN "tourguide");
+	tourguide	= mkCN( mkN "tour guide");
 	translator	= mkCN( mkN "translator");
 
 	simon	= mkPN( mkN masculine (mkN "Simon") );
