@@ -265,6 +265,7 @@ twoPlacers =
 	(gentwoPlacer attitude "have" "favorite" Experiencer Stimulus) :
 	(gentwoPlacer attitude "love" "love" Experiencer Predicate) :
 	(gentwoPlacer attitude "play" "love" Experiencer Stimulus) :
+	(gentwoPlacer attitude "like" "like" Experiencer Predicate) :
 	(gentwoPlacer attitude "listen" "like" Experiencer Stimulus) :
 	(gentwoPlacer goal "want" "translator" Pivot Predicate) :
 	(gentwoPlacer condition "happy" "happy" Predicate Patient) :
