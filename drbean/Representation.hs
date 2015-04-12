@@ -227,7 +227,7 @@ repMassDet :: GMassDet -> (DRSRef -> DRS) -> (DRSRef -> DRS) -> DRSRef -> DRS
 repMassDet Gzero_Det_sg = \ p q r-> let
 	DRS prs pconds = p r
 	DRS qrs qconds = q (maximum prs)
-	len = length (nub (prs ++ qrs))
+	len = ref2int (maximum (prs ++ qrs))
 	reflist = newDRSRefs (replicate len (DRSRef "r")) []
 	conds = pconds ++ qconds
 	in DRS reflist conds
