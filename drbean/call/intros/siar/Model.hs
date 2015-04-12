@@ -17,7 +17,7 @@ entity_check =  [
     (A, "ariel" )
     , (B, "" )
     , (C, "chiyuantien" )
-    , (D, "" )
+    , (D, "translator" )
     , (E, "" )
     , (F, "father" )
     , (G, "song" )
@@ -113,6 +113,7 @@ predid1 "playing_guitar" = predid1 "guitar"
 predid1 "playing_drums" = predid1 "drums"
 predid1 "english" = predid1 "subject"
 predid1 "baseball" = predid1 "sport"
+predid1 "tourguide" = predid1 "translator"
 
 predid1 name
        | Just pred <- lookup name onePlacers = Just pred
@@ -158,6 +159,7 @@ pred4 xs	= curry4 ( `elem` xs )
 
 goal :: [ (Content, [(Case, Entity)]) ]
 goal = [
+	("translator", [(Pivot,A),(Theme,D),(Predicate,P)] )
 	]
 
 event :: [ (Content, [(Case, Entity)]) ]
@@ -264,7 +266,7 @@ twoPlacers =
 	(gentwoPlacer attitude "love" "love" Experiencer Predicate) :
 	(gentwoPlacer attitude "play" "love" Experiencer Stimulus) :
 	(gentwoPlacer attitude "listen" "like" Experiencer Stimulus) :
-	(gentwoPlacer condition "feel" "feel" Patient Predicate) :
+	(gentwoPlacer goal "want" "translator" Pivot Predicate) :
 	(gentwoPlacer condition "happy" "happy" Predicate Patient) :
 	(gentwoPlacer condition "in_form_of" "in_form_of" Patient Instrument) :
 	(gentwoPlacer condition "make_V2V" "make" Agent Predicate) :
@@ -304,6 +306,7 @@ threePlaceStarters = [
 threePlacers =
 	(genthreePlacer attitude "play" "love" Predicate Experiencer Stimulus) :
 	(genthreePlacer attitude "listen" "like" Predicate Experiencer Stimulus) :
+	(genthreePlacer goal "be" "translator" Predicate Pivot Theme) :
 	threePlaceStarters
 
 type Content = String
