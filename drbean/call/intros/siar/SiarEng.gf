@@ -25,13 +25,13 @@ lin
 	want	= mkVV( mkV "want");
 
 	family	= mkCN( mkN "family");
+	family_place	= mkCN( mkN "family");
 	father	= mkCN( mkN "father");
 	mother	= mkCN( mkN "mother");
 	name	= mkCN( mkN "name");
 	person	= mkCN( mkN "person");
 	sport	= mkCN( mkN "sport");
 	brother	= mkCN( mkN "older brother");
-	family	= mkCN( mkN "family");
 	father	= mkCN( mkN "father");
 	mother	= mkCN( mkN "mother");
 	name	= mkCN( mkN "name");
