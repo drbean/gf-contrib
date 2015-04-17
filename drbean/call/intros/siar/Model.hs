@@ -192,7 +192,7 @@ attitude = [
 	, ("favorite", [(Experiencer,S),(Stimulus,K)] )
 	, ("love", [(Experiencer,S),(Stimulus,T),(Predicate,P)] )
 	, ("love", [(Experiencer,S),(Stimulus,U),(Predicate,P)] )
-	, ("like", [(Experiencer,A),(Stimulus,G),(Predicate,P)] )
+	, ("love", [(Experiencer,A),(Stimulus,G),(Predicate,P)] )
 	]
 
 affiliation :: [ (Content, [(Case, Entity)]) ]
@@ -265,8 +265,8 @@ twoPlacers =
 	(gentwoPlacer attitude "have" "favorite" Experiencer Stimulus) :
 	(gentwoPlacer attitude "love" "love" Experiencer Predicate) :
 	(gentwoPlacer attitude "play" "love" Experiencer Stimulus) :
-	(gentwoPlacer attitude "like" "like" Experiencer Predicate) :
-	(gentwoPlacer attitude "listen" "like" Experiencer Stimulus) :
+	(gentwoPlacer attitude "like" "love" Experiencer Predicate) :
+	(gentwoPlacer attitude "listen" "love" Experiencer Stimulus) :
 	(gentwoPlacer goal "want" "translator" Pivot Predicate) :
 	(gentwoPlacer condition "happy" "happy" Predicate Patient) :
 	(gentwoPlacer condition "in_form_of" "in_form_of" Patient Instrument) :
