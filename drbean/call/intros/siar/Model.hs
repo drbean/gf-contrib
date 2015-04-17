@@ -48,7 +48,7 @@ ent_ided name = head [entity | (entity,string) <- entity_check ,
 				]
 
 characters :: [(String,Entity)]
-characters = map findEnt [O]
+characters = map findEnt [A,C,S]
 	where findEnt e
 		| Just name <- lookup e entity_check
 			= (name,e)
