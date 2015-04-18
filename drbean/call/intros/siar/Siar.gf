@@ -15,7 +15,7 @@ fun
 	like	: VV;
 	like_ing	: VV;
 	listen	: V2;
-	live	: V2;
+	live	: V;
 	love	: VV;
 	make_V2V	: V2V;
 	make_V2	: V2;
