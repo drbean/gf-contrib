@@ -56,8 +56,6 @@ fun
 	playing_drums	: N;
 	playing_guitar	: N;
 
-	male	: AP;
-	female	: AP;
 	chinese	: AP;
 	english	: AP;
 	favorite	: AP;
