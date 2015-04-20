@@ -168,8 +168,8 @@ event :: [ (Content, [(Case, Entity)]) ]
 event = [
 	("make", [(Agent,T),(Patient,S),(Result,R)] )
 	, ("make", [(Agent,U),(Patient,S),(Result,R)] )
-	, ("make", [(Agent,T),(Predicate,P)] )
-	, ("make", [(Agent,U),(Predicate,P)] )
+	, ("make_V2V", [(Agent,T),(Predicate,P)] )
+	, ("make_V2V", [(Agent,U),(Predicate,P)] )
 
 	]
 
@@ -275,7 +275,7 @@ twoPlacers =
 	(gentwoPlacer goal "want" "translator" Pivot Predicate) :
 	(gentwoPlacer condition "happy" "happy" Predicate Patient) :
 	(gentwoPlacer condition "in_form_of" "in_form_of" Patient Instrument) :
-	(gentwoPlacer condition "make_V2V" "make" Agent Predicate) :
+	(gentwoPlacer condition "make_V2V" "make_V2V" Agent Predicate) :
 	(gentwoPlacer condition "relaxed" "relaxed" Predicate Patient) :
 	(gentwoPlacer event "get" "give" Recipient Theme) :
 	(gentwoPlacer idea "say" "say" Agent Predicate) :
