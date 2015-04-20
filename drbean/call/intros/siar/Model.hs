@@ -309,7 +309,7 @@ threePlaceStarters = [
     ]
 threePlacers =
 	(genthreePlacer attitude "play" "love" Predicate Experiencer Stimulus) :
-	(genthreePlacer attitude "listen" "like" Predicate Experiencer Stimulus) :
+	(genthreePlacer attitude "listen" "love" Predicate Experiencer Stimulus) :
 	(genthreePlacer goal "be" "translator" Predicate Pivot Theme) :
 	threePlaceStarters
 
