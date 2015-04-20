@@ -14,7 +14,7 @@ lin
 	have	= mkV2 IrregEng.have_V;
 	like	= mkVV( mkV "like");
 	like_ing	= ingVV( mkV "like");
-	listen	= mkV2 (mkV "listen") (mkPrep "to");
+	listen	= mkV2 (mkV "listen" "listened") (mkPrep "to");
 	live	= mkV "live";
 	love	= mkVV( mkV "love");
 	make_V2V	= mkV2V IrregEng.make_V noPrep noPrep;
