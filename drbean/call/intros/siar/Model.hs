@@ -22,7 +22,7 @@ entity_check =  [
     , (F, "father" )
     , (G, "song" )
     , (H, "" )
-    , (I, "" )
+    , (I, "friend" )
     , (J, "subject" )
     , (K, "sport" )
     , (L, "family" )
@@ -195,6 +195,7 @@ attitude = [
 	, ("love", [(Experiencer,S),(Stimulus,T),(Predicate,P)] )
 	, ("love", [(Experiencer,S),(Stimulus,U),(Predicate,P)] )
 	, ("love", [(Experiencer,A),(Stimulus,G),(Predicate,P)] )
+	, ("love", [(Experiencer,A),(Stimulus,I),(Predicate,P)] )
 	]
 
 affiliation :: [ (Content, [(Case, Entity)]) ]
@@ -269,6 +270,7 @@ twoPlacers =
 	(gentwoPlacer attitude "play" "love" Experiencer Stimulus) :
 	(gentwoPlacer attitude "like" "love" Experiencer Predicate) :
 	(gentwoPlacer attitude "listen" "love" Experiencer Stimulus) :
+	(gentwoPlacer attitude "make_V2" "love" Experiencer Stimulus) :
 	(gentwoPlacer goal "want" "translator" Pivot Predicate) :
 	(gentwoPlacer condition "happy" "happy" Predicate Patient) :
 	(gentwoPlacer condition "in_form_of" "in_form_of" Patient Instrument) :
@@ -310,6 +312,7 @@ threePlaceStarters = [
 threePlacers =
 	(genthreePlacer attitude "play" "love" Predicate Experiencer Stimulus) :
 	(genthreePlacer attitude "listen" "love" Predicate Experiencer Stimulus) :
+	(genthreePlacer attitude "make_V2" "love" Predicate Experiencer Stimulus) :
 	(genthreePlacer goal "be" "translator" Predicate Pivot Theme) :
 	threePlaceStarters
 
