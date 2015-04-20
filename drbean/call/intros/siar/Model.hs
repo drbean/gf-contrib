@@ -89,6 +89,7 @@ onePlaceStarters = [
 	, ("male",	pred1 [S,F,O] )
 	, ("female",	pred1 [A,M,Y] )
 	, ("chinese",	pred1 [N,C] )
+	, ("english",	pred1 [G,J] )
 	]
 
 
@@ -112,7 +113,6 @@ predid1 "family_place" = predid1 "family"
 
 predid1 "playing_guitar" = predid1 "guitar"
 predid1 "playing_drums" = predid1 "drums"
-predid1 "english" = predid1 "subject"
 predid1 "baseball" = predid1 "sport"
 predid1 "tourguide" = predid1 "translator"
 
