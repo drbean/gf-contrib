@@ -32,6 +32,7 @@ fun
 	family	: CN;
 	family_place	: PlaceName;
 	father	: CN;
+	friend	: CN;
 	mother	: CN;
 	name	: CN;
 	person	: CN;

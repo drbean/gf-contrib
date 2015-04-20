@@ -82,6 +82,7 @@ n = cn ++ un
 cn = [
 	"family"
 	, "father"
+	, "friend"
 	, "mother"
 	, "name"
 	, "older brother"

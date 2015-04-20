@@ -18,7 +18,7 @@ lin
 	live	= mkV "live";
 	love	= mkVV( mkV "love");
 	make_V2V	= mkV2V IrregEng.make_V noPrep noPrep;
-	make_V2	= mkV2 "make";
+	make_V2	= mkV2 IrregEng.make_V;
 	play	= mkV2 "play";
 	study	= mkV "study";
 	feel	= mkVA( mkV "feel");
@@ -33,6 +33,7 @@ lin
 	sport	= mkCN( mkN "sport");
 	brother	= mkCN( mkN "older brother");
 	father	= mkCN( mkN "father");
+	friend	= mkCN( mkN "friend");
 	mother	= mkCN( mkN "mother");
 	name	= mkCN( mkN "name");
 	person	= mkCN( mkN "person");
