@@ -57,6 +57,8 @@ lin
 	playing_drums	= mkN "playing drums";
 	playing_guitar	= mkN "playing guitar";
 
+	male	= mkAP( mkA "male");
+	female	= mkAP( mkA "female");
   chinese	= mkAP( mkA "Chinese");
 	english	= mkAP( mkA "English");
 	favorite	= mkAP( mkA "favorite");
