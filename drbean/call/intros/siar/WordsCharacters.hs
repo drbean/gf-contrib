@@ -52,7 +52,6 @@ adv = [
 
 aux = [
 	"doesn't"
-	, "Chinese"
 	, "favorite"
 	, "don't"
 	, "does"
