@@ -35,6 +35,7 @@ posMap = Map.fromList [
 
 a = [
 	"Chinese"
+	, "English"
 	, "favorite"
 	, "happy"
 	, "humorous"
@@ -108,7 +109,6 @@ pn = [
 	"Simon"
 	, "Ariel"
 	, "ChiYuan Tien"
-	, "English"
 	,  "Minghu Junior High School"
 	, "Taipei"
 	, "WenHua University"
