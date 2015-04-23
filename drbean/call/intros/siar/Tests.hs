@@ -141,7 +141,7 @@ wh_dic_test = [
 	, "Who likes to make friends?"
 	, "Who likes to play guitar?"
 	, "Who likes to play drums?"
-	, "Playing drums makes Simon feel relaxed?"
+	, "Playing drums makes who feel relaxed?"
 	, "Who likes listening to English songs?"
 	, "Whose favorite subject is English?"
 	, "Who thinks logically?"
