@@ -89,7 +89,7 @@ cn = [
 	, "people"
 	, "person"
 	, "younger sister"
-	, "song"
+	, "song, songs"
 	, "sport"
 	, "subject"
 	, "tour guide"
@@ -154,11 +154,12 @@ tag = [
 v = [
 	"feel, feels"
 	, "have, has"
-	, "listen, listens"
+	, "listen, listens, listening"
+	, "like, likes"
 	, "live, lives"
 	, "love, loves"
 	, "make, makes"
-	, "play, plays"
+	, "play, plays, playing"
 	, "study, studies"
 	]
 
