@@ -6,7 +6,7 @@ import Data.Maybe
 import Data.DRS
 
 import PGF
-import Siar
+import Clay
 import Representation
 import Evaluation
 import Model
@@ -17,7 +17,7 @@ import WordsCharacters
 -- import System.Environment.FindBin
 
 ans tests = do
-  gr	<- readPGF ( "./Siar.pgf" )
+  gr	<- readPGF ( "./Clay.pgf" )
   let ss = map (chomp . lc_first) tests
   let ps = map ( parses gr ) ss
   let ls = map (map ( (linear gr) <=< transform ) ) ps
@@ -27,7 +27,7 @@ ans tests = do
 displayResult = fromMaybe "Nothing"
 
 trans tests = do
-  gr	<- readPGF ( "./Siar.pgf" )
+  gr	<- readPGF ( "./Clay.pgf" )
   let ss = map (chomp . lc_first) tests
   let ps = map ( parses gr ) ss
   let ls = map id ps
@@ -35,7 +35,7 @@ trans tests = do
   putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
 
 reps tests = do
-  gr	<- readPGF ( "./Siar.pgf" )
+  gr	<- readPGF ( "./Clay.pgf" )
   let ss = map (chomp . lc_first) tests
   let ps = map ( parses gr ) ss
   let ts = map (map (\x -> (((unmaybe . rep) x) (term2ref drsRefs var_e) ))) ps
@@ -43,7 +43,7 @@ reps tests = do
   putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
 
 lf tests = do
-	gr	<- readPGF ( "./Siar.pgf" )
+	gr	<- readPGF ( "./Clay.pgf" )
 	let ss = map (chomp . lc_first) tests
 	let ps = map ( parses gr ) ss
 	let ts = map (map (\p -> drsToLF (((unmaybe . rep) p) (DRSRef "r1"))) ) ps
@@ -51,7 +51,7 @@ lf tests = do
 	putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
 
 fol tests = do
-	gr	<- readPGF ( "./Siar.pgf" )
+	gr	<- readPGF ( "./Clay.pgf" )
 	let ss = map (chomp . lc_first) tests
 	let ps = map ( parses gr ) ss
 	let ts = map (map (\p -> drsToFOL ( (unmaybe . rep) p (term2ref drsRefs var_e) ) ) ) ps
@@ -120,19 +120,20 @@ yn_dic_test = [
 	, "Does Frank and Rebia get married."
 	, "Does Frank and Rebia have rings."
 	, "Does Frank try to give Rebia his class ring."
-	, "Is The ring big and ugly."
-	, "Does Frank try to put the ring on Rebia's finger."
+	, "Is the class ring big?"
+	, "Is the class ring ugly?"
+	, "Does Frank try to put the class ring on Rebia's finger."
 	, "Is Rebia like, Uh-huh."
 	, "Does Rebia remember coming home one day."
 	, "Is Frank there."
-	, "Is There a note on the back of the door."
-	, "Does The note say, Go in the bedroom and look on the dresser."
+	, "Is there a note on the back of the door."
+	, "Does the note say, Go in the bedroom and look on the dresser."
 	, "Does Rebia go in the bedroom."
-	, "Does Rebia loos on the dresser."
-	, "Is The ring box on the dresser."
-	, "Is A beautiful wedding ring in the ring box."
-	, "Is A beautiful engagement ring in the ring box."
-	, "Does Rebia gras the rings."
+	, "Does Rebia look on the dresser."
+	, "Is the ring box on the dresser."
+	, "Is a beautiful wedding ring in the ring box."
+	, "Is a beautiful engagement ring in the ring box."
+	, "Does Rebia grab the rings."
 	, "Does Rebia put the rings on."
 	, "Does Rebia run out of the house, because she knows where he hangs out at."
 	, "Does Frank say, Did you find the rings, when he sees Rebia coming."
@@ -151,7 +152,7 @@ yn_dic_test = [
 	, "Does Frank move to Michigan."
 	, "Does Frank get into a fight."
 	, "Does Frank help a woman."
-	, "Does The woman's boyfriend shoot Frank in the back."
+	, "Does the woman's boyfriend shoot Frank in the back."
 	, "Does Rebia have her fourth child with Frank."
 	, "Is Frank's son exactly like his father."
 	, "Does Frank's son never talk above a whisper."

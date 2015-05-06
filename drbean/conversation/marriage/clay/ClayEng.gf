@@ -1,71 +1,108 @@
 --# -path=.:/home/drbean/GF/gf-contrib/drbean:present
 
-concrete SiarEng of Siar = MyConcrete **
+concrete ClayEng of Clay = MyConcrete **
 open ConstructorsEng, ParadigmsEng, StructuralEng, IrregEng, ExtraEng, Prelude in {
 
 lin
 
+  one	= mkDet( mkNumeral n1_Unit);
   three	= mkDet( mkNumeral n3_Unit);
+  four	= mkDet( mkNumeral n4_Unit);
   five	= mkDet( mkNumeral n5_Unit);
+  seventeen	= mkDet( mkNumeral n9_Unit);
 
 	on	= mkPrep "on";
 
+	believe	= mkVS( mkV "believe");
+	burn	= mkV2 "burn";
+	come	= mkV2 "come";
 	feel	= mkVA( mkV "feel");
-	have	= mkV2 IrregEng.have_V;
-	like	= mkVV( mkV "like");
-	like_ing	= ingVV( mkV "like");
-	listen	= mkV2 (mkV "listen" "listened") (mkPrep "to");
-	live	= mkV "live";
-	love	= mkVV( mkV "love");
-	-- make_V2V	= mkV2V IrregEng.make_V noPrep noPrep;
-	make_V2	= mkV2 IrregEng.make_V;
-	play	= mkV2 "play";
-	study	= mkV "study";
-	feel	= mkVA( mkV "feel");
-	want	= mkVV( mkV "want");
+	find	= mkV2 IrregEng.find_V;
+	get	= mkVA( mkV "get");
+	give	= mkV3( mkV "give");
+	go	= mkV2 "go";
+	grab	= mkV2 "grab";
+	hand	= mkV3( mkV "hand");
+	hang	= mkV "hang";
+	have	= mkV2 "have";
+	help	= mkV2 "help";
+	laugh	= mkV "laugh";
+	look	= mkV2 "look";
+	make_V2V	= mkV2V IrregEng.make_V noPrep noPrep;
+	meet	= mkV2 "meet";
+	move	= mkV2 "move";
+	put_V3	= mkV3 IrregEng.put_V noPrep on;
+	remember_V2	= mkV2 "remember";
+	remember_VV	= mkVV( mkV "remember");
+	run	= mkV2 "run";
+	say	= mkVS( mkV "say");
+	see_V2	= mkV2 "see";
+	see_V2V	= ingV2V IrregEng.see_V noPrep noPrep;
+	separate	= mkV "separate";
+	shake	= mkV "shake";
+	shoot_V2	= mkV2 "shoot";
+	shoot_V3	= mkV3( mkV "shoot");
+	talk	= mkV2 "talk";
+	tell	= mkV2S IrregEng.tell_V noPrep;
+	try	= mkVV( mkV "try");
+	walk	= mkV2 "walk";
 
-	family	= mkCN( mkN "family");
-	family_place	= mkCN( mkN "family");
+	altercation	= mkCN( mkN "altercation");
+	back	= mkCN( mkN "back");
+	bedroom	= mkCN( mkN "bedroom");
+	boyfriend	= mkCN( mkN "boyfriend");
+	child	= mkCN( mkN "child");
+	class_ring	= mkCN( mkN "class ring");
+	dad	= mkCN( mkN "dad");
+	day	= mkCN( mkN "day");
+	door	= mkCN( mkN "door");
+	dresser	= mkCN( mkN "dresser");
+	engagement_ring	= mkCN( mkN "engagement ring");
 	father	= mkCN( mkN "father");
-	mother	= mkCN( mkN "mother");
+	finger	= mkCN( mkN "finger");
+	gentleman	= mkCN( mkN "gentleman");
+	guy	= mkCN( mkN "guy");
+	house	= mkCN( mkN "house");
+	kid	= mkCN( mkN "kid");
+	knee	= mkCN( mkN "knee");
 	name	= mkCN( mkN "name");
+	note	= mkCN( mkN "note");
 	person	= mkCN( mkN "person");
-	sport	= mkCN( mkN "sport");
-	brother	= mkCN( mkN "older brother");
-	father	= mkCN( mkN "father");
-	friend	= mkCN( mkN "friend");
-	mother	= mkCN( mkN "mother");
-	name	= mkCN( mkN "name");
-	person	= mkCN( mkN "person");
-	people	= mkCN( mkN nonExist "people");
-	sister	= mkCN( mkN "younger sister");
-	song	= mkCN( mkN "song");
-	sport	= mkCN( mkN "sport");
-	subject	= mkCN( mkN "subject");
-	tourguide	= mkCN( mkN "tour guide");
-	translator	= mkCN( mkN "translator");
+	ring	= mkCN( mkN "ring");
+	ring_box	= mkCN( mkN "ring box");
+	son	= mkCN( mkN "son");
+	thing	= mkCN( mkN "thing");
+	wedding_ring	= mkCN( mkN "wedding ring");
+	wife	= mkCN( mkN "wife");
+	woman	= mkCN( mkN "woman");
+	year	= mkCN( mkN "year");
+	whisper	= mkCN( mkN "whisper");
 
-	simon	= mkPN( mkN masculine (mkN "Simon") );
-	ariel	= mkPN( mkN feminine (mkN "Ariel") );
-	chiyuantien	= mkPN( mkN feminine (mkN "ChiYuan Tien") );
-	minghu	= mkNP( mkPN( mkN "Minghu Junior High School"));
-	taipei	= mkNP( mkPN( mkN "Taipei"));
-	wenhua	= mkNP( mkPN( mkN "WenHua University"));
+	city_hall	= mkNP( mkPN (mkN "City Hall") );
+	frank	= mkPN( mkN masculine (mkN "Frank") );
+	michigan	= mkNP( mkPN (mkN "Michigan") );
+	so_and_so	= mkPN( mkN masculine (mkN "So-and-so") );
+	rebia	= mkPN( mkN feminine (mkN "Rebia") );
+	Rebia_and_Frank	= mkPN( mkN masculine (mkN "Rebia and Frank") );
 
-	baseball	= mkN "baseball";
-	drums	= mkN "drums";
-	guitar	= mkN "guitar";
-	playing_drums	= mkN "playing drums";
-	playing_guitar	= mkN "playing guitar";
+	details	= mkN "details";
+	dinner	= mkN "dinner";
+	home	= mkN "home";
+	popcorn	= mkN "popcorn";
+	stuff	= mkN "stuff";
+	true_love	= mkN "true love";
 
-  chinese	= mkAP( mkA "Chinese");
-	english	= mkAP( mkA "English");
-	favorite	= mkAP( mkA "favorite");
+	beautiful	= mkAP( mkA "beautiful");
+	best	= mkAP( mkA "best");
+	big	= mkAP( mkA "big");
+	biological	= mkAP( mkA "biological");
 	happy	= mkAP( mkA "happy");
-	humorous	= mkAP( mkA "humorous");
-	relaxed	= mkAP( mkA "relaxed");
-	nineteen	= mkAP( mkA "19 years old");
-	logical	= mkAP( mkA "logical");
+	magnificent	= mkAP( mkA "magnificent");
+	oldest	= mkAP( mkA "oldest");
+	pregnant	= mkAP( mkA "pregnant");
+	ugly	= mkAP( mkA "ugly");
+
+	always	= mkAdv "always";
 
 }
 

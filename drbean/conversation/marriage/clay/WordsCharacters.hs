@@ -34,20 +34,23 @@ posMap = Map.fromList [
 	]
 
 a = [
-	"Chinese"
-	, "English"
-	, "favorite"
+	"beautiful"
+	, "best"
+	, "big"
+	, "biological"
+	, "first"
+	, "fourth"
 	, "happy"
-	, "humorous"
-	, "optimistic"
-	, "positive"
-	, "relaxed"
-	, "19 years old"
-	, "logical"
-	, "relaxed"
+	, "magnificent"
+	, "oldest"
+	, "pregnant"
+	, "seventeen"
+	, "three"
+	, "ugly"
 	]
 
 adv = [
+	"always"
 	]
 
 aux = [
@@ -72,6 +75,7 @@ det = [
 	"a"
 	, "an"
 	, "the"
+	, "go"
 	, "three"
 	, "five"
 	, "'s"
@@ -80,37 +84,53 @@ det = [
 n = cn ++ un
 
 cn = [
-	"family"
+	"altercation"
+	, "bedroom"
+	, "boyfriend"
+	, "child"
+	, "class_ring"
+	, "dad"
+	, "day"
+	, "door"
+	, "dresser"
+	, "engagement_ring"
 	, "father"
-	, "friend"
-	, "mother"
+	, "finger"
+	, "gentleman"
+	, "guy"
+	, "house"
+	, "kid"
+	, "knee"
 	, "name"
-	, "older brother"
-	, "people"
-	, "person"
-	, "younger sister"
-	, "song, songs"
-	, "sport"
-	, "subject"
-	, "tour guide"
-	, "translator"
+	, "note"
+	, "ring_box"
+	, "thing"
+	, "wedding_ring"
+	, "wife"
+	, "woman"
+	, "year"
+	, "back"
+	, "son"
+	, "whisper"
 	]
 
 un = [
-	"baseball"
-	, "drums"
-	, "guitar"
-	, "playing guitar"
-	, "playing drums"
+	"dinner"
+	, "home"
+	, "popcorn"
+	, "stuff"
+	, "true love"
+	, "details"
 	]
 
 pn = [
-	"Simon"
-	, "Ariel"
-	, "ChiYuan Tien"
-	,  "Minghu Junior High School"
-	, "Taipei"
-	, "WenHua University"
+	"City Hall"
+	, "Frank"
+	, "Michigan"
+	, "So-and-so"
+	, "Rebia"
+	, "Rebia and Frank"
+	, "Frank and Rebia"
 	]
 
 pron = [
@@ -152,62 +172,163 @@ tag = [
 	]
 
 v = [
-	"feel, feels"
-	, "have, has"
-	, "listen, listens, listening"
-	, "like, likes"
-	, "live, lives"
-	, "love, loves"
-	, "make, makes"
-	, "play, plays, playing"
-	, "study, studies"
+	"believe"
+	, "burn"
+	, "come"
+	, "feel"
+	, "find"
+	, "give"
+	, "go"
+	, "get"
+	, "grab"
+	, "have"
+	, "hand"
+	, "help"
+	, "hang"
+	, "know"
+	, "laugh"
+	, "look"
+	, "make"
+	, "meet"
+	, "move"
+	, "put"
+	, "run"
+	, "remember"
+	, "see"
+	, "say"
+	, "separate"
+	, "shake"
+	, "shoot"
+	, "talk"
+	, "tell"
+	, "try"
+	, "walk"
 	]
 
 {-
 
-
-19	: A;
-ariel	: PN;
-baseball	: N;
-brother	: CN;
-chinese	: A;
-chiyuantien	: PN;
-drums	: N;
-english	: PN;
-family	: CN;
+above
+all
+altercation	: CN;
+always	: Adv;
+at
+back	: CN;
+beautiful	: A;
+because
+bedroom	: CN;
+believe	: VS;
+best	: A;
+big	: A;
+biological	: A;
+boyfriend	: CN;
+burn	: V2;
+child	: CN;
+City_Hall	: PN;
+class_ring	: CN;
+come	: V2;
+dad	: CN;
+day	: CN;
+details	: N;
+dinner	: N;
+door	: CN;
+down
+dresser	: CN;
+engagement_ring	: CN;
+exactly
 father	: CN;
-favorite	: A;
 feel	: VA;
-five	: Det;
-guitar	: N;
+find	: V2;
+finger	: CN;
+first	: A;
+for
+fourth	: A;
+Frank	: PN;
+Frank and Rebia	: PN;
+gentleman	: CN;
+give	: V3;
+go	: V2;
+get	: VA;
+grab	: V2;
+guy	: CN;
+have	: V2;
+hand	: V3;
 happy	: A;
-humorous
-like	: V2;
-listen	: V2;
-listening
-live	: V2;
-logical	: A;
-logically
-love	: V2;
-make	: V2;
-minghu	: PN;
-mother	: CN;
+help	: V2;
+home	: N;
+honestly
+house	: CN;
+hang	: V;
+if
+in
+into
+just
+kid	: CN;
+kind
+knee	: CN;
+know_V2	: V2;
+know_VS	: VS;
+later
+laugh	: V;
+like
+look	: V2;
+make	: V2V;
+magnificent	: A;
+married
+mean
+meet	: V2;
+Michigan	: PN;
+move	: V2;
 name	: CN;
-person	: CN;
-people	: CN;
-play	: V2;
-relaxed	: A;
-simon	: PN;
-sister	: CN;
-song	: CN;
-sport	: CN;
-study	: 0;
-subject	: CN;
-Taipei	: PN;
-three	: Det;
-tourguide	: CN;
-translator	: CN;
-WenHuaUniversity	: PN;
+never
+note	: CN;
+of
+oldest	: A;
+on
+one
+other
+out
+over
+popcorn	: N;
+pregnant	: A;
+put	: V3;
+Rebia	: PN;
+Rebia and Frank	: PN;
+ring_box	: CN;
+run	: V2;
+really
+remember_VV	: VV;
+remember_V2	: V2;
+see_V2	: V2;
+see_V2V	: V2V;
+say	: VS;
+separate	: V;
+seventeen	: A;
+shake	: V;
+shoot_V2	: V2;
+shoot_V3	: V3;
+So-and-so	: PN;
+son	: CN;
+still
+stuff	: N;
+talk	: V2;
+tell	: V2S;
+there
+thing	: CN;
+three	: A;
+to
+towards
+try	: VV;
+true love	: N;
+ugly	: A;
+Uh-huh
+walk	: V2;
+wedding_ring	: CN;
+whatever
+when
+whisper	: CN;
+wife	: CN;
+woman	: CN;
+year	: CN;
 
 -}
 
