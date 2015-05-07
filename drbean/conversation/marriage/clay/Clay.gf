@@ -11,7 +11,7 @@ fun
 	five	: Det;
 	seventeen	: Det;
 
-	on	: Prep;
+	on	: LocPrep;
 
 	believe	: VS;
 	burn	: V2;
@@ -56,7 +56,7 @@ fun
 	dad	: CN;
 	day	: CN;
 	door	: CN;
-	dresser	: CN;
+	dresser	: PlaceName;
 	engagement_ring	: CN;
 	father	: CN;
 	finger	: CN;
