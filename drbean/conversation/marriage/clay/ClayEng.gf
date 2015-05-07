@@ -12,6 +12,7 @@ lin
   seventeen	= mkDet( mkNumeral n9_Unit);
 
 	on	= mkPrep "on";
+	on_back_of	= mkPrep "on the back of";
 
 	believe	= mkVS( mkV "believe");
 	burn	= mkV2 "burn";
@@ -70,6 +71,7 @@ lin
 	person	= mkCN( mkN "person");
 	ring	= mkCN( mkN "ring");
 	ring_box	= mkCN( mkN "ring box");
+	ring_box_Place = ring_box;
 	son	= mkCN( mkN "son");
 	thing	= mkCN( mkN "thing");
 	wedding_ring	= mkCN( mkN "wedding ring");

@@ -12,6 +12,7 @@ fun
 	seventeen	: Det;
 
 	on	: LocPrep;
+	on_back_of	: LocPrep;
 
 	believe	: VS;
 	burn	: V2;
@@ -49,13 +50,13 @@ fun
 
 	altercation	: CN;
 	back	: CN;
-	bedroom	: CN;
+	bedroom	: PlaceName;
 	boyfriend	: CN;
 	child	: CN;
 	class_ring	: CN;
 	dad	: CN;
 	day	: CN;
-	door	: CN;
+	door	: PlaceName;
 	dresser	: PlaceName;
 	engagement_ring	: CN;
 	father	: CN;
@@ -70,6 +71,7 @@ fun
 	person	: CN;
 	ring	: CN;
 	ring_box	: CN;
+	ring_box_Place	: PlaceName;
 	son	: CN;
 	thing	: CN;
 	wedding_ring	: CN;
