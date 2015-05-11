@@ -13,6 +13,7 @@ fun
 
 	on	: LocPrep;
 	on_back_of	: LocPrep;
+	down_to	: LocPrep;
 
 	believe	: VS;
 	burn	: V2;
@@ -21,7 +22,7 @@ fun
 	find	: V2;
 	get	: VA;
 	give	: V3;
-	go	: V2;
+	go	: V;
 	grab	: V2;
 	hand	: V3;
 	hang	: V;

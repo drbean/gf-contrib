@@ -13,6 +13,7 @@ lin
 
 	on	= mkPrep "on";
 	on_back_of	= mkPrep "on the back of";
+	down_to	= mkPrep "down to";
 
 	believe	= mkVS( mkV "believe");
 	burn	= mkV2 "burn";
@@ -21,7 +22,7 @@ lin
 	find	= mkV2 IrregEng.find_V;
 	get	= mkVA( mkV "get");
 	give	= mkV3( mkV "give");
-	go	= mkV2 "go";
+	go	= mkV "go";
 	grab	= mkV2 "grab";
 	hand	= mkV3( mkV "hand");
 	hang	= mkV "hang";
@@ -85,7 +86,8 @@ lin
 	michigan	= mkNP( mkPN (mkN "Michigan") );
 	so_and_so	= mkPN( mkN masculine (mkN "So-and-so") );
 	rebia	= mkPN( mkN feminine (mkN "Rebia") );
-	Rebia_and_Frank	= mkPN( mkN masculine (mkN "Rebia and Frank") );
+	rebia_and_frank	= mkPN( mkN masculine (mkN "Rebia and Frank") );
+	frank_and_rebia	= mkPN( mkN  nonExist "Frank and Rebia");
 
 	details	= mkN "details";
 	dinner	= mkN "dinner";

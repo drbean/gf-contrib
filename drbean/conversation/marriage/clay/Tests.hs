@@ -116,7 +116,7 @@ yn_dic_test = [
 	, "Does Frank see Rebia."
 	, "Does Frank walk over to Rebia"
 	, "Does Frank say to Rebia, You're going to be my wife."
-	, "Does Frank and Rebia go down to City Hall."
+	, "Do Frank and Rebia go down to City Hall."
 	, "Does Frank and Rebia get married."
 	, "Does Frank and Rebia have rings."
 	, "Does Frank try to give Rebia his class ring."
