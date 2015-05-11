@@ -3,6 +3,9 @@ module Main where
 import Converter
 import Algebra
 import Design (file2ER)
+import Fundep (prRelationInfo,pRelation,prRelation,normalizeBCNF,normalize4NF)
+import ToXML (prDatabaseXML)
+import XPath (execQueryXPath)
 
 import LexMinSQL
 import ParMinSQL
@@ -19,15 +22,15 @@ import Data.Char
 
 main = do
   putStrLn helpMsg
-  writeFile "minsql-history.tmp" ""
+  writeFile "qconv-history.tmp" ""
   env <- loop initSEnv
   return ()
 
 loop env = do
-  putStr "minsql=# "
+  putStr "qconv=# "
   hFlush stdout
   s <- getLine
-  appendFile "minsql-history.tmp" s
+  appendFile "qconv-history.tmp" s
   case words s of
     "q":[]        -> return env
     "i":file:_ -> do
@@ -37,11 +40,33 @@ loop env = do
     "d":file:_ -> do
       file2ER file
       loop env
+    "f":file:_ -> do
+      rel <- readFile file >>= return . pRelation . lines
+      putStrLn $ prRelationInfo rel
+      loop env
+    "n":file:_ -> do
+      rel@(_,(_,mvds)) <- readFile file >>= return . pRelation . lines
+      putStrLn "BCNF decomposition:"
+      let rels = normalizeBCNF rel
+      putStrLn $ unlines $ map (\ (i,r) -> i : ". " ++ prRelation r) (zip ['1'..] rels)
+      if null mvds
+         then return ()
+         else do
+           putStrLn "4NF decomposition (maybe not complete):"
+           let rels = normalize4NF rel
+           putStrLn $ unlines $ map (\ (i,r) -> i : ". " ++ prRelation r) (zip ['1'..] rels)
+      loop env
     "h":[] -> do
       putStrLn helpMsg
       loop env
     "a":ws -> do
       alg2latex env (takeWhile (/=';') (unwords ws)) 
+      loop env
+    "x":ws@(_:_) -> do
+      execQueryXPath "QConvData" env (unwords ws)
+      loop env
+    "x":_ -> do
+      putStrLn $ prDatabaseXML "QConvData" env
       loop env
     _ -> do
       env' <- runSQLScript env s
@@ -86,11 +111,24 @@ alg2latex env s = case pTable (preprocSQL (myLexer s)) of
       "",
       "\\end{document}"
       ]
-    system "pdflatex minsql-latex-tmp.tex > //dev//null"
-    system "open minsql-latex-tmp.pdf"
+    system "pdflatex qconv-latex-tmp.tex > //dev//null"
+    system "open qconv-latex-tmp.pdf" -- mac
+--    system "evince qconv-latex-tmp.pdf" -- linux
     return ()
 
-mintex = "minsql-latex-tmp.tex"
+mintex = "qconv-latex-tmp.tex"
 
-helpMsg = "a <SQL> = show algebra ; d <File> = read design ; i <File> = read SQL ; h = help ; q = quit ; <SQL> = run sql"
+helpMsg = unlines $ [
+  "Query converter v0.1 (A. Ranta 2015). Commands:",
+  "  <SQL>     = run  SQL command ",        
+  "  a <SQL>   = show algebra for sql query", 
+  "  i <File>  = read SQL, run commands",
+  "  d <File>  = read design, show E-R, schema, English",
+  "  f <File>  = read relation, analyse dependencies and keys",
+  "  n <File>  = read relation, normalize to BCNF and 4NF",
+  "  x <XPath> = run xpath query",
+  "  x         = print database in xml",
+  "  h         = help", 
+  "  q         = quit"
+  ]
 
