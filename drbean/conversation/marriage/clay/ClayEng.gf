@@ -104,6 +104,7 @@ lin
 	biological	= mkAP( mkA "biological");
 	happy	= mkAP( mkA "happy");
 	magnificent	= mkAP( mkA "magnificent");
+	married	= mkAP( mkA "married");
 	oldest	= mkAP( mkA "oldest");
 	pregnant	= mkAP( mkA "pregnant");
 	ugly	= mkAP( mkA "ugly");

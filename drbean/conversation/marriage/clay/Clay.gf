@@ -106,6 +106,7 @@ fun
 	-- fourth	: AP;
 	happy	: AP;
 	magnificent	: AP;
+	married	: AP;
 	oldest	: AP;
 	pregnant	: AP;
 	ugly	: AP;
