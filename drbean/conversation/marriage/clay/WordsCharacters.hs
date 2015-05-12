@@ -42,6 +42,7 @@ a = [
 	, "fourth"
 	, "happy"
 	, "magnificent"
+	, "married"
 	, "oldest"
 	, "pregnant"
 	, "seventeen"
@@ -141,6 +142,8 @@ pron = [
 
 prep = [
 	"as"
+	, "down on"
+	, "down to"
 	, "for"
 	, "in"
 	, "on"
@@ -273,7 +276,7 @@ like
 look	: V2;
 make	: V2V;
 magnificent	: A;
-married
+married	: A;
 mean
 meet	: V2;
 Michigan	: PN;
