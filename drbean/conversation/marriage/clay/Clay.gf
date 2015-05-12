@@ -86,8 +86,8 @@ fun
 	michigan	: Place;
 	so_and_so	: PN;
 	rebia	: PN;
-	rebia_and_frank	: PN;
-	frank_and_rebia	: PN;
+	rebia_and_frank	: NP;
+	frank_and_rebia	: NP;
 
 	details	: N;
 	dinner	: N;

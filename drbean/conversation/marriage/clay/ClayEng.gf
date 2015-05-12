@@ -1,7 +1,19 @@
 --# -path=.:/home/drbean/GF/gf-contrib/drbean:present
 
 concrete ClayEng of Clay = MyConcrete **
-open ConstructorsEng, ParadigmsEng, StructuralEng, IrregEng, ExtraEng, Prelude in {
+open (ResEng = ResEng), ConstructorsEng, ParadigmsEng, StructuralEng, IrregEng, ExtraEng, Prelude in {
+
+oper
+
+    mkNP' : (me,my : Str) -> Number -> ResEng.Person -> Gender ->
+     {s : ResEng.NPCase => Str ; a : ResEng.Agr} = \me,my,n,p,g ->
+   { s = table {
+       ResEng.NCase Nom => me ;
+       NPAcc => me ;
+       ResEng.NCase Gen => my
+       } ;
+     a = ResEng.toAgr n p g ;
+   };
 
 lin
 
@@ -86,8 +98,8 @@ lin
 	michigan	= mkNP( mkPN (mkN "Michigan") );
 	so_and_so	= mkPN( mkN masculine (mkN "So-and-so") );
 	rebia	= mkPN( mkN feminine (mkN "Rebia") );
-	rebia_and_frank	= mkPN( mkN masculine (mkN "Rebia and Frank") );
-	frank_and_rebia	= mkPN( mkN  nonExist "Frank and Rebia");
+	rebia_and_frank	= mkNP' "Rebia and Frank" "Rebia and Frank's" plural ResEng.P3 human;
+	frank_and_rebia	= mkNP'   "Frank and Rebia" "Frank and Rebia's" plural ResEng.P3 human;
 
 	details	= mkN "details";
 	dinner	= mkN "dinner";
