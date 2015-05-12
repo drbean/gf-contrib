@@ -14,13 +14,15 @@ lin
 	on	= mkPrep "on";
 	on_back_of	= mkPrep "on the back of";
 	down_to	= mkPrep "down to";
+	down_on	= mkPrep "down on";
 
 	believe	= mkVS( mkV "believe");
 	burn	= mkV2 "burn";
 	come	= mkV2 "come";
 	feel	= mkVA( mkV "feel");
 	find	= mkV2 IrregEng.find_V;
-	get	= mkVA( mkV "get");
+	get_A	= mkVA( mkV "get");
+	get_Place	= mkV "get";
 	give	= mkV3( mkV "give");
 	go	= mkV "go";
 	grab	= mkV2 "grab";

@@ -14,13 +14,15 @@ fun
 	on	: LocPrep;
 	on_back_of	: LocPrep;
 	down_to	: LocPrep;
+	down_on	: LocPrep;
 
 	believe	: VS;
 	burn	: V2;
 	come	: V2;
 	feel	: VA;
 	find	: V2;
-	get	: VA;
+	get_A	: VA;
+	get_Place	: V;
 	give	: V3;
 	go	: V;
 	grab	: V2;
@@ -66,7 +68,7 @@ fun
 	guy	: CN;
 	house	: CN;
 	kid	: CN;
-	knee	: CN;
+	knee	: PlaceName;
 	name	: CN;
 	note	: CN;
 	person	: CN;
