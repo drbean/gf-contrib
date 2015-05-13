@@ -14,33 +14,33 @@ entities	=  [minBound..maxBound]
 
 entity_check :: [ (Entity, String) ]
 entity_check =  [
-    (A, "ariel" )
+    (A, "" )
     , (B, "" )
-    , (C, "chiyuantien" )
-    , (D, "translator" )
+    , (C, "class_ring" )
+    , (D, "dinner" )
     , (E, "" )
-    , (F, "father" )
-    , (G, "song" )
+    , (F, "frank" )
+    , (G, "" )
     , (H, "" )
-    , (I, "friend" )
-    , (J, "subject" )
-    , (K, "sport" )
-    , (L, "family" )
-    , (M, "mother" )
-    , (N, "name" )
-    , (O, "brother" )
+    , (I, "wedding_ring" )
+    , (J, "" )
+    , (K, "" )
+    , (L, "" )
+    , (M, "" )
+    , (N, "" )
+    , (O, "" )
     , (P, "" )
     , (Q, "" )
-    , (R, "" )
-    , (S, "simon" )
-    , (T, "guitar" )
-    , (U, "drums" )
-    , (V, "minghu" )
-    , (W, "wenhua" )
-    , (X, "taipei" )
-    , (Y, "sister" )
+    , (R, "rebia" )
+    , (S, "son" )
+    , (T, "" )
+    , (U, "" )
+    , (V, "" )
+    , (W, "" )
+    , (X, "" )
+    , (Y, "" )
     , (Z, "" )
-    ]
+    {]
 
 ent_ided :: String -> Entity
 ent_ided name = head [entity | (entity,string) <- entity_check ,
@@ -86,10 +86,8 @@ onePlaceStarters = [
 
 
 	, ("study",	pred1 [] )
-	, ("male",	pred1 [S,F,O] )
-	, ("female",	pred1 [A,M,Y] )
-	, ("chinese",	pred1 [N,C] )
-	, ("english",	pred1 [G,J] )
+	, ("male",	pred1 [S,F] )
+	, ("female",	pred1 [R] )
 	]
 
 
@@ -105,17 +103,10 @@ predid1 "people"	= predid1 "person"
 predid1 "person"	= Just person
 predid1 "thing"	= Just thing
 
-predid1 "humorous" = predid1 "simon"
-predid1 "happy" = predid1 "simon"
-predid1 "logical" = predid1 "simon"
-predid1 "nineteen" = predid1 "ariel"
-predid1 "family_place" = predid1 "family"
-
-predid1 "playing_guitar" = predid1 "guitar"
-predid1 "playing_drums" = predid1 "drums"
-predid1 "baseball" = predid1 "sport"
-predid1 "tourguide" = predid1 "translator"
-
+predid1 "big" = predid1 "class_ring"
+predid1 "ugly" = predid1 "class_ring"
+predid1 "engagement_ring" = predid1 "wedding_ring"
+predid1 "beautiful" = predid1 "wedding_ring"
 
 predid1 name
        | Just pred <- lookup name onePlacers = Just pred
@@ -166,20 +157,16 @@ goal = [
 
 event :: [ (Content, [(Case, Entity)]) ]
 event = [
-	("make", [(Agent,T),(Patient,S),(Result,R)] )
+	("marry", [(Agent,F),(CoAgent,R)] )
 	, ("make", [(Agent,U),(Patient,S),(Result,R)] )
-	, ("make_V2V", [(Agent,T),(Predicate,P)] )
-	, ("make_V2V", [(Agent,U),(Predicate,P)] )
+	, ("make_V2V", [(Agent,F),(Predicate,P)] )
 
 	]
 
 condition :: [ (Content, [(Case, Entity)]) ]
 condition = [
-	("feel", [(Patient,S),(Predicate,P)] )
-	, ("happy", [(Predicate,P),(Patient,S)] )
-	, ("relaxed", [(Predicate,P),(Patient,S)] )
-	, ("happy", [(Result,R),(Patient,S)] )
-	, ("relaxed", [(Result,R),(Patient,S)] )
+	("feel", [(Patient,R),(Predicate,P)] )
+	, ("magnificent", [(Predicate,P),(Theme,D)] )
 	]
 
 idea :: [ (Content, [(Case, Entity)]) ]
@@ -200,24 +187,11 @@ attitude = [
 
 affiliation :: [ (Content, [(Case, Entity)]) ]
 affiliation = [
-	("resident", [(Theme,S),(Location,X) ] )
-	, ("mother", [(Pivot,S),(Theme,M) ] )
+	, ("mother", [(Pivot,S),(Theme,R) ] )
 	, ("father", [(Pivot,S),(Theme,F) ] )
-	, ("sister", [(Pivot,S),(Theme,Y) ] )
-	, ("brother", [(Pivot,S),(Theme,O) ] )
-	, ("mother", [(Pivot,A),(Theme,M) ] )
-	, ("father", [(Pivot,A),(Theme,F) ] )
 	, ("family", [(Pivot,S),(Theme,L) ] )
-	, ("family", [(Pivot,A),(Theme,L) ] )
-	, ("family", [(Pivot,L),(Theme,M) ] )
-	, ("family", [(Pivot,L),(Theme,F) ] )
-	, ("family", [(Pivot,L),(Theme,Y) ] )
-	, ("family", [(Pivot,L),(Theme,O) ] )
-	, ("student", [(Agent,Y),(Location,V) ] )
-	, ("student", [(Agent,O),(Location,W) ] )
-	, ("name", [(Theme,A),(Result,A) ] )
-	, ("name", [(Theme,A),(Result,C) ] )
-	, ("name", [(Theme,S),(Result,S) ] )
+	, ("family", [(Pivot,R),(Theme,L) ] )
+	, ("family", [(Pivot,F),(Theme,M) ] )
 	]
 
 gentwoPlacer :: [ (Content, [(Case,Entity)]) ] ->
@@ -256,16 +230,6 @@ twoPlaceStarters = [
     ]
 
 twoPlacers =
-	(gentwoPlacer affiliation "have" "name" Theme Result) :
-	(gentwoPlacer affiliation "have" "father" Pivot Theme) :
-	(gentwoPlacer affiliation "have" "mother" Pivot Theme) :
-	(gentwoPlacer affiliation "have" "brother" Pivot Theme) :
-	(gentwoPlacer affiliation "have" "sister" Pivot Theme) :
-	(gentwoPlacer affiliation "have" "family" Pivot Theme) :
-	(gentwoPlacer affiliation "live" "resident" Theme Location) :
-	(gentwoPlacer affiliation "study" "student" Agent Location) :
-	(gentwoPlacer affiliation "in_prep" "student" Agent Location) :
-	(gentwoPlacer attitude "have" "favorite" Experiencer Stimulus) :
 	(gentwoPlacer attitude "feel" "feel" Experiencer Predicate) :
 	(gentwoPlacer attitude "love" "love" Experiencer Predicate) :
 	(gentwoPlacer attitude "play" "love" Experiencer Stimulus) :
@@ -313,7 +277,7 @@ threePlaceStarters = [
 threePlacers =
 	(genthreePlacer attitude "play" "love" Predicate Experiencer Stimulus) :
 	(genthreePlacer attitude "listen" "love" Predicate Experiencer Stimulus) :
-	(genthreePlacer attitude "make_V2" "love" Predicate Experiencer Stimulus) :
+	(genthreePlacer attitude "make_V2V" "love" Predicate Experiencer Stimulus) :
 	(genthreePlacer goal "be" "translator" Predicate Pivot Theme) :
 	threePlaceStarters
 
