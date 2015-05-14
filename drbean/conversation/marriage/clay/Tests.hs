@@ -148,6 +148,7 @@ yn_dic_test = [
 	, "Does Frank make Rebia feel like the dinner is magnificent."
 	, "If Rebia burns popcorn, is it the best."
 	, "Is Rebia married to Frank for seventeen years."
+	, "Are Rebia and Frank married for seventeen years."
 	, "Do Frank and Rebia separate."
 	, "Does Frank move to Michigan."
 	, "Does Frank get into a fight."
