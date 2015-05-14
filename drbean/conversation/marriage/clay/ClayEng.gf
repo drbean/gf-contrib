@@ -15,6 +15,7 @@ lin
 	on_back_of	= mkPrep "on the back of";
 	down_to	= mkPrep "down to";
 	down_on	= mkPrep "down on";
+	for	= mkPrep "for";
 
 	believe	= mkVS( mkV "believe");
 	burn	= mkV2 "burn";

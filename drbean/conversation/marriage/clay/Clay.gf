@@ -15,6 +15,7 @@ fun
 	on_back_of	: LocPrep;
 	down_to	: LocPrep;
 	down_on	: LocPrep;
+	for	: Prep;
 
 	believe	: VS;
 	burn	: V2;
