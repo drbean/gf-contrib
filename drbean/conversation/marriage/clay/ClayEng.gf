@@ -91,6 +91,7 @@ lin
 	rebia	= mkPN( mkN feminine (mkN "Rebia") );
 	rebia_and_frank	= ResEng.mkNP "Rebia and Frank" "Rebia and Frank" "Rebia and Frank's" plural ResEng.P3 human;
 	frank_and_rebia	= ResEng.mkNP "Frank and Rebia" "Frank and Rebia" "Frank and Rebia's" plural ResEng.P3 human;
+	seventeen_years = mkNP seventeen year;
 
 	details	= mkN "details";
 	dinner	= mkN "dinner";

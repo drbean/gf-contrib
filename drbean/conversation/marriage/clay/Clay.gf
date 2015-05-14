@@ -91,6 +91,7 @@ fun
 	rebia	: PN;
 	rebia_and_frank	: NP;
 	frank_and_rebia	: NP;
+	seventeen_years: Times;
 
 	details	: N;
 	dinner	: N;
