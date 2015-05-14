@@ -9,7 +9,7 @@ lin
   three	= mkDet( mkNumeral n3_Unit);
   four	= mkDet( mkNumeral n4_Unit);
   five	= mkDet( mkNumeral n5_Unit);
-  seventeen	= mkDet( mkNumeral (mkSub100 n1_Unit n7_Unit));
+  seventeen	= mkDet( mkNumeral "17");
 
 	on	= mkPrep "on";
 	on_back_of	= mkPrep "on the back of";
