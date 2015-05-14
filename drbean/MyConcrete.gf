@@ -146,6 +146,7 @@ lin
   Locating prep item	= ConstructorsEng.mkAdv prep item;
 	Location det placename = mkNP det placename;
 	FreqAdv times period	= ConstructorsEng.mkAdv P.noPrep (mkNP times period);
+	PeriodAdv prep times	= ConstructorsEng.mkAdv prep times;
 	Happening action	=	mkVP action;
 	Changing action patient	= mkVP action patient;
 	Causative causal patient predicate	= mkVP causal patient predicate;

@@ -28,6 +28,7 @@ fun
 	Locating  : LocPrep -> Place -> Located;
 	Location	: Det -> PlaceName -> Place;
 	FreqAdv	: NP -> Period -> Time;
+	PeriodAdv	: Prep -> Times -> Period;
 	Happening	: V -> VP ;
 	Changing	: V2 -> NP -> VP;
 	Causative:	V2V -> NP -> VP -> VP;
@@ -52,7 +53,7 @@ fun
 	VPClSlash	: NP -> VPSlash -> ClSlash;
 	ToPlace	:  Motion -> Located -> VP;
 	WithPlace	:  V -> Located -> VP;
-	WithTime	: VP -> Time -> VP;
+	WithTime	: VP -> Period -> VP;
 	WithStyle	: VP -> Style -> VP;
 	WithCl	: VP -> SubordCl -> VP;
 
