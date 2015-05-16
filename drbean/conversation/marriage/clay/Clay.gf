@@ -23,7 +23,6 @@ fun
 	feel	: VA;
 	find	: V2;
 	get_married	: V;
-	get_A	: VA;
 	get_Place	: V;
 	give	: V3;
 	go	: V;

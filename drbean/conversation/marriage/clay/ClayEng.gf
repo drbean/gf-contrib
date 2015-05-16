@@ -26,8 +26,7 @@ lin
 	feel	= mkVA( mkV "feel");
 	find	= mkV2 IrregEng.find_V;
 	get_married	= partV get_V "married";
-	get_A	= mkVA( mkV "get");
-	get_Place	= mkV "get";
+	get_Place	= get_V;
 	give	= mkV3( mkV "give");
 	go	= mkV "go";
 	grab	= mkV2 "grab";
