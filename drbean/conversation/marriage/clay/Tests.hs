@@ -160,7 +160,7 @@ yn_dic_test = [
 	, "Is Frank's son always happy."
 	, "Does Frank's son always laugh."
 	, "Is Frank's son a gentleman."
-	, "Is Rebia's other three sons are like that."
+	, "Are Rebia's other three sons like that."
 	, "Does Rebia's oldest son say, My biological father's name is So-and-so, but my dad's name is Frank."
 	, "Does Rebia still remember Frank."
 	, "Does Rebia believe that Frank is her first true love."
