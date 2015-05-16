@@ -108,14 +108,13 @@ repNP (GEntity name) p r
 repNP frank_and_rebia p r = let
 	DRS frank_rs frank_conds = p r
 	len = ref2int (maximum frank_rs)
-	reflist = newDRSRefs (replicate len (DRSRef "r")) []
-	frank_r = reflist !! 0
+	frank_r = r
 	rebia_r = int2ref (len + 1)
 	DRS rebia_rs rebia_conds = p rebia_r
-	rs = frank_rs ++ rebia_rs
+	rs = nub (frank_rs ++ rebia_rs)
 	conds = (Rel (DRSRel "frank") [frank_r] : frank_conds) ++
 		(Rel (DRSRel "rebia") [rebia_r] : rebia_conds) in
-	DRS rebia_rs conds
+	DRS rs conds
 repNP Gshe p r = let
 	dummy =DRSRef "dummy1"
 	iminus = ref2int r - 1
