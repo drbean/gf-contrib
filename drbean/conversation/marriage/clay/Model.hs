@@ -21,7 +21,7 @@ entity_check =  [
     , (E, "" )
     , (F, "frank" )
     , (G, "" )
-    , (H, "" )
+    , (H, "city_hall" )
     , (I, "wedding_ring" )
     , (J, "" )
     , (K, "" )
@@ -161,8 +161,10 @@ goal = [
 event :: [ (Content, [(Case, Entity)]) ]
 event = [
 	("marry", [(Agent,F),(CoAgent,R)] )
-	, ("make", [(Agent,U),(Patient,S),(Result,R)] )
 	, ("make_V2V", [(Agent,F),(Predicate,P)] )
+	, ("see", [(Experiencer,F), (Stimulus,R)] )
+	, ("go", [(Theme,F), (Destination,H)] )
+	, ("go", [(Theme,R), (Destination,H)] )
 
 	]
 
@@ -170,6 +172,7 @@ condition :: [ (Content, [(Case, Entity)]) ]
 condition = [
 	("feel", [(Patient,R),(Predicate,P)] )
 	, ("magnificent", [(Predicate,P),(Theme,D)] )
+	, ("possession", [(Pivot,F),(Theme,C)] )
 	]
 
 idea :: [ (Content, [(Case, Entity)]) ]
@@ -234,15 +237,11 @@ twoPlaceStarters = [
 
 twoPlacers =
 	(gentwoPlacer attitude "feel" "feel" Experiencer Predicate) :
-	(gentwoPlacer attitude "love" "love" Experiencer Predicate) :
-	(gentwoPlacer attitude "play" "love" Experiencer Stimulus) :
-	(gentwoPlacer attitude "like" "love" Experiencer Predicate) :
-	(gentwoPlacer attitude "listen" "love" Experiencer Stimulus) :
-	(gentwoPlacer attitude "make_V2" "love" Experiencer Stimulus) :
-	(gentwoPlacer goal "want" "translator" Pivot Predicate) :
+	(gentwoPlacer event "see_V2" "see" Experiencer Stimulus) :
 	(gentwoPlacer condition "in_form_of" "in_form_of" Patient Instrument) :
 	(gentwoPlacer condition "make_V2V" "make_V2V" Agent Predicate) :
-	(gentwoPlacer condition "relaxed" "relaxed" Predicate Patient) :
+	(gentwoPlacer event "go" "go" Theme Destination) :
+	(gentwoPlacer condition "have" "have" Pivot Theme) :
 	(gentwoPlacer event "get" "give" Recipient Theme) :
 	(gentwoPlacer idea "say" "say" Agent Predicate) :
 	(gentwoPlacer idea "think" "think" Agent Predicate) :
@@ -306,7 +305,6 @@ comms	= []
 giving	= []
 --(agent,theme,location)
 looking_back	= []
-seeing	= []
 --(agent,origin,destination)
 
 look_back	= pred1 $ map agent looking_back
