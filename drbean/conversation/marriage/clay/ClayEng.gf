@@ -3,6 +3,9 @@
 concrete ClayEng of Clay = MyConcrete **
 open (ResEng = ResEng), ConstructorsEng, ParadigmsEng, StructuralEng, IrregEng, ExtraEng, Prelude in {
 
+oper
+	get_V = IrregEng.get_V;
+
 lin
 
   one	= mkDet( mkNumeral n1_Unit);
@@ -22,6 +25,7 @@ lin
 	come	= mkV2 "come";
 	feel	= mkVA( mkV "feel");
 	find	= mkV2 IrregEng.find_V;
+	get_married	= partV get_V "married";
 	get_A	= mkVA( mkV "get");
 	get_Place	= mkV "get";
 	give	= mkV3( mkV "give");
