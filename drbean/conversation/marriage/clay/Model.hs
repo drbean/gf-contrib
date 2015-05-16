@@ -78,24 +78,24 @@ predid5 name
         -- | otherwise    = Nothing
         | otherwise    = error $ "no '" ++ name ++ "' five-place predicate."
 
-onePlacers, onePlaceStarters, entityonePlacers :: [(String, OnePlacePred)]
+onePlacers, onePlaceStarters, entityonePlacers :: [(String, [Entity])]
 onePlaceStarters = [
-        ("true",        pred1 entities )
-        , ("false",     pred1 [] )
-        , ("role",      pred1 [] )
+	("true",        entities )
+	, ("false",     [] )
+	, ("role",      [] )
 
 
-	, ("study",	pred1 [] )
-	, ("male",	pred1 [S,F] )
-	, ("female",	pred1 [R] )
+	, ("male",	[B,S,F] )
+	, ("female",	[R,W] )
 	]
 
 
 onePlacers = 
 	(genonePlacer affiliation "name" "name" Result) :
 	(genonePlacer affiliation "mother" "mother" Pivot) :
-	-- (genonePlacer affiliation "father" "father" Pivot) :
-	-- (genonePlacer affiliation "older_sister" "older_sister" Pivot) :
+	(genonePlacer affiliation "father" "father" Pivot) :
+	(genonePlacer event "get_married" "marriage" CoAgent) :
+	(genonePlacer event "get_married" "marriage" Agent) :
 	(genonePlacer attitude "favorite" "favorite" Stimulus) :
 	entityonePlacers ++ onePlaceStarters
 
@@ -111,19 +111,20 @@ predid1 "happy" = predid1 "son"
 predid1 "gentleman" = predid1 "son"
 predid1 "pregnant" = predid1 "rebia"
 
-predid1 name
-       | Just pred <- lookup name onePlacers = Just pred
-        -- | otherwise    = Nothing
-       | otherwise    = error $ "no '" ++ name ++ "' one-place predicate."
+predid1 name = if name `elem` (map fst onePlacers) then
+	Just (pred1 (concat [ oneple | (id, oneple) <- onePlacers
+		, id == name] ) ) else
+		-- Nothing
+		error $ "no '" ++ name ++ "' one-place predicate."
 
 entityonePlacers =
-	map (\x -> (snd x, pred1 [fst x])) entity_check
+	map (\x -> (snd x, [fst x])) entity_check
 
 genonePlacer :: [ (Content, [(Case,Entity)]) ] ->
 	String -> String -> Case -> 
-	(String, OnePlacePred)
+	(String, [Entity])
 genonePlacer area id content role =
-	( id, pred1 [ r | (co,cs) <- area
+	( id, [ r | (co,cs) <- area
 		, co == content
 		, Just r <-[lookup role cs]
 		] )
@@ -160,7 +161,7 @@ goal = [
 
 event :: [ (Content, [(Case, Entity)]) ]
 event = [
-	("marry", [(Agent,F),(CoAgent,R)] )
+	("marriage", [(Agent,F),(CoAgent,R)] )
 	, ("make_V2V", [(Agent,F),(Predicate,P)] )
 	, ("see", [(Experiencer,F), (Stimulus,R)] )
 	, ("go", [(Theme,F), (Destination,H)] )
