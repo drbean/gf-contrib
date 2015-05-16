@@ -113,9 +113,8 @@ repNP frank_and_rebia p r = let
 	rebia_r = int2ref (len + 1)
 	DRS rebia_rs rebia_conds = p rebia_r
 	rs = frank_rs ++ rebia_rs
-	conds = [ Rel (DRSRel "frank") [frank_r],
-		Rel (DRSRel "rebia") [rebia_r] ] ++
-		frank_conds ++ rebia_conds in
+	conds = (Rel (DRSRel "frank") [frank_r] : frank_conds) ++
+		(Rel (DRSRel "rebia") [rebia_r] : rebia_conds) in
 	DRS rebia_rs conds
 repNP Gshe p r = let
 	dummy =DRSRef "dummy1"
