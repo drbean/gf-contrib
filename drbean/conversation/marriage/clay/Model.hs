@@ -15,7 +15,7 @@ entities	=  [minBound..maxBound]
 entity_check :: [ (Entity, String) ]
 entity_check =  [
     (A, "" )
-    , (B, "" )
+    , (B, "boyfriend" )
     , (C, "class_ring" )
     , (D, "dinner" )
     , (E, "" )
@@ -36,11 +36,11 @@ entity_check =  [
     , (T, "" )
     , (U, "" )
     , (V, "" )
-    , (W, "" )
+    , (W, "woman" )
     , (X, "" )
     , (Y, "" )
     , (Z, "" )
-    {]
+    ]
 
 ent_ided :: String -> Entity
 ent_ided name = head [entity | (entity,string) <- entity_check ,
@@ -107,6 +107,9 @@ predid1 "big" = predid1 "class_ring"
 predid1 "ugly" = predid1 "class_ring"
 predid1 "engagement_ring" = predid1 "wedding_ring"
 predid1 "beautiful" = predid1 "wedding_ring"
+predid1 "happy" = predid1 "son"
+predid1 "gentleman" = predid1 "son"
+predid1 "pregnant" = predid1 "rebia"
 
 predid1 name
        | Just pred <- lookup name onePlacers = Just pred
@@ -187,7 +190,7 @@ attitude = [
 
 affiliation :: [ (Content, [(Case, Entity)]) ]
 affiliation = [
-	, ("mother", [(Pivot,S),(Theme,R) ] )
+	("mother", [(Pivot,S),(Theme,R) ] )
 	, ("father", [(Pivot,S),(Theme,F) ] )
 	, ("family", [(Pivot,S),(Theme,L) ] )
 	, ("family", [(Pivot,R),(Theme,L) ] )
@@ -237,7 +240,6 @@ twoPlacers =
 	(gentwoPlacer attitude "listen" "love" Experiencer Stimulus) :
 	(gentwoPlacer attitude "make_V2" "love" Experiencer Stimulus) :
 	(gentwoPlacer goal "want" "translator" Pivot Predicate) :
-	(gentwoPlacer condition "happy" "happy" Predicate Patient) :
 	(gentwoPlacer condition "in_form_of" "in_form_of" Patient Instrument) :
 	(gentwoPlacer condition "make_V2V" "make_V2V" Agent Predicate) :
 	(gentwoPlacer condition "relaxed" "relaxed" Predicate Patient) :
