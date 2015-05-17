@@ -19,6 +19,7 @@ lin
 	down_to	= mkPrep "down to";
 	down_on	= mkPrep "down on";
 	for	= mkPrep "for";
+	into	= mkPrep "into";
 
 	believe	= mkVS( mkV "believe");
 	burn	= mkV2 "burn";
@@ -38,7 +39,7 @@ lin
 	look	= mkV2 "look";
 	make_V2V	= mkV2V IrregEng.make_V noPrep noPrep;
 	meet	= mkV2 "meet";
-	move	= mkV2 "move";
+	move	= mkV "move";
 	put_V3	= mkV3 IrregEng.put_V noPrep on;
 	remember_V2	= mkV2 "remember";
 	remember_VV	= mkVV( mkV "remember");

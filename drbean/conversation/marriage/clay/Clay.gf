@@ -16,6 +16,7 @@ fun
 	down_to	: LocPrep;
 	down_on	: LocPrep;
 	for	: Prep;
+	into	: LocPrep;
 
 	believe	: VS;
 	burn	: V2;
@@ -35,7 +36,7 @@ fun
 	look	: V2;
 	make_V2V	: V2V;
 	meet	: V2;
-	move	: V2;
+	move	: V;
 	put_V3	: V3;
 	remember_V2	: V2;
 	remember_VV	: VV;
@@ -52,7 +53,7 @@ fun
 	try	: VV;
 	walk	: V2;
 
-	altercation	: CN;
+	altercation	: PlaceName;
 	back	: CN;
 	bedroom	: PlaceName;
 	boyfriend	: CN;
