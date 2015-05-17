@@ -273,6 +273,7 @@ threePlacers, threePlaceStarters :: [(String, ThreePlacePred)]
 threePlaceStarters = [
     ]
 threePlacers =
+	(genthreePlacer event "give" "ringing" Agent Recipient Theme) :
 	threePlaceStarters
 
 type Content = String
