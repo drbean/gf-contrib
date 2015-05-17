@@ -156,7 +156,6 @@ pred4 xs	= curry4 ( `elem` xs )
 
 goal :: [ (Content, [(Case, Entity)]) ]
 goal = [
-	("try", [(Agent,F),(Predicate,P)] )
 	]
 
 event :: [ (Content, [(Case, Entity)]) ]
@@ -167,6 +166,7 @@ event = [
 	, ("go", [(Theme,F), (Destination,H)] )
 	, ("go", [(Theme,R), (Destination,H)] )
 	, ("ringing", [(Agent,F),(Theme,C),(Recipient,R),(Destination,G)] )
+	("try", [(Agent,F),(Predicate,P)] )
 
 	]
 
