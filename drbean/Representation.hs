@@ -434,7 +434,15 @@ repVP (GIntens v0 vp) = case vp of
 			, Prop p (DRS [] [Rel (DRSRel lin_v)
 			[r, theme]])]
 		in DRS [theme] conds) (new obj r)
-
+	(GTriangulating v obj1 obj2) -> \r ->
+		repNP obj1 (\theme ->
+		repNP obj2 (\recipient -> let
+		lin_v = lin v
+		p = DRSRef "p"
+		conds = [Rel (DRSRel (lin v0)) [r, p]
+			, Prop p (DRS [] [Rel (DRSRel lin_v) [r, theme, recipient]])]
+		in DRS [r,theme,recipient] conds)
+			(new obj2 theme) ) (new obj1 r)
 repW :: GIP -> (DRSRef -> DRS) -> DRSRef -> DRS
 repW Gwho_WH p r = let
 	person = Rel (DRSRel "person") [r]
