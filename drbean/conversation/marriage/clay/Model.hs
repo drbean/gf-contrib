@@ -20,7 +20,7 @@ entity_check =  [
     , (D, "dinner" )
     , (E, "" )
     , (F, "frank" )
-    , (G, "" )
+    , (G, "finger" )
     , (H, "city_hall" )
     , (I, "wedding_ring" )
     , (J, "" )
@@ -96,7 +96,6 @@ onePlacers =
 	(genonePlacer affiliation "father" "father" Pivot) :
 	(genonePlacer event "get_married" "marriage" CoAgent) :
 	(genonePlacer event "get_married" "marriage" Agent) :
-	(genonePlacer attitude "favorite" "favorite" Stimulus) :
 	entityonePlacers ++ onePlaceStarters
 
 predid1 "people"	= predid1 "person"
@@ -107,6 +106,7 @@ predid1 "big" = predid1 "class_ring"
 predid1 "ugly" = predid1 "class_ring"
 predid1 "engagement_ring" = predid1 "wedding_ring"
 predid1 "beautiful" = predid1 "wedding_ring"
+predid1 "ring" = predid1 "wedding_ring"
 predid1 "happy" = predid1 "son"
 predid1 "gentleman" = predid1 "son"
 predid1 "pregnant" = predid1 "rebia"
@@ -156,7 +156,7 @@ pred4 xs	= curry4 ( `elem` xs )
 
 goal :: [ (Content, [(Case, Entity)]) ]
 goal = [
-	("translator", [(Pivot,A),(Theme,D),(Predicate,P)] )
+	("try", [(Agent,F),(Predicate,P)] )
 	]
 
 event :: [ (Content, [(Case, Entity)]) ]
@@ -166,6 +166,7 @@ event = [
 	, ("see", [(Experiencer,F), (Stimulus,R)] )
 	, ("go", [(Theme,F), (Destination,H)] )
 	, ("go", [(Theme,R), (Destination,H)] )
+	, ("ringing", [(Agent,F),(Theme,C),(Recipient,R),(Destination,G)] )
 
 	]
 
@@ -184,12 +185,7 @@ idea = [
 
 attitude :: [ (Content, [(Case, Entity)]) ]
 attitude = [
-	("favorite", [(Experiencer,A),(Stimulus,J)] )
-	, ("favorite", [(Experiencer,S),(Stimulus,K)] )
-	, ("love", [(Experiencer,S),(Stimulus,T),(Predicate,P)] )
-	, ("love", [(Experiencer,S),(Stimulus,U),(Predicate,P)] )
-	, ("love", [(Experiencer,A),(Stimulus,G),(Predicate,P)] )
-	, ("love", [(Experiencer,A),(Stimulus,I),(Predicate,P)] )
+	("appreciation", [(Experiencer,F),(Stimulus,D)] )
 	]
 
 affiliation :: [ (Content, [(Case, Entity)]) ]
