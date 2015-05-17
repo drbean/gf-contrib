@@ -166,7 +166,7 @@ event = [
 	, ("go", [(Theme,F), (Destination,H)] )
 	, ("go", [(Theme,R), (Destination,H)] )
 	, ("ringing", [(Agent,F),(Theme,C),(Recipient,R),(Destination,G)] )
-	("try", [(Agent,F),(Predicate,P)] )
+	, ("try", [(Agent,F),(Predicate,P)] )
 
 	]
 
@@ -235,11 +235,11 @@ twoPlaceStarters = [
 twoPlacers =
 	(gentwoPlacer attitude "feel" "feel" Experiencer Predicate) :
 	(gentwoPlacer event "see_V2" "see" Experiencer Stimulus) :
+	(gentwoPlacer event "try" "try" Agent Predicate) :
 	(gentwoPlacer condition "in_form_of" "in_form_of" Patient Instrument) :
 	(gentwoPlacer condition "make_V2V" "make_V2V" Agent Predicate) :
 	(gentwoPlacer event "go" "go" Theme Destination) :
 	(gentwoPlacer condition "have" "have" Pivot Theme) :
-	(gentwoPlacer event "get" "give" Recipient Theme) :
 	(gentwoPlacer idea "say" "say" Agent Predicate) :
 	(gentwoPlacer idea "think" "think" Agent Predicate) :
 	(gentwoPlacer condition "positive" "positive" Predicate Patient) :
@@ -273,10 +273,6 @@ threePlacers, threePlaceStarters :: [(String, ThreePlacePred)]
 threePlaceStarters = [
     ]
 threePlacers =
-	(genthreePlacer attitude "play" "love" Predicate Experiencer Stimulus) :
-	(genthreePlacer attitude "listen" "love" Predicate Experiencer Stimulus) :
-	(genthreePlacer attitude "make_V2V" "love" Predicate Experiencer Stimulus) :
-	(genthreePlacer goal "be" "translator" Predicate Pivot Theme) :
 	threePlaceStarters
 
 type Content = String
@@ -356,6 +352,7 @@ fourPlaceStarters = [
         ]
 
 fourPlacers =
+	(genfourPlacer event "give" "ringing" Predicate Agent Recipient Theme) :
 	fourPlaceStarters
 
 agent4, theme4, recipient4, location4 :: (Entity,Entity,Entity,Entity) -> Entity
