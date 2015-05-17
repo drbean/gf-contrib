@@ -231,6 +231,7 @@ lin
 
 	her_Det	= mkDet she_Pron;
 	her_MassDet	= mkDet she_Pron;
+	he_Det	= mkDet he_Pron;
 	its	= mkDet it_Pron;
 
 	she = mkNP she_Pron;
