@@ -206,6 +206,28 @@ repDet Gher_Det = \ p q dummy-> let
 	have r thing = Rel (DRSRel "have") [r, thing]
 	false :: DRSCon
 	false = Rel (DRSRel "true") [DRSRef "r1"]
+repDet Ghe_Det = \ p q dummy-> let
+	iminus = ref2int dummy - 1
+	rolled_ref = int2ref iminus
+	he_refs = case dummy of
+		(DRSRef "r1") -> [DRSRef "r1"]
+		_ -> newDRSRefs (replicate iminus (DRSRef "r")) []
+	DRS prs pconds = p dummy
+	thing = maximum prs
+	DRS qrs qconds = q thing
+	len = ref2int (maximum qrs)
+	reflist = newDRSRefs (replicate len (DRSRef "r")) []
+	he_cond = foldl (\ors dummy -> Or
+		(DRS [] [ male dummy, have dummy thing] )
+		(DRS [] [ors])) false he_refs
+	conds = pconds ++ [he_cond] ++ qconds
+	in DRS reflist conds where
+	male :: DRSRef -> DRSCon
+	male r = (Rel (DRSRel "male") [r])
+	have :: DRSRef -> DRSRef -> DRSCon
+	have r thing = Rel (DRSRel "have") [r, thing]
+	false :: DRSCon
+	false = Rel (DRSRel "true") [DRSRef "r1"]
 repDet Gsome_Det = repDet Ga_Det
 repDet GtheSg_Det = repDet Ga_Det
 repDet Gsome_pl_Det = repDet Gsome_Det
