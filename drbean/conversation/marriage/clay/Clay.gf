@@ -114,7 +114,6 @@ fun
 	pregnant	: AP;
 	ugly	: AP;
 
-	always	: Adv;
 }
 
 -- vim: set ts=2 sts=2 sw=2 noet:

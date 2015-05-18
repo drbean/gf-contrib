@@ -115,8 +115,6 @@ lin
 	pregnant	= mkAP( mkA "pregnant");
 	ugly	= mkAP( mkA "ugly");
 
-	always	= mkAdv "always";
-
 }
 
 -- vim: set ts=2 sts=2 sw=2 noet:
