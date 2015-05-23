@@ -146,6 +146,7 @@ prep = [
 	, "for"
 	, "in"
 	, "on"
+	, "over_to"
 	, "to"
 	]
 
@@ -289,7 +290,7 @@ on
 one
 other
 out
-over
+over_to	: Prep;
 popcorn	: N;
 pregnant	: A;
 put	: V3;
