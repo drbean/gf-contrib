@@ -11,12 +11,12 @@ fun
 	five	: Det;
 	seventeen	: Det;
 
-	on	: LocPrep;
 	on_back_of	: LocPrep;
 	down_to	: LocPrep;
 	down_on	: LocPrep;
 	for	: Prep;
 	into	: LocPrep;
+	over_to	: Prep;
 
 	believe	: VS;
 	burn	: V2;
@@ -33,7 +33,7 @@ fun
 	have	: V2;
 	help	: V2;
 	laugh	: V;
-	look	: V2;
+	look	: V;
 	make_V2V	: V2V;
 	meet	: V2;
 	move	: V;

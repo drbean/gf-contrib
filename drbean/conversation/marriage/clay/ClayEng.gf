@@ -14,12 +14,12 @@ lin
   five	= mkDet( mkNumeral n5_Unit);
   seventeen	= mkDet( mkNumeral "17");
 
-	on	= mkPrep "on";
 	on_back_of	= mkPrep "on the back of";
 	down_to	= mkPrep "down to";
 	down_on	= mkPrep "down on";
 	for	= mkPrep "for";
 	into	= mkPrep "into";
+	over_to	= mkPrep "over to";
 
 	believe	= mkVS( mkV "believe");
 	burn	= mkV2 "burn";
@@ -36,11 +36,11 @@ lin
 	have	= mkV2 "have";
 	help	= mkV2 "help";
 	laugh	= mkV "laugh";
-	look	= mkV2 "look";
+	look	= mkV "look";
 	make_V2V	= mkV2V IrregEng.make_V noPrep noPrep;
 	meet	= mkV2 "meet";
 	move	= mkV "move";
-	put_V3	= mkV3 IrregEng.put_V noPrep on;
+	put_V3	= mkV3 IrregEng.put_V noPrep on_prep;
 	remember_V2	= mkV2 "remember";
 	remember_VV	= mkVV( mkV "remember");
 	run	= mkV2 "run";
@@ -54,7 +54,7 @@ lin
 	talk	= mkV2 "talk";
 	tell	= mkV2S IrregEng.tell_V noPrep;
 	try	= mkVV( mkV "try");
-	walk	= mkV2 "walk";
+	walk	= mkV2 "walk" over_to;
 
 	altercation	= mkCN( mkN "altercation");
 	back	= mkCN( mkN "back");
