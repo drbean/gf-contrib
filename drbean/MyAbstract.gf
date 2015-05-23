@@ -146,7 +146,7 @@ fun
 	from_prep	: Prep;
   like_prep	: Prep;
 	of_prep	: Prep;
-	on_prep	: Prep;
+	on_prep	: LocPrep;
 	over_prep	: Prep;
 	part_prep	: Prep;
 	to_prep	: LocPrep;
