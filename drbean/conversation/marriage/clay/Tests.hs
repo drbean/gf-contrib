@@ -123,7 +123,6 @@ yn_dic_test = [
 	, "Does Frank have rings?"
 	, "Does Rebia have rings?"
 	-- , "Do Frank and Rebia have rings?"
-	, "Does Frank try to give Rebia his class ring?"
 	, "Does Frank try to give his class ring to Rebia?"
 	, "Does Frank give Rebia a class ring?"
 	, "Does Frank give Rebia Frank's class ring?"
