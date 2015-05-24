@@ -40,9 +40,10 @@ lin
 	make_V2V	= mkV2V IrregEng.make_V noPrep noPrep;
 	meet	= mkV2 "meet";
 	move	= mkV "move";
+	put_V2	= mkV2( partV IrregEng.put_V "on");
 	put_V3	= mkV3 IrregEng.put_V noPrep on_prep;
 	remember_V2	= mkV2 "remember";
-	remember_VV	= mkVV( mkV "remember");
+	remember_VV	= ingVV( mkV "remember");
 	run	= mkV2 "run";
 	say	= mkVS( mkV "say");
 	see_V2	= mkV2 "see";

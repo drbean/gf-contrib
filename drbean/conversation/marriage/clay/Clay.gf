@@ -37,6 +37,7 @@ fun
 	make_V2V	: V2V;
 	meet	: V2;
 	move	: V;
+	put_V2	: V2;
 	put_V3	: V3;
 	remember_V2	: V2;
 	remember_VV	: VV;
@@ -60,7 +61,7 @@ fun
 	child	: CN;
 	class_ring	: CN;
 	dad	: CN;
-	day	: CN;
+	day	: TimeName;
 	door	: PlaceName;
 	dresser	: PlaceName;
 	engagement_ring	: CN;
