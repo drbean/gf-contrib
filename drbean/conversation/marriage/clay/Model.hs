@@ -165,7 +165,8 @@ event = [
 	, ("see", [(Experiencer,F), (Stimulus,R)] )
 	, ("go", [(Theme,F), (Destination,H)] )
 	, ("go", [(Theme,R), (Destination,H)] )
-	, ("ringing", [(Agent,F),(Theme,C),(Recipient,R),(Destination,G)] )
+	, ("walk", [(Theme,F),(Destination,R)] )
+	, ("ringing", [(Predicate,P),(Agent,F),(Theme,C),(Recipient,R),(Destination,G)] )
 	, ("try", [(Agent,F),(Predicate,P)] )
 
 	]
@@ -239,6 +240,7 @@ twoPlacers =
 	(gentwoPlacer condition "in_form_of" "in_form_of" Patient Instrument) :
 	(gentwoPlacer condition "make_V2V" "make_V2V" Agent Predicate) :
 	(gentwoPlacer event "go" "go" Theme Destination) :
+	(gentwoPlacer event "walk" "walk" Theme Destination) :
 	(gentwoPlacer condition "have" "have" Pivot Theme) :
 	(gentwoPlacer idea "say" "say" Agent Predicate) :
 	(gentwoPlacer idea "think" "think" Agent Predicate) :
@@ -354,6 +356,7 @@ fourPlaceStarters = [
 
 fourPlacers =
 	(genfourPlacer event "give" "ringing" Predicate Agent Recipient Theme) :
+	(genfourPlacer event "put_V3" "ringing" Agent Recipient Theme Destination) :
 	fourPlaceStarters
 
 agent4, theme4, recipient4, location4 :: (Entity,Entity,Entity,Entity) -> Entity
