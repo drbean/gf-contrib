@@ -6,6 +6,7 @@ abstract MyAbstract = Cat, Conjunction ** {
 cat
 	Time;
 	Times;
+	TimeName;
 	Period;
 	Title;
 	Place;
@@ -27,8 +28,9 @@ fun
 	Be_vp	: Comp -> VP;
 	Locating  : LocPrep -> Place -> Located;
 	Location	: Det -> PlaceName -> Place;
+	Timing	: Det -> TimeName -> Times;
 	FreqAdv	: NP -> Period -> Time;
-	PeriodAdv	: Prep -> Times -> Period;
+	PeriodAdv	: Times -> Period;
 	Happening	: V -> VP ;
 	Changing	: V2 -> NP -> VP;
 	Causative:	V2V -> NP -> VP -> VP;

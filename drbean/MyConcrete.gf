@@ -41,6 +41,7 @@ lincat
   Prep	= Prep;
   CAdv	= CAdv;
 	Time	= Adv;
+	TimeName	= CN;
 	Times	= NP;
 	Period	= Adv;
 	Subj	= Subj;
@@ -146,7 +147,8 @@ lin
   Locating prep item	= ConstructorsEng.mkAdv prep item;
 	Location det placename = mkNP det placename;
 	FreqAdv times period	= ConstructorsEng.mkAdv P.noPrep (mkNP times period);
-	PeriodAdv prep times	= ConstructorsEng.mkAdv prep times;
+	PeriodAdv times	= ConstructorsEng.mkAdv P.noPrep times;
+	Timing det time = mkNP det time;
 	Happening action	=	mkVP action;
 	Changing action patient	= mkVP action patient;
 	Causative causal patient predicate	= mkVP causal patient predicate;
