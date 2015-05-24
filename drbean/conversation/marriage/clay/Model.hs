@@ -26,18 +26,18 @@ entity_check =  [
     , (J, "" )
     , (K, "" )
     , (L, "" )
-    , (M, "" )
-    , (N, "" )
-    , (O, "" )
-    , (P, "" )
-    , (Q, "" )
+    , (M, "home" )
+    , (N, "note" )
+    , (O, "door" )
+    , (P, "bedroom" )
+    , (Q, "dresser" )
     , (R, "rebia" )
     , (S, "son" )
     , (T, "" )
     , (U, "" )
     , (V, "" )
     , (W, "woman" )
-    , (X, "" )
+    , (X, "ring_box" )
     , (Y, "" )
     , (Z, "" )
     ]
@@ -107,6 +107,7 @@ predid1 "ugly" = predid1 "class_ring"
 predid1 "engagement_ring" = predid1 "wedding_ring"
 predid1 "beautiful" = predid1 "wedding_ring"
 predid1 "ring" = predid1 "wedding_ring"
+predid1 "ring_box_Place" = predid1 "ring_box"
 predid1 "happy" = predid1 "son"
 predid1 "gentleman" = predid1 "son"
 predid1 "pregnant" = predid1 "rebia"
@@ -163,8 +164,11 @@ event = [
 	("marriage", [(Agent,F),(CoAgent,R)] )
 	, ("make_V2V", [(Agent,F),(Predicate,P)] )
 	, ("see", [(Experiencer,F), (Stimulus,R)] )
+	, ("see", [(Experiencer,R), (Stimulus,Q)] )
 	, ("go", [(Theme,F), (Destination,H)] )
 	, ("go", [(Theme,R), (Destination,H)] )
+	, ("go", [(Theme,R), (Destination,M),(Experiencer,R),(Predicate,P)] )
+	, ("go", [(Theme,R), (Destination,P)] )
 	, ("walk", [(Theme,F),(Destination,R)] )
 	, ("ringing", [(Predicate,P),(Agent,F),(Theme,C),(Recipient,R),(Destination,G)] )
 	, ("try", [(Agent,F),(Predicate,P)] )
@@ -176,6 +180,8 @@ condition = [
 	("feel", [(Patient,R),(Predicate,P)] )
 	, ("magnificent", [(Predicate,P),(Theme,D)] )
 	, ("possession", [(Pivot,F),(Theme,C)] )
+	, ("possession", [(Pivot,O),(Theme,N)] )
+	, ("possession", [(Pivot,Q),(Theme,X)] )
 	]
 
 idea :: [ (Content, [(Case, Entity)]) ]
@@ -236,12 +242,14 @@ twoPlaceStarters = [
 twoPlacers =
 	(gentwoPlacer attitude "feel" "feel" Experiencer Predicate) :
 	(gentwoPlacer event "see_V2" "see" Experiencer Stimulus) :
+	(gentwoPlacer event "look" "see" Experiencer Stimulus) :
 	(gentwoPlacer event "try" "try" Agent Predicate) :
 	(gentwoPlacer condition "in_form_of" "in_form_of" Patient Instrument) :
 	(gentwoPlacer condition "make_V2V" "make_V2V" Agent Predicate) :
 	(gentwoPlacer event "go" "go" Theme Destination) :
 	(gentwoPlacer event "walk" "walk" Theme Destination) :
-	(gentwoPlacer condition "have" "have" Pivot Theme) :
+	(gentwoPlacer event "remember_VV" "go" Theme Predicate) :
+	(gentwoPlacer condition "have" "possession" Pivot Theme) :
 	(gentwoPlacer idea "say" "say" Agent Predicate) :
 	(gentwoPlacer idea "think" "think" Agent Predicate) :
 	(gentwoPlacer condition "positive" "positive" Predicate Patient) :
@@ -276,6 +284,7 @@ threePlaceStarters = [
     ]
 threePlacers =
 	(genthreePlacer event "give" "ringing" Agent Recipient Theme) :
+	(genthreePlacer event "come" "go" Predicate Theme Destination) :
 	threePlaceStarters
 
 type Content = String
