@@ -442,6 +442,7 @@ repVP (GCausative v0 obj vp) = case vp of
 					, Prop p2 (DRS [] [Rel (DRSRel lin_ap) rs])])]
 			in DRS [r, patient] conds ) (new obj r)
 repVP (GIntens v0 vp) = case vp of
+	(GWithTime v _) -> repVP (GIntens v0 v)
 	(GBe_vp comp) -> case comp of
 		(GBe_someone np) -> \r ->
 			repNP np (\ hypernym -> let
