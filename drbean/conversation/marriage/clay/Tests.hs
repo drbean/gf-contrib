@@ -142,6 +142,7 @@ yn_dic_test = [
 	, "Is a beautiful wedding ring in the ring box?"
 	, "Is there a beautiful engagement ring in the ring box?"
 	, "Does Rebia grab the rings?"
+	, "Does Rebia put on the rings?"
 	, "Does Rebia put the rings on?"
 	, "Does Rebia run out of the house, because she knows where he hangs out at?"
 	, "Does Frank say, Did you find the rings, when he sees Rebia coming?"
