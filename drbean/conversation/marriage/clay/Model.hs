@@ -237,12 +237,6 @@ manager = boss
 
 twoPlacers, twoPlaceStarters :: [(String, [(Entity,Entity)])]
 twoPlaceStarters = [
-    ("know_V2",    knowledge ++ acquaintances ++ map swap acquaintances)
-    , ("kind",  [(student, H) | (_,_,_,student,_) <- schooling ])
-    , ("placing",       [(student, school) | (_,school,_,student,_) <- schooling ]
-                )
-    , ("studied", foldl (\hs (_,school,subject,student,_) ->
-                    (student,subject): (student,school) : hs) [] schooling )
     ]
 
 twoPlacers =
