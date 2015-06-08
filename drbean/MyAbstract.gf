@@ -30,6 +30,7 @@ fun
 	Timing	: Det -> TimeName -> Times;
 	FreqAdv	: NP -> Period -> Time;
 	PeriodAdv	: Times -> Period;
+	Styling	: Prep -> NP -> Style;
 	Happening	: V -> VP ;
 	Changing	: V2 -> NP -> VP;
 	Causative:	V2V -> NP -> VP -> VP;

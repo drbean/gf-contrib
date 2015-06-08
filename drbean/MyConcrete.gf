@@ -147,6 +147,7 @@ lin
 	Location det placename = mkNP det placename;
 	FreqAdv times period	= ConstructorsEng.mkAdv P.noPrep (mkNP times period);
 	PeriodAdv times	= ConstructorsEng.mkAdv P.noPrep times;
+	Styling prep item	= ConstructorsEng.mkAdv prep item;
 	Timing det time = mkNP det time;
 	Happening action	=	mkVP action;
 	Changing action patient	= mkVP action patient;
