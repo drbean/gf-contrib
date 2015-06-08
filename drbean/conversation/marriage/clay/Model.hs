@@ -87,6 +87,7 @@ onePlaceStarters = [
 
 	, ("male",	[B,S,F] )
 	, ("female",	[R,W] )
+	, ("married",	[R,F] )
 	]
 
 
@@ -113,8 +114,6 @@ predid1 "ring_box_Place" = predid1 "ring_box"
 predid1 "happy" = predid1 "son"
 predid1 "gentleman" = predid1 "son"
 predid1 "pregnant" = predid1 "rebia"
-predid1 "married" = predid1 "rebia"
-predid1 "married" = predid1 "frank"
 
 predid1 name = if name `elem` (map fst onePlacers) then
 	Just (pred1 (concat [ oneple | (id, oneple) <- onePlacers
