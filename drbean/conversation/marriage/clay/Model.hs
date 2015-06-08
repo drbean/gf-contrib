@@ -235,10 +235,6 @@ subordinate	= pred1 $ map snd supervision
 employee	= subordinate
 manager = boss
 
-knowledge	= [(B,F),(T,F),(E,F),(B,P),(T,P),(E,P)]
-acquaintances	= []
-help	= pred2 $ supervision
-
 twoPlacers, twoPlaceStarters :: [(String, [(Entity,Entity)])]
 twoPlaceStarters = [
     ("know_V2",    knowledge ++ acquaintances ++ map swap acquaintances)
