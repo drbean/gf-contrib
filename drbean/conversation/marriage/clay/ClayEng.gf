@@ -50,8 +50,8 @@ lin
 	see_V2V	= ingV2V IrregEng.see_V noPrep noPrep;
 	separate	= mkV "separate";
 	shake	= mkV "shake";
-	shoot_V2	= mkV2 "shoot";
-	shoot_V3	= mkV3( mkV "shoot");
+	shoot_V2	= mkV2 IrregEng.shoot_V;
+	shoot_V3	= mkV3 IrregEng.shoot_V noPrep in_prep;
 	talk	= mkV2 "talk";
 	tell	= mkV2S IrregEng.tell_V noPrep;
 	try	= mkVV( mkV "try");
