@@ -23,7 +23,7 @@ entity_check =  [
     , (G, "finger" )
     , (H, "city_hall" )
     , (I, "wedding_ring" )
-    , (J, "" )
+    , (J, "back" )
     , (K, "knee" )
     , (L, "" )
     , (M, "home" )
@@ -182,6 +182,8 @@ event = [
 	, ("separation", [(Agent,F),(CoAgent,R)] )
 	, ("go", [(Theme,F), (Destination,Z)] )
 	, ("get_into", [(Patient,F),(Goal,A)] )
+	, ("help", [(Agent,F),(Beneficiary,W)] )
+	, ("shooting", [(Agent,B),(Goal,F),(Location,J)] )
 
 	]
 
@@ -192,6 +194,7 @@ condition = [
 	, ("possession", [(Pivot,F),(Theme,C)] )
 	, ("possession", [(Pivot,O),(Theme,N)] )
 	, ("possession", [(Pivot,Q),(Theme,X)] )
+	, ("possession", [(Pivot,W),(Theme,B)] )
 	]
 
 idea :: [ (Content, [(Case, Entity)]) ]
@@ -256,6 +259,8 @@ twoPlacers =
 	(gentwoPlacer event "come" "go" Theme Destination) :
 	(gentwoPlacer event "move" "go" Theme Destination) :
 	(gentwoPlacer event "get_Place" "get_into" Patient Goal) :
+	(gentwoPlacer event "help" "help" Agent Beneficiary) :
+	(gentwoPlacer event "shoot_V2" "shooting" Agent Goal) :
 	(gentwoPlacer idea "say" "say" Agent Predicate) :
 	(gentwoPlacer idea "think" "think" Agent Predicate) :
 	(gentwoPlacer condition "positive" "positive" Predicate Patient) :
@@ -292,6 +297,7 @@ threePlacers =
 	(genthreePlacer event "give" "ringing" Agent Recipient Theme) :
 	(genthreePlacer event "hand" "ringing" Agent Recipient Theme) :
 	(genthreePlacer event "come" "go" Predicate Theme Destination) :
+	(genthreePlacer event "shoot_V3" "shooting" Agent Goal Location) :
 	threePlaceStarters
 
 type Content = String
