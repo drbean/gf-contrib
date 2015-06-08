@@ -14,7 +14,7 @@ entities	=  [minBound..maxBound]
 
 entity_check :: [ (Entity, String) ]
 entity_check =  [
-    (A, "" )
+    (A, "altercation" )
     , (B, "boyfriend" )
     , (C, "class_ring" )
     , (D, "dinner" )
@@ -24,7 +24,7 @@ entity_check =  [
     , (H, "city_hall" )
     , (I, "wedding_ring" )
     , (J, "" )
-    , (K, "" )
+    , (K, "knee" )
     , (L, "" )
     , (M, "home" )
     , (N, "note" )
@@ -39,7 +39,7 @@ entity_check =  [
     , (W, "woman" )
     , (X, "ring_box" )
     , (Y, "" )
-    , (Z, "" )
+    , (Z, "michigan" )
     ]
 
 ent_ided :: String -> Entity
@@ -96,6 +96,8 @@ onePlacers =
 	(genonePlacer affiliation "father" "father" Pivot) :
 	(genonePlacer event "get_married" "marriage" CoAgent) :
 	(genonePlacer event "get_married" "marriage" Agent) :
+	(genonePlacer event "separate" "separation" CoAgent) :
+	(genonePlacer event "separate" "separation" Agent) :
 	entityonePlacers ++ onePlaceStarters
 
 predid1 "people"	= predid1 "person"
@@ -111,6 +113,8 @@ predid1 "ring_box_Place" = predid1 "ring_box"
 predid1 "happy" = predid1 "son"
 predid1 "gentleman" = predid1 "son"
 predid1 "pregnant" = predid1 "rebia"
+predid1 "married" = predid1 "rebia"
+predid1 "married" = predid1 "frank"
 
 predid1 name = if name `elem` (map fst onePlacers) then
 	Just (pred1 (concat [ oneple | (id, oneple) <- onePlacers
@@ -169,9 +173,16 @@ event = [
 	, ("go", [(Theme,R), (Destination,H)] )
 	, ("go", [(Theme,R), (Destination,M),(Experiencer,R),(Predicate,P)] )
 	, ("go", [(Theme,R), (Destination,P)] )
+	, ("get_down", [(Theme,F), (Destination,K)] )
 	, ("walk", [(Theme,F),(Destination,R)] )
 	, ("ringing", [(Predicate,P),(Agent,F),(Theme,C),(Recipient,R),(Destination,G)] )
 	, ("try", [(Agent,F),(Predicate,P)] )
+	, ("grab", [(Agent,R),(Theme,I)] )
+	, ("ringing", [(Agent,R),(Theme,I),(Recipient,F)] )
+	, ("go", [(Theme,F), (Destination,M)] )
+	, ("separation", [(Agent,F),(CoAgent,R)] )
+	, ("go", [(Theme,F), (Destination,Z)] )
+	, ("get_into", [(Patient,F),(Goal,A)] )
 
 	]
 
@@ -250,6 +261,12 @@ twoPlacers =
 	(gentwoPlacer event "walk" "walk" Theme Destination) :
 	(gentwoPlacer event "remember_VV" "go" Theme Predicate) :
 	(gentwoPlacer condition "have" "possession" Pivot Theme) :
+	(gentwoPlacer event "grab" "grab" Agent Theme) :
+	(gentwoPlacer event "put_V2" "ringing" Agent Theme) :
+	(gentwoPlacer event "get_Place" "get_down" Theme Destination) :
+	(gentwoPlacer event "come" "go" Theme Destination) :
+	(gentwoPlacer event "move" "go" Theme Destination) :
+	(gentwoPlacer event "get_Place" "get_into" Patient Goal) :
 	(gentwoPlacer idea "say" "say" Agent Predicate) :
 	(gentwoPlacer idea "think" "think" Agent Predicate) :
 	(gentwoPlacer condition "positive" "positive" Predicate Patient) :
@@ -284,6 +301,7 @@ threePlaceStarters = [
     ]
 threePlacers =
 	(genthreePlacer event "give" "ringing" Agent Recipient Theme) :
+	(genthreePlacer event "hand" "ringing" Agent Recipient Theme) :
 	(genthreePlacer event "come" "go" Predicate Theme Destination) :
 	threePlaceStarters
 
