@@ -11,6 +11,7 @@ lin
   one	= mkDet( mkNumeral n1_Unit);
   three	= mkDet( mkNumeral n3_Unit);
   four	= mkDet( mkNumeral n4_Unit);
+	-- fourth = mkNP (mkDet the_Quant (mkOrd (mkNumeral n4_Unit)));
   five	= mkDet( mkNumeral n5_Unit);
   seventeen	= mkDet( mkNumeral "17");
 
@@ -20,7 +21,6 @@ lin
 	for	= mkPrep "for";
 	into	= mkPrep "into";
 	over_to	= mkPrep "over to";
-
 	believe	= mkVS( mkV "believe");
 	burn	= mkV2 "burn";
 	come	= mkV2 "come";
@@ -112,6 +112,7 @@ lin
 	happy	= mkAP( mkA "happy");
 	magnificent	= mkAP( mkA "magnificent");
 	married	= mkAP( mkA "married");
+	-- married_to = mkAP( mkA2 (mkA "married") (mkPrep "to"));
 	oldest	= mkAP( mkA "oldest");
 	pregnant	= mkAP( mkA "pregnant");
 	ugly	= mkAP( mkA "ugly");

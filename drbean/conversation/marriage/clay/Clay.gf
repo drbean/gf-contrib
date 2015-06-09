@@ -8,6 +8,7 @@ fun
 	one	: Det;
 	three	: Det;
 	four	: Det;
+	-- fourth	: Ord;
 	five	: Det;
 	seventeen	: Det;
 
@@ -111,6 +112,7 @@ fun
 	happy	: AP;
 	magnificent	: AP;
 	married	: AP;
+	-- married_to	: AP;
 	oldest	: AP;
 	pregnant	: AP;
 	ugly	: AP;
