@@ -195,6 +195,8 @@ condition = [
 	, ("possession", [(Pivot,O),(Theme,N)] )
 	, ("possession", [(Pivot,Q),(Theme,X)] )
 	, ("possession", [(Pivot,W),(Theme,B)] )
+	, ("possession", [(Pivot,F),(Theme,S)] )
+	, ("possession", [(Pivot,R),(Theme,S)] )
 	]
 
 idea :: [ (Content, [(Case, Entity)]) ]
