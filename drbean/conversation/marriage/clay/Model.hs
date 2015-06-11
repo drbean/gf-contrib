@@ -48,7 +48,7 @@ ent_ided name = head [entity | (entity,string) <- entity_check ,
 				]
 
 characters :: [(String,Entity)]
-characters = map findEnt [A,C,S]
+characters = map findEnt [F,R]
 	where findEnt e
 		| Just name <- lookup e entity_check
 			= (name,e)
@@ -113,6 +113,7 @@ predid1 "ring" = predid1 "wedding_ring"
 predid1 "ring_box_Place" = predid1 "ring_box"
 predid1 "happy" = predid1 "son"
 predid1 "gentleman" = predid1 "son"
+predid1 "child" = predid1 "son"
 predid1 "pregnant" = predid1 "rebia"
 
 predid1 name = if name `elem` (map fst onePlacers) then
