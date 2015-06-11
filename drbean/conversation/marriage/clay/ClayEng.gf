@@ -33,7 +33,7 @@ lin
 	grab	= mkV2 "grab";
 	hand	= mkV3( mkV "hand");
 	hang	= mkV "hang";
-	have	= mkV2 "have";
+	have	= mkV2 IrregEng.have_V;
 	help	= mkV2 "help";
 	laugh	= mkV "laugh";
 	look	= mkV "look";
