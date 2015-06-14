@@ -220,58 +220,6 @@ data Case = Agent | Asset | Attribute | Beneficiary | Cause | CoAgent |
 	Stimulus | Theme | Time | Topic | Trajectory | Value
   deriving Eq
 
-agent, theme, recipient, location, instrument ::
-	(Entity,Entity,Entity) -> Entity
-agent (a,_,_) = a
-theme (_,t,_) = t
-recipient (_,_,r) = r
-patient = theme
-location = recipient
-instrument = recipient
-origin	= theme
-destination = recipient
-
-comms	= []
-giving	= []
---(agent,theme,location)
-looking_back	= []
---(agent,origin,destination)
-
-look_back	= pred1 $ map agent looking_back
-look_back_on	= pred2 $ map (\x->(agent x, theme x) ) looking_back
-said	= pred2 $ map (\x->(agent x, theme x) ) comms
-asked	= pred2 $ map (\x->(agent x, recipient x) ) comms
-ask_about = pred3 $ map (\x->(agent x, recipient x, theme x) ) comms
-talked	= pred2 $ map (\x->(agent x, recipient x) ) comms
-              ++  map (\(agent,theme,recipient)->(recipient, agent) ) comms
-talk_about = pred3 $ map (\x->(agent x, recipient x, theme x) ) comms
-go_to	= pred2 $ map (\x->(recipient5 x,location5 x) ) schooling
-
--- (teacher,school(location),subject,student,degree)
-schooling = []
---(person,school)
-education	= []
---(person,subject)
-subjects	= []
-
-studied = pred3 $ map ( \x -> (recipient5 x, theme5 x, location5 x) )
-				schooling
-studied_what = pred2 $ map (\x -> (recipient5 x, theme5 x) ) schooling
-studied_where = pred2 $ map (\x -> (recipient5 x, location5 x) ) schooling
-student = pred1 $ map recipient5 schooling
--- graduated_from ::  TwoPlacePred
-
-
-
-
-gave	= pred3 giving
-got	= pred2 $ map (\x -> (recipient x, patient x) ) giving
-got_from	= pred3 $ map (\x -> (recipient x, patient x, agent x) ) giving
-
-told	= pred3 comms
-
-recite = pred2 $ map ( \x -> (agent x, theme x) ) comms
-
 genfourPlacer :: [ (Content, [(Case,Entity)]) ] ->
 	String -> String -> Case -> Case -> Case ->
 	Case -> (String, FourPlacePred)
