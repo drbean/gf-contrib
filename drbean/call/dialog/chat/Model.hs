@@ -239,18 +239,6 @@ fourPlaceStarters = [
 fourPlacers =
 	fourPlaceStarters
 
-agent4, theme4, recipient4, location4 :: (Entity,Entity,Entity,Entity) -> Entity
-agent4 (a,_,_,_) = a
-location4 (_,l,_,_) = l
-theme4 (_,_,t,_) = t
-recipient4 (_,_,_,r) = r
-provider4       = recipient4
-location4' (_,_,_,l)     = l
-mode4   = location4'
-purpose4        = location4'
-aim4    = purpose4
-result4 = recipient4
-
 fivePlacers = [
         ]
 
