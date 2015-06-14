@@ -1,4 +1,3 @@
-	, "c0me"
 module WordsCharacters where 
 
 import qualified Data.Map as Map
@@ -144,6 +143,13 @@ tag = [
 
 v = [
   "come"
+	, "disconnect"
+	, "greet"
+	, "guess"
+	, "say"
+	, "talk"
+	, "tell"
+	, "understand"
 
 
 {-
@@ -163,7 +169,7 @@ can
 city	: CN;
 come	: V2;
 correctly
-disconnect
+disconnect	: V;
 Ellarose	: PN;
 English
 ever
@@ -174,9 +180,9 @@ freshman	: CN;
 from
 girl	: CN;
 good	: A;
-greet
+greet	: V2;
 guess	: CN;
-guess
+guess	: V2;
 he
 Hello
 her
@@ -206,22 +212,22 @@ Paris	: PN;
 question	: CN;
 right	: A;
 Sabrina	: PN;
-say
+say	: VS;
 she
 sophomore	: CN;
 speak
 stranger	: CN;
 student	: CN;
 Taiwan	: PN;
-talk
-tell
+talk	: V2;
+tell	: V2S;
 that
 the
 The
 they
 to
 Turkey	: PN;
-understand
+understand	: V;
 USA	: PN;
 want
 when

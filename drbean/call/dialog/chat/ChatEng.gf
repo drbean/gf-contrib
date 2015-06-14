@@ -20,7 +20,7 @@ lin
 	city	= mkCN( mkN "city");
 	freshman	= mkCN( mkN "freshman");
 	girl	= mkCN( mkN "girl");
-	guess	= mkCN( mkN "guess");
+	guess_CN	= mkCN( mkN "guess");
 	man	= mkCN( mkN "man");
 	name	= mkCN( mkN "name");
 	nationality	= mkCN( mkN "nationality");
@@ -46,6 +46,13 @@ lin
 	ny	= mkPN( mkN feminine (mkN "NY") );
 
 	come	= mkV2 "come";
+	disconnect	= mkV "disconnect";
+	greet	= mkV2 "greet";
+	say	= mkVS( mkV "say");
+	talk	= mkV2 "talk";
+	tell	= mkV2S IrregEng.tell_V noPrep;
+	understand	= mkV "understand";
+	guess_V2	= mkV2 "guess";
 
 }
 

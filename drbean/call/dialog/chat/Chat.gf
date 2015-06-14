@@ -5,19 +5,19 @@ abstract Chat = MyAbstract ** {
 fun
 
 
-	beautiful	: A;
-	female	: A;
-	good	: A;
-	male	: A;
-	old	: A;
-	right	: A;
-	young	: A;
+	beautiful	: AP;
+	female	: AP;
+	good	: AP;
+	male	: AP;
+	old	: AP;
+	right	: AP;
+	young	: AP;
 
 	age	: CN;
 	city	: CN;
 	freshman	: CN;
 	girl	: CN;
-	guess	: CN;
+	guess_CN	: CN;
 	man	: CN;
 	name	: CN;
 	nationality	: CN;
@@ -42,9 +42,15 @@ fun
 	usa	: PN;
 	ny	: PN;
 
-}
-
-
 	come	: V2;
+	disconnect	: V;
+	greet	: V2;
+	guess_V2	: V2;
+	say	: VS;
+	talk	: V2;
+	tell	: V2S;
+	understand	: V;
+
+}
 
 -- vim: set ts=2 sts=2 sw=2 noet:
