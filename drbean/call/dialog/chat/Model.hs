@@ -237,8 +237,6 @@ fourPlaceStarters = [
         ]
 
 fourPlacers =
-	(genfourPlacer event "give" "ringing" Predicate Agent Recipient Theme) :
-	(genfourPlacer event "put_V3" "ringing" Agent Recipient Theme Destination) :
 	fourPlaceStarters
 
 agent4, theme4, recipient4, location4 :: (Entity,Entity,Entity,Entity) -> Entity
