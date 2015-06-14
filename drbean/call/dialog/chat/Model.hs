@@ -183,27 +183,6 @@ twoPlaceStarters = [
     ]
 
 twoPlacers =
-	(gentwoPlacer attitude "feel" "feel" Experiencer Predicate) :
-	(gentwoPlacer event "see_V2" "see" Experiencer Stimulus) :
-	(gentwoPlacer event "look" "see" Experiencer Stimulus) :
-	(gentwoPlacer event "try" "try" Agent Predicate) :
-	(gentwoPlacer condition "in_form_of" "in_form_of" Patient Instrument) :
-	(gentwoPlacer condition "make_V2V" "make_V2V" Agent Predicate) :
-	(gentwoPlacer event "go" "go" Theme Destination) :
-	(gentwoPlacer event "walk" "walk" Theme Destination) :
-	(gentwoPlacer event "remember_VV" "go" Theme Predicate) :
-	(gentwoPlacer condition "have" "possession" Pivot Theme) :
-	(gentwoPlacer event "grab" "grab" Agent Theme) :
-	(gentwoPlacer event "put_V2" "ringing" Agent Theme) :
-	(gentwoPlacer event "get_Place" "get_down" Theme Destination) :
-	(gentwoPlacer event "come" "go" Theme Destination) :
-	(gentwoPlacer event "move" "go" Theme Destination) :
-	(gentwoPlacer event "get_Place" "get_into" Patient Goal) :
-	(gentwoPlacer event "help" "help" Agent Beneficiary) :
-	(gentwoPlacer event "shoot_V2" "shooting" Agent Goal) :
-	(gentwoPlacer idea "say" "say" Agent Predicate) :
-	(gentwoPlacer idea "think" "think" Agent Predicate) :
-	(gentwoPlacer condition "positive" "positive" Predicate Patient) :
 	twoPlaceStarters
 
 predid2 "like" = predid2 "love"
