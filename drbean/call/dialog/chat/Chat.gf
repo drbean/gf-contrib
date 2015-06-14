@@ -1,4 +1,4 @@
-abstract Clay = MyAbstract ** {
+abstract Chat = MyAbstract ** {
 
 
   flags startcat = Utt ;

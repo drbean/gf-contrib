@@ -1,6 +1,6 @@
 --# -path=.:/home/drbean/GF/gf-contrib/drbean:present
 
-concrete ClayEng of Clay = MyConcrete **
+concrete ChatEng of Chat = MyConcrete **
 open (ResEng = ResEng), ConstructorsEng, ParadigmsEng, StructuralEng, IrregEng, ExtraEng, Prelude in {
 
 oper
