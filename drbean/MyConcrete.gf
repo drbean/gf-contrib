@@ -268,8 +268,11 @@ lin
   up_prep	= P.mkPrep "up";
   with_prep	= P.mkPrep "with";
 
+	person	= mkCN( P.mkN "person");
+
 	can	= can_VV;
 	become	= P.mkV2 IrregEng.become_V;
+	have	= P.mkV2 IrregEng.have_V;
 	know_V2	= P.mkV2 know_V;
 	know_VS	= P.mkVS know_V;
 

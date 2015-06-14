@@ -155,8 +155,11 @@ fun
 	up_prep	: Prep;
 	with_prep	: Prep;
 
+	person	: CN;
+
 	become	: V2;
 	can	: VV;
+	have	: V2;
 	know_V2	: V2;
 	know_VS	: VS;
 
