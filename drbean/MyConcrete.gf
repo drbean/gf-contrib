@@ -2,6 +2,7 @@ concrete MyConcrete of MyAbstract = open Predef, ResEng, Prelude, ConstructorsEn
 
 lincat
   Utt	= Utt;
+	Interj	= Interj;
   PN	= PN;
   NP	= NP;
 	ListNP	= ListNP;
@@ -195,6 +196,8 @@ lin
 	No	= no_Utt;
 	NoAnswer	= ss "No answer";
 	Answer np = mkUtt np;
+
+	Inject i = mkUtt i;
 
 	Entity pn	= mkNP pn;
 	Kind ap cn	= mkCN ap cn;

@@ -81,6 +81,7 @@ fun
 	Yes, No, NoAnswer	: Utt;
 	Answer : NP -> Utt;
 
+	Inject	: Interj -> Utt;
 	Entity	: PN -> NP;
 	Kind	: AP -> CN -> CN;
 	KindOfKind  : CN -> Adv -> CN;
