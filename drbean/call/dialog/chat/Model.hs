@@ -87,36 +87,17 @@ onePlaceStarters = [
 	, ("role",      [] )
 
 
-	, ("male",	[B,S,F] )
-	, ("female",	[R,W] )
-	, ("married",	[R,F] )
+	, ("male",	[Cheney, Andy, James, Johnny, Eason, Simon] )
+	, ("female",	[Dora, Cherry2, Irene, Mandy, Ariel, Lulu, Viola1, Lisa1, Emma, Marian, YiSian, Jessie, Lilian, Annie, Abby, Cathy, Demi, Sunny, Jane, Claire, Connie, Bella, Lily, Maggie, Sharon, Cindy, Jennifer, Sabrina, Ban, Alice, Calina, Jin1, Rachel, Tina] )
 	]
 
 
 onePlacers = 
-	(genonePlacer affiliation "name" "name" Result) :
-	(genonePlacer affiliation "mother" "mother" Pivot) :
-	(genonePlacer affiliation "father" "father" Pivot) :
-	(genonePlacer event "get_married" "marriage" CoAgent) :
-	(genonePlacer event "get_married" "marriage" Agent) :
-	(genonePlacer event "separate" "separation" CoAgent) :
-	(genonePlacer event "separate" "separation" Agent) :
 	entityonePlacers ++ onePlaceStarters
 
 predid1 "people"	= predid1 "person"
 predid1 "person"	= Just person
 predid1 "thing"	= Just thing
-
-predid1 "big" = predid1 "class_ring"
-predid1 "ugly" = predid1 "class_ring"
-predid1 "engagement_ring" = predid1 "wedding_ring"
-predid1 "beautiful" = predid1 "wedding_ring"
-predid1 "ring" = predid1 "wedding_ring"
-predid1 "ring_box_Place" = predid1 "ring_box"
-predid1 "happy" = predid1 "son"
-predid1 "gentleman" = predid1 "son"
-predid1 "child" = predid1 "son"
-predid1 "pregnant" = predid1 "rebia"
 
 predid1 name = if name `elem` (map fst onePlacers) then
 	Just (pred1 (concat [ oneple | (id, oneple) <- onePlacers
