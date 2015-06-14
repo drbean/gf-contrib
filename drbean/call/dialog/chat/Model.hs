@@ -243,21 +243,6 @@ fivePlacers = [
         ]
 
 
-agent5, theme5, recipient5, location5 :: (Entity,Entity,Entity,Entity, Entity) -> Entity
--- for schooling
-agent5		(a,_,_,_,_) = a
-location5	(_,l,_,_,_) = l
-theme5		(_,_,t,_,_) = t
-destination5 = theme5
-recipient5	(_,_,_,r,_) = r
-feature5	(_,_,_,_,f) = f
-provider5       = location5
-result5 = feature5
-style5  = recipient5
-purpose5        = feature5
-aim5    = purpose5
-vehicle5        = location5
-
 forgetful5 :: FivePlacePred -> FourPlacePred
 forgetful5 r u v w t = or ( map ( r u v w t ) entities )
 
