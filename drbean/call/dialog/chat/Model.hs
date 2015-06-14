@@ -210,10 +210,6 @@ threePlacers, threePlaceStarters :: [(String, ThreePlacePred)]
 threePlaceStarters = [
     ]
 threePlacers =
-	(genthreePlacer event "give" "ringing" Agent Recipient Theme) :
-	(genthreePlacer event "hand" "ringing" Agent Recipient Theme) :
-	(genthreePlacer event "come" "go" Predicate Theme Destination) :
-	(genthreePlacer event "shoot_V3" "shooting" Agent Goal Location) :
 	threePlaceStarters
 
 type Content = String
