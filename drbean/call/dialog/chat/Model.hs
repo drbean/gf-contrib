@@ -178,17 +178,6 @@ gentwoPlacer area id content role1 role2 =
 		, Just r2 <- [lookup role2 cs]
 		] )
 
-conflict	= []
-supervision	= [(D,L)]
-isBoss	= pred1 $ map fst supervision
-isWorker	= pred1 $ map snd supervision
-
-supervisor	= pred1 $ map fst supervision
-boss	= supervisor
-subordinate	= pred1 $ map snd supervision
-employee	= subordinate
-manager = boss
-
 twoPlacers, twoPlaceStarters :: [(String, [(Entity,Entity)])]
 twoPlaceStarters = [
     ]
