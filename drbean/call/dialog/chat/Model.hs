@@ -9,6 +9,7 @@ data Entity	= A | B | C | D | E | F | G
 	| V | W | X | Y | Z | Someone | Something | Unspec
   | Dora | Cheney | Andy | James | Cherry2 | Irene | Mandy | Ariel | Lulu | Johnny | Eason | Simon | Viola1 | Lisa1 | Emma | Marian | YiSian | Jessie | Lilian | Annie | Abby | Cathy | Demi | Sunny | Jane | Claire | Connie | Bella | Lily | Maggie | Sharon | Cindy | Jennifer | Sabrina | Ban | Alice | Calina | Jin1 | Rachel | Tina
 
+  | Ellarose | Facebook | Filibee | Junior
      deriving (Eq,Show,Bounded,Enum,Ord)
 
 entities :: [Entity]
@@ -27,7 +28,7 @@ entity_check =  [
     , (I, "" )
     , (J, "" )
     , (K, "" )
-    , (L, "" )
+    , (L, "la" )
     , (M, "" )
     , (N, "" )
     , (O, "" )
@@ -35,8 +36,8 @@ entity_check =  [
     , (Q, "" )
     , (R, "" )
     , (S, "" )
-    , (T, "" )
-    , (U, "" )
+    , (T, "taiwan" )
+    , (U, "turkey" )
     , (V, "" )
     , (W, "" )
     , (X, "" )
@@ -166,6 +167,8 @@ attitude = [
 
 affiliation :: [ (Content, [(Case, Entity)]) ]
 affiliation = [
+	 ("nationality", [(Theme,Alice),(Source,T)] )
+	 , ("nationality", [(Theme,Ariel),(Source,T)]  )
 	]
 
 gentwoPlacer :: [ (Content, [(Case,Entity)]) ] ->
@@ -183,6 +186,7 @@ twoPlaceStarters = [
     ]
 
 twoPlacers =
+	gentwoPlacer affiliation "have" "nationality" Theme Source :
 	twoPlaceStarters
 
 predid2 name = if name `elem` (map fst twoPlacers) then
