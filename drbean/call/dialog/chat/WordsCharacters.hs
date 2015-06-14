@@ -1,3 +1,4 @@
+	, "c0me"
 module WordsCharacters where 
 
 import qualified Data.Map as Map
@@ -34,6 +35,13 @@ posMap = Map.fromList [
 	]
 
 a = [
+	, "beautiful"
+	, "female"
+	, "good"
+	, "male"
+	, "old"
+	, "right"
+	, "young"
 	]
 
 adv = [
@@ -66,12 +74,39 @@ det = [
 n = cn ++ un
 
 cn = [
+	, "age"
+	, "city"
+	, "freshman"
+	, "girl"
+	, "guess"
+	, "man"
+	, "name"
+	, "nationality"
+	, "question"
+	, "sophomore"
+	, "stranger"
+	, "student"
+	, "woman"
 	]
 
 un = [
 	]
 
 pn = [
+	"Alice"
+	, "Ariel"
+	, "Ellarose"
+	, "Facebook"
+	, "Filibee"
+	, "Junior"
+	, "Madison"
+	, "Mandy"
+	, "Paris"
+	, "Sabrina"
+	, "Taiwan"
+	, "Turkey"
+	, "USA"
+	, "NY"
 	]
 
 pron = [
@@ -108,7 +143,92 @@ tag = [
 	]
 
 v = [
-	]
+  "come"
 
+
+{-
+
+15
+16
+18
+a
+A
+age	: CN;
+Alice	: PN;
+and
+Ariel	: PN;
+ask
+beautiful	: A;
+can
+city	: CN;
+come	: V2;
+correctly
+disconnect
+Ellarose	: PN;
+English
+ever
+Facebook	: PN;
+female	: A;
+Filibee	: PN;
+freshman	: CN;
+from
+girl	: CN;
+good	: A;
+greet
+guess	: CN;
+guess
+he
+Hello
+her
+Hi
+him
+Hispanic
+how
+if
+in
+is
+Junior	: PN;
+LA
+like
+Madison	: PN;
+male	: A;
+man	: CN;
+Mandy	: PN;
+name	: CN;
+nationality	: CN;
+NY	: PN;
+not
+now
+old	: A;
+on
+or
+Paris	: PN;
+question	: CN;
+right	: A;
+Sabrina	: PN;
+say
+she
+sophomore	: CN;
+speak
+stranger	: CN;
+student	: CN;
+Taiwan	: PN;
+talk
+tell
+that
+the
+The
+they
+to
+Turkey	: PN;
+understand
+USA	: PN;
+want
+when
+where
+woman	: CN;
+young	: A;
+
+-}
 
 -- vim: set ts=2 sts=2 sw=2 noet:
