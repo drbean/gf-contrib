@@ -1,9 +1,9 @@
-module Representation (module Representation, module Clay) where
+module Representation (module Representation, module Chat) where
 
 import Data.DRS
 import Data.DRS.Show
 
-import Clay
+import Chat
 import PGF
 
 import Model
@@ -17,8 +17,14 @@ import Data.Tuple
 
 entuples :: [(Entity,GPN)]
 entuples = [
-	(F,Gfrank)
-	, (R, Grebia)
+	(Alice,Galice)
+	, (Ariel,Gariel)
+	, (Ellarose,Gellarose)
+	, (Facebook,Gfacebook)
+	, (Filibee,Gfilibee)
+	, (Junior,Gjunior)
+	, (Mandy,Gmandy)
+	, (Sabrina,Gsabrina)
 	]
 
 ref2int :: DRSRef -> Int
@@ -33,8 +39,14 @@ int2ref :: Int -> DRSRef
 int2ref n = DRSRef ("r" ++ (show n) )
 
 instance Eq GPN where
-	(==) Gfrank Gfrank = True
-	(==) Grebia Grebia = True
+	(==) Galice Galice = True
+	(==) Gariel Gariel = True
+	(==) Gellarose Gellarose = True
+	(==) Gfacebook Gfacebook = True
+	(==) Gfilibee Gfilibee = True
+	(==) Gjunior Gjunior = True
+	(==) Gmandy Gmandy = True
+	(==) Gsabrina Gsabrina = True
 	(==) _ _ = False
 
 gent2ent :: GPN -> Entity
