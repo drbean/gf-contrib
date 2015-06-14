@@ -245,11 +245,6 @@ repDet GtheSg_Det = repDet Ga_Det
 repDet Gsome_pl_Det = repDet Gsome_Det
 repDet Gzero_Det_pl = repDet Gsome_pl_Det
 repDet GthePlural_Det =  repDet Gsome_pl_Det
-repDet Gone   = repDet Ga_Det
-repDet Gthree   = repDet Gsome_pl_Det
-repDet Gfour   = repDet Gsome_pl_Det
-repDet Gfive   = repDet Gsome_pl_Det
-repDet Gseventeen   = repDet Gsome_pl_Det
 repDet (GApos np) = case np of
 	Gshe -> repDet Gher_Det
 	Ghe -> repDet Ghe_Det
