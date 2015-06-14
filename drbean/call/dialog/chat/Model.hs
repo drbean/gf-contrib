@@ -4,9 +4,11 @@ import Data.Tuple
 import Data.List
 import Data.Maybe
 data Entity	= A | B | C | D | E | F | G
-            | H | I | J | K | L | M | N 
-            | O | P | Q | R | S | T | U 
-            | V | W | X | Y | Z | Someone | Something | Unspec
+	| H | I | J | K | L | M | N 
+	| O | P | Q | R | S | T | U 
+	| V | W | X | Y | Z | Someone | Something | Unspec
+  | Dora | Cheney | Andy | James | Cherry2 | Irene | Mandy | Ariel | Lulu | Johnny | Eason | Simon | Viola1 | Lisa1 | Emma | Marian | YiSian | Jessie | Lilian | Annie | Abby | Cathy | Demi | Sunny | Jane | Claire | Connie | Bella | Lily | Maggie | Sharon | Cindy | Jennifer | Sabrina | Ban | Alice | Calina | Jin1 | Rachel | Tina
+
      deriving (Eq,Show,Bounded,Enum,Ord)
 
 entities :: [Entity]
@@ -14,32 +16,32 @@ entities	=  [minBound..maxBound]
 
 entity_check :: [ (Entity, String) ]
 entity_check =  [
-    (A, "altercation" )
-    , (B, "boyfriend" )
-    , (C, "class_ring" )
-    , (D, "dinner" )
+    (A, "" )
+    , (B, "" )
+    , (C, "" )
+    , (D, "" )
     , (E, "" )
-    , (F, "frank" )
-    , (G, "finger" )
-    , (H, "city_hall" )
-    , (I, "wedding_ring" )
-    , (J, "back" )
-    , (K, "knee" )
+    , (F, "" )
+    , (G, "" )
+    , (H, "" )
+    , (I, "" )
+    , (J, "" )
+    , (K, "" )
     , (L, "" )
-    , (M, "home" )
-    , (N, "note" )
-    , (O, "door" )
-    , (P, "bedroom" )
-    , (Q, "dresser" )
-    , (R, "rebia" )
-    , (S, "son" )
+    , (M, "" )
+    , (N, "" )
+    , (O, "" )
+    , (P, "" )
+    , (Q, "" )
+    , (R, "" )
+    , (S, "" )
     , (T, "" )
     , (U, "" )
     , (V, "" )
-    , (W, "woman" )
-    , (X, "ring_box" )
+    , (W, "" )
+    , (X, "" )
     , (Y, "" )
-    , (Z, "michigan" )
+    , (Z, "" )
     ]
 
 ent_ided :: String -> Entity
