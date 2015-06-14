@@ -185,9 +185,6 @@ twoPlaceStarters = [
 twoPlacers =
 	twoPlaceStarters
 
-predid2 "like" = predid2 "love"
-predid2 "like_ing" = predid2 "love"
-
 predid2 name = if name `elem` (map fst twoPlacers) then
 	Just (pred2 (concat [ twople | (id, twople) <- twoPlacers
 		, id == name] ) ) else
