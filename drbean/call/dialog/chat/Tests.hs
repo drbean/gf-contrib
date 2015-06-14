@@ -74,7 +74,7 @@ dic_test = [
   , "Ellarose greets Alice."
   , "Alice asks Ellarose where she is from."
   , "Ellarose tells Alice that she is from Madison in the USA."
-  , "Ellarose tells Alice Madison is a beautiful city, like Paris and New York."
+  , "Ellarose tells Alice Madison is a beautiful city, like Paris and NY."
   , "Ellarose asks Alice where she is from."
   , "Alice tells Ellarose that she is from Taiwan."
   , "Alice asks Ellarose if she ever came to Taiwan."
