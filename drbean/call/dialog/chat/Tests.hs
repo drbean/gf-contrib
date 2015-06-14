@@ -120,9 +120,9 @@ yn_dic_test = [
   "Does Mandy say, Hello."
   , "Does Mandy ask a stranger how old he is."
   , "Does Mandy ask a stranger if he is a man or a woman."
-  , "Does A stranger ask Mandy if she is male or female."
+  , "Does a stranger ask Mandy if she is male or female."
   , "Does Mandy tell a stranger she is a man."
-  , "Does A stranger disconnect when Mandy tells him she is a man."
+  , "Does a stranger disconnect when Mandy tells him she is a man."
 
   , "Does Alice say, Hi."
   , "Does Ellarose say that she is 16."
@@ -145,7 +145,7 @@ yn_dic_test = [
   , "Does Ariel tell Filibee that she is from Taiwan."
   , "Does Ariel tell Filibee that they can come to Taiwan."
 
-  , "Does A stranger greet Sabrina."
+  , "Does a stranger greet Sabrina."
   , "Does Sabrina greet a stranger."
   , "Does The stranger say he is male."
   , "Does Sabrina say that she is a girl."
