@@ -8,6 +8,12 @@ oper
 
 lin
 
+	hello	= mkInterj "Hello";
+	hi	= mkInterj "Hi";
+
+	fifteen	= mkAP( mkA "15");
+	sixteen	= mkAP( mkA "16");
+	eighteen	= mkAP( mkA "18");
 	beautiful	= mkAP( mkA "beautiful");
 	female	= mkAP( mkA "female");
 	good	= mkAP( mkA "good");

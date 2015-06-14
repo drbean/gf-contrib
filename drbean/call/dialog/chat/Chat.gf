@@ -4,7 +4,12 @@ abstract Chat = MyAbstract ** {
 
 fun
 
+	hello	: Interj;
+	hi	: Interj;
 
+	fifteen	: AP;
+	sixteen	: AP;
+	eighteen	: AP;
 	beautiful	: AP;
 	female	: AP;
 	good	: AP;
