@@ -34,7 +34,10 @@ posMap = Map.fromList [
 	]
 
 a = [
-	"beautiful"
+	"15"
+	, "16"
+	, "18"
+	, "beautiful"
 	, "female"
 	, "good"
 	, "male"
@@ -155,9 +158,9 @@ v = [
 
 {-
 
-15
-16
-18
+15	: A;
+16	: A;
+18	: A;
 a
 A
 age	: CN;
