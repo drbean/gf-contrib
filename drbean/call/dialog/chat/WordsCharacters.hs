@@ -34,7 +34,7 @@ posMap = Map.fromList [
 	]
 
 a = [
-	, "beautiful"
+	"beautiful"
 	, "female"
 	, "good"
 	, "male"
@@ -73,7 +73,7 @@ det = [
 n = cn ++ un
 
 cn = [
-	, "age"
+	"age"
 	, "city"
 	, "freshman"
 	, "girl"
@@ -150,6 +150,7 @@ v = [
 	, "talk"
 	, "tell"
 	, "understand"
+	]
 
 
 {-
