@@ -148,59 +148,24 @@ goal = [
 
 event :: [ (Content, [(Case, Entity)]) ]
 event = [
-	("marriage", [(Agent,F),(CoAgent,R)] )
-	, ("make_V2V", [(Agent,F),(Predicate,P)] )
-	, ("see", [(Experiencer,F), (Stimulus,R)] )
-	, ("see", [(Experiencer,R), (Stimulus,Q)] )
-	, ("go", [(Theme,F), (Destination,H)] )
-	, ("go", [(Theme,R), (Destination,H)] )
-	, ("go", [(Theme,R), (Destination,M),(Experiencer,R),(Predicate,P)] )
-	, ("go", [(Theme,R), (Destination,P)] )
-	, ("get_down", [(Theme,F), (Destination,K)] )
-	, ("walk", [(Theme,F),(Destination,R)] )
-	, ("ringing", [(Predicate,P),(Agent,F),(Theme,C),(Recipient,R),(Destination,G)] )
-	, ("try", [(Agent,F),(Predicate,P)] )
-	, ("grab", [(Agent,R),(Theme,I)] )
-	, ("ringing", [(Agent,R),(Theme,I),(Recipient,F)] )
-	, ("go", [(Theme,F), (Destination,M)] )
-	, ("separation", [(Agent,F),(CoAgent,R)] )
-	, ("go", [(Theme,F), (Destination,Z)] )
-	, ("get_into", [(Patient,F),(Goal,A)] )
-	, ("help", [(Agent,F),(Beneficiary,W)] )
-	, ("shooting", [(Agent,B),(Goal,F),(Location,J)] )
 
 	]
 
 condition :: [ (Content, [(Case, Entity)]) ]
 condition = [
-	("feel", [(Patient,R),(Predicate,P)] )
-	, ("magnificent", [(Predicate,P),(Theme,D)] )
-	, ("possession", [(Pivot,F),(Theme,C)] )
-	, ("possession", [(Pivot,O),(Theme,N)] )
-	, ("possession", [(Pivot,Q),(Theme,X)] )
-	, ("possession", [(Pivot,W),(Theme,B)] )
-	, ("possession", [(Pivot,F),(Theme,S)] )
-	, ("possession", [(Pivot,R),(Theme,S)] )
 	]
 
 idea :: [ (Content, [(Case, Entity)]) ]
 idea = [
-	("say", [(Agent,O),(Predicate,P)] )
-	, ("think", [(Agent,O),(Predicate,P)] )
+	("say", [(Agent,Dora),(Predicate,P)] )
 	]
 
 attitude :: [ (Content, [(Case, Entity)]) ]
 attitude = [
-	("appreciation", [(Experiencer,F),(Stimulus,D)] )
 	]
 
 affiliation :: [ (Content, [(Case, Entity)]) ]
 affiliation = [
-	("mother", [(Pivot,S),(Theme,R) ] )
-	, ("father", [(Pivot,S),(Theme,F) ] )
-	, ("family", [(Pivot,S),(Theme,L) ] )
-	, ("family", [(Pivot,R),(Theme,L) ] )
-	, ("family", [(Pivot,F),(Theme,M) ] )
 	]
 
 gentwoPlacer :: [ (Content, [(Case,Entity)]) ] ->
