@@ -39,7 +39,7 @@ fun
 	V_that_S:	VS -> S -> VP;
 	V_S:	VS -> S -> VP;
 	V_SC:	VS -> SC -> VP;
-	Informing:	V2S -> NP -> S -> VP;
+	V_NP_that_S:	V2S -> NP -> S -> VP;
 	Triangulating:	V3 -> NP -> NP -> VP;
   Pred2A: V2A -> NP -> AP -> VP;
 	-- GetPassV3	: V3 -> NP -> VP ;	-- be called John

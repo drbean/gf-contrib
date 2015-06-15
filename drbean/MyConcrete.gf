@@ -159,7 +159,7 @@ lin
 	V_that_S posit event	= mkVP posit event;
 	V_S posit event	= ComplBareVS posit event;
 	V_SC posit event	= ComplBareVS posit event;
-	Informing posit patient event	= mkVP posit patient event;
+	V_NP_that_S posit patient event	= mkVP posit patient event;
   Triangulating v patient recipient = mkVP v patient recipient; 
   Pred2A v patient state = mkVP v patient state;
   -- GetPassV3 v np = insertObj (\\_ => v.s ! VPPart ++ v.p ++ v.c2 ++ v.c3 ++ np.s ! NPAcc) (predAux auxGet) ;
