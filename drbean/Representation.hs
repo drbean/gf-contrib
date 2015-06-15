@@ -422,6 +422,8 @@ repVP (GV_that_S v0 (GPosS (GSentence np vp))) = case vp of
 				(DRSRel lin_v) [referent, theme]])]
 			in DRS [r, theme, referent] conds )
 			(new obj referent) ) (new np r)
+repVP (GV_S v0 (GPosS (GSentence np vp))) = 
+	repVP (GV_that_S v0 (GPosS (GSentence np vp)))
 repVP (GV_that_S v0 (GNegS (GSentence np vp))) = case vp of
 	(GIntens vv vp2) -> case vp2 of
 		(GChanging v obj) -> \r -> repNP np (\referent ->
@@ -434,6 +436,8 @@ repVP (GV_that_S v0 (GNegS (GSentence np vp))) = case vp of
 				[referent, theme]])])]
 			in DRS [r, theme, referent] conds )
 			(new obj referent) ) (new np r)
+repVP (GV_S v0 (GNegS (GSentence np vp))) = 
+	repVP (GV_that_S v0 (GNegS (GSentence np vp)))
 repVP (GCausative v0 obj vp) = case vp of
 	(GLook_bad v ap) -> \r ->
 		repNP obj (\patient -> let
