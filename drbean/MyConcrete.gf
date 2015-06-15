@@ -141,6 +141,7 @@ oper
 
 lin
 	Be_bad ap	= mkComp ap;
+  Be_somewhere located	= mkComp located;
 	Be_someone np	= mkComp np;
 	Be_vp comp	= mkVP comp;
 	Look_bad verb adj	= mkVP verb adj;

@@ -24,6 +24,7 @@ fun
 	-- Be_made_sth : V3 -> NP -> VP;
 	Be_bad	: AP -> Comp;
 	Be_someone	: NP -> Comp;
+	Be_somewhere	: Located -> Comp;
 	Be_vp	: Comp -> VP;
 	Locating  : LocPrep -> Place -> Located;
 	Location	: Det -> PlaceName -> Place;
