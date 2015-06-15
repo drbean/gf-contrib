@@ -37,6 +37,8 @@ fun
 	Causative:	V2V -> NP -> VP -> VP;
 	Intens:	VV -> VP -> VP;
 	Positing:	VS -> S -> VP;
+	V_Pro_S:	VS -> S -> VP;
+	V_SC:	VS -> SC -> VP;
 	Informing:	V2S -> NP -> S -> VP;
 	Triangulating:	V3 -> NP -> NP -> VP;
   Pred2A: V2A -> NP -> AP -> VP;
@@ -82,7 +84,8 @@ fun
 	Yes, No, NoAnswer	: Utt;
 	Answer : NP -> Utt;
 
-	Inject	: Interj -> Utt;
+	Inject	: Interj -> SC;
+
 	Entity	: PN -> NP;
 	Kind	: AP -> CN -> CN;
 	KindOfKind  : CN -> Adv -> CN;

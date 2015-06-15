@@ -30,6 +30,7 @@ lincat
   V2V	= V2V;
   V2S	= V2S;
   V2A	= V2A;
+  V2Q	= V2Q;
   VV	= VV;
   VS	= VS;
   VA	= VA;
@@ -156,6 +157,8 @@ lin
 	Causative causal patient predicate	= mkVP causal patient predicate;
 	Intens attitude predicate	= mkVP attitude predicate;
 	Positing posit event	= mkVP posit event;
+	V_Pro_S posit event	= ComplBareVS posit event;
+	V_SC posit event	= ComplBareVS posit event;
 	Informing posit patient event	= mkVP posit patient event;
   Triangulating v patient recipient = mkVP v patient recipient; 
   Pred2A v patient state = mkVP v patient state;
@@ -198,7 +201,7 @@ lin
 	NoAnswer	= ss "No answer";
 	Answer np = mkUtt np;
 
-	Inject i = mkUtt i;
+	Inject i = mkSC( mkUtt i);
 
 	Entity pn	= mkNP pn;
 	Kind ap cn	= mkCN ap cn;
