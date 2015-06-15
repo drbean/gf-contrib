@@ -57,7 +57,7 @@ lin
 	usa	= mkNP( mkPN( mkN "the USA") );
 	ny	= mkNP( mkPN( mkN "NY") );
 
-	come	= mkV "come";
+	come	= mkVP( mkV "come");
 	disconnect	= mkV "disconnect";
 	greet	= mkV2 "greet";
 	say	= mkVS( mkV "say");
