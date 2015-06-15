@@ -117,7 +117,7 @@ dic_test = [
 
 yn_dic_test = [
 
-  "Does Mandy say, Hello."
+  "Does Mandy say Hello."
   , "Does Mandy ask a stranger how old he is."
   , "Does Mandy ask a stranger if he is a man or a woman."
   , "Does a stranger ask Mandy if she is male or female."
