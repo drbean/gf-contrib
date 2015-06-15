@@ -22,6 +22,12 @@ lin
 	young	= mkAP( mkA "young");
 	male	= mkAP( mkA "male");
 
+	from	= mkPrep "from";
+	in_place	= mkPrep "in";
+	like	= mkPrep "like";
+	on	= mkPrep "on";
+	to	= mkPrep "to";
+
 	age	= mkCN( mkN "age");
 	city	= mkCN( mkN "city");
 	freshman	= mkCN( mkN "freshman");
@@ -42,14 +48,14 @@ lin
 	facebook	= mkPN( mkN feminine (mkN "Facebook") );
 	filibee	= mkPN( mkN feminine (mkN "Filibee") );
 	junior	= mkPN( mkN feminine (mkN "Junior") );
-	madison	= mkPN( mkN feminine (mkN "Madison") );
+	madison	= mkNP( mkPN( mkN "Madison") );
 	mandy	= mkPN( mkN feminine (mkN "Mandy") );
-	paris	= mkPN( mkN feminine (mkN "Paris") );
+	paris	= mkNP( mkPN( mkN "Paris") );
 	sabrina	= mkPN( mkN feminine (mkN "Sabrina") );
-	taiwan	= mkPN( mkN feminine (mkN "Taiwan") );
-	turkey	= mkPN( mkN feminine (mkN "Turkey") );
-	usa	= mkPN( mkN feminine (mkN "USA") );
-	ny	= mkPN( mkN feminine (mkN "NY") );
+	taiwan	= mkNP( mkPN( mkN "Taiwan") );
+	turkey	= mkNP( mkPN( mkN "Turkey") );
+	usa	= mkNP( mkPN( mkN "the USA") );
+	ny	= mkNP( mkPN( mkN "NY") );
 
 	come	= mkV2 "come";
 	disconnect	= mkV "disconnect";

@@ -18,6 +18,12 @@ fun
 	right	: AP;
 	young	: AP;
 
+	from	: LocPrep;
+	in_place	: LocPrep;
+	like	: Prep;
+	on	: Prep;
+	to	: LocPrep;
+
 	age	: CN;
 	city	: CN;
 	freshman	: CN;
@@ -38,14 +44,14 @@ fun
 	facebook	: PN;
 	filibee	: PN;
 	junior	: PN;
-	madison	: PN;
+	madison	: Place;
 	mandy	: PN;
-	paris	: PN;
+	paris	: Place;
 	sabrina	: PN;
-	taiwan	: PN;
-	turkey	: PN;
-	usa	: PN;
-	ny	: PN;
+	taiwan	: Place;
+	turkey	: Place;
+	usa	: Place;
+	ny	: Place;
 
 	come	: V2;
 	disconnect	: V;
