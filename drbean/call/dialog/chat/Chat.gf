@@ -53,7 +53,7 @@ fun
 	usa	: Place;
 	ny	: Place;
 
-	come	: V2;
+	come	: V;
 	disconnect	: V;
 	greet	: V2;
 	guess_V2	: V2;
