@@ -36,8 +36,8 @@ fun
 	Changing	: V2 -> NP -> VP;
 	Causative:	V2V -> NP -> VP -> VP;
 	Intens:	VV -> VP -> VP;
-	Positing:	VS -> S -> VP;
-	V_Pro_S:	VS -> S -> VP;
+	V_that_S:	VS -> S -> VP;
+	V_S:	VS -> S -> VP;
 	V_SC:	VS -> SC -> VP;
 	Informing:	V2S -> NP -> S -> VP;
 	Triangulating:	V3 -> NP -> NP -> VP;

@@ -399,7 +399,7 @@ repVP (GTriangulating v obj1 obj2) = \r -> repNP obj1 (\theme ->
 		repNP obj2 (\recipient ->
 			DRS [r,theme,recipient] [Rel (DRSRel (lin v)) [r, theme, recipient]]
 			) (new obj2 theme) ) (new obj1 r)
-repVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
+repVP (GV_that_S v0 (GPosS (GSentence np vp))) = case vp of
 	(GBe_vp comp) -> case comp of
 		(GBe_bad ap ) -> \r -> repNP np (\referent -> let
 			d = repAP ap referent
@@ -422,7 +422,7 @@ repVP (GPositing v0 (GPosS (GSentence np vp))) = case vp of
 				(DRSRel lin_v) [referent, theme]])]
 			in DRS [r, theme, referent] conds )
 			(new obj referent) ) (new np r)
-repVP (GPositing v0 (GNegS (GSentence np vp))) = case vp of
+repVP (GV_that_S v0 (GNegS (GSentence np vp))) = case vp of
 	(GIntens vv vp2) -> case vp2 of
 		(GChanging v obj) -> \r -> repNP np (\referent ->
 			repNP obj (\theme -> let

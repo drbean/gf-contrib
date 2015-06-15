@@ -156,8 +156,8 @@ lin
 	Changing action patient	= mkVP action patient;
 	Causative causal patient predicate	= mkVP causal patient predicate;
 	Intens attitude predicate	= mkVP attitude predicate;
-	Positing posit event	= mkVP posit event;
-	V_Pro_S posit event	= ComplBareVS posit event;
+	V_that_S posit event	= mkVP posit event;
+	V_S posit event	= ComplBareVS posit event;
 	V_SC posit event	= ComplBareVS posit event;
 	Informing posit patient event	= mkVP posit patient event;
   Triangulating v patient recipient = mkVP v patient recipient; 
