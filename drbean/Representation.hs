@@ -376,6 +376,10 @@ repVP (GBe_vp comp) = case comp of
 		reflist = newDRSRefs (replicate len (DRSRef "r")) [] in
 		DRS rs conds
 	GBe_bad ap -> repAP ap
+	GBe_somewhere (GLocating prep place) -> \r -> 
+		repPlace place (\name -> DRS [r,name]
+		[ Rel (DRSRel (lin prep)) [r, name]]
+		) (newOnPlace place r)
 repVP (GWithPlace v (GLocating prep place)) = \r ->
 	repPlace place (\name -> DRS [r,name]
 	[ Rel (DRSRel (lin v)) [r,name]]
