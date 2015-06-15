@@ -53,6 +53,7 @@ fun
 	usa	: Place;
 	ny	: Place;
 
+	ask_V2Q	: V2Q;
 	come	: Motion;
 	disconnect	: V;
 	greet	: V2;

@@ -57,7 +57,8 @@ lin
 	usa	= mkNP( mkPN( mkN "the USA") );
 	ny	= mkNP( mkPN( mkN "NY") );
 
-	come	= mkVP( mkV "come");
+	ask_V2Q	= mkV2Q (mkV "ask") noPrep;
+	come	= mkVP IrregEng.come_V;
 	disconnect	= mkV "disconnect";
 	greet	= mkV2 "greet";
 	say	= mkVS( mkV "say");
