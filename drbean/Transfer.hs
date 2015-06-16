@@ -1,6 +1,6 @@
 module Main where
 
-import Clay
+import Chat
 import LogicalForm hiding ((==))
 import Evaluation
 
@@ -20,7 +20,7 @@ import System.Environment.FindBin
 main :: IO ()
 main = do
 	path <- getProgPath
-	gr <- readPGF ( path ++ "/Clay.pgf" )
+	gr <- readPGF ( path ++ "/Chat.pgf" )
 	hClose stderr
 	hDuplicateTo stdout stderr
 	s <- getLine
@@ -106,17 +106,21 @@ takeAnswer _ "yes" = "yes"
 takeAnswer "yes" _ = "yes"
 takeAnswer _ "no" = "no"
 takeAnswer "no" _  = "no"
-takeAnswer a b@('F' : 'r' : _)  = collateAnswer a b -- Simon
-takeAnswer a b@('R' : 'e' : _)  = collateAnswer a b -- Ariel
-takeAnswer "none" _ = "none of Frank or Rebia"
-takeAnswer _ "none" = "none of Frank or Rebia"
+takeAnswer a b@('M' : 'a' : _)  = collateAnswer a b -- Mandy
+takeAnswer a b@('A' : 'l' : _)  = collateAnswer a b -- Alice
+takeAnswer a b@('A' : 'r' : _)  = collateAnswer a b -- Ariel
+takeAnswer a b@('S' : 'a' : _)  = collateAnswer a b -- Sabrina
+takeAnswer "none" _ = "none of Mandy, Alice, Ariel or Sabrina"
+takeAnswer _ "none" = "none of Mandy, Alice, Ariel or Sabrina"
 takeAnswer "No answer" _ = "No answer"
 takeAnswer _ "No answer" = "No answer"
-takeAnswer _  _   = error "undefined answer, not Yes, No, Frank or Rebia, none or No answer"
+takeAnswer _  _   = error "undefined answer, not Yes, No, Mandy, Alice, Ariel or Sabrina, none or No answer"
 
 collateAnswer a b = formatUp $ nub $ filter
-	(\x -> x ==	"Frank"
-	|| x ==	"Rebia"
+	(\x -> x ==	"Mandy"
+	|| x ==	"Alice"
+	|| x ==	"Ariel"
+	|| x ==	"Sabrina"
 	) (concat $ map (splitOn " , " ) (splitOn " or " (a ++ " , " ++ b)))
 
 formatUp es = let parts = splitAt 1 (reverse es)
