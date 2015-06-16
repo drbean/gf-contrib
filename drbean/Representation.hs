@@ -405,7 +405,7 @@ repVP (GV_that_S v0 (GPosS (GSentence np vp))) = case vp of
 		(GBe_bad ap ) -> \r -> repNP np (\referent -> let
 			d = repAP ap referent
 			p = DRSRef "p" in
-			DRS [referent] [Rel (DRSRel (lin v0)) [r,p]
+			DRS [referent] [Rel (DRSRel (lin v0)) [r,referent,p]
 				, Prop p d] ) (new np r)
 		(GBe_someone subjcomp ) -> \r -> repNP np (\referent ->
 			repNP subjcomp (\_ -> let
@@ -441,6 +441,15 @@ repVP (GV_S v0 (GNegS (GSentence np vp))) =
 	repVP (GV_that_S v0 (GNegS (GSentence np vp)))
 repVP (GV_NP_whether_S v0 np0 (GPosQ (GYN (GSentence np vp)))) = case vp of
 	(GBe_vp comp) -> case comp of
+		(GBe_bad ap) -> \r -> repNP np0 (\recipient -> 
+			repNP np (\referent -> let 
+			d = repAP ap referent
+			lin_v = lin v0
+			p = DRSRef "p"
+			conds = [Rel (DRSRel lin_v) [r,referent,p]
+				, Prop p d]
+			in DRS [r,referent] conds
+				) (new np recipient) ) (new np r)
 		(GBe_someone subjcomp ) -> \r -> repNP np (\referent ->
 			repNP subjcomp (\_ -> let
 			lin_v = lin v0
