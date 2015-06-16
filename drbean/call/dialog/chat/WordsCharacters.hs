@@ -40,6 +40,7 @@ a = [
 	, "beautiful"
 	, "female"
 	, "good"
+	, "Hispanic"
 	, "male"
 	, "old"
 	, "right"
@@ -47,6 +48,12 @@ a = [
 	]
 
 adv = [
+	"from"
+	, "in"
+	, "like"
+	, "on"
+	, "or"
+	, "to"
 	]
 
 aux = [
@@ -145,7 +152,8 @@ tag = [
 	]
 
 v = [
-  "come"
+	"ask"
+  , "come"
 	, "disconnect"
 	, "greet"
 	, "guess"
@@ -167,7 +175,7 @@ age	: CN;
 Alice	: PN;
 and
 Ariel	: PN;
-ask
+ask	: V2Q;
 beautiful	: A;
 can
 city	: CN;
@@ -181,7 +189,7 @@ Facebook	: PN;
 female	: A;
 Filibee	: PN;
 freshman	: CN;
-from
+from	: Prep;
 girl	: CN;
 good	: A;
 greet	: V2;
@@ -192,14 +200,14 @@ Hello
 her
 Hi
 him
-Hispanic
+Hispanic	: A;
 how
 if
-in
+in	: Prep;
 is
 Junior	: PN;
 LA
-like
+like	: Prep;
 Madison	: PN;
 male	: A;
 man	: CN;
@@ -210,7 +218,7 @@ NY	: PN;
 not
 now
 old	: A;
-on
+on	: Prep;
 or
 Paris	: PN;
 question	: CN;
@@ -229,7 +237,7 @@ that
 the
 The
 they
-to
+to	: Prep;
 Turkey	: PN;
 understand	: V;
 USA	: PN;
