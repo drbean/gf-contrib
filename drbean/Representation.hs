@@ -118,15 +118,15 @@ repNP (GEntity name) p r
 	len = length (nub rs)
 	reflist = newDRSRefs (replicate len (DRSRef "r")) [] in
 	(DRS reflist ((Rel (DRSRel (lin name)) [r]) : conds))
-repNP frank_and_rebia p r = let
-	DRS frank_rs frank_conds = p r
-	len = ref2int (maximum frank_rs)
-	frank_r = r
-	rebia_r = int2ref (len + 1)
-	DRS rebia_rs rebia_conds = p rebia_r
-	rs = nub (frank_rs ++ rebia_rs)
-	conds = (Rel (DRSRel "frank") [frank_r] : frank_conds) ++
-		(Rel (DRSRel "rebia") [rebia_r] : rebia_conds) in
+repNP (GCloseList or_Conj (GList np1 np2)) p r = let
+	DRS np1_rs np1_conds = p r
+	len = ref2int (maximum np1_rs)
+	np1_r = r
+	np2_r = int2ref (len + 1)
+	DRS np2_rs np2_conds = p np2_r
+	rs = nub (np1_rs ++ np2_rs)
+	conds = (Rel (DRSRel (linNP np1)) [np1_r] : np1_conds) ++
+		(Rel (DRSRel (linNP np1)) [np1_r] : np1_conds) in
 	DRS rs conds
 repNP Gshe p r = let
 	dummy =DRSRef "dummy1"
@@ -449,6 +449,28 @@ repVP (GV_NP_whether_S v0 np0 (GPosQ (GYN (GSentence np vp)))) = case vp of
 				, Prop p (DRS [] [Rel 
 				(DRSRel ((linNP subjcomp)++"_prop")) [referent] ])]
 			in DRS [r,referent] conds ) referent ) (new np0 r)
+repVP (GV_NP_that_S v0 np0 (GPosS (GSentence np vp))) = case vp of
+	(GBe_vp comp) -> case comp of
+		(GBe_someone subjcomp ) -> \r -> repNP np0 (\recipient ->
+			repNP np (\referent -> repNP subjcomp (\_ -> let
+			lin_v = lin v0
+			p = DRSRef "p"
+			conds = [Rel (DRSRel lin_v) [r,recipient,p]
+				, Prop p (DRS [] [Rel
+				(DRSRel ((linNP subjcomp)++"_prop")) [referent] ])]
+			in DRS [r,recipient,referent] conds )
+			referent ) (new np recipient) ) (new np0 r)
+		(GBe_somewhere (GLocating prep place)) -> \r -> repNP np0 (\recipient ->
+			repNP np (\referent -> repPlace place (\name -> let
+			lin_v = lin v0
+			p = DRSRef "p"
+			conds = [Rel (DRSRel lin_v) [r,recipient,p]
+				, Prop p (DRS [] [Rel
+				(DRSRel (lin place)) [referent,name] ])]
+			in DRS [r,recipient,referent] conds )
+			(newOnPlace place referent) ) (new np recipient) ) (new np0 r)
+repVP (GV_NP_S v0 np0 (GPosS (GSentence np vp))) =
+	repVP (GV_NP_that_S v0 np0 (GPosS (GSentence np vp)))
 repVP (GCausative v0 obj vp) = case vp of
 	(GLook_bad v ap) -> \r ->
 		repNP obj (\patient -> let
