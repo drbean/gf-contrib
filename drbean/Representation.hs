@@ -438,6 +438,16 @@ repVP (GV_that_S v0 (GNegS (GSentence np vp))) = case vp of
 			(new obj referent) ) (new np r)
 repVP (GV_S v0 (GNegS (GSentence np vp))) = 
 	repVP (GV_that_S v0 (GNegS (GSentence np vp)))
+repVP (GV_NP_whether_S v0 np0 (GPosQ (GYN (GSentence np vp)))) = case vp of
+	(GBe_vp comp) -> case comp of
+		(GBe_someone subjcomp ) -> \r -> repNP np (\referent ->
+			repNP subjcomp (\_ -> let
+			lin_v = lin v0
+			p = DRSRef "p"
+			conds = [Rel (DRSRel lin_v) [r, referent, p]
+				, Prop p (DRS [] [Rel 
+				(DRSRel ((linNP subjcomp)++"_prop")) [referent] ])]
+			in DRS [r,referent] conds ) referent ) (new np0 r)
 repVP (GCausative v0 obj vp) = case vp of
 	(GLook_bad v ap) -> \r ->
 		repNP obj (\patient -> let
