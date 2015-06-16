@@ -448,8 +448,8 @@ repVP (GV_NP_whether_S v0 np0 (GPosQ (GYN (GSentence np vp)))) = case vp of
 			p = DRSRef "p"
 			conds = [Rel (DRSRel lin_v) [r,referent,p]
 				, Prop p d]
-			in DRS [r,referent] conds
-				) (new np recipient) ) (new np r)
+			in DRS [r,recipient,referent] conds
+				) (new np recipient) ) (new np0 r)
 		(GBe_someone subjcomp ) -> \r -> repNP np (\referent ->
 			repNP subjcomp (\_ -> let
 			lin_v = lin v0
