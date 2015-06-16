@@ -66,6 +66,7 @@ linNP (GItem _ (GKind _ (GOfpos noun _))) = lin noun
 linNP (GItem _ (GKind _ noun)) = lin noun
 linNP (GItem _ noun) = lin noun
 linNP (GMassItem _ noun) = lin noun
+linNP (GCloseList _ (GList np _)) = linNP np
 
 linAP :: GAP -> String
 linAP (GAdvAdj _ a) = lin a
