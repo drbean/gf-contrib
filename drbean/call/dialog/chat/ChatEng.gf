@@ -17,6 +17,7 @@ lin
 	beautiful	= mkAP( mkA "beautiful");
 	female	= mkAP( mkA "female");
 	good	= mkAP( mkA "good");
+	hispanic	= mkAP( mkA "Hispanic");
 	old	= mkAP( mkA "old");
 	right	= mkAP( mkA "right");
 	young	= mkAP( mkA "young");

@@ -13,6 +13,7 @@ fun
 	beautiful	: AP;
 	female	: AP;
 	good	: AP;
+	hispanic	: AP;
 	male	: AP;
 	old	: AP;
 	right	: AP;
