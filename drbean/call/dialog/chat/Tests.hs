@@ -127,6 +127,7 @@ yn_dic_test = [
   , "Does Alice say, Hi."
   , "Does Ellarose say that she is 16."
   , "Does Alice ask Ellarose if she is a student."
+  , "Does Alice ask Ellarose whether she is a student."
   , "Does Ellarose tell Alice that she is a student."
   , "Does Ellarose greet Alice."
   , "Does Alice ask Ellarose where she is from."
