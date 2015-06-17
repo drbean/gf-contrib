@@ -64,6 +64,7 @@ fun
 	WithStyle	: VP -> Style -> VP;
 	WithCl	: VP -> SubordCl -> VP;
 
+	ICompS	: IComp -> NP -> QS;
 	YN	: Cl -> QCl;
 
 	TagQ	: NP -> VP -> QCl;

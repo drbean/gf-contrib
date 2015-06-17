@@ -13,6 +13,7 @@ lincat
   AdV	= AdV;
   AdA	= AdA;
   Comp	= Comp;
+  IComp	= IComp;
   Cl	= Cl;
   QCl	= QCl;
   S	= S;
@@ -186,6 +187,8 @@ lin
   WithStyle action style	= mkVP action style;
 	WithCl vp cl = mkVP vp cl;
   -- Be_made_sth vp np = PassV3 vp np;
+
+	ICompS i np = mkQS (mkQCl i np);
 	YN cl	= mkQCl cl;
 	WH_Pred ip vp	= mkQCl ip vp;
 	WHose cn = mkIP (GenIP who_WH) cn;
