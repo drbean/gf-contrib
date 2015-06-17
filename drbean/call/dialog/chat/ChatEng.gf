@@ -11,6 +11,8 @@ lin
 	hello	= mkInterj "Hello";
 	hi	= mkInterj "Hi";
 
+	how_old = ICompAP old;
+
 	fifteen	= mkAP( mkA "15");
 	sixteen	= mkAP( mkA "16");
 	eighteen	= mkAP( mkA "18");

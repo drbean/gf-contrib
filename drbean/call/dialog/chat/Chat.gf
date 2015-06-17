@@ -7,6 +7,8 @@ fun
 	hello	: Interj;
 	hi	: Interj;
 
+	how_old	: IComp;
+
 	fifteen	: AP;
 	sixteen	: AP;
 	eighteen	: AP;
