@@ -35,7 +35,7 @@ entity_check =  [
   , (P, "" )
   , (Q, "" )
   , (R, "" )
-  , (S, "" )
+  , (S, "stranger" )
   , (T, "taiwan" )
   , (U, "turkey" )
   , (V, "" )
@@ -142,6 +142,7 @@ onePlacers =
 predid1 "people"	= predid1 "person"
 predid1 "person"	= Just person
 predid1 "thing"	= Just thing
+predid1 "man"	= predid1 "male"
 
 predid1 name = if name `elem` (map fst onePlacers) then
 	Just (pred1 (concat [ oneple | (id, oneple) <- onePlacers
@@ -192,6 +193,7 @@ goal = [
 
 event :: [ (Content, [(Case, Entity)]) ]
 event = [
+	("ask", [(Agent,Mandy),(Recipient,S),(Predicate,P)])
 
 	]
 
@@ -257,6 +259,7 @@ threePlacers, threePlaceStarters :: [(String, ThreePlacePred)]
 threePlaceStarters = [
     ]
 threePlacers =
+	(genthreePlacer event "ask_V2Q" "ask" Agent Recipient Predicate) :
 	threePlaceStarters
 
 type Content = String
