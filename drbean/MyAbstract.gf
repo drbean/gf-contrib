@@ -124,6 +124,9 @@ fun
 	List : NP -> NP -> ListNP;
 	AddList : NP -> ListNP -> ListNP;
 	CloseList	: Conj -> ListNP -> NP;
+	APList : AP -> AP -> ListAP;
+	AddAP : AP -> ListAP -> ListAP;
+	CloseAP	: Conj -> ListAP -> AP;
 
 	her_Det	: Det;
 	her_MassDet	: MassDet;

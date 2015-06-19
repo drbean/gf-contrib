@@ -7,6 +7,7 @@ lincat
   NP	= NP;
 	ListNP	= ListNP;
   N	= N;
+	ListAP	= ListAP;
   A	= A;
   AP	= AP;
   Adv	= Adv;
@@ -242,6 +243,9 @@ lin
 	List np1 np2 = mkListNP np1 np2;
 	AddList np list = mkListNP np list;
 	CloseList conj list = mkNP conj list;
+	APList np1 np2 = mkListAP np1 np2;
+	AddAP ap list = mkListAP ap list;
+	CloseAP conj list = mkAP conj list;
 
 	her_Det	= mkDet she_Pron;
 	her_MassDet	= mkDet she_Pron;
