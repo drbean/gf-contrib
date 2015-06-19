@@ -349,6 +349,8 @@ repCN name     = \r ->
 
 repAP :: GAP -> DRSRef -> DRS
 repAP (GAdvAdj _ a) = \ r -> DRS [r] [Rel (DRSRel (lin a)) [r]]
+repAP (GCloseAP _ (GAPList ap1 ap2)) = \r -> DRS [r] [
+	Rel (DRSRel ((linAP ap1) ++ "_or_" ++ (linAP ap2))) [r] ]
 repAP ap = \r -> DRS [r] [Rel (DRSRel (linAP ap)) [r]]
 
 repPlace :: GPlace -> (DRSRef -> DRS) -> DRSRef -> DRS
