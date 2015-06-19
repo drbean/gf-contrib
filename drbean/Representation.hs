@@ -126,9 +126,9 @@ repNP (GCloseList or_Conj (GList np1 np2)) p r = let
 	np2_r = r
 	DRS np2_rs np2_conds = p np2_r
 	rs = nub (np1_rs ++ np2_rs)
-	conds = (Rel (DRSRel (linNP np1)) [np1_r] : np1_conds) ++
-		(Rel (DRSRel (linNP np2)) [np2_r] : np2_conds) in
-	DRS rs conds
+	cond = Or (DRS [] (Rel (DRSRel (linNP np1)) [np1_r] : np1_conds))
+		(DRS [] (Rel (DRSRel (linNP np2)) [np2_r] : np2_conds)) in
+	DRS rs [cond]
 repNP Gshe p r = let
 	dummy =DRSRef "dummy1"
 	iminus = ref2int r - 1
