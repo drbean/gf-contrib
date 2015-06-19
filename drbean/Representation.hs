@@ -66,10 +66,11 @@ linNP (GItem _ (GKind _ (GOfpos noun _))) = lin noun
 linNP (GItem _ (GKind _ noun)) = lin noun
 linNP (GItem _ noun) = lin noun
 linNP (GMassItem _ noun) = lin noun
-linNP (GCloseList _ (GList np _)) = linNP np
+linNP (GCloseList _ (GList np1 np2)) = (linNP np1) ++ "_or_" ++ (linNP np2)
 
 linAP :: GAP -> String
 linAP (GAdvAdj _ a) = lin a
+linAP (GCloseAP _ (GAPList ap1 ap2)) = (linAP ap1) ++ "_or_" ++ (linAP ap2)
 linAP a = lin a
 
 linIP :: GIP -> String
@@ -348,7 +349,7 @@ repCN name     = \r ->
 
 repAP :: GAP -> DRSRef -> DRS
 repAP (GAdvAdj _ a) = \ r -> DRS [r] [Rel (DRSRel (lin a)) [r]]
-repAP ap = \r -> DRS [r] [Rel (DRSRel (lin ap)) [r]]
+repAP ap = \r -> DRS [r] [Rel (DRSRel (linAP ap)) [r]]
 
 repPlace :: GPlace -> (DRSRef -> DRS) -> DRSRef -> DRS
 repPlace (GLocation det name) p r = (repDet det) (repPlaceName name) p r
