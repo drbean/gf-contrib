@@ -119,16 +119,7 @@ repNP (GEntity name) p r
 	len = length (nub rs)
 	reflist = newDRSRefs (replicate len (DRSRef "r")) [] in
 	(DRS reflist ((Rel (DRSRel (lin name)) [r]) : conds))
-repNP (GCloseList or_Conj (GList np1 np2)) p r = let
-	DRS np1_rs np1_conds = p r
-	len = ref2int (maximum np1_rs)
-	np1_r = r
-	np2_r = r
-	DRS np2_rs np2_conds = p np2_r
-	rs = nub (np1_rs ++ np2_rs)
-	cond = Or (DRS [] (Rel (DRSRel (linNP np1)) [np1_r] : np1_conds))
-		(DRS [] (Rel (DRSRel (linNP np2)) [np2_r] : np2_conds)) in
-	DRS rs [cond]
+repNP (GCloseList or_Conj nps@(GList np1 np2)) p r = p r
 repNP Gshe p r = let
 	dummy =DRSRef "dummy1"
 	iminus = ref2int r - 1
