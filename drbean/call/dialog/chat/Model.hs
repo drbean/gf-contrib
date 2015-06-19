@@ -21,7 +21,7 @@ entity_check =  [
   , (B, "" )
   , (C, "" )
   , (D, "" )
-  , (E, "" )
+  , (E, "ellarose" )
   , (F, "" )
   , (G, "" )
   , (H, "" )
@@ -193,8 +193,13 @@ goal = [
 
 event :: [ (Content, [(Case, Entity)]) ]
 event = [
-	("ask", [(Agent,Mandy),(Recipient,S),(Predicate,P)])
+	("ask", [(Agent,Mandy),(Recipient,S),(Predicate,P),(Topic,A)])
 
+	]
+
+question :: [ (Content, [(Case, Entity)]) ]
+question = [
+	("age", [(Predicate, P), (Topic, A), (Pivot, S)])
 	]
 
 condition :: [ (Content, [(Case, Entity)]) ]
@@ -232,6 +237,7 @@ twoPlaceStarters = [
 
 twoPlacers =
 	gentwoPlacer affiliation "have" "nationality" Theme Source :
+	gentwoPlacer question "how_old" "age" Theme Pivot:
 	twoPlaceStarters
 
 predid2 name = if name `elem` (map fst twoPlacers) then
@@ -259,7 +265,7 @@ threePlacers, threePlaceStarters :: [(String, ThreePlacePred)]
 threePlaceStarters = [
     ]
 threePlacers =
-	(genthreePlacer event "ask_V2Q" "ask" Agent Recipient Predicate) :
+	(genthreePlacer event "ask_V2Q" "ask" Agent Recipient Topic) :
 	threePlaceStarters
 
 type Content = String
