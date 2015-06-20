@@ -18,7 +18,7 @@ entities	=  [minBound..maxBound]
 
 entity_check :: [ (Entity, String) ]
 entity_check =  [
-  (A, "" )
+  (A, "age" )
   , (B, "" )
   , (C, "" )
   , (D, "" )
@@ -32,7 +32,7 @@ entity_check =  [
   , (L, "la" )
   , (M, "" )
   , (N, "" )
-  , (O, "" )
+  , (O, "school" )
   , (P, "" )
   , (Q, "" )
   , (R, "" )
@@ -41,7 +41,7 @@ entity_check =  [
   , (U, "turkey" )
   , (V, "" )
   , (W, "" )
-  , (X, "" )
+  , (X, "sex" )
   , (Y, "" )
   , (Z, "" )
 	, (Alice, "alice" )
@@ -198,16 +198,23 @@ goal = [
 event :: [ (Content, [(Case, Entity)]) ]
 event = [
 	("ask", [(Agent,Mandy),(Recipient,S),(Predicate,P),(Topic,A)])
+	, ("ask", [(Agent,Mandy),(Recipient,S),(Predicate,P),(Topic,X)])
+	, ("ask", [(Agent,S),(Recipient,Mandy),(Predicate,P),(Topic,X)])
+	, ("say", [(Agent,E),(Recipient,Alice),(Predicate,P),(Topic,A)])
+	, ("ask", [(Agent,Alice),(Recipient,E),(Predicate,P),(Topic,O)])
 
 	]
 
 question :: [ (Content, [(Case, Entity)]) ]
 question = [
 	("age", [(Predicate, P), (Topic, A), (Pivot, S)])
+	, ("sex", [(Predicate, P), (Topic, X), (Pivot, S)])
 	]
 
 condition :: [ (Content, [(Case, Entity)]) ]
 condition = [
+	("sixteen", [(Agent,E), (Predicate,P) ] )
+	, ("student", [(Agent,E), (Predicate,P) ] )
 	]
 
 idea :: [ (Content, [(Case, Entity)]) ]
@@ -241,6 +248,11 @@ twoPlaceStarters = [
 twoPlacers =
 	gentwoPlacer affiliation "have" "nationality" Theme Source :
 	gentwoPlacer question "how_old" "age" Theme Pivot:
+	gentwoPlacer question "man_or_woman" "sex" Theme Pivot:
+	gentwoPlacer question "male_or_female" "sex" Theme Pivot:
+	gentwoPlacer event	"say" "say" Agent Predicate:
+	gentwoPlacer condition	"sixteen" "sixteen" Agent Predicate:
+	gentwoPlacer condition	"student" "student" Agent Predicate:
 	twoPlaceStarters
 
 predid2 name = if name `elem` (map fst twoPlacers) then
