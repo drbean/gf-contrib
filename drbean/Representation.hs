@@ -472,7 +472,7 @@ repVP (GV_NP_that_S v0 np0 (GPosS (GSentence np vp))) = case vp of
 			p = DRSRef "p"
 			conds = [Rel (DRSRel lin_v) [r,recipient,p]
 				, Prop p (DRS [] [Rel
-				(DRSRel ((linNP subjcomp)++"_prop")) [referent] ])]
+				(DRSRel (linNP subjcomp)) [referent] ])]
 			in DRS [r,recipient,referent] conds )
 			referent ) (new np recipient) ) (new np0 r)
 		(GBe_somewhere (GLocating prep place)) -> \r -> repNP np0 (\recipient ->
