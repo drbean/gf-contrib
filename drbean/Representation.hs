@@ -399,7 +399,7 @@ repVP (GV_that_S v0 (GPosS (GSentence np vp))) = case vp of
 		(GBe_bad ap ) -> \r -> repNP np (\referent -> let
 			d = repAP ap referent
 			p = DRSRef "p" in
-			DRS [referent] [Rel (DRSRel (lin v0)) [r,referent,p]
+			DRS [referent] [Rel (DRSRel (lin v0)) [r,p]
 				, Prop p d] ) (new np r)
 		(GBe_someone subjcomp ) -> \r -> repNP np (\referent ->
 			repNP subjcomp (\_ -> let
