@@ -23,13 +23,13 @@ entity_check =  [
   , (C, "" )
   , (D, "" )
   , (E, "ellarose" )
-  , (F, "" )
+  , (F, "filibee" )
   , (G, "" )
   , (H, "" )
   , (I, "" )
   , (J, "" )
   , (K, "" )
-  , (L, "la" )
+  , (L, "location" )
   , (M, "" )
   , (N, "" )
   , (O, "school" )
@@ -37,7 +37,7 @@ entity_check =  [
   , (Q, "" )
   , (R, "" )
   , (S, "stranger" )
-  , (T, "taiwan" )
+  , (T, "" )
   , (U, "turkey" )
   , (V, "" )
   , (W, "" )
@@ -202,6 +202,9 @@ event = [
 	, ("ask", [(Agent,S),(Recipient,Mandy),(Predicate,P),(Topic,X)])
 	, ("say", [(Agent,E),(Recipient,Alice),(Predicate,P),(Topic,A)])
 	, ("ask", [(Agent,Alice),(Recipient,E),(Predicate,P),(Topic,O)])
+	, ("tell", [(Agent,E),(Recipient,Alice),(Predicate,P),(Topic,O)])
+	, ("greet", [(Agent, E), (Patient, Alice) ])
+	, ("tell", [(Agent,Alice),(Recipient,E),(Predicate,P),(Topic,L)])
 
 	]
 
@@ -209,12 +212,14 @@ question :: [ (Content, [(Case, Entity)]) ]
 question = [
 	("age", [(Predicate, P), (Topic, A), (Pivot, S)])
 	, ("sex", [(Predicate, P), (Topic, X), (Pivot, S)])
+	, ("school", [(Topic, O), (Predicate,P), (Pivot, E) ] )
 	]
 
 condition :: [ (Content, [(Case, Entity)]) ]
 condition = [
-	("sixteen", [(Agent,E), (Predicate,P) ] )
-	, ("student", [(Agent,E), (Predicate,P) ] )
+	("sixteen", [(Pivot,E), (Predicate,P) ] )
+	, ("student", [(Pivot,E), (Predicate,P) ] )
+	, ("taiwan", [(Pivot,Alice), (Predicate,P) ] )
 	]
 
 idea :: [ (Content, [(Case, Entity)]) ]
@@ -250,9 +255,11 @@ twoPlacers =
 	gentwoPlacer question "how_old" "age" Theme Pivot:
 	gentwoPlacer question "man_or_woman" "sex" Theme Pivot:
 	gentwoPlacer question "male_or_female" "sex" Theme Pivot:
-	gentwoPlacer event	"say" "say" Agent Predicate:
-	gentwoPlacer condition	"sixteen" "sixteen" Agent Predicate:
-	gentwoPlacer condition	"student" "student" Agent Predicate:
+	gentwoPlacer event	"say" "say" Predicate Agent:
+	gentwoPlacer condition	"sixteen" "sixteen" Predicate Agent:
+	gentwoPlacer condition	"student" "student" Predicate Pivot:
+	gentwoPlacer event	"greet" "greet" Agent Patient:
+	gentwoPlacer event	"taiwan" "taiwan" Predicate Pivot:
 	twoPlaceStarters
 
 predid2 name = if name `elem` (map fst twoPlacers) then
@@ -281,6 +288,7 @@ threePlaceStarters = [
     ]
 threePlacers =
 	(genthreePlacer event "ask_V2Q" "ask" Agent Recipient Topic) :
+	genthreePlacer event "tell" "tell" Agent Recipient Topic :
 	threePlaceStarters
 
 type Content = String
