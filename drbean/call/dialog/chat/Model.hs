@@ -7,7 +7,8 @@ data Entity	= A | B | C | D | E | F | G
 	| H | I | J | K | L | M | N 
 	| O | P | Q | R | S | T | U 
 	| V | W | X | Y | Z | Someone | Something | Unspec
-  | Dora | Cheney | Andy | James | Cherry2 | Irene | Mandy | Ariel | Lulu | Johnny | Eason | Simon | Viola1 | Lisa1 | Emma | Marian | YiSian | Jessie | Lilian | Annie | Abby | Cathy | Demi | Sunny | Jane | Claire | Connie | Bella | Lily | Maggie | Sharon | Cindy | Jennifer | Sabrina | Ban | Alice | Calina | Jin1 | Rachel | Tina
+  | Mandy | Ariel | Sabrina | Alice
+	-- | Dora | Cheney | Andy | James | Cherry2 | Irene | Lulu | Johnny | Eason | Simon | Viola1 | Lisa1 | Emma | Marian | YiSian | Jessie | Lilian | Annie | Abby | Cathy | Demi | Sunny | Jane | Claire | Connie | Bella | Lily | Maggie | Sharon | Cindy | Jennifer | Ban | Calina | Jin1 | Rachel | Tina
 
   | Ellarose | Facebook | Filibee | Junior
      deriving (Eq,Show,Bounded,Enum,Ord)
@@ -43,50 +44,51 @@ entity_check =  [
   , (X, "" )
   , (Y, "" )
   , (Z, "" )
-	, (Dora, "dora" )
-	, (Cheney, "cheney" )
-	, (Andy , "andy" )
-	, (James, "james" )
-	, (Cherry2, "cherry2" )
-	, (Irene, "irene" )
+	, (Alice, "alice" )
 	, (Mandy, "mandy" )
 	, (Ariel, "ariel" )
-	, (Lulu, "lulu" )
-	, (Johnny, "johnny" )
-	, (Eason, "eason" )
-	, (Simon, "simon" )
-	, (Viola1, "viola1" )
-	, (Lisa1, "lisa1" )
-	, (Emma, "emma" )
-	, (Marian, "marian" )
-	, (YiSian, "yisian" )
-	, (Jessie, "jessie" )
-	, (Lilian, "lilian" )
-	, (Annie, "annie" )
-	, (Abby, "abby" )
-	, (Cathy, "cathy" )
-	, (Demi, "demi" )
-	, (Sunny, "sunny" )
-	, (Jane, "jane" )
-	, (Claire, "claire" )
-	, (Connie, "connie" )
-	, (Bella, "bella" )
-	, (Lily, "lily" )
-	, (Maggie, "maggie" )
-	, (Sharon, "sharon" )
-	, (Cindy, "cindy" )
-	, (Jennifer, "jennifer" )
 	, (Sabrina, "sabrina" )
-	, (Ban, "ban" )
-	, (Alice, "alice" )
-	, (Calina, "calina" )
-	, (Jin1, "jin1" )
-	, (Rachel, "rachel" )
-	, (Tina, "tina" )
+	-- , (Dora, "dora" )
+	-- , (Cheney, "cheney" )
+	-- , (Andy , "andy" )
+	-- , (James, "james" )
+	-- , (Cherry2, "cherry2" )
+	-- , (Irene, "irene" )
+	-- , (Lulu, "lulu" )
+	-- , (Johnny, "johnny" )
+	-- , (Eason, "eason" )
+	-- , (Simon, "simon" )
+	-- , (Viola1, "viola1" )
+	-- , (Lisa1, "lisa1" )
+	-- , (Emma, "emma" )
+	-- , (Marian, "marian" )
+	-- , (YiSian, "yisian" )
+	-- , (Jessie, "jessie" )
+	-- , (Lilian, "lilian" )
+	-- , (Annie, "annie" )
+	-- , (Abby, "abby" )
+	-- , (Cathy, "cathy" )
+	-- , (Demi, "demi" )
+	-- , (Sunny, "sunny" )
+	-- , (Jane, "jane" )
+	-- , (Claire, "claire" )
+	-- , (Connie, "connie" )
+	-- , (Bella, "bella" )
+	-- , (Lily, "lily" )
+	-- , (Maggie, "maggie" )
+	-- , (Sharon, "sharon" )
+	-- , (Cindy, "cindy" )
+	-- , (Jennifer, "jennifer" )
+	-- , (Ban, "ban" )
+	-- , (Calina, "calina" )
+	-- , (Jin1, "jin1" )
+	-- , (Rachel, "rachel" )
+	-- , (Tina, "tina" )
     ]
 
 students = 
-  [ Dora, Cheney, Andy, James, Cherry2, Irene, Mandy, Ariel, Lulu, Johnny, Eason, Simon, Viola1, Lisa1, Emma, Marian, YiSian, Jessie, Lilian, Annie, Abby, Cathy, Demi, Sunny, Jane, Claire, Connie, Bella, Lily, Maggie, Sharon, Cindy, Jennifer, Sabrina, Ban, Alice, Calina, Jin1, Rachel, Tina ]
+	[ Alice, Mandy, Ariel, Sabrina ]
+  -- [ Dora, Cheney, Andy, James, Cherry2, Irene, Mandy, Ariel, Lulu, Johnny, Eason, Simon, Viola1, Lisa1, Emma, Marian, YiSian, Jessie, Lilian, Annie, Abby, Cathy, Demi, Sunny, Jane, Claire, Connie, Bella, Lily, Maggie, Sharon, Cindy, Jennifer, Sabrina, Ban, Alice, Calina, Jin1, Rachel, Tina ]
 
 ent_ided :: String -> Entity
 ent_ided name = head [entity | (entity,string) <- entity_check ,
@@ -131,8 +133,10 @@ onePlaceStarters = [
 	, ("role",      [] )
 
 
-	, ("male",	[Cheney, Andy, James, Johnny, Eason, Simon] )
-	, ("female",	[Dora, Cherry2, Irene, Mandy, Ariel, Lulu, Viola1, Lisa1, Emma, Marian, YiSian, Jessie, Lilian, Annie, Abby, Cathy, Demi, Sunny, Jane, Claire, Connie, Bella, Lily, Maggie, Sharon, Cindy, Jennifer, Sabrina, Ban, Alice, Calina, Jin1, Rachel, Tina] )
+	-- , ("male",	[Cheney, Andy, James, Johnny, Eason, Simon] )
+	, ("male",	[] )
+	-- , ("female",	[Dora, Cherry2, Irene, Mandy, Ariel, Lulu, Viola1, Lisa1, Emma, Marian, YiSian, Jessie, Lilian, Annie, Abby, Cathy, Demi, Sunny, Jane, Claire, Connie, Bella, Lily, Maggie, Sharon, Cindy, Jennifer, Sabrina, Ban, Alice, Calina, Jin1, Rachel, Tina] )
+	, ("female",	[Mandy, Ariel, Sabrina, Alice] )
 	]
 
 
