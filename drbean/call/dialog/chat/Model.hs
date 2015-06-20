@@ -205,6 +205,11 @@ event = [
 	, ("tell", [(Agent,E),(Recipient,Alice),(Predicate,P),(Topic,O)])
 	, ("greet", [(Agent, E), (Patient, Alice) ])
 	, ("tell", [(Agent,Alice),(Recipient,E),(Predicate,P),(Topic,L)])
+	, ("greet", [(Agent, Ariel), (Patient, F) ])
+	, ("tell", [(Agent, F), (Recipient, Ariel), (Predicate, P), (Topic, L) ])
+	, ("greet", [(Agent, Sabrina), (Patient, S) ])
+	, ("greet", [(Agent, S), (Patient, Sabrina) ])
+	, ("say", [(Agent,S),(Recipient, Sabrina),(Predicate,P),(Topic,X)])
 
 	]
 
@@ -220,6 +225,8 @@ condition = [
 	("sixteen", [(Pivot,E), (Predicate,P) ] )
 	, ("student", [(Pivot,E), (Predicate,P) ] )
 	, ("taiwan", [(Pivot,Alice), (Predicate,P) ] )
+	, ("turkey", [(Pivot,F), (Predicate,P) ] )
+	, ("male",	[(Pivot, S), (Predicate, P) ] )
 	]
 
 idea :: [ (Content, [(Case, Entity)]) ]
@@ -260,6 +267,8 @@ twoPlacers =
 	gentwoPlacer condition	"student" "student" Predicate Pivot:
 	gentwoPlacer event	"greet" "greet" Agent Patient:
 	gentwoPlacer event	"taiwan" "taiwan" Predicate Pivot:
+	gentwoPlacer event	"turkey" "turkey" Predicate Pivot:
+	gentwoPlacer event	"male" "male" Predicate Pivot:
 	twoPlaceStarters
 
 predid2 name = if name `elem` (map fst twoPlacers) then
@@ -288,7 +297,7 @@ threePlaceStarters = [
     ]
 threePlacers =
 	(genthreePlacer event "ask_V2Q" "ask" Agent Recipient Topic) :
-	genthreePlacer event "tell" "tell" Agent Recipient Topic :
+	genthreePlacer event "tell" "tell" Agent Recipient Predicate :
 	threePlaceStarters
 
 type Content = String
