@@ -212,7 +212,6 @@ condition = [
 
 idea :: [ (Content, [(Case, Entity)]) ]
 idea = [
-	("say", [(Agent,Dora),(Predicate,P)] )
 	]
 
 attitude :: [ (Content, [(Case, Entity)]) ]
