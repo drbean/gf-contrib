@@ -49,7 +49,7 @@ lin
 	ariel	= mkPN( mkN feminine (mkN "Ariel") );
 	ellarose	= mkPN( mkN feminine (mkN "Ellarose") );
 	facebook	= mkPN( mkN nonhuman (mkN "Facebook") );
-	filibee	= mkPN( mkN feminine (mkN "Filibee") );
+	filibee	= mkPN( mkN masculine (mkN "Filibee") );
 	junior	= mkPN( mkN masculine (mkN "Junior") );
 	madison	= mkNP( mkPN( mkN "Madison") );
 	mandy	= mkPN( mkN feminine (mkN "Mandy") );
