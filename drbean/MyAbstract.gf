@@ -139,7 +139,7 @@ fun
 
 	who_WH	: IP;
 	what_WH	: IP;
-	which_RP	: RP;
+	IdRP	: RP;
 	that_RP	: RP;
 
 	more : CAdv;

@@ -1,4 +1,4 @@
-concrete MyConcrete of MyAbstract = open Predef, ResEng, Prelude, ConstructorsEng, (P = ParadigmsEng), ExtraEng, IrregEng, StructuralEng, SentenceEng in {
+concrete MyConcrete of MyAbstract = open Predef, ResEng, Prelude, ConstructorsEng, (P = ParadigmsEng), ExtraEng, IrregEng, StructuralEng, SentenceEng, RelativeEng in {
 
 lincat
   Utt	= Utt;
@@ -258,8 +258,8 @@ lin
 
 	who_WH	= whoSg_IP;
 	what_WH	= whatSg_IP;
-	which_RP	= which_RP;
 	that_RP	= ExtraEng.that_RP;
+	IdRP	= IdRP;
 
 	more	= more_CAdv;
 	ComparaAP a np = ConstructorsEng.mkAP a np;
