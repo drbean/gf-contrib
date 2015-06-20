@@ -446,15 +446,14 @@ repVP (GV_NP_whether_S v0 np0 (GPosQ (GYN (GSentence np vp)))) = case vp of
 			in DRS [r,recipient,referent] conds
 				) (new np recipient) ) (new np0 r)
 		(GBe_someone subjcomp ) -> \r -> repNP np0 (\recipient ->
-			repNP np (\referent ->
-			repNP subjcomp (\_ -> let
+			repNP np (\referent -> let
 			lin_v = lin v0
 			p = DRSRef "p"
 			conds = [Rel (DRSRel lin_v) [r, recipient, p]
 				, Prop p (DRS [] [Rel 
 				(DRSRel (linNP subjcomp)) [referent] ])]
 			in DRS [r,recipient,referent] conds )
-			referent ) (new np recipient) ) (new np0 r)
+			(new np recipient) ) (new np0 r)
 repVP (GV_NP_whether_S v0 np0 (GICompS how_old np)) =
 	\r -> repNP np0 (\recipient -> repNP np (\referent -> let
 		lin_v = lin v0
@@ -467,23 +466,23 @@ repVP (GV_NP_whether_S v0 np0 (GICompS how_old np)) =
 repVP (GV_NP_that_S v0 np0 (GPosS (GSentence np vp))) = case vp of
 	(GBe_vp comp) -> case comp of
 		(GBe_someone subjcomp ) -> \r -> repNP np0 (\recipient ->
-			repNP np (\referent -> repNP subjcomp (\_ -> let
+			repNP np (\referent -> let
 			lin_v = lin v0
 			p = DRSRef "p"
 			conds = [Rel (DRSRel lin_v) [r,recipient,p]
 				, Prop p (DRS [] [Rel
 				(DRSRel (linNP subjcomp)) [referent] ])]
 			in DRS [r,recipient,referent] conds )
-			referent ) (new np recipient) ) (new np0 r)
+			(new np recipient) ) (new np0 r)
 		(GBe_somewhere (GLocating prep place)) -> \r -> repNP np0 (\recipient ->
-			repNP np (\referent -> repPlace place (\name -> let
+			repNP np (\referent -> let
 			lin_v = lin v0
 			p = DRSRef "p"
 			conds = [Rel (DRSRel lin_v) [r,recipient,p]
 				, Prop p (DRS [] [Rel
-				(DRSRel (lin place)) [referent,name] ])]
+				(DRSRel (lin place)) [referent] ])]
 			in DRS [r,recipient,referent] conds )
-			(newOnPlace place referent) ) (new np recipient) ) (new np0 r)
+			(new np recipient) ) (new np0 r)
 repVP (GV_NP_S v0 np0 (GPosS (GSentence np vp))) =
 	repVP (GV_NP_that_S v0 np0 (GPosS (GSentence np vp)))
 repVP (GCausative v0 obj vp) = case vp of
