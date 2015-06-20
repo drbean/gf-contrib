@@ -122,12 +122,13 @@ repNP (GEntity name) p r
 repNP (GCloseList or_Conj nps@(GList np1 np2)) p r = p r
 repNP Gshe p r = let
 	dummy =DRSRef "dummy1"
+	i = ref2int r
 	iminus = ref2int r - 1
 	rolled_ref = int2ref iminus
 	she_refs = case r of
 		(DRSRef "r1") -> [DRSRef "r1"]
-		_ -> newDRSRefs (replicate iminus (DRSRef "r")) []
-	DRS rs conds = p r
+		_ -> newDRSRefs (replicate i (DRSRef "r")) []
+	DRS rs conds = p dummy
 	reals = filter (not . isDummy) rs
 	len = ref2int (maximum reals)
 	reflist = newDRSRefs (replicate len (DRSRef "r")) []
