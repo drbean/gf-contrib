@@ -134,9 +134,9 @@ onePlaceStarters = [
 
 
 	-- , ("male",	[Cheney, Andy, James, Johnny, Eason, Simon] )
-	, ("male",	[] )
+	, ("male",	[S, J, F] )
 	-- , ("female",	[Dora, Cherry2, Irene, Mandy, Ariel, Lulu, Viola1, Lisa1, Emma, Marian, YiSian, Jessie, Lilian, Annie, Abby, Cathy, Demi, Sunny, Jane, Claire, Connie, Bella, Lily, Maggie, Sharon, Cindy, Jennifer, Sabrina, Ban, Alice, Calina, Jin1, Rachel, Tina] )
-	, ("female",	[Mandy, Ariel, Sabrina, Alice] )
+	, ("female",	[S, E,  Mandy, Ariel, Sabrina, Alice] )
 	]
 
 
@@ -221,6 +221,7 @@ question :: [ (Content, [(Case, Entity)]) ]
 question = [
 	("age", [(Predicate, P), (Topic, A), (Pivot, S)])
 	, ("sex", [(Predicate, P), (Topic, X), (Pivot, S)])
+	, ("student", [(Pivot, E), (Predicate, P), (Topic, O) ] )
 	, ("school", [(Topic, O), (Predicate,P), (Pivot, E) ] )
 	, ("hispanic",	[(Pivot, Sabrina), (Topic, R), (Predicate, P) ] )
 	]
@@ -228,7 +229,6 @@ question = [
 condition :: [ (Content, [(Case, Entity)]) ]
 condition = [
 	("sixteen", [(Pivot,E), (Predicate,P) ] )
-	, ("student", [(Pivot,E), (Predicate,P) ] )
 	, ("taiwan", [(Pivot,Alice), (Predicate,P) ] )
 	, ("turkey", [(Pivot,F), (Predicate,P) ] )
 	, ("male",	[(Pivot, S), (Predicate, P) ] )
@@ -274,7 +274,7 @@ twoPlacers =
 	gentwoPlacer condition	"sixteen" "sixteen" Predicate Agent:
 	gentwoPlacer question	"student" "school" Predicate Pivot:
 	gentwoPlacer event	"greet" "greet" Agent Patient:
-	gentwoPlacer event	"taiwan" "taiwan" Predicate Pivot:
+	gentwoPlacer condition	"taiwan" "taiwan" Predicate Pivot:
 	gentwoPlacer event	"turkey" "turkey" Predicate Pivot:
 	gentwoPlacer event	"male" "male" Predicate Pivot:
 	gentwoPlacer condition	"girl" "female" Predicate Pivot:
