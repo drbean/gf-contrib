@@ -276,8 +276,8 @@ twoPlacers =
 	gentwoPlacer question	"student" "school" Predicate Pivot:
 	gentwoPlacer event	"greet" "greet" Agent Patient:
 	gentwoPlacer condition	"taiwan" "taiwan" Predicate Pivot:
-	gentwoPlacer event	"turkey" "turkey" Predicate Pivot:
-	gentwoPlacer event	"male" "male" Predicate Pivot:
+	gentwoPlacer condition	"turkey" "turkey" Predicate Pivot:
+	gentwoPlacer condition	"male" "male" Predicate Pivot:
 	gentwoPlacer condition	"girl" "female" Predicate Pivot:
 	gentwoPlacer condition	"young" "young" Predicate Pivot:
 	gentwoPlacer question	"hispanic" "hispanic" Predicate Pivot:
