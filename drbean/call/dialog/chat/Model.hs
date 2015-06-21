@@ -200,21 +200,21 @@ event = [
 	("ask", [(Agent,Mandy),(Recipient,S),(Predicate,P),(Topic,A)])
 	, ("ask", [(Agent,Mandy),(Recipient,S),(Predicate,P),(Topic,X)])
 	, ("ask", [(Agent,S),(Recipient,Mandy),(Predicate,P),(Topic,X)])
-	, ("say", [(Agent,E),(Recipient,Alice),(Predicate,P),(Topic,A)])
 	, ("ask", [(Agent,Alice),(Recipient,E),(Predicate,P),(Topic,O)])
-	, ("tell", [(Agent,E),(Recipient,Alice),(Predicate,P),(Topic,O)])
 	, ("greet", [(Agent, E), (Patient, Alice) ])
-	, ("tell", [(Agent,Alice),(Recipient,E),(Predicate,P),(Topic,L)])
+	, ("state", [(Agent,E),(Recipient,Alice),(Predicate,P),(Topic,A)])
+	, ("state", [(Agent,E),(Recipient,Alice),(Predicate,P),(Topic,O)])
+	, ("state", [(Agent,Alice),(Recipient,E),(Predicate,P),(Topic,L)])
 	, ("greet", [(Agent, Ariel), (Patient, F) ])
-	, ("tell", [(Agent, F), (Recipient, Ariel), (Predicate, P), (Topic, L) ])
-	, ("tell", [(Agent, Ariel), (Recipient, F), (Predicate, P), (Topic, L) ])
+	, ("state", [(Agent, F), (Recipient, Ariel), (Predicate, P), (Topic, L) ])
+	, ("state", [(Agent, Ariel), (Recipient, F), (Predicate, P), (Topic, L) ])
 	, ("greet", [(Agent, Sabrina), (Patient, S) ])
 	, ("greet", [(Agent, S), (Patient, Sabrina) ])
-	, ("say", [(Agent,S),(Recipient, Sabrina),(Predicate,P),(Topic,X)])
-	, ("say", [(Agent,Sabrina),(Recipient, S),(Predicate,P),(Topic,X)])
-	, ("say", [(Agent,S),(Recipient, Sabrina),(Predicate,P),(Topic,A)])
-	, ("say", [(Agent, Sabrina),(Recipient, S), (Predicate, P), (Topic, A)])
 	, ("ask", [(Agent, J), (Recipient, Sabrina), (Predicate, P), (Topic, R)])
+	, ("state", [(Agent,S),(Recipient, Sabrina),(Predicate,P),(Topic,X)])
+	, ("state", [(Agent,Sabrina),(Recipient, S),(Predicate,P),(Topic,X)])
+	, ("state", [(Agent,S),(Recipient, Sabrina),(Predicate,P),(Topic,A)])
+	, ("state", [(Agent, Sabrina),(Recipient, S), (Predicate, P), (Topic, A)])
 
 	]
 
@@ -235,7 +235,6 @@ condition = [
 	, ("turkey", [(Pivot,F), (Predicate,P) ] )
 	, ("male",	[(Pivot, S), (Predicate, P) ] )
 	, ("female",	[(Pivot, Sabrina), (Predicate, P) ] )
-	, ("male",	[(Pivot, S), (Predicate, P) ] )
 	, ("young",	[(Pivot, S), (Predicate, P) ] )
 	]
 
@@ -272,7 +271,7 @@ twoPlacers =
 	gentwoPlacer question "how_old" "age" Theme Pivot:
 	gentwoPlacer question "man_or_woman" "sex" Theme Pivot:
 	gentwoPlacer question "male_or_female" "sex" Theme Pivot:
-	gentwoPlacer event	"say" "say" Agent Predicate:
+	gentwoPlacer event	"say" "state" Agent Predicate:
 	gentwoPlacer condition	"sixteen" "sixteen" Predicate Agent:
 	gentwoPlacer question	"student" "school" Predicate Pivot:
 	gentwoPlacer event	"greet" "greet" Agent Patient:
@@ -310,7 +309,7 @@ threePlaceStarters = [
     ]
 threePlacers =
 	(genthreePlacer event "ask_V2Q" "ask" Agent Recipient Predicate) :
-	genthreePlacer event "tell" "tell" Agent Recipient Predicate :
+	genthreePlacer event "tell" "state" Agent Recipient Predicate :
 	threePlaceStarters
 
 type Content = String
