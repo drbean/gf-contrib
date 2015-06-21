@@ -154,14 +154,17 @@ repNP Gshe p r = let
 		_	-> c
 repNP Ghe p r = let
 	dummy =DRSRef "dummy1"
+	i = ref2int r
 	iminus = ref2int r - 1
 	rolled_ref = int2ref iminus
 	he_refs = case r of
 		(DRSRef "r1") -> [DRSRef "r1"]
-		_ -> newDRSRefs (replicate iminus (DRSRef "r")) []
-	DRS rs conds = p r
+		_ -> newDRSRefs (replicate i (DRSRef "r")) []
+	DRS rs conds = p dummy
 	reals = filter (not . isDummy) rs
-	len = ref2int (maximum reals)
+	len = case reals of
+		[] -> 1
+		_ -> ref2int (maximum reals)
 	reflist = newDRSRefs (replicate len (DRSRef "r")) []
 	he_conds = foldl1 (\cs1 cs2 -> [Or
 		(DRS [] cs1 )
