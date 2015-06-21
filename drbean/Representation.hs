@@ -130,7 +130,9 @@ repNP Gshe p r = let
 		_ -> newDRSRefs (replicate i (DRSRef "r")) []
 	DRS rs conds = p dummy
 	reals = filter (not . isDummy) rs
-	len = ref2int (maximum reals)
+	len = case reals of
+		[] -> 1
+		_ -> ref2int (maximum reals)
 	reflist = newDRSRefs (replicate len (DRSRef "r")) []
 	she_conds = foldl1 (\cs1 cs2 -> [Or
 		(DRS [] cs1 )
