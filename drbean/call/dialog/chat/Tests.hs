@@ -142,10 +142,10 @@ yn_dic_test = [
   , "Does Ellarose tell Alice she is 15 or 16."
 
   , "Does Ariel greet Filibee."
-  , "Does Filibee tell Ariel she doesn't speak English."
-  , "Does Filibee tell Ariel that she is from Turkey."
+  , "Does Filibee tell Ariel he doesn't speak English."
+  , "Does Filibee tell Ariel that he is from Turkey."
   , "Does Ariel tell Filibee that she is from Taiwan."
-  , "Does Ariel tell Filibee that they can come to Taiwan."
+  , "Does Ariel tell Filibee that he can come to Taiwan."
 
   , "Does a stranger greet Sabrina."
   , "Does Sabrina greet a stranger."
