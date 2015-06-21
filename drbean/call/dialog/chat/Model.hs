@@ -197,14 +197,14 @@ goal = [
 
 event :: [ (Content, [(Case, Entity)]) ]
 event = [
-	("ask", [(Agent,Mandy),(Recipient,S),(Predicate,P),(Topic,A)])
-	, ("ask", [(Agent,Mandy),(Recipient,S),(Predicate,P),(Topic,X)])
-	, ("ask", [(Agent,S),(Recipient,Mandy),(Predicate,P),(Topic,X)])
-	, ("ask", [(Agent,Alice),(Recipient,E),(Predicate,P),(Topic,O)])
+	("ask", [(Agent, Mandy), (Recipient, S), (Predicate, P), (Topic, A)])
+	, ("ask", [(Agent, Mandy), (Recipient, S), (Predicate, P), (Topic, X)])
+	, ("ask", [(Agent, S), (Recipient, Mandy), (Predicate, P), (Topic, X)])
+	, ("ask", [(Agent, Alice), (Recipient, E), (Predicate, P), (Topic, O)])
 	, ("greet", [(Agent, E), (Patient, Alice) ])
-	, ("state", [(Agent,E),(Recipient,Alice),(Predicate,P),(Topic,A)])
-	, ("state", [(Agent,E),(Recipient,Alice),(Predicate,P),(Topic,O)])
-	, ("state", [(Agent,Alice),(Recipient,E),(Predicate,P),(Topic,L)])
+	, ("state", [(Agent, E), (Recipient, Alice), (Predicate, P), (Topic, A)])
+	, ("state", [(Agent, E), (Recipient, Alice), (Predicate, P), (Topic, O)])
+	, ("state", [(Agent, Alice), (Recipient, E), (Predicate, P), (Topic, L)])
 	, ("greet", [(Agent, Ariel), (Patient, F) ])
 	, ("state", [(Agent, F), (Recipient, Ariel), (Predicate, P), (Topic, L) ])
 	, ("state", [(Agent, Ariel), (Recipient, F), (Predicate, P), (Topic, L) ])
@@ -268,11 +268,11 @@ twoPlaceStarters = [
 
 twoPlacers =
 	gentwoPlacer affiliation "have" "nationality" Theme Source :
-	gentwoPlacer question "how_old" "age" Theme Pivot:
-	gentwoPlacer question "man_or_woman" "sex" Theme Pivot:
-	gentwoPlacer question "male_or_female" "sex" Theme Pivot:
+	gentwoPlacer question "how_old" "age" Predicate Pivot:
+	gentwoPlacer question "man_or_woman" "sex" Predicate Pivot:
+	gentwoPlacer question "male_or_female" "sex" Predicate Pivot:
 	gentwoPlacer event	"say" "state" Agent Predicate:
-	gentwoPlacer condition	"sixteen" "sixteen" Predicate Agent:
+	gentwoPlacer condition	"sixteen" "sixteen" Predicate Pivot:
 	gentwoPlacer question	"student" "school" Predicate Pivot:
 	gentwoPlacer event	"greet" "greet" Agent Patient:
 	gentwoPlacer condition	"taiwan" "taiwan" Predicate Pivot:
