@@ -7,7 +7,6 @@ import Data.DRS
 
 import PGF
 import Chat
-	, ""
 import Representation
 import Evaluation
 import Model
