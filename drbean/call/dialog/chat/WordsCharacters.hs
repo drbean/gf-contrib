@@ -110,6 +110,7 @@ pn = [
 	, "Junior"
 	, "Madison"
 	, "Mandy"
+	, "MUST"
 	, "Paris"
 	, "Sabrina"
 	, "Taiwan"
@@ -209,6 +210,7 @@ Junior	: PN;
 LA
 like	: Prep;
 Madison	: PN;
+MUST	: PN;
 male	: A;
 man	: CN;
 Mandy	: PN;
