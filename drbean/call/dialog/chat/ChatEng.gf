@@ -52,6 +52,7 @@ lin
 	filibee	= mkPN( mkN masculine (mkN "Filibee") );
 	junior	= mkPN( mkN masculine (mkN "Junior") );
 	madison	= mkNP( mkPN( mkN "Madison") );
+	must	= mkPN( mkN nonhuman (mkN "MUST") );
 	mandy	= mkPN( mkN feminine (mkN "Mandy") );
 	paris	= mkNP( mkPN( mkN "Paris") );
 	sabrina	= mkPN( mkN feminine (mkN "Sabrina") );

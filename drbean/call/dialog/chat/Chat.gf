@@ -49,6 +49,7 @@ fun
 	junior	: PN;
 	madison	: Place;
 	mandy	: PN;
+	must	: PN;
 	paris	: Place;
 	sabrina	: PN;
 	taiwan	: Place;
