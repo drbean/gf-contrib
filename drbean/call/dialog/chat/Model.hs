@@ -7,8 +7,9 @@ data Entity	= A | B | C | D | E | F | G
 	| H | I | J | K | L | M | N 
 	| O | P | Q | R | S | T | U 
 	| V | W | X | Y | Z | Someone | Something | Unspec
-  | Mandy | Ariel | Sabrina | Alice
-	-- | Dora | Cheney | Andy | James | Cherry2 | Irene | Lulu | Johnny | Eason | Simon | Viola1 | Lisa1 | Emma | Marian | YiSian | Jessie | Lilian | Annie | Abby | Cathy | Demi | Sunny | Jane | Claire | Connie | Bella | Lily | Maggie | Sharon | Cindy | Jennifer | Ban | Calina | Jin1 | Rachel | Tina
+  | Mandy | Ariel | Sabrina | Alice | Dora | Cheney | Andy | Cherry2 
+	| Viola1 | Lisa1 | Marian | YiSian | Jessie | Demi | Maggie 
+	-- | James | Irene | Lulu | Johnny | Eason | Simon | Emma | Lilian | Annie | Abby | Cathy | Sunny | Jane | Claire | Connie | Bella | Lily | Sharon | Cindy | Jennifer | Ban | Calina | Jin1 | Rachel | Tina
 
   | Ellarose | Facebook | Filibee | Junior
      deriving (Eq,Show,Bounded,Enum,Ord)
@@ -31,7 +32,7 @@ entity_check =  [
   , (K, "" )
   , (L, "location" )
   , (M, "" )
-  , (N, "" )
+  , (N, "must" )
   , (O, "school" )
   , (P, "" )
   , (Q, "" )
@@ -215,6 +216,38 @@ event = [
 	, ("state", [(Agent,Sabrina),(Recipient, S),(Predicate,P),(Topic,X)])
 	, ("state", [(Agent,S),(Recipient, Sabrina),(Predicate,P),(Topic,A)])
 	, ("state", [(Agent, Sabrina),(Recipient, S), (Predicate, P), (Topic, A)])
+	, ("greet", [(Agent, S), (Patient, Marian) ])
+	, ("greet", [(Agent, Marian), (Patient, S) ])
+	, ("ask", [(Agent, S), (Recipient, Marian), (Predicate, P), (Topic, L)])
+	, ("ask", [(Agent, Marian), (Recipient, S), (Predicate, P), (Topic, L)])
+	, ("state", [(Agent,S),(Recipient, Marian),(Predicate,P),(Topic,L)])
+	, ("state", [(Agent,Marian),(Recipient, S),(Predicate,P),(Topic,L)])
+
+	, ("greet", [(Agent, Viola1), (Patient, S) ])
+	, ("greet", [(Agent, S), (Patient, Viola1) ])
+	, ("state", [(Agent,Viola1),(Recipient, S),(Predicate,P),(Topic,A)])
+	, ("state", [(Agent,S),(Recipient, Viola1),(Predicate,P),(Topic,A)])
+	, ("state", [(Agent,Viola1),(Recipient, S),(Predicate,P),(Topic,S)])
+	, ("state", [(Agent,S),(Recipient, Viola1),(Predicate,P),(Topic,S)])
+	, ("state", [(Agent,Viola1),(Recipient, S),(Predicate,P),(Topic,L)])
+	, ("state", [(Agent,S),(Recipient, Viola1),(Predicate,P),(Topic,L)])
+
+	, ("greet", [(Agent, Maggie), (Patient, S) ])
+	, ("state", [(Agent,Maggie),(Recipient, S),(Predicate,P),(Topic,A)])
+	, ("state", [(Agent,S),(Recipient, Maggie),(Predicate,P),(Topic,A)])
+	, ("state", [(Agent,Maggie),(Recipient, S),(Predicate,P),(Topic,S)])
+	, ("state", [(Agent,S),(Recipient, Maggie),(Predicate,P),(Topic,S)])
+	, ("state", [(Agent,Maggie),(Recipient, S),(Predicate,P),(Topic,L)])
+	, ("state", [(Agent,S),(Recipient, Maggie),(Predicate,P),(Topic,L)])
+
+	, ("greet", [(Agent, Dora), (Patient, S) ])
+	, ("greet", [(Agent, S), (Patient, Dora) ])
+	, ("ask", [(Agent, Dora), (Recipient, S), (Predicate, P), (Topic, O)])
+	, ("ask", [(Agent, S), (Recipient, S), (Predicate, P), (Topic, O)])
+	, ("state", [(Agent,Dora),(Recipient, S),(Predicate,P),(Topic,O)])
+	, ("state", [(Agent,S),(Recipient, Dora),(Predicate,P),(Topic,O)])
+	, ("state", [(Agent,Dora),(Recipient, S),(Predicate,P),(Topic,L)])
+	, ("state", [(Agent,S),(Recipient, Dora),(Predicate,P),(Topic,L)])
 
 	]
 
@@ -225,6 +258,11 @@ question = [
 	, ("student", [(Pivot, E), (Predicate, P), (Topic, O) ] )
 	, ("school", [(Topic, O), (Predicate,P), (Pivot, E) ] )
 	, ("hispanic",	[(Pivot, Sabrina), (Topic, R), (Predicate, P) ] )
+
+	, ("student", [(Pivot, Dora), (Predicate, P), (Topic, O) ] )
+	, ("student", [(Pivot, S), (Predicate, P), (Topic, O) ] )
+	, ("class", [(Pivot, Dora), (Predicate, P), (Topic, O) ] )
+	, ("class", [(Pivot, S), (Predicate, P), (Topic, O) ] )
 	]
 
 condition :: [ (Content, [(Case, Entity)]) ]
@@ -232,10 +270,30 @@ condition = [
 	("sixteen", [(Pivot,E), (Predicate,P) ] )
 	, ("taiwan", [(Pivot,Alice), (Predicate,P) ] )
 	, ("taiwan", [(Pivot,Ariel), (Predicate,P) ] )
+	, ("taiwan", [(Pivot, Marian), (Predicate,P) ] )
+	, ("taiwan", [(Pivot, YiSian), (Predicate,P) ] )
+	, ("taiwan", [(Pivot, S), (Predicate,P) ] )
+	, ("japan", [(Pivot, S), (Predicate,P) ] )
 	, ("turkey", [(Pivot,F), (Predicate,P) ] )
 	, ("male",	[(Pivot, S), (Predicate, P) ] )
 	, ("female",	[(Pivot, Sabrina), (Predicate, P) ] )
 	, ("young",	[(Pivot, S), (Predicate, P) ] )
+
+	, ("twentyone",	[(Pivot, Viola1), (Predicate, P) ] )
+	, ("twentytwo",	[(Pivot, S), (Predicate, P) ] )
+	, ("female",	[(Pivot, Viola1), (Predicate, P) ] )
+	, ("taiwan", [(Pivot, Viola1), (Predicate,P) ] )
+	, ("us", [(Pivot, S), (Predicate,P) ] )
+
+	, ("nineteen",	[(Pivot, Maggie), (Predicate, P) ] )
+	, ("nineteen",	[(Pivot, S), (Predicate, P) ] )
+	, ("female",	[(Pivot, Maggie), (Predicate, P) ] )
+	, ("taiwan", [(Pivot, Maggie), (Predicate,P) ] )
+	, ("us", [(Pivot, S), (Predicate,P) ] )
+
+	, ("taiwan", [(Pivot, Dora), (Predicate,P) ] )
+	, ("student", [(Pivot, Dora), (Predicate, P), (Topic, O) ] )
+	, ("student", [(Pivot, S), (Predicate, P), (Topic, O) ] )
 	]
 
 idea :: [ (Content, [(Case, Entity)]) ]
