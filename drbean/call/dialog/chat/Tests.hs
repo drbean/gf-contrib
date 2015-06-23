@@ -145,7 +145,7 @@ yn_dic_test = [
   , "Does Filibee tell Ariel he doesn't speak English."
   , "Does Filibee tell Ariel that he is from Turkey."
   , "Does Ariel tell Filibee that she is from Taiwan."
-  , "Does Ariel tell Filibee that he can come to Taiwan."
+  -- , "Does Ariel tell Filibee that he can come to Taiwan."
 
   , "Does a stranger greet Sabrina."
   , "Does Sabrina greet a stranger."
@@ -177,7 +177,7 @@ yn_dic_test = [
 	, "Does a stranger ask Marian where she is from?"
 	, "Does Marian tell a stranger she is from Taiwan?"
 	, "Does Marian ask a stranger where she is from?"
-	, "Does a stranger ask Marian what she likes to do in her free time?"
+	-- , "Does a stranger ask Marian what she likes to do in her free time?"
 
 	, "Does YiSian greet a stranger?"
 	, "Does a stranger greet YiSian?"
@@ -212,6 +212,8 @@ yn_dic_test = [
   , "Does a stranger tell Dora that he is from Taiwan?"
 	, "Does a stranger ask Dora if she is a student?"
 	, "Does a stranger ask Dora if she is in MUST?"
+	, "Does Dora ask a stranger if she is a student?"
+	, "Does Dora ask a stranger if she is in MUST?"
 
 	, "Does Cherry2 greet a stranger?"
 	, "Does a stranger greet Cherry2?"
@@ -223,9 +225,9 @@ yn_dic_test = [
   , "Does a stranger ask Cherry2 if she is a girl or a boy?"
   , "Does Cherry2 tell a stranger that she is from Taiwan?"
   , "Does a stranger tell Cherry2 that he is a student?"
-  , "Does a stranger tell Cherry2 that he is from Taiwan?"
+  , "Doesn't a stranger tell Cherry2 that he is from Taiwan?"
 	, "Does a stranger ask Cherry2 if she is a student?"
-	, "Does a stranger ask Cherry2 if she is in the class?"
+	, "Doesn't a stranger ask Cherry2 if she is in the class?"
   , "Does a stranger tell Cherry2 that he is 16?"
   , "Does a stranger tell Cherry2 that he is from Romania?"
 
