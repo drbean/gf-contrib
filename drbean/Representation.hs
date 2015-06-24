@@ -25,6 +25,20 @@ entuples = [
 	, (Junior,Gjunior)
 	, (Mandy,Gmandy)
 	, (Sabrina,Gsabrina)
+	, (Dora, Gdora)
+	, (Cheney, Gcheney  )
+	, (Andy, Gandy  )
+	, (Cherry2, Gcherry2 )
+	, (Viola1,	Gviola1  )
+	, (Marian,	Gmarian  )
+	, (Lisa1,	Glisa1 )
+	, (YiSian,	Gyisian  )
+	, (Jessie,	Gjessie  )
+	, (Demi,	Gdemi  )
+	, (Maggie,	Gmaggie  )
+	, (Annie,	Gannie )
+	, (Jack,	Gjack  )
+	, (Stefan,	Gstefan  )
 	]
 
 ref2int :: DRSRef -> Int
@@ -47,6 +61,20 @@ instance Eq GPN where
 	(==) Gjunior Gjunior = True
 	(==) Gmandy Gmandy = True
 	(==) Gsabrina Gsabrina = True
+	(==) Gdora Gdora = True 
+	(==) Gcheney Gcheney = True
+	(==) Gandy Gandy = True 
+	(==) Gcherry2 Gcherry2 = True
+	(==) Gviola1 Gviola1 = True
+	(==) Gmarian Gmarian = True
+	(==) Glisa1 Glisa1 = True
+	(==) Gyisian Gyisian = True
+	(==) Gjessie Gjessie = True
+	(==) Gdemi Gdemi = True 
+	(==) Gmaggie Gmaggie = True
+	(==) Gannie Gannie = True
+	(==) Gjack Gjack = True 
+	(==) Gstefan Gstefan = True
 	(==) _ _ = False
 
 gent2ent :: GPN -> Entity
@@ -413,6 +441,14 @@ repVP (GV_that_S v0 (GPosS (GSentence np vp))) = case vp of
 				, Prop p (DRS []
 				[Rel (DRSRel (linNP subjcomp)) [referent] ])]
 			in DRS [referent] cond ) r
+		(GBe_somewhere (GLocating prep place)) -> \r -> repNP np (\referent -> let
+			lin_v = lin v0
+			p = DRSRef "p"
+			conds = [Rel (DRSRel lin_v) [r,p]
+				, Prop p (DRS [] [Rel
+				(DRSRel (lin place)) [referent] ])]
+			in DRS [r,referent] conds )
+			(new np r)
 	(GIntens vv vp2) -> case vp2 of
 		(GChanging v obj) -> \r ->
 			repNP np (\referent -> repNP obj (\theme -> let
