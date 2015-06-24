@@ -282,6 +282,38 @@ event = [
 	, ("state", [(Agent,Demi),(Recipient, S),(Predicate,P),(Topic,L)])
 	, ("state", [(Agent,S),(Recipient, Demi),(Predicate,P),(Topic,L)])
 
+	, ("greet", [(Agent, Annie), (Patient, S) ])
+	, ("greet", [(Agent, S), (Patient, Annie) ])
+	, ("ask", [(Agent, Annie), (Recipient, S), (Predicate, P), (Topic, A])
+	, ("ask", [(Agent, S), (Recipient, S), (Predicate, P), (Topic, A)])
+	, ("ask", [(Agent, Annie), (Recipient, S), (Predicate, P), (Topic, L)])
+	, ("ask", [(Agent, S), (Recipient, Annie), (Predicate, P), (Topic, L)])
+	, ("state", [(Agent,Annie),(Recipient, S),(Predicate,P),(Topic,A)])
+	, ("state", [(Agent,S),(Recipient, Annie),(Predicate,P),(Topic,A)])
+	, ("state", [(Agent,Annie),(Recipient, S),(Predicate,P),(Topic,L)])
+	, ("state", [(Agent,S),(Recipient, Annie),(Predicate,P),(Topic,L)])
+
+	, ("greet", [(Agent, Cheney), (Patient, Jack) ])
+	, ("ask", [(Agent, Cheney), (Recipient, Jack), (Predicate, P), (Topic, L)])
+	, ("ask", [(Agent, Jack), (Recipient, Cheney), (Predicate, P), (Topic, L)])
+	, ("state", [(Agent,Cheney),(Recipient, Jack),(Predicate,P),(Topic,L)])
+	, ("state", [(Agent,Jack),(Recipient, Cheney),(Predicate,P),(Topic,L)])
+	, ("ask", [(Agent, Cheney), (Recipient, Jack), (Predicate, P), (Topic, A])
+	, ("ask", [(Agent, Jack), (Recipient, S), (Predicate, P), (Topic, A)])
+	, ("state", [(Agent,Cheney),(Recipient, Jack),(Predicate,P),(Topic,A)])
+	, ("state", [(Agent,Jack),(Recipient, Cheney),(Predicate,P),(Topic,A)])
+
+	, ("greet", [(Agent, Andy), (Patient, Stefan) ])
+	, ("ask", [(Agent, Andy), (Recipient, Stefan), (Predicate, P), (Topic, L)])
+	, ("state", [(Agent,Andy),(Recipient, Stefan),(Predicate,P),(Topic,L)])
+	, ("state", [(Agent,Stefan),(Recipient, Andy),(Predicate,P),(Topic,L)])
+	, ("ask", [(Agent, Andy), (Recipient, Stefan), (Predicate, P), (Topic, A])
+	, ("state", [(Agent,Andy),(Recipient, Stefan),(Predicate,P),(Topic,A)])
+	, ("state", [(Agent,Stefan),(Recipient, Andy),(Predicate,P),(Topic,A)])
+	, ("ask", [(Agent, Andy), (Recipient, Stefan), (Predicate, P), (Topic, O])
+	, ("state", [(Agent,Andy),(Recipient, Stefan),(Predicate,P),(Topic,O)])
+	, ("state", [(Agent,Stefan),(Recipient, Andy),(Predicate,P),(Topic,O)])
+
 	]
 
 question :: [ (Content, [(Case, Entity)]) ]
@@ -302,6 +334,17 @@ question = [
 
 	, ("sex", [(Pivot, Cherry2), (Predicate, P), (Topic, O) ] )
 	, ("location", [(Pivot, Cherry2), (Predicate, P), (Topic, O) ] )
+
+	, ("age", [(Pivot, Annie), (Predicate, P), (Topic, A) ] )
+	, ("age", [(Pivot, S), (Predicate, P), (Topic, A) ] )
+	, ("student", [(Pivot, Annie), (Predicate, P), (Topic, O) ] )
+	, ("student", [(Pivot, S), (Predicate, P), (Topic, O) ] )
+
+	, ("age", [(Pivot, Annie), (Predicate, P), (Topic, A) ] )
+	, ("age", [(Pivot, S), (Predicate, P), (Topic, A) ] )
+	, ("student", [(Pivot, Annie), (Predicate, P), (Topic, O) ] )
+	, ("student", [(Pivot, S), (Predicate, P), (Topic, O) ] )
+
 	]
 
 condition :: [ (Content, [(Case, Entity)]) ]
@@ -349,6 +392,23 @@ condition = [
 	, ("female", [(Pivot, Demi), (Predicate, P), (Topic, X) ] )
 	, ("nineteen", [(Pivot, Demi), (Predicate, P), (Topic, O) ] )
 	, ("eighteen", [(Pivot, S), (Predicate, P), (Topic, O) ] )
+
+	, ("taiwan", [(Pivot, Annie), (Predicate,P) ] )
+	, ("student", [(Pivot, Annie), (Predicate, P), (Topic, O) ] )
+	, ("nineteen", [(Pivot, Annie), (Predicate, P), (Topic, A) ] )
+	, ("nineteen", [(Pivot, S), (Predicate, P), (Topic, A) ] )
+
+	, ("taiwan", [(Pivot, Cheney), (Predicate,P) ] )
+	, ("china", [(Pivot, Jack), (Predicate,P) ] )
+	, ("student", [(Pivot, Cheney), (Predicate, P), (Topic, O) ] )
+	, ("nineteen", [(Pivot, Cheney), (Predicate, P), (Topic, A) ] )
+	, ("twentytwo", [(Pivot, Jack), (Predicate, P), (Topic, A) ] )
+
+	, ("taiwan", [(Pivot, Andy), (Predicate,P) ] )
+	, ("hungary", [(Pivot, Stefan), (Predicate,P) ] )
+	, ("student", [(Pivot, Andy), (Predicate, P), (Topic, O) ] )
+	, ("nineteen", [(Pivot, Andy), (Predicate, P), (Topic, A) ] )
+	, ("twentythree", [(Pivot, Stefan), (Predicate, P), (Topic, A) ] )
 
 	]
 
