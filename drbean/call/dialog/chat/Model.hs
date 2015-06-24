@@ -243,7 +243,7 @@ event = [
 	, ("greet", [(Agent, Dora), (Patient, S) ])
 	, ("greet", [(Agent, S), (Patient, Dora) ])
 	, ("ask", [(Agent, Dora), (Recipient, S), (Predicate, P), (Topic, O)])
-	, ("ask", [(Agent, S), (Recipient, S), (Predicate, P), (Topic, O)])
+	, ("ask", [(Agent, S), (Recipient, Dora), (Predicate, P), (Topic, O)])
 	, ("state", [(Agent,Dora),(Recipient, S),(Predicate,P),(Topic,O)])
 	, ("state", [(Agent,S),(Recipient, Dora),(Predicate,P),(Topic,O)])
 	, ("state", [(Agent,Dora),(Recipient, S),(Predicate,P),(Topic,L)])
@@ -252,7 +252,7 @@ event = [
 	, ("greet", [(Agent, Cherry2), (Patient, S) ])
 	, ("greet", [(Agent, S), (Patient, Cherry2) ])
 	, ("ask", [(Agent, Cherry2), (Recipient, S), (Predicate, P), (Topic, O)])
-	, ("ask", [(Agent, S), (Recipient, S), (Predicate, P), (Topic, O)])
+	, ("ask", [(Agent, S), (Recipient, Cherry2), (Predicate, P), (Topic, O)])
 	, ("state", [(Agent,Cherry2),(Recipient, S),(Predicate,P),(Topic,O)])
 	, ("state", [(Agent,S),(Recipient, Cherry2),(Predicate,P),(Topic,O)])
 	, ("state", [(Agent,Cherry2),(Recipient, S),(Predicate,P),(Topic,X)])
@@ -262,14 +262,25 @@ event = [
 
 	, ("greet", [(Agent, Jessie), (Patient, S) ])
 	, ("greet", [(Agent, S), (Patient, Jessie) ])
-	, ("ask", [(Agent, Jessie), (Recipient, S), (Predicate, P), (Topic, X])
-	, ("ask", [(Agent, S), (Recipient, S), (Predicate, P), (Topic, X)])
-	, ("ask", [(Agent, Jessie), (Recipient, S), (Predicate, P), (Topic, L])
-	, ("ask", [(Agent, S), (Recipient, S), (Predicate, P), (Topic, L)])
+	, ("ask", [(Agent, Jessie), (Recipient, S), (Predicate, P), (Topic, L)])
+	, ("ask", [(Agent, S), (Recipient, Jessie), (Predicate, P), (Topic, L)])
 	, ("state", [(Agent,Jessie),(Recipient, S),(Predicate,P),(Topic,X)])
 	, ("state", [(Agent,S),(Recipient, Jessie),(Predicate,P),(Topic,X)])
 	, ("state", [(Agent,Jessie),(Recipient, S),(Predicate,P),(Topic,L)])
 	, ("state", [(Agent,S),(Recipient, Jessie),(Predicate,P),(Topic,L)])
+
+	, ("greet", [(Agent, Demi), (Patient, S) ])
+	, ("greet", [(Agent, S), (Patient, Demi) ])
+	, ("ask", [(Agent, Demi), (Recipient, S), (Predicate, P), (Topic, X])
+	, ("ask", [(Agent, S), (Recipient, S), (Predicate, P), (Topic, X)])
+	, ("ask", [(Agent, Demi), (Recipient, S), (Predicate, P), (Topic, L)])
+	, ("ask", [(Agent, S), (Recipient, Demi), (Predicate, P), (Topic, L)])
+	, ("state", [(Agent,Demi),(Recipient, S),(Predicate,P),(Topic,A)])
+	, ("state", [(Agent,S),(Recipient, Demi),(Predicate,P),(Topic,A)])
+	, ("state", [(Agent,Demi),(Recipient, S),(Predicate,P),(Topic,X)])
+	, ("state", [(Agent,S),(Recipient, Demi),(Predicate,P),(Topic,X)])
+	, ("state", [(Agent,Demi),(Recipient, S),(Predicate,P),(Topic,L)])
+	, ("state", [(Agent,S),(Recipient, Demi),(Predicate,P),(Topic,L)])
 
 	]
 
@@ -289,6 +300,8 @@ question = [
 	, ("student", [(Pivot, Cherry2), (Predicate, P), (Topic, O) ] )
 	, ("student", [(Pivot, S), (Predicate, P), (Topic, O) ] )
 
+	, ("sex", [(Pivot, Cherry2), (Predicate, P), (Topic, O) ] )
+	, ("location", [(Pivot, Cherry2), (Predicate, P), (Topic, O) ] )
 	]
 
 condition :: [ (Content, [(Case, Entity)]) ]
@@ -327,6 +340,15 @@ condition = [
 	, ("student", [(Pivot, Cherry2), (Predicate, P), (Topic, O) ] )
 	, ("sixteen", [(Pivot, S), (Predicate, P), (Topic, O) ] )
 	, ("romania", [(Pivot, S), (Predicate, P), (Topic, O) ] )
+
+	, ("taiwan", [(Pivot, Jessie), (Predicate,P) ] )
+	, ("female", [(Pivot, Jessie), (Predicate, P), (Topic, X) ] )
+	, ("china", [(Pivot, S), (Predicate, P), (Topic, L) ] )
+
+	, ("taiwan", [(Pivot, Demi), (Predicate,P) ] )
+	, ("female", [(Pivot, Demi), (Predicate, P), (Topic, X) ] )
+	, ("nineteen", [(Pivot, Demi), (Predicate, P), (Topic, O) ] )
+	, ("eighteen", [(Pivot, S), (Predicate, P), (Topic, O) ] )
 
 	]
 
