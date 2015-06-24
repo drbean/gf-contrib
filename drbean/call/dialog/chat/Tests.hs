@@ -276,7 +276,7 @@ yn_dic_test = [
   , "Does Annie tell a stranger that she is a student?"
   , "Does a stranger ask Annie if she is a student?"
   , "Does a stranger tell Annie that he is a student?"
-  , "Does Annie ask a stranger how old he is?"
+  , "Doesn't Annie ask a stranger how old he is?"
   , "Does a stranger ask Annie how old she is?"
   , "Does a stranger tell Annie that he is 19?"
   , "Does Annie tell a stranger that she is 19?"
