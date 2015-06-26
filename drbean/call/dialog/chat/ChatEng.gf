@@ -36,15 +36,9 @@ lin
 	to	= mkPrep "to";
 
 	age	= mkCN( mkN "age");
-	city	= mkCN( mkN "city");
-	freshman	= mkCN( mkN human (mkN "freshman"));
 	girl	= mkCN( mkN "girl");
-	guess_CN	= mkCN( mkN "guess");
 	man	= mkCN( mkN masculine (mkN "man"));
 	name	= mkCN( mkN "name");
-	nationality	= mkCN( mkN "nationality");
-	question	= mkCN( mkN "question");
-	sophomore	= mkCN( mkN "sophomore");
 	stranger	= mkCN( mkN human (mkN "stranger"));
 	student	= mkCN( mkN human (mkN "student"));
 	woman	= mkCN( mkN feminine (mkN "woman"));

@@ -32,15 +32,9 @@ fun
 	to	: LocPrep;
 
 	age	: CN;
-	city	: CN;
-	freshman	: CN;
 	girl	: CN;
-	guess_CN	: CN;
 	man	: CN;
 	name	: CN;
-	nationality	: CN;
-	question	: CN;
-	sophomore	: CN;
 	stranger	: CN;
 	student	: CN;
 	woman	: CN;
