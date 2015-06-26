@@ -113,6 +113,8 @@ unmaybe (Just x) = x
 
 repS :: GUtt -> Maybe (DRSRef -> DRS)
 repS (GQUt (GPosQ (GYN (GSentence np vp)))) = Just (repNP np (repVP vp))
+repS (GQUt (GNegQ (GYN (GSentence np vp)))) =
+	repS (GQUt (GPosQ (GYN (GSentence np vp))))
 repS (GQUt (GPosQ (GYN (GMembership det cn (GLocating _ np))))) =
 	Just (repPlace np (repVP (GChanging Ghave (GItem det cn))))
 repS (GQUt (GPosQ (GTagComp np comp))) =
@@ -506,6 +508,12 @@ repVP (GV_NP_whether_S v0 np0 (GICompS how_old np)) =
 	(new np recipient) ) (new np0 r)
 repVP (GV_NP_that_S v0 np0 (GPosS (GSentence np vp))) = case vp of
 	(GBe_vp comp) -> case comp of
+		(GBe_bad ap ) -> \r -> repNP np0 (\recipient -> 
+			repNP np (\referent -> let
+			d = repAP ap referent
+			p = DRSRef "p" in
+			DRS [referent] [Rel (DRSRel (lin v0)) [r, recipient, p]
+				, Prop p d] ) (new np recipient) ) (new np r)
 		(GBe_someone subjcomp ) -> \r -> repNP np0 (\recipient ->
 			repNP np (\referent -> let
 			lin_v = lin v0
