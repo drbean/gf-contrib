@@ -11,7 +11,6 @@ data Entity	= A | B | C | D | E | F | G
 	| Viola1 | Lisa1 | Marian | YiSian | Jessie | Demi | Maggie | Annie
 	-- | James | Irene | Lulu | Johnny | Eason | Simon | Emma | Lilian | Abby | Cathy | Sunny | Jane | Claire | Connie | Bella | Lily | Sharon | Cindy | Jennifer | Ban | Calina | Jin1 | Rachel | Tina
 
-  | Ellarose | Facebook | Filibee | Junior | Jack | Stefan
      deriving (Eq,Show,Bounded,Enum,Ord)
 
 entities :: [Entity]
