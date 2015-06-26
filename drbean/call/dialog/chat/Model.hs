@@ -8,10 +8,10 @@ data Entity	= A | B | C | D | E | F | G
 	| O | P | Q | R | S | T | U 
 	| V | W | X | Y | Z | Someone | Something | Unspec
   | Mandy | Ariel | Sabrina | Alice | Dora | Cheney | Andy | Cherry2 
-	| Viola1 | Lisa1 | Marian | YiSian | Jessie | Demi | Maggie 
-	-- | James | Irene | Lulu | Johnny | Eason | Simon | Emma | Lilian | Annie | Abby | Cathy | Sunny | Jane | Claire | Connie | Bella | Lily | Sharon | Cindy | Jennifer | Ban | Calina | Jin1 | Rachel | Tina
+	| Viola1 | Lisa1 | Marian | YiSian | Jessie | Demi | Maggie | Annie
+	-- | James | Irene | Lulu | Johnny | Eason | Simon | Emma | Lilian | Abby | Cathy | Sunny | Jane | Claire | Connie | Bella | Lily | Sharon | Cindy | Jennifer | Ban | Calina | Jin1 | Rachel | Tina
 
-  | Ellarose | Facebook | Filibee | Junior
+  | Ellarose | Facebook | Filibee | Junior | Jack | Stefan
      deriving (Eq,Show,Bounded,Enum,Ord)
 
 entities :: [Entity]
@@ -29,7 +29,7 @@ entity_check =  [
   , (H, "" )
   , (I, "" )
   , (J, "junior" )
-  , (K, "" )
+  , (K, "jack" )
   , (L, "location" )
   , (M, "" )
   , (N, "must" )
@@ -38,7 +38,7 @@ entity_check =  [
   , (Q, "" )
   , (R, "race" )
   , (S, "stranger" )
-  , (T, "" )
+  , (T, "stefan" )
   , (U, "turkey" )
   , (V, "" )
   , (W, "" )
@@ -49,34 +49,34 @@ entity_check =  [
 	, (Mandy, "mandy" )
 	, (Ariel, "ariel" )
 	, (Sabrina, "sabrina" )
-	-- , (Dora, "dora" )
-	-- , (Cheney, "cheney" )
-	-- , (Andy , "andy" )
+	, (Dora, "dora" )
+	, (Cheney, "cheney" )
+	, (Andy , "andy" )
 	-- , (James, "james" )
-	-- , (Cherry2, "cherry2" )
+	, (Cherry2, "cherry2" )
 	-- , (Irene, "irene" )
 	-- , (Lulu, "lulu" )
 	-- , (Johnny, "johnny" )
 	-- , (Eason, "eason" )
 	-- , (Simon, "simon" )
-	-- , (Viola1, "viola1" )
-	-- , (Lisa1, "lisa1" )
+	, (Viola1, "viola1" )
+	, (Lisa1, "lisa1" )
 	-- , (Emma, "emma" )
-	-- , (Marian, "marian" )
-	-- , (YiSian, "yisian" )
-	-- , (Jessie, "jessie" )
+	, (Marian, "marian" )
+	, (YiSian, "yisian" )
+	, (Jessie, "jessie" )
 	-- , (Lilian, "lilian" )
-	-- , (Annie, "annie" )
+	, (Annie, "annie" )
 	-- , (Abby, "abby" )
 	-- , (Cathy, "cathy" )
-	-- , (Demi, "demi" )
+	, (Demi, "demi" )
 	-- , (Sunny, "sunny" )
 	-- , (Jane, "jane" )
 	-- , (Claire, "claire" )
 	-- , (Connie, "connie" )
 	-- , (Bella, "bella" )
 	-- , (Lily, "lily" )
-	-- , (Maggie, "maggie" )
+	, (Maggie, "maggie" )
 	-- , (Sharon, "sharon" )
 	-- , (Cindy, "cindy" )
 	-- , (Jennifer, "jennifer" )
@@ -88,8 +88,8 @@ entity_check =  [
     ]
 
 students = 
-	[ Alice, Mandy, Ariel, Sabrina ]
-  -- [ Dora, Cheney, Andy, James, Cherry2, Irene, Mandy, Ariel, Lulu, Johnny, Eason, Simon, Viola1, Lisa1, Emma, Marian, YiSian, Jessie, Lilian, Annie, Abby, Cathy, Demi, Sunny, Jane, Claire, Connie, Bella, Lily, Maggie, Sharon, Cindy, Jennifer, Sabrina, Ban, Alice, Calina, Jin1, Rachel, Tina ]
+	[ Alice, Mandy, Ariel, Sabrina, Dora, Cheney, Andy, Viola1, Lisa1, Annie, Maggie, Jessie, Demi, Cherry2 ]
+  -- [ James, Irene, Mandy, Ariel, Lulu, Johnny, Eason, Simon, Emma, Marian, YiSian, Lilian, Abby, Cathy, Sunny, Jane, Claire, Connie, Bella, Lily, Sharon, Cindy, Jennifer, Sabrina, Ban, Alice, Calina, Jin1, Rachel, Tina ]
 
 ent_ided :: String -> Entity
 ent_ided name = head [entity | (entity,string) <- entity_check ,
@@ -209,6 +209,7 @@ event = [
 	, ("greet", [(Agent, Ariel), (Patient, F) ])
 	, ("state", [(Agent, F), (Recipient, Ariel), (Predicate, P), (Topic, L) ])
 	, ("state", [(Agent, Ariel), (Recipient, F), (Predicate, P), (Topic, L) ])
+
 	, ("greet", [(Agent, Sabrina), (Patient, S) ])
 	, ("greet", [(Agent, S), (Patient, Sabrina) ])
 	, ("ask", [(Agent, J), (Recipient, Sabrina), (Predicate, P), (Topic, R)])
@@ -216,6 +217,15 @@ event = [
 	, ("state", [(Agent,Sabrina),(Recipient, S),(Predicate,P),(Topic,X)])
 	, ("state", [(Agent,S),(Recipient, Sabrina),(Predicate,P),(Topic,A)])
 	, ("state", [(Agent, Sabrina),(Recipient, S), (Predicate, P), (Topic, A)])
+
+	, ("greet", [(Agent, Sabrina), (Patient, J) ])
+	, ("greet", [(Agent, J), (Patient, Sabrina) ])
+	, ("ask", [(Agent, J), (Recipient, Sabrina), (Predicate, P), (Topic, R)])
+	, ("state", [(Agent,J),(Recipient, Sabrina),(Predicate,P),(Topic,X)])
+	, ("state", [(Agent,Sabrina),(Recipient, J),(Predicate,P),(Topic,X)])
+	, ("state", [(Agent,J),(Recipient, Sabrina),(Predicate,P),(Topic,A)])
+	, ("state", [(Agent, Sabrina),(Recipient, J), (Predicate, P), (Topic, A)])
+
 	, ("greet", [(Agent, S), (Patient, Marian) ])
 	, ("greet", [(Agent, Marian), (Patient, S) ])
 	, ("ask", [(Agent, S), (Recipient, Marian), (Predicate, P), (Topic, L)])
@@ -271,7 +281,7 @@ event = [
 
 	, ("greet", [(Agent, Demi), (Patient, S) ])
 	, ("greet", [(Agent, S), (Patient, Demi) ])
-	, ("ask", [(Agent, Demi), (Recipient, S), (Predicate, P), (Topic, X])
+	, ("ask", [(Agent, Demi), (Recipient, S), (Predicate, P), (Topic, X)])
 	, ("ask", [(Agent, S), (Recipient, S), (Predicate, P), (Topic, X)])
 	, ("ask", [(Agent, Demi), (Recipient, S), (Predicate, P), (Topic, L)])
 	, ("ask", [(Agent, S), (Recipient, Demi), (Predicate, P), (Topic, L)])
@@ -284,7 +294,7 @@ event = [
 
 	, ("greet", [(Agent, Annie), (Patient, S) ])
 	, ("greet", [(Agent, S), (Patient, Annie) ])
-	, ("ask", [(Agent, Annie), (Recipient, S), (Predicate, P), (Topic, A])
+	, ("ask", [(Agent, Annie), (Recipient, S), (Predicate, P), (Topic, A)])
 	, ("ask", [(Agent, S), (Recipient, S), (Predicate, P), (Topic, A)])
 	, ("ask", [(Agent, Annie), (Recipient, S), (Predicate, P), (Topic, L)])
 	, ("ask", [(Agent, S), (Recipient, Annie), (Predicate, P), (Topic, L)])
@@ -298,21 +308,21 @@ event = [
 	, ("ask", [(Agent, Jack), (Recipient, Cheney), (Predicate, P), (Topic, L)])
 	, ("state", [(Agent,Cheney),(Recipient, Jack),(Predicate,P),(Topic,L)])
 	, ("state", [(Agent,Jack),(Recipient, Cheney),(Predicate,P),(Topic,L)])
-	, ("ask", [(Agent, Cheney), (Recipient, Jack), (Predicate, P), (Topic, A])
+	, ("ask", [(Agent, Cheney), (Recipient, Jack), (Predicate, P), (Topic, A)])
 	, ("ask", [(Agent, Jack), (Recipient, S), (Predicate, P), (Topic, A)])
 	, ("state", [(Agent,Cheney),(Recipient, Jack),(Predicate,P),(Topic,A)])
 	, ("state", [(Agent,Jack),(Recipient, Cheney),(Predicate,P),(Topic,A)])
 
-	, ("greet", [(Agent, Andy), (Patient, Stefan) ])
-	, ("ask", [(Agent, Andy), (Recipient, Stefan), (Predicate, P), (Topic, L)])
-	, ("state", [(Agent,Andy),(Recipient, Stefan),(Predicate,P),(Topic,L)])
-	, ("state", [(Agent,Stefan),(Recipient, Andy),(Predicate,P),(Topic,L)])
-	, ("ask", [(Agent, Andy), (Recipient, Stefan), (Predicate, P), (Topic, A])
-	, ("state", [(Agent,Andy),(Recipient, Stefan),(Predicate,P),(Topic,A)])
-	, ("state", [(Agent,Stefan),(Recipient, Andy),(Predicate,P),(Topic,A)])
-	, ("ask", [(Agent, Andy), (Recipient, Stefan), (Predicate, P), (Topic, O])
-	, ("state", [(Agent,Andy),(Recipient, Stefan),(Predicate,P),(Topic,O)])
-	, ("state", [(Agent,Stefan),(Recipient, Andy),(Predicate,P),(Topic,O)])
+	, ("greet", [(Agent, Andy), (Patient, T) ])
+	, ("ask", [(Agent, Andy), (Recipient, T), (Predicate, P), (Topic, L)])
+	, ("state", [(Agent,Andy),(Recipient, T),(Predicate,P),(Topic,L)])
+	, ("state", [(Agent,T),(Recipient, Andy),(Predicate,P),(Topic,L)])
+	, ("ask", [(Agent, Andy), (Recipient, T), (Predicate, P), (Topic, A)])
+	, ("state", [(Agent,Andy),(Recipient, T),(Predicate,P),(Topic,A)])
+	, ("state", [(Agent,T),(Recipient, Andy),(Predicate,P),(Topic,A)])
+	, ("ask", [(Agent, Andy), (Recipient, T), (Predicate, P), (Topic, O)])
+	, ("state", [(Agent,Andy),(Recipient, T),(Predicate,P),(Topic,O)])
+	, ("state", [(Agent,T),(Recipient, Andy),(Predicate,P),(Topic,O)])
 
 	]
 
@@ -360,6 +370,7 @@ condition = [
 	, ("male",	[(Pivot, S), (Predicate, P) ] )
 	, ("female",	[(Pivot, Sabrina), (Predicate, P) ] )
 	, ("young",	[(Pivot, S), (Predicate, P) ] )
+	, ("sixteen", [(Pivot,J), (Predicate,P) ] )
 
 	, ("twentyone",	[(Pivot, Viola1), (Predicate, P) ] )
 	, ("twentytwo",	[(Pivot, S), (Predicate, P) ] )
@@ -405,10 +416,10 @@ condition = [
 	, ("twentytwo", [(Pivot, Jack), (Predicate, P), (Topic, A) ] )
 
 	, ("taiwan", [(Pivot, Andy), (Predicate,P) ] )
-	, ("hungary", [(Pivot, Stefan), (Predicate,P) ] )
+	, ("hungary", [(Pivot, T), (Predicate,P) ] )
 	, ("student", [(Pivot, Andy), (Predicate, P), (Topic, O) ] )
 	, ("nineteen", [(Pivot, Andy), (Predicate, P), (Topic, A) ] )
-	, ("twentythree", [(Pivot, Stefan), (Predicate, P), (Topic, A) ] )
+	, ("twentythree", [(Pivot, T), (Predicate, P), (Topic, A) ] )
 
 	]
 
@@ -446,12 +457,19 @@ twoPlacers =
 	gentwoPlacer question "man_or_woman" "sex" Predicate Pivot:
 	gentwoPlacer question "male_or_female" "sex" Predicate Pivot:
 	gentwoPlacer event	"say" "state" Agent Predicate:
+	gentwoPlacer condition	"fifteen" "fifteen" Predicate Pivot:
 	gentwoPlacer condition	"sixteen" "sixteen" Predicate Pivot:
+	gentwoPlacer condition	"eighteen" "eighteen" Predicate Pivot:
+	gentwoPlacer condition	"nineteen" "nineteen" Predicate Pivot:
+	gentwoPlacer condition	"twentyone" "twentyone" Predicate Pivot:
+	gentwoPlacer condition	"twentytwo" "twentytwo" Predicate Pivot:
+	gentwoPlacer condition	"twentythree" "twentythree" Predicate Pivot:
 	gentwoPlacer question	"student" "school" Predicate Pivot:
 	gentwoPlacer event	"greet" "greet" Agent Patient:
 	gentwoPlacer condition	"taiwan" "taiwan" Predicate Pivot:
 	gentwoPlacer condition	"turkey" "turkey" Predicate Pivot:
 	gentwoPlacer condition	"male" "male" Predicate Pivot:
+	gentwoPlacer condition	"female" "female" Predicate Pivot:
 	gentwoPlacer condition	"girl" "female" Predicate Pivot:
 	gentwoPlacer condition	"young" "young" Predicate Pivot:
 	gentwoPlacer question	"hispanic" "hispanic" Predicate Pivot:
