@@ -16,6 +16,10 @@ lin
 	fifteen	= mkAP( mkA "15");
 	sixteen	= mkAP( mkA "16");
 	eighteen	= mkAP( mkA "18");
+	nineteen	= mkAP( mkA "19");
+	twentyone	= mkAP( mkA "21");
+	twentytwo	= mkAP( mkA "22");
+	twentythree	= mkAP( mkA "23");
 	beautiful	= mkAP( mkA "beautiful");
 	female	= mkAP( mkA "female");
 	good	= mkAP( mkA "good");
@@ -60,6 +64,20 @@ lin
 	turkey	= mkNP( mkPN( mkN "Turkey") );
 	usa	= mkNP( mkPN( mkN "the USA") );
 	ny	= mkNP( mkPN( mkN "NY") );
+	dora	= mkPN( mkN feminine (mkN "Dora") );
+	cheney	= mkPN( mkN masculine (mkN "Cheney") );
+	andy	= mkPN( mkN masculine (mkN "Andy") );
+	cherry2	= mkPN( mkN feminine (mkN "Cherry2") );
+	viola1	= mkPN( mkN feminine (mkN "Viola1") );
+	marian	= mkPN( mkN feminine (mkN "Marian") );
+	lisa1	= mkPN( mkN feminine (mkN "Lisa1") );
+	yisian	= mkPN( mkN feminine (mkN "YiSian") );
+	jessie	= mkPN( mkN feminine (mkN "Jessie") );
+	demi	= mkPN( mkN feminine (mkN "Demi") );
+	maggie	= mkPN( mkN feminine (mkN "Maggie") );
+	annie	= mkPN( mkN feminine (mkN "Annie") );
+	jack	= mkPN( mkN masculine (mkN "Jack") );
+	stefan	= mkPN( mkN masculine (mkN "Stefan") );
 
 	ask_V2Q	= mkV2Q (mkV "ask") noPrep;
 	come	= mkVP IrregEng.come_V;

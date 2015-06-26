@@ -12,6 +12,10 @@ fun
 	fifteen	: AP;
 	sixteen	: AP;
 	eighteen	: AP;
+	nineteen	: AP;
+	twentyone	: AP;
+	twentytwo	: AP;
+	twentythree	: AP;
 	beautiful	: AP;
 	female	: AP;
 	good	: AP;
@@ -56,6 +60,20 @@ fun
 	turkey	: Place;
 	usa	: Place;
 	ny	: Place;
+	dora	: PN;
+	cheney	: PN;
+	andy	: PN;
+	cherry2	: PN;
+	viola1	: PN;
+	marian	: PN;
+	lisa1	: PN;
+	yisian	: PN;
+	jessie	: PN;
+	demi	: PN;
+	maggie	: PN;
+	annie	: PN;
+	jack	: PN;
+	stefan	: PN;
 
 	ask_V2Q	: V2Q;
 	come	: Motion;
