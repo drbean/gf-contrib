@@ -48,18 +48,14 @@ fun
 	alice	: PN;
 	ariel	: PN;
 	ellarose	: PN;
-	facebook	: PN;
 	filibee	: PN;
 	junior	: PN;
-	madison	: Place;
 	mandy	: PN;
 	must	: PN;
-	paris	: Place;
 	sabrina	: PN;
 	taiwan	: Place;
 	turkey	: Place;
 	usa	: Place;
-	ny	: Place;
 	dora	: PN;
 	cheney	: PN;
 	andy	: PN;
