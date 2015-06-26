@@ -37,6 +37,10 @@ a = [
 	"15"
 	, "16"
 	, "18"
+	, "19"
+	, "21"
+	, "22"
+	, "23"
 	, "beautiful"
 	, "female"
 	, "good"
@@ -117,6 +121,20 @@ pn = [
 	, "Turkey"
 	, "USA"
 	, "NY"
+	, "Dora"
+	, "Cheney"
+	, "Andy"
+	, "Cherry2"
+	, "Viola1"
+	, "Marian"
+	, "Lisa1"
+	, "YiSian"
+	, "Jessie"
+	, "Demi"
+	, "Maggie"
+	, "Annie"
+	, "Jack"
+	, "Stefan"
 	]
 
 pron = [
@@ -170,6 +188,10 @@ v = [
 15	: A;
 16	: A;
 18	: A;
+19	: A;
+21	: A;
+22	: A;
+23	: A;
 a
 A
 age	: CN;
@@ -248,6 +270,22 @@ when
 where
 woman	: CN;
 young	: A;
+
+Dora	: PN;
+Cheney	: PN;
+Andy	: PN;
+Cherry2	: PN;
+Viola1	: PN;
+Lisa1	: PN;
+Marian	: PN;
+YiSian	: PN;
+Jessie	: PN;
+Demi	: PN;
+Maggie	: PN;
+Annie	: PN;
+Jack	: PN;
+Stefan	: PN;
+
 
 -}
 
