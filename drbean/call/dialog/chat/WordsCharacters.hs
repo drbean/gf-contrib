@@ -88,15 +88,9 @@ n = cn ++ un
 
 cn = [
 	"age"
-	, "city"
-	, "freshman"
 	, "girl"
-	, "guess"
 	, "man"
 	, "name"
-	, "nationality"
-	, "question"
-	, "sophomore"
 	, "stranger"
 	, "student"
 	, "woman"
