@@ -19,10 +19,9 @@ entuples :: [(Entity,GPN)]
 entuples = [
 	(Alice,Galice)
 	, (Ariel,Gariel)
-	, (Ellarose,Gellarose)
-	, (Facebook,Gfacebook)
-	, (Filibee,Gfilibee)
-	, (Junior,Gjunior)
+	, (E,Gellarose)
+	, (F,Gfilibee)
+	, (J,Gjunior)
 	, (Mandy,Gmandy)
 	, (Sabrina,Gsabrina)
 	, (Dora, Gdora)
@@ -37,8 +36,8 @@ entuples = [
 	, (Demi,	Gdemi  )
 	, (Maggie,	Gmaggie  )
 	, (Annie,	Gannie )
-	, (Jack,	Gjack  )
-	, (Stefan,	Gstefan  )
+	, (K,  Gjack)
+	, (T,  Gstefan	)
 	]
 
 ref2int :: DRSRef -> Int
@@ -56,7 +55,6 @@ instance Eq GPN where
 	(==) Galice Galice = True
 	(==) Gariel Gariel = True
 	(==) Gellarose Gellarose = True
-	(==) Gfacebook Gfacebook = True
 	(==) Gfilibee Gfilibee = True
 	(==) Gjunior Gjunior = True
 	(==) Gmandy Gmandy = True
