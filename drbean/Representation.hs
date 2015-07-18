@@ -482,7 +482,7 @@ repVP (GV_NP_whether_S v0 np0 (GPosQ (GYN (GSentence np vp)))) = case vp of
 			d = repAP ap referent
 			lin_v = lin v0
 			p = DRSRef "p"
-			conds = [Rel (DRSRel lin_v) [r,referent,p]
+			conds = [Rel (DRSRel lin_v) [r,recipient,p]
 				, Prop p d]
 			in DRS [r,recipient,referent] conds
 				) (new np recipient) ) (new np0 r)
@@ -493,6 +493,15 @@ repVP (GV_NP_whether_S v0 np0 (GPosQ (GYN (GSentence np vp)))) = case vp of
 			conds = [Rel (DRSRel lin_v) [r, recipient, p]
 				, Prop p (DRS [] [Rel 
 				(DRSRel (linNP subjcomp)) [referent] ])]
+			in DRS [r,recipient,referent] conds )
+			(new np recipient) ) (new np0 r)
+		(GBe_somewhere (GLocating prep place)) -> \r -> repNP np0 (\recipient ->
+			repNP np (\referent -> let
+			lin_v = lin v0
+			p = DRSRef "p"
+			conds = [Rel (DRSRel lin_v) [r,recipient,p]
+				, Prop p (DRS [] [Rel
+				(DRSRel (lin place)) [referent] ])]
 			in DRS [r,recipient,referent] conds )
 			(new np recipient) ) (new np0 r)
 repVP (GV_NP_whether_S v0 np0 (GICompS how_old np)) =
