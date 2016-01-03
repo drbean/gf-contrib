@@ -1,4 +1,4 @@
---# -path=.:/home/drbean/GF/gf-contrib/drbean:present
+--# -path=.:/home/drbean/GF/lib/src/translator:/home/drbean/GF/gf-contrib/drbean:present
 
 concrete ChatEng of Chat = MyConcrete **
 open (ResEng = ResEng), ConstructorsEng, ParadigmsEng, StructuralEng, IrregEng, ExtraEng, Prelude in {
