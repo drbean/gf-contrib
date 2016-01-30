@@ -17,27 +17,8 @@ import Data.Tuple
 
 entuples :: [(Entity,GPN)]
 entuples = [
-	(Alice,Galice)
-	, (Ariel,Gariel)
-	, (E,Gellarose)
-	, (F,Gfilibee)
-	, (J,Gjunior)
-	, (Mandy,Gmandy)
-	, (Sabrina,Gsabrina)
-	, (Dora, Gdora)
-	, (Cheney, Gcheney  )
-	, (Andy, Gandy  )
-	, (Cherry2, Gcherry2 )
-	, (Viola1,	Gviola1  )
-	, (Marian,	Gmarian  )
-	, (Lisa1,	Glisa1 )
-	, (YiSian,	Gyisian  )
-	, (Jessie,	Gjessie  )
-	, (Demi,	Gdemi  )
-	, (Maggie,	Gmaggie  )
-	, (Annie,	Gannie )
-	, (K,  Gjack)
-	, (T,  Gstefan	)
+	(A,Guncle_alf)
+	, (D,  Gdee	)
 	]
 
 ref2int :: DRSRef -> Int
@@ -52,27 +33,8 @@ int2ref :: Int -> DRSRef
 int2ref n = DRSRef ("r" ++ (show n) )
 
 instance Eq GPN where
-	(==) Galice Galice = True
-	(==) Gariel Gariel = True
-	(==) Gellarose Gellarose = True
-	(==) Gfilibee Gfilibee = True
-	(==) Gjunior Gjunior = True
-	(==) Gmandy Gmandy = True
-	(==) Gsabrina Gsabrina = True
-	(==) Gdora Gdora = True 
-	(==) Gcheney Gcheney = True
-	(==) Gandy Gandy = True 
-	(==) Gcherry2 Gcherry2 = True
-	(==) Gviola1 Gviola1 = True
-	(==) Gmarian Gmarian = True
-	(==) Glisa1 Glisa1 = True
-	(==) Gyisian Gyisian = True
-	(==) Gjessie Gjessie = True
-	(==) Gdemi Gdemi = True 
-	(==) Gmaggie Gmaggie = True
-	(==) Gannie Gannie = True
-	(==) Gjack Gjack = True 
-	(==) Gstefan Gstefan = True
+	(==) Galf Galf = True
+	(==) Gdee Gdee = True 
 	(==) _ _ = False
 
 gent2ent :: GPN -> Entity
