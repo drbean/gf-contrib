@@ -1,6 +1,6 @@
 module Main where
 
-import Chat
+import Dickson
 import LogicalForm hiding ((==))
 import Evaluation
 
@@ -20,7 +20,7 @@ import System.Environment.FindBin
 main :: IO ()
 main = do
 	path <- getProgPath
-	gr <- readPGF ( path ++ "/Chat.pgf" )
+	gr <- readPGF ( path ++ "/Dickson.pgf" )
 	hClose stderr
 	hDuplicateTo stdout stderr
 	s <- getLine

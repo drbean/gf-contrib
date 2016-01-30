@@ -1,9 +1,9 @@
-module Representation (module Representation, module Chat) where
+module Representation (module Representation, module Dickson) where
 
 import Data.DRS
 import Data.DRS.Show
 
-import Chat
+import Dickson
 import PGF
 
 import Model
