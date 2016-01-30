@@ -83,7 +83,7 @@ fun
 	interviewer : CN;
 	job	: CN;
 	-- knack	: CN;
-	life	: NP;
+	life	: N;
 	man_CN	: CN;
 	man_N	: N;
 	money	: NP;

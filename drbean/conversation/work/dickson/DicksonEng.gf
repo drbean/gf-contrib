@@ -82,7 +82,7 @@ lin
 	interviewer	= mkCN( mkN masculine (mkN "interviewer") );
   job	= mkCN( mkN "job");
   -- knack	= mkCN( mkN "knack");
-	life = mkNP( mkN "life");
+	life = mkN "life";
 	man_CN	= mkCN man;
 	man_N	= man;
 	money = mkNP( mkN "money");
