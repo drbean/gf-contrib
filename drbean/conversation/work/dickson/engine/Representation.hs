@@ -391,7 +391,7 @@ repVP (GTriangulating v obj1 obj2) = \r -> repNP obj1 (\theme ->
 			DRS [r,theme,recipient] [Rel (DRSRel (lin v)) [r, theme, recipient]]
 			) (new obj2 theme) ) (new obj1 r)
 repVP (GV_NP_AP v obj ap) = \r -> repNP obj (\patient -> 
-		Merge (DRS [r,patient] [Rel (DRSRel (lin v)) [r, patient]])
+		drsMerge (DRS [r,patient] [Rel (DRSRel (lin v)) [r, patient]])
 			(repAP ap patient) ) (new obj r)
 repVP (GV_that_S v0 (GPosS (GSentence np vp))) = case vp of
 	(GBe_vp comp) -> case comp of
