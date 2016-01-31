@@ -15,7 +15,7 @@ entities	=  [minBound..maxBound]
 
 entity_check :: [ (Entity, String) ]
 entity_check =  [
-    (A, "Uncle Alf" )
+    (A, "uncle_alf" )
     , (B, "" )	-- ship
     , (C, "" )
     , (D, "dee" )
