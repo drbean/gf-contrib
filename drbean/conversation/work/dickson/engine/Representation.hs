@@ -33,7 +33,7 @@ int2ref :: Int -> DRSRef
 int2ref n = DRSRef ("r" ++ (show n) )
 
 instance Eq GPN where
-	(==) Galf Galf = True
+	(==) Guncle_alf Guncle_alf = True
 	(==) Gdee Gdee = True 
 	(==) _ _ = False
 
@@ -386,7 +386,7 @@ repVP (GLook_bad v ap) = \r -> let
 repVP (GHappening v) = \r -> DRS [r] [Rel (DRSRel (lin v)) [r]]
 repVP (GChanging v obj) = \r -> repNP obj
 	(\patient -> DRS [r,patient] [Rel (DRSRel (lin v)) [r, patient]] ) (new obj r)
-repVP (GTriangulating v obj1 obj2) = \r -> repNP obj1 (\theme ->
+repVP (GV_NP_NP v obj1 obj2) = \r -> repNP obj1 (\theme ->
 		repNP obj2 (\recipient ->
 			DRS [r,theme,recipient] [Rel (DRSRel (lin v)) [r, theme, recipient]]
 			) (new obj2 theme) ) (new obj1 r)
@@ -419,11 +419,21 @@ repVP (GV_that_S v0 (GPosS (GSentence np vp))) = case vp of
 			repNP np (\referent -> repNP obj (\theme -> let
 			lin_v = lin v
 			p = DRSRef "p"
-			conds = [Rel (DRSRel (lin v0)) [r, p]
+			conds = [Rel (DRSRel (lin vv)) [r, p]
 				, Prop p (DRS [] [Rel 
 				(DRSRel lin_v) [referent, theme]])]
 			in DRS [r, theme, referent] conds )
 			(new obj referent) ) (new np r)
+		(GV_NP_NP v obj1 obj2) -> \r ->
+			repNP np (\referent -> repNP obj1 (\theme ->
+			repNP obj2 (\recipient -> let
+			lin_v = lin v
+			p = DRSRef "p"
+			conds = [Rel (DRSRel (lin vv)) [r, p]
+				, Prop p (DRS [] [Rel 
+				(DRSRel lin_v) [referent, theme, recipient]])]
+			in DRS [r, referent, theme, recipient] conds
+			) (new obj2 theme) ) (new obj1 referent) ) (new np r)
 repVP (GV_S v0 (GPosS (GSentence np vp))) = 
 	repVP (GV_that_S v0 (GPosS (GSentence np vp)))
 repVP (GV_that_S v0 (GNegS (GSentence np vp))) = case vp of
@@ -538,7 +548,7 @@ repVP (GIntens v0 vp) = case vp of
 			, Prop p (DRS [] [Rel (DRSRel lin_v)
 			[r, theme]])]
 		in DRS [theme] conds) (new obj r)
-	(GTriangulating v obj1 obj2) -> \r ->
+	(GV_NP_NP v obj1 obj2) -> \r ->
 		repNP obj1 (\theme ->
 		repNP obj2 (\recipient -> let
 		lin_v = lin v
