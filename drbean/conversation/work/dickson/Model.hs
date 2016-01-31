@@ -130,7 +130,6 @@ predid1 "people"	= predid1 "person"
 predid1 "person"	= Just person
 predid1 "thing"	= Just thing
 predid1 "same" = predid1 "thing"
-predid1 "man"	= predid1 "male"
 
 predid1 "80-pound"	= predid1 "transformer"
 predid1 "boss"	= predid1 "superior"
@@ -209,7 +208,11 @@ pred4 xs	= curry4 ( `elem` xs )
 
 statement:: [ (Content, [(Case, Entity)]) ]
 statement= [
-	("say", [(Agent, F), (Recipient, D), (Predicate, P), (Topic, A)])
+	("say", [(Agent, I), (Recipient, D), (Predicate, P), (Topic, D)])
+	]
+
+claim = [
+	("little", [(Pivot,D), (Predicate,P) ] )
 	]
 
 --(parent,child)
@@ -313,7 +316,9 @@ gentwoPlacer area id content role1 role2 =
 		] )
 
 twoPlacers =
-	gentwoPlacer statement	"say" "state" Agent Predicate:
+	gentwoPlacer statement	"say" "say" Agent Predicate:
+	gentwoPlacer claim	"little" "little" Predicate Pivot:
+	gentwoPlacer claim	"too_little" "little" Predicate Pivot:
 	twoPlaceStarters
 
 predid2 "have_to_go_to"	= predid2 "go_to"
