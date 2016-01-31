@@ -207,6 +207,11 @@ pred2 xs	= curry ( `elem` xs )
 pred3 xs	= curry3 ( `elem` xs )
 pred4 xs	= curry4 ( `elem` xs )
 
+statement:: [ (Content, [(Case, Entity)]) ]
+statement= [
+	("say", [(Agent, F), (Recipient, D), (Predicate, P), (Topic, A)])
+	]
+
 --(parent,child)
 parenting	= [ (D,C1),(D,C2),(F,D),(GGF,GF),(GGF,A),(GF,F) ]
 uncling	= [ (A,F) ]
@@ -249,58 +254,76 @@ lifts = [(W1,T),(W3,T),(W5,T)]
 -- needing :: positer, agent, theme
 needing = [(D,D,M),(D,D,J)]
 
-twoPlacers :: [(String, TwoPlacePred)]
-twoPlacers = [
-    ("know",    pred2 $ knowledge ++ acquaintances ++ map swap acquaintances)
-    , ("have",  pred2 $ possessions ++ marriages ++ parenting ++
+twoPlacers, twoPlaceStarters :: [(String, [(Entity,Entity)])]
+twoPlaceStarters = [
+    ("know",    knowledge ++ acquaintances ++ map swap acquaintances)
+    , ("have",  possessions ++ marriages ++ parenting ++
 		  ( map swap $ marriages ++ parenting ) ++
 		  ( map (\x->(recipient x, theme x) ) giving ) ++
 			  [(a,J) | (a,_,_) <- working] ++
 			  map (\(_,l,_,r) ->(r,l) ) schooling)
-    , ("become",  pred2 becoming )
-    , ("can_to_lift",  pred2 lifts )
-    , ("do",  pred2 $ [ (a,j) | a <- filter person entities
+    , ("become",  becoming )
+    , ("can_to_lift",  lifts )
+    , ("do",  [ (a,j) | a <- filter person entities
 	    , (w,j,s) <- working
 	    , w == a ] )
-    , ("hire",  pred2 $ map (\(a,_,_) -> (V,a)) working)
-    , ("interview",  pred2 [(I,D)] )
-    , ("like",  pred2 $ map (\(a,c,rs,r) -> (a,r)) appreciation)
-    , ("work",  pred2 $ [(a,c) | (a,p,c) <- working] )
-    , ("kind",  pred2 $ [(student, H) | (_,_,_,student) <- schooling ])
-    , ("placing",       pred2 $ [(student, school) | (_,school,_,student) <- schooling ]
+    , ("hire",  map (\(a,_,_) -> (V,a)) working)
+    , ("interview",  [(I,D)] )
+    , ("like",  map (\(a,c,rs,r) -> (a,r)) appreciation)
+    , ("work",  [(a,c) | (a,p,c) <- working] )
+    , ("kind",  [(student, H) | (_,_,_,student) <- schooling ])
+    , ("placing",       [(student, school) | (_,school,_,student) <- schooling ]
                 ++ [(worker, place) | (worker,period,place) <- working ])
-    , ("studied", pred2 $ foldl (\hs (_,school,subject,student) ->
+    , ("studied", foldl (\hs (_,school,subject,student) ->
                     (student,subject): (student,school) : hs) [] schooling )
-    , ("go_to",	pred2 $ [ (a,l) | (a,_,l) <- working ++ studying ] )
-    , ("need",	pred2 $ [ (a,t) | (p,a,t) <- needing ] )
-    , ("make_look_bad",  pred2 $ [ (D,b) | b <-
+    , ("go_to",	[ (a,l) | (a,_,l) <- working ++ studying ] )
+    , ("need",	[ (a,t) | (p,a,t) <- needing ] )
+    , ("make_look_bad",  [ (D,b) | b <-
 	filter (test1 "look_bad") entities ])
-    , ("think:is_little", pred2 $ [ (s,r) | (s, (pred, r) ,_) <- comms,
+    , ("think:is_little", [ (s,r) | (s, (pred, r) ,_) <- comms,
 					      pred == "is_little" ] )
-    , ("say:is_too_little", pred2 $ [ (s,r) | (s, (pred, r) ,_) <- comms,
+    , ("say:is_too_little", [ (s,r) | (s, (pred, r) ,_) <- comms,
 					      pred == "is_too_little" ] )
-    , ("like_that:is_hire_ed", pred2 [(D,D),(A,D),(F,D)] )
-    , ("say:is_hire_ed", pred2 [ (s,r) | (s, (pred, r) ,_) <- comms
+    , ("like_that:is_hire_ed", [(D,D),(A,D),(F,D)] )
+    , ("say:is_hire_ed", [ (s,r) | (s, (pred, r) ,_) <- comms
 			    , pred == "is_hire_ed"
 			    , r == D ] )
-    , ("say:need_to_slow_down", pred2 $ [ (s,r) | (s, (pred, r), _) <- comms,
+    , ("say:need_to_slow_down", [ (s,r) | (s, (pred, r), _) <- comms,
 					      pred == "need_to_slow_down" ] )
-    , ("tell_to_to_slow_down", pred2 $ [ (s,r) | (s, (pred, r), _) <- comms,
+    , ("tell_to_to_slow_down", [ (s,r) | (s, (pred, r), _) <- comms,
 			      pred == "need_to_slow_down" ] )
-     , ("want_to_work_with", pred2 [] )
-     , ("like_that:is_hire_ed", pred2 [ (a,t) | (a,c,rs,r) <- appreciation
+     , ("want_to_work_with", [] )
+     , ("like_that:is_hire_ed", [ (a,t) | (a,c,rs,r) <- appreciation
 						, Just t <- [lookup Theme rs]
 						, c == "is_hire_ed" ] )
-     , ("work_with", pred2 $ [ (D,w) | (w,j,s) <- working , s == B ])
-     , ("say:is_at_the_shipyard_to_work", pred2 $ [(D,e) | e <- filter
+     , ("work_with", [ (D,w) | (w,j,s) <- working , s == B ])
+     , ("say:is_at_the_shipyard_to_work", [(D,e) | e <- filter
 	       (test1 "at_the_shipyard_to_work") entities ])
 
     ]
+
+gentwoPlacer :: [ (Content, [(Case,Entity)]) ] ->
+	String -> String -> Case -> Case ->
+	(String, [(Entity,Entity)] )
+gentwoPlacer area id content role1 role2 =
+	( id, [ (r1,r2) | (co,cs) <- area
+		, co == content
+		, Just r1 <-[lookup role1 cs]
+		, Just r2 <- [lookup role2 cs]
+		] )
+
+twoPlacers =
+	gentwoPlacer statement	"say" "state" Agent Predicate:
+	twoPlaceStarters
+
 predid2 "have_to_go_to"	= predid2 "go_to"
-predid2 name
-	| Just pred <- lookup name twoPlacers = Just pred
-        -- | otherwise    = Nothing
-        | otherwise    = error $ "no '" ++ name ++ "' two-place predicate."
+
+predid2 name = if name `elem` (map fst twoPlacers) then
+	Just (pred2 (concat [ twople | (id, twople) <- twoPlacers
+		, id == name] ) ) else
+		-- Nothing
+		error $ "no '" ++ name ++ "' two-place predicate."
+
 
 curry3 :: ((a,b,c) -> d) -> a -> b -> c -> d
 curry3 f x y z	= f (x,y,z)
@@ -333,7 +356,12 @@ threePlacers = [
 	, ("take_to_see", pred3 [ (g,m,d) | (s,g,m,d,o) <- going ] )
     ]
 
-data Case = Agent | Theme | Recipient | Feature | Location
+type Content = String
+data Case = Agent | Asset | Attribute | Beneficiary | Cause | CoAgent |
+	CoPatient | CoTheme | Destination | Experiencer | Extent | Goal |
+	InitialLocation | Instrument | Location | Material | Patient | Pivot |
+	Predicate | Product | Recipient | Reflexive | Result | Source |
+	Stimulus | Theme | Time | Topic | Trajectory | Value
   deriving Eq
 
 agent, theme, recipient, location, instrument ::
@@ -367,8 +395,6 @@ comms	= [
 	    ]
 type Speaker = Entity
 type Listener = Entity
--- type Content  = ThreePlacePred
-type Content  = String
 -- long_comms : (speaker, (content, agent, theme, recipient), listener)
 long_comms :: [(Speaker, Content, [(Case,Entity)], Listener)]
 long_comms  = [
