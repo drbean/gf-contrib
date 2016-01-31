@@ -18,7 +18,7 @@ entity_check =  [
     (A, "Uncle Alf" )
     , (B, "" )	-- ship
     , (C, "" )
-    , (D, "Dee" )
+    , (D, "dee" )
     , (E, "" )
     , (F, "" )	-- Dee's father
     , (G, "" )	-- upbringing
@@ -45,9 +45,9 @@ entity_check =  [
 
 
 ent_ided :: String -> Entity
-ent_ided name | Just entity <- lookup name (map swap entity_check)
-		  = entity
-	      | otherwise = error ("No entity named " ++ name)
+ent_ided name = head [entity | (entity,string) <- entity_check ,
+				name == string
+				]
 
 characters :: [(String,Entity)]
 characters = [(string,entity) | (entity,string) <- entity_check,
@@ -74,73 +74,94 @@ predid5 name
         -- | otherwise    = Nothing
         | otherwise    = error $ "no '" ++ name ++ "' five-place predicate."
 
-onePlacers :: [(String, OnePlacePred)]
-onePlacers = [
-        ("true",        pred1 entities )
-        , ("false",     pred1 [] )
-        , ("person",    person )
-        , ("role",      pred1 [] )
-        , ("thing",    thing )
+onePlacers, onePlaceStarters, entityonePlacers :: [(String, [Entity])]
+onePlaceStarters = [
+	("true",        entities )
+	, ("false",     [] )
+	, ("role",      [] )
 
-	, ("child",	pred1 $ map snd parenting )
-	, ("dad",	father )
-	, ("uncle",	pred1 [A] )
-	, ("superintendent",	 pred1 [A] )
-	, ("supervisor",	 pred1 [D] )
-	, ("apprentice",	 pred1 [D] )
-	, ("husband",	 pred1 [H] )
-	, ("school",	 pred1 [S] )
-	, ("night", pred1 [O,W] )
-	, ("construction",	 pred1 [N] )
-	, ("electrician",	 pred1 [D,W,W1,W2,W3] )
-	, ("interviewer",	 pred1 [I] )
-	, ("transformer",	 pred1 [T] )
-	, ("ship",	 pred1 [B] )
-	, ("shipyard",	 pred1 [V] )
-	, ("at_the_shipyard", pred1 $ [ w | (w,_,s) <- working , s == V ])
-	, ("at_the_shipyard_to_work", pred1 $ [w | w <-
+	, ("child",	map snd parenting )
+	, ("uncle",	[A] )
+	, ("superintendent",	 [A] )
+	, ("supervisor",	 [D] )
+	, ("apprentice",	 [D] )
+	, ("husband",	 [H] )
+	, ("school",	 [S] )
+	, ("night", [O,W] )
+	, ("construction",	 [N] )
+	, ("electrician",	 [D,W,W1,W2,W3] )
+	, ("interviewer",	 [I] )
+	, ("transformer",	 [T] )
+	, ("ship",	 [B] )
+	, ("shipyard",	 [V] )
+	, ("at_the_shipyard", [ w | (w,_,s) <- working , s == V ])
+	, ("at_the_shipyard_to_work", [w | w <-
 		   filter (test1 "at_the_shipyard") entities
 			 , w == D])
-	, ("money",	 pred1 [M] )
-	, ("upbringing",	 pred1 [G] )
-	, ("same",  thing )
-	, ("story",	 pred1 [Z] )
-	, ("job",	 pred1 [J] )
-	, ("way",	 pred1 $ [Y] )
-	, ("work",	 pred1 $ [J] ++ map agent working )
-	, ("worker",	 pred1 $ map agent working )
-  , ("superior",	pred1 $ map fst supervision )
-  , ("subordinate",	pred1 $ map snd supervision )
+	, ("money",	 [M] )
+	, ("upbringing",	 [G] )
+	, ("story",	 [Z] )
+	, ("job",	 [J] )
+	, ("way",	 [Y] )
+	, ("work",	 [J] ++ map agent working )
+	, ("worker",	 map agent working )
+  , ("superior",	map fst supervision )
+  , ("subordinate",	map snd supervision )
 
-  , ("is_hire_ed", pred1 [D] )
-  , ("need_to_slow_down", pred1 [D] )
+  , ("is_hire_ed", [D] )
+  , ("need_to_slow_down", [D] )
 
-	, ("little",	 pred1 [D] )
-	, ("mad",	 pred1 [D,H,W1,W2,W3,W4] )
-	, ("bad",	 pred1 [H,W1,W2,W3,W4] )
-	, ("look_bad",	 pred1 [H,W1,W2,W3,W4] )
+	, ("little",	 [D] )
+	, ("mad",	 [D,H,W1,W2,W3,W4] )
+	, ("bad",	 [H,W1,W2,W3,W4] )
+	, ("look_bad",	 [H,W1,W2,W3,W4] )
 
-	, ("male",	 pred1 [A,F,W1,W2,W3,W4,W5,W6,I,C1,C2, GGF, GF] )
-	, ("female",	 pred1 [D] )
-	, ("family",  \x -> isParent x || isOffspring x )
+	, ("male",	 [A,F,W1,W2,W3,W4,W5,W6,I,C1,C2, GGF, GF] )
+	, ("female",	 [D] )
 
-	, ("laugh", pred1 [D] )
+	, ("laugh", [D] )
 
 	]
+
+onePlacers = 
+	entityonePlacers ++ onePlaceStarters
+
+predid1 "people"	= predid1 "person"
+predid1 "person"	= Just person
+predid1 "thing"	= Just thing
+predid1 "same" = predid1 "thing"
+predid1 "man"	= predid1 "male"
+
 predid1 "80-pound"	= predid1 "transformer"
 predid1 "boss"	= predid1 "superior"
 predid1 "employee"	= predid1 "subordinate"
 predid1 "manager"	= predid1 "boss"
 predid1 "position"	= predid1 "job"
+predid1 "family" = Just (\x -> isParent x || isOffspring x)
 
-predid1 "father"  = predid1 "dad"
+predid1 "father"  = Just father
+predid1 "dad"  = predid1 "father"
 predid1 "guy"  = predid1 "male"
 predid1 "woman"  = predid1 "female"
 predid1 "man"  = predid1 "male"
-predid1 name
-	| Just pred <- lookup name onePlacers = Just pred
-        -- | otherwise    = Nothing
-        | otherwise    = error $ "no '" ++ name ++ "' one-place predicate."
+ 
+predid1 name = if name `elem` (map fst onePlacers) then
+	Just (pred1 (concat [ oneple | (id, oneple) <- onePlacers
+		, id == name] ) ) else
+		-- Nothing
+		error $ "no '" ++ name ++ "' one-place predicate."
+
+entityonePlacers =
+	map (\x -> (snd x, [fst x])) entity_check
+
+genonePlacer :: [ (Content, [(Case,Entity)]) ] ->
+	String -> String -> Case -> 
+	(String, [Entity])
+genonePlacer area id content role =
+	( id, [ r | (co,cs) <- area
+		, co == content
+		, Just r <-[lookup role cs]
+		] )
 
 type OnePlacePred	= Entity -> Bool
 type TwoPlacePred	= Entity -> Entity -> Bool
