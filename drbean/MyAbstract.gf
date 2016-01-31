@@ -34,7 +34,7 @@ fun
 	Styling	: Prep -> NP -> Style;
 	Happening	: V -> VP ;
 	Changing	: V2 -> NP -> VP;
-	Causative:	V2V -> NP -> VP -> VP;
+	V_NP_VP:	V2V -> NP -> VP -> VP;
 	Intens:	VV -> VP -> VP;
 	V_that_S:	VS -> S -> VP;
 	V_S:	VS -> S -> VP;

@@ -516,7 +516,7 @@ repVP (GV_NP_that_S v0 np0 (GPosS (GSentence np vp))) = case vp of
 			(new np recipient) ) (new np0 r)
 repVP (GV_NP_S v0 np0 (GPosS (GSentence np vp))) =
 	repVP (GV_NP_that_S v0 np0 (GPosS (GSentence np vp)))
-repVP (GCausative v0 obj vp) = case vp of
+repVP (GV_NP_VP v0 obj vp) = case vp of
 	(GLook_bad v ap) -> \r ->
 		repNP obj (\patient -> let
 			lin_v0 = lin v0
