@@ -317,6 +317,7 @@ gentwoPlacer area id content role1 role2 =
 
 twoPlacers =
 	gentwoPlacer statement	"say" "say" Agent Predicate:
+	gentwoPlacer statement	"think" "say" Agent Predicate:
 	gentwoPlacer claim	"little" "little" Predicate Pivot:
 	gentwoPlacer claim	"too_little" "little" Predicate Pivot:
 	twoPlaceStarters
