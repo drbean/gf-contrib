@@ -530,6 +530,18 @@ repVP (GV_NP_VP v0 obj vp) = case vp of
 				(DRSRel lin_v) [patient, p2]
 					, Prop p2 (DRS [] [Rel (DRSRel lin_ap) rs])])]
 			in DRS [r, patient] conds ) (new obj r)
+	(GV_NP_VP v1 obj1 vp1) -> \r ->
+		repNP obj (\recipient -> case vp1 of
+			(GChanging v2 obj2) -> repNP obj1 (\theme ->
+				repNP obj2 (\goal -> let
+				lin_v0 = lin v0
+				lin_v1 = lin v1
+				lin_v2 = lin v2
+				conds = [Rel (DRSRel lin_v0) [r, recipient]
+					, Rel (DRSRel lin_v1) [recipient, theme]
+					, Rel (DRSRel lin_v2) [theme, goal] ]
+				in DRS [r, recipient, theme, goal] conds )
+				(new obj2 theme) ) (new obj1 recipient) ) (new obj r)
 repVP (GIntens v0 vp) = case vp of
 	(GWithTime v _) -> repVP (GIntens v0 v)
 	(GBe_vp comp) -> case comp of
