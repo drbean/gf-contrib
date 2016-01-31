@@ -61,10 +61,6 @@ predid2 :: String -> Maybe TwoPlacePred
 predid3 :: String -> Maybe ThreePlacePred
 predid4 :: String -> Maybe FourPlacePred
 
-predid3 name
-	| Just pred <- lookup name threePlacers = Just pred
-        -- | otherwise    = Nothing
-        | otherwise    = error $ "no '" ++ name ++ "' three-place predicate."
 predid4 name 
 	| Just pred <- lookup name fourPlacers = Just pred
         -- | otherwise    = Nothing
@@ -213,6 +209,7 @@ statement= [
 
 claim = [
 	("little", [(Pivot,D), (Predicate,P) ] )
+	, ("get_along", [(Theme,D), (CoTheme,G), (Predicate,P) ] )
 	]
 
 --(parent,child)
@@ -335,32 +332,55 @@ curry3 :: ((a,b,c) -> d) -> a -> b -> c -> d
 curry3 f x y z	= f (x,y,z)
 curry4 f x y z w	= f (x,y,z,w)
 
-threePlacers = [
-    ("work",        pred3 $ [(a,a,c) | (a,p,c) <- working ] )
-    , ("studied_subj_at", pred3 $ map (\(_,school,subject,student) ->
+genthreePlacer :: [ (Content, [(Case,Entity)]) ] ->
+	String -> String -> Case -> Case -> Case ->
+	(String, [(Entity,Entity,Entity)])
+genthreePlacer area id content role1 role2 role3 =
+	( id, [ (r1,r2,r3) | (co,cs) <- area
+		, co == content
+		, Just r1 <-[lookup role1 cs]
+		, Just r2 <- [lookup role2 cs]
+		, Just r3 <- [lookup role3 cs]
+		] )
+
+threePlacers, threePlaceStarters :: [(String, [(Entity,Entity,Entity)])]
+threePlaceStarters = [
+    ("work",        [(a,a,c) | (a,p,c) <- working ] )
+    , ("studied_subj_at", map (\(_,school,subject,student) ->
                     (student,subject,school) ) schooling )
-    , ("find_to_do", pred3 [(D,Y,R),(D,Y,J)] )
-    , ("have_to_do_different", pred3 [(D,R,W1),(D,J,W1),(D,R,W2),(D,J,W2)] )
-    , ("have_to_go_to", pred3 $ [ (a,l,n) |
+    , ("find_to_do", [(D,Y,R),(D,Y,J)] )
+    , ("have_to_do_different", [(D,R,W1),(D,J,W1),(D,R,W2),(D,J,W2)] )
+    , ("have_to_go_to", [ (a,l,n) |
 	    (a,_,l) <- working ++ studying , n <- [O,W] ])
-  , ("think:is", pred3 $ [ (s,t,r) | (s, content ,c ,l) <- long_comms
+  , ("think:is", [ (s,t,r) | (s, content ,c ,l) <- long_comms
 		  , content == "belong_to"
 		  , Just t <- [lookup Theme c]
 		  , Just r <- [lookup Recipient c] ] )
-  , ("think:need_to_have", pred3 needing )
-  , ("say:have", pred3 $ [(D,o,p)   | (o,p) <- possessions
+  , ("think:need_to_have", needing )
+  , ("say:have", [(D,o,p)   | (o,p) <- possessions
           , o == D] )
-  , ("say:is", pred3 [ (s,a,t) | (s, content ,c ,l) <- long_comms
+  , ("say:is", [ (s,a,t) | (s, content ,c ,l) <- long_comms
 				, Just a <- [lookup Agent c]
 				, Just t <- [lookup Theme c]
 				] )
-  , ("say:need", pred3 needing )
-  , ( "say:can_not_to_get_along", pred3 $ [ (s,a,t) | (s,content,c,l) <- long_comms
+  , ("say:need", needing )
+  , ( "say:can_not_to_get_along", [ (s,a,t) | (s,content,c,l) <- long_comms
     , Just a <- [lookup Agent c]
     , Just t <- [lookup Theme c]
     ])
-	, ("take_to_see", pred3 [ (g,m,d) | (s,g,m,d,o) <- going ] )
+	, ("take_to_see", [ (g,m,d) | (s,g,m,d,o) <- going ] )
     ]
+threePlacers =
+	genthreePlacer claim "get_along" "get_along" Theme CoTheme Predicate :
+	threePlaceStarters
+
+predid3 name = if name `elem` (map fst threePlacers) then
+	Just (pred3 (concat [ threeple | (id, threeple) <- threePlacers
+		, id == name] ) ) else
+		-- Nothing
+		error $ "no '" ++ name ++ "' three-place predicate."
+
+
 
 type Content = String
 data Case = Agent | Asset | Attribute | Beneficiary | Cause | CoAgent |
