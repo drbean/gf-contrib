@@ -42,7 +42,7 @@ fun
 	V_NP_that_S:	V2S -> NP -> S -> VP;
 	V_NP_S:	V2S -> NP -> S -> VP;
 	V_NP_whether_S:	V2Q -> NP -> QS -> VP;
-	Triangulating:	V3 -> NP -> NP -> VP;
+	V_NP_NP:	V3 -> NP -> NP -> VP;
   V_NP_AP: V2A -> NP -> AP -> VP;
 	-- GetPassV3	: V3 -> NP -> VP ;	-- be called John
 	-- GetNPPPart	: V2 -> NP -> VP; -- get the job done right
