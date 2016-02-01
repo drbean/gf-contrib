@@ -202,7 +202,7 @@ pred2 xs	= curry ( `elem` xs )
 pred3 xs	= curry3 ( `elem` xs )
 pred4 xs	= curry4 ( `elem` xs )
 
-statement:: [ (Content, [(Case, Entity)]) ]
+statement, claim, event :: [ (Content, [(Case, Entity)]) ]
 statement= [
 	("say", [(Agent, I), (Recipient, D), (Predicate, P), (Topic, D)])
 	]
@@ -210,6 +210,10 @@ statement= [
 claim = [
 	("little", [(Pivot,D), (Predicate,P) ] )
 	, ("get_along", [(Theme,D), (CoTheme,G), (Predicate,P) ] )
+	]
+
+event = [
+	("hire", [Agent,V), (Theme,D)] )
 	]
 
 type Appreciator = Entity
