@@ -378,6 +378,10 @@ repVP (GToPlace v (GLocating prep place)) = \r ->
 	repPlace place (\name -> DRS [r,name]
 	[ Rel (DRSRel (lin v)) [r,name]]
 	) (newOnPlace place [r])
+repVP (GWithStyle v (GStyling prep np)) = \r ->
+	repNP np (\style -> DRS [r,style]
+	[ Rel (DRSRel (lin v)) [r,style]]
+	) (new np [r])
 repVP (GLook_bad v ap) = \r -> let
 	patient = r
 	DRS rs' [Rel rel rs] = repAP ap patient
