@@ -30,7 +30,7 @@ entity_check =  [
     , (M, "" )	-- money
     , (N, "" )	-- construction
     , (O, "" )	-- Monday
-    , (P, "" )
+    , (P, "" )	-- ship
     , (Q, "" )
     , (R, "" )	-- electrician job
     , (S, "" )	-- vocational school
@@ -213,7 +213,8 @@ claim = [
 	]
 
 event = [
-	("hire", [Agent,Y), (Theme,D)] )
+	("hire", [(Agent,Y), (Theme,D)] )
+	, ("go", [(Theme,D), (Destination,P)] )
 	]
 
 type Appreciator = Entity
@@ -322,6 +323,7 @@ twoPlacers =
 	gentwoPlacer statement	"think" "say" Agent Predicate:
 	gentwoPlacer claim	"little" "little" Predicate Pivot:
 	gentwoPlacer claim	"too_little" "little" Predicate Pivot:
+	gentwoPlacer event "go" "go" Theme Destination:
 	twoPlaceStarters
 
 predid2 "have_to_go_to"	= predid2 "go_to"
