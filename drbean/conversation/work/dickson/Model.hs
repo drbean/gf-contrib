@@ -212,6 +212,21 @@ claim = [
 	, ("get_along", [(Theme,D), (CoTheme,G), (Predicate,P) ] )
 	]
 
+type Appreciator = Entity
+type Appreciatee = Entity
+appreciation :: [(Appreciator, Content, [(Case,Entity)], Appreciatee)]
+appreciation	= [
+	(D, "is_hire_ed", [(Theme, D)],A)
+	, (D, "is_hire_ed", [(Theme, D)],F)
+	, (F, "is_hire_ed", [(Theme, D)],A)
+	, (A, "is_hire_ed", [(Theme, D)],V)
+	] 
+resentmentments = [
+  (I,	"is_hire_ed", [(Theme,D)] )
+  , (W1,	"is_hire_ed", [(Theme,D)] )
+  , (W2,	"is_hire_ed", [(Theme,D)] )
+	]
+
 --(parent,child)
 parenting	= [ (D,C1),(D,C2),(F,D),(GGF,GF),(GGF,A),(GF,F) ]
 uncling	= [ (A,F) ]
@@ -225,23 +240,9 @@ separations	= [ (H,D) ]
 -- unmarried_couples	= []
 --(contacter,contactee)
 possessions	= [ (A,M),(D,J) ]
-type Appreciator = Entity
-type Appreciatee = Entity
-appreciation :: [(Appreciator, Content, [(Case,Entity)], Appreciatee)]
-appreciation	= [
-	(D, "is_hire_ed", [(Theme, D)],A)
-	, (D, "is_hire_ed", [(Theme, D)],F)
-	, (F, "is_hire_ed", [(Theme, D)],A)
-	, (A, "is_hire_ed", [(Theme, D)],V)
-	] 
 conflict	= []
 supervision	= [(D,W),(D,W1),(D,W2),(D,W3)]
 
-resentmentments = [
-  (I,	"is_hire_ed", [(Theme,D)] )
-  , (W1,	"is_hire_ed", [(Theme,D)] )
-  , (W2,	"is_hire_ed", [(Theme,D)] )
-	]
 have	= pred2 $ possessions ++ marriages ++ parenting 
 		++ ( map swap $ marriages ++ parenting )
 		++ ( map (\x->(recipient x, theme x) ) giving )
