@@ -36,10 +36,10 @@ entity_check =  [
     , (S, "" )	-- vocational school
     , (T, "" )	-- transformer
     , (U, "" )
-    , (V, "" )	-- shipyard
-    , (W, "" )	-- Wednesday
+    , (V, "" )
+    , (W, "" )	-- way
     , (X, "" )
-    , (Y, "" )	-- way
+    , (Y, "" )	-- shipyard
     , (Z, "" )	-- story
     ]
 
@@ -89,8 +89,8 @@ onePlaceStarters = [
 	, ("interviewer",	 [I] )
 	, ("transformer",	 [T] )
 	, ("ship",	 [B] )
-	, ("shipyard",	 [V] )
-	, ("at_the_shipyard", [ w | (w,_,s) <- working , s == V ])
+	, ("shipyard",	 [Y] )
+	, ("at_the_shipyard", [ w | (w,_,s) <- working , s == Y ])
 	, ("at_the_shipyard_to_work", [w | w <-
 		   filter (test1 "at_the_shipyard") entities
 			 , w == D])
@@ -213,7 +213,7 @@ claim = [
 	]
 
 event = [
-	("hire", [Agent,V), (Theme,D)] )
+	("hire", [Agent,Y), (Theme,D)] )
 	]
 
 type Appreciator = Entity
@@ -223,7 +223,7 @@ appreciation	= [
 	(D, "is_hire_ed", [(Theme, D)],A)
 	, (D, "is_hire_ed", [(Theme, D)],F)
 	, (F, "is_hire_ed", [(Theme, D)],A)
-	, (A, "is_hire_ed", [(Theme, D)],V)
+	, (A, "is_hire_ed", [(Theme, D)],Y)
 	] 
 resentmentments = [
   (I,	"is_hire_ed", [(Theme,D)] )
@@ -272,7 +272,7 @@ twoPlaceStarters = [
     , ("do",  [ (a,j) | a <- filter person entities
 	    , (w,j,s) <- working
 	    , w == a ] )
-    , ("hire",  map (\(a,_,_) -> (V,a)) working)
+    , ("hire",  map (\(a,_,_) -> (Y,a)) working)
     , ("interview",  [(I,D)] )
     , ("like",  map (\(a,c,rs,r) -> (a,r)) appreciation)
     , ("work",  [(a,c) | (a,p,c) <- working] )
@@ -407,9 +407,9 @@ origin	= theme
 destination = recipient
 
 --(worker,job,site)
-working	= [(A,Unspec,V),(I,Unspec,V),(F,Unspec,Unspec),
+working	= [(A,Unspec,Y),(I,Unspec,Y),(F,Unspec,Unspec),
 -- shipyard
-	(D,R,V),(W1,R,V),(W2,R,V),(W3,R,V),(W4,R,V),(W5,R,V),(W6,R,V),
+	(D,R,Y),(W1,R,Y),(W2,R,Y),(W3,R,Y),(W4,R,Y),(W5,R,Y),(W6,R,Y),
 -- ship
 	(D,R,B),(W1,R,B),(W2,R,B),(W3,R,B),(W4,R,B),(W5,R,B),(W6,R,B)]
 
@@ -440,9 +440,9 @@ long_comms  = [
   , (I,  "say:can_not_to_get_along", [(Agent,D),(Theme,W1)], D)
   , (I,  "say:can_not_to_get_along", [(Agent,D),(Theme,W2)], D)
   ]
-giving	= [ (V,J,D) ]
+giving	= [ (Y,J,D) ]
 --(agent,theme,location)
-looking_back	= [(D,C,V),(I,C,V)]
+looking_back	= [(D,C,Y),(I,C,Y)]
 seeing	= []
 --(agent,origin,destination)
 
@@ -517,8 +517,8 @@ vehicle5        = location5
 -- going :: sanctioner, guide, goer, destination, occasion
 going = [
 	(D,Unspec,D,B,O), (D,Unspec,D,B,W)
-	, (D,Unspec,D,V,O), (D,Unspec,D,V,W)
-	, (V,Unspec,D,S,O),(V,Unspec,D,S,W)
+	, (D,Unspec,D,Y,O), (D,Unspec,D,Y,W)
+	, (Y,Unspec,D,S,O),(Y,Unspec,D,S,W)
 	, (D,F,D,A,Unspec)
 	]
 
