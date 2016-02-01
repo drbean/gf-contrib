@@ -433,6 +433,10 @@ repVP (GV_that_S v0 (GPosS (GSentence np vp))) = case vp of
 				(DRSRel lin_v) [referent, theme, recipient]])]
 			in DRS [r, referent, theme, recipient] conds
 			) (new obj2 [r,referent,theme]) ) (new obj1 [r,referent]) ) (new np [r])
+	(GPass (GV2Slash v) ) -> \r -> repNP np (\patient -> (\agent ->
+		DRS [r,patient,agent] [Rel (DRSRel (lin v0)) [r, DRSRef "p"]
+		, Prop (DRSRef "p") (DRS [] [Rel (DRSRel (lin v)) [agent, patient]] ) ])
+		(new (GItem Ga_Det Gperson) [r,patient]) ) (new np [r])
 repVP (GV_S v0 (GPosS (GSentence np vp))) = 
 	repVP (GV_that_S v0 (GPosS (GSentence np vp)))
 repVP (GV_that_S v0 (GNegS (GSentence np vp))) = case vp of
