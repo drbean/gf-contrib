@@ -14,7 +14,7 @@ cat
 	LocPrep;
 	Located;
 	Motion;
-	Style;
+	PP;
 	MassDet;
 	SubordCl;
 	Partitive;
@@ -31,7 +31,7 @@ fun
 	Timing	: Det -> TimeName -> Times;
 	FreqAdv	: NP -> Period -> Time;
 	PeriodAdv	: Times -> Period;
-	Styling	: Prep -> NP -> Style;
+	P_NP	: Prep -> NP -> PP;
 	Happening	: V -> VP ;
 	Changing	: V2 -> NP -> VP;
 	V_NP_VP:	V2V -> NP -> VP -> VP;
@@ -61,7 +61,7 @@ fun
 	ToPlace	:  Motion -> Located -> VP;
 	WithPlace	:  V -> Located -> VP;
 	WithTime	: VP -> Period -> VP;
-	WithStyle	: VP -> Style -> VP;
+	V_PP	: VP -> PP -> VP;
 	WithCl	: VP -> SubordCl -> VP;
 
 	ICompS	: IComp -> NP -> QS;
@@ -144,7 +144,7 @@ fun
 
 	more : CAdv;
 	ComparaAP : A -> NP -> AP;
-	ComparaAdv : CAdv -> A -> NP -> Style;
+	ComparaAdv : CAdv -> A -> NP -> Adv;
 	ComparaS : AP -> S -> AP;
 	More	: A -> AP;
 	AdjModified	: AP -> VP -> AP;
@@ -174,7 +174,7 @@ fun
 	know_V2	: V2;
 	know_VS	: VS;
 
-	Very_Style	: Style -> Style;
+	Very_Adv	: Adv -> Adv;
 	because_Subj	: Subj;
 	if_Subj	: Subj;
 	or_Conj	: Conj;

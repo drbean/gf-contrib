@@ -57,7 +57,7 @@ lincat
 	LocPrep	= Prep;
 	Located	= Adv;
 	Motion	= VP;
-	Style	= Adv;
+	PP	= Adv;
 	MassDet = Det;
 	Partitive = N2;
 
@@ -152,7 +152,7 @@ lin
 	Location det placename = mkNP det placename;
 	FreqAdv times period	= ConstructorsEng.mkAdv P.noPrep (mkNP times period);
 	PeriodAdv times	= ConstructorsEng.mkAdv P.noPrep times;
-	Styling prep item	= ConstructorsEng.mkAdv prep item;
+	P_NP prep item	= ConstructorsEng.mkAdv prep item;
 	Timing det time = mkNP det time;
 	Happening action	=	mkVP action;
 	Changing action patient	= mkVP action patient;
@@ -185,7 +185,7 @@ lin
   AdvVP adv vp	= mkVP adv vp;
 	VPAdv vp adv = mkVP vp adv;
   WithTime action time	= mkVP action time;
-  WithStyle action style	= mkVP action style;
+  V_PP v pp	= mkVP v pp;
 	WithCl vp cl = mkVP vp cl;
   -- Be_made_sth vp np = PassV3 vp np;
 
@@ -292,7 +292,7 @@ lin
 	know_V2	= P.mkV2 know_V;
 	know_VS	= P.mkVS know_V;
 
-	Very_Style a = ParadigmsEng.mkAdv ("very" ++ a.s);
+	Very_Adv a = ParadigmsEng.mkAdv ("very" ++ a.s);
 	because_Subj	= because_Subj;
 	if_Subj	= if_Subj;
 	or_Conj	= or_Conj;
