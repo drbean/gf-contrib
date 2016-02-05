@@ -357,7 +357,6 @@ repPlaceName name = \r -> DRS [r] [Rel (DRSRel (lin name)) [r]]
 
 repVP :: GVP -> DRSRef -> DRS
 repVP (GWithCl vp _) = repVP vp
-repVP (GV_PP vp _) = repVP vp
 repVP (GWithTime vp _) = repVP vp
 repVP (GBe_vp comp) = case comp of
 	(GBe_someone np) -> \r -> let
@@ -555,7 +554,14 @@ repVP (GV_NP_VP v0 obj vp) = case vp of
 				in DRS [r, recipient, theme, goal] conds )
 				(new obj2 [r,recipient,theme]) ) (new obj1 [r,recipient]) ) (new obj [r])
 repVP (GIntens v0 vp) = case vp of
-	-- (GV_PP v (GP_NP prep np)) ->
+	(GV_PP v (GP_NP prep np)) -> \r ->
+		repNP np (\coagent -> let
+			lin_v = lin v
+			p = DRSRef "p"
+			conds = [Rel (DRSRel (lin v0)) [r, p]
+				, Prop p (DRS [] [Rel (DRSRel lin_v)
+				[r, coagent]]) ]
+			in DRS [r,coagent] conds ) (new np [r])
 	(GWithTime v _) -> repVP (GIntens v0 v)
 	(GBe_vp comp) -> case comp of
 		(GBe_someone np) -> \r ->
