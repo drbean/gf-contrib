@@ -61,7 +61,7 @@ fun
 	ToPlace	:  Motion -> Located -> VP;
 	WithPlace	:  V -> Located -> VP;
 	WithTime	: VP -> Period -> VP;
-	V_PP	: VP -> PP -> VP;
+	V_PP	: V -> PP -> VP;
 	WithCl	: VP -> SubordCl -> VP;
 
 	ICompS	: IComp -> NP -> QS;
