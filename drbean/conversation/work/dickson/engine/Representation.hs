@@ -184,6 +184,7 @@ repDet Ga_Det = \ p q r-> let
 	reflist = newDRSRefs (replicate len (DRSRef "r")) []
 	conds = pconds ++ qconds
 	in DRS reflist conds
+repDet Gno_Det = repDet Ga_Det
 repDet Gher_Det = \ p q dummy-> let
 	iminus = ref2int dummy - 1
 	rolled_ref = int2ref iminus
@@ -554,7 +555,7 @@ repVP (GV_NP_VP v0 obj vp) = case vp of
 				in DRS [r, recipient, theme, goal] conds )
 				(new obj2 [r,recipient,theme]) ) (new obj1 [r,recipient]) ) (new obj [r])
 repVP (GIntens v0 vp) = case vp of
-	(GV_PP v (GP_NP prep np)) ->
+	-- (GV_PP v (GP_NP prep np)) ->
 	(GWithTime v _) -> repVP (GIntens v0 v)
 	(GBe_vp comp) -> case comp of
 		(GBe_someone np) -> \r ->
