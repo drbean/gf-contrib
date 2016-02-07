@@ -50,7 +50,6 @@ fun
 	think	: VS;
 	want	: VV;
 	work_V	: V;
-	work_with	: V2;
 
 	at_the_shipyard	: AP;
 	eighty_pound	: AP;

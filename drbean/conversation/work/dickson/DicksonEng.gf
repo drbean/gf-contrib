@@ -49,7 +49,6 @@ lin
 	think = mkVS (IrregEng.think_V);
 	want	= mkVV (mkV "want");
 	work_V	= mkV "work";
-	work_with	 = mkV2 "work" with_prep;
 
 	at_the_shipyard	= mkAP( mkA "at the shipyard");
   eighty_pound	= mkAP( mkA "80-pound");
