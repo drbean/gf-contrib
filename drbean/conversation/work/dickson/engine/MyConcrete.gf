@@ -57,7 +57,8 @@ lincat
 	LocPrep	= Prep;
 	Located	= Adv;
 	Motion	= VP;
-	PP	= Adv;
+	CoagPrep = Prep;
+	PP_Coagent	= Adv;
 	MassDet = Det;
 	Partitive = N2;
 
@@ -152,7 +153,7 @@ lin
 	Location det placename = mkNP det placename;
 	FreqAdv times period	= ConstructorsEng.mkAdv P.noPrep (mkNP times period);
 	PeriodAdv times	= ConstructorsEng.mkAdv P.noPrep times;
-	P_NP prep item	= ConstructorsEng.mkAdv prep item;
+	Coagency prep coagent	= ConstructorsEng.mkAdv prep coagent;
 	Timing det time = mkNP det time;
 	Happening action	=	mkVP action;
 	Changing action patient	= mkVP action patient;
@@ -185,7 +186,7 @@ lin
   AdvVP adv vp	= mkVP adv vp;
 	VPAdv vp adv = mkVP vp adv;
   WithTime action time	= mkVP action time;
-  V_PP v pp	= mkVP v pp;
+  V_PP_Coagent v pp	= mkVP v pp;
 	WithCl vp cl = mkVP vp cl;
   -- Be_made_sth vp np = PassV3 vp np;
 

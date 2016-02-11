@@ -14,7 +14,8 @@ cat
 	LocPrep;
 	Located;
 	Motion;
-	PP;
+	CoagPrep;
+	PP_coagent;
 	MassDet;
 	SubordCl;
 	Partitive;
@@ -31,7 +32,7 @@ fun
 	Timing	: Det -> TimeName -> Times;
 	FreqAdv	: NP -> Period -> Time;
 	PeriodAdv	: Times -> Period;
-	P_NP	: Prep -> NP -> PP;
+	Coagency	: CoagPrep -> NP -> PP_coagent;
 	Happening	: V -> VP ;
 	Changing	: V2 -> NP -> VP;
 	V_NP_VP:	V2V -> NP -> VP -> VP;
@@ -61,7 +62,7 @@ fun
 	ToPlace	:  Motion -> Located -> VP;
 	WithPlace	:  V -> Located -> VP;
 	WithTime	: VP -> Period -> VP;
-	V_PP	: V -> PP -> VP;
+	V_PP_coagent	: V -> PP_coagent -> VP;
 	WithCl	: VP -> SubordCl -> VP;
 
 	ICompS	: IComp -> NP -> QS;
@@ -164,7 +165,7 @@ fun
 	part_prep	: Prep;
 	to_prep	: LocPrep;
 	up_prep	: Prep;
-	with_prep	: Prep;
+	with_prep	: CoagPrep;
 
 	person	: CN;
 
