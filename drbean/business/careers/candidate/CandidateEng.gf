@@ -1,4 +1,4 @@
---# -path=.:/home/drbean/GF/gf-contrib/drbean:./gf-contrib/drbean/business/careers/candidate:present
+--# -path=.:/home/drbean/GF/lib/src/translator:/home/drbean/GF/gf-contrib/drbean:./gf-contrib/drbean/business/careers/candidate:present
 
 concrete CandidateEng of Candidate = MyConcrete  **
 open ConstructorsEng, ParadigmsEng, StructuralEng, IrregEng, ExtraEng, ConstructX, Prelude, (R=ResEng) in {
