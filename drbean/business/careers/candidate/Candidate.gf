@@ -102,13 +102,13 @@ fun
 	training_course	: CN;
 	year	: CN;
 
-	well	: Style;
-	better	: Style;
-	hard	: Style;
-	really	: Adv;
-	slowly	: Adv;
-	asap	: Style;
-	amap	: Style;
+	well	: Adv;
+	better	: Adv;
+	hard	: Adv;
+	really	: AdV;
+	slowly	: AdV;
+	asap	: Adv;
+	amap	: Adv;
 	in_the_long_term	: Time;
 	over_the_next_five_years	: Time;
 
