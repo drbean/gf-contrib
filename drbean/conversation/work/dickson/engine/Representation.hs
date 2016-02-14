@@ -372,7 +372,7 @@ repVP (GToPlace v (GLocating prep place)) = \r ->
 	repPlace place (\name -> DRS [r,name]
 	[ Rel (DRSRel (lin v)) [r,name]]
 	) (newOnPlace place [r])
-repVP (GV_PP v (GP_NP prep np)) = \r ->
+repVP (GV_PP_coagent v (GCoagency prep np)) = \r ->
 	repNP np (\style -> DRS [r,style]
 	[ Rel (DRSRel (lin v)) [r,style]]
 	) (new np [r])
@@ -548,7 +548,7 @@ repVP (GV_NP_VP v0 obj vp) = case vp of
 				in DRS [r, recipient, theme, goal] conds )
 				(new obj2 [r,recipient,theme]) ) (new obj1 [r,recipient]) ) (new obj [r])
 repVP (GIntens v0 vp) = case vp of
-	(GV_PP v (GP_NP prep np)) -> \r ->
+	(GV_PP_coagent v (GCoagency prep np)) -> \r ->
 		repNP np (\coagent -> let
 			lin_v = lin v
 			p = DRSRef "p"
