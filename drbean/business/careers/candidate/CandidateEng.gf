@@ -84,7 +84,6 @@ lin
 	market	= mkCN( mkN "market");
 	market_share	= mkN "market share";
 	material	= mkN "Fast-Track" material_N;
-	person	= mkCN( mkN "person" "people");
 	personality	= mkCN( mkN "personality");
 	polish	= mkN "Polish";
 	result	= mkCN( mkN "result");

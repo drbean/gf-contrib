@@ -87,7 +87,6 @@ fun
 	market	: PlaceName;
 	market_share	: N;
 	material	: N;
-	person	: CN;
 	personality	: CN;
 	polish	: N;
 	result	: CN;
