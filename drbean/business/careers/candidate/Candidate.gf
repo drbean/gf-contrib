@@ -24,7 +24,6 @@ fun
 	get	: V2;
 	get_V2V	: V2V;
 	go_on	: V2V;
-	have	: V2;
 	help_V2	: V2;
 	help	: V2V;
 	improve	: V2;
