@@ -5,22 +5,6 @@ open ConstructorsEng, ParadigmsEng, StructuralEng, IrregEng, ExtraEng, Construct
 
 oper
 
-	ModalVV	: Str -> Str -> Str -> Str -> Str ->
-		{s : R.VVForm => Str; p : Str; typ : R.VVType } =
-		\inf, pres, pp, prespp, presN -> {
-		s = table {
-			R.VVF R.VInf	=> inf ;
-			R.VVF R.VPres => pres;
-			R.VVF R.VPPart	=> pp ;
-			R.VVF R.VPresPart	=> prespp ;
-			-- R.VVF R.VPast	=> past ;
-			-- R.VVPastNeg	=> pastN ;
-			R.VVPresNeg	=> presN
-			} ;
-		p = [];
-		typ	= R.VVAux;
-		lock_VV = {}
-		};
 	administration_N	= mkN "administration" nonExist;
 	director_N	= mkN masculine (mkN "director");
 	head_N	= mkN human (mkN "head");
