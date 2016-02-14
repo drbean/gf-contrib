@@ -324,7 +324,7 @@ repCN (GOfpos n2 np) = \r -> let
 	repNP np (\owner -> let
 	newconds = conds ++ [Rel (DRSRel "have") [owner, thing]]
 	in DRS [owner, thing, newOnPos n2 [thing]] newconds ) owner
-repCN (GModified cn rs) = repNP (GItem Ga_Det cn) (repVP rs)
+repCN (GModified cn (GSubjRel wh vp)) = repNP (GItem Ga_Det cn) (repVP vp)
 repCN name     = \r ->
 	DRS [r] [Rel (DRSRel (lin name)) [r]]
 
