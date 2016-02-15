@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = emote=https://github.com/drbean/candidate
+	branch = master
+	commit = fa7674f3b843869249ee24339e86d600974fcf3b
+	parent = 3d22d169edeeeb60c4c5dfa7bcbc9ba5433ce36c
+	cmdver = 0.3.0
