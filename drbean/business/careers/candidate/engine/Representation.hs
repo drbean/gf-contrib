@@ -566,6 +566,14 @@ repVP (GIntens v0 vp) = case vp of
 				[r, coagent]]) ]
 			in DRS [r,coagent] conds ) (new np [r])
 	(GWithTime v _) -> repVP (GIntens v0 v)
+	(GToPlace v (GLocating prep place)) -> \r ->
+		repPlace place (\name -> let 
+			lin_v = lin v
+			p = DRSRef "p"
+			conds = [Rel (DRSRel (lin v0)) [r, p]
+				, Prop p (DRS [] [Rel (DRSRel lin_v)
+				[r, name]] ) ]
+			in DRS [r,name] conds) (newOnPlace place [r])
 	(GBe_vp comp) -> case comp of
 		(GBe_someone np) -> \r ->
 			repNP np (\ hypernym -> let
