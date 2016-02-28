@@ -24,7 +24,6 @@ fun
 	get	: V2;
 	get_V2V	: V2V;
 	go_on	: V2V;
-	have	: V2;
 	help_V2	: V2;
 	help	: V2V;
 	improve	: V2;
@@ -88,7 +87,6 @@ fun
 	market	: PlaceName;
 	market_share	: N;
 	material	: N;
-	person	: CN;
 	personality	: CN;
 	polish	: N;
 	result	: CN;
@@ -103,13 +101,13 @@ fun
 	training_course	: CN;
 	year	: CN;
 
-	well	: Style;
-	better	: Style;
-	hard	: Style;
-	really	: Adv;
-	slowly	: Adv;
-	asap	: Style;
-	amap	: Style;
+	well	: Adv;
+	better	: Adv;
+	hard	: Adv;
+	really	: AdV;
+	slowly	: AdV;
+	asap	: Adv;
+	amap	: Adv;
 	in_the_long_term	: Time;
 	over_the_next_five_years	: Time;
 

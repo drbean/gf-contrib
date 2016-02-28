@@ -1,26 +1,10 @@
---# -path=.:/home/drbean/GF/gf-contrib/drbean:./gf-contrib/drbean/business/careers/candidate:present
+--# -path=.:/home/drbean/GF/lib/src/translator:/home/drbean/GF/gf-contrib/drbean:./gf-contrib/drbean/business/careers/candidate:present
 
 concrete CandidateEng of Candidate = MyConcrete  **
 open ConstructorsEng, ParadigmsEng, StructuralEng, IrregEng, ExtraEng, ConstructX, Prelude, (R=ResEng) in {
 
 oper
 
-	ModalVV	: Str -> Str -> Str -> Str -> Str ->
-		{s : R.VVForm => Str; p : Str; typ : R.VVType } =
-		\inf, pres, pp, prespp, presN -> {
-		s = table {
-			R.VVF R.VInf	=> inf ;
-			R.VVF R.VPres => pres;
-			R.VVF R.VPPart	=> pp ;
-			R.VVF R.VPresPart	=> prespp ;
-			-- R.VVF R.VPast	=> past ;
-			-- R.VVPastNeg	=> pastN ;
-			R.VVPresNeg	=> presN
-			} ;
-		p = [];
-		typ	= R.VVAux;
-		lock_VV = {}
-		};
 	administration_N	= mkN "administration" nonExist;
 	director_N	= mkN masculine (mkN "director");
 	head_N	= mkN human (mkN "head");
@@ -84,7 +68,6 @@ lin
 	market	= mkCN( mkN "market");
 	market_share	= mkN "market share";
 	material	= mkN "Fast-Track" material_N;
-	person	= mkCN( mkN "person" "people");
 	personality	= mkCN( mkN "personality");
 	polish	= mkN "Polish";
 	result	= mkCN( mkN "result");
@@ -111,7 +94,6 @@ lin
 	get = mkV2 get_V;
 	get_V2V  = mkV2V get_V noPrep to_Prep;
 	go_on	= mkV2V go_V on_Prep to_Prep;
-	have	= mkV2 have_V;
 	help_V2	= mkV2 help_V;
 	help	= mkV2V help_V noPrep noPrep;
 	improve	= mkV2 "improve";

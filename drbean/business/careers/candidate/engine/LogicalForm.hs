@@ -1,0 +1,1 @@
+/home/drbean/GF/gf-contrib/drbean/LogicalForm.hs

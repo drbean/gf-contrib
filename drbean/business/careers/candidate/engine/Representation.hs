@@ -1,9 +1,9 @@
-module Representation (module Representation, module Dickson) where
+module Representation (module Representation, module Candidate) where
 
 import Data.DRS
 import Data.DRS.Show
 
-import Dickson
+import Candidate
 import PGF
 
 import Model

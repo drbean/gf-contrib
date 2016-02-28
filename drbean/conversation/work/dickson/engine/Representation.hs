@@ -325,12 +325,11 @@ repCN (GOfpos n2 np) = \r -> let
 	newconds = conds ++ [Rel (DRSRel "have") [owner, thing]]
 	in DRS [owner, thing, newOnPos n2 [thing]] newconds ) owner
 repCN (GModified cn rs) = \r -> let
-	DRS thing_refs thing_conds = repCN cn r
 	DRS attri_refs attri_conds = case rs of
 		(GSubjRel wh vp) -> repVP vp r
-	len = ref2int (maximum (thing_refs ++ attri_refs))
-	reflist = newDRSRefs (replicate len (DRSRef "r")) [] in
-	DRS reflist (thing_conds ++ attri_conds)
+	DRS thing_refs thing_conds = repCN cn r
+	reflist = nub (attri_refs ++ thing_refs) in
+	DRS reflist (attri_conds ++ thing_conds)
 repCN name     = \r ->
 	DRS [r] [Rel (DRSRel (lin name)) [r]]
 

@@ -57,7 +57,7 @@ lincat
 	LocPrep	= Prep;
 	Located	= Adv;
 	Motion	= VP;
-	CoagPrep = Prep;
+	CoagentPrep = Prep;
 	PP_Coagent	= Adv;
 	MassDet = Det;
 	Partitive = N2;
