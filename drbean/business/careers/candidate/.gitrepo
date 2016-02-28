@@ -4,8 +4,8 @@
 ; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
 ;
 [subrepo]
-	remote = emote=https://github.com/drbean/candidate
+	remote = http://github.com/drbean/candidate
 	branch = master
-	commit = fa7674f3b843869249ee24339e86d600974fcf3b
-	parent = 3d22d169edeeeb60c4c5dfa7bcbc9ba5433ce36c
+	commit = a6a4dbcb2485e7dc93ca1f2e68283a7f5f3b49aa
+	parent = 9b275cd0edc4f52d07f69bab0a7209a8b7603fda
 	cmdver = 0.3.0
