@@ -6,6 +6,6 @@
 [subrepo]
 	remote = https://github.com/drbean/dickson
 	branch = master
-	commit = 18d28b3756ee8417fc7a733e124d6636291ad0cf
-	parent = a3fab183dcbf8ac636891a21f8f317fed936ffbe
+	commit = 63507f8e4a33df0a5dd81f92998344b25174f1f1
+	parent = f45baf75f59d60f92ed62adbfb84f1dc1782f066
 	cmdver = 0.3.0
