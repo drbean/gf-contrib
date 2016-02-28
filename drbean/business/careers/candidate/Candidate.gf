@@ -106,7 +106,7 @@ fun
 	hard	: Adv;
 	really	: AdV;
 	slowly	: AdV;
-	asap	: Adv;
+	asap	: Period;
 	amap	: Adv;
 	in_the_long_term	: Time;
 	over_the_next_five_years	: Time;
