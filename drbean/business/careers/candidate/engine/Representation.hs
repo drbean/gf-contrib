@@ -17,8 +17,10 @@ import Data.Tuple
 
 entuples :: [(Entity,GPN)]
 entuples = [
-	(A,Guncle_alf)
-	, (D,  Gdee	)
+	(B,Gbarbara)
+	, (D,  Gdrbean	)
+	, (E,  Geva	)
+	, (T,  Gtadeusz	)
 	]
 
 ref2int :: DRSRef -> Int
@@ -33,8 +35,10 @@ int2ref :: Int -> DRSRef
 int2ref n = DRSRef ("r" ++ (show n) )
 
 instance Eq GPN where
-	(==) Guncle_alf Guncle_alf = True
-	(==) Gdee Gdee = True 
+	(==) Gbarbara Gbarbara = True
+	(==) Gdrbean Gdrbean = True 
+	(==) Geva Geva = True 
+	(==) Gtadeusz Gtadeusz = True 
 	(==) _ _ = False
 
 gent2ent :: GPN -> Entity
