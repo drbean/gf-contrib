@@ -10,129 +10,148 @@ module AbsMinSQL where
 newtype Ident = Ident String deriving (Eq,Ord,Show,Read)
 newtype Str = Str String deriving (Eq,Ord,Show,Read)
 data Script =
-   SStm [Command]
+   SStm [Statement]
   deriving (Eq,Ord,Show,Read)
 
-data Command =
-   CQuery Table
- | CInsert Ident VALUES
- | CUpdate Ident [Setting] WHERE
- | CDelete STAR Ident WHERE
- | CCreateDatabase Ident
- | CCreateTable Ident [Typing]
- | CAlterTable Ident Alter
- | CCreateView Ident Table
- | CCreateAssertion Ident Condition
- | CDescribe Ident
+data Statement =
+   SCreateDatabase Ident
+ | SCreateTable Ident [Typing]
+ | SDropTable Ident [Typing]
+ | SInsert Ident TablePlaces InsertValues
+ | SDelete Ident Where
+ | SUpdate Ident [Setting] Where
+ | SCreateView Ident Query
+ | SAlterTable Ident [Alteration]
+ | SCreateAssertion Ident Condition
+ | SCreateTrigger Ident TriggerTime [TriggerAction] Ident TriggerEach TriggerBody
+ | SQuery Query
   deriving (Eq,Ord,Show,Read)
 
 data Query =
-   QSelect TOP DISTINCT Columns Table WHERE GROUP HAVING ORDER
- | QSelectWith [Definition] Query
-  deriving (Eq,Ord,Show,Read)
-
-data Columns =
-   CCAll
- | CCExps [Exp]
-  deriving (Eq,Ord,Show,Read)
-
-data WHERE =
-   WNone
- | WCondition Condition
+   QSelect Distinct Columns [Table] Where Group Having Order
+ | QSetOperation Query SetOperation All Query
+ | QWith [Definition] Query
   deriving (Eq,Ord,Show,Read)
 
 data Table =
    TName Ident
- | TNameAlias Table Ident
- | TProduct Table Table
- | TUnion Table ALL Table
- | TIntersect Table ALL Table
- | TExcept Table ALL Table
- | TJoin Table Table ON
- | TNatJoin Table Table
- | TNatFullJoin Table Table
- | TLeftJoin Table Table ON
- | TRightJoin Table Table ON
- | TQuery Query
+ | TTableAs Table Ident
+ | TQuery Query Ident
+ | TJoin Table JoinType Table JoinOn
+ | TNaturalJoin Table JoinType Table
+  deriving (Eq,Ord,Show,Read)
+
+data Columns =
+   CCAll
+ | CCExps [Column]
+  deriving (Eq,Ord,Show,Read)
+
+data Column =
+   CExp Exp
+ | CExpAs Exp Ident
+  deriving (Eq,Ord,Show,Read)
+
+data Where =
+   WNone
+ | WCondition Condition
+  deriving (Eq,Ord,Show,Read)
+
+data Condition =
+   COper Exp Oper Compared
+ | CNot Condition
+ | CExists Not Query
+ | CIsNull Exp Not
+ | CBetween Exp Not Exp Exp
+ | CIn Exp Not Values
+ | CAnd Condition Condition
+ | COr Condition Condition
+  deriving (Eq,Ord,Show,Read)
+
+data Not =
+   NNot
+ | NNone
+  deriving (Eq,Ord,Show,Read)
+
+data Compared =
+   ComExp Exp
+ | ComAny Values
+ | ComAll Values
   deriving (Eq,Ord,Show,Read)
 
 data Exp =
    EName Ident
  | EQual Ident Ident
- | ENameAlias Exp Ident
- | EQuery Query
  | EInt Integer
  | EFloat Double
  | EStr Str
  | EString String
  | ENull
- | EList Exp [Exp]
- | EAggr AggrOper DISTINCT Exp
- | EAggrAll AggrOper DISTINCT
- | EDef
- | EAny Exp
- | EAll Exp
+ | EDefault
+ | EQuery Query
+ | EAggr AggrOper Distinct Exp
+ | EAggrAll AggrOper Distinct
  | EMul Exp Exp
  | EDiv Exp Exp
+ | ERem Exp Exp
  | EAdd Exp Exp
  | ESub Exp Exp
   deriving (Eq,Ord,Show,Read)
 
-data ON =
-   OnNone
- | OnCondition Condition
+data SetOperation =
+   SOUnion
+ | SOIntersect
+ | SOExcept
   deriving (Eq,Ord,Show,Read)
 
-data ALL =
+data All =
    ANone
  | AAll
   deriving (Eq,Ord,Show,Read)
 
-data DISTINCT =
+data JoinOn =
+   JOCondition Condition
+ | JOUsing [Ident]
+  deriving (Eq,Ord,Show,Read)
+
+data JoinType =
+   JTLeft Outer
+ | JTRight Outer
+ | JTFull Outer
+ | JTInner
+  deriving (Eq,Ord,Show,Read)
+
+data Outer =
+   OutOuter
+ | OutNone
+  deriving (Eq,Ord,Show,Read)
+
+data Distinct =
    DNone
- | DDISTINCT
+ | DDistinct
   deriving (Eq,Ord,Show,Read)
 
-data TOP =
-   TNone
- | TNumber Integer
- | TPercent Integer
-  deriving (Eq,Ord,Show,Read)
-
-data GROUP =
+data Group =
    GNone
  | GGroupBy [Exp]
   deriving (Eq,Ord,Show,Read)
 
-data HAVING =
+data Having =
    HNone
  | HCondition Condition
   deriving (Eq,Ord,Show,Read)
 
-data ORDER =
+data Order =
    ONone
- | OOrderBy [Exp] DESC
+ | OOrderBy [AttributeOrder]
   deriving (Eq,Ord,Show,Read)
 
-data DESC =
-   DAsc
- | DDesc
-  deriving (Eq,Ord,Show,Read)
-
-data VALUES =
-   VColVal [Ident] [Exp]
- | VVal [Exp]
- | VTable Table
- | VColTable Ident [Ident] Table
+data AttributeOrder =
+   AOAsc Exp
+ | AODesc Exp
   deriving (Eq,Ord,Show,Read)
 
 data Setting =
    SVal Ident Exp
-  deriving (Eq,Ord,Show,Read)
-
-data STAR =
-   StNone
- | StStar
   deriving (Eq,Ord,Show,Read)
 
 data AggrOper =
@@ -143,17 +162,6 @@ data AggrOper =
  | AOSum
   deriving (Eq,Ord,Show,Read)
 
-data Condition =
-   COper Exp Oper Exp
- | CAnd Condition Condition
- | COr Condition Condition
- | CNot Condition
- | CExists Exp
- | CIsNotNull Exp
- | CBetween Exp Exp Exp
- | CNotBetween Exp Exp Exp
-  deriving (Eq,Ord,Show,Read)
-
 data Oper =
    OEq
  | ONeq
@@ -161,38 +169,35 @@ data Oper =
  | OLt
  | OGeq
  | OLeq
- | OLike
- | ONotLike
- | OIn
- | ONotIn
+ | OLike Not
   deriving (Eq,Ord,Show,Read)
 
 data Typing =
-   TColumn Ident Type [Constraint] DEFAULT
- | TConstraint Constraint [Ident]
- | TForeignKey Exp Ident [Ident] [Policy]
- | TReferences Ident Ident [Ident] [Policy]
+   TColumn Ident Type [InlineConstraint]
+ | TConstraint Constraint
  | TNamedConstraint Ident Constraint
+  deriving (Eq,Ord,Show,Read)
+
+data InlineConstraint =
+   ICPrimaryKey
+ | ICReferences Ident Ident [Policy]
+ | ICUnique
+ | ICNotNull
+ | ICCheck Condition
+ | ICDefault Exp
+  deriving (Eq,Ord,Show,Read)
+
+data Constraint =
+   CPrimaryKey [Ident]
+ | CReferences [Ident] Ident [Ident] [Policy]
+ | CUnique [Ident]
+ | CNotNull
+ | CCheck Condition
   deriving (Eq,Ord,Show,Read)
 
 data Type =
    TIdent Ident
  | TSized Ident Integer
-  deriving (Eq,Ord,Show,Read)
-
-data DEFAULT =
-   DefNone
- | DefExp Exp
-  deriving (Eq,Ord,Show,Read)
-
-data Constraint =
-   CNotNull
- | CUnique
- | CPrimaryKey
- | CForeignKey Exp Ident [Ident] [Policy]
- | CReferences Ident [Ident] [Policy]
- | CCheck Condition
- | CNamed Ident Constraint
   deriving (Eq,Ord,Show,Read)
 
 data Policy =
@@ -205,15 +210,62 @@ data Action =
  | ASetNull
   deriving (Eq,Ord,Show,Read)
 
-data Definition =
-   DTable Ident Table Query
+data TablePlaces =
+   TPNone
+ | TPAttributes [Ident]
   deriving (Eq,Ord,Show,Read)
 
-data Alter =
+data Values =
+   VValues [Exp]
+ | VQuery Query
+  deriving (Eq,Ord,Show,Read)
+
+data InsertValues =
+   IVValues [Exp]
+ | IVQuery Query
+  deriving (Eq,Ord,Show,Read)
+
+data Definition =
+   DTable Ident Query
+  deriving (Eq,Ord,Show,Read)
+
+data Alteration =
    AAdd Typing
  | ADrop Ident
  | AAlter Ident Type
  | ADropPrimaryKey
  | ADropConstraint Ident
+  deriving (Eq,Ord,Show,Read)
+
+data TriggerTime =
+   TTBefore
+ | TTAfter
+ | TTInstead
+  deriving (Eq,Ord,Show,Read)
+
+data TriggerAction =
+   TAUpdate
+ | TAInsert
+ | TADelete
+  deriving (Eq,Ord,Show,Read)
+
+data TriggerEach =
+   TERow
+ | TEStatement
+  deriving (Eq,Ord,Show,Read)
+
+data TriggerBody =
+   TBStatements [TriggerStatement]
+ | TBProcedure Ident
+  deriving (Eq,Ord,Show,Read)
+
+data TriggerStatement =
+   TSStatement Statement
+ | TSIfThen Condition [TriggerStatement] [TriggerElse]
+ | TSException Str
+  deriving (Eq,Ord,Show,Read)
+
+data TriggerElse =
+   TEElseIf Condition [TriggerStatement]
   deriving (Eq,Ord,Show,Read)
 
