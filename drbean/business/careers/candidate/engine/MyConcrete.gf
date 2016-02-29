@@ -143,6 +143,16 @@ oper
   --lock_QCl = <>;
   --};
 
+	mymkIP : (i,me,my : Str) -> Number -> {s : NPCase => Str ; n : Number} =
+		\i,me,my,n -> 
+		 { s = table {
+				 NCase Nom => i;
+				 NPAcc => me;
+				 NCase Gen | NPNomPoss => my
+				 } ;
+			 n = Sg ;
+		 };
+
 lin
 	Be_bad ap	= mkComp ap;
   Be_somewhere located	= mkComp located;
@@ -257,7 +267,7 @@ lin
 	he = mkNP he_Pron;
 	it = mkNP it_Pron;
 
-	who_WH	= whoSg_IP;
+	who_WH	= mymkIP "who" "who" "whose" Sg;
 	what_WH	= whatSg_IP;
 	that_RP	= ExtraEng.that_RP;
 	IdRP	= IdRP;
