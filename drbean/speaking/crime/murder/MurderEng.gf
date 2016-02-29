@@ -3,6 +3,10 @@
 concrete MurderEng of Murder = MyConcrete  **
 open ConstructorsEng, ParadigmsEng, StructuralEng, IrregEng, ExtraEng, ConstructX, Prelude in {
 
+oper
+	hospital	= mkCN( mkN "hospital");
+
+
 lin
 
 	married	= mkAP( mkA "married");
@@ -23,19 +27,21 @@ lin
 	shoot	= mkV2 "shoot";
 	say	= mkVS( mkV "say");
 	love	= mkV2 "love";
-	watch	= mkV2S "watch";
+	watch	= mkV2S( mkV "watch") noPrep;
 	suffer	= mkV "suffer";
 
 	wife	= mkCN( mkN "wife");
-	cancer	= mkCN( mkN "cancer");
-oper
+	cancer	= mkN "cancer";
+
 	husband	= mkCN( mkN "husband");
-	hospital	= mkCN( mkN "hospital");
+	hospital_name	= hospital;
+	hospital_place	= Location zero_Det_sg hospital;
 	respirator	= mkCN( mkN "respirator");
 
 	mercer	= mkPN( mkN masculine (mkN "Mercer") );
+	sara	= mkPN( mkN feminine (mkN "Sara") );
+
 }
-	sara,	= mkPN( mkN feminine (mkN "Sara,") );
 
 -- vim: set ts=2 sw=2 noet:
 

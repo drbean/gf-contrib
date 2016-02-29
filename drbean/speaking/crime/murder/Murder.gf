@@ -7,9 +7,9 @@ fun
 
 
 
-	married	: A;
-	dying	: A;
-	alive	: A;
+	married	: AP;
+	dying	: AP;
+	alive	: AP;
 
 	by	: Prep;
 	to	: Prep;
@@ -30,10 +30,11 @@ fun
 	suffer	: V;
 
 	wife	: CN;
-	hospital	: CN;
+	hospital_name	: PlaceName;
+	hospital_place	: Place;
 	months	: CN;
 	respirator	: CN;
-	cancer	: CN;
+	cancer	: N;
 	husband	: CN;
 
 	mercer	: PN;

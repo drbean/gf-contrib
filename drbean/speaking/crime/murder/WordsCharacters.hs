@@ -140,7 +140,7 @@ Mercer	: PN;
 his	: Det;
 husband	: CN;
 wife	: CN;
-Sara,	: PN;
+Sara	: PN;
 married	: A;
 cancer	: CN;
 dying	: A;
