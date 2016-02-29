@@ -11,14 +11,13 @@ fun
 	dying	: A;
 	alive	: A;
 
-	in	: Prep;
-	on	: Prep;
-	for	: Prep;
 	by	: Prep;
 	to	: Prep;
 
 	so_much	: Adv;
 	anymore	: Adv;
+	on_february_9	: Adv;
+	for_8_months	: Adv;
 
 	-- PassV2V	: VPSlash -> VP;
 	-- Slash	: V2V -> VP -> VPSlash;
@@ -36,8 +35,6 @@ fun
 	respirator	: CN;
 	cancer	: CN;
 	husband	: CN;
-	eightmonths	: N;
-	feb_nine	: N;
 
 	mercer	: PN;
 	sara	: PN;

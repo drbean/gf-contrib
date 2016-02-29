@@ -9,14 +9,13 @@ lin
 	dying	= mkAP( mkA "dying");
 	alive	= mkAP( mkA "alive");
 
-	in	= mkPrep "in";
-	on	= mkPrep "on";
-	for	= mkPrep "for";
 	by	= mkPrep "by";
 	to	= mkPrep "to";
 
 	so_much	= mkAdv "so much";
 	anymore	= mkAdv "anymore";
+	on_february_9	= mkAdv "on February 9";
+	for_8_months	= mkAdv "for 8 months";
 
 	-- PassV2V vp = PassVPSlash vp;
 	-- Slash v2v vp = mkVPSlash v2v vp;
@@ -33,9 +32,6 @@ oper
 	husband	= mkCN( mkN "husband");
 	hospital	= mkCN( mkN "hospital");
 	respirator	= mkCN( mkN "respirator");
-
-	eightmonths	= mkN "8 months";
-	feb_nine	= mkN "February 9";
 
 	mercer	= mkPN( mkN masculine (mkN "Mercer") );
 }

@@ -43,6 +43,8 @@ a = [
 adv = [
 	, "so much"
 	, "anymore"
+	, "on February 9"
+	, "for 8 months"
 	]
 
 aux = [
@@ -75,8 +77,6 @@ det = [
 n = [
 	"wife"
 	, "cancer"
-	, "8 months"
-	, "February 9"
 	, "husband"
 	, "hospital"
 	, "months"
@@ -96,8 +96,6 @@ pron = [
 
 prep = [
 	"in"
-	, "on"
-	, "for"
 	, "by"
 	, "to"
 	]
@@ -149,14 +147,13 @@ dying	: A;
 in	: Prep;
 hospital	: CN;
 for	: Prep;
-8	: A;
-months	: CN;
+for 8 months	: Adv;
 keep	: V2A;
 alive	: A;
 by	: Prep;
 respirator	: CN;
 on	: Prep;
-February_9	: PN;
+on February 9	: Adv;
 go	: VA;
 to	: Prep;
 shoot	: V2;
