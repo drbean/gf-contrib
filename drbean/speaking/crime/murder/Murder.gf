@@ -9,7 +9,7 @@ fun
 
 	married	: A;
 	dying	: A;
-	8	: A;
+	alive	: A;
 
 	in	: Prep;
 	on	: Prep;
@@ -17,10 +17,18 @@ fun
 	by	: Prep;
 	to	: Prep;
 
+	so_much	: Adv;
+	anymore	: Adv;
+
 	-- PassV2V	: VPSlash -> VP;
 	-- Slash	: V2V -> VP -> VPSlash;
 	go	: VA;
+	keep	: V2A;
 	shoot	: V2;
+	say	: VS;
+	love	: V2;
+	watch	: V2S;
+	suffer	: V;
 
 	wife	: CN;
 	hospital	: CN;
@@ -28,10 +36,11 @@ fun
 	respirator	: CN;
 	cancer	: CN;
 	husband	: CN;
+	eightmonths	: N;
+	feb_nine	: N;
 
 	mercer	: PN;
 	sara	: PN;
-	feb_nine	: PN;
 
 }
 

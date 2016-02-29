@@ -1,10 +1,3 @@
-	, "go"
-	, "shoot"
-	, "on"
-	, "for"
-	, "by"
-	, "February"
-	, "to"
 module WordsCharacters where 
 
 import qualified Data.Map as Map
@@ -43,11 +36,13 @@ posMap = Map.fromList [
 a = [
 	"married"
 	, "dying"
-	, "8"
+	, "alive"
 
 	]
 
 adv = [
+	, "so much"
+	, "anymore"
 	]
 
 aux = [
@@ -63,7 +58,8 @@ aux = [
 	
 
 conj = [
-	"because"
+	"and"
+	, "because"
 	]
 
 
@@ -79,6 +75,8 @@ det = [
 n = [
 	"wife"
 	, "cancer"
+	, "8 months"
+	, "February 9"
 	, "husband"
 	, "hospital"
 	, "months"
@@ -92,13 +90,16 @@ pn = [
 
 pron = [
 	"who"
-	, "whom"
 	, "he/him"
 	, "she/her"
 	]
 
 prep = [
 	"in"
+	, "on"
+	, "for"
+	, "by"
+	, "to"
 	]
 
 rel = [
@@ -126,6 +127,13 @@ tag = [
 	]
 
 v = [
+	, "go"
+	, "keep"
+	, "shoot"
+	, "say"
+	, "love"
+	, "watch"
+	, "suffer"
 	]
 
 {-
@@ -143,11 +151,9 @@ hospital	: CN;
 for	: Prep;
 8	: A;
 months	: CN;
-and
-kept
-alive
+keep	: V2A;
+alive	: A;
 by	: Prep;
-a
 respirator	: CN;
 on	: Prep;
 February_9	: PN;
@@ -155,20 +161,17 @@ go	: VA;
 to	: Prep;
 shoot	: V2;
 her	: Det;
-he
+he	: Pron;
 she
-says
+say	: VS;
 'I
-love
-her
-so
-much
+love	: V2;
+so much	: Adv;
 I
 can't
-watch
-her
-suffer
-anymore
+watch	: V2S;
+suffer	: V;
+anymore	: Adv;
  -}
  
  -- vim: set ts=2 sts=2 sw=2 noet:
