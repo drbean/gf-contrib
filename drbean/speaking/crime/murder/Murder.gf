@@ -1,4 +1,4 @@
-abstract Dickson = MyAbstract ** {
+abstract Murder = MyAbstract ** {
 
 
   flags startcat = Utt ;

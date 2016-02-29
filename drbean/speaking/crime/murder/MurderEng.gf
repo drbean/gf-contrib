@@ -1,6 +1,6 @@
---# -path=.:/home/drbean/GF/lib/src/translator:./gf-contrib/drbean/conversation/work/dickson:/home/drbean/GF/gf-contrib/drbean/conversation/work/dickson/engine:present
+--# -path=.:/home/drbean/GF/lib/src/translator:./gf-contrib/drbean/speaking/crime/murder:/home/drbean/GF/gf-contrib/drbean/speaking/crime/murder/engine:present
 
-concrete DicksonEng of Dickson = MyConcrete  **
+concrete MurderEng of Murder = MyConcrete  **
 open ConstructorsEng, ParadigmsEng, StructuralEng, IrregEng, ExtraEng, ConstructX, Prelude in {
 
 lin
