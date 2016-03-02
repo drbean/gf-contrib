@@ -60,16 +60,16 @@ fol tests = do
 
 dic_test = [
 
-		"The guy who interviews Dee says that Dee is too little."
+		"The guy who interviews Dee says that she is too little."
 		, "The interviewer says that Dee is little."
 		, "The interviewer says that Dee cannot get along with the guys"
 		-- , "The guys make life hard for Dee."
-		, "The guy who interviews Dee doesn't think that Dee needs to have the job."
+		, "The guy who interviews Dee doesn't think that she needs to have the job."
 
 		-- , "Uncle Alf is superintendent at the shipyard."
 		-- , "Dee's father says that Uncle Alf is superintendent at the shipyard."
-		, "Dee's father says that Uncle Alf can get Dee a job."
-		, "Dee lets Dee's father take Dee to see Uncle Alf."
+		, "Dee's father says that Uncle Alf can get her a job."
+		, "Dee lets her father take her to see Uncle Alf."
 
 		, "Dee goes to the shipyard the next Monday."
 		, "The interviewer says that the superintendent tells the shipyard to hire Dee."
@@ -82,9 +82,9 @@ dic_test = [
 		, "The guys say that the jobs are men's jobs."
 		-- , "The guys say that Dee takes work away from men who have families."
 		, "The guys say that Dee takes away work from men who have families."
-		, "Dee says that Dee has a family."
-		, "Dee says that Dee has no man."
-		, "Dee says that Dee needs money."
+		, "Dee says that she has a family."
+		, "Dee says that she has no man."
+		, "Dee says that she needs money."
 
 		, "Dee takes about two weeks to start proving herself."
 		-- , "The guys do better with having a woman working."
@@ -93,7 +93,7 @@ dic_test = [
 		, "Several guys tell Dee to slow down."
 		, "Dee makes the guys look bad."
 		-- , "Dee laughs."
-		, "Dee says that Dee is at the shipyard to work."
+		, "Dee says that she is at the shipyard to work."
 
 		-- , "Dee has to go to school two nights a week."
 		-- , "Dee is the first apprentice who ever becomes supervisor before graduation."
