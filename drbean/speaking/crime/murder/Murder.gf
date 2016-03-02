@@ -32,12 +32,11 @@ fun
 	wife	: CN;
 	hospital_name	: PlaceName;
 	hospital_place	: Place;
-	months	: CN;
 	respirator	: CN;
 	cancer	: N;
 	husband	: CN;
 
-	mercer	: PN;
+	charles	: PN;
 	sara	: PN;
 
 }

@@ -24,6 +24,7 @@ lin
 	-- PassV2V vp = PassVPSlash vp;
 	-- Slash v2v vp = mkVPSlash v2v vp;
 	go	= mkVA( mkV "go");
+	keep	= mkV2A( mkV "keep" "kept" "kept") noPrep;
 	shoot	= mkV2 "shoot";
 	say	= mkVS( mkV "say");
 	love	= mkV2 "love";
@@ -38,7 +39,7 @@ lin
 	hospital_place	= Location zero_Det_sg hospital;
 	respirator	= mkCN( mkN "respirator");
 
-	mercer	= mkPN( mkN masculine (mkN "Mercer") );
+	charles	= mkPN( mkN masculine (mkN "Charles") );
 	sara	= mkPN( mkN feminine (mkN "Sara") );
 
 }

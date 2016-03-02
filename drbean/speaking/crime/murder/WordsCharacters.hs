@@ -41,7 +41,7 @@ a = [
 	]
 
 adv = [
-	, "so much"
+	"so much"
 	, "anymore"
 	, "on February 9"
 	, "for 8 months"
@@ -84,7 +84,7 @@ n = [
 	]
 
 pn = [
-	"Mercer"
+	"Charles"
 	, "Sara"
 	]
 
@@ -125,7 +125,7 @@ tag = [
 	]
 
 v = [
-	, "go"
+	"go"
 	, "keep"
 	, "shoot"
 	, "say"
@@ -136,7 +136,7 @@ v = [
 
 {-
 
-Mercer	: PN;
+Charles	: PN;
 his	: Det;
 husband	: CN;
 wife	: CN;
