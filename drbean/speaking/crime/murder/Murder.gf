@@ -21,7 +21,7 @@ fun
 
 	-- PassV2V	: VPSlash -> VP;
 	-- Slash	: V2V -> VP -> VPSlash;
-	go	: VA;
+	go	: Motion;
 	keep	: V2A;
 	shoot	: V2;
 	say	: VS;

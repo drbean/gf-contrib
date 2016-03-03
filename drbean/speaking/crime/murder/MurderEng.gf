@@ -23,7 +23,7 @@ lin
 
 	-- PassV2V vp = PassVPSlash vp;
 	-- Slash v2v vp = mkVPSlash v2v vp;
-	go	= mkVA( mkV "go");
+	go	= mkVP( mkV "go");
 	keep	= mkV2A( mkV "keep" "kept" "kept") noPrep;
 	shoot	= mkV2 "shoot";
 	say	= mkVS( mkV "say");
