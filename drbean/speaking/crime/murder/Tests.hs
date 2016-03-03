@@ -70,9 +70,9 @@ dic_test = [
   , "Sara is kept alive by a respirator."
   , "Charles goes to the hospital."
   , "Charles shoots his wife."
-  , "Charles says, I love her so much."
-  , "Charles says, I can't watch her suffer anymore."
-  , "Charles says, I love her so much, I can't watch her suffer anymore."
+  , "Charles says he loves Sara so much."
+  , "Charles says he can't watch Sara suffer anymore."
+  , "Charles says he loves Sara so much, he can't watch her suffer anymore."
 
   ]
 
@@ -90,9 +90,9 @@ yn_dic_test = [
   , "Is Sara kept alive by a respirator."
   , "Does Charles go to the hospital."
   , "Does Charles shoot his wife."
-  , "Does Charles say, I love her so much."
-  , "Does Charles say, I can't watch her suffer anymore."
-  , "Does Charles say, I love her so much, I can't watch her suffer anymore."
+  , "Does Charles say that he loves Sara so much."
+  , "Does Charles say he can't watch Sara suffer anymore."
+  , "Does Charles say he loves Sara so much, he can't watch her suffer anymore."
 
 
   ]
