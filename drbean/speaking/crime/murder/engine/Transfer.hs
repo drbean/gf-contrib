@@ -106,16 +106,16 @@ takeAnswer _ "yes" = "yes"
 takeAnswer "yes" _ = "yes"
 takeAnswer _ "no" = "no"
 takeAnswer "no" _  = "no"
-takeAnswer a b@('M' : 'e' : _)  = collateAnswer a b -- Mercer
+takeAnswer a b@('C' : 'h' : _)  = collateAnswer a b -- Charles
 takeAnswer a b@('S' : 'a' : _)  = collateAnswer a b -- Sara
-takeAnswer "none" _ = "none of Mercer or Sara"
-takeAnswer _ "none" = "none of Mercer or Sara"
+takeAnswer "none" _ = "none of Charles or Sara"
+takeAnswer _ "none" = "none of Charles or Sara"
 takeAnswer "No answer" _ = "No answer"
 takeAnswer _ "No answer" = "No answer"
-takeAnswer _  _   = error "undefined answer, not Yes, No, Mercer or Sara, none or No answer"
+takeAnswer _  _   = error "undefined answer, not Yes, No, Charles or Sara, none or No answer"
 
 collateAnswer a b = formatUp $ nub $ filter
-	(\x -> x ==	"Mercer"
+	(\x -> x ==	"Charles"
 	|| x ==	"Sara"
 	) (concat $ map (splitOn " , " ) (splitOn " or " (a ++ " , " ++ b)))
 
