@@ -17,7 +17,7 @@ import Data.Tuple
 
 entuples :: [(Entity,GPN)]
 entuples = [
-	(M,Gcharles)
+	(C,Gcharles)
 	, (S,  Gsara	)
 	]
 
