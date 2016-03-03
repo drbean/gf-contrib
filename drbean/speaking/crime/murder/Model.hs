@@ -19,7 +19,7 @@ entity_check =  [
   , (B, "" )
   , (C, "charles" )
   , (D, "" )
-  , (E, "" )
+  , (E, "eighty" )
   , (F, "" )
   , (G, "" )
   , (H, "hospital" )
@@ -93,6 +93,7 @@ onePlaceStarters = [
 
 onePlacers = 
 	genonePlacer affiliation "married" "marriage" Patient :
+	genonePlacer condition	"eighty" "age" Pivot :
 	entityonePlacers ++ onePlaceStarters
 
 predid1 "people"	= predid1 "person"
@@ -295,7 +296,7 @@ question = [
 
 condition :: [ (Content, [(Case, Entity)]) ]
 condition = [
-	("eighty", [(Pivot,C), (Predicate,P) ] )
+	("age", [(Pivot,C), (Attribute,E) ] )
 
 	]
 
@@ -339,7 +340,6 @@ twoPlacers =
 	-- gentwoPlacer event	"say" "state" Agent Predicate:
 	-- gentwoPlacer condition	"fifteen" "fifteen" Predicate Pivot:
 	-- gentwoPlacer condition	"sixteen" "sixteen" Predicate Pivot:
-	-- gentwoPlacer condition	"eighteen" "eighteen" Predicate Pivot:
 	-- gentwoPlacer condition	"nineteen" "nineteen" Predicate Pivot:
 	-- gentwoPlacer condition	"twentyone" "twentyone" Predicate Pivot:
 	-- gentwoPlacer condition	"twentytwo" "twentytwo" Predicate Pivot:
