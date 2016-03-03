@@ -197,6 +197,7 @@ lin
 	VPAdv vp adv = mkVP vp adv;
   WithTime action time	= mkVP action time;
   V_PP_Coagent v pp	= mkVP v pp;
+	V_PP_manner vp pp = mkVP vp pp;
 	WithCl vp cl = mkVP vp cl;
   -- Be_made_sth vp np = PassV3 vp np;
 

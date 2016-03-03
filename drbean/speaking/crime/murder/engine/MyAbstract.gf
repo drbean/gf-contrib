@@ -63,6 +63,7 @@ fun
 	WithPlace	:  V -> Located -> VP;
 	WithTime	: VP -> Period -> VP;
 	V_PP_coagent	: V -> PP_coagent -> VP;
+	V_PP_manner : VP -> Adv -> VP;
 	WithCl	: VP -> SubordCl -> VP;
 
 	ICompS	: IComp -> NP -> QS;
