@@ -163,7 +163,8 @@ event :: [ (Content, [(Case, Entity)]) ]
 event = [
 	("shoot", [(Agent,C), (Patient,S)])
 	, ("go", [(Theme, C),(Destination,H)])
-	-- , ("ask", [(Agent, S), (Recipient, Mandy), (Predicate, P), (Topic, X)])
+
+statement :: [ (Content, [(Case, Entity)]) ]
 	-- , ("ask", [(Agent, Alice), (Recipient, E), (Predicate, P), (Topic, O)])
 	-- , ("greet", [(Agent, E), (Patient, Alice) ])
 	-- , ("state", [(Agent, E), (Recipient, Alice), (Predicate, P), (Topic, A)])
@@ -286,8 +287,6 @@ event = [
 	-- , ("ask", [(Agent, Andy), (Recipient, T), (Predicate, P), (Topic, O)])
 	-- , ("state", [(Agent,Andy),(Recipient, T),(Predicate,P),(Topic,O)])
 	-- , ("state", [(Agent,T),(Recipient, Andy),(Predicate,P),(Topic,O)])
-
-	]
 
 question :: [ (Content, [(Case, Entity)]) ]
 question = [
