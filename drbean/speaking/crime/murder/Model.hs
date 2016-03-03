@@ -397,9 +397,9 @@ threePlacers =
 	threePlaceStarters
 
 type Content = String
-data Case = Agent | Asset | Attribute | Beneficiary | Cause | CoAgent |
+data Case = Actor | Agent | Asset | Attribute | Beneficiary | Cause | CoAgent |
 	CoPatient | CoTheme | Destination | Experiencer | Extent | Goal |
-	InitialLocation | Instrument | Location | Material | Patient | Pivot |
+	InitialLocation | InitialState | Instrument | Location | Manner | Material | Path | Patient | Pivot |
 	Predicate | Product | Recipient | Reflexive | Result | Source |
 	Stimulus | Theme | Time | Topic | Trajectory | Value
   deriving Eq
