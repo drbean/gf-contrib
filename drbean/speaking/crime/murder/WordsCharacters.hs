@@ -34,7 +34,7 @@ posMap = Map.fromList [
 	]
 
 a = [
-	"eighty"
+	"80"
 	, "married"
 	, "dying"
 	, "alive"
@@ -137,6 +137,7 @@ v = [
 
 {-
 
+eighty	: A;
 Charles	: PN;
 his	: Det;
 husband	: CN;
