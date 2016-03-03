@@ -94,6 +94,10 @@ onePlaceStarters = [
 onePlacers = 
 	genonePlacer affiliation "married" "marriage" Patient :
 	genonePlacer condition	"eighty" "age" Pivot :
+	genonePlacer condition	"dying" "dying" Pivot :
+	genonePlacer condition	"alive" "alive" Pivot :
+	genonePlacer affiliation "wife" "marriage" CoPatient :
+	genonePlacer affiliation "husband" "marriage" CoPatient :
 	entityonePlacers ++ onePlaceStarters
 
 predid1 "people"	= predid1 "person"
@@ -297,6 +301,9 @@ question = [
 condition :: [ (Content, [(Case, Entity)]) ]
 condition = [
 	("age", [(Pivot,C), (Attribute,E) ] )
+	, ("cancer", [(Experiencer,S),(Stimulus,X)] )
+	, ("dying", [(Pivot,S)] )
+	, ("alive", [(Pivot,S)] )
 
 	]
 
@@ -334,8 +341,8 @@ twoPlacers =
 	gentwoPlacer attitude "love" "love" Experiencer Stimulus :
 	gentwoPlacer site "in_prep" "in" Theme Location :
 	gentwoPlacer event "go" "go" Theme Destination :
-	-- gentwoPlacer question "how_old" "age" Predicate Pivot:
-	-- gentwoPlacer question "man_or_woman" "sex" Predicate Pivot:
+	gentwoPlacer condition "have" "cancer" Experiencer Stimulus :
+	gentwoPlacer event "shoot" "shoot" Agent Patient :
 	-- gentwoPlacer question "male_or_female" "sex" Predicate Pivot:
 	-- gentwoPlacer event	"say" "state" Agent Predicate:
 	-- gentwoPlacer condition	"fifteen" "fifteen" Predicate Pivot:
