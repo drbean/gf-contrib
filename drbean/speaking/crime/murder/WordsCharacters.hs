@@ -34,7 +34,8 @@ posMap = Map.fromList [
 	]
 
 a = [
-	"married"
+	"eighty"
+	, "married"
 	, "dying"
 	, "alive"
 

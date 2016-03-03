@@ -9,6 +9,7 @@ oper
 
 lin
 
+	eighty	= mkAP( mkA "80");
 	married	= mkAP( mkA "married");
 	dying	= mkAP( mkA "dying");
 	alive	= mkAP( mkA "alive");

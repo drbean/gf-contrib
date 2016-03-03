@@ -61,7 +61,7 @@ fol tests = do
 dic_test = [
 
 	"Charles is 80."
-  "Charles and his wife are married."
+  , "Charles and his wife are married."
   , "Sara has cancer."
   , "Sara is dying."
   , "Sara is in hospital."

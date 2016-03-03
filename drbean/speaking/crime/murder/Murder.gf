@@ -7,6 +7,7 @@ fun
 
 
 
+	eighty	: AP;
 	married	: AP;
 	dying	: AP;
 	alive	: AP;
