@@ -27,7 +27,7 @@ fun
 	shoot	: V2;
 	say	: VS;
 	love	: V2;
-	watch	: V2S;
+	watch	: V2V;
 	suffer	: V;
 
 	wife	: CN;

@@ -29,7 +29,7 @@ lin
 	shoot	= mkV2 "shoot";
 	say	= mkVS( mkV "say");
 	love	= mkV2 "love";
-	watch	= mkV2S( mkV "watch") noPrep;
+	watch	= mkV2V( mkV "watch") noPrep noPrep;
 	suffer	= mkV "suffer";
 
 	wife	= mkCN( mkN "wife");
