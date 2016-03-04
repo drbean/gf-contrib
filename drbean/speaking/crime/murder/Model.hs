@@ -318,8 +318,7 @@ idea = [
 
 attitude :: [ (Content, [(Case, Entity)]) ]
 attitude = [
-	("love", [(Experiencer,C),(Stimulus,S)] )
-	, ("love", [(Stimulus,C),(Experiencer,S)] )
+	("love", [(Experiencer,C),(Stimulus,S),(Predicate,P)] )
 	]
 
 affiliation :: [ (Content, [(Case, Entity)]) ]
@@ -348,8 +347,8 @@ twoPlacers =
 	gentwoPlacer event "go" "go" Theme Destination :
 	gentwoPlacer condition "have" "cancer" Experiencer Stimulus :
 	gentwoPlacer event "shoot" "shoot" Agent Patient :
+	gentwoPlacer statement	"say" "say" Agent Predicate:
 	-- gentwoPlacer question "male_or_female" "sex" Predicate Pivot:
-	-- gentwoPlacer event	"say" "state" Agent Predicate:
 	-- gentwoPlacer condition	"fifteen" "fifteen" Predicate Pivot:
 	-- gentwoPlacer condition	"sixteen" "sixteen" Predicate Pivot:
 	-- gentwoPlacer condition	"nineteen" "nineteen" Predicate Pivot:
@@ -392,6 +391,7 @@ threePlacers, threePlaceStarters :: [(String, ThreePlacePred)]
 threePlaceStarters = [
     ]
 threePlacers =
+	(genthreePlacer statement "love" "love" Predicate Experiencer Stimulus) :
 	(genthreePlacer event "ask_V2Q" "ask" Agent Recipient Predicate) :
 	genthreePlacer event "tell" "state" Agent Recipient Predicate :
 	threePlaceStarters
