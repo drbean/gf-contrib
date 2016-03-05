@@ -477,6 +477,21 @@ repVP (GV_that_S v0 (GNegS (GSentence np vp))) = case vp of
 				, Prop p (DRS [] [Neg (DRS []
 				[Rel (DRSRel lin_v) [referent]])])]
 			in DRS [r,referent] conds ) (new np [r])
+		(GV_NP_VP v obj vp3) -> case vp3 of
+			(GHappening v1) -> \r -> repNP np (\referent ->
+				repNP obj (\theme -> let
+					statement = DRSRel (lin v0)
+					intensive = DRSRel (lin v)
+					intransitive = DRSRel (lin v1)
+					p1 = DRSRef "p1"
+					p2 = DRSRef "p2"
+					p3 = DRSRef "p3"
+					conds = [Rel statement [r,p1]
+						, Prop p1 (DRS [] [Neg (DRS [] [Prop p2 (DRS []
+						[Rel intensive [referent,p2], (Prop p3 (DRS []
+						[Rel intransitive [referent]]))])])])]
+					in DRS [r,theme,referent] conds )
+					(new obj [r,referent]) ) (new np [r])
 repVP (GV_S v0 (GNegS (GSentence np vp))) = 
 	repVP (GV_that_S v0 (GNegS (GSentence np vp)))
 repVP (GV_NP_whether_S v0 np0 (GPosQ (GYN (GSentence np vp)))) = case vp of
