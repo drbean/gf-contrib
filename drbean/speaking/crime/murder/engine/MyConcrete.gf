@@ -183,6 +183,7 @@ lin
 	V2Slash v2	= mkVPSlash v2;
 	-- VSSlash vs	= mkVPSlash vs;
 	V2VSlash v2v vp	= mkVPSlash v2v vp;
+	V2ASlash v2a ap	= mkVPSlash v2a ap;
 	V3Slash v3 np	= mkVPSlash v3 np;
 	ModInf cn vp = mkCN cn vp;
 	MassModInf n vp = mkCN( mkCN n) vp;

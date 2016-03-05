@@ -51,6 +51,7 @@ fun
 	V2Slash	: V2 -> VPSlash;
 	-- VSSlash	: VS -> VPSlash;
 	V2VSlash	: V2V -> VP -> VPSlash;
+	V2ASlash	: V2A -> AP -> VPSlash;
 	V3Slash	: V3 -> NP -> VPSlash;
 	ModInf : CN -> VP -> CN;
 	MassModInf : N -> VP -> CN;
