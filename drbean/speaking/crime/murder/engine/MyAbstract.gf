@@ -181,6 +181,7 @@ fun
 	because_Subj	: Subj;
 	if_Subj	: Subj;
 	or_Conj	: Conj;
+	and_Conj	: Conj;
 
 	Subjunct	: Subj -> S -> SubordCl;
 

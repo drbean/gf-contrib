@@ -153,6 +153,13 @@ oper
 			 n = Sg ;
 		 };
 
+	mymkConj : (and : Str) -> {s1 : Str ; s2 : Str ; n : Number} =
+		\and ->
+			{ s1 = [] ;
+				s2 = and ;
+				n = Pl ;
+			};
+
 lin
 	Be_bad ap	= mkComp ap;
   Be_somewhere located	= mkComp located;
@@ -309,6 +316,7 @@ lin
 	because_Subj	= because_Subj;
 	if_Subj	= if_Subj;
 	or_Conj	= or_Conj;
+	and_Conj	= mymkConj "and";
 
 	Subjunct subj s	= ConstructorsEng.mkAdv subj s;
 
