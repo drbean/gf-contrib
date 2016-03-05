@@ -128,6 +128,7 @@ pn = [
 pron = [
 	"who"
 	, "whom"
+	, "she"
 	, "herself"
 	]
 
