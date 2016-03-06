@@ -73,6 +73,9 @@ unmaybe (Just x) = x
 
 repS :: GUtt -> Maybe (DRSRef -> DRS)
 
+repS (GQUt (GPosQ (GYN (GSentence np (GV_PP_instrument (GPass (GV2ASlash v ap))
+	(GInstrumenting _ arg)))))) =
+	repS (GQUt (GPosQ (GYN (GSentence arg (GV_NP_AP v np ap)))))
 repS (GQUt (GPosQ (GYN (GSentence np (GV_PP_instrument (GPass vp) pp))))) =
 	repS (GQUt (GPosQ (GYN (GSentence np (GPass vp)))))
 repS (GQUt (GPosQ (GYN (GSentence np (GPass (GV2ASlash v ap)))))) =
