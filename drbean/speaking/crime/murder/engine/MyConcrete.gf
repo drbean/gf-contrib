@@ -59,7 +59,7 @@ lincat
 	Motion	= VP;
 	CoagentPrep = Prep;
 	InstrumentPrep = Prep;
-	PP_Coagent	= Adv;
+	PP_coagent	= Adv;
 	PP_instrument	= Adv;
 	MassDet = Det;
 	Partitive = N2;
@@ -207,7 +207,7 @@ lin
   AdvVP adv vp	= mkVP adv vp;
 	VPAdv vp adv = mkVP vp adv;
   WithTime action time	= mkVP action time;
-  V_PP_Coagent v pp	= mkVP v pp;
+  V_PP_coagent v pp	= mkVP v pp;
 	V_PP_instrument vp pp = mkVP vp pp;
 	V_PP_manner vp pp = mkVP vp pp;
 	WithCl vp cl = mkVP vp cl;
