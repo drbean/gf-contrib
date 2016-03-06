@@ -164,6 +164,7 @@ action :: [ (Content, [(Case, Entity)]) ]
 action = [
 	("shoot", [(Agent,C), (Patient,S)])
 	, ("go", [(Theme, C),(Destination,H)])
+	, ("life_support", [(Agent,H),(Patient,S),(Instrument,R)])
 
 	]
 
@@ -223,6 +224,7 @@ twoPlaceStarters = [
 twoPlacers =
 	gentwoPlacer attitude "love" "love" Experiencer Stimulus :
 	gentwoPlacer site "in_prep" "in" Theme Location :
+	gentwoPlacer action "keep" "life_support" Instrument Patient :
 	gentwoPlacer action "go" "go" Theme Destination :
 	gentwoPlacer condition "have" "cancer" Experiencer Stimulus :
 	gentwoPlacer action "shoot" "shoot" Agent Patient :
