@@ -72,6 +72,12 @@ unmaybe (Just x) = x
 -- unmaybe Nothing = I
 
 repS :: GUtt -> Maybe (DRSRef -> DRS)
+
+repS (GQUt (GPosQ (GYN (GSentence np (GV_PP_instrument (GPass vp) pp))))) =
+	repS (GQUt (GPosQ (GYN (GSentence np (GPass vp)))))
+repS (GQUt (GPosQ (GYN (GSentence np (GPass (GV2ASlash v ap)))))) =
+	repS (GQUt (GPosQ (GYN (GSentence (GItem Ga_Det Gperson) (GV_NP_AP v np ap)))))
+
 repS (GQUt (GPosQ (GYN (GSentence np vp)))) = Just (repNP np (repVP vp))
 repS (GQUt (GNegQ (GYN (GSentence np vp)))) =
 	repS (GQUt (GPosQ (GYN (GSentence np vp))))
@@ -381,6 +387,7 @@ repVP (GV_PP_coagent v (GCoagency prep np)) = \r ->
 	repNP np (\style -> DRS [r,style]
 	[ Rel (DRSRel (lin v)) [r,style]]
 	) (new np [r])
+repVP (GV_PP_instrument vp (GInstrumenting prep np)) = repVP vp
 repVP (GLook_bad v ap) = \r -> let
 	patient = r
 	DRS rs' [Rel rel rs] = repAP ap patient
