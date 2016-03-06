@@ -160,8 +160,8 @@ site = [
 	, ("to", [(Theme,S),(Destination,H)])
 	]
 
-event :: [ (Content, [(Case, Entity)]) ]
-event = [
+action :: [ (Content, [(Case, Entity)]) ]
+action = [
 	("shoot", [(Agent,C), (Patient,S)])
 	, ("go", [(Theme, C),(Destination,H)])
 
@@ -223,9 +223,9 @@ twoPlaceStarters = [
 twoPlacers =
 	gentwoPlacer attitude "love" "love" Experiencer Stimulus :
 	gentwoPlacer site "in_prep" "in" Theme Location :
-	gentwoPlacer event "go" "go" Theme Destination :
+	gentwoPlacer action "go" "go" Theme Destination :
 	gentwoPlacer condition "have" "cancer" Experiencer Stimulus :
-	gentwoPlacer event "shoot" "shoot" Agent Patient :
+	gentwoPlacer action "shoot" "shoot" Agent Patient :
 	gentwoPlacer statement	"say" "say" Agent Predicate:
 	-- gentwoPlacer question "male_or_female" "sex" Predicate Pivot:
 	-- gentwoPlacer condition	"fifteen" "fifteen" Predicate Pivot:
@@ -235,7 +235,7 @@ twoPlacers =
 	-- gentwoPlacer condition	"twentytwo" "twentytwo" Predicate Pivot:
 	-- gentwoPlacer condition	"twentythree" "twentythree" Predicate Pivot:
 	-- gentwoPlacer question	"student" "school" Predicate Pivot:
-	-- gentwoPlacer event	"greet" "greet" Agent Patient:
+	-- gentwoPlacer action	"greet" "greet" Agent Patient:
 	-- gentwoPlacer condition	"taiwan" "taiwan" Predicate Pivot:
 	-- gentwoPlacer condition	"turkey" "turkey" Predicate Pivot:
 	-- gentwoPlacer condition	"male" "male" Predicate Pivot:
@@ -271,8 +271,8 @@ threePlaceStarters = [
     ]
 threePlacers =
 	(genthreePlacer statement "love" "love" Predicate Experiencer Stimulus) :
-	(genthreePlacer event "ask_V2Q" "ask" Agent Recipient Predicate) :
-	genthreePlacer event "tell" "state" Agent Recipient Predicate :
+	(genthreePlacer action "ask_V2Q" "ask" Agent Recipient Predicate) :
+	genthreePlacer action "tell" "state" Agent Recipient Predicate :
 	threePlaceStarters
 
 type Content = String
