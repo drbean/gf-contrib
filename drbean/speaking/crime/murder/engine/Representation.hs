@@ -76,7 +76,7 @@ repS :: GUtt -> Maybe (DRSRef -> DRS)
 repS (GQUt (GPosQ (GYN (GSentence np (GV_PP_instrument (GPass vp) pp))))) =
 	repS (GQUt (GPosQ (GYN (GSentence np (GPass vp)))))
 repS (GQUt (GPosQ (GYN (GSentence np (GPass (GV2ASlash v ap)))))) =
-	repS (GQUt (GPosQ (GYN (GSentence (GItem Ga_Det Gperson) (GV_NP_AP v np ap)))))
+	repS (GQUt (GPosQ (GYN (GSentence (GItem Ga_Det Gentity) (GV_NP_AP v np ap)))))
 
 repS (GQUt (GPosQ (GYN (GSentence np vp)))) = Just (repNP np (repVP vp))
 repS (GQUt (GNegQ (GYN (GSentence np vp)))) =

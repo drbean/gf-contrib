@@ -174,6 +174,8 @@ fun
 	with_prep	: CoagentPrep;
 
 	person	: CN;
+	thing	: CN;
+	entity	: CN;
 
 	become	: V2;
 	can	: VV;

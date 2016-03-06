@@ -139,9 +139,10 @@ pred1	= flip elem
 test1 :: String -> OnePlacePred
 test1 p = fromMaybe (\_ -> False) (predid1 p)
 
-person, thing :: OnePlacePred
+person, thing, entity :: OnePlacePred
 person	= \ x -> (test1 "male" x || test1 "female" x || test1 "role" x || x == Someone)
-thing	= \ x -> (x == Unspec || x == Something || not ( person x ) )
+thing	= \ x -> (x == Something || not ( person x ) )
+entity = \ x -> True
 
 pred2 :: [(Entity,Entity)] -> TwoPlacePred
 pred3 :: [(Entity,Entity,Entity)] -> ThreePlacePred
