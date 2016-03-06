@@ -467,6 +467,7 @@ repVP (GV_that_S v0 (GPosS (GSentence np vp))) = case vp of
 repVP (GV_S v0 (GPosS (GSentence np vp))) = 
 	repVP (GV_that_S v0 (GPosS (GSentence np vp)))
 repVP (GV_that_S v0 (GNegS (GSentence np vp))) = case vp of
+	(GV_PP_manner vp2 _) -> repVP (GV_that_S v0 (GNegS (GSentence np vp2)))
 	(GIntens vv vp2) -> case vp2 of
 		(GChanging v obj) -> \r -> repNP np (\referent ->
 			repNP obj (\theme -> let
@@ -488,6 +489,9 @@ repVP (GV_that_S v0 (GNegS (GSentence np vp))) = case vp of
 				[Rel (DRSRel lin_v) [referent]])])]
 			in DRS [r,referent] conds ) (new np [r])
 		(GV_NP_VP v obj vp3) -> case vp3 of
+			(GV_PP_manner vp4 _) ->
+				repVP (GV_that_S v0 (GNegS (GSentence np (GIntens vv
+				(GV_NP_VP v obj vp4)))))
 			(GHappening v1) -> \r -> repNP np (\referent ->
 				repNP obj (\theme -> let
 					statement = DRSRel (lin v0)
