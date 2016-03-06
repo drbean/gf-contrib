@@ -12,7 +12,7 @@ fun
 	dying	: AP;
 	alive	: AP;
 
-	by	: Prep;
+	by	: InstrumentPrep;
 	to	: Prep;
 
 	so_much	: Adv;

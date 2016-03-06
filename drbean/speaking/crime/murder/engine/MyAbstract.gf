@@ -15,7 +15,9 @@ cat
 	Located;
 	Motion;
 	CoagentPrep;
+	InstrumentPrep;
 	PP_coagent;
+	PP_instrument;
 	MassDet;
 	SubordCl;
 	Partitive;
@@ -33,6 +35,7 @@ fun
 	FreqAdv	: NP -> Period -> Time;
 	PeriodAdv	: Times -> Period;
 	Coagency	: CoagentPrep -> NP -> PP_coagent;
+	Instrumenting	: InstrumentPrep -> NP -> PP_instrument;
 	Happening	: V -> VP ;
 	Changing	: V2 -> NP -> VP;
 	V_NP_VP:	V2V -> NP -> VP -> VP;
@@ -64,6 +67,7 @@ fun
 	WithPlace	:  V -> Located -> VP;
 	WithTime	: VP -> Period -> VP;
 	V_PP_coagent	: V -> PP_coagent -> VP;
+	V_PP_instrument	: VP -> PP_instrument -> VP;
 	V_PP_manner : VP -> Adv -> VP;
 	WithCl	: VP -> SubordCl -> VP;
 
