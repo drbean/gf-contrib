@@ -32,7 +32,7 @@ entity_check =  [
   , (O, "" )
   , (P, "" )
   , (Q, "" )
-  , (R, "" )
+  , (R, "respirator" )
   , (S, "sara" )
   , (T, "" )
   , (U, "" )
