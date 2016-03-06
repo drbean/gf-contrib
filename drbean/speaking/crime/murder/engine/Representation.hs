@@ -407,8 +407,8 @@ repVP (GV_NP_NP v obj1 obj2) = \r -> repNP obj1 (\theme ->
 			DRS [r,theme,recipient] [Rel (DRSRel (lin v)) [r, theme, recipient]]
 			) (new obj2 [r,theme]) ) (new obj1 [r])
 repVP (GV_NP_AP v obj ap) = \r -> repNP obj (\patient -> 
-		drsMerge (DRS [r,patient] [Rel (DRSRel (lin v)) [r, patient]])
-			(repAP ap patient) ) (new obj [r])
+		DRS [r,patient] [Rel (DRSRel (lin v)) [r, patient]
+			, Rel (DRSRel (linAP ap)) [patient]]) (new obj [r])
 repVP (GV_that_S v0 (GPosS (GSentence np vp))) = case vp of
 	(GBe_vp comp) -> case comp of
 		(GBe_bad ap ) -> \r -> repNP np (\referent -> let
