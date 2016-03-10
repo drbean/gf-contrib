@@ -58,7 +58,9 @@ lincat
 	Located	= Adv;
 	Motion	= VP;
 	CoagentPrep = Prep;
-	PP_Coagent	= Adv;
+	InstrumentPrep = Prep;
+	PP_coagent	= Adv;
+	PP_instrument	= Adv;
 	MassDet = Det;
 	Partitive = N2;
 
@@ -153,6 +155,13 @@ oper
 			 n = Sg ;
 		 };
 
+	mymkConj : (and : Str) -> {s1 : Str ; s2 : Str ; n : Number} =
+		\and ->
+			{ s1 = [] ;
+				s2 = and ;
+				n = Pl ;
+			};
+
 lin
 	Be_bad ap	= mkComp ap;
   Be_somewhere located	= mkComp located;
@@ -164,6 +173,7 @@ lin
 	FreqAdv times period	= ConstructorsEng.mkAdv P.noPrep (mkNP times period);
 	PeriodAdv times	= ConstructorsEng.mkAdv P.noPrep times;
 	Coagency prep coagent	= ConstructorsEng.mkAdv prep coagent;
+	Instrumenting prep instrument = mkAdv prep instrument;
 	Timing det time = mkNP det time;
 	Happening action	=	mkVP action;
 	Changing action patient	= mkVP action patient;
@@ -183,6 +193,7 @@ lin
 	V2Slash v2	= mkVPSlash v2;
 	-- VSSlash vs	= mkVPSlash vs;
 	V2VSlash v2v vp	= mkVPSlash v2v vp;
+	V2ASlash v2a ap	= mkVPSlash v2a ap;
 	V3Slash v3 np	= mkVPSlash v3 np;
 	ModInf cn vp = mkCN cn vp;
 	MassModInf n vp = mkCN( mkCN n) vp;
@@ -196,7 +207,9 @@ lin
   AdvVP adv vp	= mkVP adv vp;
 	VPAdv vp adv = mkVP vp adv;
   WithTime action time	= mkVP action time;
-  V_PP_Coagent v pp	= mkVP v pp;
+  V_PP_coagent v pp	= mkVP v pp;
+	V_PP_instrument vp pp = mkVP vp pp;
+	V_PP_manner vp pp = mkVP vp pp;
 	WithCl vp cl = mkVP vp cl;
   -- Be_made_sth vp np = PassV3 vp np;
 
@@ -307,6 +320,7 @@ lin
 	because_Subj	= because_Subj;
 	if_Subj	= if_Subj;
 	or_Conj	= or_Conj;
+	and_Conj	= mymkConj "and";
 
 	Subjunct subj s	= ConstructorsEng.mkAdv subj s;
 
