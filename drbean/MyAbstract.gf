@@ -15,7 +15,9 @@ cat
 	Located;
 	Motion;
 	CoagentPrep;
+	InstrumentPrep;
 	PP_coagent;
+	PP_instrument;
 	MassDet;
 	SubordCl;
 	Partitive;
@@ -33,6 +35,7 @@ fun
 	FreqAdv	: NP -> Period -> Time;
 	PeriodAdv	: Times -> Period;
 	Coagency	: CoagentPrep -> NP -> PP_coagent;
+	Instrumenting	: InstrumentPrep -> NP -> PP_instrument;
 	Happening	: V -> VP ;
 	Changing	: V2 -> NP -> VP;
 	V_NP_VP:	V2V -> NP -> VP -> VP;
@@ -51,6 +54,7 @@ fun
 	V2Slash	: V2 -> VPSlash;
 	-- VSSlash	: VS -> VPSlash;
 	V2VSlash	: V2V -> VP -> VPSlash;
+	V2ASlash	: V2A -> AP -> VPSlash;
 	V3Slash	: V3 -> NP -> VPSlash;
 	ModInf : CN -> VP -> CN;
 	MassModInf : N -> VP -> CN;
@@ -63,6 +67,8 @@ fun
 	WithPlace	:  V -> Located -> VP;
 	WithTime	: VP -> Period -> VP;
 	V_PP_coagent	: V -> PP_coagent -> VP;
+	V_PP_instrument	: VP -> PP_instrument -> VP;
+	V_PP_manner : VP -> Adv -> VP;
 	WithCl	: VP -> SubordCl -> VP;
 
 	ICompS	: IComp -> NP -> QS;
@@ -168,6 +174,8 @@ fun
 	with_prep	: CoagentPrep;
 
 	person	: CN;
+	thing	: CN;
+	entity	: CN;
 
 	become	: V2;
 	can	: VV;
@@ -179,6 +187,7 @@ fun
 	because_Subj	: Subj;
 	if_Subj	: Subj;
 	or_Conj	: Conj;
+	and_Conj	: Conj;
 
 	Subjunct	: Subj -> S -> SubordCl;
 
