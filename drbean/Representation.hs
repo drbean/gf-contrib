@@ -1,9 +1,9 @@
-module Representation (module Representation, module Dickson) where
+module Representation (module Representation, module Murder) where
 
 import Data.DRS
 import Data.DRS.Show
 
-import Dickson
+import Murder
 import PGF
 
 import Model
@@ -17,8 +17,8 @@ import Data.Tuple
 
 entuples :: [(Entity,GPN)]
 entuples = [
-	(A,Guncle_alf)
-	, (D,  Gdee	)
+	(C,Gcharles)
+	, (S,  Gsara	)
 	]
 
 ref2int :: DRSRef -> Int
@@ -33,8 +33,8 @@ int2ref :: Int -> DRSRef
 int2ref n = DRSRef ("r" ++ (show n) )
 
 instance Eq GPN where
-	(==) Guncle_alf Guncle_alf = True
-	(==) Gdee Gdee = True 
+	(==) Gcharles Gcharles = True
+	(==) Gsara Gsara = True 
 	(==) _ _ = False
 
 gent2ent :: GPN -> Entity
@@ -72,6 +72,15 @@ unmaybe (Just x) = x
 -- unmaybe Nothing = I
 
 repS :: GUtt -> Maybe (DRSRef -> DRS)
+
+repS (GQUt (GPosQ (GYN (GSentence np (GV_PP_instrument (GPass (GV2ASlash v ap))
+	(GInstrumenting _ arg)))))) =
+	repS (GQUt (GPosQ (GYN (GSentence arg (GV_NP_AP v np ap)))))
+repS (GQUt (GPosQ (GYN (GSentence np (GV_PP_instrument (GPass vp) pp))))) =
+	repS (GQUt (GPosQ (GYN (GSentence np (GPass vp)))))
+repS (GQUt (GPosQ (GYN (GSentence np (GPass (GV2ASlash v ap)))))) =
+	repS (GQUt (GPosQ (GYN (GSentence (GItem Ga_Det Gentity) (GV_NP_AP v np ap)))))
+
 repS (GQUt (GPosQ (GYN (GSentence np vp)))) = Just (repNP np (repVP vp))
 repS (GQUt (GNegQ (GYN (GSentence np vp)))) =
 	repS (GQUt (GPosQ (GYN (GSentence np vp))))
@@ -381,6 +390,7 @@ repVP (GV_PP_coagent v (GCoagency prep np)) = \r ->
 	repNP np (\style -> DRS [r,style]
 	[ Rel (DRSRel (lin v)) [r,style]]
 	) (new np [r])
+repVP (GV_PP_instrument vp (GInstrumenting prep np)) = repVP vp
 repVP (GLook_bad v ap) = \r -> let
 	patient = r
 	DRS rs' [Rel rel rs] = repAP ap patient
@@ -397,8 +407,8 @@ repVP (GV_NP_NP v obj1 obj2) = \r -> repNP obj1 (\theme ->
 			DRS [r,theme,recipient] [Rel (DRSRel (lin v)) [r, theme, recipient]]
 			) (new obj2 [r,theme]) ) (new obj1 [r])
 repVP (GV_NP_AP v obj ap) = \r -> repNP obj (\patient -> 
-		drsMerge (DRS [r,patient] [Rel (DRSRel (lin v)) [r, patient]])
-			(repAP ap patient) ) (new obj [r])
+		DRS [r,patient] [Rel (DRSRel (lin v)) [r, patient]
+			, Rel (DRSRel (linAP ap)) [patient]]) (new obj [r])
 repVP (GV_that_S v0 (GPosS (GSentence np vp))) = case vp of
 	(GBe_vp comp) -> case comp of
 		(GBe_bad ap ) -> \r -> repNP np (\referent -> let
@@ -420,6 +430,16 @@ repVP (GV_that_S v0 (GPosS (GSentence np vp))) = case vp of
 				(DRSRel (lin place)) [referent] ])]
 			in DRS [r,referent] conds )
 			(new np [r])
+	(GChanging v obj) -> \r ->
+			repNP np (\referent -> repNP obj (\theme -> let
+			lin_v = lin v
+			p = DRSRef "p"
+			conds = [Rel (DRSRel (lin v0)) [r,p]
+				, Prop p (DRS [] [Rel
+				(DRSRel lin_v) [referent,theme]])]
+			in DRS [r,referent,theme] conds
+			) (new obj [r,referent]) ) (new np [r])
+	(GV_PP_manner vp2 _) -> repVP (GV_that_S v0 (GPosS (GSentence np vp2)))
 	(GIntens vv vp2) -> case vp2 of
 		(GChanging v obj) -> \r ->
 			repNP np (\referent -> repNP obj (\theme -> let
@@ -447,6 +467,7 @@ repVP (GV_that_S v0 (GPosS (GSentence np vp))) = case vp of
 repVP (GV_S v0 (GPosS (GSentence np vp))) = 
 	repVP (GV_that_S v0 (GPosS (GSentence np vp)))
 repVP (GV_that_S v0 (GNegS (GSentence np vp))) = case vp of
+	(GV_PP_manner vp2 _) -> repVP (GV_that_S v0 (GNegS (GSentence np vp2)))
 	(GIntens vv vp2) -> case vp2 of
 		(GChanging v obj) -> \r -> repNP np (\referent ->
 			repNP obj (\theme -> let
@@ -458,6 +479,33 @@ repVP (GV_that_S v0 (GNegS (GSentence np vp))) = case vp of
 				[referent, theme]])])]
 			in DRS [r, theme, referent] conds )
 			(new obj [r,referent]) ) (new np [r])
+		(GV_PP_manner vp3 _) ->
+			repVP (GV_that_S v0 (GNegS (GSentence np (GIntens vv vp3))))
+		(GHappening v) -> \r -> repNP np (\referent -> let
+			lin_v = lin v
+			p = DRSRef "p"
+			conds = [Rel (DRSRel (lin v0)) [r,p]
+				, Prop p (DRS [] [Neg (DRS []
+				[Rel (DRSRel lin_v) [referent]])])]
+			in DRS [r,referent] conds ) (new np [r])
+		(GV_NP_VP v obj vp3) -> case vp3 of
+			(GV_PP_manner vp4 _) ->
+				repVP (GV_that_S v0 (GNegS (GSentence np (GIntens vv
+				(GV_NP_VP v obj vp4)))))
+			(GHappening v1) -> \r -> repNP np (\referent ->
+				repNP obj (\theme -> let
+					statement = DRSRel (lin v0)
+					intensive = DRSRel (lin v)
+					intransitive = DRSRel (lin v1)
+					p1 = DRSRef "p1"
+					p2 = DRSRef "p2"
+					p3 = DRSRef "p3"
+					conds = [Rel statement [r,p1]
+						, Prop p1 (DRS [] [Neg (DRS [] [Prop p2 (DRS []
+						[Rel intensive [referent,p2], (Prop p3 (DRS []
+						[Rel intransitive [referent]]))])])])]
+					in DRS [r,theme,referent] conds )
+					(new obj [r,referent]) ) (new np [r])
 repVP (GV_S v0 (GNegS (GSentence np vp))) = 
 	repVP (GV_that_S v0 (GNegS (GSentence np vp)))
 repVP (GV_NP_whether_S v0 np0 (GPosQ (GYN (GSentence np vp)))) = case vp of
