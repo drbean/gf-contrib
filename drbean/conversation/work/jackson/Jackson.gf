@@ -78,7 +78,6 @@ fun
 	get	: V2;
 	go_out	: V;
 	hand	: V3;
-	have	: V2;
 	have_V2V	: V2V;
 	off	: V;
 	lay_off	: V2;
