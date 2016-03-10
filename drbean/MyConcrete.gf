@@ -295,7 +295,7 @@ lin
   up_prep	= P.mkPrep "up";
   with_prep	= P.mkPrep "with";
 
-	person	= mkCN( P.mkN "person");
+	person	= mkCN( P.mkN "person" "people");
 
 	can	= can_VV;
 	become	= P.mkV2 IrregEng.become_V;
