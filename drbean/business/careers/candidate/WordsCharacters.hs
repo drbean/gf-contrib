@@ -142,6 +142,10 @@ pn = [
 pron = [
 	"who"
 	, "whom"
+	, "she"
+	, "her"
+	, "he"
+	, "his"
 	]
 
 prep = [
