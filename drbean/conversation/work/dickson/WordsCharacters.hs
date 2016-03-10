@@ -129,6 +129,7 @@ pron = [
 	"who"
 	, "whom"
 	, "she"
+	, "her"
 	, "herself"
 	]
 
