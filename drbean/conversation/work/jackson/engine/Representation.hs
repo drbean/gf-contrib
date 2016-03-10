@@ -1,9 +1,9 @@
-module Representation (module Representation, module Murder) where
+module Representation (module Representation, module Jackson) where
 
 import Data.DRS
 import Data.DRS.Show
 
-import Murder
+import Jackson
 import PGF
 
 import Model
@@ -17,8 +17,8 @@ import Data.Tuple
 
 entuples :: [(Entity,GPN)]
 entuples = [
-	(C,Gcharles)
-	, (S,  Gsara	)
+	(Q,Gqueen)
+	, (C,  Gcolorado	)
 	]
 
 ref2int :: DRSRef -> Int
@@ -33,8 +33,8 @@ int2ref :: Int -> DRSRef
 int2ref n = DRSRef ("r" ++ (show n) )
 
 instance Eq GPN where
-	(==) Gcharles Gcharles = True
-	(==) Gsara Gsara = True 
+	(==) Gqueen Gqueen = True
+	(==) Gcolorado Gcolorado = True
 	(==) _ _ = False
 
 gent2ent :: GPN -> Entity
