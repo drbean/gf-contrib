@@ -22,7 +22,7 @@ fun
 	lonely	: AP;
 	middle_class	: AP;
 
-	with_sign	: Style;
+	with_sign	: PP_instrument;
 
 	pretty	: AdA;
 	very	: AdA;
