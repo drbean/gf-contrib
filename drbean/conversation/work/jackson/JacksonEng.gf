@@ -1,4 +1,4 @@
---# -path=.:/home/drbean/GF/gf-contrib/drbean:./gf-contrib/drbean/conversation/work/dickson:present
+--# -path=.:/home/drbean/GF/lib/src/translator:./gf-contrib/drbean/conversation/work/jackson:/home/drbean/GF/gf-contrib/drbean/conversation/work/jackson/engine:present
 
 concrete JacksonEng of Jackson = MyConcrete  **
 open ConstructorsEng, ParadigmsEng, StructuralEng, IrregEng, ExtraEng, Prelude in {
