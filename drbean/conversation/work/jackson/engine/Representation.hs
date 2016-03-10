@@ -238,6 +238,8 @@ repDet Ghe_Det = \ p q dummy-> let
 	have r thing = Rel (DRSRel "have") [r, thing]
 	false :: DRSCon
 	false = Rel (DRSRel "true") [DRSRef "r1"]
+repDet Gone = repDet Ga_Det
+repDet Gfive = repDet Gsome_pl_Det
 repDet Gsome_Det = repDet Ga_Det
 repDet GtheSg_Det = repDet Ga_Det
 repDet Gsome_pl_Det = repDet Gsome_Det
