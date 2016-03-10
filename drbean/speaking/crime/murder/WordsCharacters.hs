@@ -127,6 +127,7 @@ tag = [
 
 v = [
 	"go"
+	, "have"
 	, "keep"
 	, "shoot"
 	, "say"
