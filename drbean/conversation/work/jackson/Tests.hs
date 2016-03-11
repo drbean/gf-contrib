@@ -214,7 +214,7 @@ tag_dic_test = [
   , "Queen's daughter wants her to move in, doesn't she?"
   , "Queen thinks that her daughter should not take care of her, doesn't she?"
   , "Queen thinks that she should take care of her children, doesn't she?"
-  , "Queen doesn't have money to buy a birthday card, doesn't she?"
+  , "Queen doesn't have money to buy a birthday card, does she?"
   , "Queen goes out with a sign, doesn't she?"
   , "Queen gets dressed up, doesn't she?"
   , "Queen is middle-class, isn't she?"
