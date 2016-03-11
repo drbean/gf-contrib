@@ -107,20 +107,18 @@ takeAnswer "yes" _ = "yes"
 takeAnswer _ "no" = "no"
 takeAnswer "no" _  = "no"
 takeAnswer a b@('M' : 'a' : _)  = collateAnswer a b -- Mandy
-takeAnswer a b@('A' : 'l' : _)  = collateAnswer a b -- Alice
-takeAnswer a b@('A' : 'r' : _)  = collateAnswer a b -- Ariel
-takeAnswer a b@('S' : 'a' : _)  = collateAnswer a b -- Sabrina
-takeAnswer "none" _ = "none of Mandy, Alice, Ariel or Sabrina"
-takeAnswer _ "none" = "none of Mandy, Alice, Ariel or Sabrina"
+takeAnswer a b@('Q' : 'u' : _)  = collateAnswer a b -- Queen
+takeAnswer a b@('t' : 'h' : 'e' : ' ' : 's' : 't' : 'a' : _)  = collateAnswer a b -- the state of Colorado
+takeAnswer "none" _ = "none of Queen, the state of Colorado, or a man"
+takeAnswer _ "none" = "none of Queen, the state of Colorado, or a man"
 takeAnswer "No answer" _ = "No answer"
 takeAnswer _ "No answer" = "No answer"
-takeAnswer _  _   = error "undefined answer, not Yes, No, Mandy, Alice, Ariel or Sabrina, none or No answer"
+takeAnswer _  _   = error "undefined answer, not Yes, No, Queen, the state of Colorado, or a man, none or No answer"
 
 collateAnswer a b = formatUp $ nub $ filter
-	(\x -> x ==	"Mandy"
-	|| x ==	"Alice"
-	|| x ==	"Ariel"
-	|| x ==	"Sabrina"
+	(\x -> x ==	"Queen"
+	|| x ==	"the state of Colorado"
+	|| x ==	"a man"
 	) (concat $ map (splitOn " , " ) (splitOn " or " (a ++ " , " ++ b)))
 
 formatUp es = let parts = splitAt 1 (reverse es)
