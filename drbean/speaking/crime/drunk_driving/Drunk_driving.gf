@@ -15,11 +15,11 @@ fun
 	by	: InstrumentPrep;
 	to	: Prep;
 
-	on_february_nine	: Adv;
-	for_eight_months	: Adv;
-	a_long_time	: Adv;
-	in_the_past_ten_years	: Adv;
-	four_times	: Adv;
+	on_february_nine	: Time;
+	for_eight_months	: Time;
+	a_long_time	: Time;
+	in_the_past_ten_years	: Time;
+	four_times	: Time;
 	on_july_10	: Adv;
 	home	: Adv;
 	from_an_afternoon_party	: Adv;
