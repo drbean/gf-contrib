@@ -45,7 +45,7 @@ lin
 
 	hospital_name	= hospital;
 	hospital_place	= Location zero_Det_sg hospital;
-	police	= mkN "police";
+	police	= mkCN( mkN nonExist "police");
 	drunk_driving	= mkN "drunk driving";
 	money	= mkN "money";
 

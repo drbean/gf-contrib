@@ -46,7 +46,7 @@ fun
 	parents	: CN;
 	hospital_name	: PlaceName;
 	hospital_place	: Place;
-	police	: N;
+	police	: CN;
 	drunk_driving	: N;
 	money	: N;
 
