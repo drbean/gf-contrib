@@ -47,7 +47,7 @@ adv = [
 	, "on July 10"
 	, "home"
 	, "from an afternoon party"
-	, "on a tricyle"
+	, "on a tricycle"
 	, "every month"
 	, "never"
 	, "again"
@@ -158,7 +158,7 @@ drunk	: A;
 hit	: V2;
 a
 3-year-old	: A;
-on a tricyle	: Adv;
+on a tricycle	: Adv;
 girl	: CN;
 die	: V;
 say	: V2S;

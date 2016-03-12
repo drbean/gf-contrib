@@ -25,7 +25,7 @@ lin
 	on_july_10	= mkAdv "on July 10";
 	home	= mkAdv "home";
 	from_an_afternoon_party	= mkAdv "from an afternoon party";
-	on_a_tricyle	= mkAdv "on a tricyle";
+	on_a_tricycle	= mkAdv "on a tricycle";
 	every_month	= mkAdv "every month";
 	never	= mkAdv "never";
 	again	= mkAdv "again";

@@ -23,7 +23,7 @@ fun
 	on_july_10	: Adv;
 	home	: Adv;
 	from_an_afternoon_party	: Adv;
-	on_a_tricyle	: Adv;
+	on_a_tricycle	: Adv;
 	every_month	: Adv;
 	never	: Adv;
 	again	: Adv;
