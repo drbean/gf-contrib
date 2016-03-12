@@ -1,9 +1,9 @@
-module Representation (module Representation, module Murder) where
+module Representation (module Representation, module Drunk_driving) where
 
 import Data.DRS
 import Data.DRS.Show
 
-import Murder
+import Drunk_driving
 import PGF
 
 import Model
@@ -17,8 +17,7 @@ import Data.Tuple
 
 entuples :: [(Entity,GPN)]
 entuples = [
-	(C,Gcharles)
-	, (S,  Gsara	)
+	(G,Gmrs_tipton)
 	]
 
 ref2int :: DRSRef -> Int
@@ -33,13 +32,12 @@ int2ref :: Int -> DRSRef
 int2ref n = DRSRef ("r" ++ (show n) )
 
 lc_first :: String -> String
-lc_first str@(s:ss) = case ( or $ map (flip isPrefixOf str) ["Charles", "Sara"] ) of
+lc_first str@(s:ss) = case ( or $ map (flip isPrefixOf str) ["Mrs Tipton"] ) of
 	True  -> (s:ss)
 	False -> ((toLower s):ss)
 
 instance Eq GPN where
-	(==) Gcharles Gcharles = True
-	(==) Gsara Gsara = True 
+	(==) Gmrs_tipton Gmrs_tipton = True
 	(==) _ _ = False
 
 gent2ent :: GPN -> Entity
