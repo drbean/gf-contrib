@@ -134,6 +134,7 @@ v = [
 	, "promise"
 	, "pay"
 	, "drink"
+	, "die"
 	]
 
 

@@ -38,6 +38,7 @@ fun
 	promise	: VV;
 	pay	: V3;
 	drink	: V;
+	die	: V;
 
 	alcoholic	: CN;
 	hospital	: CN;

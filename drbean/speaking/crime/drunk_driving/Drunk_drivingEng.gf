@@ -37,6 +37,7 @@ lin
 	promise	= mkVV( mkV "promise");
 	pay	= mkV3( mkV "pay");
 	drink	= mkV "drink";
+	die	= mkV "die";
 
 	alcoholic	= mkCN( mkN "alcoholic");
 	girl	= mkCN( mkN "girl");
