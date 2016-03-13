@@ -6,6 +6,6 @@
 [subrepo]
 	remote = http://github.com/drbean/candidate
 	branch = master
-	commit = a6a4dbcb2485e7dc93ca1f2e68283a7f5f3b49aa
-	parent = 9b275cd0edc4f52d07f69bab0a7209a8b7603fda
+	commit = 556536e4bd3fd5a3d6d1c4cbe361d0f4249aa564
+	parent = c44a130f81bcf3d9724ce8ef87da702c21644c0a
 	cmdver = 0.3.0
