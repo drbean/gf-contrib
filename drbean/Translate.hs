@@ -38,10 +38,12 @@ isRel _ = False
 refs :: DRSCon -> [DRSRef]
 refs (Rel _ rs) = rs
 refs (Neg (DRS _ (Rel _ rs : _))) = rs
+refs (Prop p (DRS _ (Rel _ rs : _))) = rs
 
 rel :: DRSCon -> String
 rel (Rel (DRSRel r) _) = r
 rel (Neg (DRS _ (Rel (DRSRel r) _ : _))) = r
+rel (Prop _ (DRS _ (Rel (DRSRel r) _ : _))) = r
 
 ref2term :: [L.Term] -> DRSRef -> L.Term
 ref2term ts (DRSRef "r1") = ts !! 0
