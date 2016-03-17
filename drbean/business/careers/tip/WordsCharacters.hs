@@ -39,6 +39,11 @@ a = [
 
 adv = [
 
+	, "at work"
+	, "in mind"
+	, "just"
+	, "today"
+	, "well"
 	]
 
 aux = [
@@ -72,6 +77,15 @@ det = [
 
 n = [
 
+	, "something"
+	, "day"
+	, "month"
+	, "plan"
+	, "purpose"
+	, "schedule"
+	, "thing"
+	, "weekend"
+	, "year"
 	]
 
 pn = [
@@ -88,6 +102,8 @@ pron = [
 
 prep = [
 
+	, "about"
+	, "according to"
 	]
 
 rel = [
@@ -116,9 +132,65 @@ tag = [
 
 v = [
 
+	, "change"
+	, "do"
+	, "go"
+	, "have"
+	, "keep"
+	, "know"
+	, "look at"
+	, "need"
+	, "see"
+	, "think about"
 	]
 
 {-
+
+a
+about	: Prep;
+according to	: Prep;
+and
+at work	: Adv;
+can
+change	: V2;
+day	: CN;
+do	: V2;
+each
+go	: V;
+have	: V2;
+how
+if
+in mind	: Adv;
+it
+just	: Adv;
+keep	: VA;
+know	: V2;
+look at	: V2;
+month	: CN;
+need	: VV;
+not
+of
+or
+plan	: CN;
+purpose	: CN;
+schedule	: CN;
+see	: VA;
+should
+something	: N;
+the
+then
+there
+thing	: CN;
+think about	: V2;
+this
+to
+today	: Adv;
+weekend	: CN;
+well	: Adv;
+what
+when
+year	: CN;
+you
 
 -}
 
