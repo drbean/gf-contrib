@@ -4,8 +4,8 @@
 ; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
 ;
 [subrepo]
-	remote = none
+	remote = http://github.com/drbean/murder
 	branch = master
-	commit = f8fb1890e301ec27f0688a3219a8eeebfe03af78
-	parent = cd491cda8cdd555a75257d6d5ddcb1cdba763ffb
+	commit = 3ec27261c0fbdf2f3701253e4866f193bece4ca8
+	parent = 29705ae20a25771fb4ec77c720f51d1e10697f4b
 	cmdver = 0.3.0
