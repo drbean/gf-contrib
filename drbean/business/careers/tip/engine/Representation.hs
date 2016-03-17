@@ -1,9 +1,9 @@
-module Representation (module Representation, module Drunk_driving) where
+module Representation (module Representation, module Tip) where
 
 import Data.DRS
 import Data.DRS.Show
 
-import Drunk_driving
+import Tip
 import PGF
 
 import Model

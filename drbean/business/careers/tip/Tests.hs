@@ -6,7 +6,7 @@ import Data.Maybe
 import Data.DRS
 
 import PGF
-import Candidate
+import Tip
 import Representation
 import Evaluation
 import Model
@@ -17,7 +17,7 @@ import WordsCharacters
 -- import System.Environment.FindBin
 
 ans tests = do
-  gr	<- readPGF ( "./Candidate.pgf" )
+  gr	<- readPGF ( "./Tip.pgf" )
   let ss = map (chomp . lc_first) tests
   let ps = map ( parses gr ) ss
   let ls = map (map ( (linear gr) <=< transform ) ) ps
@@ -27,7 +27,7 @@ ans tests = do
 displayResult = fromMaybe "Nothing"
 
 trans tests = do
-  gr	<- readPGF ( "./Candidate.pgf" )
+  gr	<- readPGF ( "./Tip.pgf" )
   let ss = map (chomp . lc_first) tests
   let ps = map ( parses gr ) ss
   let ls = map id ps
@@ -35,7 +35,7 @@ trans tests = do
   putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
 
 reps tests = do
-  gr	<- readPGF ( "./Candidate.pgf" )
+  gr	<- readPGF ( "./Tip.pgf" )
   let ss = map (chomp . lc_first) tests
   let ps = map ( parses gr ) ss
   let ts = map (map (\x -> (((unmaybe . rep) x) (term2ref drsRefs var_e) ))) ps
