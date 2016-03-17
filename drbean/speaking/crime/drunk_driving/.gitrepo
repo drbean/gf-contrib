@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = http://github.com/drbean/drunk_driving
+	branch = master
+	commit = 47eb4c8151eb086ead183acb5df67b59038cdea3
+	parent = a2d79e0b42b1309948dfcc407ba796875b22b9f0
+	cmdver = 0.3.0
