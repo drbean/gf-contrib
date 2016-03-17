@@ -143,6 +143,7 @@ fun
 	he	: NP;
 	she	: NP;
 	it	: NP;
+	you	: NP;
 
 	who_WH	: IP;
 	what_WH	: IP;
