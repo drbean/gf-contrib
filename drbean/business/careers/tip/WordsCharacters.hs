@@ -39,7 +39,7 @@ a = [
 
 adv = [
 
-	, "at work"
+	"at work"
 	, "in mind"
 	, "just"
 	, "today"
@@ -75,9 +75,11 @@ det = [
 	, "some"
 	, "the"
 
+	]
+
 n = [
 
-	, "something"
+	"something"
 	, "day"
 	, "month"
 	, "plan"
@@ -102,7 +104,7 @@ pron = [
 
 prep = [
 
-	, "about"
+	"about"
 	, "according to"
 	]
 
@@ -132,7 +134,7 @@ tag = [
 
 v = [
 
-	, "change"
+	"change"
 	, "do"
 	, "go"
 	, "have"
