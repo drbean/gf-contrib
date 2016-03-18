@@ -17,12 +17,12 @@ entity_check :: [ (Entity, String) ]
 entity_check =  [
   (A, "" )
   , (B, "" )
-  , (C, "charles" )
+  , (C, "" )
   , (D, "" )
-  , (E, "eighty" )
+  , (E, "" )
   , (F, "" )
   , (G, "" )
-  , (H, "hospital" )
+  , (H, "" )
   , (I, "" )
   , (J, "" )
   , (K, "" )
@@ -32,13 +32,13 @@ entity_check =  [
   , (O, "" )
   , (P, "" )
   , (Q, "" )
-  , (R, "respirator" )
-  , (S, "sara" )
-  , (T, "" )
+  , (R, "" )
+  , (S, "" )
+  , (T, "mrs tipton" )
   , (U, "" )
   , (V, "" )
   , (W, "" )
-  , (X, "cancer" )
+  , (X, "" )
   , (Y, "" )
   , (Z, "" )
     ]
@@ -49,7 +49,7 @@ ent_ided name = head [entity | (entity,string) <- entity_check ,
 				]
 
 characters :: [(String,Entity)]
-characters = map findEnt [C,S]
+characters = map findEnt [T]
 	where findEnt e
 		| Just name <- lookup e entity_check
 			= (name,e)
