@@ -19,7 +19,7 @@ entity_check =  [
     , (C, "director" )
     , (D, "drbean" )
     , (E, "eva" )
-    , (F, "fastTrack" )
+    , (F, "fasttrack" )
     , (G, "judgement" )
     , (H, "training_course" )
     , (I, "risk" )
