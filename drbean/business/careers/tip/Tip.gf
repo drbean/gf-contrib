@@ -14,7 +14,12 @@ fun
 	well	: Adv;
 -- AP
 
+-- Aux
+	should	: VV;
+
 -- Det
+
+	you	: NP;
 
 -- N
 
@@ -28,6 +33,11 @@ fun
 	year	: CN;
 -- PN
 
+	barbara	: PN;
+	drbean	: PN;
+	eva	: PN;
+	fasttrack	: PN;
+	tadeusz	: PN;
 -- Prep
 
 	about	: Prep;

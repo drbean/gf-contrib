@@ -16,6 +16,8 @@ lin
 
 -- Det
 
+	you = mkNP youPol_Pron;
+
 -- N
 
 	something	= mkN "something";
@@ -29,6 +31,11 @@ lin
 	year	= mkCN( mkN "year");
 -- PN
 
+	barbara	= mkPN( mkN feminine (mkN "Barbara") );
+	drbean	= mkPN( mkN feminine (mkN "Dr Bean") );
+	eva	= mkPN( mkN feminine (mkN "Eva") );
+	fasttrack	= mkPN( mkN feminine (mkN "FastTrack") );
+	tadeusz	= mkPN( mkN feminine (mkN "Tadeusz") );
 -- Prep
 
 	about	= mkPrep "about";
@@ -44,6 +51,7 @@ lin
 	need	= mkVV( mkV "need");
 	see	= mkVA( mkV "see");
 	think_about	= mkV2 "think about";
+	should	= ModalVV "should" "should" nonExist nonExist (variants {"shouldn't"; "should not"});
 }
 
 -- vim: set ts=2 sts=2 sw=2 noet:
