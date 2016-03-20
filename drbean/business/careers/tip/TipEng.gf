@@ -1,7 +1,7 @@
 --# -path=.:/home/drbean/GF/lib/src/translator:/home/drbean/GF/gf-contrib/drbean/business/careers/tip:/home/drbean/GF/gf-contrib/drbean/business/careers/tip/engine:present
 
 concrete TipEng of Tip = MyConcrete  **
-open ConstructorsEng, ParadigmsEng, StructuralEng, IrregEng, ExtraEng, ConstructX, Prelude, (R=ResEng) in {
+open SyntaxEng, ParadigmsEng, IrregEng, ExtraEng, ConstructX, Prelude, (R=ResEng) in {
 
 lin
 
