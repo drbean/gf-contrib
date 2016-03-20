@@ -1,4 +1,3 @@
-	what_to_do	: N;
 abstract Tip = MyAbstract ** {
 
 
@@ -32,6 +31,7 @@ fun
 	schedule	: CN;
 	weekend	: CN;
 	year	: CN;
+	what_to_do	: N;
 -- PN
 
 	barbara	: PN;

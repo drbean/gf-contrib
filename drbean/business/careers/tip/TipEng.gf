@@ -1,4 +1,3 @@
-	what_to_do	= mkN "what to do";
 --# -path=.:/home/drbean/GF/lib/src/translator:/home/drbean/GF/gf-contrib/drbean/business/careers/tip:/home/drbean/GF/gf-contrib/drbean/business/careers/tip/engine:present
 
 concrete TipEng of Tip = MyConcrete  **
@@ -30,6 +29,7 @@ lin
 	thing	= mkCN( mkN "thing");
 	weekend	= mkCN( mkN "weekend");
 	year	= mkCN( mkN "year");
+	what_to_do	= mkN "what to do";
 -- PN
 
 	barbara	= mkPN( mkN feminine (mkN "Barbara") );
@@ -49,7 +49,7 @@ lin
 	keep	= mkVA( mkV "keep");
 	know	= mkV2 "know";
 	look_at	= mkV2 "look at";
-	need	= infVV( mkV "need");
+	need	= mkVV( mkV "need");
 	see	= mkVA( mkV "see");
 	think_about	= mkV2 "think about";
 	should	= ModalVV "should" "should" nonExist nonExist (variants {"shouldn't"; "should not"});
