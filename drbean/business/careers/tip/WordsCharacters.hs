@@ -71,6 +71,7 @@ det = [
 	, "0, _ or zero"
 	, "a"
 	, "an"
+	, "each"
 	, "no"
 	, "some"
 	, "the"
@@ -173,7 +174,7 @@ can
 change	: V2;
 day	: CN;
 do	: V2;
-each
+each : Det;
 go	: V;
 have	: V2;
 how
