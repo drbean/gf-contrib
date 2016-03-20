@@ -43,7 +43,7 @@ fun
 	tadeusz	: PN;
 -- Prep
 
-	about	: Prep;
+	about	: ThemePrep;
 	according_to	: Prep;
 -- V
 
@@ -55,7 +55,7 @@ fun
 	look_at	: V2;
 	need	: VV;
 	see	: VA;
-	think_about	: V2;
+	think	: V;
 }
 
 -- vim: set ts=2 sts=2 sw=2 noet:

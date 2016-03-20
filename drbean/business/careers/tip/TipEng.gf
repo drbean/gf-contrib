@@ -53,7 +53,7 @@ lin
 	look_at	= mkV2 "look at";
 	need	= mkVV( mkV "need");
 	see	= mkVA( mkV "see");
-	think_about	= mkV2 "think about";
+	think	= mkV "think";
 	should	= ModalVV "should" "should" nonExist nonExist (variants {"shouldn't"; "should not"});
 }
 
