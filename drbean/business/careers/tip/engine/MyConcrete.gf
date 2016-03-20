@@ -1,4 +1,4 @@
-concrete MyConcrete of MyAbstract = open Predef, ResEng, Prelude, ConstructorsEng, (P = ParadigmsEng), ExtraEng, IrregEng, StructuralEng, SentenceEng, RelativeEng, ExtensionsEng in {
+concrete MyConcrete of MyAbstract = open Predef, ResEng, Prelude, SyntaxEng, (P = ParadigmsEng), ExtraEng, IrregEng, SentenceEng, RelativeEng, ExtensionsEng in {
 
 lincat
   Utt	= Utt;
@@ -73,9 +73,9 @@ param
 
 oper
 
-	no_Quant	= StructuralEng.no_Quant;
-	some_Quant	= P.mkQuant "some" "some" "some" "some";
-	zero_mass_Quant = P.mkQuant "" nonExist;
+	no_Quant	= no_Quant;
+	some_Quant	= mkQuant "some" "some" "some" "some";
+	zero_mass_Quant = mkQuant "" nonExist;
 
 	know_V = IrregEng.know_V;
 
@@ -170,11 +170,11 @@ lin
 	Be_someone np	= mkComp np;
 	Be_vp comp	= mkVP comp;
 	Look_bad verb adj	= mkVP verb adj;
-  Locating prep item	= ConstructorsEng.mkAdv prep item;
+  Locating prep item	= mkAdv prep item;
 	Location det placename = mkNP det placename;
-	FreqAdv times period	= ConstructorsEng.mkAdv P.noPrep (mkNP times period);
-	PeriodAdv times	= ConstructorsEng.mkAdv P.noPrep times;
-	Coagency prep coagent	= ConstructorsEng.mkAdv prep coagent;
+	FreqAdv times period	= mkAdv P.noPrep (mkNP times period);
+	PeriodAdv times	= mkAdv P.noPrep times;
+	Coagency prep coagent	= mkAdv prep coagent;
 	Instrumenting prep instrument = mkAdv prep instrument;
 	Themeing prep instrument = mkAdv prep instrument;
 	Timing det time = mkNP det time;
@@ -292,8 +292,8 @@ lin
 	IdRP	= IdRP;
 
 	more	= more_CAdv;
-	ComparaAP a np = ConstructorsEng.mkAP a np;
-	ComparaAdv cadv a np = ConstructorsEng.mkAdv cadv a np;
+	ComparaAP a np = mkAP a np;
+	ComparaAdv cadv a np = mkAdv cadv a np;
 	ComparaS a s = mkAP a s;
 	AdjModified	a s = mkAP a s;
 	As_as ap np	= mkAP as_CAdv ap np;
@@ -328,7 +328,7 @@ lin
 	or_Conj	= or_Conj;
 	and_Conj	= mymkConj "and";
 
-	Subjunct subj s	= ConstructorsEng.mkAdv subj s;
+	Subjunct subj s	= mkAdv subj s;
 
  TagQ np vp = let
    cl = mkCl np vp;
