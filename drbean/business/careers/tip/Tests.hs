@@ -61,12 +61,13 @@ fol tests = do
 all_tests =
 		student_tag_tests ++ student_yn_tests ++ student_tests_wh ++
 		test_text ++ comp_test1 ++ comp_test2 ++ tag_test ++ neg_tag_test ++
-		test_possessives ++ haves ++ intransitives ++ transitives ++ 
+		test_possessives ++ haves ++ intransitives ++ transitives ++
 		ditransitive_tests ++ relclauses ++ relppR_test
 		-- ++ wh_questions ++ comp_wh_questions
 		-- ++ ungrammatical
 
 dic_test = [
+
   "You should have a plan."
   , "You need to know what to do each day."
   , "You should have a schedule you can look at to see how you are going today, this month and this year."
@@ -76,12 +77,12 @@ dic_test = [
   , "You should think about what you are doing."
   , "You shouldn't think about the weekend when you are at work."
   , "You are doing what you are doing well."
-  . "There is a purpose of what you are doing."
+  , "There is a purpose of what you are doing."
   , "You should keep the purpose of what you are doing in mind."
   , "You shouldn't just do something."
   , "You should think about something, then do it."
 
-  
+
   ]
 
 yn_dic_test = [
@@ -95,7 +96,7 @@ yn_dic_test = [
   , "Should you think about what you are doing?"
   , "Shouldn't you think about the weekend when you are at work?"
   , "Are you doing what you are doing well?"
-  ? "Is there a purpose of what you are doing."
+  , "Is there a purpose of what you are doing."
   , "Should you keep the purpose of what you are doing in mind?"
   , "Shouldn't you just do something?"
   , "Should you think about something, then do it?"
@@ -113,7 +114,7 @@ wh_dic_test = [
   , "What should you think about?"
   , "What shouldn't you think about when you are at work?"
   , "What are you are doing well?"
-  ? "What is purpose of what you are doing."
+  , "What is purpose of what you are doing."
   , "What should you keep in mind?"
   , "What shouldn't you just do?"
   , "What should you think about, then do?"
@@ -121,6 +122,24 @@ wh_dic_test = [
 
   ]
 
+tag_dic_test = [
+
+  "You should have a plan, shouldn't you?"
+  , "You need to know what to do each day?"
+  , "You should have a schedule you can look at to see how you are going today, this month and this year, shouldn't you?"
+  , "Things are going according to the plan?"
+  , "If things are not going according to the plan, you should change what you are doing or change the plan, shouldn't you?"
+
+  , "You should think about what you are doing, shouldn't you?"
+  , "You shouldn't think about the weekend when you are at work, shouldn't you?"
+  , "You are doing what you are doing well?"
+  , "There is a purpose of what you are doing?"
+  , "You should keep the purpose of what you are doing in mind, shouldn't you?"
+  , "You shouldn't just do something, should you?"
+  , "You should think about something, then do it, shouldn't you?"
+
+
+  ]
 fast_track = [
   "Is Fast-Track a company?"
   , "Does Eva work in Fast-Track?"
@@ -729,7 +748,7 @@ relclauses = [
 	"Did every woman who taught Eva work?",
 	"The woman who gave the job to Eva worked.",
 	"Barbara spoke to the man that she gave the job to.",
-	"Barbara appreciated the man that helped the woman " 
+	"Barbara appreciated the man that helped the woman "
 	 ++ "that was ambitious.",
 	-- "A woman who interviewed Barbara's boss hoped to get the job.",
 	-- "The woman who interviewed Barbara's boss hoped to get the job.",
@@ -776,18 +795,18 @@ to_inf_test = [
 
 
 -- lf0 = Rel "worked" [ Const(ents!!17) ]
--- lf00 = (Conj [(Rel "person" [Var 0]), (Rel "worked" [Var 0]) ] ) 
+-- lf00 = (Conj [(Rel "person" [Var 0]), (Rel "worked" [Var 0]) ] )
 -- -- lf000 = (Exists (Conj [(Rel "person" [Var 0]), (Rel "worked" [Var 0]) ] )) (Const(ents)!!17)
--- 
+--
 -- lf1 = (Equi  (Rel "married" [ Const(ents!!9), Const(ents!!1) ]) (Neg (Rel "married" [ Const(ents!!8), Const(ents!!17)]) ) )
--- 
+--
 -- lf2 = (Conj [ (Rel "married" [ Const (ents !! 9), Const       (ents !! 1)]), (Rel "married" [ Const (ents !! 8), Const (ents !!   17)]) ] )
--- 
+--
 -- lf3 = Rel "married" [ Const (ents !! 8), Const (ents !! 17)]
 -- lf4 = (Impl  (Rel "married" [ Const (ents !! 9), Const        (ents !! 1)]) (Rel "married" [ Const (ents !! 8), Const (ents !!    17)])  )
 -- lf5 = (Conj [ (Rel "married" [ Const (ents !! 9), Const       (ents !! 1)]), (Rel "married" [ Const (ents !! 8), Const (ents !!   17)]) ] )
 -- lf6 = (Disj [ (Rel "married" [ Const (ents !! 9), Const       (ents !! 1)]), (Rel "married" [ Const (ents !! 8), Const (ents !!   17)]) ] )
--- 
+--
 -- lf70 = ( \x -> ( Conj [ (Rel "boss" [x]), (Rel "have" [x, Const (ents !! 8)]) ] ) ) (Const (ents !! 12) )
 -- lf71 = ( \x -> ( Conj [ (Rel "boss" [x]), (Rel "have" [x, Const (ents !! 17)]) ] ) ) (Const (ents !! 12) )
 -- lf72 = ( \x -> ( Conj [ (Rel "boss" [x]), (Rel "have" [x, Const (ents !! 17)]) ] ) ) (Const (ents !! 12) )
