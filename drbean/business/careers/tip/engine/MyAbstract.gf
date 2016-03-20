@@ -57,12 +57,14 @@ fun
 	V2ASlash	: V2A -> AP -> VPSlash;
 	V3Slash	: V3 -> NP -> VPSlash;
 	ModInf : CN -> VP -> CN;
+	-- ModSlInf : CN -> VPSlash -> CN;
 	MassModInf : N -> VP -> CN;
 	Modified	: CN -> RCl -> CN;
 	SubjRel	: RP -> VP -> RCl;
 	ObjRel	: RP -> ClSlash -> RCl;
 	EmptyRel : ClSlash -> RCl;
-	VPClSlash	: NP -> VPSlash -> ClSlash;
+	SClSlash	: NP -> VPSlash -> ClSlash;
+	VPClSlash	: VPSlash -> ClSlash;
 	ToPlace	:  Motion -> Located -> VP;
 	WithPlace	:  V -> Located -> VP;
 	WithTime	: VP -> Time -> VP;
