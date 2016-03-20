@@ -279,7 +279,6 @@ lin
 	she = mkNP she_Pron;
 	he = mkNP he_Pron;
 	it = mkNP it_Pron;
-	you = mkNP you_Pron;
 
 	who_WH	= mymkIP "who" "who" "whose" Sg;
 	what_WH	= whatSg_IP;
