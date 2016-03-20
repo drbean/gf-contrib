@@ -59,8 +59,10 @@ lincat
 	Motion	= VP;
 	CoagentPrep = Prep;
 	InstrumentPrep = Prep;
+	ThemePrep = Prep;
 	PP_coagent	= Adv;
 	PP_instrument	= Adv;
+	PP_theme	= Adv;
 	MassDet = Det;
 	Partitive = N2;
 

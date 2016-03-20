@@ -16,8 +16,10 @@ cat
 	Motion;
 	CoagentPrep;
 	InstrumentPrep;
+	ThemePrep;
 	PP_coagent;
 	PP_instrument;
+	PP_theme;
 	MassDet;
 	SubordCl;
 	Partitive;
@@ -36,6 +38,7 @@ fun
 	PeriodAdv	: Times -> Period;
 	Coagency	: CoagentPrep -> NP -> PP_coagent;
 	Instrumenting	: InstrumentPrep -> NP -> PP_instrument;
+	Themeing	: ThemePrep -> NP -> PP_theme;
 	Happening	: V -> VP ;
 	Changing	: V2 -> NP -> VP;
 	V_NP_VP:	V2V -> NP -> VP -> VP;
