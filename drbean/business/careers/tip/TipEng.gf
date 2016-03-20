@@ -16,6 +16,8 @@ lin
 
 -- Det
 
+  each = each_Det;
+
 	you = mkNP youPol_Pron;
 
 -- N

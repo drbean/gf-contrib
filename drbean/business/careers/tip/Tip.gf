@@ -19,6 +19,8 @@ fun
 
 -- Det
 
+  each : Det;
+
 	you	: NP;
 
 -- N
