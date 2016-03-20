@@ -92,6 +92,12 @@ n = [
 
 pn = [
 
+	"Barbara"
+	, "Dr Bean"
+	, "Eva"
+	, "FastTrack"
+	, "Tadeusz"
+
 	]
 
 pron = [
@@ -100,6 +106,8 @@ pron = [
 	, "her"
 	, "he"
 	, "his"
+	, "you"
+	, "your"
 	]
 
 prep = [
@@ -144,9 +152,16 @@ v = [
 	, "need"
 	, "see"
 	, "think about"
+	, "should"
 	]
 
 {-
+
+Barbara	: PN;
+Dr Bean	: PN;
+Eva	: PN;
+FastTrack	: PN;
+Tadeusz	: PN;
 
 a
 about	: Prep;
@@ -177,7 +192,7 @@ plan	: CN;
 purpose	: CN;
 schedule	: CN;
 see	: VA;
-should
+should	: Aux;
 something	: N;
 the
 then
@@ -192,7 +207,7 @@ well	: Adv;
 what
 when
 year	: CN;
-you
+you	: Pron;
 
 -}
 
