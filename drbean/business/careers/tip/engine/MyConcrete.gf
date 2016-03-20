@@ -74,8 +74,8 @@ param
 oper
 
 	no_Quant	= no_Quant;
-	some_Quant	= mkQuant "some" "some" "some" "some";
-	zero_mass_Quant = mkQuant "" nonExist;
+	some_Quant	= P.mkQuant "some" "some" "some" "some";
+	zero_mass_Quant = P.mkQuant "" nonExist;
 
 	know_V = IrregEng.know_V;
 
