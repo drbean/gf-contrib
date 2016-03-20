@@ -64,7 +64,7 @@ fun
 	ObjRel	: RP -> ClSlash -> RCl;
 	EmptyRel : ClSlash -> RCl;
 	SClSlash	: NP -> VPSlash -> ClSlash;
-	VPClSlash	: VPSlash -> ClSlash;
+	-- VPClSlash	: VPSlash -> ClSlash;
 	ToPlace	:  Motion -> Located -> VP;
 	WithPlace	:  V -> Located -> VP;
 	WithTime	: VP -> Time -> VP;

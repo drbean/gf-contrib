@@ -203,7 +203,7 @@ lin
 	ObjRel rp clslash = mkRCl rp clslash;
 	EmptyRel slash = EmptyRelSlash slash;
 	SClSlash	np vpslash = mkClSlash np vpslash;
-	VPClSlash	vpslash = mkClSlash vpslash;
+	-- VPClSlash	vpslash = mkClSlash vpslash;
 	ToPlace vp located = mkVP vp located;
   WithPlace v located	= mkVP (mkVP v) located;
   AdvVP adv vp	= mkVP adv vp;
