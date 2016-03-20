@@ -1,4 +1,4 @@
---# -path=.:/home/drbean/GF/lib/src/translator:/home/drbean/GF/gf-contrib/drbean:./gf-contrib/drbean/business/careers/tip:present
+--# -path=.:/home/drbean/GF/lib/src/translator:/home/drbean/GF/gf-contrib/drbean/business/careers/tip:/home/drbean/GF/gf-contrib/drbean/business/careers/tip/engine:present
 
 concrete TipEng of Tip = MyConcrete  **
 open ConstructorsEng, ParadigmsEng, StructuralEng, IrregEng, ExtraEng, ConstructX, Prelude, (R=ResEng) in {
@@ -48,7 +48,7 @@ lin
 	keep	= mkVA( mkV "keep");
 	know	= mkV2 "know";
 	look_at	= mkV2 "look at";
-	need	= mkVV( mkV "need");
+	need	= infVV( mkV "need");
 	see	= mkVA( mkV "see");
 	think_about	= mkV2 "think about";
 	should	= ModalVV "should" "should" nonExist nonExist (variants {"shouldn't"; "should not"});
