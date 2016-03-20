@@ -1,3 +1,4 @@
+	what_to_do	= mkN "what to do";
 --# -path=.:/home/drbean/GF/lib/src/translator:/home/drbean/GF/gf-contrib/drbean/business/careers/tip:/home/drbean/GF/gf-contrib/drbean/business/careers/tip/engine:present
 
 concrete TipEng of Tip = MyConcrete  **

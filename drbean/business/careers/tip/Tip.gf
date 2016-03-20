@@ -1,3 +1,4 @@
+	what_to_do	: N;
 abstract Tip = MyAbstract ** {
 
 

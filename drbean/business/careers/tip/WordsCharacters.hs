@@ -86,6 +86,7 @@ n = [
 	, "purpose"
 	, "schedule"
 	, "thing"
+	, "what to do"
 	, "weekend"
 	, "year"
 	]
@@ -204,7 +205,7 @@ to
 today	: Adv;
 weekend	: CN;
 well	: Adv;
-what
+what to do	: N;
 when
 year	: CN;
 you	: Pron;
