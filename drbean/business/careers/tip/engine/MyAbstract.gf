@@ -73,6 +73,7 @@ fun
 	WithTime	: VP -> Time -> VP;
 	V_PP_coagent	: V -> PP_coagent -> VP;
 	V_PP_instrument	: VP -> PP_instrument -> VP;
+	V_PP_theme	: V -> PP_theme -> VP;
 	V_PP_manner : VP -> Adv -> VP;
 	WithCl	: VP -> SubordCl -> VP;
 

@@ -176,6 +176,7 @@ lin
 	PeriodAdv times	= ConstructorsEng.mkAdv P.noPrep times;
 	Coagency prep coagent	= ConstructorsEng.mkAdv prep coagent;
 	Instrumenting prep instrument = mkAdv prep instrument;
+	Themeing prep instrument = mkAdv prep instrument;
 	Timing det time = mkNP det time;
 	Happening action	=	mkVP action;
 	Changing action patient	= mkVP action patient;
@@ -213,6 +214,7 @@ lin
   WithTime action time	= mkVP action time;
   V_PP_coagent v pp	= mkVP v pp;
 	V_PP_instrument vp pp = mkVP vp pp;
+	V_PP_theme vp pp = mkVP vp pp;
 	V_PP_manner vp pp = mkVP vp pp;
 	WithCl vp cl = mkVP vp cl;
   -- Be_made_sth vp np = PassV3 vp np;
