@@ -17,9 +17,11 @@ cat
 	CoagentPrep;
 	InstrumentPrep;
 	ThemePrep;
+	MannerPrep;
 	PP_coagent;
 	PP_instrument;
 	PP_theme;
+	PP_manner;
 	MassDet;
 	SubordCl;
 	Partitive;
@@ -39,6 +41,7 @@ fun
 	Coagency	: CoagentPrep -> NP -> PP_coagent;
 	Instrumenting	: InstrumentPrep -> NP -> PP_instrument;
 	Themeing	: ThemePrep -> NP -> PP_theme;
+	Mannering	: MannerPrep -> NP -> PP_manner;
 	Happening	: V -> VP ;
 	Changing	: V2 -> NP -> VP;
 	V_NP_VP:	V2V -> NP -> VP -> VP;
@@ -74,7 +77,7 @@ fun
 	V_PP_coagent	: VP -> PP_coagent -> VP;
 	V_PP_instrument	: VP -> PP_instrument -> VP;
 	V_PP_theme	: VP -> PP_theme -> VP;
-	V_PP_manner : VP -> Adv -> VP;
+	V_PP_manner : VP -> PP_manner -> VP;
 	WithCl	: VP -> SubordCl -> VP;
 
 	ICompS	: IComp -> NP -> QS;

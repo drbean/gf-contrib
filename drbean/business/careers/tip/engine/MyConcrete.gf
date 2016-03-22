@@ -60,6 +60,7 @@ lincat
 	CoagentPrep = Prep;
 	InstrumentPrep = Prep;
 	ThemePrep = Prep;
+	MannerPrep	= Prep;
 	PP_coagent	= Adv;
 	PP_instrument	= Adv;
 	PP_theme	= Adv;
@@ -177,6 +178,7 @@ lin
 	Coagency prep coagent	= mkAdv prep coagent;
 	Instrumenting prep instrument = mkAdv prep instrument;
 	Themeing prep instrument = mkAdv prep instrument;
+	Mannering prep style = mkAdv prep style;
 	Timing det time = mkNP det time;
 	Happening action	=	mkVP action;
 	Changing action patient	= mkVP action patient;
