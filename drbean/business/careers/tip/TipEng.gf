@@ -32,6 +32,7 @@ lin
 	weekend	= mkCN( mkN "weekend");
 	year	= mkCN( mkN "year");
 	what_to_do	= mkN "what to do";
+	what_you_are_doing	= mkN "what you are doing";
 -- PN
 
 	barbara	= mkPN( mkN feminine (mkN "Barbara") );

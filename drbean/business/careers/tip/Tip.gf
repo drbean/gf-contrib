@@ -34,6 +34,7 @@ fun
 	weekend	: CN;
 	year	: CN;
 	what_to_do	: N;
+	what_you_are_doing	: N;
 -- PN
 
 	barbara	: PN;

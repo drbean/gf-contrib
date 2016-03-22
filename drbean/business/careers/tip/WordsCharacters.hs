@@ -88,6 +88,7 @@ n = [
 	, "schedule"
 	, "thing"
 	, "what to do"
+	, "what you are doing"
 	, "weekend"
 	, "year"
 	]
@@ -153,7 +154,7 @@ v = [
 	, "look at"
 	, "need"
 	, "see"
-	, "think about"
+	, "think"
 	, "should"
 	]
 
@@ -200,13 +201,14 @@ the
 then
 there
 thing	: CN;
-think about	: V2;
+think	: V;
 this
 to
 today	: Adv;
 weekend	: CN;
 well	: Adv;
 what to do	: N;
+what you are doing	: N;
 when
 year	: CN;
 you	: Pron;
