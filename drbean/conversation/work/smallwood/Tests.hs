@@ -1,7 +1,94 @@
 module Tests where
 
-import LogicalForm
-import Parsing
+import Control.Monad
+import Data.Maybe
+
+import Data.DRS
+
+import PGF
+import Smallwood
+import Representation
+import Evaluation
+import Model
+import WordsCharacters
+
+-- handler gr core tests = putStr $ unlines $ map (\(x,y) -> x++show y) $ zip (map (++"\t") tests ) ( map (\string -> map (\x -> core ( x) ) (parse gr (mkCId "DicksonEng") (startCat gr) string)) tests )
+
+-- import System.Environment.FindBin
+
+ans tests = do
+  gr	<- readPGF ( "./Smallwood.pgf" )
+  let ss = map (chomp . lc_first) tests
+  let ps = map ( parses gr ) ss
+  let ls = map (map ( (linear gr) <=< transform ) ) ps
+  let zs = zip (map (++"\t") tests) ls
+  putStrLn (unlines (map (\(x,y) -> x ++ (show $ unwords (map displayResult y))) zs) )
+
+displayResult = fromMaybe "Nothing"
+
+trans tests = do
+  gr	<- readPGF ( "./Smallwood.pgf" )
+  let ss = map (chomp . lc_first) tests
+  let ps = map ( parses gr ) ss
+  let ls = map id ps
+  let zs = zip (map (++"\t") tests) (map (map (showExpr []) ) ps)
+  putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
+
+reps tests = do
+  gr	<- readPGF ( "./Smallwood.pgf" )
+  let ss = map (chomp . lc_first) tests
+  let ps = map ( parses gr ) ss
+  let ts = map (map (\x -> (((unmaybe . rep) x) (term2ref drsRefs var_e) ))) ps
+  let zs = zip (map (++"\t") tests) ts
+  putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
+
+lf tests = do
+	gr	<- readPGF ( "./Smallwood.pgf" )
+	let ss = map (chomp . lc_first) tests
+	let ps = map ( parses gr ) ss
+	let ts = map (map (\p -> drsToLF (((unmaybe . rep) p) (DRSRef "r1"))) ) ps
+	let zs = zip (map (++"\t") tests) ts
+	putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
+
+fol tests = do
+	gr	<- readPGF ( "./Smallwood.pgf" )
+	let ss = map (chomp . lc_first) tests
+	let ps = map ( parses gr ) ss
+	let ts = map (map (\p -> drsToFOL ( (unmaybe . rep) p (term2ref drsRefs var_e) ) ) ) ps
+	let zs = zip (map (++"\t") tests) ts
+	putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
+
+dic_test = [
+
+  "All the girls Tia goes to high school with talk about being teachers."
+  , "When Tia goes to college she starts to study things she really loves."
+  , "When Tia goes to college, she starts taking finance and accounting courses."
+  , "Tia has a miserable old man for second year accounting and business law"
+  , "A miserable old man says to Tia, \"Ms. Casciato, you are the only woman who has ever gotten this far in her class. And she will make sure every day is a living hell for you.\""
+   , "Mr Payne grades Tia on her class participation."
+  , " Mr Payne grades Tia on how she answers questions."
+  , "Mr Payne says to Tia at the beginning of every class, \"I hope you are prepared, Ms. Casciato, because the most difficult question of the period will be yours.\""
+  , "Tia graduates from Douglass."
+  , "Tia has to go on many job interviews."
+  , "Tia thinks she writes 80 letters."
+  , "Tia doesn't know how many jobs she applies to."
+  , "Tia goes in for the first interview."
+  , "Tia owns one dress."
+  , "Tia's dress is shades of red and pink."
+  , "Tia's dress has big block geometric squares."
+  , "Tia's dress has short sleeves."
+  , "Tia's dress is a mini-dress."
+  , "Tia has tights and heels on."
+  , "Tia.walks in."
+  , "Mr Batchelor interviews Tia for 15 minutes."
+  , "Mr Batchelor says, \"You need to stand up and turn around.\""
+  , "Tia says, \"What are you talking about?\""
+  , "Mr Batchelor says, \"Stand up and turn around.\""
+  , "Tia stands up and leans over Mr Batchelor's desk."
+  , "Tia says, \"I don't need this job this much.\""
+  , "Mr Batchelor says, \"You're hired.\""
+
+  ]
 
 sekuhara_test = [
 	"Christine angered Tia.",
