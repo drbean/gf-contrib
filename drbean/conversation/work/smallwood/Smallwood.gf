@@ -12,16 +12,16 @@ fun
 	later	: Adv;
 -- AP
 
-	first	: A;
-	hard	: A;
-	impossible.	: A;
-	miserable	: A;
-	old	: A;
-	pink	: A;
-	red	: A;
-	second_year	: A;
-	short	: A;
-	terrible	: A;
+	first	: AP;
+	hard	: AP;
+	impossible	: AP;
+	miserable	: AP;
+	old	: AP;
+	pink	: AP;
+	red	: AP;
+	second_year	: AP;
+	short	: AP;
+	terrible	: AP;
 -- Det
 
 one	: Det;
@@ -48,7 +48,7 @@ how_many	: IP;
 	finance	: N;
 	interview_n	: CN;
 	life	: N;
-	15_minutes	: N;
+	fifteen_minutes	: N;
 	participation	: N;
 	work	: N;
 	job	: CN;
@@ -59,15 +59,14 @@ how_many	: IP;
 	question	: CN;
 	sleeve	: CN;
 	square	: CN;
-	thing	: CN;
 	tights	: CN;
-	wife.	: CN;
+	wife	: CN;
 	woman	: CN;
 	worker	: CN;
 -- PN
 
 	douglass	: PN;
-	tia:	: PN;
+	tia	: PN;
 -- Prep
 
 	on	: Prep;
@@ -76,16 +75,16 @@ how_many	: IP;
 
 -- Sentence
 
-I_dont_need_this_job_this_much : S
-I_hope_you_are_prepared_Ms_Casciato_because_the_most_difficult_question_of_the_period_will_be_yours : S
-Ms_Casciato_you_are_the_only_woman_who_has_ever_gotten_this_far_in_my_class_And_I_will_make_sure_every_day_is_a_living_hell_for_you : S
-Stand_up_and_turn_around : S
-Do_you_stay_home : S
-Do_you_work : S
-What_do_you_do_with_your_children : S
-What_are_you_talking_about : S
-You_need_to_stand_up_and_turn_around : S
-Youre_hired : S
+I_dont_need_this : S;
+I_hope_you_are_prepared : S;
+Ms_Casciato_you_are : S;
+Stand_up_and_turn_around : S;
+Do_you_stay_home : S;
+Do_you_work : S;
+What_do_you_do_with_your_children : S;
+What_are_you_talking_about : S;
+You_need_to_stand_up_and_turn_around : S;
+Youre_hired : S;
 
 -- V
 
@@ -93,7 +92,6 @@ Youre_hired : S
 	go	: V2;
 	grade	: V3;
 	graduate	: V2;
-	have	: V2;
 	interview_v	: V2;
 	know	: V2;
 	lean	: V;

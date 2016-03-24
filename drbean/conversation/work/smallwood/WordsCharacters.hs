@@ -1,49 +1,3 @@
-	, "Tia:"
-	, "on"
-	, "over"
-	, "to"
-	, "miserable"
-	, "old"
-	, "pink"
-	, "red"
-	, "second year"
-	, "short"
-	, "terrible"
-	, "life"
-	, "15 minutes"
-	, "participation"
-	, "work"
-	, "later"
-	, "interview_N"
-	, "job"
-	, "letter"
-	, "man"
-	, "mini-dress"
-	, "mother"
-	, "question"
-	, "sleeve"
-	, "square"
-	, "thing"
-	, "tights"
-	, "wife."
-	, "woman"
-	, "worker"
-	, "\nterview_V"
-	, "know"
-	, "lean"
-	, "like"
-	, "love"
-	, "make"
-	, "own"
-	, "say"
-	, "smile"
-	, "start"
-	, "stand up"
-	, "study"
-	, "take"
-	, "think"
-	, "used"
-	, "write"
 module WordsCharacters where
 
 import qualified Data.Map as Map
@@ -83,13 +37,22 @@ a = [
 
 	, "first"
 	, "hard"
-	, "impossible."
+	, "impossible"
+	, "square"
+	, "terrible"
+	, "short"
+	, "second year"
+	, "red"
+	, "pink"
+	, "old"
+	, "miserable"
 	]
 
 adv = [
 
 	, "home"
 	, "a hundred percent"
+	, "later"
 	]
 
 aux = [
@@ -138,10 +101,29 @@ n = [
 	, "college"
 	, "everything"
 	, "finance"
+	, "interview_N"
+	, "worker"
+	, "woman"
+	, "wife"
+	, "tights"
+	, "thing"
+	, "sleeve"
+	, "question"
+	, "mother"
+	, "mini-dress"
+	, "man"
+	, "letter"
+	, "job"
+	, "interview_N"
+	, "work"
+	, "participation"
+	, "15 minutes"
+	, "life"
 	]
 
 pn = [
 
+	, "Tia"
 	, "Douglass"
 	]
 
@@ -155,6 +137,9 @@ pron = [
 
 prep = [
 
+	, "to"
+	, "over"
+	, "on"
 	]
 
 rel = [
@@ -189,6 +174,22 @@ v = [
 	, "grade"
 	, "graduate"
 	, "have"
+	, "write"
+	, "used"
+	, "think"
+	, "take"
+	, "study"
+	, "stand up"
+	, "start"
+	, "smile"
+	, "say"
+	, "own"
+	, "make"
+	, "love"
+	, "like"
+	, "lean"
+	, "know"
+	, "\nterview_V"
 	]
 
 {-
