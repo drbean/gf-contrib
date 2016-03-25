@@ -69,7 +69,7 @@ how_many	: IP;
 	tia	: PN;
 -- Prep
 
-	on	: Prep;
+	on	: MannerPrep;
 	over	: Prep;
 	to	: Prep;
 
