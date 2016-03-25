@@ -17,7 +17,7 @@ import Data.Tuple
 
 entuples :: [(Entity,GPN)]
 entuples = [
-	(G,Gmrs_tipton)
+	(T,Gtia)
 	]
 
 ref2int :: DRSRef -> Int
@@ -32,12 +32,12 @@ int2ref :: Int -> DRSRef
 int2ref n = DRSRef ("r" ++ (show n) )
 
 lc_first :: String -> String
-lc_first str@(s:ss) = case ( or $ map (flip isPrefixOf str) ["Mrs Tipton"] ) of
+lc_first str@(s:ss) = case ( or $ map (flip isPrefixOf str) ["Tia"] ) of
 	True  -> (s:ss)
 	False -> ((toLower s):ss)
 
 instance Eq GPN where
-	(==) Gmrs_tipton Gmrs_tipton = True
+	(==) Gtia Gtia = True
 	(==) _ _ = False
 
 gent2ent :: GPN -> Entity
