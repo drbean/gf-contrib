@@ -30,7 +30,7 @@ one = mkDet (mkCard (mkNumeral n1_Unit));
 
 -- IP
 
-how_many = how8many;
+how_many = mkIP how8many_IDet;
 
 -- N
 
