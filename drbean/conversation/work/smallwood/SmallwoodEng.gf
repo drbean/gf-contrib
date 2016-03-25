@@ -1,4 +1,4 @@
---# -path=.:/home/drbean/GF/lib/src/translator:/home/drbean/GF/gf-contrib/drbean:./gf-contrib/drbean/business/careers/tip:present
+--# -path=.:/home/drbean/GF/lib/src/translator:/home/drbean/GF/gf-contrib/drbean/conversation/work/smallwood:/home/drbean/GF/gf-contrib/drbean/conversation/work/smallwood/engine:present
 
 concrete SmallwoodEng of Smallwood = MyConcrete  **
 open ConstructorsEng, ParadigmsEng, StructuralEng, IrregEng, ExtraEng, ConstructX, Prelude, (R=ResEng) in {
@@ -24,6 +24,8 @@ lin
 	second_year	= mkAP( mkA "second year");
 	short	= mkAP( mkA "short");
 	terrible	= mkAP( mkA "terrible");
+	pink_a	= mkAP( mkA "pink_A");
+	red_a	= mkAP( mkA "red_A");
 -- Det
 
 one = mkDet (mkCard (mkNumeral n1_Unit));
@@ -36,11 +38,12 @@ how_many = mkIP how8many_IDet;
 
 	beginning	= mkCN( mkN "beginning");
 	class	= mkCN( mkN "class");
+	class_participation	= mkN "class participation";
 	course	= mkCN( mkN "course");
 	decision	= mkCN( mkN "decision");
 	desk	= mkCN( mkN "desk");
 	dress	= mkCN( mkN "dress");
-	geometric_squares	= mkCN( mkN "geometric squares");
+	big_block_geometric_squares	= mkCN( mkN nonExist "big block geometric squares");
 	guy	= mkCN( mkN "guy");
 	heels	= mkCN( mkN "heels");
 	idea	= mkCN( mkN "idea");
@@ -52,14 +55,16 @@ how_many = mkIP how8many_IDet;
 	interview_n	= mkCN( mkN "interview_N");
 	life	= mkN "life";
 	fifteen_minutes	= mkN "15 minutes";
-	participation	= mkN "participation";
 	work	= mkN "work";
+	pink_n	= mkN "pink";
+	red_n	= mkN "red";
 	job	= mkCN( mkN "job");
 	letter	= mkCN( mkN "letter");
 	man	= mkCN( mkN "man");
 	mini_dress	= mkCN( mkN "mini-dress");
 	mother	= mkCN( mkN "mother");
 	question	= mkCN( mkN "question");
+	shade	= mkN2( mkN "shade");
 	sleeve	= mkCN( mkN "sleeve");
 	square	= mkCN( mkN "square");
 	thing	= mkCN( mkN "thing");
@@ -69,8 +74,11 @@ how_many = mkIP how8many_IDet;
 	worker	= mkCN( mkN "worker");
 -- PN
 
-	douglass	= mkPN( mkN feminine (mkN "Douglass") );
+	douglass	= mkPN( mkN nonhuman (mkN "Douglass") );
 	tia	= mkPN( mkN feminine (mkN "Tia") );
+	mr_payne	= mkPN( mkN masculine (mkN "Mr Payne") );
+	mr_batchelor	= mkPN( mkN masculine (mkN "Mr Batchelor") );
+
 -- Prep
 
 	on	= mkPrep "on";
@@ -94,7 +102,7 @@ how_many = mkIP how8many_IDet;
 
 	apply	= mkV2 "apply";
 	go	= mkV2 "go";
-	grade	= mkV3( mkV "grade");
+	grade	= mkV2( mkV "grade");
 	graduate	= mkV2 "graduate";
 	interview_v	= mkV2 "interview_V";
 	know	= mkV2 "know";

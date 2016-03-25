@@ -89,11 +89,12 @@ n = [
 
 	"beginning"
 	, "class"
+	, "class participation"
 	, "course"
 	, "decision"
 	, "desk"
 	, "dress"
-	, "geometric squares"
+	, "big block geometric squares"
 	, "guy"
 	, "heels"
 	, "idea"
@@ -108,8 +109,11 @@ n = [
 	, "wife"
 	, "tights"
 	, "thing"
+	, "shade"
 	, "sleeve"
+	, "red"
 	, "question"
+	, "pink"
 	, "mother"
 	, "mini-dress"
 	, "man"
@@ -117,7 +121,6 @@ n = [
 	, "job"
 	, "interview_N"
 	, "work"
-	, "participation"
 	, "15 minutes"
 	, "life"
 	]
@@ -126,6 +129,8 @@ pn = [
 
 	"Tia"
 	, "Douglass"
+	, "Mr Payne"
+	, "Mr Batchelor"
 	]
 
 pron = [
@@ -208,6 +213,7 @@ be
 beginning	: CN;
 business law	: N;
 class	: CN;
+class participation	: CN;
 college	: N;
 course	: CN;
 day
@@ -221,7 +227,7 @@ finance	: N;
 first	: A;
 for
 from
-geometric squares	: CN;
+big block geometric squares	: CN;
 go in
 go	: V2;
 grade	: V3;
@@ -251,18 +257,22 @@ man	: CN;
 mini-dress	: CN;
 miserable	: A;
 mother	: CN;
+Mr Payne	: PN;
+Mr Batchelor	: PN;
 "Ms. Casciato, you are the only woman who has ever gotten this far in my class. And I will make sure every day is a living hell for you."
 old	: A;
 on	: Prep;
 one	: Det;
 over	: Prep;
 own	: V2;
-participation	: N;
-pink	: A;
+pink_A	: A;	: A;
+pink_N	: N;	: N;
 question	: CN;
-red	: A;
+red_A	: A;	: A;
+red_N	: N;	: N;
 say	: VS;
 second year	: A;
+shade	: CN;
 short	: A;
 sleeve	: CN;
 smile	: V;

@@ -22,6 +22,8 @@ fun
 	second_year	: AP;
 	short	: AP;
 	terrible	: AP;
+	pink_a	: AP;
+	red_a	: AP;
 -- Det
 
 one	: Det;
@@ -33,11 +35,12 @@ how_many	: IP;
 
 	beginning	: CN;
 	class	: CN;
+	class_participation	: N;
 	course	: CN;
 	decision	: CN;
 	desk	: CN;
 	dress	: CN;
-	geometric_squares	: CN;
+	big_block_geometric_squares	: CN;
 	guy	: CN;
 	heels	: CN;
 	idea	: CN;
@@ -49,14 +52,16 @@ how_many	: IP;
 	interview_n	: CN;
 	life	: N;
 	fifteen_minutes	: N;
-	participation	: N;
 	work	: N;
+	pink_n	: N;
+	red_n	: N;
 	job	: CN;
 	letter	: CN;
 	man	: CN;
 	mini_dress	: CN;
 	mother	: CN;
 	question	: CN;
+	shade	: Partitive;
 	sleeve	: CN;
 	square	: CN;
 	tights	: CN;
@@ -67,6 +72,8 @@ how_many	: IP;
 
 	douglass	: PN;
 	tia	: PN;
+	mr_payne	: PN;
+	mr_batchelor	: PN;
 -- Prep
 
 	on	: MannerPrep;
@@ -90,7 +97,7 @@ Youre_hired : S;
 
 	apply	: V2;
 	go	: V2;
-	grade	: V3;
+	grade	: V2;
 	graduate	: V2;
 	interview_v	: V2;
 	know	: V2;
