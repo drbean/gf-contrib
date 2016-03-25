@@ -16,8 +16,12 @@ cat
 	Motion;
 	CoagentPrep;
 	InstrumentPrep;
+	ThemePrep;
+	MannerPrep;
 	PP_coagent;
 	PP_instrument;
+	PP_theme;
+	PP_manner;
 	MassDet;
 	SubordCl;
 	Partitive;
@@ -36,6 +40,8 @@ fun
 	PeriodAdv	: Times -> Period;
 	Coagency	: CoagentPrep -> NP -> PP_coagent;
 	Instrumenting	: InstrumentPrep -> NP -> PP_instrument;
+	Themeing	: ThemePrep -> NP -> PP_theme;
+	Mannering	: MannerPrep -> NP -> PP_manner;
 	Happening	: V -> VP ;
 	Changing	: V2 -> NP -> VP;
 	V_NP_VP:	V2V -> NP -> VP -> VP;
@@ -57,18 +63,21 @@ fun
 	V2ASlash	: V2A -> AP -> VPSlash;
 	V3Slash	: V3 -> NP -> VPSlash;
 	ModInf : CN -> VP -> CN;
+	-- ModSlInf : CN -> VPSlash -> CN;
 	MassModInf : N -> VP -> CN;
 	Modified	: CN -> RCl -> CN;
 	SubjRel	: RP -> VP -> RCl;
 	ObjRel	: RP -> ClSlash -> RCl;
 	EmptyRel : ClSlash -> RCl;
-	VPClSlash	: NP -> VPSlash -> ClSlash;
+	SClSlash	: NP -> VPSlash -> ClSlash;
+	-- VPClSlash	: VPSlash -> ClSlash;
 	ToPlace	:  Motion -> Located -> VP;
 	WithPlace	:  V -> Located -> VP;
 	WithTime	: VP -> Time -> VP;
-	V_PP_coagent	: V -> PP_coagent -> VP;
+	V_PP_coagent	: VP -> PP_coagent -> VP;
 	V_PP_instrument	: VP -> PP_instrument -> VP;
-	V_PP_manner : VP -> Adv -> VP;
+	V_PP_theme	: VP -> PP_theme -> VP;
+	V_PP_manner : VP -> PP_manner -> VP;
 	WithCl	: VP -> SubordCl -> VP;
 
 	ICompS	: IComp -> NP -> QS;
