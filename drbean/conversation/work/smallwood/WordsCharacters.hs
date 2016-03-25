@@ -35,7 +35,7 @@ posMap = Map.fromList [
 
 a = [
 
-	, "first"
+	"first"
 	, "hard"
 	, "impossible"
 	, "square"
@@ -50,7 +50,7 @@ a = [
 
 adv = [
 
-	, "home"
+	"home"
 	, "a hundred percent"
 	, "later"
 	]
@@ -83,10 +83,11 @@ det = [
 	, "no"
 	, "some"
 	, "the"
+	]
 
 n = [
 
-	, "beginning"
+	"beginning"
 	, "class"
 	, "course"
 	, "decision"
@@ -123,7 +124,7 @@ n = [
 
 pn = [
 
-	, "Tia"
+	"Tia"
 	, "Douglass"
 	]
 
@@ -137,7 +138,7 @@ pron = [
 
 prep = [
 
-	, "to"
+	"to"
 	, "over"
 	, "on"
 	]
@@ -169,7 +170,7 @@ tag = [
 
 v = [
 
-	, "apply"
+	"apply"
 	, "go"
 	, "grade"
 	, "graduate"
@@ -189,7 +190,7 @@ v = [
 	, "like"
 	, "lean"
 	, "know"
-	, "\nterview_V"
+	, "interview_V"
 	]
 
 {-
