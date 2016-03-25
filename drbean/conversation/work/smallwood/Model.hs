@@ -3,8 +3,7 @@ module Model where
 import Data.Tuple
 import Data.List
 import Data.Maybe
-
-data Entity	= A | B | C | D | E | F | G 
+data Entity	= A | B | C | D | E | F | G
             | H | I | J | K | L | M | N 
             | O | P | Q | R | S | T | U 
             | V | W | X | Y | Z | Someone | Something | Unspec
@@ -13,22 +12,61 @@ data Entity	= A | B | C | D | E | F | G
 entities :: [Entity]
 entities	=  [minBound..maxBound] 
 
+entity_check :: [ (Entity, String) ]
+entity_check =  [
+	(T, "tia" )
+	, (C, "christine" )
+	, (S, "steven" )
+	, (V, "rutgers_university" )
+	, (P, "mr_payne" )
+	, (B, "mr_batchelor" )
+	, (F, "finance" )
+	, (A, "accounting" )
+	, (W, "business_law" )
+	]
 
---alice, rex, kelley, judy, rock
---                                                :: Entity
 
-characters :: [ (String, Entity) ]
+ent_ided :: String -> Entity
+ent_ided name = head [entity | (entity,string) <- entity_check ,
+				name == string
+				]
 
-characters = [
-	( "tia",	T ),
-	( "christine",	C ),
-	( "steven",	S ),
-	( "rutgers_university",	V ),
-	( "mr_payne",	P ),
-	( "mr_batchelor",	B ),
-	( "finance",	F ),
-	( "accounting",	A ),
-	( "business_law",	W )
+characters :: [(String,Entity)]
+characters = map findEnt [Q]
+	where findEnt e
+		| Just name <- lookup e entity_check
+			= (name,e)
+		| otherwise = error ("No " ++ (show e))
+
+stringEntity :: [(String,Entity)]
+stringEntity = map swap entity_check
+
+namelist :: [String]
+namelist = [string | (entity,string) <- entity_check, string /= "" ]
+
+predid1 :: String -> Maybe OnePlacePred
+predid2 :: String -> Maybe TwoPlacePred
+predid3 :: String -> Maybe ThreePlacePred
+predid4 :: String -> Maybe FourPlacePred
+
+predid3 name
+       | Just pred <- lookup name threePlacers = Just pred
+        -- | otherwise    = Nothing
+        | otherwise    = error $ "no '" ++ name ++ "' three-place predicate."
+predid4 name
+       | Just pred <- lookup name fourPlacers = Just pred
+        -- | otherwise    = Nothing
+        | otherwise    = error $ "no '" ++ name ++ "' four-place predicate."
+predid5 name
+       | Just pred <- lookup name fivePlacers = Just pred
+        -- | otherwise    = Nothing
+        | otherwise    = error $ "no '" ++ name ++ "' five-place predicate."
+
+onePlacers, onePlaceStarters, entityonePlacers :: [(String, OnePlacePred)]
+onePlaceStarters = [
+        ("true",        pred1 entities )
+        , ("false",     pred1 [] )
+        , ("role",      pred1 [] )
 
 	]
 
@@ -52,8 +90,6 @@ request	= pred1 [L,N]
 treatment	= pred1 [L,N]
 upbringing   = pred1 [G]
 
-namelist = map fst characters
-
 names = map swap characters
 
 male, female :: OnePlacePred
@@ -61,9 +97,41 @@ male, female :: OnePlacePred
 male	= pred1 [S,P,B]
 female	= pred1 [T,C]
 
+onePlacers = 
+	entityonePlacers ++ onePlaceStarters
+
+predid1 "sitting_back"	= predid1 "retiring"
+predid1 "enjoying_life"	= predid1 "retiring"
+predid1 "child"	= predid1 "daughter"
+predid1 "card"	= predid1 "birthday_card"
+predid1 "woman"	= predid1 "female"
+predid1 "man"	= predid1 "male"
+predid1 "person"	= Just person
+predid1 "thing"	= Just thing
+
+predid1 name
+       | Just pred <- lookup name onePlacers = Just pred
+        -- | otherwise    = Nothing
+       | otherwise    = error $ "no '" ++ name ++ "' one-place predicate."
+
+entityonePlacers =
+	map (\x -> (snd x, pred1 [fst x])) entity_check
+
+genonePlacer :: [ (Content, [(Case,Entity)]) ] ->
+	String -> String -> Case -> 
+	(String, OnePlacePred)
+genonePlacer area id content role =
+	( id, pred1 [ r | (co,cs) <- area
+		, co == content
+		, Just r <-[lookup role cs]
+		] )
+
+
 type OnePlacePred	= Entity -> Bool
 type TwoPlacePred	= Entity -> Entity -> Bool
 type ThreePlacePred	= Entity -> Entity -> Entity -> Bool
+type FourPlacePred      = Entity -> Entity -> Entity -> Entity -> Bool
+type FivePlacePred      = Entity -> Entity -> Entity -> Entity -> Entity ->  Bool
 
 list2OnePlacePred :: [Entity] -> OnePlacePred
 list2OnePlacePred xs	= \ x -> elem x xs
@@ -71,10 +139,12 @@ list2OnePlacePred xs	= \ x -> elem x xs
 pred1 :: [Entity] -> OnePlacePred
 pred1	= flip elem
 
-people, things :: OnePlacePred
+test1 :: String -> OnePlacePred
+test1 p = fromMaybe (\_ -> False) (predid1 p)
 
-people	= \ x -> (male x || female x || x == Unspec)
-things	= \ x -> (x == Unspec || not ( people x ) )
+person, thing :: OnePlacePred
+person	= \ x -> (test1 "male" x || test1 "female" x || test1 "role" x || x == Someone)
+thing	= \ x -> (x == Unspec || x == Something || not ( person x ) )
 
 boy	= \x -> male x && child x
 isMan	= \x -> ( not $ boy x ) && male x
@@ -94,6 +164,8 @@ pred3 :: [(Entity,Entity,Entity)] -> ThreePlacePred
 pred2 xs	= curry ( `elem` xs )
 pred3 xs	= curry3 ( `elem` xs )
 pred4 xs	= curry4 ( `elem` xs )
+
+type Content  = String
 
 --(parent,child)
 parenting	= [(T,C),(T,S)]
@@ -145,9 +217,56 @@ interview	= pred2 $ map (\x -> (agent x, patient x) ) recruitment
 greet	= interview
 look_at	= pred2 $ looking
 
+twoPlacers, twoPlaceStarters :: [(String, [(Entity,Entity)])]
+twoPlaceStarters = [
+    ("know_V2",    knowledge ++ acquaintances ++ map swap acquaintances)
+    , ("kind",  [(student, H) | (_,_,_,student,_) <- schooling ])
+    , ("placing",       [(student, school) | (_,school,_,student,_) <- schooling ]
+                )
+    , ("studied", foldl (\hs (_,school,subject,student,_) ->
+                    (student,subject): (student,school) : hs) [] schooling )
+    ]
+
+twoPlacers =
+	twoPlaceStarters
+
+predid2 "receive" = predid2 "get"
+
+predid2 name = if name `elem` (map fst twoPlacers) then
+	Just (pred2 (concat [ twople | (id, twople) <- twoPlacers
+		, id == name] ) ) else
+		-- Nothing
+		error $ "no '" ++ name ++ "' two-place predicate."
+
 curry3 :: ((a,b,c) -> d) -> a -> b -> c -> d
 curry3 f x y z	= f (x,y,z)
 curry4 f x y z w	= f (x,y,z,w)
+
+genthreePlacer :: [ (Content, [(Case,Entity)]) ] ->
+	String -> String -> Case -> Case -> Case ->
+	(String, ThreePlacePred)
+genthreePlacer area id content role1 role2 role3 =
+	( id, pred3 [ (r1,r2,r3) | (co,cs) <- area
+		, co == content
+		, Just r1 <-[lookup role1 cs]
+		, Just r2 <- [lookup role2 cs]
+		, Just r3 <- [lookup role3 cs]
+		] )
+
+threePlacers, threePlaceStarters :: [(String, ThreePlacePred)]
+threePlaceStarters = [
+    ("studied_subj_at", pred3 $ map (\(_,school,subject,student,_) ->
+                    (student,subject,school) ) schooling )
+    ]
+threePlacers =
+	threePlaceStarters
+
+data Case = Agent | Asset | Attribute | Beneficiary | Cause | CoAgent |
+	CoPatient | CoTheme | Destination | Experiencer | Extent | Goal |
+	InitialLocation | Instrument | Location | Material | Patient | Pivot |
+	Predicate | Product | Recipient | Reflexive | Result | Source |
+	Stimulus | Theme | Time | Topic | Trajectory | Value
+  deriving Eq
 
 agent, theme, recipient, location, instrument ::
 	(Entity,Entity,Entity) -> Entity
@@ -199,22 +318,78 @@ told	= pred3 comms
 
 recite = pred2 $ map ( \x -> (agent x, theme x) ) comms
 
+genfourPlacer :: [ (Content, [(Case,Entity)]) ] ->
+	String -> String -> Case -> Case -> Case ->
+	Case -> (String, FourPlacePred)
+genfourPlacer area id content role1 role2 role3 role4 =
+	( id, pred4 [ (r1,r2,r3,r4) | (co,cs) <- area
+		, co == content
+		, Just r1 <-[lookup role1 cs]
+		, Just r2 <- [lookup role2 cs]
+		, Just r3 <- [lookup role3 cs]
+		, Just r4 <- [lookup role4 cs]
+		] )
+
+fourPlacers, fourPlaceStarters :: [(String, FourPlacePred)]
+fourPlaceStarters = [
+        ]
+
+fourPlacers =
+	fourPlaceStarters
+
 agent4, theme4, recipient4, location4 :: (Entity,Entity,Entity,Entity) -> Entity
 agent4 (a,_,_,_) = a
 location4 (_,l,_,_) = l
 theme4 (_,_,t,_) = t
 recipient4 (_,_,_,r) = r
+provider4       = recipient4
+location4' (_,_,_,l)     = l
+mode4   = location4'
+purpose4        = location4'
+aim4    = purpose4
+result4 = recipient4
 
--- (teacher,school(location),subject,student)
-schooling = [(P,V,F,T),(P,V,A,T),(P,V,W,T)]
-studied = pred3 $ map ( \x -> (recipient4 x, theme4 x, location4 x) )
+fivePlacers = [
+        ]
+
+
+agent5, theme5, recipient5, location5 :: (Entity,Entity,Entity,Entity, Entity) -> Entity
+-- for schooling
+agent5		(a,_,_,_,_) = a
+location5	(_,l,_,_,_) = l
+theme5		(_,_,t,_,_) = t
+destination5 = theme5
+recipient5	(_,_,_,r,_) = r
+feature5	(_,_,_,_,f) = f
+provider5       = location5
+result5 = feature5
+style5  = recipient5
+purpose5        = feature5
+aim5    = purpose5
+vehicle5        = location5
+
+forgetful5 :: FivePlacePred -> FourPlacePred
+forgetful5 r u v w t = or ( map ( r u v w t ) entities )
+
+forgetful4 :: FourPlacePred -> ThreePlacePred
+forgetful4 r u v w = or ( map ( r u v w ) entities )
+
+forgetful3 :: ThreePlacePred -> TwoPlacePred
+forgetful3 r u v = or ( map ( r u v ) entities )
+
+forgetful2 :: TwoPlacePred -> OnePlacePred
+forgetful2 r u = or ( map ( r u ) entities )
+
+-- (teacher,school(location),subject,student,degree)
+schooling = [(P,V,F,T,Unspec),(P,V,A,T,Unspec),(P,V,W,T,Unspec)]
+studied = pred3 $ map ( \x -> (recipient5 x, theme5 x, location5 x) )
 				schooling
-studied_what = pred2 $ map (\x -> (recipient4 x, theme4 x) ) schooling
-studied_where = pred2 $ map (\x -> (recipient4 x, location4 x) ) schooling
-teach = pred3 $ map (\x -> (agent4 x, theme4 x, recipient4 x) ) schooling
+studied_what = pred2 $ map (\x -> (recipient5 x, theme5 x) ) schooling
+studied_where = pred2 $ map (\x -> (recipient5 x, location5 x) ) schooling
+teach = pred3 $ map (\x -> (agent5 x, theme5 x, recipient5 x) ) schooling
 teach_what = forgetful teach
-teach_who = pred2 $ map (\x -> (agent4 x, recipient4 x) ) schooling
-student = pred1 $ map recipient4 schooling
+teach_who = pred2 $ map (\x -> (agent5 x, recipient5 x) ) schooling
+student = pred1 $ map recipient5 schooling
 
 forgetful :: ThreePlacePred -> TwoPlacePred
 forgetful r u v = or ( map ( r u v ) entities )
