@@ -99,6 +99,7 @@ Youre_hired : S;
 -- V
 
 	apply	: V2;
+	have_on	: V2;
 	go	: V2;
 	grade	: V2;
 	graduate	: V2;

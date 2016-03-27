@@ -79,7 +79,7 @@ dic_test = [
   , "Tia's dress has big block geometric squares."
   , "Tia's dress has short sleeves."
   , "Tia's dress is a mini-dress."
-  , "Tia has tights and heels on."
+  , "Tia has on tights and heels."
   , "Tia.walks in."
   , "Mr Batchelor interviews Tia for 15 minutes."
   , "Mr Batchelor says, \"You need to stand up and turn around.\""
