@@ -54,19 +54,19 @@ lincat
 	Title	= CN;
 	Place	= NP;
 	PlaceName	= CN;
-	LocPrep	= Prep;
-	Located	= Adv;
 	Motion	= VP;
 	CoagentPrep = Prep;
 	InstrumentPrep = Prep;
 	ThemePrep = Prep;
 	MannerPrep	= Prep;
 	TimePrep	= Prep;
+	LocPrep	= Prep;
 	PP_coagent	= Adv;
 	PP_instrument	= Adv;
 	PP_theme	= Adv;
 	PP_manner	= Adv;
 	PP_time	= Adv;
+	PP_location	= Adv;
 	MassDet = Det;
 	Partitive = N2;
 
@@ -313,7 +313,6 @@ lin
   like_prep	= P.mkPrep "like";
 	of_prep	= possess_Prep;
   on_prep	= P.mkPrep "on";
-  over_prep	= P.mkPrep "over";
   part_prep	= part_Prep;
   to_prep	= to_Prep;
   up_prep	= P.mkPrep "up";

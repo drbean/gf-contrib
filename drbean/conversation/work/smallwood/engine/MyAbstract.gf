@@ -12,7 +12,6 @@ cat
 	Place;
 	PlaceName;
 	LocPrep;
-	Located;
 	Motion;
 	CoagentPrep;
 	InstrumentPrep;
@@ -24,6 +23,7 @@ cat
 	PP_theme;
 	PP_manner;
 	PP_time;
+	PP_location;
 	MassDet;
 	SubordCl;
 	Partitive;
@@ -33,9 +33,9 @@ fun
 	-- Be_made_sth : V3 -> NP -> VP;
 	Be_bad	: AP -> Comp;
 	Be_someone	: NP -> Comp;
-	Be_somewhere	: Located -> Comp;
+	Be_somewhere	: PP_location -> Comp;
 	Be_vp	: Comp -> VP;
-	Locating  : LocPrep -> Place -> Located;
+	Locating  : LocPrep -> Place -> PP_location;
 	Location	: Det -> PlaceName -> Place;
 	FreqAdv	: NP -> Period -> Time;
 	PeriodAdv	: Times -> Period;
@@ -73,8 +73,8 @@ fun
 	EmptyRel : ClSlash -> RCl;
 	SClSlash	: NP -> VPSlash -> ClSlash;
 	-- VPClSlash	: VPSlash -> ClSlash;
-	ToPlace	:  Motion -> Located -> VP;
-	WithPlace	:  V -> Located -> VP;
+	ToPlace	:  Motion -> PP_location -> VP;
+	WithPlace	:  V -> PP_location -> VP;
 	WithTime	: VP -> Time -> VP;
 	V_PP_coagent	: VP -> PP_coagent -> VP;
 	V_PP_instrument	: VP -> PP_instrument -> VP;
@@ -111,9 +111,9 @@ fun
 	Entity	: PN -> NP;
 	Kind	: AP -> CN -> CN;
 	KindOfKind  : CN -> Adv -> CN;
-	KindInPlace	: CN -> Located -> CN;
+	KindInPlace	: CN -> PP_location -> CN;
 	PlaceKind	: AP -> PlaceName -> PlaceName;
-	Membership : Det -> CN -> Located -> Cl;
+	Membership : Det -> CN -> PP_location -> Cl;
 	Item	: Det -> CN -> NP;
 	MassItem	: MassDet -> N	-> NP;
 	Titular	: Title -> NP;
@@ -179,7 +179,6 @@ fun
   like_prep	: Prep;
 	of_prep	: Prep;
 	on_prep	: LocPrep;
-	over_prep	: Prep;
 	part_prep	: Prep;
 	to_prep	: LocPrep;
 	up_prep	: Prep;
