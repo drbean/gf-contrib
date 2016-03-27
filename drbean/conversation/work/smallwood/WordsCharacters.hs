@@ -180,6 +180,7 @@ v = [
 	, "grade"
 	, "graduate"
 	, "have"
+	, "have on"
 	, "write"
 	, "used"
 	, "think"
@@ -235,6 +236,7 @@ graduate	: V2;
 guy	: CN;
 hard	: A;
 have	: V2;
+have on	: V2;
 heels	: CN;
 home	: Adv;
 a hundred percent	: Adv;
