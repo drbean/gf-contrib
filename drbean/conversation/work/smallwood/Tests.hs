@@ -85,6 +85,7 @@ dic_test = [
   , "Mr Batchelor says, \"You need to stand up and turn around.\""
   , "Tia says, \"What are you talking about?\""
   , "Mr Batchelor says, \"Stand up and turn around.\""
+  , "Tia stands up."
   , "Tia stands up and leans over Mr Batchelor's desk."
   , "Tia says, \"I don't need this job this much.\""
   , "Mr Batchelor says, \"You're hired.\""
