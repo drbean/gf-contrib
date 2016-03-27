@@ -61,9 +61,12 @@ lincat
 	InstrumentPrep = Prep;
 	ThemePrep = Prep;
 	MannerPrep	= Prep;
+	TimePrep	= Prep;
 	PP_coagent	= Adv;
 	PP_instrument	= Adv;
 	PP_theme	= Adv;
+	PP_manner	= Adv;
+	PP_time	= Adv;
 	MassDet = Det;
 	Partitive = N2;
 
@@ -179,7 +182,7 @@ lin
 	Instrumenting prep instrument = mkAdv prep instrument;
 	Themeing prep instrument = mkAdv prep instrument;
 	Mannering prep style = mkAdv prep style;
-	Timing det time = mkNP det time;
+	Timing prep time = mkAdv prep time;
 	Happening action	=	mkVP action;
 	Changing action patient	= mkVP action patient;
 	V_NP_VP causal patient predicate	= mkVP causal patient predicate;

@@ -10,6 +10,8 @@ fun
 	home	: Adv;
 	a_hundred_percent	: Adv;
 	later	: Adv;
+	for_fifteen_minutes	: PP_time;
+	on_a_dress	: PP_manner;
 -- AP
 
 	first	: AP;
@@ -76,6 +78,7 @@ how_many	: IP;
 	mr_batchelor	: PN;
 -- Prep
 
+	for_time	: TimePrep;
 	on	: MannerPrep;
 	over	: Prep;
 	to	: Prep;

@@ -12,6 +12,8 @@ lin
 	home	= mkAdv "home";
 	a_hundred_percent	= mkAdv "a hundred percent";
 	later	= mkAdv "later";
+	for_fifteen_minutes	= mkAdv "for 15 minutes";
+	on_a_dress = mkAdv "on a dress";
 -- AP
 
 	first	= mkAP( mkA "first");
@@ -81,6 +83,7 @@ how_many = mkIP how8many_IDet;
 
 -- Prep
 
+	for_time = mkPrep "for";
 	on	= mkPrep "on";
 	over	= mkPrep "over";
 	to	= mkPrep "to";

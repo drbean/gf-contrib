@@ -18,10 +18,12 @@ cat
 	InstrumentPrep;
 	ThemePrep;
 	MannerPrep;
+	TimePrep;
 	PP_coagent;
 	PP_instrument;
 	PP_theme;
 	PP_manner;
+	PP_time;
 	MassDet;
 	SubordCl;
 	Partitive;
@@ -35,13 +37,13 @@ fun
 	Be_vp	: Comp -> VP;
 	Locating  : LocPrep -> Place -> Located;
 	Location	: Det -> PlaceName -> Place;
-	Timing	: Det -> TimeName -> Times;
 	FreqAdv	: NP -> Period -> Time;
 	PeriodAdv	: Times -> Period;
 	Coagency	: CoagentPrep -> NP -> PP_coagent;
 	Instrumenting	: InstrumentPrep -> NP -> PP_instrument;
 	Themeing	: ThemePrep -> NP -> PP_theme;
 	Mannering	: MannerPrep -> NP -> PP_manner;
+	Timing		: TimePrep -> NP -> PP_time;
 	Happening	: V -> VP ;
 	Changing	: V2 -> NP -> VP;
 	V_NP_VP:	V2V -> NP -> VP -> VP;
@@ -78,6 +80,7 @@ fun
 	V_PP_instrument	: VP -> PP_instrument -> VP;
 	V_PP_theme	: VP -> PP_theme -> VP;
 	V_PP_manner : VP -> PP_manner -> VP;
+	V_PP_time	: VP -> PP_time -> VP;
 	WithCl	: VP -> SubordCl -> VP;
 
 	ICompS	: IComp -> NP -> QS;
