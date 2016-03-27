@@ -123,6 +123,7 @@ how_many = mkIP how8many_IDet;
 	take	= mkV2 "take";
 	think	= mkVS( mkV "think");
 	used	= mkVV( mkV "used");
+	walk_in	= partV( mkV "walk") "in";
 	write	= mkV2 "write";
 }
 

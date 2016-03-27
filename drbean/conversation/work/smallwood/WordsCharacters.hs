@@ -181,22 +181,23 @@ v = [
 	, "graduate"
 	, "have"
 	, "have on"
-	, "write"
-	, "used"
-	, "think"
-	, "take"
-	, "study"
+	, "interview_V"
+	, "know"
+	, "lean"
+	, "like"
+	, "love"
+	, "make"
+	, "own"
+	, "say"
+	, "smile"
 	, "stand up"
 	, "start"
-	, "smile"
-	, "say"
-	, "own"
-	, "make"
-	, "love"
-	, "like"
-	, "lean"
-	, "know"
-	, "interview_V"
+	, "study"
+	, "take"
+	, "think"
+	, "used"
+	, "walk in"
+	, "write"
 	]
 
 {-
@@ -295,6 +296,7 @@ tights	: CN;
 to	: Prep;
 used	: VV;
 "What are you talking about?"
+walk in	: V;
 wife.	: CN;
 woman	: CN;
 work	: N;

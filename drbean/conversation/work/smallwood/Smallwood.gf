@@ -118,6 +118,7 @@ Youre_hired : S;
 	take	: V2;
 	think	: VS;
 	used	: VV;
+	walk_in	: V;
 	write	: V2;
 }
 
