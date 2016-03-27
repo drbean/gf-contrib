@@ -40,7 +40,7 @@ how_many	: IP;
 	class_participation	: N;
 	course	: CN;
 	decision	: CN;
-	desk	: CN;
+	desk	: PlaceName;
 	dress	: CN;
 	big_block_geometric_squares	: CN;
 	guy	: CN;
@@ -80,7 +80,7 @@ how_many	: IP;
 
 	for_time	: TimePrep;
 	on	: MannerPrep;
-	over	: Prep;
+	over	: LocPrep;
 	to	: Prep;
 
 -- Sentence
@@ -105,7 +105,7 @@ Youre_hired : S;
 	graduate	: V2;
 	interview_v	: V2;
 	know	: V2;
-	lean	: V;
+	lean	: Motion;
 	like	: V2;
 	love	: V2;
 	make	: V2;
