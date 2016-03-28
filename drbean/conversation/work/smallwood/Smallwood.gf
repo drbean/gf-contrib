@@ -103,6 +103,7 @@ Youre_hired : S;
 	go	: V2;
 	grade	: V2;
 	graduate	: V2;
+	hire	: V2;
 	interview_v	: V2;
 	know	: V2;
 	lean	: Motion;

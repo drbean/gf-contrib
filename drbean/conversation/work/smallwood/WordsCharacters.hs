@@ -103,7 +103,7 @@ n = [
 	, "college"
 	, "everything"
 	, "finance"
-	, "interview_N"
+	, "interview"
 	, "worker"
 	, "woman"
 	, "wife"
@@ -119,7 +119,6 @@ n = [
 	, "man"
 	, "letter"
 	, "job"
-	, "interview_N"
 	, "work"
 	, "15 minutes"
 	, "life"
@@ -181,7 +180,8 @@ v = [
 	, "graduate"
 	, "have"
 	, "have on"
-	, "interview_V"
+	, "hire"
+	, "interview"
 	, "know"
 	, "lean"
 	, "like"
@@ -239,6 +239,7 @@ hard	: A;
 have	: V2;
 have on	: V2;
 heels	: CN;
+hire	: V2;
 home	: Adv;
 a hundred percent	: Adv;
 idea	: CN;
