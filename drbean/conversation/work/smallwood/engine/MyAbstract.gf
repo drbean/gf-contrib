@@ -76,11 +76,11 @@ fun
 	ToPlace	:  Motion -> PP_location -> VP;
 	WithPlace	:  V -> PP_location -> VP;
 	WithTime	: VP -> Time -> VP;
-	V_PP_coagent	: VP -> PP_coagent -> VP;
-	V_PP_instrument	: VP -> PP_instrument -> VP;
-	V_PP_theme	: VP -> PP_theme -> VP;
-	V_PP_manner : VP -> PP_manner -> VP;
-	V_PP_time	: VP -> PP_time -> VP;
+	VP_PP_coagent	: VP -> PP_coagent -> VP;
+	VP_PP_instrument	: VP -> PP_instrument -> VP;
+	VP_PP_theme	: VP -> PP_theme -> VP;
+	VP_PP_manner : VP -> PP_manner -> VP;
+	VP_PP_time	: VP -> PP_time -> VP;
 	WithCl	: VP -> SubordCl -> VP;
 
 	ICompS	: IComp -> NP -> QS;
