@@ -194,6 +194,9 @@ v = [
 	, "start"
 	, "study"
 	, "take"
+	, "tell"
+	, "turn around"
+	, "need"
 	, "think"
 	, "used"
 	, "walk in"
@@ -264,6 +267,7 @@ mother	: CN;
 Mr Payne	: PN;
 Mr Batchelor	: PN;
 "Ms. Casciato, you are the only woman who has ever gotten this far in my class. And I will make sure every day is a living hell for you."
+need	: VV;
 old	: A;
 on	: Prep;
 one	: Det;
@@ -289,11 +293,13 @@ start	: VV;
 stand up	: V;
 study	: V2;
 take	: V2;
+tell	: V2V;
 terrible	: A;
 thing	: CN;
 think	: VS;
 Tia:	: PN;
 tights	: CN;
+turn around	: V
 to	: Prep;
 used	: VV;
 "What are you talking about?"
