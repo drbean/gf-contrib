@@ -212,7 +212,6 @@ lin
 	EmptyRel slash = EmptyRelSlash slash;
 	SClSlash	np vpslash = mkClSlash np vpslash;
 	-- VPClSlash	vpslash = mkClSlash vpslash;
-	ToPlace vp located = mkVP vp located;
   WithPlace v located	= mkVP (mkVP v) located;
   AdvVP adv vp	= mkVP adv vp;
 	VPAdv vp adv = mkVP vp adv;
@@ -222,6 +221,7 @@ lin
 	VP_PP_theme vp pp = mkVP vp pp;
 	VP_PP_manner vp pp = mkVP vp pp;
 	VP_PP_time vp pp = mkVP pp;
+	VP_PP_location vp located = mkVP vp located;
 	WithCl vp cl = mkVP vp cl;
   -- Be_made_sth vp np = PassV3 vp np;
 

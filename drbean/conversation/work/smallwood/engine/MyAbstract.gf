@@ -73,7 +73,6 @@ fun
 	EmptyRel : ClSlash -> RCl;
 	SClSlash	: NP -> VPSlash -> ClSlash;
 	-- VPClSlash	: VPSlash -> ClSlash;
-	ToPlace	:  Motion -> PP_location -> VP;
 	WithPlace	:  V -> PP_location -> VP;
 	WithTime	: VP -> Time -> VP;
 	VP_PP_coagent	: VP -> PP_coagent -> VP;
@@ -81,6 +80,7 @@ fun
 	VP_PP_theme	: VP -> PP_theme -> VP;
 	VP_PP_manner : VP -> PP_manner -> VP;
 	VP_PP_time	: VP -> PP_time -> VP;
+	VP_PP_location	:  Motion -> PP_location -> VP;
 	WithCl	: VP -> SubordCl -> VP;
 
 	ICompS	: IComp -> NP -> QS;
