@@ -385,7 +385,7 @@ repVP (GWithPlace v (GLocating prep place)) = \r ->
 	repPlace place (\name -> DRS [r,name]
 	[ Rel (DRSRel (lin v)) [r,name]]
 	) (newOnPlace place [r])
-repVP (GToPlace v (GLocating prep place)) = \r ->
+repVP (GVP_PP_location v (GLocating prep place)) = \r ->
 	repPlace place (\name -> DRS [r,name]
 	[ Rel (DRSRel (lin v)) [r,name]]
 	) (newOnPlace place [r])
@@ -613,7 +613,7 @@ repVP (GIntens v0 vp) = case vp of
 				[r, coagent]]) ]
 			in DRS [r,coagent] conds ) (new np [r])
 	(GWithTime v _) -> repVP (GIntens v0 v)
-	(GToPlace v (GLocating prep place)) -> \r ->
+	(GVP_PP_location v (GLocating prep place)) -> \r ->
 		repPlace place (\name -> let 
 			lin_v = lin v
 			p = DRSRef "p"
