@@ -89,7 +89,6 @@ dic_test = [
   , "Tia stands up."
   , "Tia leans over Mr Batchelor's desk."
   , "Tia stands up and leans over Mr Batchelor's desk."
-  , "Tia says that she doesn't need the job."
   , "Tia says that she doesn't need the job this much."
   , "Mr Batchelor says that Tia is hired."
 

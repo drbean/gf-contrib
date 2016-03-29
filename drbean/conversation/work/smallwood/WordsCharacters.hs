@@ -53,6 +53,7 @@ adv = [
 	"home"
 	, "a hundred percent"
 	, "later"
+	, "this much"
 	]
 
 aux = [
@@ -298,6 +299,7 @@ tell	: V2V;
 terrible	: A;
 thing	: CN;
 think	: VS;
+this much	: Adv;
 Tia:	: PN;
 tights	: CN;
 turn around	: V

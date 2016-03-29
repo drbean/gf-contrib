@@ -14,6 +14,7 @@ lin
 	later	= mkAdv "later";
 	for_fifteen_minutes	= mkAdv "for 15 minutes";
 	on_a_dress = mkAdv "on a dress";
+	this_much	= mkAdv "this much";
 -- AP
 
 	first	= mkAP( mkA "first");

@@ -12,6 +12,7 @@ fun
 	later	: Adv;
 	for_fifteen_minutes	: PP_time;
 	on_a_dress	: PP_manner;
+	this_much	: PP_manner;
 -- AP
 
 	first	: AP;
