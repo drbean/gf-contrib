@@ -267,7 +267,8 @@ mother	: CN;
 Mr Payne	: PN;
 Mr Batchelor	: PN;
 "Ms. Casciato, you are the only woman who has ever gotten this far in my class. And I will make sure every day is a living hell for you."
-need	: VV;
+need_VV	: VV;
+need_V2	: V2;
 old	: A;
 on	: Prep;
 one	: Det;
