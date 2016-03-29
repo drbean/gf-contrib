@@ -102,6 +102,7 @@ Youre_hired : S;
 	apply	: V2;
 	have_on	: V2;
 	go	: V2;
+	go_in	: V;
 	grade	: V2;
 	graduate	: V2;
 	hire	: V2;

@@ -106,6 +106,7 @@ how_many = mkIP how8many_IDet;
 
 	apply	= mkV2 "apply";
 	go	= mkV2 "go";
+	go_in	= partV( mkV "go") "in";
 	grade	= mkV2( mkV "grade");
 	graduate	= mkV2 "graduate";
 	have_on	= mkV2 (partV IrregEng.have_V "on");
