@@ -1,271 +1,92 @@
-abstract Cusp = Cat ** {
+abstract Cusp = MyAbstract ** {
 
 
   flags startcat = Utt ;
 
 fun
-  -- Is	: NP -> AP -> Cl;
-  -- Cop		: NP -> NP -> Cl;
-  -- Look_bad	: VA -> AP -> VP;
-  Feel_helpless	: NP -> Cl;
-  Feel_unsupported  : NP -> Cl;
-  Be_made_sth : V3 -> NP -> VP;
-  Be_bad	: AP -> Comp;
-  Be_someone	: NP -> Comp;
-  Be_vp	: Comp -> VP;
-  Location  : Prep -> NP -> Adv;
-  Happening	: V -> VP ;
-  Changing	: V2 -> NP -> VP;
-  Causative:	V2V -> NP -> VP -> VP;
-  Intens:	VV -> VP -> VP;
-  Positing:	VS -> S -> VP;
-  Informing:	V2S -> NP -> S -> VP;
-  Triangulating:	V3 -> NP -> NP -> VP;
-  PassV3   : V3 -> NP -> VP ;               -- be called John
-  Located:  VP -> Adv -> VP;
-  YN	: Cl -> QCl;
 
-  TagQ	: NP -> VP -> QCl;
-  TagComp	: NP -> Comp -> QCl;
-  -- TagNP	: NP -> NP -> QCl;
-  -- TagAP	: NP -> AP -> QCl;
+-- Adv
 
-  -- WH_Cop	: IP -> Comp -> QCl;
-  WH_NP	: IP -> NP -> QCl;
-  WH_AP	: IP -> AP -> QCl;
-  WH_Pred	: IP -> VP -> QCl;
-  PosQ	: QCl -> QS;
-  NegQ	: QCl -> QS;
-  PosS	: Cl -> S;
-  NegS	: Cl -> S;
-  Ut	: QS -> Utt;
-  Sentence	: NP -> VP -> Cl;
+	largely	: Adv;
+	often	: Adv;
 
-  Yes, No, NoAnswer	: Utt;
+-- AP
 
-  Entity	: PN -> NP;
-  Kind	: AP -> CN -> CN;
-  Item	: Det -> CN -> NP;
-  Ofpos	: N2 -> NP -> CN;
-  Lack_of : NP -> CN;
-  Level_of : NP -> CN;
-  -- Little : N -> CN;
+	characteristic	: AP;
+	critically_important	: AP;
+	good	: AP;
+	high	: AP;
+	little	: AP;
+	particular	: AP;
+	psychological	: AP;
+	really	: AP;
+	simple	: AP;
+	stressful	: AP;
+	unsupported	: AP;
+	useful	: AP;
+	very	: AP;
+	wrong	: AP;
 
-  a_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
-  zero_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
-  the_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
-  thePlural_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
-  Apos  : NP -> Det;
+-- Det
 
-  who_WH	: IP;
-  what_WH	: IP;
+-- N
 
-  more : CAdv;
-  Comparative : NP -> A ->NP -> Cl;
-  More	: A -> AP;
+	control	: N;
+	experience	: N;
+	happening	: N;
+	health	: N;
+	stress	: N;
+	support	: N;
+	uncertainty	: N;
+	brief_overview	: CN;
+	framework	: CN;
+	individual	: CN;
+	kind	: CN;
+	level	: CN;
+	manager	: CN;
+	model	: CN;
+	risk	: CN;
+	sense	: CN;
+	situation	: CN;
+	studies	: CN;
+	way	: CN;
+	worker	: CN;
+	working_climate	: CN;
 
-  about_prep	: Prep;
-  at_prep	: Prep;
-  in_prep	: Prep;
-  of_prep	: Prep;
-  on_prep	: Prep;
-  over_prep	: Prep;
-  part_prep	: Prep;
-  to_prep	: Prep;
-  up_prep	: Prep;
+-- PN
 
-  become	: V2;
-  can	: VV;
-  know_V2	: V2;
-  know_VS	: VS;
-  like	: V2;
-  need	: V2;
-  -- need_V	: VV;
-  prove	: V2;
-  say	: VS;
-  see	: V2;
-  tell	: V2S;
+	c	: PN;
+	Control	: PN;
+	cusp	: PN;
+	dot	: PN;
+	in_equilibrium	: PN;
+	p	: PN;
+	Pressure	: PN;
+	s	: PN;
+	Support	: PN;
+	u	: PN;
+	Uncertainty	: PN;
 
+-- Prep
 
-  abdicate	: V2;
-  agree	: V2;
-  allow	: V2V;
-  appear	: VA;
-  ask : V3;
-  ask_for : V2;
-  base	: V3;
-  boost	: V2;
-  call	: V3;
-  cause	: V2;
-  consider	: V2;
-  consult	: V2;
-  cope	: V2;
-  deal	: V2;
-  enable	: V2;
-  encourage	: V2V;
-  facilitate	: V2;
-  feel	: VA;
-  feel_S	: VS;
-  -- find	: V2A;
-  get	: V2;
-  get_from	: V3;
-  give	: V3;
-  happen	: V;
-  have	: V2;
-  help	: V2V;
-  identify	: V2;
-  be_identified	: VP;
-  investigate	: V2;
-  be_investigated	: VP;
-  listen	: V2;
-  look_A	: VA;
-  look_at	: V2;
-  make	: V2;
-  occur	: V;
-  offer	: V2;
-  pick	: V2;
-  prevent	: V2;
-  provide	: V2;
-  raise	: V2;
-  receive	: V2;
-  reduce	: V2;
-  report	: V2;
-  stand	: V2;
-  suggest	: VS;
-  take	: V2;
-  talk	: V3;
-  talk_about	: V3;
-  tend	: VV;
-  think	: VS;
-  train	: V2;
-  use	: V2V;
-  work_V	: V;
+-- V
 
-  assertive	: AP;
-  bad	: AP;
-  best_placed	: AP;
-  brief	: AP;
-  common	: AP;
-  critically_important	: AP;
-  day_to_day	: AP;
-  difficult	: AP;
-  effective	: AP;
-  face_to_face	: AP;
-  good	: AP;
-  helpless	: AP;
-  high_A  : A;
-  high	: AP;
-  latter	: AP;
-  little	: AP;
-  managerial	: AP;
-  main	: AP;
-  most	: AP;
-  other	: AP;
-  own	: AP;
-  particular	: AP;
-  poor	: AP;
-  practical	: AP;
-  psychological	: AP;
-  severe	: AP;
-  simple	: AP;
-  social	: AP;
-  stressful	: AP;
-  structured	: AP;
-  three	: AP;
-  timely	: AP;
-  two_way	: AP;
-  unsupported	: AP;
-  useful	: AP;
-  vulnerable	: AP;
-  vulnerable_A	: A;
-  wrong  : AP;
-
-
-
-  action	: CN;
-  approachability	: NP;
-  area	: CN;
-  assessment	: NP;
-  awareness	: NP;
-  business	: CN;
-  cause_of	: N2;
-  characteristic	: CN;
-  climate	: CN;
-  combination	: CN;
-  comment	: CN;
-  communication	: NP;
-  company	: CN;
-  consultation	: CN;
-  control_over	: N2;
-  delegation	: NP;
-  depression	: NP;
-  difference	: CN;
-  difficulty	: CN;
-  element	: CN;
-  example	: CN;
-  experience	: CN;
-  feeling	: CN;
-  flexibility	: NP;
-  framework	: CN;
-  group	: CN;
-  health	: NP;
-  hotspot	: CN;
-  idea	: CN;
-  individual	: CN;
-  key	: CN;
-  kind	: CN;
-  lack : N2;
-  level	: N2;
-  luck	: CN;
-  management	: NP;
-  manager	: CN;
-  meeting	: CN;
-  message	: CN;
-  mind	: CN;
-  minute	: CN;
-  model	: CN;
-  one	: CN;
-  option	: CN;
-  openness	: NP;
-  overview	: CN;
-  people	: CN;
-  performance	: NP;
-  placement	: NP;
-  plan	: CN;
-  position	: CN;
-  problem	: CN;
-  responsibility	: NP;
-  risk	: CN;
-  sense_of	: N2;
-  situation	: CN;
-  skill	: CN;
-  staff	: NP;
-  strategy	: CN;
-  study	: CN;
-  thing	: CN;
-  time	: NP;
-  truth	: CN;
-  way	: CN;
-  workload	: CN;
-
-
-
-  bradshaw	: PN;
-  c	: PN;
-  control	: PN;
-  cusp	: PN;
-  gourlay	: PN;
-  in_equilibrium  : PN;
-  men	: NP;
-  p	: PN;
-  pressure	: PN;
-  s	: PN;
-  stress	: PN;
-  support	: PN;
-  u	: PN;
-  uncertainty	: PN;
-  women	: NP;
+	base	: V2;
+	call	: V3;
+	feel	: V2;
+	have	: V2;
+	know	: V2;
+	occur	: V;
+	prevent	: V2V;
+	provide	: V2;
+	receive	: V2;
+	reduce	: V2;
+	stand_for	: V;
+	suggest	: VS;
+	tend	: VV;
+	use	: V2V;
+	work	: V;
 
 }
 
--- vim: set ts=8 sts=2 sw=2 noet:
+-- vim: set ts=2 sts=2 sw=2 noet:

@@ -34,10 +34,27 @@ posMap = Map.fromList [
 
 a = [
 
+	, "characteristic"
+	, "critically important"
+	, "good"
+	, "high"
+	, "little"
+	, "particular"
+	, "psychological"
+	, "really"
+	, "simple"
+	, "stressful"
+	, "unsupported"
+	, "useful"
+	, "very"
+	, "wrong"
 
 	]
 
 adv = [
+
+	, "largely"
+	, "often"
   ]
 
 aux = [
@@ -71,10 +88,42 @@ det = [
 
 n = [
 
+	, "control"
+	, "experience"
+	, "happening"
+	, "health"
+	, "stress"
+	, "support"
+	, "uncertainty"
+	, "brief_overview"
+	, "framework"
+	, "individual"
+	, "kind"
+	, "level"
+	, "manager"
+	, "model"
+	, "risk"
+	, "sense"
+	, "situation"
+	, "studies"
+	, "way"
+	, "worker"
+	, "working_climate"
 	]
 
 pn = [
 
+	, "C"
+	, "Control"
+	, "CUSP"
+	, "Dot"
+	, "In_Equilibrium"
+	, "P"
+	, "Pressure"
+	, "S"
+	, "Support"
+	, "U"
+	, "Uncertainty"
 
 	]
 
@@ -95,6 +144,7 @@ pron = [
 	]
 
 prep = [
+
 	]
 
 rel = [
@@ -114,8 +164,116 @@ tag = [
 
 v = [
 
+	, "base"
+	, "call"
+	, "feel"
+	, "have"
+	, "know"
+	, "occur"
+	, "prevent"
+	, "provide"
+	, "receive"
+	, "reduce"
+	, "stand for"
+	, "suggest"
+	, "tend"
+	, "use"
+	, "work"
 
 
 	]
+
+{-
+
+base	: V2;
+be
+boosting
+both
+brief_overview	: CN;
+by
+C	: PN;
+call	: V3;
+can
+characteristic	: A;
+control	: N;
+Control	: PN;
+critically important	: A;
+CUSP	: PN;
+Dot	: PN;
+experience	: N;
+feel	: V2;
+for
+framework	: CN;
+from
+good	: A;
+happening	: N;
+have	: V2;
+health	: N;
+high	: A;
+in
+individual	: CN;
+In_Equilibrium	: PN;
+kind	: CN;
+know	: V2;
+largely	: Adv;
+level	: CN;
+little	: A;
+manager	: CN;
+model	: CN;
+occur	: V;
+of
+offering
+often	: Adv;
+on
+one
+ones
+or
+over
+P	: PN;
+particular	: A;
+Pressure	: PN;
+prevent	: V2V;
+provide	: V2;
+psychological	: A;
+really	: A;
+receive	: V2;
+reduce	: V2;
+risk	: CN;
+S	: PN;
+sense	: CN;
+simple	: A;
+situation	: CN;
+stand for	: Particle;
+stress	: N;
+stressful	: A;
+studies	: CN;
+suggest	: VS;
+support	: N;
+Support	: PN;
+tend	: VV;
+that
+the
+they
+thousands
+to
+U	: PN;
+uncertainty	: N;
+Uncertainty	: PN;
+unsupported	: A;
+use	: V2V;
+useful	: A;
+very	: A;
+way	: CN;
+we
+what
+when
+where
+work
+worker	: CN;
+working_climate	: CN;
+work	: V;
+wrong	: A;
+
+-}
 
 -- -- vim: set ts=8 sts=2 sw=2 noet:
