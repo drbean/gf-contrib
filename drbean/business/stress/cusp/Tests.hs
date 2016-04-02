@@ -10,6 +10,26 @@ all_tests =
 		-- ++ wh_questions ++ comp_wh_questions
 		-- ++ ungrammatical
 
+dic_test = [
+
+  "A good working climate is one where stress is largely prevented."
+  , "Dot provides a brief overview of a critically-important In Equilibrium framework, called CUSP."
+  , "CUSP can be used both to prevent stress and to reduce the risks to an individual's health when stress has occurred."
+  , "CUSP really is a very useful model."
+  , "CUSP is based on what we know from thousands of psychological studies and from experience."
+  , "Stressful work situations have particular characteristics."
+  , "Stressful situations tend to be ones where individuals feel that they have very little control over what is happening."
+  , "Stressful situations are often high in uncertainty."
+  , "Stressful situations tend to be situations where individuals feel unsupported, or feel that they are receiving the wrong kind of support."
+  , "The way CUSP works is very simple."
+  , "The framework suggests that managers can can reduce the level of uncertainty by boosting workers' sense of control."
+  , "The framework suggests that managers can can reduce the level of uncertainty by offering support."
+  , "The 'C' stands for Control."
+  , "The 'U' stands for Uncertainty."
+  , "The 'S' stands for Support."
+  , "The 'P' stands for Pressure."
+
+
 in_equilibrium = [
   "Is In Equilibrium a company?"
   , "Does Gourlay work in In Equilibrium?"
