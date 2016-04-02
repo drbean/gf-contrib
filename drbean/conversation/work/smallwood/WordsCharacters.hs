@@ -144,6 +144,7 @@ pron = [
 prep = [
 
 	"to"
+	, "for"
 	, "over"
 	, "on"
 	]
@@ -177,6 +178,7 @@ v = [
 
 	"apply"
 	, "go"
+	, "go in"
 	, "grade"
 	, "graduate"
 	, "have"
@@ -231,11 +233,11 @@ every
 everything	: N;
 finance	: N;
 first	: A;
-for
+for	: Prep;
 from
 big block geometric squares	: CN;
-go in
 go	: V2;
+go in	: V;
 grade	: V3;
 graduate	: V2;
 guy	: CN;

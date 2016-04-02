@@ -80,6 +80,7 @@ how_many	: IP;
 -- Prep
 
 	for_time	: TimePrep;
+	for_manner	: MannerPrep;
 	on	: MannerPrep;
 	over	: LocPrep;
 	to	: Prep;

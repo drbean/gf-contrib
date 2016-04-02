@@ -85,6 +85,7 @@ how_many = mkIP how8many_IDet;
 -- Prep
 
 	for_time = mkPrep "for";
+	for_manner = mkPrep "for";
 	on	= mkPrep "on";
 	over	= mkPrep "over";
 	to	= mkPrep "to";
