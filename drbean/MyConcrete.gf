@@ -1,4 +1,4 @@
-concrete MyConcrete of MyAbstract = open Predef, ResEng, Prelude, ConstructorsEng, (P = ParadigmsEng), ExtraEng, IrregEng, StructuralEng, SentenceEng, RelativeEng, ExtensionsEng in {
+concrete MyConcrete of MyAbstract = open Predef, ResEng, Prelude, SyntaxEng, (P = ParadigmsEng), ExtraEng, IrregEng, SentenceEng, RelativeEng, ExtensionsEng in {
 
 lincat
   Utt	= Utt;
@@ -54,13 +54,19 @@ lincat
 	Title	= CN;
 	Place	= NP;
 	PlaceName	= CN;
-	LocPrep	= Prep;
-	Located	= Adv;
 	Motion	= VP;
 	CoagentPrep = Prep;
 	InstrumentPrep = Prep;
+	ThemePrep = Prep;
+	MannerPrep	= Prep;
+	TimePrep	= Prep;
+	LocPrep	= Prep;
 	PP_coagent	= Adv;
 	PP_instrument	= Adv;
+	PP_theme	= Adv;
+	PP_manner	= Adv;
+	PP_time	= Adv;
+	PP_location	= Adv;
 	MassDet = Det;
 	Partitive = N2;
 
@@ -71,7 +77,7 @@ param
 
 oper
 
-	no_Quant	= StructuralEng.no_Quant;
+	no_Quant	= no_Quant;
 	some_Quant	= P.mkQuant "some" "some" "some" "some";
 	zero_mass_Quant = P.mkQuant "" nonExist;
 
@@ -168,13 +174,15 @@ lin
 	Be_someone np	= mkComp np;
 	Be_vp comp	= mkVP comp;
 	Look_bad verb adj	= mkVP verb adj;
-  Locating prep item	= ConstructorsEng.mkAdv prep item;
+  Locating prep item	= mkAdv prep item;
 	Location det placename = mkNP det placename;
-	FreqAdv times period	= ConstructorsEng.mkAdv P.noPrep (mkNP times period);
-	PeriodAdv times	= ConstructorsEng.mkAdv P.noPrep times;
-	Coagency prep coagent	= ConstructorsEng.mkAdv prep coagent;
+	FreqAdv times period	= mkAdv P.noPrep (mkNP times period);
+	PeriodAdv times	= mkAdv P.noPrep times;
+	Coagency prep coagent	= mkAdv prep coagent;
 	Instrumenting prep instrument = mkAdv prep instrument;
-	Timing det time = mkNP det time;
+	Themeing prep instrument = mkAdv prep instrument;
+	Mannering prep style = mkAdv prep style;
+	Timing prep time = mkAdv prep time;
 	Happening action	=	mkVP action;
 	Changing action patient	= mkVP action patient;
 	V_NP_VP causal patient predicate	= mkVP causal patient predicate;
@@ -196,20 +204,24 @@ lin
 	V2ASlash v2a ap	= mkVPSlash v2a ap;
 	V3Slash v3 np	= mkVPSlash v3 np;
 	ModInf cn vp = mkCN cn vp;
+	-- ModSlInf cn vpslash = mkCN cn vpslash;
 	MassModInf n vp = mkCN( mkCN n) vp;
 	Modified cn rcl = mkCN cn ( mkRS rcl);
 	SubjRel	rp vp = mkRCl rp vp;
 	ObjRel rp clslash = mkRCl rp clslash;
 	EmptyRel slash = EmptyRelSlash slash;
-	VPClSlash	np vpslash = mkClSlash np vpslash;
-	ToPlace vp located = mkVP vp located;
+	SClSlash	np vpslash = mkClSlash np vpslash;
+	-- VPClSlash	vpslash = mkClSlash vpslash;
   WithPlace v located	= mkVP (mkVP v) located;
   AdvVP adv vp	= mkVP adv vp;
 	VPAdv vp adv = mkVP vp adv;
   WithTime action time	= mkVP action time;
-  V_PP_coagent v pp	= mkVP v pp;
-	V_PP_instrument vp pp = mkVP vp pp;
-	V_PP_manner vp pp = mkVP vp pp;
+  VP_PP_coagent v pp	= mkVP v pp;
+	VP_PP_instrument vp pp = mkVP vp pp;
+	VP_PP_theme vp pp = mkVP vp pp;
+	VP_PP_manner vp pp = mkVP vp pp;
+	VP_PP_time vp pp = mkVP pp;
+	VP_PP_location vp located = mkVP vp located;
 	WithCl vp cl = mkVP vp cl;
   -- Be_made_sth vp np = PassV3 vp np;
 
@@ -286,8 +298,8 @@ lin
 	IdRP	= IdRP;
 
 	more	= more_CAdv;
-	ComparaAP a np = ConstructorsEng.mkAP a np;
-	ComparaAdv cadv a np = ConstructorsEng.mkAdv cadv a np;
+	ComparaAP a np = mkAP a np;
+	ComparaAdv cadv a np = mkAdv cadv a np;
 	ComparaS a s = mkAP a s;
 	AdjModified	a s = mkAP a s;
 	As_as ap np	= mkAP as_CAdv ap np;
@@ -302,7 +314,6 @@ lin
   like_prep	= P.mkPrep "like";
 	of_prep	= possess_Prep;
   on_prep	= P.mkPrep "on";
-  over_prep	= P.mkPrep "over";
   part_prep	= part_Prep;
   to_prep	= to_Prep;
   up_prep	= P.mkPrep "up";
@@ -322,7 +333,7 @@ lin
 	or_Conj	= or_Conj;
 	and_Conj	= mymkConj "and";
 
-	Subjunct subj s	= ConstructorsEng.mkAdv subj s;
+	Subjunct subj s	= mkAdv subj s;
 
  TagQ np vp = let
    cl = mkCl np vp;
