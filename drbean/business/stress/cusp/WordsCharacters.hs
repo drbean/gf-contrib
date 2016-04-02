@@ -207,7 +207,6 @@ framework	: CN;
 from
 good	: A;
 happening	: N;
-have	: V2;
 health	: N;
 high	: A;
 in

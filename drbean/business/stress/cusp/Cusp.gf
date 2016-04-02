@@ -74,7 +74,6 @@ fun
 	base	: V2;
 	call	: V3;
 	feel	: V2;
-	have	: V2;
 	know	: V2;
 	occur	: V;
 	prevent	: V2V;

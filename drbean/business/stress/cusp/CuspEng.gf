@@ -76,7 +76,6 @@ lin
 	base	= mkV2 "base";
 	call	= mkV3( mkV "call");
 	feel	= mkV2 "feel";
-	have	= mkV2 "have";
 	know	= mkV2 "know";
 	occur	= mkV "occur";
 	prevent	= mkV2V "prevent";
