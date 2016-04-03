@@ -3,7 +3,7 @@
 concrete CuspEng of Cusp = MyConcrete  **
 open ConstructorsEng, ParadigmsEng, StructuralEng, IrregEng, ExtraEng, ConstructX, Prelude, (R=ResEng) in {
 
-oper
+-- oper
 
 lin
 
@@ -78,14 +78,14 @@ lin
 	feel	= mkV2 "feel";
 	know	= mkV2 "know";
 	occur	= mkV "occur";
-	prevent	= mkV2V "prevent";
+	prevent	= mkV2 "prevent";
 	provide	= mkV2 "provide";
 	receive	= mkV2 "receive";
 	reduce	= mkV2 "reduce";
-	stand_for	= partV( mkV "stand for");
+	stand_for	= partV( mkV "stand") "for";
 	suggest	= mkVS( mkV "suggest");
 	tend	= mkVV( mkV "tend");
-	use	= mkV2V "use";
+	use	= mkV2V( mkV "use") noPrep to_prep;
 	work	= mkV "work";
 
 }

@@ -178,6 +178,7 @@ v = [
 	, "suggest"
 	, "tend"
 	, "use"
+	, "stand for"
 	, "work"
 
 
@@ -242,7 +243,7 @@ S	: PN;
 sense	: CN;
 simple	: A;
 situation	: CN;
-stand for	: Particle;
+stand for	: V;
 stress	: N;
 stressful	: A;
 studies	: CN;

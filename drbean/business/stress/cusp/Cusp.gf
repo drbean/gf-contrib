@@ -76,7 +76,7 @@ fun
 	feel	: V2;
 	know	: V2;
 	occur	: V;
-	prevent	: V2V;
+	prevent	: V2;
 	provide	: V2;
 	receive	: V2;
 	reduce	: V2;
