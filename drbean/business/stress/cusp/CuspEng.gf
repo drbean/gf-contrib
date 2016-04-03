@@ -11,6 +11,7 @@ lin
 
 	largely	= mkAdv "largely";
 	often	= mkAdv "often";
+	very	= mkAdv "very";
 
 -- AP
 
@@ -26,7 +27,6 @@ lin
 	stressful	= mkAP( mkA "stressful");
 	unsupported	= mkAP( mkA "unsupported");
 	useful	= mkAP( mkA "useful");
-	very	= mkAP( mkA "very");
 	wrong	= mkAP( mkA "wrong");
 
 -- Det

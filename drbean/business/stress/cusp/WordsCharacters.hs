@@ -46,7 +46,6 @@ a = [
 	, "stressful"
 	, "unsupported"
 	, "useful"
-	, "very"
 	, "wrong"
 
 	]
@@ -55,6 +54,7 @@ adv = [
 
 	"largely"
 	, "often"
+	, "very"
   ]
 
 aux = [
@@ -243,7 +243,7 @@ S	: PN;
 sense	: CN;
 simple	: A;
 situation	: CN;
-stand for	: V;
+stand for	: V2;
 stress	: N;
 stressful	: A;
 studies	: CN;
@@ -262,7 +262,7 @@ Uncertainty	: PN;
 unsupported	: A;
 use	: V2V;
 useful	: A;
-very	: A;
+very	: AdA;
 way	: CN;
 we
 what

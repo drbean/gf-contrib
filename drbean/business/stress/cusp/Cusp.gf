@@ -9,6 +9,7 @@ fun
 
 	largely	: Adv;
 	often	: Adv;
+	very	: AdA;
 
 -- AP
 
@@ -24,7 +25,6 @@ fun
 	stressful	: AP;
 	unsupported	: AP;
 	useful	: AP;
-	very	: AP;
 	wrong	: AP;
 
 -- Det
