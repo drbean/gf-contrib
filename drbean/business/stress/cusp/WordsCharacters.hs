@@ -34,7 +34,7 @@ posMap = Map.fromList [
 
 a = [
 
-	, "characteristic"
+	 "characteristic"
 	, "critically important"
 	, "good"
 	, "high"
@@ -53,7 +53,7 @@ a = [
 
 adv = [
 
-	, "largely"
+	"largely"
 	, "often"
   ]
 
@@ -88,7 +88,7 @@ det = [
 
 n = [
 
-	, "control"
+	"control"
 	, "experience"
 	, "happening"
 	, "health"
@@ -113,7 +113,7 @@ n = [
 
 pn = [
 
-	, "C"
+	"C"
 	, "Control"
 	, "CUSP"
 	, "Dot"
@@ -164,7 +164,7 @@ tag = [
 
 v = [
 
-	, "base"
+	"base"
 	, "call"
 	, "feel"
 	, "have"
