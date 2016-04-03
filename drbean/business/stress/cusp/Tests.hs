@@ -77,6 +77,7 @@ dic_test = [
   , "The 'S' stands for Support."
   , "The 'P' stands for Pressure."
 
+  ]
 
 in_equilibrium = [
   "Is In Equilibrium a company?"
