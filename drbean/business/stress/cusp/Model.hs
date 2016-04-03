@@ -4,9 +4,9 @@ import Data.Tuple
 import Data.List
 import Data.Maybe
 data Entity	= A | B | C | D | E | F | G
-            | H | I | J | K | L | M | N 
-            | O | P | Q | R | S | T | U 
-            | V | W | X | Y | Z | Someone | Something | Unspec
+  | H | I | J | K | L | M | N 
+  | O | P | Q | R | S | T | U 
+  | V | W | X | Y | Z | Someone | Something | Unspec
      deriving (Eq,Show,Bounded,Enum,Ord)
 
 entities :: [Entity]
@@ -48,71 +48,104 @@ ent_ided name = head [entity | (entity,string) <- entity_check ,
 				]
 
 characters :: [(String,Entity)]
-characters = [(string,entity) | (entity,string) <- entity_check,
-				string /= ""
-				]
+characters = map findEnt cusp
+	where findEnt e
+		| Just name <- lookup e entity_check
+			= (name,e)
+		| otherwise = error ("No " ++ (show e))
+
+cusp = [C, D, U, V, S, T, P, Q]
+
+stringEntity :: [(String,Entity)]
+stringEntity = map swap entity_check
+
 namelist :: [String]
 namelist = [string | (entity,string) <- entity_check, string /= "" ]
 
-predid1 :: String -> OnePlacePred
-predid2 :: String -> TwoPlacePred
-predid3 :: String -> ThreePlacePred
-predid4 :: String -> FourPlacePred
+predid1 :: String -> Maybe OnePlacePred
+predid2 :: String -> Maybe TwoPlacePred
+predid3 :: String -> Maybe ThreePlacePred
+predid4 :: String -> Maybe FourPlacePred
 
 predid3 name
-  | Just pred <- lookup name threePlacers = pred
-  | otherwise    = error $ "no '" ++ name ++ "' three-place predicate."
+       | Just pred <- lookup name threePlacers = Just pred
+        -- | otherwise    = Nothing
+        | otherwise    = error $ "no '" ++ name ++ "' three-place predicate."
 predid4 name
-  | Just pred <- lookup name fourPlacers = pred
-  | otherwise    = error $ "no '" ++ name ++ "' four-place predicate."
+       | Just pred <- lookup name fourPlacers = Just pred
+        -- | otherwise    = Nothing
+        | otherwise    = error $ "no '" ++ name ++ "' four-place predicate."
 predid5 name
-  | Just pred <- lookup name fivePlacers = pred
-  | otherwise    = error $ "no '" ++ name ++ "' five-place predicate."
+       | Just pred <- lookup name fivePlacers = Just pred
+        -- | otherwise    = Nothing
+        | otherwise    = error $ "no '" ++ name ++ "' five-place predicate."
 
-onePlacers :: [(String, OnePlacePred)]
-onePlacers = [
-  ("true",        pred1 entities )
-  , ("false",     pred1 [] )
-  , ("role",      pred1 [] )
+onePlacers, onePlaceStarters, entityonePlacers :: [(String, [Entity])]
+onePlaceStarters = [
+  ("true",        entities )
+  , ("false",     [] )
+  , ("role",      [] )
 
-  , ("manager",	 pred1 [E,F] )
-  , ("individual",	 pred1 [E,F,B,G] )
-  , ("people",	 pred1 [E,F,B,G,M,W] )
-  , ("framework",	 pred1 [A] )
-  , ("company",	 pred1 [I] )
-  , ("work",	 pred1 $ [A,J] ++ map agent working )
-  , ("worker",	 pred1 $ map agent working )
+  , ("manager",	 [E,F] )
+  , ("individual",	 [E,F,B,G] )
+  , ("people",	 [E,F,B,G,M,W] )
+  , ("framework",	 [A] )
+  , ("company",	 [I] )
+  , ("work",	 [A,J] ++ map agent working )
+  , ("worker",	 map agent working )
 
-  , ("assertive",	 pred1 [] )
-  , ("bad",	 pred1 [N,Q,O,V,X,Y,K] )
-  , ("best_placed",	 pred1 [E,F] )
+  , ("assertive",	 [] )
+  , ("bad",	 [N,Q,O,V,X,Y,K] )
+  , ("best_placed",	 [E,F] )
 
-  , ("cause_of",	 pred1 [N,O,P,V] )
-  , ("characteristic",	 pred1 [D,R,T,V] )
-  , ("common",	 pred1 [X,Y,N,O,V,Q] )
-  , ("critically_important",	 pred1 [A,D,T] )
-  , ("day_to_day",	 pred1 [R] )
-  , ("difficult",	 pred1 [] )
-  , ("effective",	 pred1 [A] )
-  , ("good",	 pred1 [T,E,J] )
-  , ("helpless",	 pred1 [M,W] )
-  , ("unsupported",	 pred1 [M,W] )
-  , ("high",	 pred1 [Y] )
-  , ("little",	 pred1 [D,T] )
+  , ("cause_of",	 [N,O,P,V] )
+  , ("characteristic",	 [D,R,T,V] )
+  , ("common",	 [X,Y,N,O,V,Q] )
+  , ("critically_important",	 [A,D,T] )
+  , ("day_to_day",	 [R] )
+  , ("difficult",	 [] )
+  , ("effective",	 [A] )
+  , ("good",	 [T,E,J] )
+  , ("helpless",	 [M,W] )
+  , ("unsupported",	 [M,W] )
+  , ("high",	 [Y] )
+  , ("little",	 [D,T] )
 
-  , ("stressful",	 pred1 [N,O,Q,V] )
-  , ("male",	 pred1 [B,M,E] )
-  , ("female",	 pred1 [G,W,F] )
-  , ("strategy",	 pred1 [J,K] )
+  , ("stressful",	 [N,O,Q,V] )
+  , ("male",	 [B,M,E] )
+  , ("female",	 [G,W,F] )
+  , ("strategy",	 [J,K] )
   ]
+
+onePlacers = 
+	entityonePlacers ++ onePlaceStarters
+
+predid1 "people"	= predid1 "person"
+predid1 "person"	= Just person
+predid1 "thing"	= Just thing
+predid1 "man"	= predid1 "male"
 
 predid1 "poor"  = predid1 "bad"
 predid1 "women"  = predid1 "female"
 predid1 "men"  = predid1 "male"
 
-predid1 name
-  | Just pred <- lookup name onePlacers = pred
-  | otherwise    = error $ "no '" ++ name ++ "' one-place predicate."
+predid1 name = if name `elem` (map fst onePlacers) then
+	Just (pred1 (concat [ oneple | (id, oneple) <- onePlacers
+		, id == name] ) ) else
+		-- Nothing
+		error $ "no '" ++ name ++ "' one-place predicate."
+
+entityonePlacers =
+	map (\x -> (snd x, [fst x])) entity_check
+
+genonePlacer :: [ (Content, [(Case,Entity)]) ] ->
+	String -> String -> Case -> 
+	(String, [Entity])
+genonePlacer area id content role =
+	( id, [ r | (co,cs) <- area
+		, co == content
+		, Just r <-[lookup role cs]
+		] )
 
 type OnePlacePred	= Entity -> Bool
 type TwoPlacePred	= Entity -> Entity -> Bool
@@ -126,8 +159,11 @@ list2OnePlacePred xs	= \ x -> elem x xs
 pred1 :: [Entity] -> OnePlacePred
 pred1	= flip elem
 
+test1 :: String -> OnePlacePred
+test1 p = fromMaybe (\_ -> False) (predid1 p)
+
 person, thing :: OnePlacePred
-person	= \ x -> (predid1 "male" x || predid1 "female" x || predid1 "role" x || x == Someone)
+person	= \ x -> (test1 "male" x || test1 "female" x || test1 "role" x || x == Someone)
 thing	= \ x -> (x == Unspec || x == Something || not ( person x ) )
 
 pred2 :: [(Entity,Entity)] -> TwoPlacePred
@@ -135,6 +171,33 @@ pred3 :: [(Entity,Entity,Entity)] -> ThreePlacePred
 pred2 xs	= curry ( `elem` xs )
 pred3 xs	= curry3 ( `elem` xs )
 pred4 xs	= curry4 ( `elem` xs )
+
+goal, event, condition, idea, attitude, affiliation :: [ (Content, [(Case, Entity)]) ]
+goal = [
+	]
+event = [
+	]
+condition = [
+	]
+idea = [
+	]
+attitude = [
+	]
+affiliation = [
+	]
+
+gentwoPlacer :: [ (Content, [(Case,Entity)]) ] ->
+	String -> String -> Case -> Case ->
+	(String, [(Entity,Entity)] )
+gentwoPlacer area id content role1 role2 =
+	( id, [ (r1,r2) | (co,cs) <- area
+		, co == content
+		, Just r1 <-[lookup role1 cs]
+		, Just r2 <- [lookup role2 cs]
+		] )
+
+twoPlacers =
+	twoPlaceStarters
 
 possessions	= [(B,J),(T,J),(E,J),(B,X),(T,X),(E,X),(T,G)]
 appreciation	= [ (E,Unspec,J) ]
@@ -159,34 +222,55 @@ knowledge	= [(B,I),(G,I),(E,I)]
 acquaintances	= []
 help	= pred2 $ supervision
 
-twoPlacers :: [(String, TwoPlacePred)]
-twoPlacers = [
-  ("ask_for", pred2 $ map (\(_,t,r)->(r,t)) giving )
-  , ("face_to_face",  pred2 $ [(E,M),(E,W),(F,M),(F,W)])
-  , ("know_V2",    pred2 $ knowledge ++ acquaintances ++ map swap acquaintances)
-  , ("have",  pred2 $ possessions ++ qualities ++ 
+twoPlacers, twoPlaceStarters :: [(String, [(Entity,Entity)])]
+twoPlaceStarters = [
+  ("ask_for", map (\(_,t,r)->(r,t)) giving )
+  , ("face_to_face",  [(E,M),(E,W),(F,M),(F,W)])
+  , ("know_V2",    knowledge ++ acquaintances ++ map swap acquaintances)
+  , ("have",  possessions ++ qualities ++ 
 		    strategies ++
 		    map (\(_,t,r) -> (r,t)) giving )
-  , ("stand", pred2[(C,D),(P,Q),(S,T),(U,V)])
-  , ("lack", pred2 [(N,D),(O,T)])
-  , ("level", pred2 [(Y,X)])
-  , ("more_vulnerable", pred2 [(M,W)])
-  , ("more_high", pred2 [])
-  , ("tend_to_report", (forgetful3 . predid3) "talk_about" )
-  , ("like",  pred2 $ map (\(a,t,r) -> (a,r)) appreciation)
-  , ("work",  pred2 $ [(a,c) | (a,p,c) <- working] )
-  , ("placing", pred2 [(worker, place) | (worker,_,place) <- working ])
+  , ("stand", [(C,D),(P,Q),(S,T),(U,V)])
+  , ("lack", [(N,D),(O,T)])
+  , ("level", [(Y,X)])
+  , ("more_vulnerable", [(M,W)])
+  , ("more_high", [])
+  -- , ("tend_to_report", (forgetful3 . predid3) "talk_about" )
+  , ("like",  map (\(a,t,r) -> (a,r)) appreciation)
+  , ("work",  [(a,c) | (a,p,c) <- working] )
+  , ("placing", [(worker, place) | (worker,_,place) <- working ])
   ]
 
-predid2 name
-       | Just pred <- lookup name twoPlacers = pred
-        | otherwise    = error $ "no '" ++ name ++ "' two-place predicate."
+predid2 name = if name `elem` (map fst twoPlacers) then
+	Just (pred2 (concat [ twople | (id, twople) <- twoPlacers
+		, id == name] ) ) else
+		-- Nothing
+		error $ "no '" ++ name ++ "' two-place predicate."
 
 curry3 :: ((a,b,c) -> d) -> a -> b -> c -> d
 curry3 f x y z	= f (x,y,z)
 curry4 f x y z w	= f (x,y,z,w)
 
-threePlacers = [
+genthreePlacer :: [ (Content, [(Case,Entity)]) ] ->
+	String -> String -> Case -> Case -> Case ->
+	(String, ThreePlacePred)
+genthreePlacer area id content role1 role2 role3 =
+	( id, pred3 [ (r1,r2,r3) | (co,cs) <- area
+		, co == content
+		, Just r1 <-[lookup role1 cs]
+		, Just r2 <- [lookup role2 cs]
+		, Just r3 <- [lookup role3 cs]
+		] )
+
+threePlacers, threePlaceStarters :: [(String, ThreePlacePred)]
+threePlaceStarters = [
+    ]
+threePlacers =
+	(genthreePlacer event "ask_V2Q" "ask" Agent Recipient Predicate) :
+	genthreePlacer event "tell" "state" Agent Recipient Predicate :
+	threePlaceStarters
+
+threePlaceStartrs = [
   ("liked", pred3 appreciation )
   , ("ask", pred3 $ map (\(a,t,r) -> (r,a,t)) giving)
   , ("talk", pred3 $ map (\(a,t,r) -> (a,r,t)) comms)
@@ -196,6 +280,26 @@ threePlacers = [
   , ("give", pred3 $ [(a,r,t) | (a,t,r) <- giving])
   , ("work", pred3 $ [(a,a,c) | (a,p,c) <- working ] )
   ]
+
+type Content = String
+data Case = Agent | Asset | Attribute | Beneficiary | Cause | CoAgent |
+	CoPatient | CoTheme | Destination | Experiencer | Extent | Goal |
+	InitialLocation | Instrument | Location | Material | Patient | Pivot |
+	Predicate | Product | Recipient | Reflexive | Result | Source |
+	Stimulus | Theme | Time | Topic | Trajectory | Value
+  deriving Eq
+
+genfourPlacer :: [ (Content, [(Case,Entity)]) ] ->
+	String -> String -> Case -> Case -> Case ->
+	Case -> (String, FourPlacePred)
+genfourPlacer area id content role1 role2 role3 role4 =
+	( id, pred4 [ (r1,r2,r3,r4) | (co,cs) <- area
+		, co == content
+		, Just r1 <-[lookup role1 cs]
+		, Just r2 <- [lookup role2 cs]
+		, Just r3 <- [lookup role3 cs]
+		, Just r4 <- [lookup role4 cs]
+		] )
 
 
 agent, theme, recipient, location, instrument ::
@@ -238,9 +342,12 @@ told	= pred3 comms
 
 recite = pred2 $ map ( \x -> (agent x, theme x) ) comms
 
-fourPlacers = [
+fourPlacers, fourPlaceStarters :: [(String, FourPlacePred)]
+fourPlaceStarters = [
         ]
 
+fourPlacers =
+	fourPlaceStarters
 
 agent4, theme4, recipient4, location4 :: (Entity,Entity,Entity,Entity) -> Entity
 agent4 (a,_,_,_) = a
@@ -296,4 +403,4 @@ passivize4 r = \x y z -> or ( map (\u -> r u x y z ) entities )
 self ::  (a -> a -> b) -> a -> b
 self p	= \ x -> p x x 
 
--- vim: set ts=8 sts=2 sw=2 noet:
+-- vim: set ts=2 sts=2 sw=2 noet:
