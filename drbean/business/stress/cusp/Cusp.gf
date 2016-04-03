@@ -31,6 +31,10 @@ fun
 
 -- N
 
+	c	: N;
+	p	: N;
+	s	: N;
+	u	: N;
 	control	: N;
 	experience	: N;
 	happening	: N;
@@ -55,16 +59,12 @@ fun
 
 -- PN
 
-	c	: PN;
 	Control	: PN;
 	cusp	: PN;
 	dot	: PN;
 	in_equilibrium	: PN;
-	p	: PN;
 	Pressure	: PN;
-	s	: PN;
 	Support	: PN;
-	u	: PN;
 	Uncertainty	: PN;
 
 -- Prep
@@ -80,7 +80,7 @@ fun
 	provide	: V2;
 	receive	: V2;
 	reduce	: V2;
-	stand_for	: V;
+	stand_for	: V2;
 	suggest	: VS;
 	tend	: VV;
 	use	: V2V;

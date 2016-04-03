@@ -47,6 +47,10 @@ lin
 	level	= mkCN( mkN "level");
 	manager	= mkCN( mkN "manager");
 	model	= mkCN( mkN "model");
+	u	= mkN "'U'";
+	s	= mkN "'S'";
+	p	= mkN "'P'";
+	c	= mkN "'C'";
 	risk	= mkCN( mkN "risk");
 	sense	= mkCN( mkN "sense");
 	situation	= mkCN( mkN "situation");
@@ -57,16 +61,12 @@ lin
 
 -- PN
 
-	c	= mkPN( mkN feminine (mkN "C") );
 	Control	= mkPN( mkN feminine (mkN "Control") );
 	cusp	= mkPN( mkN feminine (mkN "CUSP") );
 	dot	= mkPN( mkN feminine (mkN "Dot") );
 	in_equilibrium	= mkPN( mkN feminine (mkN "In_Equilibrium") );
-	p	= mkPN( mkN feminine (mkN "P") );
 	Pressure	= mkPN( mkN feminine (mkN "Pressure") );
-	s	= mkPN( mkN feminine (mkN "S") );
 	Support	= mkPN( mkN feminine (mkN "Support") );
-	u	= mkPN( mkN feminine (mkN "U") );
 	Uncertainty	= mkPN( mkN feminine (mkN "Uncertainty") );
 
 -- Prep
@@ -82,7 +82,7 @@ lin
 	provide	= mkV2 "provide";
 	receive	= mkV2 "receive";
 	reduce	= mkV2 "reduce";
-	stand_for	= partV( mkV "stand") "for";
+	stand_for	= mkV2( mkV "stand") "for";
 	suggest	= mkVS( mkV "suggest");
 	tend	= mkVV( mkV "tend");
 	use	= mkV2V( mkV "use") noPrep to_prep;
