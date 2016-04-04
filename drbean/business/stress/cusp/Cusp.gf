@@ -8,7 +8,7 @@ fun
 -- Adv
 
 	largely	: Adv;
-	often	: Adv;
+	often	: Time;
 	very	: AdA;
 
 -- AP

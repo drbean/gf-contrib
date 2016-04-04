@@ -74,7 +74,7 @@ fun
 	SClSlash	: NP -> VPSlash -> ClSlash;
 	-- VPClSlash	: VPSlash -> ClSlash;
 	WithPlace	:  V -> PP_location -> VP;
-	WithTime	: VP -> Time -> VP;
+	WithTime	: Time -> VP -> VP;
 	VP_PP_coagent	: VP -> PP_coagent -> VP;
 	VP_PP_instrument	: VP -> PP_instrument -> VP;
 	VP_PP_theme	: VP -> PP_theme -> VP;
