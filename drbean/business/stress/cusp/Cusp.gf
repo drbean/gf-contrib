@@ -13,7 +13,6 @@ fun
 
 -- AP
 
-	characteristic	: AP;
 	critically_important	: AP;
 	good	: AP;
 	high	: AP;
@@ -26,6 +25,7 @@ fun
 	unsupported	: AP;
 	useful	: AP;
 	wrong	: AP;
+	work_AP	: AP;
 
 -- Det
 
@@ -35,6 +35,7 @@ fun
 	p	: N;
 	s	: N;
 	u	: N;
+	characteristic	: CN;
 	control	: N;
 	experience	: N;
 	happening	: N;
@@ -42,6 +43,7 @@ fun
 	stress	: N;
 	support	: N;
 	uncertainty	: N;
+	work_N	: N;
 	brief_overview	: CN;
 	framework	: CN;
 	individual	: CN;

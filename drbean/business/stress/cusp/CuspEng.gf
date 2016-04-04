@@ -15,7 +15,6 @@ lin
 
 -- AP
 
-	characteristic	= mkAP( mkA "characteristic");
 	critically_important	= mkAP( mkA "critically important");
 	good	= mkAP( mkA "good");
 	high	= mkAP( mkA "high");
@@ -28,11 +27,13 @@ lin
 	unsupported	= mkAP( mkA "unsupported");
 	useful	= mkAP( mkA "useful");
 	wrong	= mkAP( mkA "wrong");
+	work_AP	= mkAP( mkA "work");
 
 -- Det
 
 -- N
 
+	characteristic	= mkCN( mkN "characteristic");
 	control	= mkN "control";
 	experience	= mkN "experience";
 	happening	= mkN "happening";
@@ -40,6 +41,7 @@ lin
 	stress	= mkN "stress";
 	support	= mkN "support";
 	uncertainty	= mkN "uncertainty";
+	work_N	= mkN "work";
 	brief_overview	= mkCN( mkN "brief_overview");
 	framework	= mkCN( mkN "framework");
 	individual	= mkCN( mkN "individual");

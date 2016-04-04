@@ -34,8 +34,7 @@ posMap = Map.fromList [
 
 a = [
 
-	 "characteristic"
-	, "critically important"
+	"critically important"
 	, "good"
 	, "high"
 	, "little"
@@ -47,6 +46,7 @@ a = [
 	, "unsupported"
 	, "useful"
 	, "wrong"
+	, "work"
 
 	]
 
@@ -88,13 +88,15 @@ det = [
 
 n = [
 
-	"control"
+	"characteristic"
+	, "control"
 	, "experience"
 	, "happening"
 	, "health"
 	, "stress"
 	, "support"
 	, "uncertainty"
+	, "work"
 	, "brief_overview"
 	, "framework"
 	, "individual"
@@ -195,7 +197,7 @@ by
 C	: PN;
 call	: V3;
 can
-characteristic	: A;
+characteristic	: CN;
 control	: N;
 Control	: PN;
 critically important	: A;
@@ -268,9 +270,10 @@ we
 what
 when
 where
-work
 worker	: CN;
 working_climate	: CN;
+work	: A;
+work	: N;
 work	: V;
 wrong	: A;
 
