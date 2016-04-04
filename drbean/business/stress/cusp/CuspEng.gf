@@ -66,7 +66,7 @@ lin
 	Control	= mkPN( mkN feminine (mkN "Control") );
 	cusp	= mkPN( mkN feminine (mkN "CUSP") );
 	dot	= mkPN( mkN feminine (mkN "Dot") );
-	in_equilibrium	= mkPN( mkN feminine (mkN "In_Equilibrium") );
+	in_equilibrium	= mkPN( mkN feminine (mkN "In Equilibrium") );
 	Pressure	= mkPN( mkN feminine (mkN "Pressure") );
 	Support	= mkPN( mkN feminine (mkN "Support") );
 	Uncertainty	= mkPN( mkN feminine (mkN "Uncertainty") );
