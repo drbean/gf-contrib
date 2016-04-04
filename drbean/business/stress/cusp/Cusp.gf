@@ -44,7 +44,7 @@ fun
 	support	: N;
 	uncertainty	: N;
 	work_N	: N;
-	brief_overview	: CN;
+	brief_overview	: N2;
 	framework	: CN;
 	individual	: CN;
 	kind	: CN;

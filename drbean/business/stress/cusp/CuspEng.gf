@@ -42,7 +42,7 @@ lin
 	support	= mkN "support";
 	uncertainty	= mkN "uncertainty";
 	work_N	= mkN "work";
-	brief_overview	= mkCN( mkN "brief_overview");
+	brief_overview	= mkN2( mkN "brief overview");
 	framework	= mkCN( mkN "framework");
 	individual	= mkCN( mkN "individual");
 	kind	= mkCN( mkN "kind");
