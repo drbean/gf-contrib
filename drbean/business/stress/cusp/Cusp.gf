@@ -15,7 +15,7 @@ fun
 
 	critically_important	: AP;
 	good	: AP;
-	high	: AP;
+	high	: A2;
 	little	: AP;
 	particular	: AP;
 	psychological	: AP;
@@ -70,6 +70,8 @@ fun
 	Uncertainty	: PN;
 
 -- Prep
+
+	in_prep	: Prep;
 
 -- V
 

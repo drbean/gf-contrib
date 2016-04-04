@@ -17,7 +17,7 @@ lin
 
 	critically_important	= mkAP( mkA "critically important");
 	good	= mkAP( mkA "good");
-	high	= mkAP( mkA "high");
+	high	= mkA2( mkA "high") in_prep;
 	little	= mkAP( mkA "little");
 	particular	= mkAP( mkA "particular");
 	psychological	= mkAP( mkA "psychological");
@@ -72,6 +72,8 @@ lin
 	Uncertainty	= mkPN( mkN feminine (mkN "Uncertainty") );
 
 -- Prep
+
+  in_prep	= mkPrep "in";
 
 -- V
 
