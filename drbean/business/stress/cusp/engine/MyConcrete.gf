@@ -169,6 +169,21 @@ oper
 				n = Pl ;
 			};
 
+	mymkCN : (pn : PN) -> (cn : CN) -> {s : Number => Case => Str ; g : Gender } = 
+		\pn,cn -> {
+			s = table {
+				Sg => table {
+					Nom => pn.s ! Nom ++ cn.s ! Sg ! Nom;
+					Gen => cn.s ! Sg ! Gen
+					};
+				Pl => table {
+					Nom => pn.s ! Nom ++ cn.s ! Pl ! Nom;
+					Gen => cn.s ! Pl ! Gen
+					}
+				};
+			g = cn.g
+			};
+
 lin
 	Be_bad ap	= mkComp ap;
   Be_somewhere located	= mkComp located;
@@ -252,6 +267,7 @@ lin
 	KindInPlace cn adv	= mkCN cn adv;
 	PlaceKind ap n = mkCN ap n;
 	Membership det cn place = mkCl( Item det (KindInPlace cn place));
+	CompoundN pn cn = mymkCN pn cn;
 	Ofpos n2 np	= mkCN n2 np;
 	Ofpart part n = mkCN part (mkNP n);
 	Item det noun	= mkNP det noun;

@@ -114,6 +114,7 @@ fun
 	KindInPlace	: CN -> PP_location -> CN;
 	PlaceKind	: AP -> PlaceName -> PlaceName;
 	Membership : Det -> CN -> PP_location -> Cl;
+	CompoundN	: PN -> CN -> CN;
 	Item	: Det -> CN -> NP;
 	MassItem	: MassDet -> N	-> NP;
 	Titular	: Title -> NP;
