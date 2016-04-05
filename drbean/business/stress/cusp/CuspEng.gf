@@ -12,6 +12,7 @@ lin
 	largely	= mkAdv "largely";
 	often	= mkAdv "often";
 	very	= mkAdv "very";
+	really	= mkAdV "really";
 
 -- AP
 
@@ -21,7 +22,6 @@ lin
 	little	= mkAP( mkA "little");
 	particular	= mkAP( mkA "particular");
 	psychological	= mkAP( mkA "psychological");
-	really	= mkAP( mkA "really");
 	simple	= mkAP( mkA "simple");
 	stressful	= mkAP( mkA "stressful");
 	unsupported	= mkAP( mkA "unsupported");

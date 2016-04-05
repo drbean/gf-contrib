@@ -40,7 +40,6 @@ a = [
 	, "little"
 	, "particular"
 	, "psychological"
-	, "really"
 	, "simple"
 	, "stressful"
 	, "unsupported"
@@ -54,6 +53,7 @@ adv = [
 
 	"largely"
 	, "often"
+	, "really"
 	, "very"
   ]
 
@@ -237,7 +237,7 @@ Pressure	: PN;
 prevent	: V2V;
 provide	: V2;
 psychological	: A;
-really	: A;
+really	: AdV;
 receive	: V2;
 reduce	: V2;
 risk	: CN;

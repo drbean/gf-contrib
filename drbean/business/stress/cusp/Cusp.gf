@@ -9,6 +9,7 @@ fun
 
 	largely	: Adv;
 	often	: Time;
+	really	: AdV;
 	very	: AdA;
 
 -- AP
@@ -19,7 +20,6 @@ fun
 	little	: AP;
 	particular	: AP;
 	psychological	: AP;
-	really	: AP;
 	simple	: AP;
 	stressful	: AP;
 	unsupported	: AP;
