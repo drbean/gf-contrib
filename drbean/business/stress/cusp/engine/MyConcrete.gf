@@ -369,6 +369,7 @@ lin
 	Very_Adv a = ParadigmsEng.mkAdv ("very" ++ a.s);
 	because_Subj	= because_Subj;
 	if_Subj	= if_Subj;
+	when_Subj = when_Subj;
 	or_Conj	= or_Conj;
 	and_Conj	= mymkConj "and";
 

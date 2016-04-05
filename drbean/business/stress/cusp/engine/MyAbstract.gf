@@ -187,7 +187,7 @@ fun
 	of_prep	: Prep;
 	on_prep	: LocPrep;
 	part_prep	: Prep;
-	to_prep	: LocPrep;
+	to_prep	: Prep;
 	up_prep	: Prep;
 	with_prep	: CoagentPrep;
 
@@ -204,6 +204,7 @@ fun
 	Very_Adv	: Adv -> Adv;
 	because_Subj	: Subj;
 	if_Subj	: Subj;
+	when_Subj	: Subj;
 	or_Conj	: Conj;
 	and_Conj	: Conj;
 

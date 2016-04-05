@@ -48,10 +48,10 @@ fun
 	framework	: CN;
 	individual	: CN;
 	kind	: CN;
-	level	: CN;
+	level	: Partitive;
 	manager	: CN;
 	model	: CN;
-	risk	: CN;
+	risk	: N2;
 	sense	: CN;
 	situation	: CN;
 	studies	: CN;

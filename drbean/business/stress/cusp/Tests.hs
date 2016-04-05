@@ -63,6 +63,8 @@ dic_test = [
   "A good working climate is one where stress is largely prevented."
   , "Gourlay provides a brief overview of a critically important In Equilibrium framework called CUSP."
   , "CUSP can be used both to prevent stress and to reduce the risks to an individual's health when stress has occurred."
+  , "CUSP can be used to prevent stress."
+  , "CUSP can be used to reduce the risks to an individual's health when stress occurs."
   , "CUSP really is a very useful model."
   , "CUSP is a very useful model."
   , "CUSP is based on what we know from thousands of psychological studies and from experience."

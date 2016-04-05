@@ -71,6 +71,7 @@ aux = [
 conj = [
   "and"
   , "if"
+	, "when"
   ]
 
 
@@ -267,7 +268,7 @@ very	: AdA;
 way	: CN;
 we
 what
-when
+when	: Subj;
 where
 worker	: CN;
 working_climate	: CN;

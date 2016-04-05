@@ -46,14 +46,14 @@ lin
 	framework	= mkCN( mkN "framework");
 	individual	= mkCN( mkN "individual");
 	kind	= mkCN( mkN "kind");
-	level	= mkCN( mkN "level");
+	level	= mkN2( mkN "level");
 	manager	= mkCN( mkN "manager");
 	model	= mkCN( mkN "model");
 	u	= mkN "'U'";
 	s	= mkN "'S'";
 	p	= mkN "'P'";
 	c	= mkN "'C'";
-	risk	= mkCN( mkN "risk");
+	risk	= mkN2( mkN "risk") to_prep;
 	sense	= mkCN( mkN "sense");
 	situation	= mkCN( mkN "situation");
 	studies	= mkCN( mkN "studies");
