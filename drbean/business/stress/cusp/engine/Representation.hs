@@ -18,6 +18,7 @@ import Data.Tuple
 entuples :: [(Entity,GPN)]
 entuples = [
 	(C,GControl)
+	(G,Ggourlay)
 	, (U,GUncertainty)
 	, (S,GSupport)
 	, (P,GPressure)
