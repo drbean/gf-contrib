@@ -64,6 +64,7 @@ dic_test = [
   , "Gourlay provides a brief overview of a critically important In Equilibrium framework called CUSP."
   , "CUSP can be used both to prevent stress and to reduce the risks to an individual's health when stress has occurred."
   , "CUSP really is a very useful model."
+  , "CUSP is a very useful model."
   , "CUSP is based on what we know from thousands of psychological studies and from experience."
   , "Stressful work situations have particular characteristics."
   , "Stressful situations tend to be ones where individuals feel that they have very little control over what is happening."

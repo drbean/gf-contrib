@@ -33,6 +33,7 @@ fun
 	-- Be_made_sth : V3 -> NP -> VP;
 	Be_bad	: AP -> Comp;
 	Be_someone	: NP -> Comp;
+	Be_AdV_NP	: AdV -> NP -> Comp;
 	Be_somewhere	: PP_location -> Comp;
 	Be_vp	: Comp -> VP;
 	Locating  : LocPrep -> Place -> PP_location;

@@ -53,7 +53,6 @@ adv = [
 
 	"largely"
 	, "often"
-	, "really"
 	, "very"
   ]
 
