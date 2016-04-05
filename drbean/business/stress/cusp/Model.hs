@@ -14,13 +14,13 @@ entities	=  [minBound..maxBound]
 
 entity_check :: [ (Entity, String) ]
 entity_check =  [
-  (A, "CUSP" )
-  , (B, "Bradshaw" )
+  (A, "cusp" )
+  , (B, "bradshaw" )
   , (C, "C" )
   , (D, "control" )
   , (E, "" )		-- manager
   , (F, "" )		-- manager
-  , (G, "Gourlay" )
+  , (G, "gourlay" )
   , (H, "" )		-- help
   , (I, "In Equilibrium" )
   , (J, "" )	-- good woman strategy
@@ -54,7 +54,7 @@ characters = map findEnt cusp
 			= (name,e)
 		| otherwise = error ("No " ++ (show e))
 
-cusp = [C, D, U, V, S, T, P, Q]
+cusp = [A, D, G, V, T, Q]
 
 stringEntity :: [(String,Entity)]
 stringEntity = map swap entity_check

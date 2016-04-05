@@ -63,7 +63,7 @@ fun
 
 	Control	: PN;
 	cusp	: PN;
-	dot	: PN;
+	gourlay	: PN;
 	in_equilibrium	: PN;
 	Pressure	: PN;
 	Support	: PN;

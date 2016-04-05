@@ -118,7 +118,7 @@ pn = [
 	"C"
 	, "Control"
 	, "CUSP"
-	, "Dot"
+	, "Gourlay"
 	, "In_Equilibrium"
 	, "P"
 	, "Pressure"
@@ -202,13 +202,13 @@ control	: N;
 Control	: PN;
 critically important	: A;
 CUSP	: PN;
-Dot	: PN;
 experience	: N;
 feel	: V2;
 for
 framework	: CN;
 from
 good	: A;
+Gourlay	: PN;
 happening	: N;
 health	: N;
 high	: A;
