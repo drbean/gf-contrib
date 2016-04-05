@@ -164,6 +164,8 @@ fun
 	what_WH	: IP;
 	IdRP	: RP;
 	that_RP	: RP;
+	in_which	: RP;
+	where_RP	: RP;
 
 	more : CAdv;
 	ComparaAP : A -> NP -> AP;
@@ -180,6 +182,7 @@ fun
 	at_prep	: LocPrep;
 	before_prep	: Prep;
 	from_prep	: Prep;
+	in_prep	: Prep;
   like_prep	: Prep;
 	of_prep	: Prep;
 	on_prep	: LocPrep;

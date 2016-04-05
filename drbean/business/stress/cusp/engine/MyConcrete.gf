@@ -332,6 +332,8 @@ lin
 	what_WH	= whatSg_IP;
 	that_RP	= ExtraEng.that_RP;
 	IdRP	= IdRP;
+	-- in_which	=mkRP in_prep which_RP;
+	-- where_RP	= mkRP "where";
 
 	more	= more_CAdv;
 	ComparaAP a np = mkAP a np;
@@ -347,6 +349,7 @@ lin
   at_prep	= P.mkPrep "at";
 	before_prep	= P.mkPrep "before";
   from_prep	= P.mkPrep "from";
+  in_prep	= P.mkPrep "in";
   like_prep	= P.mkPrep "like";
 	of_prep	= possess_Prep;
   on_prep	= P.mkPrep "on";

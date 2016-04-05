@@ -71,8 +71,6 @@ fun
 
 -- Prep
 
-	in_prep	: Prep;
-
 -- V
 
 	base	: V2;
