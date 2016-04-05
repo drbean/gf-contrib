@@ -169,7 +169,7 @@ oper
 				n = Pl ;
 			};
 
-	mymkCN : (pn : PN) -> (cn : CN) -> {s : Number => Case => Str ; g : Gender } = 
+	mymkPN_CN : (pn : PN) -> (cn : CN) -> {s : Number => Case => Str ; g : Gender } = 
 		\pn,cn -> {
 			s = table {
 				Sg => table {
@@ -179,6 +179,22 @@ oper
 				Pl => table {
 					Nom => pn.s ! Nom ++ cn.s ! Pl ! Nom;
 					Gen => cn.s ! Pl ! Gen
+					}
+				};
+			g = cn.g
+			};
+
+	myModPass3 : (cn : CN) -> (v3 : V3) -> (np : NP) ->
+		{s : Number => Case => Str ; g : Gender } =
+		\cn,v3,np -> {
+			s = table {
+				Sg => table {
+					Nom => cn.s ! Sg ! Nom ++ v3.s ! VPPart ++ np.s ! NPAcc;
+					Gen => cn.s ! Sg ! Nom ++ v3.s ! VPPart ++ np.s ! NPNomPoss
+					};
+				Pl => table {
+					Nom => cn.s ! Pl ! Nom ++ v3.s ! VPPart ++ np.s ! NPAcc;
+					Gen => cn.s ! Pl ! Nom ++ v3.s ! VPPart ++ np.s ! NPNomPoss
 					}
 				};
 			g = cn.g
@@ -213,6 +229,7 @@ lin
   V_NP_AP v patient state = mkVP v patient state;
   GetPassV3 v np = insertObj (\\_ => v.s ! VPPart ++ v.p ++ v.c2 ++ v.c3 ++ np.s ! NPAcc) (predAux auxGet) ;
   -- GetNPPPart v np = insertObj (\\_ => np.s ! NPAcc ++ v.s ! VPPart ++ v.p ++ v.c2 ) (predAux auxGet) ;
+	passive v = passiveVP v;
 	Pass vp = PassVPSlash vp;
 	V2Slash v2	= mkVPSlash v2;
 	-- VSSlash vs	= mkVPSlash vs;
@@ -220,6 +237,7 @@ lin
 	V2ASlash v2a ap	= mkVPSlash v2a ap;
 	V3Slash v3 np	= mkVPSlash v3 np;
 	ModInf cn vp = mkCN cn vp;
+	ModPass3 cn v3 np = myModPass3 cn v3 np;
 	-- ModSlInf cn vpslash = mkCN cn vpslash;
 	MassModInf n vp = mkCN( mkCN n) vp;
 	Modified cn rcl = mkCN cn ( mkRS rcl);
@@ -267,7 +285,7 @@ lin
 	KindInPlace cn adv	= mkCN cn adv;
 	PlaceKind ap n = mkCN ap n;
 	Membership det cn place = mkCl( Item det (KindInPlace cn place));
-	CompoundN pn cn = mymkCN pn cn;
+	CompoundN pn cn = mymkPN_CN pn cn;
 	Ofpos n2 np	= mkCN n2 np;
 	Ofpart part n = mkCN part (mkNP n);
 	Item det noun	= mkNP det noun;

@@ -58,6 +58,7 @@ fun
   V_NP_AP: V2A -> NP -> AP -> VP;
 	GetPassV3	: V3 -> NP -> VP ;	-- get called John
 	-- GetNPPPart	: V2 -> NP -> VP; -- get the job done right
+	passive : V2 -> VP;
 	Pass : VPSlash -> VP;
 	V2Slash	: V2 -> VPSlash;
 	-- VSSlash	: VS -> VPSlash;
@@ -65,6 +66,7 @@ fun
 	V2ASlash	: V2A -> AP -> VPSlash;
 	V3Slash	: V3 -> NP -> VPSlash;
 	ModInf : CN -> VP -> CN;
+	ModPass3 : CN -> V3 -> NP -> CN;
 	-- ModSlInf : CN -> VPSlash -> CN;
 	MassModInf : N -> VP -> CN;
 	Modified	: CN -> RCl -> CN;
