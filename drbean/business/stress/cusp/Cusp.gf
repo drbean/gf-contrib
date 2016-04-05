@@ -71,6 +71,7 @@ fun
 
 -- Prep
 
+	by	: MannerPrep;
 -- V
 
 	base	: V2;
@@ -78,6 +79,7 @@ fun
 	feel	: V2;
 	know	: V2;
 	occur	: V;
+	offer	: V2;
 	prevent	: V2;
 	provide	: V2;
 	receive	: V2;

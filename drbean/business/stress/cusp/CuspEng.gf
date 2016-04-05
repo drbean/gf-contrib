@@ -73,6 +73,7 @@ lin
 
 -- Prep
 
+	by	= mkPrep "by";
 
 -- V
 
@@ -81,6 +82,7 @@ lin
 	feel	= mkV2 "feel";
 	know	= mkV2 "know";
 	occur	= mkV "occur";
+	offer	= mkV2 "offer";
 	prevent	= mkV2 "prevent";
 	provide	= mkV2 "provide";
 	receive	= mkV2 "receive";

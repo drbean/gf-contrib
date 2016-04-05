@@ -224,7 +224,7 @@ manager	: CN;
 model	: CN;
 occur	: V;
 of
-offering
+offer	: V;
 often	: Adv;
 on
 one
