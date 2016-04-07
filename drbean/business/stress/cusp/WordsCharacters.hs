@@ -184,6 +184,7 @@ v = [
 	, "tend"
 	, "use"
 	, "stand for"
+	, "boost"
 	, "work"
 
 
@@ -193,7 +194,7 @@ v = [
 
 base	: V2;
 be
-boosting
+boost	: V2;
 both
 brief_overview	: CN;
 by

@@ -54,7 +54,7 @@ lin
 	p	= mkN "'P'";
 	c	= mkN "'C'";
 	risk	= mkN2( mkN "risk") to_prep;
-	sense	= mkCN( mkN "sense");
+	sense	= mkN2( mkN "sense");
 	situation	= mkCN( mkN "situation");
 	studies	= mkCN( mkN "studies");
 	way	= mkCN( mkN "way");
@@ -94,6 +94,7 @@ lin
 	tend	= mkVV( mkV "tend");
 	use	= mkV2V( mkV "use") noPrep to_prep;
 	work	= mkV "work";
+	boost	= mkV2 "boost";
 
 }
 

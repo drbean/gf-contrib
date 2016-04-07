@@ -52,7 +52,7 @@ fun
 	manager	: CN;
 	model	: CN;
 	risk	: N2;
-	sense	: CN;
+	sense	: N2;
 	situation	: CN;
 	studies	: CN;
 	way	: CN;
@@ -77,6 +77,7 @@ fun
 -- V
 
 	base	: V3;
+	boost	: V2;
 	call	: V3;
 	feel	: V2;
 	know	: V2;
