@@ -73,7 +73,7 @@ dic_test = [
   , "Stressful situations are often high in uncertainty."
   , "Stressful situations tend to be situations where individuals feel unsupported, or feel that they are receiving the wrong kind of support."
   , "The way that CUSP works is very simple."
-  , "The framework suggests that managers can reduce the level of uncertainty by boosting workers' sense of control over the situation."
+  , "The framework suggests that managers can reduce the level of uncertainty by boosting workers' control over the situation."
   , "The framework suggests that managers can reduce the level of uncertainty by offering support."
   , "The 'C' stands for Control."
   , "The 'U' stands for Uncertainty."

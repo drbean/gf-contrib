@@ -52,7 +52,7 @@ fun
 	manager	: CN;
 	model	: CN;
 	risk	: N2;
-	sense	: N2;
+	sense	: Partitive;
 	situation	: CN;
 	studies	: CN;
 	way	: CN;
