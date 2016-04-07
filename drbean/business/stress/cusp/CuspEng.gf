@@ -34,7 +34,7 @@ lin
 -- N
 
 	characteristic	= mkCN( mkN "characteristic");
-	control	= mkN "control";
+	control	= mkN2( mkN "control") over_prep;
 	experience	= mkN "experience";
 	happening	= mkN "happening";
 	health	= mkN "health";
@@ -74,15 +74,17 @@ lin
 -- Prep
 
 	by	= mkPrep "by";
+	over_prep	= mkPrep "over";
+	on_prep	= mkPrep "on";
 
 -- V
 
-	base	= mkV2 "base";
+	base	= mkV3( mkV "base") noPrep on_prep;
 	call	= mkV3( mkV "call");
 	feel	= mkV2 "feel";
 	know	= mkV2 "know";
 	occur	= mkV "occur";
-	offer	= mkV2 "offer";
+	offer	= mkV2( mkV "offer" "offers" "offered" "offered" "offering");
 	prevent	= mkV2 "prevent";
 	provide	= mkV2 "provide";
 	receive	= mkV2 "receive";

@@ -36,7 +36,7 @@ fun
 	s	: N;
 	u	: N;
 	characteristic	: CN;
-	control	: N;
+	control	: N2;
 	experience	: N;
 	happening	: N;
 	health	: N;
@@ -72,9 +72,11 @@ fun
 -- Prep
 
 	by	: MannerPrep;
+	over_prep	: Prep;
+	on_prep	: Prep;
 -- V
 
-	base	: V2;
+	base	: V3;
 	call	: V3;
 	feel	: V2;
 	know	: V2;

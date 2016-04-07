@@ -147,6 +147,9 @@ pron = [
 
 prep = [
 
+	"by"
+	, "over"
+	, "on"
 	]
 
 rel = [
@@ -226,11 +229,11 @@ occur	: V;
 of
 offer	: V;
 often	: Adv;
-on
+on	: Prep;
 one
 ones
 or
-over
+over	: Prep;
 P	: PN;
 particular	: A;
 Pressure	: PN;
