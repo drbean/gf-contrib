@@ -78,7 +78,8 @@ fun
 	-- Gerund : VP -> CN;
 	SClSlash	: NP -> VPSlash -> ClSlash;
 	-- VPClSlash	: VPSlash -> ClSlash;
-	FreeRCl : Cl -> NounCl;
+	FreeRCl : ClSlash -> NounCl;
+	NomCl : NounCl -> NP;
 	WithPlace	:  V -> PP_location -> VP;
 	WithTime	: Time -> VP -> VP;
 	VP_PP_coagent	: VP -> PP_coagent -> VP;

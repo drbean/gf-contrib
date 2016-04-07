@@ -185,6 +185,13 @@ oper
 			g = cn.g
 			};
 
+	mymkNP : (ncl : NounCl) -> {s : NPCase => Str ; a : Agr} =
+		\ncl -> let string = ncl.s ! Pres ! Simul ! CPos ! oDir ;
+								agreement = toAgr Sg P3 Neutr in {
+			s = \\c => string;
+			a = agreement;
+		};
+
 	myModPass3 : (cn : CN) -> (v3 : V3) -> (np : NP) ->
 		{s : Number => Case => Str ; g : Gender } =
 		\cn,v3,np -> {
@@ -250,9 +257,10 @@ lin
 	SClSlash	np vpslash = mkClSlash np vpslash;
 	-- VPClSlash	vpslash = mkClSlash vpslash;
 	FreeRCl cl = {
-	  s = \\t,a,p,_ => "such" ++ "that" ++ cl.s ! t ! a ! p ! oDir ;
+	  s = \\t,a,p,_ => "what" ++ cl.s ! t ! a ! p ! oDir ;
 		  c = npNom
 			  } ;
+	NomCl ncl = mymkNP ncl;
   WithPlace v located	= mkVP (mkVP v) located;
   AdvVP adv vp	= mkVP adv vp;
 	VPAdv vp adv = mkVP vp adv;
