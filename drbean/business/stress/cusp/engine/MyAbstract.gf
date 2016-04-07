@@ -27,6 +27,7 @@ cat
 	MassDet;
 	SubordCl;
 	Partitive;
+	NounCl;
 
 fun
 	Look_bad	: VA -> AP -> VP;
@@ -74,9 +75,10 @@ fun
 	SubjRel	: RP -> VP -> RCl;
 	ObjRel	: RP -> ClSlash -> RCl;
 	EmptyRel : ClSlash -> RCl;
-	Gerund : VP -> CN;
+	-- Gerund : VP -> CN;
 	SClSlash	: NP -> VPSlash -> ClSlash;
 	-- VPClSlash	: VPSlash -> ClSlash;
+	FreeRCl : Cl -> NounCl;
 	WithPlace	:  V -> PP_location -> VP;
 	WithTime	: Time -> VP -> VP;
 	VP_PP_coagent	: VP -> PP_coagent -> VP;

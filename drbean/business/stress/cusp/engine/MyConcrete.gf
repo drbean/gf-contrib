@@ -27,6 +27,7 @@ lincat
 	RCl	= RCl;
 	RS	= RS;
 	RP	= RP;
+	NounCl = {s : ResEng.Tense => Anteriority => CPolarity => Order => Str; c : NPCase };
 	ClSlash	= ClSlash;
   V2	= V2;
   V3	= V3;
@@ -245,9 +246,13 @@ lin
 	SubjRel	rp vp = mkRCl rp vp;
 	ObjRel rp clslash = mkRCl rp clslash;
 	EmptyRel slash = EmptyRelSlash slash;
-	Gerund vp = mkCN vp;
+	-- Gerund vp = mkCN vp;
 	SClSlash	np vpslash = mkClSlash np vpslash;
 	-- VPClSlash	vpslash = mkClSlash vpslash;
+	FreeRCl cl = {
+	  s = \\t,a,p,_ => "such" ++ "that" ++ cl.s ! t ! a ! p ! oDir ;
+		  c = npNom
+			  } ;
   WithPlace v located	= mkVP (mkVP v) located;
   AdvVP adv vp	= mkVP adv vp;
 	VPAdv vp adv = mkVP vp adv;
