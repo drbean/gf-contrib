@@ -253,7 +253,7 @@ lin
 	SubjRel	rp vp = mkRCl rp vp;
 	ObjRel rp clslash = mkRCl rp clslash;
 	EmptyRel slash = EmptyRelSlash slash;
-	-- Gerund vp = mkCN vp;
+	ByGerund vp = ByVP vp;
 	SClSlash	np vpslash = mkClSlash np vpslash;
 	-- VPClSlash	vpslash = mkClSlash vpslash;
 	FreeRCl cl = {
@@ -366,7 +366,6 @@ lin
   in_prep	= P.mkPrep "in";
   like_prep	= P.mkPrep "like";
 	of_prep	= possess_Prep;
-  on_prep	= P.mkPrep "on";
   part_prep	= part_Prep;
   to_prep	= to_Prep;
   up_prep	= P.mkPrep "up";

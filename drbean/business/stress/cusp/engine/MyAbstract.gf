@@ -75,7 +75,7 @@ fun
 	SubjRel	: RP -> VP -> RCl;
 	ObjRel	: RP -> ClSlash -> RCl;
 	EmptyRel : ClSlash -> RCl;
-	-- Gerund : VP -> CN;
+	ByGerund : VP -> PP_manner;
 	SClSlash	: NP -> VPSlash -> ClSlash;
 	-- VPClSlash	: VPSlash -> ClSlash;
 	FreeRCl : ClSlash -> NounCl;
@@ -189,7 +189,6 @@ fun
 	in_prep	: Prep;
   like_prep	: Prep;
 	of_prep	: Prep;
-	on_prep	: LocPrep;
 	part_prep	: Prep;
 	to_prep	: Prep;
 	up_prep	: Prep;
