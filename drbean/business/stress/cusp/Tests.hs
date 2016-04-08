@@ -72,6 +72,8 @@ dic_test = [
   , "Stressful situations tend to be ones where individuals feel that they have very little control over what happens."
   , "Stressful situations are often high in uncertainty."
   , "Stressful situations tend to be situations where individuals feel unsupported, or feel that they are receiving the wrong kind of support."
+  , "Stressful situations tend to be situations individuals feel unsupported in."
+  , "Stressful situations tend to be situations individuals feel that they are receiving the wrong kind of support in."
   , "The way that CUSP works is very simple."
   , "The framework suggests that managers can reduce the level of uncertainty by boosting workers' control over the situation."
   , "The framework suggests that managers can reduce the level of uncertainty by offering support."
