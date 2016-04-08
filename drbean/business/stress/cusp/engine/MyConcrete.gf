@@ -260,9 +260,9 @@ lin
 	  s = \\t,a,p,_ => "what" ++ cl.s ! t ! a ! p ! oDir ;
 		  c = npNom
 			  } ;
-	FreeRCl vp = let cl = Sentence it vp in
+	FreeRCl vp = let qcl = WH_Pred whatSg_IP vp in
 	{
-	  s = \\t,a,p,_ => "what" ++ cl.s ! t ! a ! p ! oDir ;
+	  s = \\t,a,p,_ => qcl.s ! t ! a ! p ! QDir ;
 		  c = npNom
 			  };
 	NomCl ncl = mymkNP ncl;
