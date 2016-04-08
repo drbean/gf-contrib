@@ -91,7 +91,6 @@ n = [
 	"characteristic"
 	, "control"
 	, "experience"
-	, "happening"
 	, "health"
 	, "stress"
 	, "support"
@@ -185,6 +184,7 @@ v = [
 	, "use"
 	, "stand for"
 	, "boost"
+	, "happen"
 	, "work"
 
 
@@ -213,7 +213,7 @@ framework	: CN;
 from
 good	: A;
 Gourlay	: PN;
-happening	: N;
+happen	: V;
 health	: N;
 high	: A;
 in

@@ -256,10 +256,15 @@ lin
 	ByGerund vp = ByVP vp;
 	SClSlash	np vpslash = mkClSlash np vpslash;
 	-- VPClSlash	vpslash = mkClSlash vpslash;
-	FreeRCl cl = {
+	FreeRClSlash cl = {
 	  s = \\t,a,p,_ => "what" ++ cl.s ! t ! a ! p ! oDir ;
 		  c = npNom
 			  } ;
+	FreeRCl vp = let cl = Sentence it vp in
+	{
+	  s = \\t,a,p,_ => "what" ++ cl.s ! t ! a ! p ! oDir ;
+		  c = npNom
+			  };
 	NomCl ncl = mymkNP ncl;
   WithPlace v located	= mkVP (mkVP v) located;
   AdvVP adv vp	= mkVP adv vp;

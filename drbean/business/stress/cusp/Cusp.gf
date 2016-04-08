@@ -38,7 +38,6 @@ fun
 	characteristic	: CN;
 	control	: N2;
 	experience	: N;
-	happening	: N;
 	health	: N;
 	stress	: N;
 	support	: N;
@@ -92,6 +91,7 @@ fun
 	tend	: VV;
 	use	: V2V;
 	work	: V;
+	happen	: V;
 
 }
 

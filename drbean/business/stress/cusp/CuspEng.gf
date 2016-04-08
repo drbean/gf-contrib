@@ -36,7 +36,6 @@ lin
 	characteristic	= mkCN( mkN "characteristic");
 	control	= mkN2( mkN "control") over_prep;
 	experience	= mkN "experience";
-	happening	= mkN "happening";
 	health	= mkN "health";
 	stress	= mkN "stress";
 	support	= mkN "support";
@@ -95,6 +94,7 @@ lin
 	use	= mkV2V( mkV "use") noPrep to_prep;
 	work	= mkV "work";
 	boost	= mkV2 "boost";
+	happen	= mkV "happen";
 
 }
 
