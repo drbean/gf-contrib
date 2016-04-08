@@ -253,6 +253,7 @@ lin
 	SubjRel	rp vp = mkRCl rp vp;
 	ObjRel rp clslash = mkRCl rp clslash;
 	EmptyRel slash = EmptyRelSlash slash;
+	EmptyRelSlash slash = EmptyRelSlash slash;
 	ByGerund vp = ByVP vp;
 	SClSlash	np vpslash = mkClSlash np vpslash;
 	-- VPClSlash	vpslash = mkClSlash vpslash;
