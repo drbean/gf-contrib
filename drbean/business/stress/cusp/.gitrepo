@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = http://github.com/drbean/cusp
+	branch = master
+	commit = d06f531e13a6a120abce30a2faf6f40b83a1f691
+	parent = 02b91d319e74a2c8b6f156276076e8fd8e07b5ea
+	cmdver = 0.3.0
