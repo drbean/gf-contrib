@@ -1,4 +1,4 @@
---# -path=.:/home/drbean/GF/lib/src/translator:/home/drbean/GF/gf-contrib/drbean:./gf-contrib/drbean/business/managing/motivating:./gf-contrib/drbean/business/managing/motivating/engine:present
+--# -path=.:/home/drbean/GF/lib/src/translator:/home/drbean/GF/gf-contrib/drbean/business/managing/motivating:/home/drbean/GF/gf-contrib/drbean/business/managing/motivating/engine:present
 
 concrete MotivatingEng of Motivating = MyConcrete  **
 open ConstructorsEng, ParadigmsEng, StructuralEng, IrregEng, ExtraEng, ConstructX, Prelude, (R=ResEng) in {
@@ -57,7 +57,7 @@ lin
 -- V
 
 	ask	= mkV2 "ask";
-	care	= mkV2 "care" about_prep;
+	care	= mkV2( mkV "care") about_prep;
 	find	= mkV2 "find";
 	know	= mkV2 "know";
 	listen	= mkV2 "listen";
