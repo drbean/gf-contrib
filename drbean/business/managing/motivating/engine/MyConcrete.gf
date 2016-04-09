@@ -332,6 +332,7 @@ lin
 	some_pl_Det = mkDet some_Quant pluralNum;
 	some_NP = mkNP( mkDet some_Quant);
 	some_pl_NP = mkNP( mkDet some_Quant pluralNum);
+	that_Pron = mkNP (mkDet that_Quant);
 	List np1 np2 = mkListNP np1 np2;
 	AddList np list = mkListNP np list;
 	CloseList conj list = mkNP conj list;
@@ -347,13 +348,12 @@ lin
 	she = mkNP she_Pron;
 	he = mkNP he_Pron;
 	it = mkNP it_Pron;
-	that = mkNP that_Pron;
 	they = mkNP they_Pron;
-	you = mkNP you_Pron;
+	you = mkNP youSg_Pron;
 
 	who_WH	= mymkIP "who" "who" "whose" Sg;
 	what_WH	= whatSg_IP;
-	how_WH	= how_IAdv;
+	-- how_WH	= mkIP how_IAdv;
 	that_RP	= ExtraEng.that_RP;
 	IdRP	= IdRP;
 	-- in_which	=mkRP in_prep which_RP;
@@ -382,6 +382,7 @@ lin
   with_prep	= P.mkPrep "with";
 
 	person	= mkCN( P.mkN "person" "people");
+	thing	= mkCN( P.mkN "thing");
 
 	can	= can_VV;
 	become	= P.mkV2 IrregEng.become_V;

@@ -165,7 +165,7 @@ fun
 	he	: NP;
 	she	: NP;
 	it	: NP;
-	that	: NP;
+	that_Pron	: NP;
 	they	: NP;
 	you	: NP;
 
