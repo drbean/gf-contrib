@@ -347,9 +347,13 @@ lin
 	she = mkNP she_Pron;
 	he = mkNP he_Pron;
 	it = mkNP it_Pron;
+	that = mkNP that_Pron;
+	they = mkNP they_Pron;
+	you = mkNP you_Pron;
 
 	who_WH	= mymkIP "who" "who" "whose" Sg;
 	what_WH	= whatSg_IP;
+	how_WH	= how_IAdv;
 	that_RP	= ExtraEng.that_RP;
 	IdRP	= IdRP;
 	-- in_which	=mkRP in_prep which_RP;
@@ -391,6 +395,7 @@ lin
 	when_Subj = when_Subj;
 	or_Conj	= or_Conj;
 	and_Conj	= mymkConj "and";
+	but_Conj	= mymkConj "but";
 
 	Subjunct subj s	= mkAdv subj s;
 

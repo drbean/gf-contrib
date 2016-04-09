@@ -35,10 +35,19 @@ posMap = Map.fromList [
 
 a = [
 
+	"concerned"
+	, "different"
+	, "difficult"
+	, "good"
+	, "respected"
+	, "unique"
 	]
 
 adv = [
 
+	"just"
+	, "out"
+	, "really"
 	]
 
 aux = [
@@ -56,8 +65,11 @@ aux = [
 	
 
 conj = [
-	"because"
+	"and"
+	, "because"
+	, "but"
 	, "if"
+	, "or"
 	]
 
 
@@ -69,9 +81,33 @@ det = [
 	, "no"
 	, "some"
 	, "the"
+	, "another"
+	, "any"
+	, "both"
+	, "more"
+	, "other"
+	, "their"
+
+  ]
 
 n = [
 
+	"everybody"
+	, "everyone"
+	, "difference"
+	, "driver"
+	, "eye"
+	, "family"
+	, "manager"
+	, "motivator"
+	, "people"
+	, "person"
+	, "question"
+	, "secret"
+	, "situation"
+	, "thing"
+	, "way"
+	, "world"
 	]
 
 pn = [
@@ -84,15 +120,30 @@ pron = [
 	, "her"
 	, "he"
 	, "his"
+	, "that"
+	, "there"
+	, "they"
+	, "you"
 	]
 
 prep = [
 
+	"about"
+	, "as"
+	, "at"
+	, "for"
+	, "in"
+	, "like"
+	, "of"
+	, "in order to"
+	, "through"
 	]
 
 rel = [
 	"that"
 	, "who"
+	, "how"
+	, "what"
 	]
 
 tag = [
@@ -116,9 +167,92 @@ tag = [
 
 v = [
 
+	"ask"
+	, "care"
+	, "find"
+	, "know"
+	, "listen"
+	, "look"
+	, "make"
+	, "motivate"
+	, "need"
+	, "tell"
+	, "think"
+	, "try"
+	, "understand"
+	, "want"
 	]
 
 {-
+
+
+about	: Prep;
+and	: Conj;
+another	: Det;
+any	: Det;
+as	: Prep;
+ask	: V2;
+at	: Prep;
+both	: Det;
+but	: Conj;
+care	: V2;
+concerned	: A;
+difference	: CN;
+different	: A;
+difficult	: A;
+driver	: CN;
+everybody	: N;
+everyone	: N;
+eye	: CN;
+family	: CN;
+find	: V2;
+for	: Prep;
+good	: A;
+how	: Rel;
+in	: Prep;
+just	: Adv;
+know	: V2;
+like	: Prep;
+listen	: V2;
+look	: V2;
+make	: V2;
+manager	: CN;
+more	: Det;
+motivate	: V2;
+motivator	: CN;
+need	: VV;
+not
+of	: Prep;
+or	: Conj;
+in order to	: Prep;
+other	: Det;
+out	: Adv;
+people	: CN;
+person	: CN;
+question	: CN;
+really	: Adv;
+respected	: A;
+secret	: CN;
+situation	: CN;
+some	: Det;
+tell	: V3;
+that	: Pron;
+their	: Det;
+them	: Pron;
+there	: Pron;
+they	: Pron;
+thing	: CN;
+think	: V;
+through	: Prep;
+to
+try	: VV;
+understand	: V2;
+unique	: A;
+want	: VV;
+way	: CN;
+what	: Rel;
+world	: CN;
+you	: Pron;
 
 -}
 

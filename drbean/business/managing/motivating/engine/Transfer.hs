@@ -1,6 +1,6 @@
 module Main where
 
-import Chat
+import Motivating
 import LogicalForm hiding ((==))
 import Evaluation
 
@@ -20,7 +20,7 @@ import System.Environment.FindBin
 main :: IO ()
 main = do
 	path <- getProgPath
-	gr <- readPGF ( path ++ "/Chat.pgf" )
+	gr <- readPGF ( path ++ "/Motivating.pgf" )
 	hClose stderr
 	hDuplicateTo stdout stderr
 	s <- getLine

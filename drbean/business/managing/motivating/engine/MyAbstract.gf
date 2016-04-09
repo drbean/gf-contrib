@@ -165,9 +165,13 @@ fun
 	he	: NP;
 	she	: NP;
 	it	: NP;
+	that	: NP;
+	they	: NP;
+	you	: NP;
 
 	who_WH	: IP;
 	what_WH	: IP;
+	how_WH	: IP;
 	IdRP	: RP;
 	that_RP	: RP;
 	in_which	: RP;
@@ -211,6 +215,7 @@ fun
 	when_Subj	: Subj;
 	or_Conj	: Conj;
 	and_Conj	: Conj;
+	but_Conj	: Conj;
 
 	Subjunct	: Subj -> S -> SubordCl;
 

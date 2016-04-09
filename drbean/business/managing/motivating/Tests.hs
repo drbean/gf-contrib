@@ -6,7 +6,7 @@ import Data.Maybe
 import Data.DRS
 
 import PGF
-import Cusp
+import Motivating
 import Representation
 import Evaluation
 import Model
@@ -17,7 +17,7 @@ import WordsCharacters
 -- import System.Environment.FindBin
 
 ans tests = do
-  gr	<- readPGF ( "./Cusp.pgf" )
+  gr	<- readPGF ( "./Motivating.pgf" )
   let ss = map (chomp . lc_first) tests
   let ps = map ( parses gr ) ss
   let ls = map (map ( (linear gr) <=< transform ) ) ps
@@ -27,7 +27,7 @@ ans tests = do
 displayResult = fromMaybe "Nothing"
 
 trans tests = do
-  gr	<- readPGF ( "./Cusp.pgf" )
+  gr	<- readPGF ( "./Motivating.pgf" )
   let ss = map (chomp . lc_first) tests
   let ps = map ( parses gr ) ss
   let ls = map id ps
@@ -35,7 +35,7 @@ trans tests = do
   putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
 
 reps tests = do
-  gr	<- readPGF ( "./Cusp.pgf" )
+  gr	<- readPGF ( "./Motivating.pgf" )
   let ss = map (chomp . lc_first) tests
   let ps = map ( parses gr ) ss
   let ts = map (map (\x -> (((unmaybe . rep) x) (term2ref drsRefs var_e) ))) ps
@@ -43,7 +43,7 @@ reps tests = do
   putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
 
 lf tests = do
-	gr	<- readPGF ( "./Cusp.pgf" )
+	gr	<- readPGF ( "./Motivating.pgf" )
 	let ss = map (chomp . lc_first) tests
 	let ps = map ( parses gr ) ss
 	let ts = map (map (\p -> drsToLF (((unmaybe . rep) p) (DRSRef "r1"))) ) ps
@@ -51,7 +51,7 @@ lf tests = do
 	putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
 
 fol tests = do
-	gr	<- readPGF ( "./Cusp.pgf" )
+	gr	<- readPGF ( "./Motivating.pgf" )
 	let ss = map (chomp . lc_first) tests
 	let ps = map ( parses gr ) ss
 	let ts = map (map (\p -> drsToFOL ( (unmaybe . rep) p (term2ref drsRefs var_e) ) ) ) ps
@@ -59,6 +59,7 @@ fol tests = do
 	putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
 
 dic_test = [
+
   "Managers need to understand what motivates people."
 	, "There are some things that motivate everyone."
 	, "People care about their families,"
@@ -71,6 +72,7 @@ dic_test = [
 	, "In order to look at the world through the eyes of another person, managers need to be good at asking questions and listening to people."
 	, "Managers need to ask not just any question, but questions that really tell them about what a person's drivers, or unique motivators are."
 	, "Managers need to ask questions to find out what other people are concerned about in the situation that they are both in."
+
   ]
 
 -- vim: set ts=2 sts=2 sw=2 noet:
