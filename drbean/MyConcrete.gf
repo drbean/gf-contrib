@@ -9,6 +9,7 @@ lincat
   N	= N;
 	ListAP	= ListAP;
   A	= A;
+  A2	= A2;
   AP	= AP;
   Adv	= Adv;
   AdV	= AdV;
@@ -26,6 +27,7 @@ lincat
 	RCl	= RCl;
 	RS	= RS;
 	RP	= RP;
+	NounCl = {s : ResEng.Tense => Anteriority => CPolarity => Order => Str; c : NPCase };
 	ClSlash	= ClSlash;
   V2	= V2;
   V3	= V3;
@@ -168,10 +170,49 @@ oper
 				n = Pl ;
 			};
 
+	mymkPN_CN : (pn : PN) -> (cn : CN) -> {s : Number => Case => Str ; g : Gender } = 
+		\pn,cn -> {
+			s = table {
+				Sg => table {
+					Nom => pn.s ! Nom ++ cn.s ! Sg ! Nom;
+					Gen => cn.s ! Sg ! Gen
+					};
+				Pl => table {
+					Nom => pn.s ! Nom ++ cn.s ! Pl ! Nom;
+					Gen => cn.s ! Pl ! Gen
+					}
+				};
+			g = cn.g
+			};
+
+	mymkNP : (ncl : NounCl) -> {s : NPCase => Str ; a : Agr} =
+		\ncl -> let string = ncl.s ! Pres ! Simul ! CPos ! oDir ;
+								agreement = toAgr Sg P3 Neutr in {
+			s = \\c => string;
+			a = agreement;
+		};
+
+	myModPass3 : (cn : CN) -> (v3 : V3) -> (np : NP) ->
+		{s : Number => Case => Str ; g : Gender } =
+		\cn,v3,np -> {
+			s = table {
+				Sg => table {
+					Nom => cn.s ! Sg ! Nom ++ v3.s ! VPPart ++ np.s ! NPAcc;
+					Gen => cn.s ! Sg ! Nom ++ v3.s ! VPPart ++ np.s ! NPNomPoss
+					};
+				Pl => table {
+					Nom => cn.s ! Pl ! Nom ++ v3.s ! VPPart ++ np.s ! NPAcc;
+					Gen => cn.s ! Pl ! Nom ++ v3.s ! VPPart ++ np.s ! NPNomPoss
+					}
+				};
+			g = cn.g
+			};
+
 lin
 	Be_bad ap	= mkComp ap;
   Be_somewhere located	= mkComp located;
 	Be_someone np	= mkComp np;
+	Be_AdV_NP adv np = mkComp np;
 	Be_vp comp	= mkVP comp;
 	Look_bad verb adj	= mkVP verb adj;
   Locating prep item	= mkAdv prep item;
@@ -195,8 +236,9 @@ lin
 	V_NP_whether_S ask recipient topic = mkVP ask recipient topic;
   V_NP_NP v theme recipient = mkVP v theme recipient; 
   V_NP_AP v patient state = mkVP v patient state;
-  -- GetPassV3 v np = insertObj (\\_ => v.s ! VPPart ++ v.p ++ v.c2 ++ v.c3 ++ np.s ! NPAcc) (predAux auxGet) ;
+  GetPassV3 v np = insertObj (\\_ => v.s ! VPPart ++ v.p ++ v.c2 ++ v.c3 ++ np.s ! NPAcc) (predAux auxGet) ;
   -- GetNPPPart v np = insertObj (\\_ => np.s ! NPAcc ++ v.s ! VPPart ++ v.p ++ v.c2 ) (predAux auxGet) ;
+	passive v = passiveVP v;
 	Pass vp = PassVPSlash vp;
 	V2Slash v2	= mkVPSlash v2;
 	-- VSSlash vs	= mkVPSlash vs;
@@ -204,14 +246,27 @@ lin
 	V2ASlash v2a ap	= mkVPSlash v2a ap;
 	V3Slash v3 np	= mkVPSlash v3 np;
 	ModInf cn vp = mkCN cn vp;
+	ModPass3 cn v3 np = myModPass3 cn v3 np;
 	-- ModSlInf cn vpslash = mkCN cn vpslash;
 	MassModInf n vp = mkCN( mkCN n) vp;
 	Modified cn rcl = mkCN cn ( mkRS rcl);
 	SubjRel	rp vp = mkRCl rp vp;
 	ObjRel rp clslash = mkRCl rp clslash;
 	EmptyRel slash = EmptyRelSlash slash;
+	EmptyRelSlash slash = EmptyRelSlash slash;
+	ByGerund vp = ByVP vp;
 	SClSlash	np vpslash = mkClSlash np vpslash;
 	-- VPClSlash	vpslash = mkClSlash vpslash;
+	FreeRClSlash cl = {
+	  s = \\t,a,p,_ => "what" ++ cl.s ! t ! a ! p ! oDir ;
+		  c = npNom
+			  } ;
+	FreeRCl vp = let qcl = WH_Pred whatSg_IP vp in
+	{
+	  s = \\t,a,p,_ => qcl.s ! t ! a ! p ! QDir ;
+		  c = npNom
+			  };
+	NomCl ncl = mymkNP ncl;
   WithPlace v located	= mkVP (mkVP v) located;
   AdvVP adv vp	= mkVP adv vp;
 	VPAdv vp adv = mkVP vp adv;
@@ -251,6 +306,7 @@ lin
 	KindInPlace cn adv	= mkCN cn adv;
 	PlaceKind ap n = mkCN ap n;
 	Membership det cn place = mkCl( Item det (KindInPlace cn place));
+	CompoundN pn cn = mymkPN_CN pn cn;
 	Ofpos n2 np	= mkCN n2 np;
 	Ofpart part n = mkCN part (mkNP n);
 	Item det noun	= mkNP det noun;
@@ -296,6 +352,8 @@ lin
 	what_WH	= whatSg_IP;
 	that_RP	= ExtraEng.that_RP;
 	IdRP	= IdRP;
+	-- in_which	=mkRP in_prep which_RP;
+	-- where_RP	= mkRP "where";
 
 	more	= more_CAdv;
 	ComparaAP a np = mkAP a np;
@@ -304,6 +362,7 @@ lin
 	AdjModified	a s = mkAP a s;
 	As_as ap np	= mkAP as_CAdv ap np;
 	AdvAdj adv adj = mkAP adv adj;
+	A_PP a np = mkAP a np;
 
   about_prep	= P.mkPrep "about";
   as_prep	= P.mkPrep "as";
@@ -313,7 +372,6 @@ lin
   in_prep	= P.mkPrep "in";
   like_prep	= P.mkPrep "like";
 	of_prep	= possess_Prep;
-  on_prep	= P.mkPrep "on";
   part_prep	= part_Prep;
   to_prep	= to_Prep;
   up_prep	= P.mkPrep "up";
@@ -330,6 +388,7 @@ lin
 	Very_Adv a = ParadigmsEng.mkAdv ("very" ++ a.s);
 	because_Subj	= because_Subj;
 	if_Subj	= if_Subj;
+	when_Subj = when_Subj;
 	or_Conj	= or_Conj;
 	and_Conj	= mymkConj "and";
 

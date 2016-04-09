@@ -27,12 +27,14 @@ cat
 	MassDet;
 	SubordCl;
 	Partitive;
+	NounCl;
 
 fun
 	Look_bad	: VA -> AP -> VP;
 	-- Be_made_sth : V3 -> NP -> VP;
 	Be_bad	: AP -> Comp;
 	Be_someone	: NP -> Comp;
+	Be_AdV_NP	: AdV -> NP -> Comp;
 	Be_somewhere	: PP_location -> Comp;
 	Be_vp	: Comp -> VP;
 	Locating  : LocPrep -> Place -> PP_location;
@@ -56,8 +58,9 @@ fun
 	V_NP_whether_S:	V2Q -> NP -> QS -> VP;
 	V_NP_NP:	V3 -> NP -> NP -> VP;
   V_NP_AP: V2A -> NP -> AP -> VP;
-	-- GetPassV3	: V3 -> NP -> VP ;	-- be called John
+	GetPassV3	: V3 -> NP -> VP ;	-- get called John
 	-- GetNPPPart	: V2 -> NP -> VP; -- get the job done right
+	passive : V2 -> VP;
 	Pass : VPSlash -> VP;
 	V2Slash	: V2 -> VPSlash;
 	-- VSSlash	: VS -> VPSlash;
@@ -65,16 +68,22 @@ fun
 	V2ASlash	: V2A -> AP -> VPSlash;
 	V3Slash	: V3 -> NP -> VPSlash;
 	ModInf : CN -> VP -> CN;
+	ModPass3 : CN -> V3 -> NP -> CN;
 	-- ModSlInf : CN -> VPSlash -> CN;
 	MassModInf : N -> VP -> CN;
 	Modified	: CN -> RCl -> CN;
 	SubjRel	: RP -> VP -> RCl;
 	ObjRel	: RP -> ClSlash -> RCl;
 	EmptyRel : ClSlash -> RCl;
+	EmptyRelSlash	: ClSlash -> RCl;
+	ByGerund : VP -> PP_manner;
 	SClSlash	: NP -> VPSlash -> ClSlash;
 	-- VPClSlash	: VPSlash -> ClSlash;
+	FreeRCl : VP -> NounCl;
+	FreeRClSlash : ClSlash -> NounCl;
+	NomCl : NounCl -> NP;
 	WithPlace	:  V -> PP_location -> VP;
-	WithTime	: VP -> Time -> VP;
+	WithTime	: Time -> VP -> VP;
 	VP_PP_coagent	: VP -> PP_coagent -> VP;
 	VP_PP_instrument	: VP -> PP_instrument -> VP;
 	VP_PP_theme	: VP -> PP_theme -> VP;
@@ -114,6 +123,7 @@ fun
 	KindInPlace	: CN -> PP_location -> CN;
 	PlaceKind	: AP -> PlaceName -> PlaceName;
 	Membership : Det -> CN -> PP_location -> Cl;
+	CompoundN	: PN -> CN -> CN;
 	Item	: Det -> CN -> NP;
 	MassItem	: MassDet -> N	-> NP;
 	Titular	: Title -> NP;
@@ -160,6 +170,8 @@ fun
 	what_WH	: IP;
 	IdRP	: RP;
 	that_RP	: RP;
+	in_which	: RP;
+	where_RP	: RP;
 
 	more : CAdv;
 	ComparaAP : A -> NP -> AP;
@@ -169,18 +181,17 @@ fun
 	AdjModified	: AP -> VP -> AP;
 	As_as	: AP -> NP -> AP;
 	AdvAdj	: AdA -> AP -> AP;
+	A_PP	: A2 -> NP ->AP;
 
 	about_prep	: Prep;
 	as_prep	: Prep;
 	at_prep	: LocPrep;
 	before_prep	: Prep;
-	in_prep	: LocPrep;
 	from_prep	: Prep;
   like_prep	: Prep;
 	of_prep	: Prep;
-	on_prep	: LocPrep;
 	part_prep	: Prep;
-	to_prep	: LocPrep;
+	to_prep	: Prep;
 	up_prep	: Prep;
 	with_prep	: CoagentPrep;
 
@@ -197,6 +208,7 @@ fun
 	Very_Adv	: Adv -> Adv;
 	because_Subj	: Subj;
 	if_Subj	: Subj;
+	when_Subj	: Subj;
 	or_Conj	: Conj;
 	and_Conj	: Conj;
 
