@@ -57,7 +57,7 @@ lin
 -- V
 
 	ask	= mkV2 "ask";
-	care	= mkV2 "care";
+	care	= mkV2 "care" about_prep;
 	find	= mkV2 "find";
 	know	= mkV2 "know";
 	listen	= mkV2 "listen";
