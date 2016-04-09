@@ -84,6 +84,32 @@ dic_test = [
 
   ]
 
+yn_dic_test = [
+
+  "Is a good working climate one where stress is largely prevented."
+  , "Does Gourlay provides a brief overview of a critically important In Equilibrium framework called CUSP."
+  , "Can CUSP be used both to prevent stress and to reduce the risks to an individual's health when stress has occurred."
+  , "Can CUSP be used to prevent stress."
+  , "Can CUSP be used to reduce the risks to an individual's health when stress occurs."
+  , "Is CUSP really a very useful model."
+  , "Is CUSP a very useful model."
+  , "Is CUSP based on what we know from thousands of psychological studies and from experience."
+  , "Do stressful work situations have particular characteristics."
+  , "Do stressful situations tend to be ones where individuals feel that they have very little control over what happens."
+  , "Are stressful situations often high in uncertainty."
+  , "Do stressful situations tend to be situations where individuals feel unsupported, or feel that they are receiving the wrong kind of support."
+  , "Do stressful situations tend to be situations individuals feel unsupported in."
+  , "Do stressful situations tend to be situations individuals feel that they are receiving the wrong kind of support in."
+  , "Is the way that CUSP works very simple."
+  , "Does the framework suggest that managers can reduce the level of uncertainty by boosting workers' control over the situation."
+  , "Does the framework suggest that managers can reduce the level of uncertainty by offering support."
+  , "Does the 'C' stand for Control."
+  , "Does the 'U' stand for Uncertainty."
+  , "Does the 'S' stand for Support."
+  , "Does the 'P' stand for Pressure."
+
+  ]
+
 in_equilibrium = [
   "Is In Equilibrium a company?"
   , "Does Gourlay work in In Equilibrium?"
