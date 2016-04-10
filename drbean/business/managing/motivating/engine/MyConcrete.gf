@@ -258,7 +258,7 @@ lin
 	SClSlash	np vpslash = mkClSlash np vpslash;
 	-- VPClSlash	vpslash = mkClSlash vpslash;
 	FreeRClSlash cl = {
-	  s = \\t,a,p,_ => "what" ++ cl.s ! t ! a ! p ! oDir ;
+	  s = \\t,a,p,_ => "what" ++ cl.s ! t ! a ! p ! oDir ++ cl.c2;
 		  c = npNom
 			  } ;
 	FreeRCl vp = let qcl = WH_Pred whatSg_IP vp in
