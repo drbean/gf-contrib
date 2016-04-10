@@ -3,15 +3,15 @@ module WordsCharacters where
 import qualified Data.Map as Map
 
 gfWords = Map.fromList [("A",a),
-  -- ("ADV",adv),
+  ("ADV",adv),
   ("Aux",aux),
-  -- ("CONJ",conj),
+  ("CONJ",conj),
   ("Det",det),
   ("N",n),
   ("PN",pn),
-  -- ("Pron",pron),
+  ("Pron",pron),
   ("Prep",prep),
-  -- ("Rel",rel),
+  ("Rel",rel),
   ("Tag",tag),
   ("V",v) ]
 
@@ -130,18 +130,9 @@ pn = [
 
 pron = [
 	"he"
-	, "i"
-	, "i'm"
-	, "it"
-	, "it's"
-	, "me"
-	, "myself"
+	, "she"
 	, "they"
-	, "us"
-	, "we"
 	, "you"
-	, "you're"
-	, "who"
 	]
 
 prep = [
@@ -153,6 +144,8 @@ prep = [
 
 rel = [
 	"that"
+	, "who"
+	, "what"
 	]
 
 tag = [
@@ -271,7 +264,7 @@ useful	: A;
 very	: AdA;
 way	: CN;
 we
-what
+what	: Pron:
 when	: Subj;
 where
 worker	: CN;
