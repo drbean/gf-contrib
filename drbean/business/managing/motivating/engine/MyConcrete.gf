@@ -263,6 +263,7 @@ lin
 	EmptyRelSlash slash = EmptyRelSlash slash;
 	WayNP cl = myCltoNP "the way that" cl;
 	HowNP cl = myCltoNP "how" cl;
+	Gerund vp = GerundNP vp;
 	ByGerund vp = ByVP vp;
 	SClSlash	np vpslash = mkClSlash np vpslash;
 	-- VPClSlash	vpslash = mkClSlash vpslash;
