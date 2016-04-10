@@ -386,7 +386,6 @@ lin
   like_prep	= P.mkPrep "like";
 	of_prep	= possess_Prep;
   part_prep	= part_Prep;
-  to_prep	= to_Prep;
   up_prep	= P.mkPrep "up";
   with_prep	= P.mkPrep "with";
 

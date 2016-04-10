@@ -3,7 +3,9 @@
 concrete MotivatingEng of Motivating = MyConcrete  **
 open ConstructorsEng, ParadigmsEng, StructuralEng, IrregEng, ExtraEng, ConstructX, Prelude, (R=ResEng) in {
 
--- oper
+oper
+
+different_A = mkA "different";
 
 lin
 
@@ -16,7 +18,8 @@ lin
 -- AP
 
 	concerned	= mkAP( mkA "concerned");
-	different	= mkAP( mkA "different");
+	different = mkAP different_A;
+	different_pp	= mkA2 different_A to;
 	difficult	= mkAP( mkA "difficult");
 	good	= mkAP( mkA "good");
 	other	= mkAP( mkA "other");
@@ -54,6 +57,7 @@ lin
 	like	= mkPrep "like";
 	in_order_to	= mkPrep "in order to";
 	through	= mkPrep "through";
+	to	= mkPrep "to";
 -- V
 
 	ask	= mkV2 "ask";

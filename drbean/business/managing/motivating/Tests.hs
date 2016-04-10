@@ -65,7 +65,7 @@ dic_test = [
 	, "People care about their families,"
 	, "Everybody wants to make a difference."
 	, "Everybody wants to be respected."
-  , "More difficult is understanding how everyone is unique and different."
+  , "Understanding how everyone is unique and different is more difficult."
 	, "Everyone is different to the way that you as a manager think."
 	, "The secret is to try to know what the world looks for people through their eyes."
 	, "Managers need to understand what the world looks like through the eyes of another person."

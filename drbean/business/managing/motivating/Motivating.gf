@@ -15,6 +15,7 @@ fun
 
 	concerned	: AP;
 	different	: AP;
+	different_pp	: A2;
 	difficult	: AP;
 	good	: AP;
 	other	: AP;
@@ -52,6 +53,7 @@ fun
 	like	: Prep;
 	in_order_to	: Prep;
 	through	: Prep;
+	to	: Prep;
 -- V
 
 	ask	: V2;

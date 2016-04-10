@@ -137,6 +137,7 @@ prep = [
 	, "of"
 	, "in order to"
 	, "through"
+	, "to"
 	]
 
 rel = [
@@ -244,7 +245,7 @@ they	: Pron;
 thing	: CN;
 think	: V;
 through	: Prep;
-to
+to	: Prep;
 try	: VV;
 understand	: V2;
 unique	: A;

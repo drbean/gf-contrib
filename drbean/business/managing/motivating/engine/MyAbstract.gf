@@ -197,7 +197,6 @@ fun
   like_prep	: Prep;
 	of_prep	: Prep;
 	part_prep	: Prep;
-	to_prep	: Prep;
 	up_prep	: Prep;
 	with_prep	: CoagentPrep;
 
