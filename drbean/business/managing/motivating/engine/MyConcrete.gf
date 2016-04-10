@@ -192,10 +192,10 @@ oper
 			a = agreement;
 		};
 
-	mywayAdv : (cl : Cl) -> {s : NPCase => Str ; a : Agr} =
-		\cl -> let string = "the way that" ++ cl.s ! Pres ! Simul ! CPos ! oDir ;
+	myCltoNP : (str : Str) -> (cl : Cl) -> {s : NPCase => Str ; a : Agr} =
+		\str,cl -> let np = str ++ cl.s ! Pres ! Simul ! CPos ! oDir ;
 								agreement = toAgr Sg P3 Neutr in {
-			s = \\_ => string;
+			s = \\_ => np;
 			a = agreement;
 		};
 
@@ -261,7 +261,8 @@ lin
 	ObjRel rp clslash = mkRCl rp clslash;
 	EmptyRel slash = EmptyRelSlash slash;
 	EmptyRelSlash slash = EmptyRelSlash slash;
-	WayNP cl = mywayAdv cl;
+	WayNP cl = myCltoNP "the way that" cl;
+	HowNP cl = myCltoNP "how" cl;
 	ByGerund vp = ByVP vp;
 	SClSlash	np vpslash = mkClSlash np vpslash;
 	-- VPClSlash	vpslash = mkClSlash vpslash;
