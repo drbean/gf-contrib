@@ -371,7 +371,7 @@ lin
 	-- in_which	=mkRP in_prep which_RP;
 	-- where_RP	= mkRP "where";
 
-	more	= more_CAdv;
+	-- more	= more_CAdv;
 	ComparaAP a np = mkAP a np;
 	ComparaAdv cadv a np = mkAdv cadv a np;
 	ComparaS a s = mkAP a s;

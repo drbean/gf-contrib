@@ -10,6 +10,7 @@ fun
 	just	: Adv;
 	out	: Adv;
 	really	: Adv;
+	more	: AdA;
 	both	: Adv;
 -- AP
 

@@ -14,6 +14,7 @@ lin
 	just	= mkAdv "just";
 	out	= mkAdv "out";
 	really	= mkAdv "really";
+	more	= mkAdA "more";
 	both	= mkAdv "both";
 -- AP
 

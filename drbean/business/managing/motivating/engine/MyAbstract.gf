@@ -182,7 +182,7 @@ fun
 	in_which	: RP;
 	where_RP	: RP;
 
-	more : CAdv;
+	-- more : CAdv;
 	ComparaAP : A -> NP -> AP;
 	ComparaAdv : CAdv -> A -> NP -> Adv;
 	ComparaS : AP -> S -> AP;

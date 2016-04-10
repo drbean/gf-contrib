@@ -48,6 +48,7 @@ adv = [
 	"just"
 	, "out"
 	, "really"
+	, "more"
 	]
 
 aux = [
@@ -84,7 +85,6 @@ det = [
 	, "another"
 	, "any"
 	, "both"
-	, "more"
 	, "other"
 	, "their"
 
@@ -218,7 +218,7 @@ listen	: V2;
 look	: V2;
 make	: V2;
 manager	: CN;
-more	: Det;
+more	: Adv;
 motivate	: V2;
 motivator	: CN;
 need	: VV;
