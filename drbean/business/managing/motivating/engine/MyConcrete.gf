@@ -195,12 +195,7 @@ oper
 	mywayAdv : (cl : Cl) -> {s : NPCase => Str ; a : Agr} =
 		\cl -> let string = "the way that" ++ cl.s ! Pres ! Simul ! CPos ! oDir ;
 								agreement = toAgr Sg P3 Neutr in {
-			s = table {
-				npNom => string;
-				npGen => string + "'s";
-				NPAcc => string;
-				NPNomPoss => string + "'s"
-				};
+			s = \\_ => string;
 			a = agreement;
 		};
 
