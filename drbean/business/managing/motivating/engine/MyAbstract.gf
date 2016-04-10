@@ -111,6 +111,7 @@ fun
 	QUt	: QS -> Utt;
 	Ut	: S -> Utt;
 	Sentence	: NP -> VP -> Cl;
+	Exist	: NP -> Cl;
 
 	Yes, No, NoAnswer	: Utt;
 	Answer : NP -> Utt;
