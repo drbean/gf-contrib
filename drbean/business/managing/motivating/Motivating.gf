@@ -45,7 +45,7 @@ fun
 -- Prep
 
 	about	: Prep;
-	as	: Prep;
+	as	: MannerPrep;
 	at	: Prep;
 	for	: Prep;
 	in_prep	: Prep;

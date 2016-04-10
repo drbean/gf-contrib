@@ -82,6 +82,7 @@ fun
 	FreeRCl : VP -> NounCl;
 	FreeRClSlash : ClSlash -> NounCl;
 	NomCl : NounCl -> NP;
+	Mannered	: NP -> PP_manner -> NP;
 	WithPlace	:  V -> PP_location -> VP;
 	WithTime	: Time -> VP -> VP;
 	VP_PP_coagent	: VP -> PP_coagent -> VP;
@@ -189,7 +190,6 @@ fun
 	A_PP	: A2 -> NP ->AP;
 
 	about_prep	: Prep;
-	as_prep	: Prep;
 	at_prep	: LocPrep;
 	before_prep	: Prep;
 	from_prep	: Prep;

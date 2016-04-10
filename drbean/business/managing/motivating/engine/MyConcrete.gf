@@ -267,6 +267,7 @@ lin
 		  c = npNom
 			  };
 	NomCl ncl = mymkNP ncl;
+	Mannered np adv = mkNP np adv;
   WithPlace v located	= mkVP (mkVP v) located;
   AdvVP adv vp	= mkVP adv vp;
 	VPAdv vp adv = mkVP vp adv;
@@ -370,7 +371,6 @@ lin
 	A_PP a np = mkAP a np;
 
   about_prep	= P.mkPrep "about";
-  as_prep	= P.mkPrep "as";
   at_prep	= P.mkPrep "at";
 	before_prep	= P.mkPrep "before";
   from_prep	= P.mkPrep "from";
