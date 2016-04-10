@@ -192,6 +192,18 @@ oper
 			a = agreement;
 		};
 
+	mywayAdv : (cl : Cl) -> {s : NPCase => Str ; a : Agr} =
+		\cl -> let string = "the way that" ++ cl.s ! Pres ! Simul ! CPos ! oDir ;
+								agreement = toAgr Sg P3 Neutr in {
+			s = table {
+				npNom => string;
+				npGen => string + "'s";
+				NPAcc => string;
+				NPNomPoss => string + "'s"
+				};
+			a = agreement;
+		};
+
 	myModPass3 : (cn : CN) -> (v3 : V3) -> (np : NP) ->
 		{s : Number => Case => Str ; g : Gender } =
 		\cn,v3,np -> {
@@ -254,6 +266,7 @@ lin
 	ObjRel rp clslash = mkRCl rp clslash;
 	EmptyRel slash = EmptyRelSlash slash;
 	EmptyRelSlash slash = EmptyRelSlash slash;
+	WayNP cl = mywayAdv cl;
 	ByGerund vp = ByVP vp;
 	SClSlash	np vpslash = mkClSlash np vpslash;
 	-- VPClSlash	vpslash = mkClSlash vpslash;

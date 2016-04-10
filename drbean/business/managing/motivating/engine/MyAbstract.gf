@@ -76,6 +76,7 @@ fun
 	ObjRel	: RP -> ClSlash -> RCl;
 	EmptyRel : ClSlash -> RCl;
 	EmptyRelSlash	: ClSlash -> RCl;
+	WayNP	: Cl -> NP;
 	ByGerund : VP -> PP_manner;
 	SClSlash	: NP -> VPSlash -> ClSlash;
 	-- VPClSlash	: VPSlash -> ClSlash;
