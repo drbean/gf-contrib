@@ -69,7 +69,7 @@ dic_test = [
 	, "Everyone is different to the way that you as a manager think."
 	, "The secret is to try to know what the world looks for people through their eyes."
 	, "Managers need to understand what the world looks like through the eyes of another person."
-	, "In order to look at the world through the eyes of another person, managers need to be good at asking questions and listening to people."
+	, "Managers need to be good at asking questions and listening to people, in order to look at the world through the eyes of another person."
 	, "Managers need to ask not just any question, but questions that really tell them about what a person's drivers, or unique motivators are."
 	, "Managers need to ask questions to find out what other people are concerned about in the situation that they are both in."
 
