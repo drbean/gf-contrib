@@ -18,7 +18,7 @@ fun
 	different	: AP;
 	different_pp	: A2;
 	difficult	: AP;
-	good	: AP;
+	good	: A2;
 	other	: AP;
 	respected	: AP;
 	unique	: AP;
@@ -32,7 +32,7 @@ fun
 	everyone	: N;
 	difference	: CN;
 	driver	: CN;
-	eye	: CN;
+	eye	: N2;
 	family	: CN;
 	manager	: CN;
 	motivator	: CN;
@@ -48,12 +48,12 @@ fun
 
 	about	: Prep;
 	as	: MannerPrep;
-	at	: Prep;
+	at	: ThemePrep;
 	for	: Prep;
 	in_prep	: Prep;
 	like	: Prep;
 	in_order_to	: Prep;
-	through	: Prep;
+	through	: MannerPrep;
 	to	: Prep;
 -- V
 
@@ -62,7 +62,8 @@ fun
 	find	: V2;
 	know	: V2;
 	listen	: V2;
-	look	: V2;
+	appear	: V2;
+	view	: V2;
 	make	: V2;
 	motivate	: V2;
 	need	: VV;

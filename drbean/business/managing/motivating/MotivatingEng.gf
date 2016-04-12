@@ -22,7 +22,7 @@ lin
 	different = mkAP different_A;
 	different_pp	= mkA2 different_A to;
 	difficult	= mkAP( mkA "difficult");
-	good	= mkAP( mkA "good");
+	good	= mkA2( mkA "good") at;
 	other	= mkAP( mkA "other");
 	respected	= mkAP( mkA "respected");
 	unique	= mkAP( mkA "unique");
@@ -36,7 +36,7 @@ lin
 	everyone	= mkN "everyone";
 	difference	= mkCN( mkN "difference");
 	driver	= mkCN( mkN "driver");
-	eye	= mkCN( mkN "eye");
+	eye	= mkN2( mkN "eye");
 	family	= mkCN( mkN "family");
 	manager	= mkCN( mkN "manager");
 	motivator	= mkCN( mkN "motivator");
@@ -65,8 +65,9 @@ lin
 	care	= mkV2( mkV "care") about_prep;
 	find	= mkV2 "find";
 	know	= mkV2 "know";
-	listen	= mkV2 "listen";
-	look	= mkV2 "look";
+	listen	= mkV2( mkV "listen" "listens" "listened" "listened" "listening") to;
+	appear	= mkV2( mkV "look") like;
+	view	= mkV2( mkV "look") at;
 	make	= mkV2 "make";
 	motivate	= mkV2 "motivate";
 	need	= mkVV( mkV "need");
