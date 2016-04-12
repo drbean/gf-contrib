@@ -215,6 +215,12 @@ oper
 			g = cn.g
 			};
 
+	myPurposeAdv : (conj : Str) -> (vp : VP) -> {s : Str} = 
+		\conj,vp -> let purpose = PurposeVP vp in
+		{ s = conj ++ purpose.s;
+			lock_Adv = {}
+			};
+
 lin
 	Be_bad ap	= mkComp ap;
   Be_somewhere located	= mkComp located;
@@ -401,6 +407,7 @@ lin
 	know_VS	= P.mkVS know_V;
 
 	Very_Adv a = ParadigmsEng.mkAdv ("very" ++ a.s);
+	In_order_to vp = myPurposeAdv "in order" vp;
 	because_Subj	= because_Subj;
 	if_Subj	= if_Subj;
 	when_Subj = when_Subj;

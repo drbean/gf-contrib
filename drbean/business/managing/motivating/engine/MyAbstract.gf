@@ -213,6 +213,7 @@ fun
 	know_VS	: VS;
 
 	Very_Adv	: Adv -> Adv;
+	In_order_to : VP -> Adv;
 	because_Subj	: Subj;
 	if_Subj	: Subj;
 	when_Subj	: Subj;
