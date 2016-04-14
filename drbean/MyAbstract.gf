@@ -76,12 +76,16 @@ fun
 	ObjRel	: RP -> ClSlash -> RCl;
 	EmptyRel : ClSlash -> RCl;
 	EmptyRelSlash	: ClSlash -> RCl;
+	WayNP	: Cl -> NP;
+	HowNP	: Cl -> NP;
+	Gerund	: VP -> NP;
 	ByGerund : VP -> PP_manner;
 	SClSlash	: NP -> VPSlash -> ClSlash;
 	-- VPClSlash	: VPSlash -> ClSlash;
 	FreeRCl : VP -> NounCl;
 	FreeRClSlash : ClSlash -> NounCl;
 	NomCl : NounCl -> NP;
+	Mannered	: NP -> PP_manner -> NP;
 	WithPlace	:  V -> PP_location -> VP;
 	WithTime	: Time -> VP -> VP;
 	VP_PP_coagent	: VP -> PP_coagent -> VP;
@@ -111,6 +115,7 @@ fun
 	QUt	: QS -> Utt;
 	Ut	: S -> Utt;
 	Sentence	: NP -> VP -> Cl;
+	Exist	: NP -> Cl;
 
 	Yes, No, NoAnswer	: Utt;
 	Answer : NP -> Utt;
@@ -165,9 +170,13 @@ fun
 	he	: NP;
 	she	: NP;
 	it	: NP;
+	that_Pron	: NP;
+	they	: NP;
+	you	: NP;
 
 	who_WH	: IP;
 	what_WH	: IP;
+	how_WH	: IP;
 	IdRP	: RP;
 	that_RP	: RP;
 	in_which	: RP;
@@ -184,14 +193,12 @@ fun
 	A_PP	: A2 -> NP ->AP;
 
 	about_prep	: Prep;
-	as_prep	: Prep;
 	at_prep	: LocPrep;
 	before_prep	: Prep;
 	from_prep	: Prep;
   like_prep	: Prep;
 	of_prep	: Prep;
 	part_prep	: Prep;
-	to_prep	: Prep;
 	up_prep	: Prep;
 	with_prep	: CoagentPrep;
 
@@ -206,11 +213,13 @@ fun
 	know_VS	: VS;
 
 	Very_Adv	: Adv -> Adv;
+	In_order_to : VP -> Adv;
 	because_Subj	: Subj;
 	if_Subj	: Subj;
 	when_Subj	: Subj;
 	or_Conj	: Conj;
 	and_Conj	: Conj;
+	but_Conj	: Conj;
 
 	Subjunct	: Subj -> S -> SubordCl;
 
