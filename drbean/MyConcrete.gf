@@ -192,6 +192,13 @@ oper
 			a = agreement;
 		};
 
+	myCltoNP : (str : Str) -> (cl : Cl) -> {s : NPCase => Str ; a : Agr} =
+		\str,cl -> let np = str ++ cl.s ! Pres ! Simul ! CPos ! oDir ;
+								agreement = toAgr Sg P3 Neutr in {
+			s = \\_ => np;
+			a = agreement;
+		};
+
 	myModPass3 : (cn : CN) -> (v3 : V3) -> (np : NP) ->
 		{s : Number => Case => Str ; g : Gender } =
 		\cn,v3,np -> {
@@ -206,6 +213,12 @@ oper
 					}
 				};
 			g = cn.g
+			};
+
+	myPurposeAdv : (conj : Str) -> (vp : VP) -> {s : Str} = 
+		\conj,vp -> let purpose = PurposeVP vp in
+		{ s = conj ++ purpose.s;
+			lock_Adv = {}
 			};
 
 lin
@@ -254,11 +267,14 @@ lin
 	ObjRel rp clslash = mkRCl rp clslash;
 	EmptyRel slash = EmptyRelSlash slash;
 	EmptyRelSlash slash = EmptyRelSlash slash;
+	WayNP cl = myCltoNP "the way that" cl;
+	HowNP cl = myCltoNP "how" cl;
+	Gerund vp = GerundNP vp;
 	ByGerund vp = ByVP vp;
 	SClSlash	np vpslash = mkClSlash np vpslash;
 	-- VPClSlash	vpslash = mkClSlash vpslash;
 	FreeRClSlash cl = {
-	  s = \\t,a,p,_ => "what" ++ cl.s ! t ! a ! p ! oDir ;
+	  s = \\t,a,p,_ => "what" ++ cl.s ! t ! a ! p ! oDir ++ cl.c2;
 		  c = npNom
 			  } ;
 	FreeRCl vp = let qcl = WH_Pred whatSg_IP vp in
@@ -267,6 +283,7 @@ lin
 		  c = npNom
 			  };
 	NomCl ncl = mymkNP ncl;
+	Mannered np adv = mkNP np adv;
   WithPlace v located	= mkVP (mkVP v) located;
   AdvVP adv vp	= mkVP adv vp;
 	VPAdv vp adv = mkVP vp adv;
@@ -292,6 +309,7 @@ lin
 	QUt q	= mkUtt q;
 	Ut s	= mkUtt s;
 	Sentence subject predicate	= mkCl subject predicate;
+	Exist np = mkCl np;
 
 	Yes	= yes_Utt;
 	No	= no_Utt;
@@ -332,6 +350,7 @@ lin
 	some_pl_Det = mkDet some_Quant pluralNum;
 	some_NP = mkNP( mkDet some_Quant);
 	some_pl_NP = mkNP( mkDet some_Quant pluralNum);
+	that_Pron = mkNP (mkDet that_Quant);
 	List np1 np2 = mkListNP np1 np2;
 	AddList np list = mkListNP np list;
 	CloseList conj list = mkNP conj list;
@@ -347,9 +366,12 @@ lin
 	she = mkNP she_Pron;
 	he = mkNP he_Pron;
 	it = mkNP it_Pron;
+	they = mkNP they_Pron;
+	you = mkNP youSg_Pron;
 
 	who_WH	= mymkIP "who" "who" "whose" Sg;
 	what_WH	= whatSg_IP;
+	-- how_WH	= mkIP how_IAdv;
 	that_RP	= ExtraEng.that_RP;
 	IdRP	= IdRP;
 	-- in_which	=mkRP in_prep which_RP;
@@ -365,7 +387,6 @@ lin
 	A_PP a np = mkAP a np;
 
   about_prep	= P.mkPrep "about";
-  as_prep	= P.mkPrep "as";
   at_prep	= P.mkPrep "at";
 	before_prep	= P.mkPrep "before";
   from_prep	= P.mkPrep "from";
@@ -373,11 +394,11 @@ lin
   like_prep	= P.mkPrep "like";
 	of_prep	= possess_Prep;
   part_prep	= part_Prep;
-  to_prep	= to_Prep;
   up_prep	= P.mkPrep "up";
   with_prep	= P.mkPrep "with";
 
 	person	= mkCN( P.mkN "person" "people");
+	thing	= mkCN( P.mkN "thing");
 
 	can	= can_VV;
 	become	= P.mkV2 IrregEng.become_V;
@@ -386,11 +407,13 @@ lin
 	know_VS	= P.mkVS know_V;
 
 	Very_Adv a = ParadigmsEng.mkAdv ("very" ++ a.s);
+	In_order_to vp = myPurposeAdv "in order" vp;
 	because_Subj	= because_Subj;
 	if_Subj	= if_Subj;
 	when_Subj = when_Subj;
 	or_Conj	= or_Conj;
 	and_Conj	= mymkConj "and";
+	but_Conj	= mymkConj "but";
 
 	Subjunct subj s	= mkAdv subj s;
 
