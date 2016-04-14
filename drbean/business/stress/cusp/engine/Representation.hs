@@ -42,6 +42,7 @@ lc_first str@(s:ss) = case ( or $ map (flip isPrefixOf str) ["CUSP", "Control", 
 	False -> ((toLower s):ss)
 
 instance Eq GPN where
+	(==) Gcusp Gcusp = True
 	(==) GControl GControl = True
 	(==) GUncertainty GUncertainty = True
 	(==) GSupport GSupport = True

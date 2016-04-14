@@ -114,16 +114,16 @@ n = [
 
 pn = [
 
-	"C"
+	"'C'"
 	, "Control"
 	, "CUSP"
 	, "Gourlay"
 	, "In_Equilibrium"
-	, "P"
+	, "'P'"
 	, "Pressure"
-	, "S"
+	, "'S'"
 	, "Support"
-	, "U"
+	, "'U'"
 	, "Uncertainty"
 
 	]
