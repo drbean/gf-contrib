@@ -1,9 +1,9 @@
-module Representation (module Representation, module Drunk_driving) where
+module Representation (module Representation, module Cusp) where
 
 import Data.DRS
 import Data.DRS.Show
 
-import Drunk_driving
+import Cusp
 import PGF
 
 import Model
@@ -17,7 +17,12 @@ import Data.Tuple
 
 entuples :: [(Entity,GPN)]
 entuples = [
-	(G,Gmrs_tipton)
+	(A,Gcusp)
+	, (D,GControl)
+	, (G,Ggourlay)
+	, (V,GUncertainty)
+	, (T,GSupport)
+	, (Q,GPressure)
 	]
 
 ref2int :: DRSRef -> Int
@@ -32,12 +37,17 @@ int2ref :: Int -> DRSRef
 int2ref n = DRSRef ("r" ++ (show n) )
 
 lc_first :: String -> String
-lc_first str@(s:ss) = case ( or $ map (flip isPrefixOf str) ["Mrs Tipton"] ) of
+lc_first str@(s:ss) = case ( or $ map (flip isPrefixOf str) ["CUSP", "Control", "Uncertainty", "Support", "Pressure", "Gourlay"] ) of
 	True  -> (s:ss)
 	False -> ((toLower s):ss)
 
 instance Eq GPN where
-	(==) Gmrs_tipton Gmrs_tipton = True
+	(==) Gcusp Gcusp = True
+	(==) GControl GControl = True
+	(==) GUncertainty GUncertainty = True
+	(==) GSupport GSupport = True
+	(==) GPressure GPressure = True
+	(==) Ggourlay Ggourlay = True
 	(==) _ _ = False
 
 gent2ent :: GPN -> Entity
