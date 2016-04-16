@@ -35,20 +35,10 @@ posMap = Map.fromList [
 
 a = [
 
-	"concerned"
-	, "different"
-	, "difficult"
-	, "good"
-	, "respected"
-	, "unique"
 	]
 
 adv = [
 
-	"just"
-	, "out"
-	, "really"
-	, "more"
 	]
 
 aux = [
@@ -66,11 +56,8 @@ aux = [
 	
 
 conj = [
-	"and"
-	, "because"
-	, "but"
+	"because"
 	, "if"
-	, "or"
 	]
 
 
@@ -82,32 +69,9 @@ det = [
 	, "no"
 	, "some"
 	, "the"
-	, "another"
-	, "any"
-	, "both"
-	, "other"
-	, "their"
-
-  ]
 
 n = [
 
-	"everybody"
-	, "everyone"
-	, "difference"
-	, "driver"
-	, "eye"
-	, "family"
-	, "manager"
-	, "motivator"
-	, "people"
-	, "person"
-	, "question"
-	, "secret"
-	, "situation"
-	, "thing"
-	, "way"
-	, "world"
 	]
 
 pn = [
@@ -120,31 +84,15 @@ pron = [
 	, "her"
 	, "he"
 	, "his"
-	, "that"
-	, "there"
-	, "they"
-	, "you"
 	]
 
 prep = [
 
-	"about"
-	, "as"
-	, "at"
-	, "for"
-	, "in"
-	, "like"
-	, "of"
-	, "in order to"
-	, "through"
-	, "to"
 	]
 
 rel = [
 	"that"
 	, "who"
-	, "how"
-	, "what"
 	]
 
 tag = [
@@ -168,92 +116,154 @@ tag = [
 
 v = [
 
-	"ask"
-	, "care"
-	, "find"
-	, "know"
-	, "listen"
-	, "look"
-	, "make"
-	, "motivate"
-	, "need"
-	, "tell"
-	, "think"
-	, "try"
-	, "understand"
-	, "want"
 	]
 
 {-
 
 
-about	: Prep;
-and	: Conj;
-another	: Det;
-any	: Det;
-as	: Prep;
-ask	: V2;
-at	: Prep;
-both	: Det;
-but	: Conj;
-care	: V2;
-concerned	: A;
-difference	: CN;
-different	: A;
-difficult	: A;
-driver	: CN;
-everybody	: N;
-everyone	: N;
-eye	: CN;
-family	: CN;
-find	: V2;
-for	: Prep;
-good	: A;
-how	: Rel;
-in	: Prep;
-just	: Adv;
-know	: V2;
-like	: Prep;
-listen	: V2;
-look	: V2;
-make	: V2;
-manager	: CN;
-more	: Adv;
-motivate	: V2;
-motivator	: CN;
-need	: VV;
+11 o'clock
+1938
+about
+all
+announce
+any
+anyone
+anytime
+army
+around
+at
+back
+because
+before
+begin
+being
+big
+brake
+broadcast
+brother
+burn
+but
+call
+can
+car
+Chevrolet automobile
+come
+confess
+convince
+country
+direction
+doctor
+Doctor
+The Doctor
+drama
+drive
+each
+emergency
+end
+family
+famous
+few
+figure
+find
+from
+get
+go
+gone
+he
+hear
+himself
+his
+hoax
+home
+house
+huff
+humor
+idea
+in
+into
+invading
+involve
+it
+Joe
+just
+keep
+land
+later
+leave
+listen
+madder
+make
+Mars
+Martians
+man
+Mercury Theater
+minute
+more
+never
+New Jersey
+news
+night
+no
 not
-of	: Prep;
-or	: Conj;
-in order to	: Prep;
-other	: Det;
-out	: Adv;
-people	: CN;
-person	: CN;
-question	: CN;
-really	: Adv;
-respected	: A;
-secret	: CN;
-situation	: CN;
-some	: Det;
-tell	: V3;
-that	: Pron;
-their	: Det;
-them	: Pron;
-there	: Pron;
-they	: Pron;
-thing	: CN;
-think	: V;
-through	: Prep;
-to	: Prep;
-try	: VV;
-understand	: V2;
-unique	: A;
-want	: VV;
-way	: CN;
-what	: Rel;
-world	: CN;
-you	: Pron;
+nothing
+of
+on
+one
+only
+Orson Welles
+other
+out
+over
+planet
+program
+radio
+react
+recreation
+repeat
+repent
+rubber
+say
+scent
+see
+sense
+sin
+skeptic
+smell
+so
+something
+sound
+step-grandfather
+story
+strange
+talk
+tell
+that
+their
+they
+think
+this
+to
+together
+turn
+uncle
+unusual
+up
+vanguard
+wait
+walk
+way
+whatsoever
+when
+where
+who
+wife
+with
+within
+without
+word
+world
+yard
+young
 
 -}
 
