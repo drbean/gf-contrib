@@ -82,7 +82,7 @@ dic_test = [
 	, "The more they talk, the madder they get at each other."
 	, "about 11 o'clock that night, one young skeptic goes back into the house and turns on the radio"
 	, "He hears on the news that it is just a drama on Mercury Theater."
-	, "he walks back out into the yard where they are confessing."
+	, "He walks back out into the yard where they are confessing."
 	, "He waits a few minutes before he tells them that there is nothing to it."
 	, "He tells them that it is just a big hoax."
 	, "The Doctor and his wife are convinced that thereis something to the idea, because they smell rubber burning on the way over there."
