@@ -411,6 +411,7 @@ lin
 	because_Subj	= because_Subj;
 	if_Subj	= if_Subj;
 	when_Subj = when_Subj;
+	so_Subj	= so_Subj;
 	or_Conj	= or_Conj;
 	and_Conj	= mymkConj "and";
 	but_Conj	= mymkConj "but";
