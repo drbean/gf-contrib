@@ -284,6 +284,7 @@ lin
 			  };
 	NomCl ncl = mymkNP ncl;
 	Mannered np adv = mkNP np adv;
+	AdV_VP adv vp = mkVP adv vp;
   WithPlace v located	= mkVP (mkVP v) located;
   AdvVP adv vp	= mkVP adv vp;
 	VPAdv vp adv = mkVP vp adv;

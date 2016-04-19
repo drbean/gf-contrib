@@ -9,6 +9,7 @@ lin
 
 -- Adv
 
+	just_AdV	= mkAdV "just";
 	home	= mkAdv "home";
 	later	= mkAdv "later";
 	never	= mkAdv "never";

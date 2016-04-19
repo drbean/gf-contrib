@@ -86,6 +86,7 @@ fun
 	FreeRClSlash : ClSlash -> NounCl;
 	NomCl : NounCl -> NP;
 	Mannered	: NP -> PP_manner -> NP;
+	AdV_VP	: AdV -> VP -> VP;
 	WithPlace	:  V -> PP_location -> VP;
 	WithTime	: Time -> VP -> VP;
 	VP_PP_coagent	: VP -> PP_coagent -> VP;

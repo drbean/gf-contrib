@@ -7,6 +7,7 @@ fun
 
 -- Adv
 
+	just_AdV	: AdV;
 	home	: Adv;
 	later	: Adv;
 	never	: Adv;

@@ -66,7 +66,7 @@ dic_test = [
 	, "The Doctor has no sense of humor whatsoever"
 	, "The Doctor has no sense of humor when it involves himself."
 	, "The Doctor's only recreation is listening to the radio."
-	, "When he listens to the radio, Joe just does not make a sound,"
+	, "When he listens to the radio, Joe just doesn't make a sound,"
 	, "When the news is on, Joe doesn't make a sound."
 	, "In 1938, on Mercury Theater on the radio, Orson Welles announces that men from Mars land in New Jersey."
 	, "Strange beings who land in New Jersey are the vanguard of an invading army from the planet Mars."
