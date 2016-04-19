@@ -23,6 +23,7 @@ fun
 	gone	: AP;
 	invading	: AP;
 	mad	: AP;
+	only	: AP;
 	other	: AP;
 	strange	: AP;
 	unusual	: AP;
@@ -33,7 +34,6 @@ fun
 	a_few	: Det;
 	just	: Predet;
 	one	: Det;
-	only	: Predet;
 	this	: Det;
 	all	: Predet;
 -- N

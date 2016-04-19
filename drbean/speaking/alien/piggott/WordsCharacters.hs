@@ -41,6 +41,7 @@ a = [
 	, "gone"
 	, "invading"
 	, "mad"
+	, "only"
 	, "other"
 	, "strange"
 	, "unusual"
@@ -89,7 +90,6 @@ det = [
 	, "a few"
 	, "just"
 	, "one"
-	, "only"
 	, "this"
 	, "any"
 	, "all"
@@ -345,7 +345,7 @@ nothing	: N;
 of	: Prep;
 on	: Prep;
 one	: Det;
-only	: Det;
+only	: AP;
 Orson Welles	: PN;
 other	: A;
 out	: Adv;

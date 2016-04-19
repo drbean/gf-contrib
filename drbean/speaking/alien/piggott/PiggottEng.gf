@@ -25,6 +25,7 @@ lin
 	gone	= mkAP( mkA "gone");
 	invading	= mkAP( mkA "invading");
 	mad	= mkAP( mkA "mad");
+	only	= mkAP( mkA "only");
 	other	= mkAP( mkA "other");
 	strange	= mkAP( mkA "strange");
 	unusual	= mkAP( mkA "unusual");
@@ -35,7 +36,6 @@ lin
 	a_few	= mkDet(  mkQuant "a few" "a few");
 	just	= ss "just";
 	one	= mkDet(  mkNumeral n1_Unit );
-	only	= only_Predet;
 	this	= mkDet this_Quant;
 	all	= ss "all";
 -- N
