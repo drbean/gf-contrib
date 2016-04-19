@@ -40,7 +40,7 @@ fun
 
 	news	: N;
 	nothing	: N;
-	recreation	: N;
+	recreation	: CN;
 	rubber	: N;
 	scent	: N;
 	something	: N;

@@ -42,7 +42,7 @@ lin
 
 	news	= mkN "news";
 	nothing	= mkN "nothing";
-	recreation	= mkN "recreation";
+	recreation	= mkCN( mkN "recreation" );
 	rubber	= mkN "rubber";
 	scent	= mkN "scent";
 	something	= mkN "something";
