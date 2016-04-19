@@ -141,6 +141,7 @@ fun
 	zero_Det_sg : MassDet;
 	the_mass_Det	: MassDet;
 	some_mass_Det	: MassDet;
+	any_mass_Det	: MassDet;
 	theSg_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
 	thePlural_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
 	Apos  : NP -> Det;
@@ -200,7 +201,6 @@ fun
 	of_prep	: Prep;
 	part_prep	: Prep;
 	up_prep	: Prep;
-	with_prep	: CoagentPrep;
 
 	person	: CN;
 	thing	: CN;

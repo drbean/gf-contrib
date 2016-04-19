@@ -337,6 +337,7 @@ lin
 	zero_Det_sg	= mkDet zero_mass_Quant singularNum;
 	the_mass_Det	= theSg_Det;
 	some_mass_Det = mkDet some_Quant singularNum;
+	any_mass_Det = mkDet any_Quant singularNum;
 	theSg_Det	= theSg_Det;
 	thePlural_Det = thePl_Det;
 	Apos np	= mkDet (GenNP np);
@@ -390,12 +391,10 @@ lin
   at_prep	= P.mkPrep "at";
 	before_prep	= P.mkPrep "before";
   from_prep	= P.mkPrep "from";
-  in_prep	= P.mkPrep "in";
   like_prep	= P.mkPrep "like";
 	of_prep	= possess_Prep;
   part_prep	= part_Prep;
   up_prep	= P.mkPrep "up";
-  with_prep	= P.mkPrep "with";
 
 	person	= mkCN( P.mkN "person" "people");
 	thing	= mkCN( P.mkN "thing");
@@ -411,7 +410,7 @@ lin
 	because_Subj	= because_Subj;
 	if_Subj	= if_Subj;
 	when_Subj = when_Subj;
-	so_Subj	= so_Subj;
+	so_Subj	= P.mkSubj "so";
 	or_Conj	= or_Conj;
 	and_Conj	= mymkConj "and";
 	but_Conj	= mymkConj "but";
