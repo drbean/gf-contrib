@@ -33,7 +33,7 @@ int2ref :: Int -> DRSRef
 int2ref n = DRSRef ("r" ++ (show n) )
 
 lc_first :: String -> String
-lc_first str@(s:ss) = case ( or $ map (flip isPrefixOf str) ["Doctor", "The Doctor", "Joe"] ) of
+lc_first str@(s:ss) = case ( or $ map (flip isPrefixOf str) ["Doctor", "Joe"] ) of
 	True  -> (s:ss)
 	False -> ((toLower s):ss)
 

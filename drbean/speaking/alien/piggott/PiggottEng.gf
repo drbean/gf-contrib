@@ -88,7 +88,7 @@ lin
 
 	chevrolet_automobile	= mkPN( mkN feminine (mkN "Chevrolet automobile") );
 	Doctor	= mkPN( mkN feminine (mkN "Doctor") );
-	the_doctor	= mkPN( mkN feminine (mkN "The Doctor") );
+	the_doctor	= mkPN( mkN feminine (mkN "the Doctor") );
 	joe	= mkPN( mkN feminine (mkN "Joe") );
 	mars	= mkPN( mkN feminine (mkN "Mars") );
 	martian	= mkPN( mkN feminine (mkN "Martian") );
