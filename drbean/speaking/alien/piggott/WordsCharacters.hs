@@ -35,10 +35,29 @@ posMap = Map.fromList [
 
 a = [
 
+	"country"
+	, "emergency"
+	, "famous"
+	, "gone"
+	, "invading"
+	, "mad"
+	, "other"
+	, "strange"
+	, "unusual"
+	, "big"
 	]
 
 adv = [
 
+	"home"
+	, "later"
+	, "more"
+	, "never"
+	, "out"
+	, "over"
+	, "together"
+	, "whatsoever"
+	"back"
 	]
 
 aux = [
@@ -54,15 +73,26 @@ aux = [
 	, "should"
 	]
 	
-
 conj = [
-	"because"
+	"so"
+	, "but"
+	, "before"
+	, "because"
 	, "if"
+	, "when"
 	]
 
 
 det = [
 	"'s"
+	, "each"
+	, "a few"
+	, "just"
+	, "one"
+	, "only"
+	, "this"
+	, "any"
+	, "all"
 	, "0, _ or zero"
 	, "a"
 	, "an"
@@ -70,12 +100,67 @@ det = [
 	, "some"
 	, "the"
 
+	]
+
 n = [
 
+	"news"
+	, "nothing"
+	, "recreation"
+	, "rubber"
+	, "scent"
+	, "something"
+	, "anytime"
+	, "anyone"
+	, "11 o'clock"
+	, "1938"
 	]
 
 pn = [
 
+	, "Chevrolet automobile"
+	, "Doctor"
+	, "The Doctor"
+	, "Joe"
+	, "Mars"
+	, "Martian"
+	, "Mercury Theater"
+	, "New Jersey"
+	, "Orson Welles"
+	, "car"
+	, "direction"
+	, "doctor"
+	, "drama"
+	, "end"
+	, "family"
+	, "hoax"
+	, "house"
+	, "huff"
+	, "idea"
+	, "man"
+	, "minute"
+	, "night"
+	, "planet"
+	, "program"
+	, "radio"
+	, "sense of humor"
+	, "sin"
+	, "skeptic"
+	, "sound"
+	, "step-grandfather"
+	, "story"
+	, "uncle"
+	, "vanguard"
+	, "way"
+	, "wife"
+	, "word"
+	, "world"
+	, "yard"
+	, "army"
+	, "being"
+	, "brake"
+	, "broadcast"
+	, "brother"
 	]
 
 pron = [
@@ -84,15 +169,33 @@ pron = [
 	, "her"
 	, "he"
 	, "his"
+	, "himself"
+	, "it"
+	, "they"
+	, "them"
+	, "their"
+
 	]
 
 prep = [
 
+	, "from"
+	, "in"
+	, "into"
+	, "of"
+	, "on"
+	, "to"
+	, "with"
+	, "within"
+	, "around"
+	, "at"
+	, "about"
 	]
 
 rel = [
 	"that"
 	, "who"
+	,	"where"
 	]
 
 tag = [
@@ -116,153 +219,185 @@ tag = [
 
 v = [
 
+	, "come"
+	, "confess"
+	, "convince"
+	, "drive"
+	, "figure"
+	, "find"
+	, "get"
+	, "go over"
+	, "hear"
+	, "involve"
+	, "keep"
+	, "land"
+	, "leave"
+	, "make"
+	, "react"
+	, "repeat"
+	, "repent"
+	, "say"
+	, "see"
+	, "smell"
+	, "talk"
+	, "tell"
+	, "think"
+	, "turn on"
+	, "get up"
+	, "wait"
+	, "walk back out"
+	, "walk back out"
+	, "listen"
+	, "call"
+	, "can"
+	, "begin"
+	, "burn"
+	, "announce"
 	]
 
 {-
 
 
-11 o'clock
-1938
-about
-all
-announce
-any
-anyone
-anytime
-army
-around
-at
-back
-because
-before
-begin
-being
-big
-brake
-broadcast
-brother
-burn
-but
-call
-can
-car
-Chevrolet automobile
-come
-confess
-convince
-country
-direction
-doctor
-Doctor
-The Doctor
-drama
-drive
-each
-emergency
-end
-family
-famous
-few
-figure
-find
-from
-get
-go
-gone
-he
-hear
-himself
-his
-hoax
-home
-house
-huff
-humor
-idea
-in
-into
-invading
-involve
-it
-Joe
-just
-keep
-land
-later
-leave
-listen
-madder
-make
-Mars
-Martians
-man
-Mercury Theater
-minute
-more
-never
-New Jersey
-news
-night
-no
+11 o'clock	: N;
+1938	: N;
+a few	: Det;
+about	: Prep;
+all	: Det;
+announce	: VS;
+any	: Det;
+anyone	: N;
+anytime	: N;
+army	: CN;
+around	: Prep;
+at	: Prep;
+back	: Adv;
+because	: Conj;
+before	: Conj;
+begin	: VV;
+being	: CN;
+big	: A;
+brake	: CN;
+broadcast	: CN;
+brother	: CN;
+burn	: V;
+but	: Conj;
+call	: V3;
+can	: VV;
+car	: CN;
+Chevrolet automobile	: PN;
+come	: V;
+confess	: V;
+convince	: V2S;
+country	: A;
+direction	: CN;
+doctor	: CN;
+Doctor	: PN;
+The Doctor	: PN;
+drama	: CN;
+drive	: V;
+each	: Det;
+emergency	: A;
+end	: CN;
+family	: CN;
+famous	: A;
+figure	: VS;
+find	: VS;
+from	: Prep;
+get	: V2;
+get up	: V;
+go over	: V;
+gone	: A;
+he : Pron;
+hear	: VS;
+himself : Pron;
+hoax	: CN;
+home	: Adv;
+house	: CN;
+huff	: CN;
+idea	: CN;
+in	: Prep;
+into	: Prep;
+invading	: A;
+involve	: V2;
+it	: Pron;
+Joe	: PN;
+just	: Det;
+keep	: VV;
+land	: V2;
+later	: Adv;
+leave	: V;
+listen	: V2;
+mad	: A;
+make	: V2;
+Mars	: PN;
+Martian	: PN;
+man	: CN;
+Mercury Theater	: PN;
+minute	: CN;
+more	: Adv;
+never	: Adv;
+New Jersey	: PN;
+news	: N;
+night	: CN;
+no	: Det;
 not
-nothing
-of
-on
-one
-only
-Orson Welles
-other
-out
-over
-planet
-program
-radio
-react
-recreation
-repeat
-repent
-rubber
-say
-scent
-see
-sense
-sin
-skeptic
-smell
-so
-something
-sound
-step-grandfather
-story
-strange
-talk
-tell
-that
-their
-they
-think
-this
-to
-together
-turn
-uncle
-unusual
-up
-vanguard
-wait
-walk
-way
-whatsoever
-when
+nothing	: N;
+of	: Prep;
+on	: Prep;
+one	: Det;
+only	: Det;
+Orson Welles	: PN;
+other	: A;
+out	: Adv;
+over	: Adv;
+planet	: CN;
+program	: CN;
+radio	: CN;
+react	: V2;
+recreation	: N;
+repeat	: V2;
+repent	: V2;
+rubber	: N;
+say	: V2;
+scent	: N;
+see	: V3;
+sense of humor	: CN;
+sin	: CN;
+skeptic	: CN;
+smell	: VV;
+so	: Conj;
+something	: N;
+sound	: CN;
+step-grandfather	: CN;
+story	: CN;
+strange	: A;
+talk	: V;
+tell	: V2S;
+that	: Rel;
+their	: Pron;
+they	: Pron;
+think	: VS;
+this	: Det;
+to	: Prep;
+together	: Adv;
+turn on	: V;
+uncle	: CN;
+unusual	: A;
+vanguard	: CN;
+wait	: V2;
+walk back out	: V;
+way	: CN;
+whatsoever	: Adv;
+when	: Subj;
 where
 who
-wife
-with
-within
+wife	: CN;
+with	: Prep;
+within	: Prep;
 without
-word
-world
-yard
+word	: CN;
+world	: CN;
+yard	: CN;
 young
 
 -}
