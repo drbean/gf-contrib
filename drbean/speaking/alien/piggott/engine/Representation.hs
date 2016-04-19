@@ -17,12 +17,8 @@ import Data.Tuple
 
 entuples :: [(Entity,GPN)]
 entuples = [
-	(A,Gcusp)
-	, (D,GControl)
-	, (G,Ggourlay)
-	, (V,GUncertainty)
-	, (T,GSupport)
-	, (Q,GPressure)
+	(D,GDoctor)
+	, (J,Gjoe)
 	]
 
 ref2int :: DRSRef -> Int
@@ -37,17 +33,13 @@ int2ref :: Int -> DRSRef
 int2ref n = DRSRef ("r" ++ (show n) )
 
 lc_first :: String -> String
-lc_first str@(s:ss) = case ( or $ map (flip isPrefixOf str) ["CUSP", "Control", "Uncertainty", "Support", "Pressure", "Gourlay"] ) of
+lc_first str@(s:ss) = case ( or $ map (flip isPrefixOf str) ["Doctor", "The Doctor", "Joe"] ) of
 	True  -> (s:ss)
 	False -> ((toLower s):ss)
 
 instance Eq GPN where
-	(==) Gcusp Gcusp = True
-	(==) GControl GControl = True
-	(==) GUncertainty GUncertainty = True
-	(==) GSupport GSupport = True
-	(==) GPressure GPressure = True
-	(==) Ggourlay Ggourlay = True
+	(==) GDoctor GDoctor = True
+	(==) Gjoe Gjoe = True
 	(==) _ _ = False
 
 gent2ent :: GPN -> Entity
