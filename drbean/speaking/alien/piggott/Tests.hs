@@ -6,7 +6,7 @@ import Data.Maybe
 import Data.DRS
 
 import PGF
-import Motivating
+import Piggott
 import Representation
 import Evaluation
 import Model
@@ -17,7 +17,7 @@ import WordsCharacters
 -- import System.Environment.FindBin
 
 ans tests = do
-  gr	<- readPGF ( "./Motivating.pgf" )
+  gr	<- readPGF ( "./Piggott.pgf" )
   let ss = map (chomp . lc_first) tests
   let ps = map ( parses gr ) ss
   let ls = map (map ( (linear gr) <=< transform ) ) ps
@@ -27,7 +27,7 @@ ans tests = do
 displayResult = fromMaybe "Nothing"
 
 trans tests = do
-  gr	<- readPGF ( "./Motivating.pgf" )
+  gr	<- readPGF ( "./Piggott.pgf" )
   let ss = map (chomp . lc_first) tests
   let ps = map ( parses gr ) ss
   let ls = map id ps
@@ -35,7 +35,7 @@ trans tests = do
   putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
 
 reps tests = do
-  gr	<- readPGF ( "./Motivating.pgf" )
+  gr	<- readPGF ( "./Piggott.pgf" )
   let ss = map (chomp . lc_first) tests
   let ps = map ( parses gr ) ss
   let ts = map (map (\x -> (((unmaybe . rep) x) (term2ref drsRefs var_e) ))) ps
@@ -43,7 +43,7 @@ reps tests = do
   putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
 
 lf tests = do
-	gr	<- readPGF ( "./Motivating.pgf" )
+	gr	<- readPGF ( "./Piggott.pgf" )
 	let ss = map (chomp . lc_first) tests
 	let ps = map ( parses gr ) ss
 	let ts = map (map (\p -> drsToLF (((unmaybe . rep) p) (DRSRef "r1"))) ) ps
@@ -51,7 +51,7 @@ lf tests = do
 	putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
 
 fol tests = do
-	gr	<- readPGF ( "./Motivating.pgf" )
+	gr	<- readPGF ( "./Piggott.pgf" )
 	let ss = map (chomp . lc_first) tests
 	let ps = map ( parses gr ) ss
 	let ts = map (map (\p -> drsToFOL ( (unmaybe . rep) p (term2ref drsRefs var_e) ) ) ) ps

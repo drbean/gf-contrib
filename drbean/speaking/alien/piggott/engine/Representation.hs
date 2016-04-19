@@ -1,9 +1,9 @@
-module Representation (module Representation, module Cusp) where
+module Representation (module Representation, module Piggott) where
 
 import Data.DRS
 import Data.DRS.Show
 
-import Cusp
+import Piggott
 import PGF
 
 import Model
