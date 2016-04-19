@@ -49,7 +49,8 @@ a = [
 
 adv = [
 
-	"home"
+	"back"
+	, "home"
 	, "later"
 	, "more"
 	, "never"
@@ -57,7 +58,6 @@ adv = [
 	, "over"
 	, "together"
 	, "whatsoever"
-	"back"
 	]
 
 aux = [
@@ -118,7 +118,7 @@ n = [
 
 pn = [
 
-	, "Chevrolet automobile"
+	"Chevrolet automobile"
 	, "Doctor"
 	, "The Doctor"
 	, "Joe"
@@ -179,7 +179,7 @@ pron = [
 
 prep = [
 
-	, "from"
+	"from"
 	, "in"
 	, "into"
 	, "of"
@@ -219,7 +219,7 @@ tag = [
 
 v = [
 
-	, "come"
+	"come"
 	, "confess"
 	, "convince"
 	, "drive"
