@@ -118,6 +118,7 @@ fun
 	hear	: VS;
 	involve	: V2;
 	keep	: VV;
+	listen	: V2;
 	land	: V2;
 	leave	: V;
 	make	: V2;

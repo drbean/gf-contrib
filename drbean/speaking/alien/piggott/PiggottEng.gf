@@ -122,6 +122,7 @@ lin
 	involve	= mkV2 "involve";
 	keep	= mkVV( mkV "keep");
 	land	= mkV2 "land";
+	listen	= mkV2( mkV "listen" "listens" "listened" "listened" "listening") to;
 	leave	= mkV "leave";
 	make	= mkV2 "make";
 	react	= mkV2 "react";
