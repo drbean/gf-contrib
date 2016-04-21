@@ -104,6 +104,7 @@ lin
 	into	= mkPrep "into";
 	on	= mkPrep "on";
 	to	= mkPrep "to";
+	to_coagent	= mkPrep "to";
 	with_prep	= mkPrep "with";
 	within	= mkPrep "within";
 	around	= mkPrep "around";
