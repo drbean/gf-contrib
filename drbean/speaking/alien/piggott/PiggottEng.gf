@@ -47,7 +47,7 @@ lin
 	recreation	= mkCN( mkN "recreation" );
 	rubber	= mkN "rubber";
 	scent	= mkN2( mkN "scent");
-	something	= mkN "something";
+	something	=mkN2( mkN "something" ) to;
 	car	= mkCN( mkN "car");
 	direction	= mkCN( mkN "direction");
 	doctor	= mkCN( mkN "doctor");

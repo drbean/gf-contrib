@@ -45,7 +45,7 @@ fun
 	recreation	: CN;
 	rubber	: N;
 	scent	: N2;
-	something	: N;
+	something	: N2;
 	car	: CN;
 	direction	: CN;
 	doctor	: CN;
@@ -102,6 +102,7 @@ fun
 	into	: Prep;
 	on	: LocPrep;
 	to	: Prep;
+	to_coagent	: CoagentPrep;
 	with_prep	: CoagentPrep;
 	within	: Prep;
 	around	: Prep;
