@@ -141,7 +141,7 @@ lin
 	get_up	= partV( mkV "get") "up";
 	wait	= mkV2 "wait";
 	walk_back_out	= partV( mkV "walk") "back out";
-	begin	= mkVV( mkV "begin");
+	begin	= ingVV( mkV "begin");
 	burn	= mkV "burn";
 	announce	= mkVS( mkV "announce");
 }
