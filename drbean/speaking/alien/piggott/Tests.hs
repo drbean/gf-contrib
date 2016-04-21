@@ -85,7 +85,7 @@ dic_test = [
 	, "He walks back out into the yard where they are confessing."
 	, "He waits a few minutes before he tells them that there is nothing to it."
 	, "He tells them that it is just a big hoax."
-	, "The Doctor and his wife are convinced that thereis something to the idea, because they smell rubber burning on the way over there."
+	, "The Doctor and his wife are convinced that there is something to the idea, because they smell rubber burning on the way over there."
 	, "They figure that the burning rubber is the scent of the Martians."
 	, "They later find out he drives all the way over there with the emergency brake on."
 	, "They drive back home without the Doctor saying a word."

@@ -132,7 +132,7 @@ lin
 	repent	= mkV2 "repent";
 	say	= mkV2 "say";
 	see	= mkV3( mkV "see");
-	smell	= mkVV( mkV "smell");
+	smell	= ingV2V( mkV "smell") noPrep noPrep;
 	talk	= mkV "talk";
 	tell	= mkV2S(  mkV "tell" ) noPrep;
 	think	= mkVS( mkV "think");

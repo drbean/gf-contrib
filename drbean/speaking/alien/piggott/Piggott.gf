@@ -71,7 +71,7 @@ fun
 	story	: CN;
 	uncle	: CN;
 	vanguard	: CN;
-	way	: CN;
+	way	: PlaceName;
 	wife	: CN;
 	word	: CN;
 	world	: CN;
@@ -100,7 +100,7 @@ fun
 	from	: Prep;
 	in_prep	: LocPrep;
 	into	: Prep;
-	on	: Prep;
+	on	: LocPrep;
 	to	: Prep;
 	with_prep	: CoagentPrep;
 	within	: Prep;
@@ -129,7 +129,7 @@ fun
 	repent	: V2;
 	say	: V2;
 	see	: V3;
-	smell	: VV;
+	smell	: V2V;
 	talk	: V;
 	tell	: V2S;
 	think	: VS;
