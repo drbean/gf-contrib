@@ -194,6 +194,7 @@ fun
 	As_as	: AP -> NP -> AP;
 	AdvAdj	: AdA -> AP -> AP;
 	A_PP	: A2 -> NP ->AP;
+	VP_AP	: VP -> AP;
 
 	about_prep	: Prep;
 	at_prep	: LocPrep;

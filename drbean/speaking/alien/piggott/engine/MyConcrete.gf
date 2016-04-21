@@ -388,6 +388,7 @@ lin
 	As_as ap np	= mkAP as_CAdv ap np;
 	AdvAdj adv adj = mkAP adv adj;
 	A_PP a np = mkAP a np;
+	VP_AP vp = PresPartAP vp;
 
   about_prep	= P.mkPrep "about";
   at_prep	= P.mkPrep "at";
