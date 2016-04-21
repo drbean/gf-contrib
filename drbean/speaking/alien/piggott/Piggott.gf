@@ -115,7 +115,7 @@ fun
 	drive	: V;
 	figure	: VS;
 	find	: VS;
-	get	: V2;
+	get_in	: V2;
 	go_over	: V;
 	hear	: VS;
 	involve	: V2;
