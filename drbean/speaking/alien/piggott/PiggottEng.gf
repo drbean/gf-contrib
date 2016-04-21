@@ -123,7 +123,7 @@ lin
 	hear	= mkVS( mkV "hear");
 	involve	= mkV2 "involve";
 	keep	= mkVV( mkV "keep");
-	land	= mkV2 "land";
+	land	= mkV "land";
 	listen	= mkV2( mkV "listen" "listens" "listened" "listened" "listening") to;
 	leave	= mkV "leave";
 	make	= mkV2 "make";

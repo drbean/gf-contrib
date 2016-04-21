@@ -121,7 +121,7 @@ fun
 	involve	: V2;
 	keep	: VV;
 	listen	: V2;
-	land	: V2;
+	land	: V;
 	leave	: V;
 	make	: V2;
 	react	: V2;
