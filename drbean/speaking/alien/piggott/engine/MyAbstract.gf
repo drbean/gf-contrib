@@ -126,6 +126,7 @@ fun
 
 	Entity	: PN -> NP;
 	Kind	: AP -> CN -> CN;
+	MassKind	: AP -> N -> N;
 	KindOfKind  : CN -> Adv -> CN;
 	KindInPlace	: CN -> PP_location -> CN;
 	PlaceKind	: AP -> PlaceName -> PlaceName;

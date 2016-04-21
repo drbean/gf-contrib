@@ -221,6 +221,22 @@ oper
 			lock_Adv = {}
 			};
 
+	mymkAP_N : (adj : AP) -> (noun : N) -> { s : Number => Case => Str ; g : Gender } =
+		\adj,noun ->
+		{
+			s = table {
+				Sg => table {
+					Nom => adj.s ! AgP3Sg Neutr ++ noun.s ! Sg ! Nom;
+					Gen => adj.s ! AgP3Sg Neutr ++ noun.s ! Sg ! Gen
+				};
+				Pl => table {
+					Nom => adj.s ! AgP3Sg Neutr ++ noun.s ! Pl ! Nom;
+					Gen => adj.s ! AgP3Sg Neutr ++ noun.s ! Pl ! Gen
+				}
+			};
+			g = noun.g
+		};
+
 lin
 	Be_bad ap	= mkComp ap;
   Be_somewhere located	= mkComp located;
@@ -322,6 +338,7 @@ lin
 
 	Entity pn	= mkNP pn;
 	Kind ap cn	= mkCN ap cn;
+	MassKind ap n = mymkAP_N ap n;
   KindOfKind cn adv	= mkCN cn adv;
 	KindInPlace cn adv	= mkCN cn adv;
 	PlaceKind ap n = mkCN ap n;
