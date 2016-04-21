@@ -10,6 +10,7 @@ lin
 -- Adv
 
 	just_AdV	= mkAdV "just";
+	on_Adv	= mkAdv "on";
 	home	= mkAdv "home";
 	later	= mkAdv "later";
 	never	= mkAdv "never";
@@ -45,7 +46,7 @@ lin
 	nothing	= mkN "nothing";
 	recreation	= mkCN( mkN "recreation" );
 	rubber	= mkN "rubber";
-	scent	= mkN "scent";
+	scent	= mkN2( mkN "scent");
 	something	= mkN "something";
 	car	= mkCN( mkN "car");
 	direction	= mkCN( mkN "direction");
@@ -58,6 +59,7 @@ lin
 	huff	= mkCN( mkN "huff");
 	idea	= mkCN( mkN "idea");
 	man	= mkCN( mkN "man");
+	martian	= mkCN( mkN "Martian") ;
 	minute	= mkCN( mkN "minute");
 	night	= mkCN( mkN "night");
 	planet	= mkCN( mkN "planet");
@@ -92,7 +94,6 @@ lin
 	the_doctor	= mkPN( mkN feminine (mkN "the Doctor") );
 	joe	= mkPN( mkN feminine (mkN "Joe") );
 	mars	= mkPN( mkN feminine (mkN "Mars") );
-	martian	= mkPN( mkN feminine (mkN "Martian") );
 	mercury_theater	= mkPN( mkN feminine (mkN "Mercury Theater") );
 	new_jersey	= mkPN( mkN feminine (mkN "New Jersey") );
 	orson_welles	= mkPN( mkN feminine (mkN "Orson Welles") );

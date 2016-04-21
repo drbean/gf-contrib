@@ -8,6 +8,7 @@ fun
 -- Adv
 
 	just_AdV	: AdV;
+	on_Adv	: PP_location;
 	home	: Adv;
 	later	: Adv;
 	never	: Adv;
@@ -43,7 +44,7 @@ fun
 	nothing	: N;
 	recreation	: CN;
 	rubber	: N;
-	scent	: N;
+	scent	: N2;
 	something	: N;
 	car	: CN;
 	direction	: CN;
@@ -56,6 +57,7 @@ fun
 	huff	: CN;
 	idea	: CN;
 	man	: CN;
+	martian	: CN;
 	minute	: CN;
 	night	: CN;
 	planet	: CN;
@@ -90,14 +92,13 @@ fun
 	the_doctor	: PN;
 	joe	: PN;
 	mars	: PN;
-	martian	: PN;
 	mercury_theater	: PN;
 	new_jersey	: PN;
 	orson_welles	: PN;
 -- Prep
 
 	from	: Prep;
-	in_prep	: Prep;
+	in_prep	: LocPrep;
 	into	: Prep;
 	on	: Prep;
 	to	: Prep;

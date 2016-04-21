@@ -59,6 +59,8 @@ adv = [
 	, "over"
 	, "together"
 	, "whatsoever"
+	, "just"
+	, "on_Adv"
 	]
 
 aux = [
@@ -123,7 +125,6 @@ pn = [
 	, "The Doctor"
 	, "Joe"
 	, "Mars"
-	, "Martian"
 	, "Mercury Theater"
 	, "New Jersey"
 	, "Orson Welles"
@@ -138,6 +139,7 @@ pn = [
 	, "huff"
 	, "idea"
 	, "man"
+	, "Martian"
 	, "minute"
 	, "night"
 	, "planet"
@@ -315,12 +317,13 @@ home	: Adv;
 house	: CN;
 huff	: CN;
 idea	: CN;
-in	: Prep;
+in_prep	: LocPrep;
 into	: Prep;
 invading	: A;
 involve	: V2;
 it	: Pron;
 Joe	: PN;
+just	: AdV;
 just	: Det;
 keep	: VV;
 land	: V2;
@@ -344,6 +347,7 @@ not
 nothing	: N;
 of	: Prep;
 on	: Prep;
+on_Adv	: Adv;
 one	: Det;
 only	: AP;
 Orson Welles	: PN;
@@ -359,7 +363,7 @@ repeat	: V2;
 repent	: V2;
 rubber	: N;
 say	: V2;
-scent	: N;
+scent	: N2;
 see	: V3;
 sense of humor	: CN;
 sin	: CN;
