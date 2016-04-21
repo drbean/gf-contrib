@@ -92,7 +92,7 @@ fun
 	joe	: PN;
 	mars	: PN;
 	mercury_theater	: PN;
-	new_jersey	: PN;
+	new_jersey	: Place;
 	orson_welles	: PN;
 -- Prep
 

@@ -94,7 +94,7 @@ lin
 	joe	= mkPN( mkN feminine (mkN "Joe") );
 	mars	= mkPN( mkN feminine (mkN "Mars") );
 	mercury_theater	= mkPN( mkN feminine (mkN "Mercury Theater") );
-	new_jersey	= mkPN( mkN feminine (mkN "New Jersey") );
+	new_jersey	= mkNP( mkPN( mkN nonhuman (mkN "New Jersey") ) );
 	orson_welles	= mkPN( mkN feminine (mkN "Orson Welles") );
 -- Prep
 
