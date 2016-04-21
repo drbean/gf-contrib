@@ -42,7 +42,6 @@ a = [
 	, "invading"
 	, "mad"
 	, "only"
-	, "other"
 	, "strange"
 	, "unusual"
 	, "big"
@@ -88,7 +87,6 @@ conj = [
 
 det = [
 	"'s"
-	, "each"
 	, "a few"
 	, "just"
 	, "one"
@@ -112,6 +110,7 @@ n = [
 	, "rubber"
 	, "scent"
 	, "something"
+	, "each other"
 	, "anytime"
 	, "anyone"
 	, "11 o'clock"
@@ -297,7 +296,7 @@ Doctor	: PN;
 The Doctor	: PN;
 drama	: CN;
 drive	: V;
-each	: Det;
+each other	: N;
 emergency	: A;
 end	: CN;
 family	: CN;
@@ -351,7 +350,6 @@ on_Adv	: Adv;
 one	: Det;
 only	: AP;
 Orson Welles	: PN;
-other	: A;
 out	: Adv;
 over	: Adv;
 planet	: CN;

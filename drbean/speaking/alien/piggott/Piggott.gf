@@ -26,13 +26,11 @@ fun
 	invading	: AP;
 	mad	: AP;
 	only	: AP;
-	other	: AP;
 	strange	: AP;
 	unusual	: AP;
 	big	: AP;
 -- Det
 
-	each	: Det;
 	a_few	: Det;
 	just	: Predet;
 	one	: Det;
@@ -40,6 +38,7 @@ fun
 	all	: Predet;
 -- N
 
+	each_other	: N;
 	news	: N;
 	nothing	: N;
 	recreation	: CN;

@@ -28,13 +28,11 @@ lin
 	invading	= mkAP( mkA "invading");
 	mad	= mkAP( mkA "mad");
 	only	= mkAP( mkA "only");
-	other	= mkAP( mkA "other");
 	strange	= mkAP( mkA "strange");
 	unusual	= mkAP( mkA "unusual");
 	big	= mkAP( mkA "big");
 -- Det
 
-	each	= each_Det;
 	a_few	= mkDet(  mkQuant "a few" "a few");
 	just	= ss "just";
 	one	= mkDet(  mkNumeral n1_Unit );
@@ -42,6 +40,7 @@ lin
 	all	= ss "all";
 -- N
 
+	each_other	= mkN "each other";
 	news	= mkN "news";
 	nothing	= mkN "nothing";
 	recreation	= mkCN( mkN "recreation" );
