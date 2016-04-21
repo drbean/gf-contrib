@@ -132,6 +132,7 @@ fun
 	smell	: V2V;
 	talk	: V;
 	tell	: V2S;
+	tell_to	: V2V;
 	think	: VS;
 	turn_on	: V;
 	get_up	: V;

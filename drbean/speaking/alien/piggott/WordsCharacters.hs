@@ -375,6 +375,7 @@ story	: CN;
 strange	: A;
 talk	: V;
 tell	: V2S;
+tell to	: V2V;
 that	: Rel;
 their	: Pron;
 they	: Pron;

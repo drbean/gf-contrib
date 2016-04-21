@@ -135,6 +135,7 @@ lin
 	smell	= ingV2V( mkV "smell") noPrep noPrep;
 	talk	= mkV "talk";
 	tell	= mkV2S(  mkV "tell" ) noPrep;
+	tell_to	= mkV2V( mkV "tell" ) noPrep to;
 	think	= mkVS( mkV "think");
 	turn_on	= partV( mkV "turn") "on";
 	get_up	= partV( mkV "get") "up";
