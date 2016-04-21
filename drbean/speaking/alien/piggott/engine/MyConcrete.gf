@@ -224,16 +224,7 @@ oper
 	mymkAP_N : (adj : AP) -> (noun : N) -> { s : Number => Case => Str ; g : Gender } =
 		\adj,noun ->
 		{
-			s = table {
-				Sg => table {
-					Nom => adj.s ! AgP3Sg Neutr ++ noun.s ! Sg ! Nom;
-					Gen => adj.s ! AgP3Sg Neutr ++ noun.s ! Sg ! Gen
-				};
-				Pl => table {
-					Nom => adj.s ! AgP3Sg Neutr ++ noun.s ! Pl ! Nom;
-					Gen => adj.s ! AgP3Sg Neutr ++ noun.s ! Pl ! Gen
-				}
-			};
+			s = \\n,c => adj.s ! AgP3Sg Neutr ++ noun.s ! n ! c;
 			g = noun.g
 		};
 
