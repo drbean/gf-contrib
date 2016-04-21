@@ -117,7 +117,7 @@ lin
 	drive	= mkV "drive";
 	figure	= mkVS( mkV "figure");
 	find	= mkVS( mkV "find");
-	get_in	= mkV2( mkV "get" ) in_prep;
+	get_in	= mkV2( mkV "get" ) into;
 	call	= mkV3( mkV "call");
 	go_over	= partV( mkV "go") "over";
 	hear	= mkVS( mkV "hear");

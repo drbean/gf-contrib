@@ -45,7 +45,7 @@ fun
 	rubber	: N;
 	scent	: N2;
 	something	: N2;
-	car	: PlaceName;
+	car	: CN;
 	direction	: CN;
 	doctor	: CN;
 	drama	: CN;
