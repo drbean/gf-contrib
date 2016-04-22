@@ -46,13 +46,14 @@ fun
 	scent	: N2;
 	something	: N2;
 	car	: CN;
+	chevrolet_automobile	: CN;
 	direction	: CN;
 	doctor	: CN;
 	drama	: CN;
 	end	: CN;
 	family	: CN;
 	hoax	: CN;
-	house	: CN;
+	house	: PlaceName;
 	huff	: CN;
 	idea	: CN;
 	man	: CN;
@@ -86,7 +87,6 @@ fun
 	nineteen_thirtyeight	: N;
 -- PN
 
-	chevrolet_automobile	: PN;
 	Doctor	: PN;
 	the_doctor	: PN;
 	joe	: PN;
@@ -102,6 +102,7 @@ fun
 	on	: LocPrep;
 	to	: Prep;
 	to_coagent	: CoagentPrep;
+	to_location	: LocPrep;
 	with_prep	: CoagentPrep;
 	within	: Prep;
 	around	: Prep;

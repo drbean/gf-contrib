@@ -40,6 +40,7 @@ lin
 	all	= ss "all";
 -- N
 
+	chevrolet_automobile	= mkCN( mkN "Chevrolet automobile");
 	each_other	= mkN "each other";
 	news	= mkN "news";
 	nothing	= mkN "nothing";
@@ -88,7 +89,6 @@ lin
 	nineteen_thirtyeight	= mkN "1938";
 -- PN
 
-	chevrolet_automobile	= mkPN( mkN feminine (mkN "Chevrolet automobile") );
 	Doctor	= mkPN( mkN feminine (mkN "Doctor") );
 	the_doctor	= mkPN( mkN feminine (mkN "the Doctor") );
 	joe	= mkPN( mkN feminine (mkN "Joe") );
@@ -104,6 +104,7 @@ lin
 	on	= mkPrep "on";
 	to	= mkPrep "to";
 	to_coagent	= mkPrep "to";
+	to_location	= mkPrep "to";
 	with_prep	= mkPrep "with";
 	within	= mkPrep "within";
 	around	= mkPrep "around";

@@ -119,14 +119,14 @@ n = [
 
 pn = [
 
-	"Chevrolet automobile"
-	, "Doctor"
+	"Doctor"
 	, "The Doctor"
 	, "Joe"
 	, "Mars"
 	, "Mercury Theater"
 	, "New Jersey"
 	, "Orson Welles"
+	, "Chevrolet automobile"
 	, "car"
 	, "direction"
 	, "doctor"
@@ -285,7 +285,7 @@ but	: Conj;
 call	: V3;
 can	: VV;
 car	: CN;
-Chevrolet automobile	: PN;
+Chevrolet automobile	: CN;
 come	: V;
 confess	: V;
 convince	: V2S;
