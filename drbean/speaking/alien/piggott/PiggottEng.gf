@@ -107,7 +107,6 @@ lin
 	to_location	= mkPrep "to";
 	with_prep	= mkPrep "with";
 	within	= mkPrep "within";
-	around	= mkPrep "around";
 	at	= mkPrep "at";
 	about	= mkPrep "about";
 -- V
@@ -115,7 +114,7 @@ lin
 	come	= mkV "come";
 	confess	= mkV "confess";
 	convince	= mkV2S(  mkV "convince" ) noPrep;
-	drive	= mkV "drive";
+	drive_around	= partV( mkV "drive" ) "around";
 	figure	= mkVS( mkV "figure");
 	find	= mkVS( mkV "find");
 	get_in	= mkV2( mkV "get" ) into;

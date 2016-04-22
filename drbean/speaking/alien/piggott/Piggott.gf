@@ -105,7 +105,6 @@ fun
 	to_location	: LocPrep;
 	with_prep	: CoagentPrep;
 	within	: Prep;
-	around	: Prep;
 	at	: Prep;
 	about	: Prep;
 -- V
@@ -113,7 +112,7 @@ fun
 	come	: V;
 	confess	: V;
 	convince	: V2S;
-	drive	: V;
+	drive_around	: V;
 	figure	: VS;
 	find	: VS;
 	get_in	: V2;
