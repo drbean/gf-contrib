@@ -53,7 +53,7 @@ fun
 	end	: CN;
 	family	: CN;
 	hoax	: CN;
-	house	: PlaceName;
+	house	: CN;
 	huff	: CN;
 	idea	: CN;
 	man	: CN;
