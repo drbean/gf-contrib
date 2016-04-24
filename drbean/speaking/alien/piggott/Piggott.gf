@@ -99,7 +99,8 @@ fun
 	from	: Prep;
 	in_prep	: LocPrep;
 	into	: Prep;
-	on	: LocPrep;
+	on_source	: SourcePrep;
+	on_location	: LocPrep;
 	to	: Prep;
 	to_coagent	: CoagentPrep;
 	to_location	: LocPrep;
@@ -117,7 +118,7 @@ fun
 	find	: VS;
 	get_in	: V2;
 	go_over	: V;
-	hear	: VS;
+	hear	: V2S;
 	involve	: V2;
 	keep	: VV;
 	listen	: V2;

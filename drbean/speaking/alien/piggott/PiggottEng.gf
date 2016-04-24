@@ -101,7 +101,8 @@ lin
 	from	= mkPrep "from";
 	in_prep	= mkPrep "in";
 	into	= mkPrep "into";
-	on	= mkPrep "on";
+	on_source	= mkPrep "on";
+	on_location	= mkPrep "on";
 	to	= mkPrep "to";
 	to_coagent	= mkPrep "to";
 	to_location	= mkPrep "to";
@@ -120,7 +121,7 @@ lin
 	get_in	= mkV2( mkV "get" ) into;
 	call	= mkV3( mkV "call");
 	go_over	= partV( mkV "go") "over";
-	hear	= mkVS( mkV "hear");
+	hear	= mkV2S(  mkV "hear" ) on_source;
 	involve	= mkV2 "involve";
 	keep	= mkVV( mkV "keep");
 	land	= mkV "land";

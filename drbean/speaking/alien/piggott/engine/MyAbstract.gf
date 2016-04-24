@@ -18,12 +18,14 @@ cat
 	ThemePrep;
 	MannerPrep;
 	TimePrep;
+	SourcePrep;
 	PP_coagent;
 	PP_instrument;
 	PP_theme;
 	PP_manner;
 	PP_time;
 	PP_location;
+	PP_source;
 	MassDet;
 	SubordCl;
 	Partitive;
@@ -46,6 +48,7 @@ fun
 	Themeing	: ThemePrep -> NP -> PP_theme;
 	Mannering	: MannerPrep -> NP -> PP_manner;
 	Timing		: TimePrep -> NP -> PP_time;
+	Sourcing		: SourcePrep -> NP -> PP_source;
 	Happening	: V -> VP ;
 	Changing	: V2 -> NP -> VP;
 	V_NP_VP:	V2V -> NP -> VP -> VP;
@@ -86,6 +89,7 @@ fun
 	FreeRClSlash : ClSlash -> NounCl;
 	NomCl : NounCl -> NP;
 	Mannered	: NP -> PP_manner -> NP;
+	Sourced	: NP -> PP_source -> NP;
 	AdV_VP	: AdV -> VP -> VP;
 	WithPlace	:  V -> PP_location -> VP;
 	WithTime	: Time -> VP -> VP;
