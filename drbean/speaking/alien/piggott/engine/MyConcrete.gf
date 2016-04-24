@@ -1,4 +1,4 @@
-concrete MyConcrete of MyAbstract = open ResEng, Prelude, SyntaxEng, (P = ParadigmsEng), ExtraEng, IrregEng, SentenceEng, RelativeEng, ExtensionsEng in {
+concrete MyConcrete of MyAbstract = open ResEng, Prelude, SyntaxEng, (P = ParadigmsEng), ExtraEng, IrregEng, ExtensionsEng in {
 
 lincat
   Utt	= Utt;
@@ -388,7 +388,6 @@ lin
 	what_WH	= whatSg_IP;
 	-- how_WH	= mkIP how_IAdv;
 	that_RP	= ExtraEng.that_RP;
-	IdRP	= IdRP;
 	-- in_which	=mkRP in_prep which_RP;
 	-- where_RP	= mkRP "where";
 
