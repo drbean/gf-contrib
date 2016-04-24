@@ -1,57 +1,13 @@
-concrete MyConcrete of MyAbstract = open ResEng, Prelude, SyntaxEng, (P = ParadigmsEng), ExtraEng, IrregEng, ExtensionsEng in {
+concrete MyConcrete of MyAbstract = CatEng ** open ResEng, Prelude, SyntaxEng, (P = ParadigmsEng), ExtraEng, IrregEng, ExtensionsEng in {
 
 lincat
-  Utt	= Utt;
-	Interj	= Interj;
-  PN	= PN;
-  NP	= NP;
 	ListNP	= ListNP;
-  N	= N;
 	ListAP	= ListAP;
-  A	= A;
-  A2	= A2;
-  AP	= AP;
-  Adv	= Adv;
-  AdV	= AdV;
-  AdA	= AdA;
-  Comp	= Comp;
-  IComp	= IComp;
-  Cl	= Cl;
-  QCl	= QCl;
-  S	= S;
-  QS	= QS;
-  SC	= SC;
-  V	= V;
-  VP	= VP;
-	VPSlash = VPSlash;
-	RCl	= RCl;
-	RS	= RS;
-	RP	= RP;
 	NounCl = {s : ResEng.Tense => Anteriority => CPolarity => Order => Str; c : NPCase };
-	ClSlash	= ClSlash;
-  V2	= V2;
-  V3	= V3;
-  V2V	= V2V;
-  V2S	= V2S;
-  V2A	= V2A;
-  V2Q	= V2Q;
-  VV	= VV;
-  VS	= VS;
-  VA	= VA;
-	Quant	= Quant;
-  Det	= Det;
-  Predet	= Predet;
-  CN	= CN;
-  N2	= N2;
-  IP	= IP;
-  Prep	= Prep;
-  CAdv	= CAdv;
 	Time	= Adv;
 	TimeName	= CN;
 	Times	= NP;
 	Period	= Adv;
-	Subj	= Subj;
-	Conj	= Conj;
 	SubordCl	= Adv;
 	Title	= CN;
 	Place	= NP;
