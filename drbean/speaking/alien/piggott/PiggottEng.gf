@@ -21,7 +21,6 @@ lin
 	over	= mkAdv "over";
 	together	= mkAdv "together";
 	whatsoever	= mkAdv "whatsoever";
-	back	= mkAdv "back";
 -- AP
 
 	country	= mkAP( mkA "country");
@@ -101,6 +100,7 @@ lin
 	orson_welles	= mkPN( mkN feminine (mkN "Orson Welles") );
 -- Prep
 
+	back_out_into	= mkPrep "back out into";
 	over_to	= mkPrep "over to";
 	around_to	= mkPrep "around to";
 	from	= mkPrep "from";
@@ -117,6 +117,7 @@ lin
 	about	= mkPrep "about";
 -- V
 
+	walk_back_out_into	= mkV2( mkV "walk" ) back_out_into;
 	come	= mkV "come";
 	confess	= mkV "confess";
 	convince	= mkV2S(  mkV "convince" ) noPrep;
@@ -146,7 +147,6 @@ lin
 	turn_on	= partV( mkV "turn") "on";
 	get_up	= partV( mkV "get") "up";
 	wait	= mkV2 "wait";
-	walk_back_out	= partV( mkV "walk") "back out";
 	begin	= ingVV( mkV "begin");
 	burn	= mkV "burn";
 	announce	= mkVS( mkV "announce");

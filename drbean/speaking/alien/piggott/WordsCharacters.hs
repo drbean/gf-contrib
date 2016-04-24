@@ -189,6 +189,7 @@ prep = [
 	, "within"
 	, "around to"
 	, "over to"
+	, "back out into"
 	, "at"
 	, "about"
 	]
@@ -228,6 +229,7 @@ v = [
 	, "get"
 	, "go over to"
 	, "drive around to"
+	, "walk back out into"
 	, "hear"
 	, "involve"
 	, "keep"
@@ -246,8 +248,6 @@ v = [
 	, "turn on"
 	, "get up"
 	, "wait"
-	, "walk back out"
-	, "walk back out"
 	, "listen"
 	, "call"
 	, "can"
@@ -271,7 +271,7 @@ anytime	: N;
 army	: CN;
 around to	: Prep;
 at	: Prep;
-back	: Adv;
+back out into	: Prep;
 because	: Conj;
 before	: Conj;
 begin	: VV;
@@ -389,7 +389,7 @@ uncle	: CN;
 unusual	: A;
 vanguard	: CN;
 wait	: V2;
-walk back out	: V;
+walk back out into	: V2;
 way	: CN;
 whatsoever	: Adv;
 when	: Subj;

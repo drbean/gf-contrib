@@ -16,7 +16,6 @@ fun
 	over	: Adv;
 	together	: PP_location;
 	whatsoever	: Adv;
-	back	: Adv;
 -- AP
 
 	country	: AP;
@@ -98,6 +97,7 @@ fun
 
 	over_to	: Prep;
 	around_to	: Prep;
+	back_out_into	: Prep;
 	from	: Prep;
 	in_prep	: LocPrep;
 	into	: Prep;
@@ -114,6 +114,7 @@ fun
 
 	go_over_to	: V2;
 	drive_around_to	: V2;
+	walk_back_out_into	: V2;
 	come	: V;
 	confess	: V;
 	convince	: V2S;
@@ -140,7 +141,6 @@ fun
 	turn_on	: V;
 	get_up	: V;
 	wait	: V2;
-	walk_back_out	: V;
 	call	: V3;
 	begin	: VV;
 	burn	: V;
