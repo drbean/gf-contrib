@@ -74,7 +74,7 @@ dic_test = [
 	, "Joe and the Doctor think that Joe's uncle is gone."
 	, "The program keeps telling them they are coming in this direction."
 	, "The doctor tells his wife to get into the car."
-	, "They go over to the Doctor's brother's house so they can all be together when the end comes."
+	, "They go over to the Doctor's brother's house so they can be together when the end comes."
 	, "So, they get into the Doctor's Chevrolet automobile and drive around to his brother's house."
 	, "They begin talking about it being the end of the world."
 	, "They begin confessing to each other."

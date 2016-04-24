@@ -14,7 +14,7 @@ fun
 	never	: Adv;
 	out	: Adv;
 	over	: Adv;
-	together	: Adv;
+	together	: PP_location;
 	whatsoever	: Adv;
 	back	: Adv;
 -- AP
