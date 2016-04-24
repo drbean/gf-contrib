@@ -1,9 +1,12 @@
 --# -path=.:/home/drbean/GF/lib/src/translator:/home/drbean/GF/gf-contrib/drbean/speaking/alien/piggott:/home/drbean/GF/gf-contrib/drbean/speaking/alien/piggott/engine:present
 
 concrete PiggottEng of Piggott = MyConcrete  **
-open SyntaxEng, ParadigmsEng, Prelude in {
+open SyntaxEng, ParadigmsEng in {
 
--- oper
+oper
+
+ss : ( word : Str ) -> { s : Str } =
+	\word -> { s = word};
 
 lin
 
