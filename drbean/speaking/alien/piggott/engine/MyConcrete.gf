@@ -1,4 +1,4 @@
-concrete MyConcrete of MyAbstract = open Predef, ResEng, Prelude, SyntaxEng, (P = ParadigmsEng), ExtraEng, IrregEng, SentenceEng, RelativeEng, ExtensionsEng in {
+concrete MyConcrete of MyAbstract = open ResEng, Prelude, SyntaxEng, (P = ParadigmsEng), ExtraEng, IrregEng, SentenceEng, RelativeEng, ExtensionsEng in {
 
 lincat
   Utt	= Utt;
