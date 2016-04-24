@@ -1,7 +1,7 @@
 --# -path=.:/home/drbean/GF/lib/src/translator:/home/drbean/GF/gf-contrib/drbean/speaking/alien/piggott:/home/drbean/GF/gf-contrib/drbean/speaking/alien/piggott/engine:present
 
 concrete PiggottEng of Piggott = MyConcrete  **
-open SyntaxEng, ParadigmsEng, IrregEng, ExtraEng, ConstructX, Prelude, (R=ResEng) in {
+open SyntaxEng, ParadigmsEng, Prelude in {
 
 -- oper
 
