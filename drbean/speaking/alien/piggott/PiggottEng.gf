@@ -98,6 +98,8 @@ lin
 	orson_welles	= mkPN( mkN feminine (mkN "Orson Welles") );
 -- Prep
 
+	over_to	= mkPrep "over to";
+	around_to	= mkPrep "around to";
 	from	= mkPrep "from";
 	in_prep	= mkPrep "in";
 	into	= mkPrep "into";
@@ -115,13 +117,13 @@ lin
 	come	= mkV "come";
 	confess	= mkV "confess";
 	convince	= mkV2S(  mkV "convince" ) noPrep;
-	drive_around	= partV( mkV "drive" ) "around";
+	drive_around_to	= mkV2( mkV "drive" ) around_to;
 	figure	= mkVS( mkV "figure");
 	find	= mkVS( mkV "find");
 	get_in	= mkV2( mkV "get" ) into;
 	call	= mkV3( mkV "call");
-	go_over	= partV( mkV "go") "over";
 	hear	= mkV2S(  mkV "hear" ) on_source;
+	go_over_to	= mkV2( mkV "go" ) over_to;
 	involve	= mkV2 "involve";
 	keep	= mkVV( mkV "keep");
 	land	= mkV "land";

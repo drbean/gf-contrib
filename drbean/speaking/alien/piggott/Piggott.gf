@@ -96,6 +96,8 @@ fun
 	orson_welles	: PN;
 -- Prep
 
+	over_to	: Prep;
+	around_to	: Prep;
 	from	: Prep;
 	in_prep	: LocPrep;
 	into	: Prep;
@@ -110,14 +112,14 @@ fun
 	about	: Prep;
 -- V
 
+	go_over_to	: V2;
+	drive_around_to	: V2;
 	come	: V;
 	confess	: V;
 	convince	: V2S;
-	drive_around	: V;
 	figure	: VS;
 	find	: VS;
 	get_in	: V2;
-	go_over	: V;
 	hear	: V2S;
 	involve	: V2;
 	keep	: VV;

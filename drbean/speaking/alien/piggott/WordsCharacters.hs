@@ -55,7 +55,6 @@ adv = [
 	, "more"
 	, "never"
 	, "out"
-	, "over"
 	, "together"
 	, "whatsoever"
 	, "just"
@@ -188,7 +187,8 @@ prep = [
 	, "to"
 	, "with"
 	, "within"
-	, "around"
+	, "around to"
+	, "over to"
 	, "at"
 	, "about"
 	]
@@ -223,11 +223,11 @@ v = [
 	"come"
 	, "confess"
 	, "convince"
-	, "drive"
 	, "figure"
 	, "find"
 	, "get"
-	, "go over"
+	, "go over to"
+	, "drive around to"
 	, "hear"
 	, "involve"
 	, "keep"
@@ -269,7 +269,7 @@ any	: Det;
 anyone	: N;
 anytime	: N;
 army	: CN;
-around	: Prep;
+around to	: Prep;
 at	: Prep;
 back	: Adv;
 because	: Conj;
@@ -295,7 +295,7 @@ doctor	: CN;
 Doctor	: PN;
 The Doctor	: PN;
 drama	: CN;
-drive	: V;
+drive around to	: V2;
 each other	: N;
 emergency	: A;
 end	: CN;
@@ -306,10 +306,10 @@ find	: VS;
 from	: Prep;
 get	: V2;
 get up	: V;
-go over	: V;
+go over to	: V2;
 gone	: A;
 he : Pron;
-hear	: VS;
+hear	: V2S;
 himself : Pron;
 hoax	: CN;
 home	: Adv;
@@ -352,6 +352,7 @@ only	: AP;
 Orson Welles	: PN;
 out	: Adv;
 over	: Adv;
+over to	: Prep;
 planet	: CN;
 program	: CN;
 radio	: CN;
