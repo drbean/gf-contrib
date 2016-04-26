@@ -69,7 +69,7 @@ fun
 	step_grandfather	: CN;
 	story	: CN;
 	uncle	: CN;
-	vanguard	: CN;
+	vanguard	: N2;
 	way	: PlaceName;
 	wife	: CN;
 	word	: CN;

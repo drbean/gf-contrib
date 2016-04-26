@@ -74,7 +74,7 @@ lin
 	step_grandfather	= mkCN( mkN "step-grandfather");
 	story	= mkCN( mkN "story");
 	uncle	= mkCN( mkN "uncle");
-	vanguard	= mkCN( mkN "vanguard");
+	vanguard	= mkN2( mkN "vanguard");
 	way	= mkCN( mkN "way");
 	wife	= mkCN( mkN "wife");
 	word	= mkCN( mkN "word");
