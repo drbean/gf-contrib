@@ -1,6 +1,6 @@
 module Main where
 
-import Chat
+import Piggott
 import LogicalForm hiding ((==))
 import Evaluation
 
@@ -20,21 +20,21 @@ import System.Environment.FindBin
 main :: IO ()
 main = do
 	path <- getProgPath
-	gr <- readPGF ( path ++ "/Chat.pgf" )
+	gr <- readPGF ( path ++ "/Piggott.pgf" )
 	hClose stderr
 	hDuplicateTo stdout stderr
 	s <- getLine
 	let l = (chomp . lc_first) s
 	putStrLn ("Unknown_words: " ++ (unknown l) )
 	let ps = parses gr l
-	let ls = map ((linear gr) <=< transform) ps
-	putStrLn ("Parsed: " ++ (show (map (showExpr []) ps) ) )
+	let ls = map (linear gr <=< transform) ps
+	putStrLn ("Parsed: " ++ show (map (showExpr []) ps) )
 	let urs = map (unmaybe . rep) ps
 	-- let reps = map (\ur -> ur (term2ref drsRefs var_e)) urs
 	-- putStrLn ("Representation: " ++ show reps )
 	-- let lfs = map (\ur -> drsToLF (ur (term2ref drsRefs var_e))) urs
 	-- putStrLn ("LF: " ++ show lfs )
-	putStrLn ("Answer: " ++ (bestAnswer ls) )
+	putStrLn ("Answer: " ++ bestAnswer ls)
 	let courses = map (label . fg) ps
 	putStrLn ("Course: " ++ foldl takeCourse "Unparseable" courses )
 
