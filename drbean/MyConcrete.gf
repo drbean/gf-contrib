@@ -1,57 +1,13 @@
-concrete MyConcrete of MyAbstract = open Predef, ResEng, Prelude, SyntaxEng, (P = ParadigmsEng), ExtraEng, IrregEng, SentenceEng, RelativeEng, ExtensionsEng in {
+concrete MyConcrete of MyAbstract = CatEng ** open ResEng, Prelude, SyntaxEng, (P = ParadigmsEng), ExtraEng, IrregEng, ExtensionsEng in {
 
 lincat
-  Utt	= Utt;
-	Interj	= Interj;
-  PN	= PN;
-  NP	= NP;
 	ListNP	= ListNP;
-  N	= N;
 	ListAP	= ListAP;
-  A	= A;
-  A2	= A2;
-  AP	= AP;
-  Adv	= Adv;
-  AdV	= AdV;
-  AdA	= AdA;
-  Comp	= Comp;
-  IComp	= IComp;
-  Cl	= Cl;
-  QCl	= QCl;
-  S	= S;
-  QS	= QS;
-  SC	= SC;
-  V	= V;
-  VP	= VP;
-	VPSlash = VPSlash;
-	RCl	= RCl;
-	RS	= RS;
-	RP	= RP;
 	NounCl = {s : ResEng.Tense => Anteriority => CPolarity => Order => Str; c : NPCase };
-	ClSlash	= ClSlash;
-  V2	= V2;
-  V3	= V3;
-  V2V	= V2V;
-  V2S	= V2S;
-  V2A	= V2A;
-  V2Q	= V2Q;
-  VV	= VV;
-  VS	= VS;
-  VA	= VA;
-	Quant	= Quant;
-  Det	= Det;
-  Predet	= Predet;
-  CN	= CN;
-  N2	= N2;
-  IP	= IP;
-  Prep	= Prep;
-  CAdv	= CAdv;
 	Time	= Adv;
 	TimeName	= CN;
 	Times	= NP;
 	Period	= Adv;
-	Subj	= Subj;
-	Conj	= Conj;
 	SubordCl	= Adv;
 	Title	= CN;
 	Place	= NP;
@@ -63,12 +19,14 @@ lincat
 	MannerPrep	= Prep;
 	TimePrep	= Prep;
 	LocPrep	= Prep;
+	SourcePrep	= Prep;
 	PP_coagent	= Adv;
 	PP_instrument	= Adv;
 	PP_theme	= Adv;
 	PP_manner	= Adv;
 	PP_time	= Adv;
 	PP_location	= Adv;
+	PP_source	= Adv;
 	MassDet = Det;
 	Partitive = N2;
 
@@ -221,6 +179,13 @@ oper
 			lock_Adv = {}
 			};
 
+	mymkAP_N : (adj : AP) -> (noun : N) -> { s : Number => Case => Str ; g : Gender } =
+		\adj,noun ->
+		{
+			s = \\n,c => adj.s ! AgP3Sg Neutr ++ noun.s ! n ! c;
+			g = noun.g
+		};
+
 lin
 	Be_bad ap	= mkComp ap;
   Be_somewhere located	= mkComp located;
@@ -237,6 +202,7 @@ lin
 	Themeing prep instrument = mkAdv prep instrument;
 	Mannering prep style = mkAdv prep style;
 	Timing prep time = mkAdv prep time;
+	Sourcing prep source = mkAdv prep source;
 	Happening action	=	mkVP action;
 	Changing action patient	= mkVP action patient;
 	V_NP_VP causal patient predicate	= mkVP causal patient predicate;
@@ -284,6 +250,8 @@ lin
 			  };
 	NomCl ncl = mymkNP ncl;
 	Mannered np adv = mkNP np adv;
+	Sourced np adv	= mkNP np adv;
+	AdV_VP adv vp = mkVP adv vp;
   WithPlace v located	= mkVP (mkVP v) located;
   AdvVP adv vp	= mkVP adv vp;
 	VPAdv vp adv = mkVP vp adv;
@@ -295,6 +263,7 @@ lin
 	VP_PP_time vp pp = mkVP pp;
 	VP_PP_location vp located = mkVP vp located;
 	WithCl vp cl = mkVP vp cl;
+	WithClPre cl s = mkS cl s;
   -- Be_made_sth vp np = PassV3 vp np;
 
 	ICompS i np = mkQS (mkQCl i np);
@@ -320,6 +289,7 @@ lin
 
 	Entity pn	= mkNP pn;
 	Kind ap cn	= mkCN ap cn;
+	MassKind ap n = mymkAP_N ap n;
   KindOfKind cn adv	= mkCN cn adv;
 	KindInPlace cn adv	= mkCN cn adv;
 	PlaceKind ap n = mkCN ap n;
@@ -337,6 +307,7 @@ lin
 	zero_Det_sg	= mkDet zero_mass_Quant singularNum;
 	the_mass_Det	= theSg_Det;
 	some_mass_Det = mkDet some_Quant singularNum;
+	any_mass_Det = mkDet any_Quant singularNum;
 	theSg_Det	= theSg_Det;
 	thePlural_Det = thePl_Det;
 	Apos np	= mkDet (GenNP np);
@@ -385,17 +356,16 @@ lin
 	As_as ap np	= mkAP as_CAdv ap np;
 	AdvAdj adv adj = mkAP adv adj;
 	A_PP a np = mkAP a np;
+	VP_AP vp = PresPartAP vp;
 
   about_prep	= P.mkPrep "about";
   at_prep	= P.mkPrep "at";
 	before_prep	= P.mkPrep "before";
   from_prep	= P.mkPrep "from";
-  in_prep	= P.mkPrep "in";
   like_prep	= P.mkPrep "like";
 	of_prep	= possess_Prep;
   part_prep	= part_Prep;
   up_prep	= P.mkPrep "up";
-  with_prep	= P.mkPrep "with";
 
 	person	= mkCN( P.mkN "person" "people");
 	thing	= mkCN( P.mkN "thing");
@@ -411,6 +381,7 @@ lin
 	because_Subj	= because_Subj;
 	if_Subj	= if_Subj;
 	when_Subj = when_Subj;
+	so_Subj	= P.mkSubj "so";
 	or_Conj	= or_Conj;
 	and_Conj	= mymkConj "and";
 	but_Conj	= mymkConj "but";

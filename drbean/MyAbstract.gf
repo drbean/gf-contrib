@@ -18,12 +18,14 @@ cat
 	ThemePrep;
 	MannerPrep;
 	TimePrep;
+	SourcePrep;
 	PP_coagent;
 	PP_instrument;
 	PP_theme;
 	PP_manner;
 	PP_time;
 	PP_location;
+	PP_source;
 	MassDet;
 	SubordCl;
 	Partitive;
@@ -46,6 +48,7 @@ fun
 	Themeing	: ThemePrep -> NP -> PP_theme;
 	Mannering	: MannerPrep -> NP -> PP_manner;
 	Timing		: TimePrep -> NP -> PP_time;
+	Sourcing		: SourcePrep -> NP -> PP_source;
 	Happening	: V -> VP ;
 	Changing	: V2 -> NP -> VP;
 	V_NP_VP:	V2V -> NP -> VP -> VP;
@@ -86,6 +89,8 @@ fun
 	FreeRClSlash : ClSlash -> NounCl;
 	NomCl : NounCl -> NP;
 	Mannered	: NP -> PP_manner -> NP;
+	Sourced	: NP -> PP_source -> NP;
+	AdV_VP	: AdV -> VP -> VP;
 	WithPlace	:  V -> PP_location -> VP;
 	WithTime	: Time -> VP -> VP;
 	VP_PP_coagent	: VP -> PP_coagent -> VP;
@@ -95,6 +100,7 @@ fun
 	VP_PP_time	: VP -> PP_time -> VP;
 	VP_PP_location	:  Motion -> PP_location -> VP;
 	WithCl	: VP -> SubordCl -> VP;
+	WithClPre	: SubordCl -> S -> S;
 
 	ICompS	: IComp -> NP -> QS;
 	YN	: Cl -> QCl;
@@ -124,6 +130,7 @@ fun
 
 	Entity	: PN -> NP;
 	Kind	: AP -> CN -> CN;
+	MassKind	: AP -> N -> N;
 	KindOfKind  : CN -> Adv -> CN;
 	KindInPlace	: CN -> PP_location -> CN;
 	PlaceKind	: AP -> PlaceName -> PlaceName;
@@ -141,6 +148,7 @@ fun
 	zero_Det_sg : MassDet;
 	the_mass_Det	: MassDet;
 	some_mass_Det	: MassDet;
+	any_mass_Det	: MassDet;
 	theSg_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
 	thePlural_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
 	Apos  : NP -> Det;
@@ -191,6 +199,7 @@ fun
 	As_as	: AP -> NP -> AP;
 	AdvAdj	: AdA -> AP -> AP;
 	A_PP	: A2 -> NP ->AP;
+	VP_AP	: VP -> AP;
 
 	about_prep	: Prep;
 	at_prep	: LocPrep;
@@ -200,7 +209,6 @@ fun
 	of_prep	: Prep;
 	part_prep	: Prep;
 	up_prep	: Prep;
-	with_prep	: CoagentPrep;
 
 	person	: CN;
 	thing	: CN;
@@ -217,6 +225,7 @@ fun
 	because_Subj	: Subj;
 	if_Subj	: Subj;
 	when_Subj	: Subj;
+	so_Subj	: Subj;
 	or_Conj	: Conj;
 	and_Conj	: Conj;
 	but_Conj	: Conj;
