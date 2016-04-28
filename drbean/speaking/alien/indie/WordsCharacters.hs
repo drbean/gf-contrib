@@ -109,6 +109,7 @@ n = [
 	, "freedom"
 	, "humanity"
 	, "interference"
+	, "Independence Day"
 	]
 
 pn = [
@@ -261,7 +262,7 @@ Washington	: PN;
 where	: RP;
 with	: Prep;
 worldwide	: A;
-Independence Day	: PN;
+Independence Day	: N;
 
 -}
 
