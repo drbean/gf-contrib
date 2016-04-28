@@ -49,6 +49,7 @@ lin
 	freedom	= mkN "freedom";
 	humanity	= mkN "humanity";
 	interference	= mkN "interference";
+	independence_day	= mkN "Independence Day";
 -- PN
 
 	area_51	= mkPN( mkN feminine (mkN "Area 51") );
@@ -61,7 +62,6 @@ lin
 	new_york	= mkPN( mkN feminine (mkN "New York") );
 	paris	= mkPN( mkN feminine (mkN "Paris") );
 	washington	= mkPN( mkN feminine (mkN "Washington") );
-	independence_day	= mkPN( mkN feminine (mkN "Independence Day") );
 -- Prep
 
 	against	= mkPrep "against";

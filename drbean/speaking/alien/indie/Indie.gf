@@ -47,6 +47,7 @@ fun
 	freedom	: N;
 	humanity	: N;
 	interference	: N;
+	independence_day	: N;
 -- PN
 
 	area_51	: PN;
@@ -59,7 +60,6 @@ fun
 	new_york	: PN;
 	paris	: PN;
 	washington	: PN;
-	independence_day	: PN;
 -- Prep
 
 	against	: Prep;
