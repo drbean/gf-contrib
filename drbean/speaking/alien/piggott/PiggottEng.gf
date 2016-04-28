@@ -12,6 +12,7 @@ lin
 
 -- Adv
 
+	so_Adv	= mkAdv "so";
 	just_AdV	= mkAdV "just";
 	on_Adv	= mkAdv "on";
 	home	= mkAdv "home";
@@ -55,6 +56,7 @@ lin
 	doctor	= mkCN( mkN "doctor");
 	drama	= mkCN( mkN "drama");
 	end	= mkCN( mkN "end");
+	end_N2	= mkN2( mkN "end");
 	family	= mkCN( mkN "family");
 	hoax	= mkCN( mkN "hoax");
 	house	= mkCN( mkN "house");
@@ -80,7 +82,7 @@ lin
 	word	= mkCN( mkN "word");
 	world	= mkCN( mkN "world");
 	yard	= mkCN( mkN "yard");
-	army	= mkCN( mkN "army");
+	army	= mkN2( mkN "army") from;
 	being	= mkCN( mkN "being");
 	brake	= mkCN( mkN "brake");
 	broadcast	= mkCN( mkN "broadcast");
@@ -141,6 +143,7 @@ lin
 	see	= mkV3( mkV "see");
 	smell	= ingV2V( mkV "smell") noPrep noPrep;
 	talk	= mkV "talk";
+	talk_about	= mkV2( mkV "talk" ) about;
 	tell	= mkV2S(  mkV "tell" ) noPrep;
 	tell_to	= mkV2V( mkV "tell" ) noPrep to;
 	think	= mkVS( mkV "think");

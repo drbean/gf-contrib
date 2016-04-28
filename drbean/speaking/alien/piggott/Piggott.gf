@@ -7,6 +7,7 @@ fun
 
 -- Adv
 
+	so_Adv	: Adv;
 	just_AdV	: AdV;
 	on_Adv	: PP_location;
 	home	: Adv;
@@ -50,6 +51,7 @@ fun
 	doctor	: CN;
 	drama	: CN;
 	end	: CN;
+	end_N2	: N2;
 	family	: CN;
 	hoax	: CN;
 	house	: CN;
@@ -75,7 +77,7 @@ fun
 	word	: CN;
 	world	: CN;
 	yard	: CN;
-	army	: CN;
+	army	: N2;
 	being	: CN;
 	brake	: CN;
 	broadcast	: CN;
@@ -135,6 +137,7 @@ fun
 	see	: V3;
 	smell	: V2V;
 	talk	: V;
+	talk_about	: V2;
 	tell	: V2S;
 	tell_to	: V2V;
 	think	: VS;
