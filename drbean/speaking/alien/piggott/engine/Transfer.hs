@@ -25,7 +25,7 @@ main = do
 	hDuplicateTo stdout stderr
 	s <- getLine
 	let l = (chomp . lc_first) s
-	putStrLn ("Unknown_words: " ++ (unknown l) )
+	putStrLn ("Unknown_words: " ++ unknown l )
 	let ps = parses gr l
 	let ls = map (linear gr <=< transform) ps
 	putStrLn ("Parsed: " ++ show (map (showExpr []) ps) )
@@ -42,10 +42,10 @@ unknown :: String -> String
 unknown ws = intercalate ", " ( filter (\x -> not (checkLists x ws) ) (words ws))
 
 checkLists :: String -> String -> Bool
-checkLists w ws	=	if check_on_wordlist [w] then True
-									else if check_on_wordlist (alternatives w (bigram ws)) then True
-									else if check_on_wordlist (alternatives w (trigram ws)) then True
-									else False
+checkLists w ws	| check_on_wordlist [w] = True
+								| check_on_wordlist (alternatives w (bigram ws)) = True
+								| check_on_wordlist (alternatives w (trigram ws)) = True
+								| otherwise = False
 splitVariants :: [String] -> [String]
 splitVariants ls = concat $ map (splitOn ", ") ls
 
@@ -60,7 +60,7 @@ bigram ws = let zs = zip ss sss
 						where
 						ss = words ws
 						sss = tail ss
-						in (map (\(a,b) -> (a, unwords [a,b]) ) zs) ++
+						in map (\(a,b) -> (a, unwords [a,b]) ) zs ++
 							(map (\(a,b) -> (b, unwords [a,b]) ) zs)
 
 trigram :: String -> [ (String, String) ]
@@ -69,7 +69,7 @@ trigram ws = let zs = zip3 ss sss ssss
 			ss = words ws
 			sss = tail ss
 			ssss = tail sss
-			in (map (\(a,b,c) -> (a, unwords [a,b,c]) ) zs) ++
+			in map (\(a,b,c) -> (a, unwords [a,b,c]) ) zs ++
 				(map (\(a,b,c) -> (c, unwords [a,b,c]) ) zs)
 
 label :: GUtt -> String
