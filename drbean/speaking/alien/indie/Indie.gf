@@ -68,7 +68,7 @@ fun
 	for	: Prep;
 	in_prep	: Prep;
 	into	: Prep;
-	on	: Prep;
+	on	: TimePrep;
 	to	: Prep;
 	towards	: Prep;
 	with_prep	: Prep;

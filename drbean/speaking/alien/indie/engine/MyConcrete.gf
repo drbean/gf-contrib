@@ -260,7 +260,7 @@ lin
 	VP_PP_instrument vp pp = mkVP vp pp;
 	VP_PP_theme vp pp = mkVP vp pp;
 	VP_PP_manner vp pp = mkVP vp pp;
-	VP_PP_time vp pp = mkVP pp;
+	VP_PP_time vp pp = mkVP vp pp;
 	VP_PP_location vp located = mkVP vp located;
 	WithCl vp cl = mkVP vp cl;
 	WithClPre cl s = mkS cl s;
