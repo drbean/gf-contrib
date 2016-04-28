@@ -14,31 +14,31 @@ entities	=  [minBound..maxBound]
 
 entity_check :: [ (Entity, String) ]
 entity_check =  [
-  (A, "cusp" )
-  , (B, "bradshaw" )
-  , (C, "C" )
-  , (D, "control" )
-  , (E, "" )		-- manager
-  , (F, "" )		-- manager
-  , (G, "gourlay" )
-  , (H, "" )		-- help
-  , (I, "In Equilibrium" )
-  , (J, "" )	-- good woman strategy
-  , (K, "" )	-- bad (man) strategy
+  (A, "" )
+  , (B, "" )
+  , (C, "" )
+  , (D, "Doctor" )
+  , (E, "mercury_theater" )
+  , (F, "" )
+  , (G, "" )
+  , (H, "" )
+  , (I, "" )
+  , (J, "joe" )
+  , (K, "" )
   , (L, "" )
-  , (M, "men" )
-  , (N, "" )	-- lack of control
-  , (O, "" )	-- lack of support
-  , (P, "P" )
-  , (Q, "pressure" )
-  , (R, "" )	-- performance
-  , (S, "S" )
-  , (T, "support" )
-  , (U, "U" )
-  , (V, "uncertainty" )
-  , (W, "women" )
-  , (X, "stress" )
-  , (Y, "" )	-- level of stress
+  , (M, "mars" )
+  , (N, "new_jersey" )
+  , (O, "" )
+  , (P, "" )
+  , (Q, "" )
+  , (R, "" )
+  , (S, "" )
+  , (T, "the_doctor" )
+  , (U, "" )
+  , (V, "" )
+  , (W, "orson_welles" )
+  , (X, "" )
+  , (Y, "" )
   , (Z, "" )
   ]
 
@@ -48,13 +48,13 @@ ent_ided name = head [entity | (entity,string) <- entity_check ,
 				]
 
 characters :: [(String,Entity)]
-characters = map findEnt cusp
+characters = map findEnt piggott
 	where findEnt e
 		| Just name <- lookup e entity_check
 			= (name,e)
 		| otherwise = error ("No " ++ (show e))
 
-cusp = [A, D, G, V, T, Q]
+piggott = [D,E,J,M,N,T,W]
 
 stringEntity :: [(String,Entity)]
 stringEntity = map swap entity_check
