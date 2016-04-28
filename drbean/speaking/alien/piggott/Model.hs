@@ -52,7 +52,7 @@ characters = map findEnt piggott
 	where findEnt e
 		| Just name <- lookup e entity_check
 			= (name,e)
-		| otherwise = error ("No " ++ (show e))
+		| otherwise = error ("No " ++ show e)
 
 piggott = [D,E,J,M,N,T,W]
 
