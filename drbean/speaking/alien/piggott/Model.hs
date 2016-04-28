@@ -48,13 +48,10 @@ ent_ided name = head [entity | (entity,string) <- entity_check ,
 				]
 
 characters :: [(String,Entity)]
-characters = map findEnt piggott
-	where findEnt e
-		| Just name <- lookup e entity_check
-			= (name,e)
-		| otherwise = error ("No " ++ show e)
-
-piggott = [D,E,J,M,N,T,W]
+characters = findEnt entity_check
+	where findEnt e_maps = 
+		[(name,e) | (e,name) <- e_maps
+			, name /= ""]
 
 stringEntity :: [(String,Entity)]
 stringEntity = map swap entity_check
