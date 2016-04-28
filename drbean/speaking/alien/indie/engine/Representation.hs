@@ -1,9 +1,9 @@
-module Representation (module Representation, module Cusp) where
+module Representation (module Representation, module Indie) where
 
 import Data.DRS
 import Data.DRS.Show
 
-import Cusp
+import Indie
 import PGF
 
 import Model
@@ -17,12 +17,6 @@ import Data.Tuple
 
 entuples :: [(Entity,GPN)]
 entuples = [
-	(A,Gcusp)
-	, (D,GControl)
-	, (G,Ggourlay)
-	, (V,GUncertainty)
-	, (T,GSupport)
-	, (Q,GPressure)
 	]
 
 ref2int :: DRSRef -> Int
@@ -42,12 +36,7 @@ lc_first str@(s:ss) = case ( or $ map (flip isPrefixOf str) ["CUSP", "Control", 
 	False -> ((toLower s):ss)
 
 instance Eq GPN where
-	(==) Gcusp Gcusp = True
-	(==) GControl GControl = True
-	(==) GUncertainty GUncertainty = True
-	(==) GSupport GSupport = True
-	(==) GPressure GPressure = True
-	(==) Ggourlay Ggourlay = True
+	(==) Glevinson Glevinson = True
 	(==) _ _ = False
 
 gent2ent :: GPN -> Entity

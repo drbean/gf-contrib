@@ -35,7 +35,7 @@ posMap = Map.fromList [
 
 a = [
 
-	, "atmospheric"
+	"atmospheric"
 	, "enormous"
 	, "gigantic"
 	, "major"
@@ -46,7 +46,7 @@ a = [
 
 adv = [
 
-	, "back"
+	"back"
 	, "out"
 	]
 
@@ -81,9 +81,11 @@ det = [
 	, "some"
 	, "the"
 
+	]
+
 n = [
 
-	, "alien"
+	"alien"
 	, "attack"
 	, "collision course"
 	, "convoy"
@@ -111,7 +113,7 @@ n = [
 
 pn = [
 
-	, "Area 51"
+	"Area 51"
 	, "Los Angeles"
 	, "the Earth"
 	, "Houston"
@@ -135,7 +137,7 @@ pron = [
 
 prep = [
 
-	, "against"
+	"against"
 	, "around"
 	, "by"
 	, "for"
