@@ -9,6 +9,7 @@ fun
 
 	back	: Adv;
 	out	: Adv;
+	worldwide	: Adv;
 -- AP
 
 	atmospheric	: AP;
@@ -17,7 +18,6 @@ fun
 	major	: AP;
 	mysterious	: AP;
 	strange	: AP;
-	worldwide	: AP;
 -- Det
 
 	a_number_of	: Det;

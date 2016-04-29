@@ -41,13 +41,13 @@ a = [
 	, "major"
 	, "mysterious"
 	, "strange"
-	, "worldwide"
 	]
 
 adv = [
 
 	"back"
 	, "out"
+	, "worldwide"
 	]
 
 aux = [
@@ -261,7 +261,7 @@ towards	: Prep;
 Washington	: PN;
 where	: RP;
 with	: Prep;
-worldwide	: A;
+worldwide	: Adv;
 Independence Day	: N;
 
 -}

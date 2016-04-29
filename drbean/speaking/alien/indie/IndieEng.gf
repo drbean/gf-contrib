@@ -11,6 +11,7 @@ lin
 
 	back	= mkAdv "back";
 	out	= mkAdv "out";
+	worldwide	= mkAdv "worldwide";
 -- AP
 
 	atmospheric	= mkAP( mkA "atmospheric");
@@ -19,7 +20,6 @@ lin
 	major	= mkAP( mkA "major");
 	mysterious	= mkAP( mkA "mysterious");
 	strange	= mkAP( mkA "strange");
-	worldwide	= mkAP( mkA "worldwide");
 -- Det
 
 	a_number_of	= mkDet( mkQuant nonExist "a number of");
