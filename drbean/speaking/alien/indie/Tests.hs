@@ -60,7 +60,7 @@ fol tests = do
 
 dic_test = [
 
-	"On July 2nd, communications systems worldwide are sent into chaos by strange atmospheric interference."
+	"Communications systems worldwide are sent into chaos by strange atmospheric interference on July 2nd."
 	, "The military learns that a number of enormous objects are on a collision course with the Earth."
 	, "The objects are revealed to be gigantic spacecraft, piloted by a mysterious alien species."
 	, "Levinson discovers that the aliens intend to attack major points around the globe."
