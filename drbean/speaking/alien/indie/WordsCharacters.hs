@@ -1,4 +1,3 @@
-	, "alien"
 module WordsCharacters where
 
 import qualified Data.Map as Map
@@ -37,6 +36,7 @@ posMap = Map.fromList [
 a = [
 
 	"atmospheric"
+	, "alien"
 	, "enormous"
 	, "gigantic"
 	, "major"
