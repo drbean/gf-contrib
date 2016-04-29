@@ -358,6 +358,7 @@ lin
 	AdvAdj adv adj = mkAP adv adj;
 	A_PP a np = mkAP a np;
 	VP_AP vp = PresPartAP vp;
+	VP_NP_AP vp np = PastPartAgentAP vp np;
 
   about_prep	= P.mkPrep "about";
   at_prep	= P.mkPrep "at";

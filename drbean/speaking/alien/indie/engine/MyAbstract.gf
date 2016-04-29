@@ -201,6 +201,7 @@ fun
 	AdvAdj	: AdA -> AP -> AP;
 	A_PP	: A2 -> NP ->AP;
 	VP_AP	: VP -> AP;
+	VP_NP_AP	: VPSlash -> NP -> AP;
 
 	about_prep	: Prep;
 	at_prep	: LocPrep;
