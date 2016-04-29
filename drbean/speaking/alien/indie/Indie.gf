@@ -24,7 +24,6 @@ fun
 -- N
 
 	alien	: CN;
-	attack	: CN;
 	collision_course	: CN;
 	convoy	: CN;
 	day	: CN;
@@ -85,6 +84,7 @@ fun
 	reveal	: V2;
 	send	: V3;
 	set_out	: V;
+	attack	: V2;
 	become	: V2;
 }
 

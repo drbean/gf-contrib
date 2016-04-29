@@ -26,7 +26,6 @@ lin
 -- N
 
 	alien	= mkCN( mkN "alien");
-	attack	= mkCN( mkN "attack");
 	collision_course	= mkCN( mkN "collision course");
 	convoy	= mkCN( mkN "convoy");
 	day	= mkCN( mkN "day");
@@ -87,6 +86,7 @@ lin
 	reveal	= mkV2 "reveal";
 	send	= mkV3( mkV "send");
 	set_out	= partV( mkV "set") "out";
+	attack	= mkV2 "attack";
 	become	= mkV2S IrregEng.become_V noPrep;
 }
 
