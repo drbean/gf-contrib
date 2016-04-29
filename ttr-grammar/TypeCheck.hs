@@ -171,12 +171,9 @@ subVal env u v = do
         Ok _ -> return ()
         _  -> subVal env u (VClos b g)
         
-    (VClos (EInters a b) g, _) -> do         -- a&&b < c if a < c && b < c
-      let ea = subVal env (VClos a g) v
-      case ea of
-        Ok _ -> return ()
-        _  -> subVal env (VClos b g) v
-    
+    (_, VClos (EInters a b) g) -> do         -- a&&b < c if a < c && b < c
+      subVal env u (VClos a g) >> subVal env u (VClos b g) 
+
     _ | wu == tRecType && wv == tType -> return ()
     
     _ ->
@@ -312,6 +309,8 @@ inferExp env exp = case exp of
   EConcat a b -> checkType env a >> checkType env b >> return tType
   EJoin a _ b -> checkType env a >> checkType env b >> return tType
   ECompl a    -> checkType env a >> return tType
+  EListTy a   -> checkType env a >> return tType
+  ESetTy a    -> checkType env a >> return tType
 
   _ -> fail $ "cannot infer type of: " ++ printTree exp
 

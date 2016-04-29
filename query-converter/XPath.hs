@@ -1,44 +1,86 @@
+{-# LANGUAGE GADTs #-}
+
 module XPath where
 
-import AbsXPath
-import ToXML
-import qualified Algebra as A
+import ValidateXML 
 
-import ParXPath
-import LexXPath
+import AbsXML
+import ParXML
+import LexXML
+
 import ErrM
-import qualified Data.Map as M
+import Data.Char (isDigit)
 
-execQueryXPath :: Id -> A.Env -> String -> IO () 
-execQueryXPath dbname env s = putStrLn $ case pXPath (myLexer s) of
-  Ok x  -> prXPValue $ queryXPath x (database2xdocument dbname [it | it <- M.assocs (A.tables env)])
+execXPath :: String -> [Document] -> IO () 
+execXPath s docs = putStrLn $ case pXPath (myLexer s) of
+  Ok x  -> prXPValue $ queryXPath x docs
   Bad s -> s
 
-
-queryXPath :: XPath -> XDocument -> XPValue
-queryXPath xp doc = getXPValues $ pathsXPath xp (xdata doc) 
+queryXPath :: XPath -> [Document] -> XPValue
+queryXPath xp docs = getXPValues $ concatMap (matchXPath xp) [el | DXML _ _ el <- docs] 
 
 getXPValues = XPElements ----
 
----- only works for plain elements so far
-pathsXPath :: XPath -> XElement -> [XElement]
-pathsXPath xp elm = case (xp,elm) of
-  (XPCont axis_ item cond_ XPEnd, XE name attrs_ elems_) -> case item of
-    XINone                       -> [elm]
-    XIElem (Ident i) | i == name -> [elm]
-    XIAttr (Ident i)             -> [XData s | (a,s) <- attrs_, a == i] ---- XData
-    _ -> []
-  (XPCont axis_ item cond_ xp2, XE name attrs_ elems) -> case item of
-    XINone                       -> concat [vs | el <- elems, vs <- [pathsXPath xp2 el]]
-    XIElem (Ident i) | i == name -> concat [vs | el <- elems, vs <- [pathsXPath xp2 el]]
-    _ -> []
-  (XPEnd,_) -> [elm]
-
-data XPValue = XPElements [XElement] | XPAttributes [String]
+data XPValue = XPElements [Element] | XPAttributes [String]
   deriving Show
 
 prXPValue :: XPValue -> String
 prXPValue v = case v of
-  XPElements es -> unlines $ concatMap prXElement es
+  XPElements es -> unlines $ map printXML es
   XPAttributes vs -> unwords vs
+
+children :: Element -> [Element]
+children = contentsElement
+
+descendants :: Element -> [Element]
+descendants e = case children e of
+  ce@(_:_) -> ce ++ concatMap descendants ce
+  _ -> []
+
+matchXPath :: XPath -> Element -> [Element]
+matchXPath xp el = case xp of
+  XPCont axis item cond xp2 -> case axis of
+    XAPlain -> nexts xp2 item cond el
+    XADesc  -> concatMap (matchXPath (XPCont XAPlain item cond xp2)) $ el : descendants el
+ where
+   matches el xp2 els = case xp2 of
+     XPEnd -> [el]
+     _ -> concatMap (matchXPath xp2) els
+   nexts :: XPath -> XItem -> XCond -> Element -> [Element]
+   nexts xp2 item cond el = appCond cond $ case item of
+     XIElem t -> case xp2 of
+       XPCont XAPlain (XIAttr a) _ XPEnd | (typeElement el == t) -> [EData (WIdent (Ident s)) | (b,s) <- attributesElement el, b == a]
+       XPCont XAPlain XIAnyAt    _ XPEnd | (typeElement el == t) -> [EData (WIdent (Ident s)) | (b,s) <- attributesElement el]
+       _ | (typeElement el == t) -> matches el xp2 (children el)
+       _ -> []
+     XIAttr a -> [EData (WIdent (Ident s)) | (b,s) <- attributesElement el, b == a]
+     XIAnyAt  -> [EData (WIdent (Ident s)) | (b,s) <- attributesElement el]
+     XIAny    -> matches el xp2 (children el)
+     XINone   -> matches el xp2 (children el) --- can only appear last in a path, but the syntax is more liberal
+
+   -- the rest is about conditions
+   appCond :: XCond -> [Element] -> [Element]
+   appCond cond els = case cond of
+     XCOrd i     -> take 1 $ drop (fromInteger i - 1) els  -- [1] selects the first one
+     XCOp x op y -> [el | el <- els, matchOp op (valExp el x) (valExp el y)] 
+     _ -> els
+   matchOp :: XOp -> String -> String -> Bool
+   matchOp op = case op of
+     XOEq  -> (==)
+     XONEq -> (/=)
+     XOLt  -> numOp (<) (<)
+     XOGt  -> numOp (>) (>)
+     XOLEq -> numOp (<=) (<=)
+     XOGEq -> numOp (>=) (>=)
+   valExp :: Element -> XExp -> String
+   valExp el exp = case exp of
+     XEIdent a -> head $ [s | (b,s) <- attributesElement el, b == a]
+     XEInt i   -> show i
+     XEStr s   -> s
+   numOp :: (Int -> Int -> Bool) -> (String -> String -> Bool) -> String -> String -> Bool
+   numOp op sop x y
+     | all isDigit (x++y) = op (read x) (read y)
+     | otherwise = sop x y
+
+---- TODO conditions
 

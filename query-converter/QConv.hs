@@ -5,8 +5,10 @@ import Algebra
 import OptimizeAlgebra
 import Design (file2ER)
 import Fundep (prRelationInfo,pRelation,prRelation,normalizeBCNF,normalize3NF,normalize4NF)
-import ToXML (prDatabaseXML)
-import XPath (execQueryXPath)
+import Relation2XML (env2document)
+import AbsXML
+import XPath (execXPath)
+import ValidateXML
 
 import LexMinSQL
 import ParMinSQL
@@ -25,10 +27,13 @@ import Data.Char
 main = do
   putStrLn helpMsg
   writeFile "qconv-history.tmp" ""
-  env <- loop initSEnv
+  env <- loop initQEnv
   return ()
 
-loop env = do
+type QEnv = (SEnv, [AbsXML.Document])
+initQEnv = (initSEnv,[])
+
+loop env@(senv, xmls) = do
   putStr "qconv=# "
   hFlush stdout
   s <- getLine
@@ -37,8 +42,8 @@ loop env = do
     "q":[]        -> return env
     "i":file:_ -> do
        s <- readFile file
-       env' <- runSQLScript env s
-       loop env'
+       senv' <- runSQLScript senv s
+       loop (senv', xmls)
     "d":file:_ -> do
       file2ER file
       loop env
@@ -65,17 +70,21 @@ loop env = do
       putStrLn helpMsg
       loop env
     "a":ws -> do
-      alg2latex env (takeWhile (/=';') (unwords ws)) 
+      alg2latex senv (takeWhile (/=';') (unwords ws)) 
       loop env
-    "x":ws@(_:_) -> do
-      execQueryXPath "QConvData" env (unwords ws)
+    "xp":ws@(_:_) -> do
+      execXPath (unwords ws) xmls
       loop env
     "x":_ -> do
-      putStrLn $ prDatabaseXML "QConvData" env
-      loop env
+      let xml = env2document "QConvData" senv
+      putStrLn $ printXML xml
+      loop (senv,xml:xmls)
+    "ix":file:_ -> do
+      xml <- getXML file
+      loop (senv, xml : xmls)
     _ -> do
-      env' <- runSQLScript env s
-      loop env'
+      senv' <- runSQLScript senv s
+      loop (senv',xmls)
 
 runSQLScript :: SEnv -> String -> IO Env
 runSQLScript env s = case pScript (preprocSQL (myLexer s)) of
@@ -155,15 +164,16 @@ mintex = "qconv-latex-tmp.tex"
 
 helpMsg = unlines $ [
   "Query converter v0.1 (A. Ranta 2015). Commands:",
-  "  <SQL>     = run  SQL command ",        
-  "  a <SQL>   = show algebra for sql query", 
-  "  i <File>  = read SQL, run commands",
-  "  d <File>  = read design, show E-R, schema, English",
-  "  f <File>  = read relation, analyse dependencies and keys",
-  "  n <File>  = read relation, normalize to BCNF and 4NF",
-  "  x <XPath> = run xpath query",
-  "  x         = print database in xml",
-  "  h         = help", 
-  "  q         = quit"
+  "  <SQL>      = run  SQL command ",        
+  "  a  <SQL>   = show algebra for sql query", 
+  "  i  <File>  = read SQL, run commands",
+  "  d  <File>  = read design, show E-R, schema, English",
+  "  f  <File>  = read relation, analyse dependencies and keys",
+  "  n  <File>  = read relation, normalize to BCNF and 4NF",
+  "  ix <File>  = read XML file to an XML document",
+  "  x          = convert current SQLdatabase to an xml document",
+  "  xp <XPath> = run xpath query, using current XML documents",
+  "  h          = help", 
+  "  q          = quit"
   ]
 
