@@ -12,6 +12,7 @@ fun
 	worldwide	: Adv;
 -- AP
 
+	alien_adj	: AP;
 	atmospheric	: AP;
 	enormous	: AP;
 	gigantic	: AP;

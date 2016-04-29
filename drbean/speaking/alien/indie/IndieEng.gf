@@ -14,6 +14,7 @@ lin
 	worldwide	= mkAdv "worldwide";
 -- AP
 
+	alien_adj	= mkAP( mkA "alien");
 	atmospheric	= mkAP( mkA "atmospheric");
 	enormous	= mkAP( mkA "enormous");
 	gigantic	= mkAP( mkA "gigantic");
@@ -84,7 +85,7 @@ lin
 	intend	= mkVV( mkV "intend");
 	learn	= mkVS( mkV "learn");
 	obliterate	= mkV2 "obliterate";
-	pilot	= mkV2 "pilot";
+	pilot	= mkV2( mkV "pilot" "piloted");
 	reveal	= mkV2 "reveal";
 	send	= mkV3 IrregEng.send_V into;
 	set_out	= partV( mkV "set") "out";

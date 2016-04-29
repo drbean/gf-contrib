@@ -1,3 +1,4 @@
+	, "alien"
 module WordsCharacters where
 
 import qualified Data.Map as Map
@@ -201,6 +202,7 @@ July 4th	: N;
 Area 51	: PN;
 against	: Prep;
 alien	: CN;
+alien_adj	: A;
 a number of	: Det;
 Los Angeles	: PN;
 around	: Prep;
