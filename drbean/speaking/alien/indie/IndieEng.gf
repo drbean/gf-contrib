@@ -22,7 +22,7 @@ lin
 	strange	= mkAP( mkA "strange");
 -- Det
 
-	a_number_of	= mkDet( mkQuant nonExist "a number of");
+	a_number_of	= mkDet( mkQuant nonExist "a number of" nonExist "a number") pluralNum;
 -- N
 
 	alien	= mkCN( mkN "alien");
