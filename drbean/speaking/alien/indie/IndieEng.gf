@@ -84,7 +84,7 @@ lin
 	obliterate	= mkV2 "obliterate";
 	pilot	= mkV2 "pilot";
 	reveal	= mkV2 "reveal";
-	send	= mkV3( mkV "send");
+	send	= mkV3( mkV "send") into;
 	set_out	= partV( mkV "set") "out";
 	attack	= mkV2 "attack";
 	become	= mkV2S IrregEng.become_V noPrep;
