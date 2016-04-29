@@ -26,7 +26,7 @@ lin
 -- N
 
 	alien	= mkCN( mkN "alien");
-	collision_course	= mkCN( mkN "collision course");
+	collision_course	= mkCN( mkN "collision course with the Earth");
 	convoy	= mkCN( mkN "convoy");
 	day	= mkCN( mkN "day");
 	fight	= mkCN( mkN "fight");
@@ -70,6 +70,8 @@ lin
 	in_prep	= mkPrep "in";
 	into	= mkPrep "into";
 	on	= mkPrep "on";
+	on_time	= mkPrep "on";
+	on_loc	= mkPrep "on";
 	to	= mkPrep "to";
 	towards	= mkPrep "towards";
 	with_prep	= mkPrep "with";

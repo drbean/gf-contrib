@@ -86,7 +86,7 @@ det = [
 n = [
 
 	"alien"
-	, "collision course"
+	, "collision course with the Earth"
 	, "convoy"
 	, "day"
 	, "fight"
@@ -262,7 +262,6 @@ to	: Prep;
 towards	: Prep;
 Washington	: PN;
 where	: RP;
-with	: Prep;
 worldwide	: Adv;
 Independence Day	: N;
 

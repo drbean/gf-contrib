@@ -24,7 +24,7 @@ fun
 -- N
 
 	alien	: CN;
-	collision_course	: CN;
+	collision_course	: PlaceName;
 	convoy	: CN;
 	day	: CN;
 	fight	: CN;
@@ -67,7 +67,9 @@ fun
 	for	: Prep;
 	in_prep	: Prep;
 	into	: Prep;
-	on	: TimePrep;
+	on	: Prep;
+	on_time	: TimePrep;
+	on_loc	: LocPrep;
 	to	: Prep;
 	towards	: Prep;
 	with_prep	: Prep;
