@@ -189,6 +189,7 @@ v = [
 	, "send"
 	, "set out"
 	, "attack"
+	, "paralyze"
 	]
 
 {-
@@ -244,6 +245,7 @@ object	: CN;
 obliterate	: V2;
 on	: Prep;
 out	: Adv;
+paralyze	: V2;
 Paris	: PN;
 pilot	: V2;
 plan	: CN;

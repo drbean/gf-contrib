@@ -85,6 +85,7 @@ fun
 	send	: V3;
 	set_out	: V;
 	attack	: V2;
+	paralyze	: V2;
 	become	: V2;
 }
 

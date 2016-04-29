@@ -87,6 +87,7 @@ lin
 	send	= mkV3 IrregEng.send_V into;
 	set_out	= partV( mkV "set") "out";
 	attack	= mkV2 "attack";
+	paralyze	= mkV2 "paralyze";
 	become	= mkV2S IrregEng.become_V noPrep;
 }
 
