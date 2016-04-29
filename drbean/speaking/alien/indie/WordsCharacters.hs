@@ -86,7 +86,6 @@ det = [
 n = [
 
 	"alien"
-	, "attack"
 	, "collision course"
 	, "convoy"
 	, "day"
@@ -189,6 +188,7 @@ v = [
 	, "reveal"
 	, "send"
 	, "set out"
+	, "attack"
 	]
 
 {-
@@ -204,7 +204,7 @@ a number of	: Det;
 Los Angeles	: PN;
 around	: Prep;
 atmospheric	: A;
-attack	: CN;
+attack	: V2;
 back	: Adv;
 become	: V2S;
 believe	: VS;
