@@ -65,6 +65,7 @@ fun
 	-- GetNPPPart	: V2 -> NP -> VP; -- get the job done right
 	passive : V2 -> VP;
 	Pass : VPSlash -> VP;
+	PassAgent : VPSlash -> NP -> VP;
 	V2Slash	: V2 -> VPSlash;
 	-- VSSlash	: VS -> VPSlash;
 	V2VSlash	: V2V -> VP -> VPSlash;

@@ -219,6 +219,7 @@ lin
   -- GetNPPPart v np = insertObj (\\_ => np.s ! NPAcc ++ v.s ! VPPart ++ v.p ++ v.c2 ) (predAux auxGet) ;
 	passive v = passiveVP v;
 	Pass vp = PassVPSlash vp;
+	PassAgent vp np = PassAgentVPSlash vp np;
 	V2Slash v2	= mkVPSlash v2;
 	-- VSSlash vs	= mkVPSlash vs;
 	V2VSlash v2v vp	= mkVPSlash v2v vp;
