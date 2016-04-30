@@ -137,7 +137,7 @@ fun
 	KindInPlace	: CN -> PP_location -> CN;
 	PlaceKind	: AP -> PlaceNoun -> PlaceNoun;
 	Membership : Det -> CN -> PP_location -> Cl;
-	CompoundCN	: N -> CN -> CN;
+	CompoundCN	: CN -> CN -> CN;
 	Item	: Det -> CN -> NP;
 	MassItem	: MassDet -> N	-> NP;
 	Titular	: Title -> NP;

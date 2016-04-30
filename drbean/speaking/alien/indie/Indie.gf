@@ -31,7 +31,7 @@ fun
 	day	: CN;
 	fight	: CN;
 	globe	: CN;
-	government	: N;
+	government	: CN;
 	military	: CN;
 	object	: CN;
 	plan	: CN;
