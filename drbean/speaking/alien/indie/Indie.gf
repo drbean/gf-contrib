@@ -67,6 +67,7 @@ fun
 	by	: Prep;
 	for	: Prep;
 	in_prep	: Prep;
+	in_manner	: MannerPrep;
 	into	: Prep;
 	on	: Prep;
 	on_time	: TimePrep;

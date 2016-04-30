@@ -69,6 +69,7 @@ lin
 	by	= mkPrep "by";
 	for	= mkPrep "for";
 	in_prep	= mkPrep "in";
+	in_manner	= mkPrep "in";
 	into	= mkPrep "into";
 	on	= mkPrep "on";
 	on_time	= mkPrep "on";
