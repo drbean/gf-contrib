@@ -186,6 +186,10 @@ oper
 			g = noun.g
 		};
 
+	myApposNP : (np1 : NP) -> (np2 : NP) -> { s : NPCase => Str ; a : Agr } =
+		\np1,np2 ->
+		{s = \\n => np1.s ! n ++ np2.s ! n ; a = np1.a} ;
+
 lin
 	Be_bad ap	= mkComp ap;
   Be_somewhere located	= mkComp located;
@@ -303,6 +307,7 @@ lin
 	MassItem udet ucn	= mkNP udet ucn;
 	Titular cn = mkNP cn;
 	PredetItem predet np	= mkNP predet np;
+	ApposNP np1 np2 = myApposNP np1 np2;
 
 	a_Det	= a_Det;
 	zero_Det_pl	= aPl_Det;
