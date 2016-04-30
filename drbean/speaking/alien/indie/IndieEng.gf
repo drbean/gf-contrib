@@ -36,7 +36,7 @@ lin
 	military	= mkCN( mkN "military");
 	object	= mkCN( mkN "object");
 	plan	= mkCN( mkN "plan");
-	point	= mkCN( mkN "point");
+	point	= mkN2( mkN "point") around;
 	spacecraft	= mkCN( mkN  "spacecraft" "spacecraft");
 	species	= mkCN( mkN "species");
 	survivor	= mkCN( mkN "survivor");

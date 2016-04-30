@@ -24,6 +24,7 @@ fun
 	a_number_of	: Det;
 -- N
 
+	point	: N2;
 	alien	: CN;
 	collision_course	: PlaceName;
 	convoy	: CN;
@@ -34,7 +35,6 @@ fun
 	military	: CN;
 	object	: CN;
 	plan	: CN;
-	point	: CN;
 	spacecraft	: CN;
 	species	: CN;
 	survivor	: CN;
