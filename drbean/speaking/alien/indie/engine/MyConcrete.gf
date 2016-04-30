@@ -11,7 +11,7 @@ lincat
 	SubordCl	= Adv;
 	Title	= CN;
 	Place	= NP;
-	PlaceName	= CN;
+	PlaceNoun	= CN;
 	Motion	= VP;
 	CoagentPrep = Prep;
 	InstrumentPrep = Prep;

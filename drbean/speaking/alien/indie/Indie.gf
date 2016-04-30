@@ -26,7 +26,7 @@ fun
 
 	point	: N2;
 	alien	: CN;
-	collision_course	: PlaceName;
+	collision_course	: PlaceNoun;
 	convoy	: CN;
 	day	: CN;
 	fight	: CN;

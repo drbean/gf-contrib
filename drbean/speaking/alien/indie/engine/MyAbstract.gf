@@ -10,7 +10,7 @@ cat
 	Period;
 	Title;
 	Place;
-	PlaceName;
+	PlaceNoun;
 	LocPrep;
 	Motion;
 	CoagentPrep;
@@ -40,7 +40,7 @@ fun
 	Be_somewhere	: PP_location -> Comp;
 	Be_vp	: Comp -> VP;
 	Locating  : LocPrep -> Place -> PP_location;
-	Location	: Det -> PlaceName -> Place;
+	Location	: Det -> PlaceNoun -> Place;
 	FreqAdv	: NP -> Period -> Time;
 	PeriodAdv	: Times -> Period;
 	Coagency	: CoagentPrep -> NP -> PP_coagent;
@@ -134,7 +134,7 @@ fun
 	MassKind	: AP -> N -> N;
 	KindOfKind  : CN -> Adv -> CN;
 	KindInPlace	: CN -> PP_location -> CN;
-	PlaceKind	: AP -> PlaceName -> PlaceName;
+	PlaceKind	: AP -> PlaceNoun -> PlaceNoun;
 	Membership : Det -> CN -> PP_location -> Cl;
 	CompoundN	: PN -> CN -> CN;
 	Item	: Det -> CN -> NP;
