@@ -73,7 +73,7 @@ fun
 	on_time	: TimePrep;
 	on_loc	: LocPrep;
 	to	: Prep;
-	toward	: Prep;
+	toward	: LocPrep;
 	with_prep	: Prep;
 -- V
 

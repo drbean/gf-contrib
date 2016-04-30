@@ -41,6 +41,7 @@ fun
 	Be_vp	: Comp -> VP;
 	Locating  : LocPrep -> Place -> PP_location;
 	Location	: Det -> PlaceNoun -> Place;
+	NamedPlace	: PN -> Place;
 	FreqAdv	: NP -> Period -> Time;
 	PeriodAdv	: Times -> Period;
 	Coagency	: CoagentPrep -> NP -> PP_coagent;
