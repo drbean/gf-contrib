@@ -84,7 +84,7 @@ fun
 	learn	: VS;
 	obliterate	: V2;
 	pilot	: V2;
-	reveal	: V2;
+	reveal	: V2V;
 	send	: V3;
 	set_out	: V;
 	attack	: V2;

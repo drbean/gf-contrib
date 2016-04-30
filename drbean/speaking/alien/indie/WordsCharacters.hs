@@ -252,7 +252,7 @@ Paris	: PN;
 pilot	: V2;
 plan	: CN;
 point	: CN;
-reveal	: V2;
+reveal	: V2V;
 send	: V3;
 set out	: V;
 spacecraft	: CN;
