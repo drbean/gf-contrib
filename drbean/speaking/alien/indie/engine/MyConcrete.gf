@@ -128,18 +128,9 @@ oper
 				n = Pl ;
 			};
 
-	mymkPN_CN : (pn : PN) -> (cn : CN) -> {s : Number => Case => Str ; g : Gender } = 
-		\pn,cn -> {
-			s = table {
-				Sg => table {
-					Nom => pn.s ! Nom ++ cn.s ! Sg ! Nom;
-					Gen => cn.s ! Sg ! Gen
-					};
-				Pl => table {
-					Nom => pn.s ! Nom ++ cn.s ! Pl ! Nom;
-					Gen => cn.s ! Pl ! Gen
-					}
-				};
+	mymkN_CN : (n : N) -> (cn : CN) -> {s : Number => Case => Str ; g : Gender } = 
+		\noun,cn -> {
+			s = \\n,c => noun.s ! Sg ! Nom ++ cn.s ! n ! c;
 			g = cn.g
 			};
 
@@ -300,7 +291,7 @@ lin
 	KindInPlace cn adv	= mkCN cn adv;
 	PlaceKind ap n = mkCN ap n;
 	Membership det cn place = mkCl( Item det (KindInPlace cn place));
-	CompoundN pn cn = mymkPN_CN pn cn;
+	CompoundCN n cn = mymkN_CN n cn;
 	Ofpos n2 np	= mkCN n2 np;
 	Ofpart part n = mkCN part (mkNP n);
 	Item det noun	= mkNP det noun;

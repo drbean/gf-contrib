@@ -32,7 +32,7 @@ lin
 	day	= mkCN( mkN "day");
 	fight	= mkCN( mkN "fight");
 	globe	= mkCN( mkN "globe");
-	government	= mkCN( mkN "government");
+	government	= mkN "government";
 	military	= mkCN( mkN "military");
 	object	= mkCN( mkN "object");
 	plan	= mkCN( mkN "plan");
