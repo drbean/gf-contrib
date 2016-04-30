@@ -181,6 +181,7 @@ v = [
 	, "believe"
 	, "capture"
 	, "devise"
+	, "discover"
 	, "enslave"
 	, "intend"
 	, "learn"
@@ -219,7 +220,7 @@ communications system	: CN;
 convoy	: CN;
 day	: CN;
 devise	: V2;
-discover
+discover	: VS;
 the Earth	: PN;
 enormous	: A;
 enslave	: V2;

@@ -79,6 +79,7 @@ fun
 	believe	: VS;
 	capture	: V2;
 	devise	: V2;
+	discover	: VS;
 	enslave	: V2;
 	intend	: VV;
 	learn	: VS;

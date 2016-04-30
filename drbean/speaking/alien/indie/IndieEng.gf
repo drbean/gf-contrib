@@ -81,6 +81,7 @@ lin
 	believe	= mkVS( mkV "believe");
 	capture	= mkV2 "capture";
 	devise	= mkV2 "devise";
+	discover	= mkVS( mkV "discover");
 	enslave	= mkV2 "enslave";
 	intend	= mkVV( mkV "intend");
 	learn	= mkVS( mkV "learn");
