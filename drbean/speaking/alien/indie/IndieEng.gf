@@ -74,7 +74,7 @@ lin
 	on_time	= mkPrep "on";
 	on_loc	= mkPrep "on";
 	to	= mkPrep "to";
-	towards	= mkPrep "towards";
+	toward	= mkPrep "toward";
 	with_prep	= mkPrep "with";
 -- V
 

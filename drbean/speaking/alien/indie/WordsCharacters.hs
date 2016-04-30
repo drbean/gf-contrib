@@ -146,7 +146,7 @@ prep = [
 	, "into"
 	, "on"
 	, "to"
-	, "towards"
+	, "toward"
 	, "with"
 	]
 
@@ -262,7 +262,7 @@ strange	: A;
 survivor	: CN;
 testing ground	: CN;
 to	: Prep;
-towards	: Prep;
+toward	: Prep;
 Washington	: PN;
 where	: RP;
 worldwide	: Adv;

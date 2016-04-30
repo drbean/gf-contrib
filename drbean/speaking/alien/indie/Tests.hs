@@ -68,7 +68,7 @@ dic_test = [
 	, "Levinson discovers that the aliens intend to attack major points around the globe."
 	 , "The aliens obliterate New York , Los Angeles , Washington , Paris , London , Houston and Moscow on July 3rd."
 	 , "The aliens obliterate New York and Los Angeles on July 3rd."
-	, "The survivors set out in convoys towards Area 51, a strange government testing ground where it is believed the military has a captured alien spacecraft."
+	, "The survivors set out in convoys toward Area 51, a strange government testing ground where it is believed the military has a captured alien spacecraft."
 	, "The survivors devise a plan to fight back against the enslaving aliens, and July 4th becomes the day humanity fights for its freedom."
 	, "July 4th is their Independence Day."
 
