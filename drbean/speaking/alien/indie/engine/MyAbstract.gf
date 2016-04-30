@@ -137,14 +137,14 @@ fun
 	KindInPlace	: CN -> PP_location -> CN;
 	PlaceKind	: AP -> PlaceNoun -> PlaceNoun;
 	Membership : Det -> CN -> PP_location -> Cl;
-	CompoundCN	: CN -> CN -> CN;
+	CompoundCN	: CN -> PlaceNoun -> PlaceNoun;
 	Item	: Det -> CN -> NP;
 	MassItem	: MassDet -> N	-> NP;
 	Titular	: Title -> NP;
 	PredetItem	: Predet -> NP -> NP;
 	Ofpos	: N2 -> NP -> CN;
 	Ofpart	: Partitive -> N -> CN;
-	ApposNP	: NP -> NP -> NP;
+	ApposPlace	: Place -> Place -> Place;
 
 	a_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
 	zero_Det_pl : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));

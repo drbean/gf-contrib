@@ -298,7 +298,7 @@ lin
 	MassItem udet ucn	= mkNP udet ucn;
 	Titular cn = mkNP cn;
 	PredetItem predet np	= mkNP predet np;
-	ApposNP np1 np2 = myApposNP np1 np2;
+	ApposPlace np1 np2 = myApposNP np1 np2;
 
 	a_Det	= a_Det;
 	zero_Det_pl	= aPl_Det;

@@ -39,7 +39,7 @@ fun
 	species	: CN;
 	survivor	: CN;
 	communications_system	: CN;
-	testing_ground	: CN;
+	testing_ground	: PlaceNoun;
 	july_2nd	: N;
 	july_3rd	: N;
 	july_4th	: N;
