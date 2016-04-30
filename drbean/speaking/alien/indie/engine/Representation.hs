@@ -362,19 +362,19 @@ repAP (GCloseAP _ (GAPList ap1 ap2)) = \r -> DRS [r] [
 repAP ap = \r -> DRS [r] [Rel (DRSRel (linAP ap)) [r]]
 
 repPlace :: GPlace -> (DRSRef -> DRS) -> DRSRef -> DRS
-repPlace (GLocation det name) p r = (repDet det) (repPlaceName name) p r
+repPlace (GLocation det name) p r = (repDet det) (repPlaceNoun name) p r
 repPlace place p r = let
 	DRS rs conds = p r
 	len = ref2int (maximum rs)
 	reflist = newDRSRefs (replicate len (DRSRef "r")) [] in
 	(DRS reflist ((Rel (DRSRel (lin place)) [r]) : conds))
 
-repPlaceName :: GPlaceName -> DRSRef -> DRS
-repPlaceName (GPlaceKind ap name) = \r -> let
-       DRS name_refs name_conds = (repPlaceName name r)
+repPlaceNoun :: GPlaceNoun -> DRSRef -> DRS
+repPlaceNoun (GPlaceKind ap name) = \r -> let
+       DRS name_refs name_conds = (repPlaceNoun name r)
        DRS attri_refs attri_conds = (repAP ap r)
        in DRS (name_refs ++ attri_refs) (name_conds ++ attri_conds)
-repPlaceName name = \r -> DRS [r] [Rel (DRSRel (lin name)) [r]]
+repPlaceNoun name = \r -> DRS [r] [Rel (DRSRel (lin name)) [r]]
 
 repVP :: GVP -> DRSRef -> DRS
 repVP (GWithCl vp _) = repVP vp
