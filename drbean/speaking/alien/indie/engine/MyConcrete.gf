@@ -118,7 +118,7 @@ oper
 				 NPAcc => me;
 				 NCase Gen | NPNomPoss => my
 				 } ;
-			 n = Sg ;
+			 n = n ;
 		 };
 
 	mymkConj : (and : Str) -> {s1 : Str ; s2 : Str ; n : Number} =
