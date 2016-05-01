@@ -167,6 +167,7 @@ chomp :: String -> String
 chomp []                      = []
 -- chomp ('\'':'s':xs)           = " 's" ++ chomp xs
 -- chomp ('s':'\'':xs)           = "s 's" ++ chomp xs
+chomp (' ': ',': ' ': xs) = " , " ++ chomp xs
 chomp (x:xs) | x `elem` ".,?" = chomp xs
             | otherwise      =     x:chomp xs
 
