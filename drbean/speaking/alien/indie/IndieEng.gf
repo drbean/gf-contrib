@@ -52,16 +52,16 @@ lin
 	independence_day	= mkN "Independence Day";
 -- PN
 
-	area_51	= mkPN( mkN feminine (mkN "Area 51") );
-	los_angeles	= mkPN( mkN feminine (mkN "Los Angeles") );
-	the_earth	= mkPN( mkN feminine (mkN "the Earth") );
-	houston	= mkPN( mkN feminine (mkN "Houston") );
-	levinson	= mkPN( mkN feminine (mkN "Levinson") );
-	london	= mkPN( mkN feminine (mkN "London") );
-	moscow	= mkPN( mkN feminine (mkN "Moscow") );
-	new_york	= mkPN( mkN feminine (mkN "New York") );
-	paris	= mkPN( mkN feminine (mkN "Paris") );
-	washington	= mkPN( mkN feminine (mkN "Washington") );
+	area_51	= mkPN( mkN nonhuman (mkN "Area 51") );
+	los_angeles	= mkPN( mkN nonhuman (mkN "Los Angeles") );
+	the_earth	= mkPN( mkN nonhuman (mkN "the Earth") );
+	houston	= mkPN( mkN nonhuman (mkN "Houston") );
+	levinson	= mkPN( mkN masculine (mkN "Levinson") );
+	london	= mkPN( mkN nonhuman (mkN "London") );
+	moscow	= mkPN( mkN nonhuman (mkN "Moscow") );
+	new_york	= mkPN( mkN nonhuman (mkN "New York") );
+	paris	= mkPN( mkN nonhuman (mkN "Paris") );
+	washington	= mkPN( mkN nonhuman (mkN "Washington") );
 -- Prep
 
 	against	= mkPrep "against";
