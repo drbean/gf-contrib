@@ -42,7 +42,8 @@ lc_first str@(s:ss) = if any (flip isPrefixOf str) [
 	, "New York"
 	, "Paris"
 	, "Washington"
-	, "Independence Day" ]
+	, "Independence Day"
+	, "July" ]
 	then s:ss
 	else toLower s:ss
 
