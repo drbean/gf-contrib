@@ -39,7 +39,7 @@ lin
 	point	= mkN2( mkN "point") around;
 	spacecraft	= mkCN( mkN  "spacecraft" "spacecraft");
 	species	= mkCN( mkN "species");
-	survivor	= mkCN( mkN "survivor");
+	survivor	= mkCN( mkN human ( mkN "survivor") );
 	communications_system	= mkCN( mkN "communications system");
 	testing_ground	= mkCN( mkN "testing ground");
 	july_2nd	= mkN "July 2nd";

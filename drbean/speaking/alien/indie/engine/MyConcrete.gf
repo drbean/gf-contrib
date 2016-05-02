@@ -121,6 +121,19 @@ oper
 			 n = n ;
 		 };
 
+	mymkRP : (who, which, whose : Str) -> {s : RCase => Str; a : RAgr} =
+	\who,which,whose ->
+	{ s = table {
+			RPrep Neutr => which;
+			RPrep _ => who;
+			RC Neutr (NCase Gen) | RC Neutr NPNomPoss => whose;
+			RC Neutr _ => which;
+			RC _ (NCase Gen) | RC _ NPNomPoss => whose;
+			RC _ _ => who
+		};
+		a = RAg AgP3Pl
+	};
+
 	mymkConj : (and : Str) -> {s1 : Str ; s2 : Str ; n : Number} =
 		\and ->
 			{ s1 = [] ;
@@ -342,7 +355,7 @@ lin
 	what_WH	= whatSg_IP;
 	-- how_WH	= mkIP how_IAdv;
 	that_RP	= ExtraEng.that_RP;
-	-- IdRP	= IdRP;
+	who_RP	= mymkRP "who" "which" "whose";
 	-- in_which	=mkRP in_prep which_RP;
 	-- where_RP	= mkRP "where";
 

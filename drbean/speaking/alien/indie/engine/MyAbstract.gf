@@ -188,7 +188,7 @@ fun
 	who_WH	: IP;
 	what_WH	: IP;
 	how_WH	: IP;
-	IdRP	: RP;
+	who_RP	: RP;
 	that_RP	: RP;
 	in_which	: RP;
 	where_RP	: RP;
