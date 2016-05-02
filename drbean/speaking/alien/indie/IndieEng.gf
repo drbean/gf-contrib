@@ -30,7 +30,6 @@ lin
 	collision_course	= mkCN( mkN "collision course with the Earth");
 	convoy	= mkCN( mkN "convoy");
 	day	= mkCN( mkN "day");
-	fight	= mkCN( mkN "fight");
 	globe	= mkCN( mkN "globe");
 	government	= mkCN( mkN "government");
 	military	= mkCN( mkN "military");
@@ -79,9 +78,10 @@ lin
 	with_prep	= mkPrep "with";
 -- V
 
+	devise	= mkV2V( mkV "devise") noPrep to;
+	fight	back	= partV( mkV "fight") "back";
 	believe	= mkVS( mkV "believe");
 	capture	= mkV2 "capture";
-	devise	= mkV2 "devise";
 	discover	= mkVS( mkV "discover");
 	enslave	= mkV2 "enslave";
 	intend	= mkVV( mkV "intend");

@@ -219,7 +219,7 @@ collision course	: CN;
 communications system	: CN;
 convoy	: CN;
 day	: CN;
-devise	: V2;
+devise	: V2V;
 discover	: VS;
 the Earth	: PN;
 enormous	: A;

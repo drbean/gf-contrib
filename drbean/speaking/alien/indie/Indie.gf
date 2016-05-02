@@ -29,7 +29,6 @@ fun
 	collision_course	: PlaceNoun;
 	convoy	: CN;
 	day	: CN;
-	fight	: CN;
 	globe	: CN;
 	government	: CN;
 	military	: CN;
@@ -77,9 +76,10 @@ fun
 	with_prep	: Prep;
 -- V
 
+	devise	: V2V;
+	fight	back	: V;
 	believe	: VS;
 	capture	: V2;
-	devise	: V2;
 	discover	: VS;
 	enslave	: V2;
 	intend	: VV;
