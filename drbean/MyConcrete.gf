@@ -11,7 +11,7 @@ lincat
 	SubordCl	= Adv;
 	Title	= CN;
 	Place	= NP;
-	PlaceName	= CN;
+	PlaceNoun	= CN;
 	Motion	= VP;
 	CoagentPrep = Prep;
 	InstrumentPrep = Prep;
@@ -118,8 +118,21 @@ oper
 				 NPAcc => me;
 				 NCase Gen | NPNomPoss => my
 				 } ;
-			 n = Sg ;
+			 n = n ;
 		 };
+
+	mymkRP : (who, which, whose : Str) -> {s : RCase => Str; a : RAgr} =
+	\who,which,whose ->
+	{ s = table {
+			RPrep Neutr => which;
+			RPrep _ => who;
+			RC Neutr (NCase Gen) | RC Neutr NPNomPoss => whose;
+			RC Neutr _ => which;
+			RC _ (NCase Gen) | RC _ NPNomPoss => whose;
+			RC _ _ => who
+		};
+		a = RAg AgP3Pl
+	};
 
 	mymkConj : (and : Str) -> {s1 : Str ; s2 : Str ; n : Number} =
 		\and ->
@@ -128,18 +141,9 @@ oper
 				n = Pl ;
 			};
 
-	mymkPN_CN : (pn : PN) -> (cn : CN) -> {s : Number => Case => Str ; g : Gender } = 
-		\pn,cn -> {
-			s = table {
-				Sg => table {
-					Nom => pn.s ! Nom ++ cn.s ! Sg ! Nom;
-					Gen => cn.s ! Sg ! Gen
-					};
-				Pl => table {
-					Nom => pn.s ! Nom ++ cn.s ! Pl ! Nom;
-					Gen => cn.s ! Pl ! Gen
-					}
-				};
+	mymkN_CN : (n : N) -> (cn : CN) -> {s : Number => Case => Str ; g : Gender } = 
+		\noun,cn -> {
+			s = \\n,c => noun.s ! Sg ! Nom ++ cn.s ! n ! c;
 			g = cn.g
 			};
 
@@ -186,6 +190,10 @@ oper
 			g = noun.g
 		};
 
+	myApposNP : (np1 : NP) -> (np2 : NP) -> { s : NPCase => Str ; a : Agr } =
+		\np1,np2 ->
+		{s = \\n => np1.s ! n ++ np2.s ! n ; a = np1.a} ;
+
 lin
 	Be_bad ap	= mkComp ap;
   Be_somewhere located	= mkComp located;
@@ -195,6 +203,7 @@ lin
 	Look_bad verb adj	= mkVP verb adj;
   Locating prep item	= mkAdv prep item;
 	Location det placename = mkNP det placename;
+	NamedPlace pn	= mkNP pn;
 	FreqAdv times period	= mkAdv P.noPrep (mkNP times period);
 	PeriodAdv times	= mkAdv P.noPrep times;
 	Coagency prep coagent	= mkAdv prep coagent;
@@ -219,6 +228,7 @@ lin
   -- GetNPPPart v np = insertObj (\\_ => np.s ! NPAcc ++ v.s ! VPPart ++ v.p ++ v.c2 ) (predAux auxGet) ;
 	passive v = passiveVP v;
 	Pass vp = PassVPSlash vp;
+	PassAgent vp np = PassAgentVPSlash vp np;
 	V2Slash v2	= mkVPSlash v2;
 	-- VSSlash vs	= mkVPSlash vs;
 	V2VSlash v2v vp	= mkVPSlash v2v vp;
@@ -260,7 +270,7 @@ lin
 	VP_PP_instrument vp pp = mkVP vp pp;
 	VP_PP_theme vp pp = mkVP vp pp;
 	VP_PP_manner vp pp = mkVP vp pp;
-	VP_PP_time vp pp = mkVP pp;
+	VP_PP_time vp pp = mkVP vp pp;
 	VP_PP_location vp located = mkVP vp located;
 	WithCl vp cl = mkVP vp cl;
 	WithClPre cl s = mkS cl s;
@@ -294,13 +304,14 @@ lin
 	KindInPlace cn adv	= mkCN cn adv;
 	PlaceKind ap n = mkCN ap n;
 	Membership det cn place = mkCl( Item det (KindInPlace cn place));
-	CompoundN pn cn = mymkPN_CN pn cn;
+	CompoundCN cn1 cn2 = CompoundCN cn1 cn2;
 	Ofpos n2 np	= mkCN n2 np;
 	Ofpart part n = mkCN part (mkNP n);
 	Item det noun	= mkNP det noun;
 	MassItem udet ucn	= mkNP udet ucn;
 	Titular cn = mkNP cn;
 	PredetItem predet np	= mkNP predet np;
+	ApposNP np1 np2 = myApposNP np1 np2;
 
 	a_Det	= a_Det;
 	zero_Det_pl	= aPl_Det;
@@ -344,7 +355,7 @@ lin
 	what_WH	= whatSg_IP;
 	-- how_WH	= mkIP how_IAdv;
 	that_RP	= ExtraEng.that_RP;
-	IdRP	= IdRP;
+	who_RP	= mymkRP "who" "which" "whose";
 	-- in_which	=mkRP in_prep which_RP;
 	-- where_RP	= mkRP "where";
 
@@ -357,6 +368,7 @@ lin
 	AdvAdj adv adj = mkAP adv adj;
 	A_PP a np = mkAP a np;
 	VP_AP vp = PresPartAP vp;
+	VP_NP_AP vp np = PastPartAgentAP vp np;
 
   about_prep	= P.mkPrep "about";
   at_prep	= P.mkPrep "at";
@@ -371,7 +383,6 @@ lin
 	thing	= mkCN( P.mkN "thing");
 
 	can	= can_VV;
-	become	= P.mkV2 IrregEng.become_V;
 	have	= P.mkV2 IrregEng.have_V;
 	know_V2	= P.mkV2 know_V;
 	know_VS	= P.mkVS know_V;

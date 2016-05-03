@@ -27,19 +27,31 @@ entuples = [
 
 ref2int :: DRSRef -> Int
 ref2int (DRSRef r@('r':[d])) | isDigit d , n <- digitToInt d = n
-ref2int r = error ("No digit for DRSRef " ++ (drsRefToDRSVar r))
+ref2int r = error ("No digit for DRSRef " ++ drsRefToDRSVar r)
 
 isDummy :: DRSRef -> Bool
 isDummy (DRSRef ('d':'u':'m':'m':'y':[d])) | isDigit d = True
 isDummy _ = False
 
 int2ref :: Int -> DRSRef
-int2ref n = DRSRef ("r" ++ (show n) )
+int2ref n = DRSRef ("r" ++ show n )
 
 lc_first :: String -> String
-lc_first str@(s:ss) = case ( or $ map (flip isPrefixOf str) ["CUSP", "Control", "Uncertainty", "Support", "Pressure", "Gourlay"] ) of
-	True  -> (s:ss)
-	False -> ((toLower s):ss)
+lc_first str@(s:ss) = if any (flip isPrefixOf str) [
+	"Area 51"
+	, "Los Angeles"
+	, "the Earth"
+	, "Houston"
+	, "Levinson"
+	, "London"
+	, "Moscow"
+	, "New York"
+	, "Paris"
+	, "Washington"
+	, "Independence Day"
+	, "July" ]
+	then s:ss
+	else toLower s:ss
 
 instance Eq GPN where
 	(==) Gcusp Gcusp = True
@@ -59,7 +71,7 @@ lin :: Gf a => a -> String
 lin e = stripApp (unApp (gf e))
 
 stripApp :: Maybe (CId, [Expr]) -> String
-stripApp = maybe "Undefined" (\x -> ((showCId . fst) x))
+stripApp = maybe "Undefined" (showCId . fst)
 
 linNP :: GNP -> String
 linNP (GEntity name) = lin name
@@ -67,11 +79,11 @@ linNP (GItem _ (GKind _ (GOfpos noun _))) = lin noun
 linNP (GItem _ (GKind _ noun)) = lin noun
 linNP (GItem _ noun) = lin noun
 linNP (GMassItem _ noun) = lin noun
-linNP (GCloseList _ (GList np1 np2)) = (linNP np1) ++ "_or_" ++ (linNP np2)
+linNP (GCloseList _ (GList np1 np2)) = linNP np1 ++ "_or_" ++ linNP np2
 
 linAP :: GAP -> String
 linAP (GAdvAdj _ a) = lin a
-linAP (GCloseAP _ (GAPList ap1 ap2)) = (linAP ap1) ++ "_or_" ++ (linAP ap2)
+linAP (GCloseAP _ (GAPList ap1 ap2)) = linAP ap1 ++ "_or_" ++ linAP ap2
 linAP a = lin a
 
 linIP :: GIP -> String
@@ -122,14 +134,14 @@ newOnPlace :: GPlace -> [DRSRef] -> DRSRef
 newOnPlace _ rs = new (GItem Ga_Det Gperson) rs
 
 repNP :: GNP -> (DRSRef -> DRS) -> DRSRef -> DRS
-repNP (GItem det cn) p r = (repDet det) (repCN cn) p r
+repNP (GItem det cn) p r = repDet det (repCN cn) p r
 repNP (GMassItem det n) p r = (repMassDet det) (repN n) p r
 repNP (GEntity name) p r
 	| entity <- (gent2ent name) , entity `elem` entities = let
 	DRS rs conds = p r
 	len = length (nub rs)
 	reflist = newDRSRefs (replicate len (DRSRef "r")) [] in
-	(DRS reflist ((Rel (DRSRel (lin name)) [r]) : conds))
+	DRS reflist (Rel (DRSRel (lin name)) [r] : conds)
 repNP (GCloseList or_Conj nps@(GList np1 np2)) p r = p r
 repNP Gshe p r = let
 	dummy =DRSRef "dummy1"
@@ -362,19 +374,19 @@ repAP (GCloseAP _ (GAPList ap1 ap2)) = \r -> DRS [r] [
 repAP ap = \r -> DRS [r] [Rel (DRSRel (linAP ap)) [r]]
 
 repPlace :: GPlace -> (DRSRef -> DRS) -> DRSRef -> DRS
-repPlace (GLocation det name) p r = (repDet det) (repPlaceName name) p r
+repPlace (GLocation det name) p r = (repDet det) (repPlaceNoun name) p r
 repPlace place p r = let
 	DRS rs conds = p r
 	len = ref2int (maximum rs)
 	reflist = newDRSRefs (replicate len (DRSRef "r")) [] in
 	(DRS reflist ((Rel (DRSRel (lin place)) [r]) : conds))
 
-repPlaceName :: GPlaceName -> DRSRef -> DRS
-repPlaceName (GPlaceKind ap name) = \r -> let
-       DRS name_refs name_conds = (repPlaceName name r)
+repPlaceNoun :: GPlaceNoun -> DRSRef -> DRS
+repPlaceNoun (GPlaceKind ap name) = \r -> let
+       DRS name_refs name_conds = (repPlaceNoun name r)
        DRS attri_refs attri_conds = (repAP ap r)
        in DRS (name_refs ++ attri_refs) (name_conds ++ attri_conds)
-repPlaceName name = \r -> DRS [r] [Rel (DRSRel (lin name)) [r]]
+repPlaceNoun name = \r -> DRS [r] [Rel (DRSRel (lin name)) [r]]
 
 repVP :: GVP -> DRSRef -> DRS
 repVP (GWithCl vp _) = repVP vp
@@ -662,7 +674,7 @@ repW Gwho_WH p r = let
 	DRS rs conds = p r
 	len = ref2int (maximum rs)
 	reflist = newDRSRefs (replicate len (DRSRef "r")) [] in
-	(DRS reflist ( person : conds))
+	DRS reflist ( person : conds)
 repW (GWHose cn) p r = let
 	owned = new (GItem Ga_Det cn) [r]
 	ownership_conds =  [ Rel (DRSRel "have") [r, owned] ]

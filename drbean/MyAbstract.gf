@@ -10,7 +10,7 @@ cat
 	Period;
 	Title;
 	Place;
-	PlaceName;
+	PlaceNoun;
 	LocPrep;
 	Motion;
 	CoagentPrep;
@@ -40,7 +40,8 @@ fun
 	Be_somewhere	: PP_location -> Comp;
 	Be_vp	: Comp -> VP;
 	Locating  : LocPrep -> Place -> PP_location;
-	Location	: Det -> PlaceName -> Place;
+	Location	: Det -> PlaceNoun -> Place;
+	NamedPlace	: PN -> Place;
 	FreqAdv	: NP -> Period -> Time;
 	PeriodAdv	: Times -> Period;
 	Coagency	: CoagentPrep -> NP -> PP_coagent;
@@ -65,6 +66,7 @@ fun
 	-- GetNPPPart	: V2 -> NP -> VP; -- get the job done right
 	passive : V2 -> VP;
 	Pass : VPSlash -> VP;
+	PassAgent : VPSlash -> NP -> VP;
 	V2Slash	: V2 -> VPSlash;
 	-- VSSlash	: VS -> VPSlash;
 	V2VSlash	: V2V -> VP -> VPSlash;
@@ -133,15 +135,16 @@ fun
 	MassKind	: AP -> N -> N;
 	KindOfKind  : CN -> Adv -> CN;
 	KindInPlace	: CN -> PP_location -> CN;
-	PlaceKind	: AP -> PlaceName -> PlaceName;
+	PlaceKind	: AP -> PlaceNoun -> PlaceNoun;
 	Membership : Det -> CN -> PP_location -> Cl;
-	CompoundN	: PN -> CN -> CN;
+	CompoundCN	: CN -> CN -> CN;
 	Item	: Det -> CN -> NP;
 	MassItem	: MassDet -> N	-> NP;
 	Titular	: Title -> NP;
 	PredetItem	: Predet -> NP -> NP;
 	Ofpos	: N2 -> NP -> CN;
 	Ofpart	: Partitive -> N -> CN;
+	ApposNP	: NP -> NP -> NP;
 
 	a_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
 	zero_Det_pl : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
@@ -185,7 +188,7 @@ fun
 	who_WH	: IP;
 	what_WH	: IP;
 	how_WH	: IP;
-	IdRP	: RP;
+	who_RP	: RP;
 	that_RP	: RP;
 	in_which	: RP;
 	where_RP	: RP;
@@ -200,6 +203,7 @@ fun
 	AdvAdj	: AdA -> AP -> AP;
 	A_PP	: A2 -> NP ->AP;
 	VP_AP	: VP -> AP;
+	VP_NP_AP	: VPSlash -> NP -> AP;
 
 	about_prep	: Prep;
 	at_prep	: LocPrep;
@@ -214,7 +218,6 @@ fun
 	thing	: CN;
 	entity	: CN;
 
-	become	: V2;
 	can	: VV;
 	have	: V2;
 	know_V2	: V2;
