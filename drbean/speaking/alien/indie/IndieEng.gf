@@ -79,7 +79,7 @@ lin
 -- V
 
 	devise	= mkV2V( mkV "devise") noPrep to;
-	fight	back	= partV( mkV "fight") "back";
+	fight_back	= partV( mkV "fight") "back";
 	believe	= mkVS( mkV "believe");
 	capture	= mkV2 "capture";
 	discover	= mkVS( mkV "discover");

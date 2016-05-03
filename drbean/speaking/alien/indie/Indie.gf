@@ -61,7 +61,7 @@ fun
 	washington	: PN;
 -- Prep
 
-	against	: Prep;
+	against	: CoagentPrep;
 	around	: Prep;
 	by	: Prep;
 	for	: Prep;
@@ -77,7 +77,7 @@ fun
 -- V
 
 	devise	: V2V;
-	fight	back	: V;
+	fight_back	: V;
 	believe	: VS;
 	capture	: V2;
 	discover	: VS;
