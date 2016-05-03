@@ -90,7 +90,6 @@ n = [
 	, "collision course with the Earth"
 	, "convoy"
 	, "day"
-	, "fight"
 	, "globe"
 	, "government"
 	, "military"
@@ -183,6 +182,8 @@ v = [
 	, "devise"
 	, "discover"
 	, "enslave"
+	, "fight back"
+	, "fight"
 	, "intend"
 	, "learn"
 	, "obliterate"
@@ -224,7 +225,8 @@ discover	: VS;
 the Earth	: PN;
 enormous	: A;
 enslave	: V2;
-fight	: CN;
+fight	: V2;
+fight back	: V;
 for	: Prep;
 freedom	: N;
 gigantic	: A;

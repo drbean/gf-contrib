@@ -78,6 +78,7 @@ fun
 
 	devise	: V2V;
 	fight_back	: V;
+	fight	: V2;
 	believe	: VS;
 	capture	: V2;
 	discover	: VS;
@@ -91,7 +92,7 @@ fun
 	set_out	: V;
 	attack	: V2;
 	paralyze	: V2;
-	become	: V2;
+	become	: V2S;
 }
 
 -- vim: set ts=2 sts=2 sw=2 noet:

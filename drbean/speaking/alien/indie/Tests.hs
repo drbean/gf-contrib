@@ -72,7 +72,7 @@ dic_test = [
 	, "The survivors devise a plan to fight back against the enslaving aliens, and July 4th becomes the day humanity fights for its freedom."
 	, "The survivors devise a plan to fight back against the enslaving aliens."
 	, "The survivors devise a plan to fight back against the aliens."
-	, "July 4th becomes the day humanity fights for its freedom."
+	, "July 4th becomes the day that humanity fights for its freedom."
 	, "July 4th is their Independence Day."
 
   ]
