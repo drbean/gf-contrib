@@ -82,7 +82,7 @@ fun
 	believe	: VS;
 	capture	: V2;
 	discover	: VS;
-	enslave	: V2;
+	enslave	: V;
 	intend	: VV;
 	learn	: VS;
 	obliterate	: V2;
