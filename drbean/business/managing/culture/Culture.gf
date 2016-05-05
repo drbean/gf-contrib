@@ -48,7 +48,6 @@ fun
 	everyone	: N;
 	group	: CN;
 	individual	: CN;
-	people	: CN;
 	understanding	: CN;
 	way	: CN;
 -- PN
