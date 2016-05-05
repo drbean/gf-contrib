@@ -42,8 +42,8 @@ fun
 
 -- N
 
-	country	: CN;
-	culture	: N;
+	country	: PlaceNoun;
+	culture	: PlaceNoun;
 	difference	: CN;
 	everyone	: N;
 	group	: CN;
@@ -58,7 +58,7 @@ fun
 
 	as	: Prep;
 	between	: Prep;
-	from	: Prep;
+	from	: LocPrep;
 	in_prep	: Prep;
 	to	: Prep;
 	with_prep	: Prep;

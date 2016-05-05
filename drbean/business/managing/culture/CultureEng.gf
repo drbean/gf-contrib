@@ -44,8 +44,8 @@ lin
 
 -- N
 
+	culture	= mkCN( mkN "culture") ;
 	country	= mkCN( mkN "country");
-	culture	= mkN "culture";
 	difference	= mkCN( mkN "difference");
 	everyone	= mkN "everyone";
 	group	= mkCN( mkN "group");
@@ -78,7 +78,7 @@ lin
 	think	= mkV2 "think";
 	think_that	= mkVS( mkV "think");
 	treat	= mkV3( mkV "treat");
-	work		= mkV2( mkV "work	") with_prep;
+	work		= mkV2( mkV "work") with_prep;
 }
 
 -- vim: set ts=2 sts=2 sw=2 noet:
