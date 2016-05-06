@@ -281,6 +281,7 @@ lin
 	VP_PP_location vp located = mkVP vp located;
 	WithCl vp cl = mkVP vp cl;
 	WithClPre cl s = mkS cl s;
+	WithAdvPre adv s = mkS adv s;
   -- Be_made_sth vp np = PassV3 vp np;
 
 	ICompS i np = mkQS (mkQCl i np);
