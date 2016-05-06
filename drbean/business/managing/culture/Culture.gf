@@ -7,7 +7,7 @@ fun
 -- Adv
 
 	differently	: Adv;
-	even	: Adv;
+	even	: AdV;
 	just	: Adv;
 	normally	: Adv;
 	of_course	: Adv;

@@ -12,7 +12,7 @@ lin
 -- Adv
 
 	differently	= mkAdv "differently";
-	even	= mkAdv "even";
+	even	= mkAdV "even";
 	just	= mkAdv "just";
 	normally	= mkAdv "normally";
 	of_course	= mkAdv "of course";
