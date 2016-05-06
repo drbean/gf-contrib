@@ -232,6 +232,7 @@ fun
 	if_Subj	: Subj;
 	when_Subj	: Subj;
 	so_Subj	: Subj;
+	or_Conj	: Conj;
 
 	Subjunct	: Subj -> S -> SubordCl;
 

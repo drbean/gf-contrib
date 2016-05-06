@@ -130,7 +130,7 @@ repNP (GEntity name) p r
 	len = length (nub rs)
 	reflist = newDRSRefs (replicate len (DRSRef "r")) [] in
 	DRS reflist (Rel (DRSRel (lin name)) [r] : conds)
-repNP (GCloseList or_Conj nps@(GList np1 np2)) p r = p r
+repNP (GCloseList Gor_Conj nps@(GList np1 np2)) p r = p r
 repNP Gshe p r = let
 	dummy =DRSRef "dummy1"
 	i = ref2int r
