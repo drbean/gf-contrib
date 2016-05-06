@@ -402,9 +402,6 @@ lin
 	if_Subj	= if_Subj;
 	when_Subj = when_Subj;
 	so_Subj	= P.mkSubj "so";
-	or_Conj	= or_Conj;
-	and_Conj	= mymkConj "and";
-	but_Conj	= mymkConj "but";
 
 	Subjunct subj s	= mkAdv subj s;
 
