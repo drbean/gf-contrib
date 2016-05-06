@@ -177,7 +177,6 @@ v = [
 	, "remember"
 	, "remember"
 	, "think"
-	, "think"
 	, "treat"
 	, "work"
 	]
@@ -233,6 +232,7 @@ same	: A;
 they	: Pron;
 thing	: CN;
 think	: V2;
+think about	: V2;
 think	: VS;
 to	: Prep;
 treat	: V3;

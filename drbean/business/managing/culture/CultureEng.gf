@@ -3,7 +3,9 @@
 concrete CultureEng of Culture = MyConcrete  **
 open ConstructorsEng, ParadigmsEng, StructuralEng, IrregEng, ExtraEng, ConstructX, Prelude, (R=ResEng) in {
 
--- oper
+oper
+
+	difference = mkN "difference";
 
 lin
 
@@ -46,7 +48,9 @@ lin
 
 	culture	= mkCN( mkN "culture") ;
 	country	= mkCN( mkN "country");
-	difference	= mkCN( mkN "difference");
+	difference_CN	= mkCN difference;
+	difference_in = mkN2 difference in_prep;
+	difference_between = mkN2 difference between;
 	everyone	= mkN "everyone";
 	group	= mkCN( mkN "group");
 	individual	= mkCN( mkN "individual");
@@ -76,6 +80,7 @@ lin
 	remember	= mkV2 "remember";
 	remember_that	= mkVS( mkV "remember");
 	think	= mkV2 "think";
+	think_about	= mkV2( mkV "think") about;
 	think_that	= mkVS( mkV "think");
 	treat	= mkV3( mkV "treat");
 	work		= mkV2( mkV "work") with_prep;

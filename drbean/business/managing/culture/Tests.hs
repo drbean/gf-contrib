@@ -62,6 +62,7 @@ dic_test = [
 
     "Working with people from other countries can be difficult, because what you think isn't what people from other cultures think."
 		, "We assume everyone thinks the same way, but that's not true."
+		, "We assume everyone thinks the same way."
 		, "Normally, we don't even think about the differences in the way people think."
 		, "Of course, when we do work with people from other countries, we realize they are different and they think differently."
 		, "But do they think the same thing about us?"

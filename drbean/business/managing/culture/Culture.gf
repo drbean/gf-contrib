@@ -44,7 +44,9 @@ fun
 
 	country	: PlaceNoun;
 	culture	: PlaceNoun;
-	difference	: CN;
+	difference_CN	: CN;
+	difference_in	: N2;
+	difference_between	: N2;
 	everyone	: N;
 	group	: CN;
 	individual	: CN;
@@ -74,6 +76,7 @@ fun
 	remember	: V2;
 	remember_that	: VS;
 	think	: V2;
+	think_about	: V2;
 	think_that	: VS;
 	treat	: V3;
 	work	: V2;
