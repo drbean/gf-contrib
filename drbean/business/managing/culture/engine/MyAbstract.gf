@@ -173,6 +173,7 @@ fun
 	APList : AP -> AP -> ListAP;
 	AddAP : AP -> ListAP -> ListAP;
 	CloseAP	: Conj -> ListAP -> AP;
+	ConcatS	: Conj -> S -> S -> S;
 
 	her_Det	: Det;
 	her_MassDet	: MassDet;

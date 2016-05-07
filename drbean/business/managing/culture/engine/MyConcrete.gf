@@ -347,6 +347,7 @@ lin
 	APList np1 np2 = mkListAP np1 np2;
 	AddAP ap list = mkListAP ap list;
 	CloseAP conj list = mkAP conj list;
+	ConcatS	conj s1 s2 = mkS conj s1 s2;
 
 	her_Det	= mkDet she_Pron;
 	her_MassDet	= mkDet she_Pron;
