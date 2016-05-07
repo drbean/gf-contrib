@@ -68,7 +68,7 @@ dic_test = [
 		, "Of course, when we work with people from other countries, we realize that they are different."
 		, "Of course, when we work with people from other countries, we realize that they think differently."
 		, "But do they think the same thing about us?"
-		, "They think the same thing about us."
+		, "But they think the same thing about us."
 		, "Do they think we are different, or do they think they are the same as us? "
 		, "They think we are different, or they think they are the same as us. "
 	 , "Actually, the cultural differences, although they're important, are not very big."

@@ -174,6 +174,7 @@ fun
 	AddAP : AP -> ListAP -> ListAP;
 	CloseAP	: Conj -> ListAP -> AP;
 	ConcatS	: Conj -> S -> S -> S;
+	PreConjUtt	: Conj -> Utt -> Utt;
 
 	her_Det	: Det;
 	her_MassDet	: MassDet;
