@@ -50,6 +50,8 @@ fun
 	everyone	: N;
 	group	: CN;
 	individual	: CN;
+	same_CN	: CN;
+	same_N2	: N2;
 	understanding	: CN;
 	way	: CN;
 -- PN

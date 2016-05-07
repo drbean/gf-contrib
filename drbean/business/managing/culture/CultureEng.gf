@@ -54,6 +54,8 @@ lin
 	everyone	= mkN "everyone";
 	group	= mkCN( mkN "group");
 	individual	= mkCN( mkN "individual");
+	same_N2	= mkN2( mkN "same") as;
+	same_CN	= mkCN( mkN "same") ;
 	understanding	= mkCN( mkN "understanding");
 	way	= mkCN( mkN "way");
 -- PN

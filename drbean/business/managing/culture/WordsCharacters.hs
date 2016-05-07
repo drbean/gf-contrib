@@ -104,6 +104,7 @@ n = [
 	, "group"
 	, "individual"
 	, "people"
+	, "same"
 	, "thing"
 	, "understanding"
 	, "way"
@@ -229,6 +230,7 @@ realize	: VS;
 remember	: V2;
 remember	: VS;
 same	: A;
+same	: CN;
 they	: Pron;
 thing	: CN;
 think	: V2;
