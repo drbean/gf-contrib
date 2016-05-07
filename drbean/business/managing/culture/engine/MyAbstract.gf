@@ -146,7 +146,6 @@ fun
 	Ofpos	: N2 -> NP -> CN;
 	Ofpart	: Partitive -> N -> CN;
 	ApposNP	: NP -> NP -> NP;
-	AdjAsCN	: AP -> CN;
 
 	a_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
 	zero_Det_pl : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
