@@ -6,7 +6,7 @@ fun
 
 -- Adv
 
-	differently	: Adv;
+	differently	: PP_manner;
 	even	: AdV;
 	just	: Adv;
 	normally	: Adv;
@@ -52,6 +52,8 @@ fun
 	individual	: CN;
 	same_CN	: CN;
 	same_N2	: N2;
+	same_about	: N2;
+	thing_N2	: N2;
 	understanding	: CN;
 	way	: CN;
 -- PN
@@ -77,6 +79,7 @@ fun
 	realize	: VS;
 	remember	: V2;
 	remember_that	: VS;
+	think_V	: V;
 	think	: V2;
 	think_about	: V2;
 	think_that	: VS;

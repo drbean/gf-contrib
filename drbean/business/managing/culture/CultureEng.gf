@@ -55,7 +55,9 @@ lin
 	group	= mkCN( mkN "group");
 	individual	= mkCN( mkN "individual");
 	same_N2	= mkN2( mkN "same") as;
+	same_about	= mkN2( mkN "same") about;
 	same_CN	= mkCN( mkN "same") ;
+	thing_N2	= mkN2( mkN "thing") about;
 	understanding	= mkCN( mkN "understanding");
 	way	= mkCN( mkN "way");
 -- PN
@@ -81,6 +83,7 @@ lin
 	realize	= mkVS( mkV "realize");
 	remember	= mkV2 "remember";
 	remember_that	= mkVS( mkV "remember");
+	think_V	= mkV "think";
 	think	= mkV2 "think";
 	think_about	= mkV2( mkV "think") about;
 	think_that	= mkVS( mkV "think");
