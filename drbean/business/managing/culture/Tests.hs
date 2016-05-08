@@ -71,7 +71,7 @@ dic_test = [
 		, "But they think the same thing about us."
 		, "Do they think we are different, or do they think they are the same as us? "
 		, "They think we are different, or they think they are the same as us. "
-	 , "Actually, the cultural differences, although they're important, are not very big."
+ , "Actually, although the cultural differences are important, they aren't very big."
 	 , "The real differences are the differences between individual people."
 	 , "Just because everyone from Africa looks the same, that doesn't mean they all think the same."
 	 , "Just because everyone from India looks the same, doesn't mean they all think the same."
