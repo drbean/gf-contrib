@@ -39,7 +39,7 @@ fun
 
 -- Det
 
-	all	: PreDet;
+	all	: Predet;
 -- N
 
 	country	: PlaceNoun;
