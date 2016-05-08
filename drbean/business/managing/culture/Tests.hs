@@ -74,7 +74,7 @@ dic_test = [
  , "Actually, although the cultural differences are important, they aren't very big."
 	 , "The real differences are the differences between individual people."
 	 , "Just because everyone from Africa looks the same, that doesn't mean they all think the same."
-	 , "Just because everyone from India looks the same, doesn't mean they all think the same."
+	 , "Just because everyone from India looks the same, that doesn't mean they all think the same."
 	 , "They're all unique and you need to remember that."
 	 , "Treat everyone as an individual, not according to your understanding of the cultural group."
 
