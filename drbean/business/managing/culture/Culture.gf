@@ -11,9 +11,8 @@ fun
 	just	: Adv;
 	normally	: Adv;
 	of_course	: Adv;
-	very	: Adv;
+	very	: AdA;
 	actually	: Adv;
-	all	: Adv;
 -- AP
 
 	big	: AP;
@@ -40,6 +39,7 @@ fun
 
 -- Det
 
+	all	: PreDet;
 -- N
 
 	country	: PlaceNoun;

@@ -87,6 +87,7 @@ conj = [
 
 det = [
 	"'s"
+	, "all"
 	, "0, _ or zero"
 	, "a"
 	, "an"
@@ -188,7 +189,7 @@ about	: Prep;
 according to	: Prep;
 Africa	: PN;
 actually	: Adv;
-all	: Adv;
+all	: PreDet;
 although	: Subj;
 and	: Conj;
 as	: Prep;
@@ -245,7 +246,7 @@ true	: A;
 understanding	: CN;
 unique	: A;
 us	: Pron
-very	: Adv;
+very	: AdA;
 way	: CN;
 we	: Pron
 what	: Rel;

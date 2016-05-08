@@ -18,7 +18,6 @@ lin
 	of_course	= mkAdv "of course";
 	very	= mkAdv "very";
 	actually	= mkAdv "actually";
-	all	= mkAdv "all";
 -- AP
 
 	big	= mkAP( mkA "big");
@@ -44,6 +43,7 @@ lin
 	although	= mkSubj "although";
 -- Det
 
+	all	= mkPreDet "all";
 -- N
 
 	culture	= mkCN( mkN "culture") ;
