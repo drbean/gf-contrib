@@ -310,6 +310,7 @@ lin
 	MassKind ap n = mymkAP_N ap n;
   KindOfKind cn adv	= mkCN cn adv;
 	KindInPlace cn adv	= mkCN cn adv;
+	NPInPlace np adv = mkNP np adv;
 	PlaceKind ap n = mkCN ap n;
 	Membership det cn place = mkCl( Item det (KindInPlace cn place));
 	CompoundCN cn1 cn2 = CompoundCN cn1 cn2;

@@ -136,6 +136,7 @@ fun
 	MassKind	: AP -> N -> N;
 	KindOfKind  : CN -> Adv -> CN;
 	KindInPlace	: CN -> PP_location -> CN;
+	NPInPlace	: NP -> PP_location -> NP;
 	PlaceKind	: AP -> PlaceNoun -> PlaceNoun;
 	Membership : Det -> CN -> PP_location -> Cl;
 	CompoundCN	: CN -> CN -> CN;
