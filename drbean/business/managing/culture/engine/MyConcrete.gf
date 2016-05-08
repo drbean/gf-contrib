@@ -407,6 +407,7 @@ lin
 	know_V2	= P.mkV2 know_V;
 	know_VS	= P.mkVS know_V;
 
+	Not_Adv a = ParadigmsEng.mkAdv ("not" ++ a.s);
 	Very_Adv a = ParadigmsEng.mkAdv ("very" ++ a.s);
 	In_order_to vp = myPurposeAdv "in order" vp;
 	because_Subj	= because_Subj;

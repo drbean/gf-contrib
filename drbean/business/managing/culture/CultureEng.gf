@@ -88,7 +88,7 @@ lin
 	think	= mkV2 "think";
 	think_about	= mkV2( mkV "think") about;
 	think_that	= mkVS( mkV "think");
-	treat	= mkV3( mkV "treat");
+	treat	= mkV3( mkV "treat") noPrep as;
 	work		= mkV2( mkV "work") with_prep;
 }
 

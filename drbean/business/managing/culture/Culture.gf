@@ -70,7 +70,7 @@ fun
 	to	: Prep;
 	with_prep	: Prep;
 	about	: Prep;
-	according_to	: Prep;
+	according_to	: MannerPrep;
 -- V
 
 	assume	: VS;
