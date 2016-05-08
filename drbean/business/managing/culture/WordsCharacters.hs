@@ -49,6 +49,7 @@ a = [
 
 adv = [
 
+	, "all"
 	"differently"
 	, "even"
 	, "just"
@@ -190,6 +191,7 @@ according to	: Prep;
 Africa	: PN;
 actually	: Adv;
 all	: PreDet;
+all	: AdA;
 although	: Subj;
 and	: Conj;
 as	: Prep;

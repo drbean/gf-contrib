@@ -11,6 +11,7 @@ lin
 
 -- Adv
 
+	all	= mkAdv "all";
 	differently	= mkAdv "differently";
 	even	= mkAdV "even";
 	just	= mkAdv "just";

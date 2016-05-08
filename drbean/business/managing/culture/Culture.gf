@@ -6,6 +6,7 @@ fun
 
 -- Adv
 
+	all	: AdA;
 	differently	: PP_manner;
 	even	: AdV;
 	just	: Adv;
