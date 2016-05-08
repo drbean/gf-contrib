@@ -43,7 +43,7 @@ lin
 	although	= mkSubj "although";
 -- Det
 
-	all	= mkPreDet "all";
+	all	= all_Predet;
 -- N
 
 	culture	= mkCN( mkN "culture") ;
