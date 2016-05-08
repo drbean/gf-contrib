@@ -49,8 +49,8 @@ a = [
 
 adv = [
 
-	, "all"
-	"differently"
+	"all"
+	, "differently"
 	, "even"
 	, "just"
 	, "normally"
