@@ -194,6 +194,20 @@ oper
 		\np1,np2 ->
 		{s = \\n => np1.s ! n ++ np2.s ! n ; a = np1.a} ;
 
+  myAdjAsCN : (ap : AP) -> { s : Number => Case => Str ; g : Gender } =
+		\ap ->
+		{ s = \\n,c => ap.s ! agrgP3 n Neutr;
+			g = Neutr
+		} ;
+
+	myNPPostPredet : (np : NP) -> (pred : Predet) -> {s : NPCase => Str ; a : Agr} =
+	\np,pred ->
+		{
+		s = \\c => np.s ! c ++ pred.s ;
+		a = np.a
+		} ;
+
+
 lin
 	Be_bad ap	= mkComp ap;
   Be_somewhere located	= mkComp located;
@@ -274,6 +288,7 @@ lin
 	VP_PP_location vp located = mkVP vp located;
 	WithCl vp cl = mkVP vp cl;
 	WithClPre cl s = mkS cl s;
+	WithAdvPre adv s = mkS adv s;
   -- Be_made_sth vp np = PassV3 vp np;
 
 	ICompS i np = mkQS (mkQCl i np);
@@ -302,6 +317,7 @@ lin
 	MassKind ap n = mymkAP_N ap n;
   KindOfKind cn adv	= mkCN cn adv;
 	KindInPlace cn adv	= mkCN cn adv;
+	NPInPlace np adv = mkNP np adv;
 	PlaceKind ap n = mkCN ap n;
 	Membership det cn place = mkCl( Item det (KindInPlace cn place));
 	CompoundCN cn1 cn2 = CompoundCN cn1 cn2;
@@ -312,6 +328,7 @@ lin
 	Titular cn = mkNP cn;
 	PredetItem predet np	= mkNP predet np;
 	ApposNP np1 np2 = myApposNP np1 np2;
+	NPPostPredet np predet = myNPPostPredet np predet;
 
 	a_Det	= a_Det;
 	zero_Det_pl	= aPl_Det;
@@ -339,6 +356,8 @@ lin
 	APList np1 np2 = mkListAP np1 np2;
 	AddAP ap list = mkListAP ap list;
 	CloseAP conj list = mkAP conj list;
+	ConcatS	conj s1 s2 = mkS conj s1 s2;
+	PreConjUtt conj utt = mkPhr (mkPConj conj) utt;
 
 	her_Det	= mkDet she_Pron;
 	her_MassDet	= mkDet she_Pron;
@@ -350,6 +369,7 @@ lin
 	it = mkNP it_Pron;
 	they = mkNP they_Pron;
 	you = mkNP youSg_Pron;
+	we	= mkNP we_Pron;
 
 	who_WH	= mymkIP "who" "who" "whose" Sg;
 	what_WH	= whatSg_IP;
@@ -387,6 +407,7 @@ lin
 	know_V2	= P.mkV2 know_V;
 	know_VS	= P.mkVS know_V;
 
+	Not_Adv a = ParadigmsEng.mkAdv ("not" ++ a.s);
 	Very_Adv a = ParadigmsEng.mkAdv ("very" ++ a.s);
 	In_order_to vp = myPurposeAdv "in order" vp;
 	because_Subj	= because_Subj;
@@ -394,8 +415,6 @@ lin
 	when_Subj = when_Subj;
 	so_Subj	= P.mkSubj "so";
 	or_Conj	= or_Conj;
-	and_Conj	= mymkConj "and";
-	but_Conj	= mymkConj "but";
 
 	Subjunct subj s	= mkAdv subj s;
 

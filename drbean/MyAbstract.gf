@@ -103,6 +103,7 @@ fun
 	VP_PP_location	:  Motion -> PP_location -> VP;
 	WithCl	: VP -> SubordCl -> VP;
 	WithClPre	: SubordCl -> S -> S;
+	WithAdvPre	: Adv -> S -> S;
 
 	ICompS	: IComp -> NP -> QS;
 	YN	: Cl -> QCl;
@@ -135,6 +136,7 @@ fun
 	MassKind	: AP -> N -> N;
 	KindOfKind  : CN -> Adv -> CN;
 	KindInPlace	: CN -> PP_location -> CN;
+	NPInPlace	: NP -> PP_location -> NP;
 	PlaceKind	: AP -> PlaceNoun -> PlaceNoun;
 	Membership : Det -> CN -> PP_location -> Cl;
 	CompoundCN	: CN -> CN -> CN;
@@ -145,6 +147,7 @@ fun
 	Ofpos	: N2 -> NP -> CN;
 	Ofpart	: Partitive -> N -> CN;
 	ApposNP	: NP -> NP -> NP;
+	NPPostPredet	: NP -> Predet -> NP;
 
 	a_Det : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
 	zero_Det_pl : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
@@ -172,6 +175,8 @@ fun
 	APList : AP -> AP -> ListAP;
 	AddAP : AP -> ListAP -> ListAP;
 	CloseAP	: Conj -> ListAP -> AP;
+	ConcatS	: Conj -> S -> S -> S;
+	PreConjUtt	: Conj -> Utt -> Utt;
 
 	her_Det	: Det;
 	her_MassDet	: MassDet;
@@ -184,6 +189,7 @@ fun
 	that_Pron	: NP;
 	they	: NP;
 	you	: NP;
+	we	: NP;
 
 	who_WH	: IP;
 	what_WH	: IP;
@@ -223,6 +229,7 @@ fun
 	know_V2	: V2;
 	know_VS	: VS;
 
+	Not_Adv	: Adv -> Adv;
 	Very_Adv	: Adv -> Adv;
 	In_order_to : VP -> Adv;
 	because_Subj	: Subj;
@@ -230,8 +237,6 @@ fun
 	when_Subj	: Subj;
 	so_Subj	: Subj;
 	or_Conj	: Conj;
-	and_Conj	: Conj;
-	but_Conj	: Conj;
 
 	Subjunct	: Subj -> S -> SubordCl;
 
