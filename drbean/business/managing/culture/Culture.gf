@@ -55,7 +55,7 @@ fun
 	same_N2	: N2;
 	same_about	: N2;
 	thing_N2	: N2;
-	understanding	: CN;
+	understanding	: N2;
 	way	: CN;
 -- PN
 

@@ -245,7 +245,7 @@ think	: VS;
 to	: Prep;
 treat	: V3;
 true	: A;
-understanding	: CN;
+understanding	: N2;
 unique	: A;
 us	: Pron
 very	: AdA;

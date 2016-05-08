@@ -59,7 +59,7 @@ lin
 	same_about	= mkN2( mkN "same") about;
 	same_CN	= mkCN( mkN "same") ;
 	thing_N2	= mkN2( mkN "thing") about;
-	understanding	= mkCN( mkN "understanding");
+	understanding	= mkN2( mkN "understanding") of_prep;
 	way	= mkCN( mkN "way");
 -- PN
 

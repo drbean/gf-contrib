@@ -229,7 +229,7 @@ fun
 	know_V2	: V2;
 	know_VS	: VS;
 
-	Not_Adv	: Adv -> Adv;
+	Not_Adv	: PP_manner -> PP_manner;
 	Very_Adv	: Adv -> Adv;
 	In_order_to : VP -> Adv;
 	because_Subj	: Subj;
