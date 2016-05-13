@@ -70,9 +70,7 @@ lin
 
 -- Pron
 
-	which	= mkNP which_RP;
 	you = mkNP youSg_Pron;
-	how	= ss "how";
 -- Subj
 
 -- V

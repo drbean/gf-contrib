@@ -1,9 +1,9 @@
-module Representation (module Representation, module Cusp) where
+module Representation (module Representation, module Enjoy) where
 
 import Data.DRS
 import Data.DRS.Show
 
-import Cusp
+import Enjoy
 import PGF
 
 import Model
@@ -17,12 +17,6 @@ import Data.Tuple
 
 entuples :: [(Entity,GPN)]
 entuples = [
-	(A,Gcusp)
-	, (D,GControl)
-	, (G,Ggourlay)
-	, (V,GUncertainty)
-	, (T,GSupport)
-	, (Q,GPressure)
 	]
 
 ref2int :: DRSRef -> Int
@@ -38,28 +32,16 @@ int2ref n = DRSRef ("r" ++ show n )
 
 lc_first :: String -> String
 lc_first str@(s:ss) = if any (flip isPrefixOf str) [
-	"Area 51"
-	, "Los Angeles"
-	, "the Earth"
-	, "Houston"
-	, "Levinson"
-	, "London"
-	, "Moscow"
-	, "New York"
-	, "Paris"
-	, "Washington"
-	, "Independence Day"
-	, "July" ]
+	"Finn"
+	, "Rob"
+	, "Canada"
+	, "Finland"
+	, "World Happiness Database"
+	]
 	then s:ss
 	else toLower s:ss
 
 instance Eq GPN where
-	(==) Gcusp Gcusp = True
-	(==) GControl GControl = True
-	(==) GUncertainty GUncertainty = True
-	(==) GSupport GSupport = True
-	(==) GPressure GPressure = True
-	(==) Ggourlay Ggourlay = True
 	(==) _ _ = False
 
 gent2ent :: GPN -> Entity

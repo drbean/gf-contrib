@@ -1,7 +1,3 @@
-	, "top"
-	, "word"
-	, "top"
-	, "word"
 module WordsCharacters where
 
 import qualified Data.Map as Map
@@ -54,7 +50,7 @@ a = [
 
 adv = [
 
-	, "already"
+	"already"
 	, "also"
 	, "always"
 	, "too"
@@ -92,6 +88,8 @@ det = [
 	, "no"
 	, "some"
 	, "the"
+
+	]
 
 n = [
 
