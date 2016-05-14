@@ -81,8 +81,8 @@ lin
 	think	= mkVS( mkV "think") ;
 	use	= mkV2( mkV "use") noPrep;
 	worry	= mkV2( mkV "worry") noPrep;
-	put	= mkV3( mkV "put") ;
-	might	= mkVV( mkV "might") ;
+	put	= mkV3( mkV "put") noPrep on;
+	might	= ModalVV "" "might" "" "" "mightn't";
 	make	= mkV2V( mkV "make") noPrep noPrep;
 	make_V2A	= mkV2A( mkV "make") noPrep;
 	look	= mkV2( mkV "look") noPrep;
