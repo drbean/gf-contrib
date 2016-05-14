@@ -103,6 +103,7 @@ fun
 	VP_PP_time	: VP -> PP_time -> VP;
 	VP_PP_location	:  Motion -> PP_location -> VP;
 	WithCl	: VP -> SubordCl -> VP;
+	VPToo	: VP -> VP;
 	WithClPre	: SubordCl -> S -> S;
 	WithAdvPre	: Adv -> S -> S;
 

@@ -207,6 +207,31 @@ oper
 		a = np.a
 		} ;
 
+	myVPPlus : (vp : VP) -> (str : Str) -> {
+	  s   : VerbForms;
+		p   : Str ;
+		prp : Str ;
+		ptp : Str ;
+		inf : Str ;
+		ad  : Agr => Str ;
+		s2  : Agr => Str ;
+		ext : Str ;
+		isSimple : Bool
+					}  =
+	\vp,str ->
+		{
+		s = vp.s;
+		p = vp.p;
+		prp = vp.prp;
+		ptp = vp.ptp;
+		inf = vp.inf;
+		ad = \\a => vp.ad ! a;
+		s2 = \\a => vp.s2 ! a ++ str;
+		ext = vp.ext;
+		isSimple = vp.isSimple
+		};
+
+
 lin
 	Be_bad ap	= mkComp ap;
   Be_somewhere located	= mkComp located;
@@ -286,6 +311,7 @@ lin
 	VP_PP_time vp pp = mkVP vp pp;
 	VP_PP_location vp located = mkVP vp located;
 	WithCl vp cl = mkVP vp cl;
+	VPToo vp = myVPPlus vp "too";
 	WithClPre cl s = mkS cl s;
 	WithAdvPre adv s = mkS adv s;
   -- Be_made_sth vp np = PassV3 vp np;
