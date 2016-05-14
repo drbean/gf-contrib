@@ -207,7 +207,6 @@ oper
 		a = np.a
 		} ;
 
-
 lin
 	Be_bad ap	= mkComp ap;
   Be_somewhere located	= mkComp located;
@@ -345,6 +344,7 @@ lin
 	no_pl_Det	= mkDet no_Quant pluralNum;
 	no_NP = mkNP( mkDet no_Quant);
 	no_pl_NP = mkNP( mkDet no_Quant pluralNum);
+	no_MassDet = mkDet no_Quant;
 	some_Det = mkDet some_Quant;
 	some_pl_Det = mkDet some_Quant pluralNum;
 	some_NP = mkNP( mkDet some_Quant);

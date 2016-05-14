@@ -77,6 +77,7 @@ fun
 	-- ModSlInf : CN -> VPSlash -> CN;
 	MassModInf : N -> VP -> CN;
 	Modified	: CN -> RCl -> CN;
+	MassMod	: N -> RCl -> N;
 	SubjRel	: RP -> VP -> RCl;
 	ObjRel	: RP -> ClSlash -> RCl;
 	EmptyRel : ClSlash -> RCl;
@@ -164,6 +165,7 @@ fun
 	no_pl_Det	: Det;
 	no_NP	: NP;
 	no_pl_NP	: NP;
+	no_MassDet	: MassDet;
 	some_Det	: Det;
 	some_pl_Det	: Det;
 	some_NP	: NP;
