@@ -63,7 +63,7 @@ dic_test = [
     "Finn sounds down in the dumps."
 		, "Finn sounds miserable."
     , "Finn is miserable."
-		, "It's raining."
+		, "It is raining."
 		, "Finn has no money."
 		, "And Finn feels unfit too!"
 		, "Rob has some news that might put a smile on Finn's face."
