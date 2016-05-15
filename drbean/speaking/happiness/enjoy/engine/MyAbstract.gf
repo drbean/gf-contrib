@@ -72,6 +72,7 @@ fun
 	V2VSlash	: V2V -> VP -> VPSlash;
 	V2ASlash	: V2A -> AP -> VPSlash;
 	V3Slash	: V3 -> NP -> VPSlash;
+	reflexive	: VPSlash -> VP;
 	ModInf : CN -> VP -> CN;
 	ModPass3 : CN -> V3 -> NP -> CN;
 	-- ModSlInf : CN -> VPSlash -> CN;
@@ -104,6 +105,7 @@ fun
 	VP_PP_location	:  Motion -> PP_location -> VP;
 	WithCl	: VP -> SubordCl -> VP;
 	VPToo	: VP -> VP;
+	VPAlready	: VP -> VP;
 	WithClPre	: SubordCl -> S -> S;
 	WithAdvPre	: Adv -> S -> S;
 
