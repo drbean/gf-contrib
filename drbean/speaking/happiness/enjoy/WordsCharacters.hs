@@ -40,6 +40,7 @@ a = [
 	, "fine"
 	, "good"
 	, "happy"
+	, "happier"
 	, "happy-go-lucky"
 	, "high"
 	, "miserable"
@@ -215,6 +216,7 @@ food	: N;
 for	: Prep;
 good	: A;
 happiness	: N;
+happier	: A;
 happy	: A;
 happy-go-lucky	: A;
 high	: A;

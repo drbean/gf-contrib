@@ -3,7 +3,10 @@
 concrete EnjoyEng of Enjoy = MyConcrete  **
 open ConstructorsEng, ParadigmsEng, StructuralEng, IrregEng, ExtraEng, ConstructX, Prelude, (R=ResEng) in {
 
--- oper
+oper
+
+	happy_A	= mkA "happy";
+	make_V = mkV "make";
 
 lin
 
@@ -21,7 +24,8 @@ lin
 	miserable	= mkAP( mkA "miserable") ;
 	high	= mkAP( mkA "high") ;
 	happy_go_lucky	= mkAP( mkA "happy-go-lucky") ;
-	happy	= mkAP( mkA "happy") ;
+	happy	= mkAP happy_A ;
+	happier	= comparAP happy_A ;
 	good	= mkAP( mkA "good") ;
 	fine	= mkAP( mkA "fine") ;
 	down_in_the_dumps	= mkAP( mkA "down in the dumps") ;
@@ -83,8 +87,8 @@ lin
 	worry	= mkV2( mkV "worry") noPrep;
 	put	= mkV3( mkV "put") noPrep on;
 	might	= ModalVV "" "might" "" "" "mightn't";
-	make	= mkV2V( mkV "make") noPrep noPrep;
-	make_V2A	= mkV2A( mkV "make") noPrep;
+	make	= mkV2V make_V noPrep noPrep;
+	make_V2A	= mkV2A make_V noPrep;
 	look	= mkV2( mkV "look") noPrep;
 	feel	= mkVA( mkV "feel") ;
 	could	= mkVV( mkV "could") ;

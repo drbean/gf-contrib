@@ -20,6 +20,7 @@ fun
 	high	: AP;
 	happy_go_lucky	: AP;
 	happy	: AP;
+	happier	: AP;
 	good	: AP;
 	fine	: AP;
 	down_in_the_dumps	: AP;
