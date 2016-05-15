@@ -65,7 +65,7 @@ dic_test = [
     , "Finn is miserable."
 		, "It is raining."
 		, "Finn has no money."
-		, "And Finn feels unfit too!"
+		, "And Finn feels unfit too."
 		, "Rob has some news that might put a smile on Finn's face."
 		, "The study tells us how we can make ourselves happier."
 		, "Rob and Finn use some words about happiness too."
