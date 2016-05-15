@@ -44,7 +44,7 @@ lin
 	study	= mkCN( mkN "study") ;
 	wine	= mkN "wine" nonExist;
 	top	= mkN2( mkN "top") ;
-	word	= mkN2( mkN "word") ;
+	word	= mkN2( mkN "word") about;
 	nothing	= mkN "nothing" nonExist;
 	news	= mkN "news" nonExist;
 	nation	= mkCN( mkN "nation") ;
