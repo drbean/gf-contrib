@@ -231,6 +231,12 @@ oper
 		isSimple = vp.isSimple
 		};
 
+	myMassMod : (un : N) -> (rs : RS) -> { s : Number => Case => Str ; g: Gender } =
+	\un,rs ->
+		{
+		s = \\n,c => un.s ! n ! c ++ rs.s ! AgP3Sg Neutr ;
+		g = un.g
+		};
 
 lin
 	Be_bad ap	= mkComp ap;
@@ -277,6 +283,7 @@ lin
 	-- ModSlInf cn vpslash = mkCN cn vpslash;
 	MassModInf n vp = mkCN( mkCN n) vp;
 	Modified cn rcl = mkCN cn ( mkRS rcl);
+	MassMod n rcl = myMassMod n (mkRS rcl);
 	SubjRel	rp vp = mkRCl rp vp;
 	ObjRel rp clslash = mkRCl rp clslash;
 	EmptyRel slash = EmptyRelSlash slash;
@@ -424,8 +431,8 @@ lin
   part_prep	= part_Prep;
   up_prep	= P.mkPrep "up";
 
-	person	= mkCN( P.mkN "person" "people");
-	thing	= mkCN( P.mkN "thing");
+	person	= mkCN( P.mkN Masc ( P.mkN "person" "people"));
+	thing	= mkCN( P.mkN Neutr ( P.mkN "thing"));
 
 	can	= can_VV;
 	have	= P.mkV2 IrregEng.have_V;
