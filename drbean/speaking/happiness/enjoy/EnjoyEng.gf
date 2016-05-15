@@ -38,19 +38,19 @@ lin
 	situation	= mkCN( mkN "situation") ;
 	smile	= mkCN( mkN "smile") ;
 	study	= mkCN( mkN "study") ;
-	wine	= mkN "wine";
+	wine	= mkN "wine" nonExist;
 	top	= mkN2( mkN "top") ;
 	word	= mkN2( mkN "word") ;
-	nothing	= mkN "nothing";
-	news	= mkN "news";
+	nothing	= mkN "nothing" nonExist;
+	news	= mkN "news" nonExist;
 	nation	= mkCN( mkN "nation") ;
-	money	= mkN "money";
+	money	= mkN "money" nonExist;
 	list	= mkCN( mkN "list") ;
-	life	= mkN "life";
-	happiness	= mkN "happiness";
-	food	= mkN "food";
+	life	= mkN "life" nonExist;
+	happiness	= mkN "happiness" nonExist;
+	food	= mkN "food" nonExist;
 	face	= mkCN( mkN "face") ;
-	everything	= mkN "everything";
+	everything	= mkN "everything" nonExist;
 	country	= mkCN( mkN "country") ;
 -- PN
 
