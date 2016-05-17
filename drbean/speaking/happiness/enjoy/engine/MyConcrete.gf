@@ -124,14 +124,14 @@ oper
 	mymkRP : (who, which, whose : Str) -> {s : RCase => Str; a : RAgr} =
 	\who,which,whose ->
 	{ s = table {
-			RPrep Neutr => which;
-			RPrep _ => who;
-			RC Neutr (NCase Gen) | RC Neutr NPNomPoss => whose;
-			RC Neutr _ => which;
 			RC _ (NCase Gen) | RC _ NPNomPoss => whose;
-			RC _ _ => who
+			RC Neutr _ => which;
+			RC _ NPAcc => who;
+			RC _ (NCase Nom) => who;
+			RPrep Neutr => which;
+			RPrep _ => who
 		};
-		a = RAg AgP3Pl
+		a = RNoAg
 	};
 
 	mymkConj : (and : Str) -> {s1 : Str ; s2 : Str ; n : Number} =
