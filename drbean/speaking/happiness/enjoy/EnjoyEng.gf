@@ -82,6 +82,7 @@ lin
 	say	= mkVS( mkV "say") ;
 	sound	= mkVA( mkV "sound") ;
 	tell	= mkV2S( mkV "tell") noPrep;
+	tell_V3	= mkV3( mkV "tell") noPrep noPrep;
 	think	= mkVS( mkV "think") ;
 	use	= mkV2( mkV "use") noPrep;
 	worry	= mkV2( mkV "worry") noPrep;

@@ -180,6 +180,7 @@ v = [
 	, "could"
 	, "feel"
 	, "look"
+	, "tell"
 	, "make"
 	, "might"
 	, "put"
@@ -249,6 +250,7 @@ some	: Det;
 sound	: VA;
 study	: CN;
 tell	: V2S;
+tell_V3	: V3;
 that	: Pron;
 thing	: CN;
 think	: VS;

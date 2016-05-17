@@ -77,6 +77,7 @@ fun
 	say	: VS;
 	sound	: VA;
 	tell	: V2S;
+	tell_V3	: V3;
 	think	: VS;
 	use	: V2;
 	worry	: V2;
