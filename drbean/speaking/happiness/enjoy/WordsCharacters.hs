@@ -180,7 +180,6 @@ v = [
 	, "could"
 	, "feel"
 	, "look"
-	, "tell"
 	, "make"
 	, "might"
 	, "put"
