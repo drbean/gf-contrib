@@ -121,6 +121,12 @@ oper
 			 n = n ;
 		 };
 
+	mymkIPhrase	: (idet : IDet) -> (cn : CN) -> { s : NPCase => Str; n : Number } =
+		\idet,cn -> {
+      s = \\c => idet.s ++ cn.s ! idet.n ! npcase2case c ; 
+      n = idet.n
+      };
+
 	mymkRP : (who, which, whose : Str) -> {s : RCase => Str; a : RAgr} =
 	\who,which,whose ->
 	{ s = table {
@@ -329,6 +335,7 @@ lin
 	YN cl	= mkQCl cl;
 	WH_Pred ip vp	= mkQCl ip vp;
 	WHose cn = mkIP (GenIP who_WH) cn;
+	IPhrase idet cn = mymkIPhrase idet cn;
 	WH_ClSlash ip cslash	= mkQCl ip cslash;
 	PosQ qcl	= mkQS qcl;
 	NegQ qcl	= mkQS negativePol qcl;
@@ -407,6 +414,7 @@ lin
 
 	who_WH	= mymkIP "who" "who" "whose" Sg;
 	what_WH	= whatSg_IP;
+	whatPl_IDet = { s = "what"; n = Pl };
 	-- how_WH	= mkIP how_IAdv;
 	that_RP	= ExtraEng.that_RP;
 	who_RP	= mymkRP "who" "which" "whose";

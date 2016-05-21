@@ -120,6 +120,7 @@ fun
 
 	WH_Pred	: IP -> VP -> QCl;
 	WHose	: CN -> IP;
+	IPhrase	: IDet -> CN -> IP;
 	WH_ClSlash	: IP -> ClSlash -> QCl;
 	PosQ	: QCl -> QS;
 	NegQ	: QCl -> QS;
@@ -197,6 +198,7 @@ fun
 
 	who_WH	: IP;
 	what_WH	: IP;
+	whatPl_IDet	: IDet;
 	how_WH	: IP;
 	who_RP	: RP;
 	that_RP	: RP;
