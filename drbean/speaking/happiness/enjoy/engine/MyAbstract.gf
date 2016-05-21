@@ -199,6 +199,7 @@ fun
 	who_WH	: IP;
 	what_WH	: IP;
 	whatPl_IDet	: IDet;
+	whichSg_IDet	: IDet;
 	how_WH	: IP;
 	who_RP	: RP;
 	that_RP	: RP;

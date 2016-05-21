@@ -14,7 +14,7 @@ lin
 
 	too	= mkAdv "too";
 	always	= mkAdV "always";
-	also	= mkAdv "also";
+	also	= mkAdV "also";
 	already	= mkAdv "already";
 -- AP
 

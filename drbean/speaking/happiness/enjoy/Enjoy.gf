@@ -9,7 +9,7 @@ fun
 
 	too	: Adv;
 	always	: AdV;
-	also	: Adv;
+	also	: AdV;
 	already	: Adv;
 -- AP
 
