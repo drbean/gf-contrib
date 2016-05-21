@@ -93,7 +93,7 @@ lin
 	look	= mkV2( mkV "look") noPrep;
 	feel	= mkVA( mkV "feel") ;
 	could	= mkVV( mkV "could") ;
-	ask	= mkV2S( mkV "ask") noPrep;
+	ask	= mkV2Q( mkV "ask") noPrep;
 }
 
 -- vim: set ts=2 sts=2 sw=2 noet:

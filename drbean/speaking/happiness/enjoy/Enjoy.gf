@@ -88,7 +88,7 @@ fun
 	looks	: V2;
 	feel	: VA;
 	could	: VV;
-	ask	: V2S;
+	ask	: V2Q;
 }
 
 -- vim: set ts=2 sts=2 sw=2 noet:
