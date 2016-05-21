@@ -90,7 +90,7 @@ lin
 	might	= ModalVV "" "might" "" "" "mightn't";
 	make	= mkV2V make_V noPrep noPrep;
 	make_V2A	= mkV2A make_V noPrep;
-	look	= mkV2( mkV "look") noPrep;
+	look	= mkV2( mkV "look") for;
 	feel	= mkVA( mkV "feel") ;
 	could	= mkVV( mkV "could") ;
 	ask	= mkV2Q( mkV "ask") noPrep;

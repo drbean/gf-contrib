@@ -85,7 +85,7 @@ fun
 	might	: VV;
 	make	: V2V;
 	make_V2A	: V2A;
-	looks	: V2;
+	look	: V2;
 	feel	: VA;
 	could	: VV;
 	ask	: V2Q;
