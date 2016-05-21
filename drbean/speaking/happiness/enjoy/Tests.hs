@@ -74,10 +74,10 @@ dic_test = [
     , "Rob asks Finn what things make him feel happy?"
     , "Finn says the finer things in life, good food , fine wine and things like that make him feel happier"
 		, "Finn asks Rob what things make him feel happy."
-		, "Rob tells Finn that everything makes him feel happy!"
+		, "Rob tells Finn that everything makes him feel happy."
 		, " Rob says that nothing worries him."
 		, " Rob says that he always looks for the positive things even in a bad situation."
-		, "Rob says that you could also say that he is happy-go-lucky!"
+		, "Rob says that you could also say that he is happy-go-lucky."
 		, "Rob asks Finn which country is top of the list in happiness in the World Happiness Database"
     , "Finn thinks Finland has a high quality of life but he says the happiest nation is Canada."
 
