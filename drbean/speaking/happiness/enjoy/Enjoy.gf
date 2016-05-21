@@ -8,7 +8,7 @@ fun
 -- Adv
 
 	too	: Adv;
-	always	: Adv;
+	always	: AdV;
 	also	: Adv;
 	already	: Adv;
 -- AP
@@ -34,7 +34,7 @@ fun
 -- N
 
 	quality	: CN;
-	situation	: CN;
+	situation	: PlaceNoun;
 	smile	: CN;
 	study	: CN;
 	wine	: N;
@@ -44,7 +44,7 @@ fun
 	news	: N;
 	nation	: CN;
 	money	: N;
-	list	: CN;
+	list	: N2;
 	life	: N;
 	happiness	: N;
 	food	: N;
@@ -54,7 +54,7 @@ fun
 -- PN
 
 	rob	: PN;
-	world_happiness_database	: PN;
+	world_happiness_database	: PlaceNoun;
 	finland	: PN;
 	finn	: PN;
 	canada	: PN;
@@ -63,8 +63,9 @@ fun
 	on	: Prep;
 	like	: Prep;
 	in_prep	: Prep;
+	in_loc	: LocPrep;
 	for	: Prep;
-	even_in	: Prep;
+	even_in	: LocPrep;
 	about	: Prep;
 
 -- Pron

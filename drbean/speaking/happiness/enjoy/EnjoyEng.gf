@@ -13,7 +13,7 @@ lin
 -- Adv
 
 	too	= mkAdv "too";
-	always	= mkAdv "always";
+	always	= mkAdV "always";
 	also	= mkAdv "also";
 	already	= mkAdv "already";
 -- AP
@@ -49,7 +49,7 @@ lin
 	news	= mkN "news" nonExist;
 	nation	= mkCN( mkN "nation") ;
 	money	= mkN "money" nonExist;
-	list	= mkCN( mkN "list") ;
+	list	= mkN2( mkN "list") in_prep;
 	life	= mkN "life" nonExist;
 	happiness	= mkN "happiness" nonExist;
 	food	= mkN "food" nonExist;
@@ -59,7 +59,7 @@ lin
 -- PN
 
 	rob	= mkPN( mkN feminine (mkN "Rob") );
-	world_happiness_database	= mkPN( mkN feminine (mkN "World Happiness Database") );
+	world_happiness_database	= mkCN( mkN "World Happiness Database");
 	finland	= mkPN( mkN feminine (mkN "Finland") );
 	finn	= mkPN( mkN feminine (mkN "Finn") );
 	canada	= mkPN( mkN feminine (mkN "Canada") );
@@ -68,6 +68,7 @@ lin
 	on	= mkPrep "on";
 	like	= mkPrep "like";
 	in_prep	= mkPrep "in";
+	in_loc	= mkPrep "in";
 	for	= mkPrep "for";
 	even_in	= mkPrep "even in";
 	about	= mkPrep "about";
