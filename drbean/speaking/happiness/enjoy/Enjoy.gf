@@ -13,6 +13,7 @@ fun
 	already	: Adv;
 -- AP
 
+	top	: A2;
 	raining	: AP;
 	unfit	: AP;
 	positive	: AP;
@@ -38,7 +39,6 @@ fun
 	smile	: CN;
 	study	: CN;
 	wine	: N;
-	top	: N2;
 	word	: N2;
 	nothing	: N;
 	news	: N;

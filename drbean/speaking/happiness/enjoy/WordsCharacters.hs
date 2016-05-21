@@ -46,6 +46,7 @@ a = [
 	, "miserable"
 	, "positive"
 	, "raining"
+	, "top"
 	, "unfit"
 	]
 
@@ -255,7 +256,7 @@ thing	: CN;
 think	: VS;
 to
 too	: Adv;
-top	: N2;
+top	: A2;
 unfit	: A;
 use	: V2;
 what	: Pron;

@@ -18,6 +18,7 @@ lin
 	already	= mkAdv "already";
 -- AP
 
+	top	= mkA2( mkA "top") of_prep;
 	raining	= mkAP( mkA "raining") ;
 	unfit	= mkAP( mkA "unfit") ;
 	positive	= mkAP( mkA "positive") ;
@@ -43,7 +44,6 @@ lin
 	smile	= mkCN( mkN "smile") ;
 	study	= mkCN( mkN "study") ;
 	wine	= mkN "wine" nonExist;
-	top	= mkN2( mkN "top") ;
 	word	= mkN2( mkN "word") about;
 	nothing	= mkN "nothing" nonExist;
 	news	= mkN "news" nonExist;
