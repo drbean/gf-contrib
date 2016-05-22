@@ -38,9 +38,11 @@ a = [
 	"bad"
 	, "down in the dumps"
 	, "fine"
+	, "finer"
 	, "good"
 	, "happy"
 	, "happier"
+	, "happiest"
 	, "happy-go-lucky"
 	, "high"
 	, "miserable"
@@ -211,6 +213,7 @@ everything	: N;
 face	: CN;
 feel	: VA;
 fine	: A;
+finer		: A;
 Finland	: PN;
 Finn	: PN;
 food	: N;
@@ -218,6 +221,7 @@ for	: Prep;
 good	: A;
 happiness	: N;
 happier	: A;
+happiest	: A;
 happy	: A;
 happy-go-lucky	: A;
 high	: A;
