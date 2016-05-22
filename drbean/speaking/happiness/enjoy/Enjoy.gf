@@ -25,6 +25,7 @@ fun
 	happiest	: AP;
 	good	: AP;
 	fine	: AP;
+	finer		: AP;
 	down_in_the_dumps	: AP;
 	bad	: AP;
 -- Conj
@@ -51,6 +52,8 @@ fun
 	food	: N;
 	face	: CN;
 	everything	: N;
+	thing_in	: N2;
+	thing_like	: N2;
 	country	: CN;
 -- PN
 
