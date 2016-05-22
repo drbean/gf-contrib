@@ -27,6 +27,7 @@ lin
 	happy_go_lucky	= mkAP( mkA "happy-go-lucky") ;
 	happy	= mkAP happy_A ;
 	happier	= comparAP happy_A ;
+	happiest = mkAP( myOrdSuperl happy_A);
 	good	= mkAP( mkA "good") ;
 	fine	= mkAP( mkA "fine") ;
 	down_in_the_dumps	= mkAP( mkA "down in the dumps") ;
@@ -39,7 +40,7 @@ lin
 
 -- N
 
-	quality	= mkCN( mkN "quality") ;
+	quality	= mkN2( mkN "quality") ;
 	situation	= mkCN( mkN "situation") ;
 	smile	= mkCN( mkN "smile") ;
 	study	= mkCN( mkN "study") ;

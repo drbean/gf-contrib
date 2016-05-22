@@ -22,6 +22,7 @@ fun
 	happy_go_lucky	: AP;
 	happy	: AP;
 	happier	: AP;
+	happiest	: AP;
 	good	: AP;
 	fine	: AP;
 	down_in_the_dumps	: AP;
@@ -34,7 +35,7 @@ fun
 
 -- N
 
-	quality	: CN;
+	quality	: N2;
 	situation	: PlaceNoun;
 	smile	: CN;
 	study	: CN;

@@ -243,6 +243,9 @@ oper
 		s = \\n,c => un.s ! n ! c ++ rs.s ! AgP3Sg Neutr ;
 		g = un.g
 		};
+	myOrdSuperl : (a : A) -> { s : Case => Str } =
+		\a -> {s = \\c => a.s ! AAdj Superl c } ;
+
 
 lin
 	Be_bad ap	= mkComp ap;
