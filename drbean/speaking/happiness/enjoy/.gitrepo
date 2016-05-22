@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = http://github.com/drbean/enjoy
+	branch = master
+	commit = f8d399db541c5cee911dc9f661f405bc5d64dfff
+	parent = ca8aeae3cdfa21ac0663c1f7fa3be72a511155dc
+	cmdver = 0.3.0
