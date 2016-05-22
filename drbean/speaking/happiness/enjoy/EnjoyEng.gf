@@ -6,7 +6,9 @@ open ConstructorsEng, ParadigmsEng, StructuralEng, IrregEng, ExtraEng, Construct
 oper
 
 	happy_A	= mkA "happy";
+	fine_A	= mkA "fine";
 	make_V = mkV "make";
+	thing_N	= mkN "thing";
 
 lin
 
@@ -29,7 +31,8 @@ lin
 	happier	= comparAP happy_A ;
 	happiest = mkAP( myOrdSuperl happy_A);
 	good	= mkAP( mkA "good") ;
-	fine	= mkAP( mkA "fine") ;
+	fine	= mkAP fine_A;
+	finer		= comparAP fine_A;
 	down_in_the_dumps	= mkAP( mkA "down in the dumps") ;
 	bad	= mkAP( mkA "bad") ;
 -- Conj
@@ -55,6 +58,8 @@ lin
 	happiness	= mkN "happiness" nonExist;
 	food	= mkN "food" nonExist;
 	face	= mkCN( mkN "face") ;
+	thing_like	= mkN2 thing_N like;
+	thing_in	= mkN2 thing_N in_prep;
 	everything	= mkN "everything" nonExist;
 	country	= mkCN( mkN "country") ;
 -- PN
