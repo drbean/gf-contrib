@@ -121,17 +121,23 @@ oper
 			 n = n ;
 		 };
 
+	mymkIPhrase	: (idet : IDet) -> (cn : CN) -> { s : NPCase => Str; n : Number } =
+		\idet,cn -> {
+      s = \\c => idet.s ++ cn.s ! idet.n ! npcase2case c ; 
+      n = idet.n
+      };
+
 	mymkRP : (who, which, whose : Str) -> {s : RCase => Str; a : RAgr} =
 	\who,which,whose ->
 	{ s = table {
-			RPrep Neutr => which;
-			RPrep _ => who;
-			RC Neutr (NCase Gen) | RC Neutr NPNomPoss => whose;
-			RC Neutr _ => which;
 			RC _ (NCase Gen) | RC _ NPNomPoss => whose;
-			RC _ _ => who
+			RC Neutr _ => which;
+			RC _ NPAcc => who;
+			RC _ (NCase Nom) => who;
+			RPrep Neutr => which;
+			RPrep _ => who
 		};
-		a = RAg AgP3Pl
+		a = RNoAg
 	};
 
 	mymkConj : (and : Str) -> {s1 : Str ; s2 : Str ; n : Number} =
@@ -207,6 +213,39 @@ oper
 		a = np.a
 		} ;
 
+	myVPPlus : (vp : VP) -> (str : Str) -> {
+	  s   : VerbForms;
+		p   : Str ;
+		prp : Str ;
+		ptp : Str ;
+		inf : Str ;
+		ad  : Agr => Str ;
+		s2  : Agr => Str ;
+		ext : Str ;
+		isSimple : Bool
+					}  =
+	\vp,str ->
+		{
+		s = vp.s;
+		p = vp.p;
+		prp = vp.prp;
+		ptp = vp.ptp;
+		inf = vp.inf;
+		ad = \\a => vp.ad ! a;
+		s2 = \\a => vp.s2 ! a ++ str;
+		ext = vp.ext;
+		isSimple = vp.isSimple
+		};
+
+	myMassMod : (un : N) -> (rs : RS) -> { s : Number => Case => Str ; g: Gender } =
+	\un,rs ->
+		{
+		s = \\n,c => un.s ! n ! c ++ rs.s ! AgP3Sg Neutr ;
+		g = un.g
+		};
+	myOrdSuperl : (a : A) -> { s : Case => Str } =
+		\a -> {s = \\c => a.s ! AAdj Superl c } ;
+
 
 lin
 	Be_bad ap	= mkComp ap;
@@ -248,11 +287,13 @@ lin
 	V2VSlash v2v vp	= mkVPSlash v2v vp;
 	V2ASlash v2a ap	= mkVPSlash v2a ap;
 	V3Slash v3 np	= mkVPSlash v3 np;
+	reflexive slash = reflexiveVP slash;
 	ModInf cn vp = mkCN cn vp;
 	ModPass3 cn v3 np = myModPass3 cn v3 np;
 	-- ModSlInf cn vpslash = mkCN cn vpslash;
 	MassModInf n vp = mkCN( mkCN n) vp;
 	Modified cn rcl = mkCN cn ( mkRS rcl);
+	MassMod n rcl = myMassMod n (mkRS rcl);
 	SubjRel	rp vp = mkRCl rp vp;
 	ObjRel rp clslash = mkRCl rp clslash;
 	EmptyRel slash = EmptyRelSlash slash;
@@ -287,6 +328,8 @@ lin
 	VP_PP_time vp pp = mkVP vp pp;
 	VP_PP_location vp located = mkVP vp located;
 	WithCl vp cl = mkVP vp cl;
+	VPToo vp = myVPPlus vp "too";
+	VPAlready vp = myVPPlus vp "already";
 	WithClPre cl s = mkS cl s;
 	WithAdvPre adv s = mkS adv s;
   -- Be_made_sth vp np = PassV3 vp np;
@@ -295,6 +338,7 @@ lin
 	YN cl	= mkQCl cl;
 	WH_Pred ip vp	= mkQCl ip vp;
 	WHose cn = mkIP (GenIP who_WH) cn;
+	IPhrase idet cn = mymkIPhrase idet cn;
 	WH_ClSlash ip cslash	= mkQCl ip cslash;
 	PosQ qcl	= mkQS qcl;
 	NegQ qcl	= mkQS negativePol qcl;
@@ -345,6 +389,7 @@ lin
 	no_pl_Det	= mkDet no_Quant pluralNum;
 	no_NP = mkNP( mkDet no_Quant);
 	no_pl_NP = mkNP( mkDet no_Quant pluralNum);
+	no_MassDet = mkDet no_Quant;
 	some_Det = mkDet some_Quant;
 	some_pl_Det = mkDet some_Quant pluralNum;
 	some_NP = mkNP( mkDet some_Quant);
@@ -373,6 +418,8 @@ lin
 
 	who_WH	= mymkIP "who" "who" "whose" Sg;
 	what_WH	= whatSg_IP;
+	whatPl_IDet = { s = "what"; n = Pl };
+	whichSg_IDet = { s = "which"; n = Sg };
 	-- how_WH	= mkIP how_IAdv;
 	that_RP	= ExtraEng.that_RP;
 	who_RP	= mymkRP "who" "which" "whose";
@@ -399,8 +446,8 @@ lin
   part_prep	= part_Prep;
   up_prep	= P.mkPrep "up";
 
-	person	= mkCN( P.mkN "person" "people");
-	thing	= mkCN( P.mkN "thing");
+	person	= mkCN( P.mkN Masc ( P.mkN "person" "people"));
+	thing	= mkCN( P.mkN Neutr ( P.mkN "thing"));
 
 	can	= can_VV;
 	have	= P.mkV2 IrregEng.have_V;

@@ -72,11 +72,13 @@ fun
 	V2VSlash	: V2V -> VP -> VPSlash;
 	V2ASlash	: V2A -> AP -> VPSlash;
 	V3Slash	: V3 -> NP -> VPSlash;
+	reflexive	: VPSlash -> VP;
 	ModInf : CN -> VP -> CN;
 	ModPass3 : CN -> V3 -> NP -> CN;
 	-- ModSlInf : CN -> VPSlash -> CN;
 	MassModInf : N -> VP -> CN;
 	Modified	: CN -> RCl -> CN;
+	MassMod	: N -> RCl -> N;
 	SubjRel	: RP -> VP -> RCl;
 	ObjRel	: RP -> ClSlash -> RCl;
 	EmptyRel : ClSlash -> RCl;
@@ -102,6 +104,8 @@ fun
 	VP_PP_time	: VP -> PP_time -> VP;
 	VP_PP_location	:  Motion -> PP_location -> VP;
 	WithCl	: VP -> SubordCl -> VP;
+	VPToo	: VP -> VP;
+	VPAlready	: VP -> VP;
 	WithClPre	: SubordCl -> S -> S;
 	WithAdvPre	: Adv -> S -> S;
 
@@ -116,6 +120,7 @@ fun
 
 	WH_Pred	: IP -> VP -> QCl;
 	WHose	: CN -> IP;
+	IPhrase	: IDet -> CN -> IP;
 	WH_ClSlash	: IP -> ClSlash -> QCl;
 	PosQ	: QCl -> QS;
 	NegQ	: QCl -> QS;
@@ -164,6 +169,7 @@ fun
 	no_pl_Det	: Det;
 	no_NP	: NP;
 	no_pl_NP	: NP;
+	no_MassDet	: MassDet;
 	some_Det	: Det;
 	some_pl_Det	: Det;
 	some_NP	: NP;
@@ -193,6 +199,8 @@ fun
 
 	who_WH	: IP;
 	what_WH	: IP;
+	whatPl_IDet	: IDet;
+	whichSg_IDet	: IDet;
 	how_WH	: IP;
 	who_RP	: RP;
 	that_RP	: RP;
