@@ -89,8 +89,8 @@ fun
 	ByGerund : VP -> PP_manner;
 	SClSlash	: NP -> VPSlash -> ClSlash;
 	-- VPClSlash	: VPSlash -> ClSlash;
-	FreeRCl : VP -> NounCl;
-	FreeRClSlash : ClSlash -> NounCl;
+	FreeRCl : IP -> VP -> NounCl;
+	FreeRClSlash : IP -> ClSlash -> NounCl;
 	NomCl : NounCl -> NP;
 	Mannered	: NP -> PP_manner -> NP;
 	Sourced	: NP -> PP_source -> NP;

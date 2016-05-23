@@ -153,6 +153,19 @@ oper
 			g = cn.g
 			};
 
+	myFreeRClSlash : (ip : IP) -> (cl : ClSlash) -> {s : ResEng.Tense => Anteriority => CPolarity => Order => Str; c : NPCase } =
+	\ip,cl -> {
+	  s = \\t,a,p,_ => ip.s ! npNom ++ cl.s ! t ! a ! p ! oDir ++ cl.c2;
+		  c = npNom
+			  } ;
+
+	myFreeRCl : (ip : IP) -> (vp : VP) -> {s : ResEng.Tense => Anteriority => CPolarity => Order => Str; c : NPCase } =
+		\ip,vp -> let qcl = WH_Pred ip vp in
+	{
+	  s = \\t,a,p,_ => qcl.s ! t ! a ! p ! QDir ;
+		  c = npNom
+			  };
+
 	mymkNP : (ncl : NounCl) -> {s : NPCase => Str ; a : Agr} =
 		\ncl -> let string = ncl.s ! Pres ! Simul ! CPos ! oDir ;
 								agreement = toAgr Sg P3 Neutr in {
@@ -304,15 +317,8 @@ lin
 	ByGerund vp = ByVP vp;
 	SClSlash	np vpslash = mkClSlash np vpslash;
 	-- VPClSlash	vpslash = mkClSlash vpslash;
-	FreeRClSlash cl = {
-	  s = \\t,a,p,_ => "what" ++ cl.s ! t ! a ! p ! oDir ++ cl.c2;
-		  c = npNom
-			  } ;
-	FreeRCl vp = let qcl = WH_Pred whatSg_IP vp in
-	{
-	  s = \\t,a,p,_ => qcl.s ! t ! a ! p ! QDir ;
-		  c = npNom
-			  };
+	FreeRCl ip vp = myFreeRCl ip vp;
+	FreeRClSlash ip cl = myFreeRClSlash ip cl;
 	NomCl ncl = mymkNP ncl;
 	Mannered np adv = mkNP np adv;
 	Sourced np adv	= mkNP np adv;
