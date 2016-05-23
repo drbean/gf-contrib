@@ -33,8 +33,8 @@ fun
 
 -- Det
 
+	three	: Det;
 	each	: Det;
-	three	: Card;
 
 -- N
 
@@ -59,7 +59,6 @@ fun
 	people	: CN;
 	pie	: CN;
 	reason	: CN;
-	require	: N2;
 	resolution	: N;
 	Resource	: CN;
 	slice	: N2;
@@ -93,6 +92,7 @@ fun
 
 -- V
 
+	require	: V2;
 	believe	: VS;
 	create	: V2;
 	divide	: V;

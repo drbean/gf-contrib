@@ -119,7 +119,6 @@ n = [
 	, "people"
 	, "pie"
 	, "reason"
-	, "require"
 	, "resolution"
 	, "resource"
 	, "slice"
@@ -199,7 +198,8 @@ tag = [
 
 v = [
 
-	"believe"
+	"require"
+	, "believe"
 	, "can"
 	, "create"
 	, "divide"
@@ -298,7 +298,7 @@ pie	: CN;
 realize	: VS;
 really	: Adv;
 reason	: CN;
-require	: N2;
+require	: V2;
 resolution	: N;
 resolve	: V2;
 resource	: CN;

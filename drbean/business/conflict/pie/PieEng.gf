@@ -39,7 +39,7 @@ lin
 -- Det
 
 	each	= each_Det;
-	three	= mkCard (mkNumeral n3_Unit);
+	three	= mkDet( mkCard (mkNumeral n3_Unit));
 
 -- N
 
@@ -48,12 +48,12 @@ lin
 	bargaining	= mkN "bargaining" nonExist;
 	conflict	= mkN "conflict" nonExist;
 	difficulty	= mkCN( mkN "difficulty") ;
-	expert	= mkN2( mkN "expert") ;
+	expert	= mkN2( mkN "expert") in_prep;
 	goal	= mkCN( mkN "goal") ;
 	information	= mkN "information" nonExist;
 	interest	= mkCN( mkN "interest") ;
 	issue	= mkCN( mkN "issue") ;
-	management	= mkN2( mkN "management") ;
+	management	= mkN2( mkN "management") of_prep;
 	mindset	= mkCN( mkN "mindset") ;
 	mistake	= mkCN( mkN "mistake") ;
 	much	= mkN2( mkN "much") ;
@@ -64,7 +64,6 @@ lin
 	people	= mkCN( mkN "people") ;
 	pie	= mkCN( mkN "pie") ;
 	reason	= mkCN( mkN "reason") ;
-	require	= mkN2( mkN "require") ;
 	resolution	= mkN "resolution" nonExist;
 	Resource	= mkCN( mkN "resource") ;
 	slice	= mkN2( mkN "slice") ;
@@ -98,6 +97,7 @@ lin
 
 -- V
 
+	require	= mkV2( mkV "require") noPrep;
 	believe	= mkVS( mkV "believe") ;
 	create	= mkV2( mkV "create") noPrep;
 	divide	= partV( mkV "divide") "";
