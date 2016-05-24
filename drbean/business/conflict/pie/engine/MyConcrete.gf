@@ -265,6 +265,7 @@ lin
   Be_somewhere located	= mkComp located;
 	Be_someone np	= mkComp np;
 	Be_AdV_NP adv np = mkComp np;
+	Be_coagent adv = mkComp adv;
 	Be_vp comp	= mkVP comp;
 	Look_bad verb adj	= mkVP verb adj;
   Locating prep item	= mkAdv prep item;

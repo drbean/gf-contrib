@@ -38,6 +38,7 @@ fun
 	Be_someone	: NP -> Comp;
 	Be_AdV_NP	: AdV -> NP -> Comp;
 	Be_somewhere	: PP_location -> Comp;
+	Be_coagent	: PP_coagent -> Comp;
 	Be_vp	: Comp -> VP;
 	Locating  : LocPrep -> Place -> PP_location;
 	Location	: Det -> PlaceNoun -> Place;
