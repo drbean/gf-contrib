@@ -106,7 +106,7 @@ lin
 	fail	= mkVV( mkV "fail") ;
 	get	= mkV2( mkV "get") noPrep;
 	get_passive	= partV( mkV "get_passive") "";
-	have_to	= mkVV( mkV "have to") ;
+	have_to	= mkVV( have_V);
 	help	= mkV2V( mkV "help") noPrep noPrep;
 	know	= mkV2( mkV "know") noPrep;
 	learn	= mkVV( mkV "learn") ;
