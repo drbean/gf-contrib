@@ -76,7 +76,7 @@ fun
 
 	about	: Prep;
 	at	: Prep;
-	between	: Prep;
+	between	: CoagentPrep;
 	in_prep	: Prep;
 	into	: Prep;
 	part	: Prep;
