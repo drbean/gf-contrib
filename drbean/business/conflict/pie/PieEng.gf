@@ -100,7 +100,7 @@ lin
 	require	= mkV2( mkV "require") noPrep;
 	believe	= mkVS( mkV "believe") ;
 	create	= mkV2( mkV "create") noPrep;
-	divide	= partV( mkV "divide") "";
+	divide	= mkV2( partV( mkV "divide") "up");
 	expand	= mkV2( mkV "expand") noPrep;
 	exploit	= mkV2( mkV "exploit") noPrep;
 	fail	= mkVV( mkV "fail") ;

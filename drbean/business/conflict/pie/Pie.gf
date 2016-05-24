@@ -95,7 +95,7 @@ fun
 	require	: V2;
 	believe	: VS;
 	create	: V2;
-	divide	: V;
+	divide	: V2;
 	expand	: V2;
 	exploit	: V2;
 	fail	: VV;
