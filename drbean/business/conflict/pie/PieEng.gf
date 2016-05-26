@@ -42,6 +42,7 @@ lin
 
 	each	= each_Det;
 	three	= mkDet( mkCard (mkNumeral n3_Unit));
+	what_Det = mkDet( mkQuant "what" "what");
 
 -- N
 

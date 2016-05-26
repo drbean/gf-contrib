@@ -35,6 +35,7 @@ fun
 
 	three	: Det;
 	each	: Det;
+	what_Det	: Det;
 
 -- N
 
