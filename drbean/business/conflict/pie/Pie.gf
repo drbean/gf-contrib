@@ -56,7 +56,7 @@ fun
 	much	: N2;
 	necessity	: N2;
 	negotiation	: N;
-	opportunity	: CN;
+	opportunity	: N2;
 	other	: CN;
 	people	: CN;
 	pie	: CN;

@@ -156,6 +156,7 @@ fun
 	PredetItem	: Predet -> NP -> NP;
 	Ofpos	: N2 -> NP -> CN;
 	Ofpart	: Partitive -> N -> CN;
+	N2toCN	: N2 -> CN;
 	ApposNP	: NP -> NP -> NP;
 	NPPostPredet	: NP -> Predet -> NP;
 

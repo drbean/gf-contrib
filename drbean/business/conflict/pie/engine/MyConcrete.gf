@@ -378,6 +378,7 @@ lin
 	CompoundCN cn1 cn2 = CompoundCN cn1 cn2;
 	Ofpos n2 np	= mkCN n2 np;
 	Ofpart part n = mkCN part (mkNP n);
+	N2toCN n2 = mkCN n2;
 	Item det noun	= mkNP det noun;
 	MassItem udet ucn	= mkNP udet ucn;
 	Titular cn = mkNP cn;

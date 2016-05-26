@@ -63,7 +63,7 @@ lin
 	much	= mkN2( mkN "much") ;
 	necessity	= mkN2( mkN "necessity") ;
 	negotiation	= mkN "negotiation" nonExist;
-	opportunity	= mkCN( mkN "opportunity") ;
+	opportunity	= mkN2( mkN "opportunity") through;
 	other	= mkCN( mkN "other") ;
 	people	= mkCN( mkN "people") ;
 	pie	= mkCN( mkN "pie") ;
