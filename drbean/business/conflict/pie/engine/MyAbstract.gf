@@ -19,6 +19,7 @@ cat
 	MannerPrep;
 	TimePrep;
 	SourcePrep;
+	ResultPrep;
 	PP_coagent;
 	PP_instrument;
 	PP_theme;
@@ -26,6 +27,7 @@ cat
 	PP_time;
 	PP_location;
 	PP_source;
+	PP_result;
 	MassDet;
 	SubordCl;
 	Partitive;
@@ -51,6 +53,7 @@ fun
 	Mannering	: MannerPrep -> NP -> PP_manner;
 	Timing		: TimePrep -> NP -> PP_time;
 	Sourcing		: SourcePrep -> NP -> PP_source;
+	Resulting		: ResultPrep -> NP -> PP_result;
 	Happening	: V -> VP ;
 	Changing	: V2 -> NP -> VP;
 	V_NP_VP:	V2V -> NP -> VP -> VP;
@@ -104,6 +107,7 @@ fun
 	VP_PP_manner : VP -> PP_manner -> VP;
 	VP_PP_time	: VP -> PP_time -> VP;
 	VP_PP_location	:  Motion -> PP_location -> VP;
+	VP_PP_result	: VP -> PP_result -> VP;
 	WithCl	: VP -> SubordCl -> VP;
 	VPToo	: VP -> VP;
 	VPAlready	: VP -> VP;

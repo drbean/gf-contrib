@@ -7,6 +7,7 @@ oper
 
 	train_V = mkV "train";
 	teach_V	= mkV "teach";
+	slice_N	= mkN "slice";
 
 lin
 
@@ -66,7 +67,8 @@ lin
 	reason	= mkCN( mkN "reason") ;
 	resolution	= mkN "resolution" nonExist;
 	Resource	= mkCN( mkN "resource") ;
-	slice	= mkN2( mkN "slice") ;
+	slice_N2	= mkN2 slice_N;
+	slice	= mkCN slice_N;
 	teaching = Gerund( mkVP teach_V);
 	training	= Gerund( mkVP train_V);
 	tension	= mkCN( mkN "tension") ;
@@ -110,7 +112,7 @@ lin
 	help	= mkV2V( mkV "help") noPrep noPrep;
 	know	= mkV2( mkV "know") noPrep;
 	learn	= mkVV( mkV "learn") ;
-	eake	= mkV2( mkV "eake") noPrep;
+	make	= mkV2( mkV "make") noPrep;
 	manage	= mkV2( mkV "manage") noPrep;
 	might	= mkVV( mkV "might") ;
 	realize	= mkVS( mkV "realize") ;

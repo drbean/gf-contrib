@@ -61,7 +61,8 @@ fun
 	reason	: CN;
 	resolution	: N;
 	Resource	: CN;
-	slice	: N2;
+	slice_N2	: N2;
+	slice	: CN;
 	teaching	: NP;
 	training	: NP;
 	tension	: CN;
@@ -78,7 +79,7 @@ fun
 	at	: Prep;
 	between	: CoagentPrep;
 	in_prep	: Prep;
-	into	: Prep;
+	into	: ResultPrep;
 	part	: Prep;
 	through	: Prep;
 	to	: Prep;
@@ -105,7 +106,7 @@ fun
 	help	: V2V;
 	know	: V2;
 	learn	: VV;
-	eake	: V2;
+	make	: V2;
 	manage	: V2;
 	might	: VV;
 	realize	: VS;

@@ -213,7 +213,7 @@ v = [
 	, "help"
 	, "know"
 	, "learn"
-	, "eake"
+	, "make"
 	, "manage"
 	, "might"
 	, "realize"
@@ -275,7 +275,7 @@ it	: Pron;
 know	: V2;
 learn	: VV;
 long-term	: A;
-eake	: V2;
+make	: V2;
 manage	: V2;
 management	: N2;
 might	: VV;

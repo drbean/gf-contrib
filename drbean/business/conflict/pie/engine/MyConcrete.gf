@@ -20,6 +20,7 @@ lincat
 	TimePrep	= Prep;
 	LocPrep	= Prep;
 	SourcePrep	= Prep;
+	ResultPrep	= Prep;
 	PP_coagent	= Adv;
 	PP_instrument	= Adv;
 	PP_theme	= Adv;
@@ -27,6 +28,7 @@ lincat
 	PP_time	= Adv;
 	PP_location	= Adv;
 	PP_source	= Adv;
+	PP_result	= Adv;
 	MassDet = Det;
 	Partitive = N2;
 
@@ -279,6 +281,7 @@ lin
 	Mannering prep style = mkAdv prep style;
 	Timing prep time = mkAdv prep time;
 	Sourcing prep source = mkAdv prep source;
+	Resulting prep result = mkAdv prep result;
 	Happening action	=	mkVP action;
 	Changing action patient	= mkVP action patient;
 	V_NP_VP causal patient predicate	= mkVP causal patient predicate;
@@ -334,6 +337,7 @@ lin
 	VP_PP_manner vp pp = mkVP vp pp;
 	VP_PP_time vp pp = mkVP vp pp;
 	VP_PP_location vp located = mkVP vp located;
+	VP_PP_result vp result = mkVP vp result;
 	WithCl vp cl = mkVP vp cl;
 	VPToo vp = myVPPlus vp "too";
 	VPAlready vp = myVPPlus vp "already";
