@@ -69,7 +69,7 @@ dic_test = [
 	, "They fail to realize that there are opportunities through negotiation to also expand the pie."
 	, "In order to create value, it is very important that you really understand each other's interests, your long-term goals, and your resources."
 	, "The reason that there is a tension is because to create value, it's very important that you really understand each other's interests, your long-term goals, and your resources, or what you might have to trade."
-	, "The difficulty is that people are often very fearful about sharing this information, because they are afraid that they will get exploited in the distributive aspect of bargaining."
+	, "The difficulty is that people are often very fearful about sharing this information, because they are afraid of being exploited in the distributive aspect of bargaining."
 	, "Part of the negotiation training and much of the teaching Mnookin does at Harvard really is to help people learn how to manage that tension."
 	
 
