@@ -12,7 +12,7 @@ fun
 	often	: Adv;
 	really	: AdV;
 	up	: Adv;
-	very	: Adv;
+	very	: AdA;
 
 -- AP
 

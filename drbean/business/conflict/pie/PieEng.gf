@@ -19,7 +19,7 @@ lin
 	often	= mkAdv "often";
 	really	= mkAdV "really";
 	up	= mkAdv "up";
-	very	= mkAdv "very";
+	very	= mkAdA "very";
 
 -- AP
 
