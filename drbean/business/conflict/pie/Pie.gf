@@ -35,6 +35,7 @@ fun
 
 	three	: Det;
 	each	: Det;
+	this_mass_Det	: MassDet;
 	what_Det	: Det;
 
 -- N
