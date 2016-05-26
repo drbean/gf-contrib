@@ -9,7 +9,7 @@ fun
 
 	also	: AdV;
 	most	: AdA;
-	often	: Adv;
+	often	: AdV;
 	really	: AdV;
 	up	: Adv;
 	very	: AdA;

@@ -16,7 +16,7 @@ lin
 
 	also	= mkAdV "also";
 	most	= mkAdA "most";
-	often	= mkAdv "often";
+	often	= mkAdV "often";
 	really	= mkAdV "really";
 	up	= mkAdv "up";
 	very	= mkAdA "very";
