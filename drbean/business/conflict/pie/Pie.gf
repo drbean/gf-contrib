@@ -50,6 +50,7 @@ fun
 	issue	: CN;
 	management	: N2;
 	mindset	: CN;
+	mistake_N2	: N2;
 	mistake	: CN;
 	much	: N2;
 	necessity	: N2;

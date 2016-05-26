@@ -280,7 +280,7 @@ manage	: V2;
 management	: N2;
 might	: VV;
 mindset	: CN;
-mistake	: CN;
+mistake	: CN,N2;
 Mnookin	: PN;
 most	: A;
 much	: N2;

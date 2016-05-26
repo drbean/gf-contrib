@@ -8,6 +8,7 @@ oper
 	train_V = mkV "train";
 	teach_V	= mkV "teach";
 	slice_N	= mkN "slice";
+	mistake_N	= mkN "mistake";
 
 lin
 
@@ -56,6 +57,7 @@ lin
 	issue	= mkCN( mkN "issue") ;
 	management	= mkN2( mkN "management") of_prep;
 	mindset	= mkCN( mkN "mindset") ;
+	mistake_N2	= mkN2( mkN "mistake") in_prep;
 	mistake	= mkCN( mkN "mistake") ;
 	much	= mkN2( mkN "much") ;
 	necessity	= mkN2( mkN "necessity") ;
