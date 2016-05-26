@@ -16,7 +16,7 @@ fun
 
 -- AP
 
-	afraid	: AP;
+	afraid	: A2;
 	common	: AP;
 	distributive	: AP;
 	fearful	: A2;

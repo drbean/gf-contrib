@@ -23,7 +23,7 @@ lin
 
 -- AP
 
-	afraid	= mkAP( mkA "afraid") ;
+	afraid	= mkA2( mkA "afraid") of_prep;
 	common	= mkAP( mkA "common") ;
 	distributive	= mkAP( mkA "distributive") ;
 	fearful	= mkA2( mkA "fearful") about;
