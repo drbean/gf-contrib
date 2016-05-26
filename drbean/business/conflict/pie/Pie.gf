@@ -7,7 +7,7 @@ fun
 
 -- Adv
 
-	also	: Adv;
+	also	: AdV;
 	most	: AdA;
 	often	: Adv;
 	really	: Adv;

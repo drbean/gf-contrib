@@ -14,7 +14,7 @@ lin
 
 -- Adv
 
-	also	= mkAdv "also";
+	also	= mkAdV "also";
 	most	= mkAdA "most";
 	often	= mkAdv "often";
 	really	= mkAdv "really";
