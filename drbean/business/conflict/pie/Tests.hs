@@ -64,7 +64,7 @@ dic_test = [
 	, "Mnookin knows a lot about how negotiation can be used to resolve conflicts."
 	, "He believes negotiation requires the management of three tensions."
 	, "The first tension is between the opportunity to expand the pie and the necessity of having to divide up the pie into slices."
-	, "The most common mistake people make in negotiation is having a zero-sum mindset."
+	, "The most common mistake in negotiation people make is having a zero-sum mindset."
 	, "They think the only issue is who is getting what slice."
 	, "They fail to realize that there are also opportunities through negotiation to expand the pie, or to create value."
 	, "The reason that there is a tension is because to create value, it's very important that you really understand each other's interests, your long-term goals, and your resources, or what you might have to trade."
