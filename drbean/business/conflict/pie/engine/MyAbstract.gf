@@ -89,6 +89,7 @@ fun
 	EmptyRelSlash	: ClSlash -> RCl;
 	WayNP	: Cl -> NP;
 	HowNP	: Cl -> NP;
+	ThatNP	: Cl -> NP;
 	Gerund	: VP -> NP;
 	ByGerund : VP -> PP_manner;
 	SClSlash	: NP -> VPSlash -> ClSlash;

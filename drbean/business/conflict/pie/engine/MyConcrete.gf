@@ -317,6 +317,7 @@ lin
 	EmptyRelSlash slash = EmptyRelSlash slash;
 	WayNP cl = myCltoNP "the way that" cl;
 	HowNP cl = myCltoNP "how" cl;
+	ThatNP cl	= myCltoNP "that" cl;
 	Gerund vp = GerundNP vp;
 	ByGerund vp = ByVP vp;
 	SClSlash	np vpslash = mkClSlash np vpslash;
