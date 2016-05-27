@@ -30,14 +30,14 @@ main = do
 	let unknown = unwords (morphoMissing morpho (words l))
 	putStrLn ("Unknown_words: " ++ unknown )
 	let ps = parses gr l
-	let ls = map ((linear gr) <=< transform) ps
-	putStrLn ("Parsed: " ++ (show (map (showExpr []) ps) ) )
+	let ls = map (linear gr <=< transform) ps
+	putStrLn ("Parsed: " ++ show (map (showExpr []) ps ) )
 	let urs = map (unmaybe . rep) ps
 	-- let reps = map (\ur -> ur (term2ref drsRefs var_e)) urs
 	-- putStrLn ("Representation: " ++ show reps )
 	-- let lfs = map (\ur -> drsToLF (ur (term2ref drsRefs var_e))) urs
 	-- putStrLn ("LF: " ++ show lfs )
-	putStrLn ("Answer: " ++ (bestAnswer ls) )
+	putStrLn ("Answer: " ++ bestAnswer ls )
 	let courses = map (label . fg) ps
 	putStrLn ("Course: " ++ foldl takeCourse "Unparseable" courses )
 
@@ -90,11 +90,11 @@ collateAnswer a b = formatUp $ nub $ filter
 	|| x ==	"Alice"
 	|| x ==	"Ariel"
 	|| x ==	"Sabrina"
-	) (concat $ map (splitOn " , " ) (splitOn " or " (a ++ " , " ++ b)))
+	) (concat map (splitOn " , " ) (splitOn " or " (a ++ " , " ++ b)))
 
 formatUp es = let parts = splitAt 1 (reverse es)
-	in case (snd parts) of 
+	in case snd parts of 
 		[] -> concat (fst parts)
-		_ -> concat  ((intersperse " , " (snd parts)) ++ [" or "] ++ (fst parts) )
+		_ -> intercalate " , " (snd parts) ++ [" or "] ++ fst parts
 --
 -- vim: set ts=2 sts=2 sw=2 noet:
