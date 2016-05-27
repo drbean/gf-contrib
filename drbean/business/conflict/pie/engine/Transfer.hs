@@ -1,6 +1,6 @@
 module Main where
 
-import Chat
+import Pie
 import LogicalForm hiding ((==))
 import Evaluation
 
@@ -20,12 +20,15 @@ import System.Environment.FindBin
 main :: IO ()
 main = do
 	path <- getProgPath
-	gr <- readPGF ( path ++ "/Chat.pgf" )
+	gr <- readPGF ( path ++ "/Pie.pgf" )
+	let lang = languages gr
+	let morpho = buildMorpho gr $ head lang
 	hClose stderr
 	hDuplicateTo stdout stderr
 	s <- getLine
 	let l = (chomp . lc_first) s
-	putStrLn ("Unknown_words: " ++ (unknown l) )
+	let unknown = unwords (morphoMissing morpho (words l))
+	putStrLn ("Unknown_words: " ++ unknown )
 	let ps = parses gr l
 	let ls = map ((linear gr) <=< transform) ps
 	putStrLn ("Parsed: " ++ (show (map (showExpr []) ps) ) )
@@ -37,40 +40,6 @@ main = do
 	putStrLn ("Answer: " ++ (bestAnswer ls) )
 	let courses = map (label . fg) ps
 	putStrLn ("Course: " ++ foldl takeCourse "Unparseable" courses )
-
-unknown :: String -> String
-unknown ws = intercalate ", " ( filter (\x -> not (checkLists x ws) ) (words ws))
-
-checkLists :: String -> String -> Bool
-checkLists w ws	=	if check_on_wordlist [w] then True
-									else if check_on_wordlist (alternatives w (bigram ws)) then True
-									else if check_on_wordlist (alternatives w (trigram ws)) then True
-									else False
-splitVariants :: [String] -> [String]
-splitVariants ls = concat $ map (splitOn ", ") ls
-
-check_on_wordlist :: [String] -> Bool
-check_on_wordlist = any (flip elem (splitVariants wordlist))
-
-alternatives :: String -> [(String, String)] -> [String]
-alternatives w bis	= [ bi | (key,bi) <- bis, key==w]
-
-bigram :: String -> [ (String, String) ]
-bigram ws = let zs = zip ss sss
-						where
-						ss = words ws
-						sss = tail ss
-						in (map (\(a,b) -> (a, unwords [a,b]) ) zs) ++
-							(map (\(a,b) -> (b, unwords [a,b]) ) zs)
-
-trigram :: String -> [ (String, String) ]
-trigram ws = let zs = zip3 ss sss ssss
-			where
-			ss = words ws
-			sss = tail ss
-			ssss = tail sss
-			in (map (\(a,b,c) -> (a, unwords [a,b,c]) ) zs) ++
-				(map (\(a,b,c) -> (c, unwords [a,b,c]) ) zs)
 
 label :: GUtt -> String
 label (GQUt (GPosQ (GWH_Pred _ _)))	= "WH"
