@@ -66,6 +66,7 @@ lin
 	negotiation	= mkN "negotiation" nonExist;
 	opportunity	= mkN2( mkN "opportunity") through;
 	other	= mkCN( mkN "other") ;
+	part	= mkN2( mkN "part" );
 	people	= mkCN( mkN "people") ;
 	pie	= mkCN( mkN "pie") ;
 	reason	= mkCN( mkN "reason") ;
@@ -90,7 +91,6 @@ lin
 	between	= mkPrep "between";
 	in_prep	= mkPrep "in";
 	into	= mkPrep "into";
-	part	= mkPrep "part";
 	through	= mkPrep "through";
 	to	= mkPrep "to";
 

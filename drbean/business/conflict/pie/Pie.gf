@@ -59,6 +59,7 @@ fun
 	negotiation	: N;
 	opportunity	: N2;
 	other	: CN;
+	part	: N2;
 	people	: CN;
 	pie	: CN;
 	reason	: CN;
@@ -83,7 +84,6 @@ fun
 	between	: CoagentPrep;
 	in_prep	: Prep;
 	into	: ResultPrep;
-	part	: Prep;
 	through	: Prep;
 	to	: Prep;
 
