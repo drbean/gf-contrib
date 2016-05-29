@@ -37,7 +37,7 @@ main = do
 	-- putStrLn ("Representation: " ++ show reps )
 	-- let lfs = map (\ur -> drsToLF (ur (term2ref drsRefs var_e))) urs
 	-- putStrLn ("LF: " ++ show lfs )
-	putStrLn ("Answer: " ++ bestAnswer ls )
+	putStrLn ("Answer: No answer" )
 	let courses = map (label . fg) ps
 	putStrLn ("Course: " ++ foldl takeCourse "Unparseable" courses )
 
