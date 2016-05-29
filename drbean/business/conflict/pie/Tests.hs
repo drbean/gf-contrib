@@ -16,6 +16,15 @@ import WordsCharacters
 
 -- import System.Environment.FindBin
 
+miss :: [String] -> IO ()
+miss ws = do
+	gr <- readPGF "./Pie.pgf"
+	let langs = languages gr
+	let lang = head langs
+	let morpho = buildMorpho gr lang
+	let miss = morphoMissing morpho ws
+	putStrLn (unwords miss)
+
 ans tests = do
   gr	<- readPGF "./Pie.pgf"
   let ss = map (chomp . lc_first) tests
