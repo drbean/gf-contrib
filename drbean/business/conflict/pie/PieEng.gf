@@ -40,6 +40,7 @@ lin
 
 -- Det
 
+	much_of	= ss "much of";
 	each	= each_Det;
 	three	= mkDet( mkCard (mkNumeral n3_Unit));
 	this_mass_Det	= this_Det;
@@ -61,7 +62,6 @@ lin
 	mindset	= mkCN( mkN "mindset") ;
 	mistake_N2	= mkN2( mkN "mistake") in_prep;
 	mistake	= mkCN( mkN "mistake") ;
-	much	= mkN2( mkN "much") ;
 	necessity	= mkN2( mkN "necessity") ;
 	negotiation	= mkN "negotiation" nonExist;
 	opportunity	= mkN2( mkN "opportunity") through;

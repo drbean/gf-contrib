@@ -33,6 +33,7 @@ fun
 
 -- Det
 
+	much_of	: Predet;
 	three	: Det;
 	each	: Det;
 	this_mass_Det	: MassDet;
@@ -54,7 +55,6 @@ fun
 	mindset	: CN;
 	mistake_N2	: N2;
 	mistake	: CN;
-	much	: N2;
 	necessity	: N2;
 	negotiation	: N;
 	opportunity	: N2;

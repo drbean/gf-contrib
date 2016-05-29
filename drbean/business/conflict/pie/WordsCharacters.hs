@@ -93,6 +93,7 @@ det = [
 	, "no"
 	, "some"
 	, "the"
+	, "much of"
 
 	]
 
@@ -111,7 +112,6 @@ n = [
 	, "management"
 	, "mindset"
 	, "mistake"
-	, "much"
 	, "necessity"
 	, "negotiation"
 	, "opportunity"
@@ -283,7 +283,7 @@ mindset	: CN;
 mistake	: CN,N2;
 Mnookin	: PN;
 most	: A;
-much	: N2;
+much of	: Det;
 necessity	: N2;
 negotiation	: N;
 of	: Prep;
