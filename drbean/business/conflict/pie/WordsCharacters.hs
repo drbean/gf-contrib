@@ -203,6 +203,7 @@ v = [
 	, "can"
 	, "create"
 	, "divide"
+	, "do"
 	, "expand"
 	, "exploit"
 	, "fail"
@@ -249,6 +250,7 @@ create	: V2;
 difficulty	: CN;
 distributive	: A;
 divide	: V;
+do	: V2;
 each	: Det;
 expand	: V2;
 expert	: N2;

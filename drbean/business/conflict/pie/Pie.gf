@@ -96,6 +96,7 @@ fun
 
 -- V
 
+	do	: V2;
 	require	: V2;
 	believe	: VS;
 	create	: V2;

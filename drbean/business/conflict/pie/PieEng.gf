@@ -103,6 +103,7 @@ lin
 
 -- V
 
+	do	= mkV2( IrregEng.do_V) noPrep;
 	require	= mkV2( mkV "require") noPrep;
 	believe	= mkVS( mkV "believe") ;
 	create	= mkV2( mkV "create") noPrep;
