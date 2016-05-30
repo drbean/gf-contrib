@@ -74,8 +74,8 @@ lin
 	Resource	= mkCN( mkN "resource") ;
 	slice_N2	= mkN2 slice_N;
 	slice	= mkCN slice_N;
-	teaching = Gerund( mkVP teach_V);
-	training	= Gerund( mkVP train_V);
+	teaching = PartN teach_V;
+	training	= PartN train_V;
 	tension	= mkCN( mkN "tension") ;
 	value	= mkN "value" nonExist;
 

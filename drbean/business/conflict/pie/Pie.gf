@@ -67,8 +67,8 @@ fun
 	Resource	: CN;
 	slice_N2	: N2;
 	slice	: CN;
-	teaching	: NP;
-	training	: NP;
+	teaching	: N;
+	training	: N;
 	tension	: CN;
 	value	: N;
 

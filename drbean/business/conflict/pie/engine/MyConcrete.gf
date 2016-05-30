@@ -261,6 +261,20 @@ oper
 	myOrdSuperl : (a : A) -> { s : Case => Str } =
 		\a -> {s = \\c => a.s ! AAdj Superl c } ;
 
+	myPartN : (v : V) -> {s : Number => Case => Str ; g : Gender} =
+	\v -> let part = v.s ! VPresPart; partGen = glue part "'s"
+		in
+		{
+			s = table {
+				Sg => table {
+					Nom => part;
+					Gen => partGen};
+				Pl => table {
+					_ => nonExist }
+			};
+			g = Neutr
+		} ;
+
 
 lin
 	Be_bad ap	= mkComp ap;
@@ -318,6 +332,7 @@ lin
 	WayNP cl = myCltoNP "the way that" cl;
 	HowNP cl = myCltoNP "how" cl;
 	ThatNP cl	= myCltoNP "that" cl;
+	PartN v	= myPartN v;
 	Gerund vp = GerundNP vp;
 	ByGerund vp = ByVP vp;
 	SClSlash	np vpslash = mkClSlash np vpslash;

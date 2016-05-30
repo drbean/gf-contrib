@@ -90,6 +90,7 @@ fun
 	WayNP	: Cl -> NP;
 	HowNP	: Cl -> NP;
 	ThatNP	: Cl -> NP;
+	PartN	: V -> N;
 	Gerund	: VP -> NP;
 	ByGerund : VP -> PP_manner;
 	SClSlash	: NP -> VPSlash -> ClSlash;
