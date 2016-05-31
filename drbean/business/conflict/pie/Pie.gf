@@ -69,6 +69,7 @@ fun
 	slice	: CN;
 	teaching	: N;
 	training	: N;
+	negotiation_training	: N;
 	tension	: CN;
 	value	: N;
 

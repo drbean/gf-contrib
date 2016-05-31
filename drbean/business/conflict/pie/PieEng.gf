@@ -76,6 +76,7 @@ lin
 	slice	= mkCN slice_N;
 	teaching = PartN teach_V;
 	training	= PartN train_V;
+	negotiation_training = mkN "negotiation" training;
 	tension	= mkCN( mkN "tension") ;
 	value	= mkN "value" nonExist;
 
