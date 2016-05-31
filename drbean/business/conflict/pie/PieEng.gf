@@ -117,7 +117,7 @@ lin
 	have_to	= mkVV( have_V);
 	help	= mkV2V( mkV "help") noPrep noPrep;
 	know	= mkV2( mkV "know") noPrep;
-	learn	= mkVV( mkV "learn") ;
+	learn	= mkV2( mkV "learn") noPrep;
 	make	= mkV2( mkV "make") noPrep;
 	manage	= mkV2( mkV "manage") noPrep;
 	might	= mkVV( mkV "might") ;

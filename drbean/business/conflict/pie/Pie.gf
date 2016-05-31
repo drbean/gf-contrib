@@ -110,7 +110,7 @@ fun
 	have_to	: VV;
 	help	: V2V;
 	know	: V2;
-	learn	: VV;
+	learn	: V2;
 	make	: V2;
 	manage	: V2;
 	might	: VV;
