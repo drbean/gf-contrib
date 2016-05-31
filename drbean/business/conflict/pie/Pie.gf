@@ -34,6 +34,7 @@ fun
 -- Det
 
 	much_of	: Predet;
+	part_of	: Predet;
 	three	: Det;
 	each	: Det;
 	this_mass_Det	: MassDet;
@@ -59,7 +60,6 @@ fun
 	negotiation	: N;
 	opportunity	: N2;
 	other	: CN;
-	part	: N2;
 	people	: CN;
 	pie	: CN;
 	reason	: CN;

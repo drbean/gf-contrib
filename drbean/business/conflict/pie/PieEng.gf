@@ -41,6 +41,7 @@ lin
 -- Det
 
 	much_of	= ss "much of";
+	part_of	= ss "part of";
 	each	= each_Det;
 	three	= mkDet( mkCard (mkNumeral n3_Unit));
 	this_mass_Det	= this_Det;
@@ -66,7 +67,6 @@ lin
 	negotiation	= mkN "negotiation" nonExist;
 	opportunity	= mkN2( mkN "opportunity") through;
 	other	= mkCN( mkN "other") ;
-	part	= mkN2( mkN "part" );
 	people	= mkCN( mkN "people") ;
 	pie	= mkCN( mkN "pie") ;
 	reason	= mkCN( mkN "reason") ;
