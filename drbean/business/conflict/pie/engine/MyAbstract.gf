@@ -97,7 +97,7 @@ fun
 	-- VPClSlash	: VPSlash -> ClSlash;
 	FreeRCl : IP -> VP -> NounCl;
 	FreeRClSlash : IP -> ClSlash -> NounCl;
-	FreeInfCl	: IP -> VP -> NounCl;
+	FreeInfCl	: IAdv -> VP -> NounCl;
 	NomCl : NounCl -> NP;
 	Mannered	: NP -> PP_manner -> NP;
 	Sourced	: NP -> PP_source -> NP;

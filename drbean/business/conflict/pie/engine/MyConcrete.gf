@@ -168,10 +168,10 @@ oper
 		  c = npNom
 			  };
 
-	myFreeInfCl : (ip : IP) -> (vp : VP) -> {s : ResEng.Tense => Anteriority => CPolarity => Order => Str; c : NPCase } =
-		\ip,vp -> let qcl = mkSC vp in
+	myFreeInfCl : (iadv : IAdv) -> (vp : VP) -> {s : ResEng.Tense => Anteriority => CPolarity => Order => Str; c : NPCase } =
+		\iadv,vp -> let qcl = mkSC vp in
 	{
-		s = \\t,a,p,_ => ip.s ! npNom ++ qcl.s ;
+		s = \\t,a,p,_ => iadv.s ++ qcl.s ;
 		c = npNom
 		};
 
@@ -346,7 +346,7 @@ lin
 	-- VPClSlash	vpslash = mkClSlash vpslash;
 	FreeRCl ip vp = myFreeRCl ip vp;
 	FreeRClSlash ip cl = myFreeRClSlash ip cl;
-	FreeInfCl ip vp = myFreeInfCl ip vp;
+	FreeInfCl iadv vp = myFreeInfCl iadv vp;
 	NomCl ncl = mymkNP ncl;
 	Mannered np adv = mkNP np adv;
 	Sourced np adv	= mkNP np adv;
