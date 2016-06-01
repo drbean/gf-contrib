@@ -211,7 +211,7 @@ fun
 	what_WH	: IP;
 	whatPl_IDet	: IDet;
 	whichSg_IDet	: IDet;
-	how_WH	: IP;
+	how_WH	: IAdv;
 	who_RP	: RP;
 	that_RP	: RP;
 	in_which	: RP;

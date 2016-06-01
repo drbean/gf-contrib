@@ -459,7 +459,7 @@ lin
 	what_WH	= whatSg_IP;
 	whatPl_IDet = { s = "what"; n = Pl };
 	whichSg_IDet = { s = "which"; n = Sg };
-	-- how_WH	= mkIP how_IAdv;
+	how_WH	= how_IAdv;
 	that_RP	= ExtraEng.that_RP;
 	who_RP	= mymkRP "who" "which" "whose";
 	-- in_which	=mkRP in_prep which_RP;
