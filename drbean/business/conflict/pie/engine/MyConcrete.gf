@@ -168,6 +168,21 @@ oper
 		  c = npNom
 			  };
 
+	myFreeInfCl : (ip : IP) -> (vp : VP) -> {s : ResEng.Tense => Anteriority => CPolarity => Order => Str; c : NPCase } =
+		\ip,vp -> let qcl = mkSC vp in
+	{
+		s = table {
+		Pres => table {
+			Simul => table {
+				CPos => table {
+					ODir False => ip.s ! npNom ++ infVP VVInf vp Simul CPos (agrP3 Sg);
+					_ => nonExist};
+				_ => nonExist };
+			_ => nonExist };
+		_ => nonExist };
+		c = npNom
+		};
+
 	mymkNP : (ncl : NounCl) -> {s : NPCase => Str ; a : Agr} =
 		\ncl -> let string = ncl.s ! Pres ! Simul ! CPos ! oDir ;
 								agreement = toAgr Sg P3 Neutr in {
