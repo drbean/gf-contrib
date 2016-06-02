@@ -79,7 +79,7 @@ dic_test = [
 	, "In order to create value, it is very important that you really understand each other's interests, your long-term goals, and your resources."
 	, "The reason that there is a tension is because to create value, it's very important that you really understand each other's interests, your long-term goals, and your resources, or what you might have to trade."
 	, "The difficulty is that people are often very fearful about sharing this information, because they are afraid of being exploited."
-	, "Part of the negotiation training and much of the teaching Mnookin does at Harvard really is to help people learn how to manage that tension."
+	, "Part of the negotiation training and much of the teaching Mnookin does at Harvard is really to help people learn how to manage that tension."
 	
 
   ]
