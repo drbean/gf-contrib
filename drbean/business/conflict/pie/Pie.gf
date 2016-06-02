@@ -13,6 +13,8 @@ fun
 	really	: AdV;
 	up	: Adv;
 	very	: AdA;
+	Be_adv	: Adv -> Comp;
+
 
 -- AP
 

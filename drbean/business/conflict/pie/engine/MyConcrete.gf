@@ -496,6 +496,7 @@ lin
 	Not_Adv a = ParadigmsEng.mkAdv ("not" ++ a.s);
 	Very_Adv a = ParadigmsEng.mkAdv ("very" ++ a.s);
 	In_order_to vp = myPurposeAdv "in order" vp;
+	To_purpose vp	= myPurposeAdv "" vp;
 	because_Subj	= because_Subj;
 	if_Subj	= if_Subj;
 	when_Subj = when_Subj;

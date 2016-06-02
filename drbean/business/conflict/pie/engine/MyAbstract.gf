@@ -250,6 +250,7 @@ fun
 	Not_Adv	: Adv -> Adv;
 	Very_Adv	: Adv -> Adv;
 	In_order_to : VP -> Adv;
+	To_purpose	: VP -> Adv;
 	because_Subj	: Subj;
 	if_Subj	: Subj;
 	when_Subj	: Subj;

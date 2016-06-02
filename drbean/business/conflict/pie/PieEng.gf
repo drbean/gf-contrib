@@ -20,6 +20,7 @@ lin
 	really	= mkAdV "really";
 	up	= mkAdv "up";
 	very	= mkAdA "very";
+	Be_adv adv	= mkComp adv;
 
 -- AP
 
