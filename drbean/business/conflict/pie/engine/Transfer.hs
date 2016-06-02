@@ -90,11 +90,11 @@ collateAnswer a b = formatUp $ nub $ filter
 	|| x ==	"Alice"
 	|| x ==	"Ariel"
 	|| x ==	"Sabrina"
-	) (concat map (splitOn " , " ) (splitOn " or " (a ++ " , " ++ b)))
+	) (concatMap (splitOn " , " ) (splitOn " or " (a ++ " , " ++ b)))
 
 formatUp es = let parts = splitAt 1 (reverse es)
 	in case snd parts of 
 		[] -> concat (fst parts)
-		_ -> intercalate " , " (snd parts) ++ [" or "] ++ fst parts
+		_ -> concat  (intersperse " , " (snd parts) ++ [" or "] ++ fst parts )
 --
 -- vim: set ts=2 sts=2 sw=2 noet:
