@@ -19,6 +19,7 @@ cat
 	MannerPrep;
 	TimePrep;
 	SourcePrep;
+	ResultPrep;
 	PP_coagent;
 	PP_instrument;
 	PP_theme;
@@ -26,6 +27,7 @@ cat
 	PP_time;
 	PP_location;
 	PP_source;
+	PP_result;
 	MassDet;
 	SubordCl;
 	Partitive;
@@ -38,6 +40,7 @@ fun
 	Be_someone	: NP -> Comp;
 	Be_AdV_NP	: AdV -> NP -> Comp;
 	Be_somewhere	: PP_location -> Comp;
+	Be_coagent	: PP_coagent -> Comp;
 	Be_vp	: Comp -> VP;
 	Locating  : LocPrep -> Place -> PP_location;
 	Location	: Det -> PlaceNoun -> Place;
@@ -50,6 +53,7 @@ fun
 	Mannering	: MannerPrep -> NP -> PP_manner;
 	Timing		: TimePrep -> NP -> PP_time;
 	Sourcing		: SourcePrep -> NP -> PP_source;
+	Resulting		: ResultPrep -> NP -> PP_result;
 	Happening	: V -> VP ;
 	Changing	: V2 -> NP -> VP;
 	V_NP_VP:	V2V -> NP -> VP -> VP;
@@ -85,12 +89,15 @@ fun
 	EmptyRelSlash	: ClSlash -> RCl;
 	WayNP	: Cl -> NP;
 	HowNP	: Cl -> NP;
+	ThatNP	: Cl -> NP;
+	PartN	: V -> N;
 	Gerund	: VP -> NP;
 	ByGerund : VP -> PP_manner;
 	SClSlash	: NP -> VPSlash -> ClSlash;
 	-- VPClSlash	: VPSlash -> ClSlash;
-	FreeRCl : VP -> NounCl;
-	FreeRClSlash : ClSlash -> NounCl;
+	FreeRCl : IP -> VP -> NounCl;
+	FreeRClSlash : IP -> ClSlash -> NounCl;
+	FreeInfCl	: IAdv -> VP -> NounCl;
 	NomCl : NounCl -> NP;
 	Mannered	: NP -> PP_manner -> NP;
 	Sourced	: NP -> PP_source -> NP;
@@ -103,6 +110,7 @@ fun
 	VP_PP_manner : VP -> PP_manner -> VP;
 	VP_PP_time	: VP -> PP_time -> VP;
 	VP_PP_location	:  Motion -> PP_location -> VP;
+	VP_PP_result	: VP -> PP_result -> VP;
 	WithCl	: VP -> SubordCl -> VP;
 	VPToo	: VP -> VP;
 	VPAlready	: VP -> VP;
@@ -151,6 +159,7 @@ fun
 	PredetItem	: Predet -> NP -> NP;
 	Ofpos	: N2 -> NP -> CN;
 	Ofpart	: Partitive -> N -> CN;
+	N2toCN	: N2 -> CN;
 	ApposNP	: NP -> NP -> NP;
 	NPPostPredet	: NP -> Predet -> NP;
 
@@ -188,6 +197,7 @@ fun
 	her_MassDet	: MassDet;
 	he_Det	: Det;
 	its	: Det;
+	your	: Det;
 
 	he	: NP;
 	she	: NP;
@@ -201,7 +211,7 @@ fun
 	what_WH	: IP;
 	whatPl_IDet	: IDet;
 	whichSg_IDet	: IDet;
-	how_WH	: IP;
+	how_WH	: IAdv;
 	who_RP	: RP;
 	that_RP	: RP;
 	in_which	: RP;
@@ -240,6 +250,7 @@ fun
 	Not_Adv	: Adv -> Adv;
 	Very_Adv	: Adv -> Adv;
 	In_order_to : VP -> Adv;
+	To_purpose	: VP -> Adv;
 	because_Subj	: Subj;
 	if_Subj	: Subj;
 	when_Subj	: Subj;

@@ -20,6 +20,7 @@ lincat
 	TimePrep	= Prep;
 	LocPrep	= Prep;
 	SourcePrep	= Prep;
+	ResultPrep	= Prep;
 	PP_coagent	= Adv;
 	PP_instrument	= Adv;
 	PP_theme	= Adv;
@@ -27,6 +28,7 @@ lincat
 	PP_time	= Adv;
 	PP_location	= Adv;
 	PP_source	= Adv;
+	PP_result	= Adv;
 	MassDet = Det;
 	Partitive = N2;
 
@@ -153,6 +155,26 @@ oper
 			g = cn.g
 			};
 
+	myFreeRClSlash : (ip : IP) -> (cl : ClSlash) -> {s : ResEng.Tense => Anteriority => CPolarity => Order => Str; c : NPCase } =
+	\ip,cl -> {
+	  s = \\t,a,p,_ => ip.s ! npNom ++ cl.s ! t ! a ! p ! oDir ++ cl.c2;
+		  c = npNom
+			  } ;
+
+	myFreeRCl : (ip : IP) -> (vp : VP) -> {s : ResEng.Tense => Anteriority => CPolarity => Order => Str; c : NPCase } =
+		\ip,vp -> let qcl = WH_Pred ip vp in
+	{
+	  s = \\t,a,p,_ => qcl.s ! t ! a ! p ! QDir ;
+		  c = npNom
+			  };
+
+	myFreeInfCl : (iadv : IAdv) -> (vp : VP) -> {s : ResEng.Tense => Anteriority => CPolarity => Order => Str; c : NPCase } =
+		\iadv,vp -> let qcl = mkSC vp in
+	{
+		s = \\t,a,p,_ => iadv.s ++ qcl.s ;
+		c = npNom
+		};
+
 	mymkNP : (ncl : NounCl) -> {s : NPCase => Str ; a : Agr} =
 		\ncl -> let string = ncl.s ! Pres ! Simul ! CPos ! oDir ;
 								agreement = toAgr Sg P3 Neutr in {
@@ -246,12 +268,27 @@ oper
 	myOrdSuperl : (a : A) -> { s : Case => Str } =
 		\a -> {s = \\c => a.s ! AAdj Superl c } ;
 
+	myPartN : (v : V) -> {s : Number => Case => Str ; g : Gender} =
+	\v -> let part = v.s ! VPresPart; partGen = glue part "'s"
+		in
+		{
+			s = table {
+				Sg => table {
+					Nom => part;
+					Gen => partGen};
+				Pl => table {
+					_ => nonExist }
+			};
+			g = Neutr
+		} ;
+
 
 lin
 	Be_bad ap	= mkComp ap;
   Be_somewhere located	= mkComp located;
 	Be_someone np	= mkComp np;
 	Be_AdV_NP adv np = mkComp np;
+	Be_coagent adv = mkComp adv;
 	Be_vp comp	= mkVP comp;
 	Look_bad verb adj	= mkVP verb adj;
   Locating prep item	= mkAdv prep item;
@@ -265,6 +302,7 @@ lin
 	Mannering prep style = mkAdv prep style;
 	Timing prep time = mkAdv prep time;
 	Sourcing prep source = mkAdv prep source;
+	Resulting prep result = mkAdv prep result;
 	Happening action	=	mkVP action;
 	Changing action patient	= mkVP action patient;
 	V_NP_VP causal patient predicate	= mkVP causal patient predicate;
@@ -300,19 +338,15 @@ lin
 	EmptyRelSlash slash = EmptyRelSlash slash;
 	WayNP cl = myCltoNP "the way that" cl;
 	HowNP cl = myCltoNP "how" cl;
+	ThatNP cl	= myCltoNP "that" cl;
+	PartN v	= myPartN v;
 	Gerund vp = GerundNP vp;
 	ByGerund vp = ByVP vp;
 	SClSlash	np vpslash = mkClSlash np vpslash;
 	-- VPClSlash	vpslash = mkClSlash vpslash;
-	FreeRClSlash cl = {
-	  s = \\t,a,p,_ => "what" ++ cl.s ! t ! a ! p ! oDir ++ cl.c2;
-		  c = npNom
-			  } ;
-	FreeRCl vp = let qcl = WH_Pred whatSg_IP vp in
-	{
-	  s = \\t,a,p,_ => qcl.s ! t ! a ! p ! QDir ;
-		  c = npNom
-			  };
+	FreeRCl ip vp = myFreeRCl ip vp;
+	FreeRClSlash ip cl = myFreeRClSlash ip cl;
+	FreeInfCl iadv vp = myFreeInfCl iadv vp;
 	NomCl ncl = mymkNP ncl;
 	Mannered np adv = mkNP np adv;
 	Sourced np adv	= mkNP np adv;
@@ -327,6 +361,7 @@ lin
 	VP_PP_manner vp pp = mkVP vp pp;
 	VP_PP_time vp pp = mkVP vp pp;
 	VP_PP_location vp located = mkVP vp located;
+	VP_PP_result vp result = mkVP vp result;
 	WithCl vp cl = mkVP vp cl;
 	VPToo vp = myVPPlus vp "too";
 	VPAlready vp = myVPPlus vp "already";
@@ -367,6 +402,7 @@ lin
 	CompoundCN cn1 cn2 = CompoundCN cn1 cn2;
 	Ofpos n2 np	= mkCN n2 np;
 	Ofpart part n = mkCN part (mkNP n);
+	N2toCN n2 = mkCN n2;
 	Item det noun	= mkNP det noun;
 	MassItem udet ucn	= mkNP udet ucn;
 	Titular cn = mkNP cn;
@@ -390,11 +426,13 @@ lin
 	no_NP = mkNP( mkDet no_Quant);
 	no_pl_NP = mkNP( mkDet no_Quant pluralNum);
 	no_MassDet = mkDet no_Quant;
+	some_Predet	= ss "some of";
 	some_Det = mkDet some_Quant;
 	some_pl_Det = mkDet some_Quant pluralNum;
 	some_NP = mkNP( mkDet some_Quant);
 	some_pl_NP = mkNP( mkDet some_Quant pluralNum);
 	that_Pron = mkNP (mkDet that_Quant);
+	this_Pron = mkNP (mkDet this_Quant);
 	List np1 np2 = mkListNP np1 np2;
 	AddList np list = mkListNP np list;
 	CloseList conj list = mkNP conj list;
@@ -408,6 +446,7 @@ lin
 	her_MassDet	= mkDet she_Pron;
 	he_Det	= mkDet he_Pron;
 	its	= mkDet it_Pron;
+	your	= mkDet youSg_Pron;
 
 	she = mkNP she_Pron;
 	he = mkNP he_Pron;
@@ -420,7 +459,7 @@ lin
 	what_WH	= whatSg_IP;
 	whatPl_IDet = { s = "what"; n = Pl };
 	whichSg_IDet = { s = "which"; n = Sg };
-	-- how_WH	= mkIP how_IAdv;
+	how_WH	= how_IAdv;
 	that_RP	= ExtraEng.that_RP;
 	who_RP	= mymkRP "who" "which" "whose";
 	-- in_which	=mkRP in_prep which_RP;
@@ -457,6 +496,7 @@ lin
 	Not_Adv a = ParadigmsEng.mkAdv ("not" ++ a.s);
 	Very_Adv a = ParadigmsEng.mkAdv ("very" ++ a.s);
 	In_order_to vp = myPurposeAdv "in order" vp;
+	To_purpose vp	= myPurposeAdv "" vp;
 	because_Subj	= because_Subj;
 	if_Subj	= if_Subj;
 	when_Subj = when_Subj;
