@@ -84,6 +84,7 @@ conj = [
 
 det = [
 	"'s"
+	, "part of"
 	, "each"
 	, "some"
 	, "no"
@@ -166,7 +167,6 @@ prep = [
 	, "in"
 	, "into"
 	, "of"
-	, "part"
 	, "through"
 	, "to"
 
@@ -294,7 +294,7 @@ only	: A;
 opportunity	: CN;
 or	: Conj;
 other	: CN;
-part	: Prep;
+part of	: Det;
 people	: CN;
 pie	: CN;
 realize	: VS;
