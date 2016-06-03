@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = http://github.com/drbean/pie
+	branch = master
+	commit = e1f9986cf00d7721fd5c77401fb5b276be99f4db
+	parent = 8a0e605e4935f1ce17952baa219f75f9eebec619
+	cmdver = 0.3.0
