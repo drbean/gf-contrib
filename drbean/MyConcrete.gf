@@ -1,4 +1,4 @@
-concrete MyConcrete of MyAbstract = CatEng ** open ResEng, Prelude, SyntaxEng, (P = ParadigmsEng), ExtraEng, IrregEng, ExtensionsEng in {
+concrete MyConcrete of MyAbstract = CatEng ** open ResEng, Prelude, SyntaxEng, (P = ParadigmsEng), VerbEng, ExtraEng, IrregEng, ExtensionsEng in {
 
 lincat
 	ListNP	= ListNP;
@@ -21,14 +21,16 @@ lincat
 	LocPrep	= Prep;
 	SourcePrep	= Prep;
 	ResultPrep	= Prep;
-	PP_coagent	= Adv;
-	PP_instrument	= Adv;
-	PP_theme	= Adv;
-	PP_manner	= Adv;
-	PP_time	= Adv;
-	PP_location	= Adv;
-	PP_source	= Adv;
-	PP_result	= Adv;
+	PatientPrep	= Prep;
+	Adv_coagent	= Adv;
+	Adv_instrument	= Adv;
+	Adv_theme	= Adv;
+	Adv_manner	= Adv;
+	Adv_time	= Adv;
+	Adv_location	= Adv;
+	Adv_source	= Adv;
+	Adv_result	= Adv;
+	Adv_patient	= Adv;
 	MassDet = Det;
 	Partitive = N2;
 
@@ -155,23 +157,31 @@ oper
 			g = cn.g
 			};
 
-	myFreeRClSlash : (ip : IP) -> (cl : ClSlash) -> {s : ResEng.Tense => Anteriority => CPolarity => Order => Str; c : NPCase } =
+	myFreeIClSlash : (ip : IP) -> (cl : ClSlash) -> {s : ResEng.Tense => Anteriority => CPolarity => Order => Str; c : NPCase } =
 	\ip,cl -> {
 	  s = \\t,a,p,_ => ip.s ! npNom ++ cl.s ! t ! a ! p ! oDir ++ cl.c2;
 		  c = npNom
 			  } ;
 
-	myFreeRCl : (ip : IP) -> (vp : VP) -> {s : ResEng.Tense => Anteriority => CPolarity => Order => Str; c : NPCase } =
+	myFreeICl : (ip : IP) -> (vp : VP) -> {s : ResEng.Tense => Anteriority => CPolarity => Order => Str; c : NPCase } =
 		\ip,vp -> let qcl = WH_Pred ip vp in
 	{
 	  s = \\t,a,p,_ => qcl.s ! t ! a ! p ! QDir ;
 		  c = npNom
 			  };
 
-	myFreeInfCl : (iadv : IAdv) -> (vp : VP) -> {s : ResEng.Tense => Anteriority => CPolarity => Order => Str; c : NPCase } =
+	myFreeInfICl : (iadv : IAdv) -> (vp : VP) -> {s : ResEng.Tense => Anteriority => CPolarity => Order => Str; c : NPCase } =
 		\iadv,vp -> let qcl = mkSC vp in
 	{
 		s = \\t,a,p,_ => iadv.s ++ qcl.s ;
+		c = npNom
+		};
+
+	myFreeInfCl :  (vp : VP) -> {s : ResEng.Tense => Anteriority => CPolarity => Order => Str; c : NPCase } =
+		\vp -> let cl = 
+    infVP VVAux vp Simul CPos (agrP3 Sg) ; --- agr
+	in {
+		s = \\t,a,p,_ => cl ;
 		c = npNom
 		};
 
@@ -218,9 +228,9 @@ oper
 			g = noun.g
 		};
 
-	myApposNP : (np1 : NP) -> (np2 : NP) -> { s : NPCase => Str ; a : Agr } =
-		\np1,np2 ->
-		{s = \\n => np1.s ! n ++ np2.s ! n ; a = np1.a} ;
+	myApposNP : (np1 : NP) -> (insert : Str) -> (np2 : NP) -> { s : NPCase => Str ; a : Agr } =
+		\np1,insert,np2 ->
+		{s = \\n => np1.s ! n ++ insert ++ np2.s ! n; a = np1.a};
 
   myAdjAsCN : (ap : AP) -> { s : Number => Case => Str ; g : Gender } =
 		\ap ->
@@ -279,7 +289,8 @@ oper
 				Pl => table {
 					_ => nonExist }
 			};
-			g = Neutr
+			g = Neutr;
+			lock_N = {}
 		} ;
 
 
@@ -303,6 +314,7 @@ lin
 	Timing prep time = mkAdv prep time;
 	Sourcing prep source = mkAdv prep source;
 	Resulting prep result = mkAdv prep result;
+	Patienting prep result = mkAdv prep result;
 	Happening action	=	mkVP action;
 	Changing action patient	= mkVP action patient;
 	V_NP_VP causal patient predicate	= mkVP causal patient predicate;
@@ -341,32 +353,38 @@ lin
 	ThatNP cl	= myCltoNP "that" cl;
 	PartN v	= myPartN v;
 	Gerund vp = GerundNP vp;
+	GerundSlash vp = GerundCN vp;
 	ByGerund vp = ByVP vp;
 	SClSlash	np vpslash = mkClSlash np vpslash;
 	-- VPClSlash	vpslash = mkClSlash vpslash;
-	FreeRCl ip vp = myFreeRCl ip vp;
-	FreeRClSlash ip cl = myFreeRClSlash ip cl;
-	FreeInfCl iadv vp = myFreeInfCl iadv vp;
+	FreeICl ip vp = myFreeICl ip vp;
+	FreeIClSlash ip cl = myFreeIClSlash ip cl;
+	FreeInfICl iadv vp = myFreeInfICl iadv vp;
+	FreeInfCl vp	= myFreeInfCl vp;
 	NomCl ncl = mymkNP ncl;
 	Mannered np adv = mkNP np adv;
 	Sourced np adv	= mkNP np adv;
+	Themed np adv	= mkNP np adv;
 	AdV_VP adv vp = mkVP adv vp;
+	AdV_VPSlash adv vps = AdVVPSlash adv vps;
   WithPlace v located	= mkVP (mkVP v) located;
   AdvVP adv vp	= mkVP adv vp;
 	VPAdv vp adv = mkVP vp adv;
   WithTime action time	= mkVP action time;
-  VP_PP_coagent v pp	= mkVP v pp;
-	VP_PP_instrument vp pp = mkVP vp pp;
-	VP_PP_theme vp pp = mkVP vp pp;
-	VP_PP_manner vp pp = mkVP vp pp;
-	VP_PP_time vp pp = mkVP vp pp;
-	VP_PP_location vp located = mkVP vp located;
-	VP_PP_result vp result = mkVP vp result;
+  VP_Adv_coagent v pp	= mkVP v pp;
+	VP_Adv_instrument vp pp = mkVP vp pp;
+	VP_Adv_theme vp pp = mkVP vp pp;
+	VP_Adv_manner vp pp = mkVP vp pp;
+	VP_Adv_time vp pp = mkVP vp pp;
+	VP_Adv_location vp located = mkVP vp located;
+	VP_Adv_result vp result = mkVP vp result;
 	WithCl vp cl = mkVP vp cl;
 	VPToo vp = myVPPlus vp "too";
 	VPAlready vp = myVPPlus vp "already";
 	WithClPre cl s = mkS cl s;
 	WithAdvPre adv s = mkS adv s;
+	ThemePre adv s = mkS adv s;
+	PatientPre adv s = mkS adv s;
   -- Be_made_sth vp np = PassV3 vp np;
 
 	ICompS i np = mkQS (mkQCl i np);
@@ -407,7 +425,7 @@ lin
 	MassItem udet ucn	= mkNP udet ucn;
 	Titular cn = mkNP cn;
 	PredetItem predet np	= mkNP predet np;
-	ApposNP np1 np2 = myApposNP np1 np2;
+	ApposNP np1 np2 = myApposNP np1 "for example" np2;
 	NPPostPredet np predet = myNPPostPredet np predet;
 
 	a_Det	= a_Det;
@@ -447,6 +465,8 @@ lin
 	he_Det	= mkDet he_Pron;
 	its	= mkDet it_Pron;
 	your	= mkDet youSg_Pron;
+	their	= mkDet they_Pron;
+	this	= mkDet this_Quant;
 
 	she = mkNP she_Pron;
 	he = mkNP he_Pron;
@@ -463,7 +483,8 @@ lin
 	that_RP	= ExtraEng.that_RP;
 	who_RP	= mymkRP "who" "which" "whose";
 	-- in_which	=mkRP in_prep which_RP;
-	-- where_RP	= mkRP "where";
+	where_RP	= mymkRP "where" "where" "where";
+	when_RP	= mymkRP "when" "when" "when";
 
 	more	= more_CAdv;
 	ComparaAP a np = mkAP a np;
