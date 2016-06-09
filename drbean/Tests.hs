@@ -79,21 +79,7 @@ fol tests = do
 
 dic_test = [
 
-      "The second tension is one that really relates to inter-personal relations. "
-			, "The second tension is the tension between empathy and assertiveness."
-			, "What Mnookin means by empathy is the ability to describe your understanding of the other person's needs , interests and concerns in a non-judgmental way."
-			, "By assertiveness, Mnookin means the capacity to articulate your own needs and interests and concerns in a persuasive way."
-      , "Some people, for example, some of Mnookin's law students, are terrific at assertion."
-			, "Mnookin's law students are very good at making arguments."
-			, "But Mnookin's law students are lousy listeners."
-			, "Indeed, when Mnookin's law students listen to someone, it's always, 'Yes, but' kind of listening, where they're composing in their own mind what their rebuttal's going to be."
 
-      , "On the other hand, some people are terrific at putting themselves in the other person's shoes."
-		  , "However, the problem of people who are terrific in putting themselves in the other person's shoes is that sometimes they can fall into accommodation mode."
-			, "Once these people really understand the other side's perspective, they may lose the ability to stand up and defend what their own interests are."
-
-      , "So, when Mnookin calls this managing a tension, what he really means is that people have to learn how to do both well."
-			, "With students of negotiation, what Mnookin often does, as a negotiation coach, is help them expand their repertoire so they can do both."
 
   ]
 
