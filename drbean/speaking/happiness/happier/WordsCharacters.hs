@@ -28,8 +28,6 @@ gfWords = Map.fromList [
 	-- , ("V",v)
 	]
 
-wordlist = concat ( map (gfWords Map.!) (Map.keys gfWords) )
-
 posMap = Map.fromList [
 	("A","Adjective")
 	, ("ADV","Adverb")
