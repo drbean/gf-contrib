@@ -40,16 +40,16 @@ run f tests = do
   gr	<- readPGF "./Happier.pgf"
   let ss = map (chomp . lc_first) tests
   let ps = map ( parses gr ) ss
-  let ls = map f ps
-  let zs = zip (map (++"\t") tests) (map (map (showExpr []) ) ps)
+  let ts = map f ps
+  let zs = zip (map (++"\t") tests) (map (map (showExpr []) ) ts)
   putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
 
 ans tests = do
   gr	<- readPGF "./Happier.pgf"
   let ss = map (chomp . lc_first) tests
   let ps = map ( parses gr ) ss
-  let ls = map (map ( (linear gr) <=< transform ) ) ps
-  let zs = zip (map (++"\t") tests) ls
+  let ts = map (map ( (linear gr) <=< transform ) ) ps
+  let zs = zip (map (++"\t") tests) ts
   putStrLn (unlines (map (\(x,y) -> x ++ (show $ unwords (map displayResult y))) zs) )
 
 displayResult = fromMaybe "Nothing"
