@@ -35,9 +35,12 @@ miss :: [String] -> IO [String]
 miss ws =
 	liftOp morphoMissing morpho ws
 
-cat2funs :: String -> IO [CId]
-cat2funs cat = 
-	liftOp functionsByCat gr (mkCId cat) >>= \l -> return (filter (isLower . head . showCId ) l )
+cat2funs :: String -> IO ()
+cat2funs cat = do
+		gr	<- readPGF "./Happier.pgf"
+		let fs = functionsByCat gr (mkCId cat)
+		let ws = filter (isLower . head . showCId) fs
+		putStrLn (unwords (map showCId ws))
 
 trans = id
 
