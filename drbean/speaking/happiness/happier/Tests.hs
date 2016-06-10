@@ -2,6 +2,7 @@ module Tests where
 
 import Control.Monad
 import Data.Maybe
+import Data.Char
 
 import Data.DRS
 
@@ -33,6 +34,10 @@ liftOp f a b = a >>= \a' -> return (f a' b)
 miss :: [String] -> IO [String]
 miss ws =
 	liftOp morphoMissing morpho ws
+
+cat2funs :: String -> IO [CId]
+cat2funs cat = 
+	liftOp functionsByCat gr (mkCId cat) >>= \l -> return (filter (isLower . head . showCId ) l )
 
 trans = id
 
