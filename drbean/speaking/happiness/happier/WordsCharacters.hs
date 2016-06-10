@@ -1,20 +1,32 @@
 module WordsCharacters where
 
 import qualified Data.Map as Map
+import Data.Char
+
+import PGF
+
+gr = readPGF "./Happier.pgf"
+
+cat2funs :: String -> IO [CId]
+cat2funs cat = 
+	gr >>= \gr' ->
+		return (functionsByCat gr' (mkCId cat)) >>= \l ->
+			return ( filter ( isLower . head . showCId ) l)
 
 gfWords = Map.fromList [
 	("A",a)
-	, ("ADV",adv)
-	, ("Aux",aux)
-	, ("CONJ",conj)
-	, ("Det",det)
-	, ("N",n)
-	, ("PN",pn)
-	, ("Pron",pron)
-	, ("Prep",prep)
-	, ("Rel",rel)
-	, ("Tag",tag)
-	, ("V",v) ]
+	-- , ("ADV",adv)
+	-- , ("Aux",aux)
+	-- , ("CONJ",conj)
+	-- , ("Det",det)
+	-- , ("N",n)
+	-- , ("PN",pn)
+	-- , ("Pron",pron)
+	-- , ("Prep",prep)
+	-- , ("Rel",rel)
+	-- , ("Tag",tag)
+	-- , ("V",v)
+	]
 
 wordlist = concat ( map (gfWords Map.!) (Map.keys gfWords) )
 
@@ -33,20 +45,7 @@ posMap = Map.fromList [
 	, ("V","Verb")
 	]
 
-a = [
-
-	"active"
-	, "big"
-	, "different"
-	, "happier"
-	, "happy"
-	, "important"
-	, "other"
-	, "positive"
-	, "rich"
-	, "subjective"
-
-	]
+a = cat2funs "AP"
 
 adv = [
 
