@@ -3,6 +3,7 @@ module Tests where
 import Control.Monad
 import Data.Maybe
 import Data.Char
+import Data.List
 
 import Data.DRS
 
@@ -37,10 +38,17 @@ miss ws =
 
 cat2funs :: String -> IO ()
 cat2funs cat = do
-		gr' <- gr
-		let fs = functionsByCat gr' (mkCId cat)
-		let ws = filter (isLower . head . showCId) fs
-		putStrLn (unwords (map showCId ws))
+	gr' <- gr
+	let fs = functionsByCat gr' (mkCId cat)
+	let ws = filter (isLower . head . showCId) fs
+	putStrLn (unwords (map showCId ws))
+
+catByPOS :: String -> IO ()
+catByPOS  pos = do
+	gr' <- gr
+	let allCats = categories gr'
+	let cats = filter (isPrefixOf pos . showCId) allCats
+	putStrLn (unwords (map showCId cats))
 
 trans = id
 
