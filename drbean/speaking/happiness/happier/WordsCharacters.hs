@@ -1,6 +1,5 @@
 module WordsCharacters where
 
-import qualified Data.Map as Map
 import Data.Char
 
 import PGF
@@ -13,7 +12,7 @@ cat2funs cat =
 		return (functionsByCat gr' (mkCId cat)) >>= \l ->
 			return ( filter ( isLower . head . showCId ) l)
 
-gfWords = Map.fromList [
+gfWords = [
 	("A",a)
 	-- , ("ADV",adv)
 	-- , ("Aux",aux)
@@ -28,7 +27,7 @@ gfWords = Map.fromList [
 	-- , ("V",v)
 	]
 
-posMap = Map.fromList [
+posMap = [
 	("A","Adjective")
 	, ("ADV","Adverb")
 	, ("Aux","Auxiliary")
