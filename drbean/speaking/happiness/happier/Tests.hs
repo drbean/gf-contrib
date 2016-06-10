@@ -35,6 +35,16 @@ miss :: [String] -> IO [String]
 miss ws =
 	liftOp morphoMissing morpho ws
 
+trans = id
+
+run f tests = do
+  gr	<- readPGF "./Happier.pgf"
+  let ss = map (chomp . lc_first) tests
+  let ps = map ( parses gr ) ss
+  let ls = map f ps
+  let zs = zip (map (++"\t") tests) (map (map (showExpr []) ) ps)
+  putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
+
 ans tests = do
   gr	<- readPGF "./Happier.pgf"
   let ss = map (chomp . lc_first) tests
@@ -44,14 +54,6 @@ ans tests = do
   putStrLn (unlines (map (\(x,y) -> x ++ (show $ unwords (map displayResult y))) zs) )
 
 displayResult = fromMaybe "Nothing"
-
-trans tests = do
-  gr	<- readPGF "./Happier.pgf"
-  let ss = map (chomp . lc_first) tests
-  let ps = map ( parses gr ) ss
-  let ls = map id ps
-  let zs = zip (map (++"\t") tests) (map (map (showExpr []) ) ps)
-  putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
 
 reps tests = do
   gr	<- readPGF "./Happier.pgf"
