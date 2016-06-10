@@ -3,7 +3,11 @@ module WordsCharacters where
 import Data.Char
 
 import PGF
+import System.Environment.FindBin
 
+-- path = getProgPath
+-- file = path >>= \p -> return ( (++) p "/Happier.pgf")
+-- gr = file >>= \f -> return ( readPGF f )
 gr = readPGF "/home/drbean/GF/gf-contrib/drbean/speaking/happiness/happier/Happier.pgf"
 
 cat2funs :: String -> IO [CId]
