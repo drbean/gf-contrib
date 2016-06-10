@@ -4,7 +4,7 @@ import Data.Char
 
 import PGF
 
-gr = readPGF "./Happier.pgf"
+gr = readPGF "/home/drbean/GF/gf-contrib/drbean/speaking/happiness/happier/Happier.pgf"
 
 cat2funs :: String -> IO [CId]
 cat2funs cat = 
