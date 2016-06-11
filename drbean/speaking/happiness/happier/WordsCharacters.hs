@@ -250,7 +250,7 @@ think	: V2;
 through	: Prep;
 tie	: N2;
 to	: Prep;
-very	: Prep;
+very	: AdA;
 way	: CN;
 well-being	: N;
 where	: Pron;

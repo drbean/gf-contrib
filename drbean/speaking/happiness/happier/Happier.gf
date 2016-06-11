@@ -14,6 +14,7 @@ fun
 	only	: Adv;
 	sometimes	: Adv;
 	subjectively	: Adv;
+	very	: AdA;
 
 -- AP
 
@@ -105,7 +106,6 @@ fun
 	than	: Prep;
 	through	: Prep;
 	to	: Prep;
-	very	: Prep;
 	in_the_way_of	: Prep;
 	with_prep	: Prep;
 	about	: Prep;

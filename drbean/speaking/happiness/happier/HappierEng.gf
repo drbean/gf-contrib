@@ -18,6 +18,7 @@ lin
 	only	= mkAdv "only";
 	sometimes	= mkAdv "sometimes";
 	subjectively	= mkAdv "subjectively";
+	very	= mkAdA "very";
 
 -- AP
 
@@ -109,7 +110,6 @@ lin
 	than	= mkPrep "than";
 	through	= mkPrep "through";
 	to	= mkPrep "to";
-	very	= mkPrep "very";
 	in_the_way_of	= mkPrep "in the way of";
 	with_prep	= mkPrep "with";
 	about	= mkPrep "about";
