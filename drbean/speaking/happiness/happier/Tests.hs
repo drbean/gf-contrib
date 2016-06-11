@@ -96,7 +96,8 @@ fol tests = do
 
 dic_test = [
 
-	"Happiness is improved in many different ways."
+	"Tal Ben-Shahar asks questions about happiness."
+	, "Happiness is improved in many different ways."
 	, "Social ties with family, friends and other social networks are very important for happiness."
 	, "People with more money are happier, but people who are very rich are not happier."
 	, "Physical exercise, meditation and engagement with life also improve happiness."

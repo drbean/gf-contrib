@@ -91,6 +91,7 @@ fun
 -- PN
 
 
+	tal_ben_shahar	: PN;
 -- Prep
 
 	as	: Prep;

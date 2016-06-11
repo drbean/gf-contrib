@@ -95,6 +95,7 @@ lin
 -- PN
 
 
+	tal_ben_shahar	= mkPN( mkN masculine (mkN "Tal Ben-Shahar") );
 -- Prep
 
 	as	= mkPrep "as";
