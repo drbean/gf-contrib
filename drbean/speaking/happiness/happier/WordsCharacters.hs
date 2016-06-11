@@ -16,50 +16,51 @@ cat2funs cat =
 		return (functionsByCat gr' (mkCId cat)) >>= \l ->
 			return ( filter ( isLower . head . showCId ) l)
 
+gfWords :: [(String, IO [CId])]
 gfWords = [
 	("A",a)
-	-- , ("ADV",adv)
+	, ("Adv",adv)
 	-- , ("Aux",aux)
-	-- , ("CONJ",conj)
-	-- , ("Det",det)
-	-- , ("N",n)
-	-- , ("PN",pn)
+	, ("Conj",conj)
+	, ("Det",det)
+	, ("N",n)
+	, ("CN",cn)
+	, ("PN",pn)
 	-- , ("Pron",pron)
-	-- , ("Prep",prep)
+	, ("Prep",prep)
 	-- , ("Rel",rel)
 	-- , ("Tag",tag)
 	-- , ("V",v)
 	]
 
-posMap = [
-	("A","Adjective")
-	, ("ADV","Adverb")
-	, ("Aux","Auxiliary")
-	, ("CONJ","Conjunction")
-	, ("Det","Determiner")
-	, ("N","Noun")
-	, ("PN","Proper Noun")
-	, ("Pron","Pronoun")
-	, ("Prep","Preposition")
-	, ("Rel","Relative Pronoun")
-	, ("Tag","Question Tag")
-	, ("V","Verb")
-	]
+posName :: String -> String
+posName "A"	= "Adjective"
+posName "Adv"	= "Adverb"
+posName "Aux"	= "Auxiliary"
+posName "Conj"	= "Conjunction"
+posName "Det"	= "Determiner"
+posName "N"	= "Uncount Noun"
+posName "CN"	= "Count Noun"
+posName "PN"	= "Proper Noun"
+posName "Pron"	= "Pronoun"
+posName "Prep"	= "Preposition"
+posName "Rel"	= "Relative Pronoun"
+posName "Tag"	= "Question Tag"
+posName "V"	= "Verb"
+
 
 a = cat2funs "AP"
+adv = cat2funs "Adv"
+conj = cat2funs "Conj"
+det = cat2funs "Det"
+n = cat2funs "N"
+cn = cat2funs "CN"
+pn = cat2funs "PN"
+prep = cat2funs "Prep"
 
-adv = [
 
-	"also"
-	, "more"
-	, "never"
-	, "now"
-	, "often"
-	, "only"
-	, "sometimes"
-	, "subjectively"
 
-	]
+
 
 aux = [
 	"doesn't"
@@ -75,91 +76,6 @@ aux = [
 	]
 	
 
-conj = [
-
-	"even when"
-	, "and"
-	, "but"
-	, "or"
-
-	]
-
-
-det = [
-	"'s"
-	, "just"
-	, "lots of"
-	, "many"
-	, "no"
-	, "not"
-	, "one"
-	, "some"
-	, "no"
-	, "0, _ or zero"
-	, "a"
-	, "an"
-	, "no"
-	, "some"
-	, "the"
-
-	]
-
-n = [
-
-	"community"
-	, "country"
-	, "daily life"
-	, "emotion"
-	, "engagement"
-	, "engagement"
-	, "family"
-	, "feeling"
-	, "flow"
-	, "framework"
-	, "friend"
-	, "goal"
-	, "happiness"
-	, "ideology"
-	, "intimacy"
-	, "know"
-	, "life"
-	, "meaning"
-	, "means"
-	, "meditation"
-	, "money"
-	, "network"
-	, "nothing"
-	, "one_NP"
-	, "person/people"
-	, "philosophy"
-	, "physical exercise"
-	, "play"
-	, "presence"
-	, "question"
-	, "relationship"
-	, "religion"
-	, "school"
-	, "self"
-	, "sense"
-	, "social connection"
-	, "social group"
-	, "something"
-	, "state of mind"
-	, "thing"
-	, "tie"
-	, "way"
-	, "well-being"
-	, "whole"
-	, "work"
-
-	, "accomplishment"
-	, "achievement"
-	]
-
-pn = [
-
-
-	]
 
 pron = [
 	"who"
@@ -180,23 +96,6 @@ pron = [
 	, "they"
 	]
 
-prep = [
-
-	"about"
-	, "as"
-	, "at"
-	, "for"
-	, "in"
-	, "of"
-	, "on"
-	, "than"
-	, "through"
-	, "to"
-	, "very"
-	, "in the way of"
-	, "with"
-
-	]
 
 rel = [
 
@@ -355,6 +254,7 @@ sometimes	: Adv;
 state of mind	: CN;
 subjective	: AP;
 subjectively	: Adv;
+Tal Ben-Shahar	: PN;
 than	: Prep;
 that	: Pron;
 they	: Pron;
