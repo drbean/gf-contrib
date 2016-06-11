@@ -30,7 +30,12 @@ gfWords = [
 	, ("Prep",prep)
 	-- , ("Rel",rel)
 	-- , ("Tag",tag)
-	-- , ("V",v)
+	, ("V",v)
+	, ("V2",v2)
+	, ("V3",v3)
+	, ("VV",vv)
+	, ("VS",vs)
+	, ("V2A",v2a)
 	]
 
 posName :: String -> String
@@ -47,16 +52,28 @@ posName "Prep"	= "Preposition"
 posName "Rel"	= "Relative Pronoun"
 posName "Tag"	= "Question Tag"
 posName "V"	= "Verb"
+posName "V2"	= "Verb + object"
+posName "V3"	= "Verb + obj1 + obj2"
+posName "VV"	= "Verb + verb"
+posName "VS"	= "Verb + sentence"
+posName "V2S"	= "Verb + object + sentence"
+posName "V2A"	= "Verb + object + adjective"
 
 
-a = cat2funs "AP"
-adv = cat2funs "Adv"
-conj = cat2funs "Conj"
-det = cat2funs "Det"
-n = cat2funs "N"
-cn = cat2funs "CN"
-pn = cat2funs "PN"
-prep = cat2funs "Prep"
+a	= cat2funs "AP"
+adv	= cat2funs "Adv"
+conj	= cat2funs "Conj"
+det	= cat2funs "Det"
+n	= cat2funs "N"
+cn	= cat2funs "CN"
+pn	= cat2funs "PN"
+prep	= cat2funs "Prep"
+v	= cat2funs "V"
+v2	= cat2funs "V2"
+v3	= cat2funs "V3"
+vv	= cat2funs "VV"
+vs	= cat2funs "VS"
+v2a	= cat2funs "V2A"
 
 
 
@@ -119,37 +136,6 @@ tag = [
 	, "is she"
 	, "is it"
 	, "are they"
-	]
-
-v = [
-
-	"ask"
-	, "assess"
-	, "believe"
-	, "belong"
-	, "bring"
-	, "can"
-	, "concentrate"
-	, "emphasize"
-	, "feel_A"
-	, "feel_N"
-	, "forget"
-	, "give"
-	, "give"
-	, "give"
-
-	, "have"
-	, "improve"
-	, "involve"
-	, "involve"
-	, "mean"
-	, "measure"
-	, "participate"
-	, "pursue"
-	, "seek"
-	, "serve"
-	, "think"
-	, "achieve"
 	]
 
 {-
