@@ -52,6 +52,7 @@ fun
 	daily_life	: N;
 	emotion	: N;
 	engagement	: N2;
+	engagement_N	: N;
 	family	: N;
 	feeling	: CN;
 	flow	: N;
@@ -106,7 +107,7 @@ fun
 	in_manner	: MannerPrep;
 	on	: Prep;
 	than	: Prep;
-	through	: Prep;
+	through	: MannerPrep;
 	to	: Prep;
 	in_the_way_of	: Prep;
 	with_prep	: Prep;

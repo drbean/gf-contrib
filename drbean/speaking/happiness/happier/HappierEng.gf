@@ -16,7 +16,7 @@ lin
 	never	= mkAdv "never";
 	now	= mkAdv "now";
 	often	= mkAdv "often";
-	only	= mkAdv "only";
+	only	= mkAdV "only";
 	sometimes	= mkAdv "sometimes";
 	subjectively	= mkAdv "subjectively";
 	very	= mkAdA "very";
@@ -55,7 +55,8 @@ lin
 	country	= mkCN( mkN "country") ;
 	daily_life	= mkN "daily life" nonExist;
 	emotion	= mkN "emotion" nonExist;
-	engagement	= mkN2( mkN "engagement") with_prep;
+	engagement	= mkN2( mkN "engagement" nonExist) with_prep;
+	engagement_N	= mkN "engagement" nonExist;
 	family	= mkN "family" nonExist;
 	feeling	= mkCN( mkN "feeling") ;
 	flow	= mkN "flow" nonExist;
@@ -69,7 +70,7 @@ lin
 	know	= mkCN( mkN "know") ;
 	life	= mkN "life" nonExist;
 	meaning	= mkN "meaning" nonExist;
-	means	= mkCN( mkN "means") ;
+	means	= mkCN( mkN nonExist "means") ;
 	meditation	= mkN "meditation" nonExist;
 	money	= mkN "money" nonExist;
 	network	= mkCN( mkN "network") ;
@@ -142,7 +143,7 @@ lin
 	improve	= mkV2( mkV "improve") noPrep;
 	involve	= mkV2( mkV "involve") with_prep;
 	mean	= mkV2( mkV "mean") ;
-	measure	= mkV2( mkV "measure") ;
+	measure	= mkV2( mkV "measure") through;
 	participate	= mkV2( mkV "participate") in_prep;
 	pursue	= mkV2( mkV "pursue") noPrep;
 	seek	= mkVV( mkV "seek") ;
