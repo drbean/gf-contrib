@@ -205,7 +205,6 @@ more	: Det;
 network	: CN;
 never	: Adv;
 no	: Det;
-not	: Det;
 nothing	: N;
 now	: Adv;
 of	: Prep;
