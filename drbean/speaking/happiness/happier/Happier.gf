@@ -11,9 +11,9 @@ fun
 	never	: Adv;
 	now	: Adv;
 	often	: Adv;
-	only	: Adv;
+	only	: AdV;
 	sometimes	: Adv;
-	subjectively	: Adv;
+	subjectively	: Adv_manner;
 	very	: AdA;
 
 -- AP
