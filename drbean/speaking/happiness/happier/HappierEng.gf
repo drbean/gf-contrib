@@ -42,7 +42,7 @@ lin
 
 	just	= ss "just";
 	lots_of	= mkDet lots_of_Quant;
-	many	= mkDet many_Quant;
+	many	= mkDet many_Quant plNum;
 	one	= mkDet( mkNumeral n1_Unit);
 
 -- N
@@ -103,6 +103,7 @@ lin
 	for	= mkPrep "for";
 
 	in_prep	= mkPrep "in";
+	in_manner	= mkPrep "in";
 	on	= mkPrep "on";
 	than	= mkPrep "than";
 	through	= mkPrep "through";

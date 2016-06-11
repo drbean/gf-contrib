@@ -99,6 +99,7 @@ fun
 	for	: Prep;
 
 	in_prep	: Prep;
+	in_manner	: MannerPrep;
 	on	: Prep;
 	than	: Prep;
 	through	: Prep;
