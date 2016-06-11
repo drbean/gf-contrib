@@ -61,7 +61,7 @@ lin
 	flow	= mkN "flow" nonExist;
 	framework	= mkN2( mkN "framework") for;
 	friend	= mkCN( mkN "friend") ;
-	achievement	= mkN "achievement" nonExist;
+	achievement	= mkN2( mkN "achievement" nonExist);
 	goal	= mkCN( mkN "goal") ;
 	happiness	= mkN "happiness" nonExist;
 	ideology	= mkN "ideology";
@@ -85,7 +85,7 @@ lin
 	religion	= mkN "religion" nonExist;
 	school	= mkN "school" nonExist;
 	self	= mkCN( mkN "self") ;
-	sense	= mkN2( mkN "sense") of_prep;
+	sense_of_achievement	= mkCN( mkN "sense of achievement" nonExist) ;
 	social_connection	= mkN "social connection" nonExist;
 	social_group	= mkCN( mkN "social group") ;
 	something	= mkN "something" nonExist;

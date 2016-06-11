@@ -46,7 +46,7 @@ fun
 
 -- N
 
-	achievement	: N;
+	achievement	: N2;
 	community	: N;
 	country	: CN;
 	daily_life	: N;
@@ -81,7 +81,7 @@ fun
 	religion	: N;
 	school	: N;
 	self	: CN;
-	sense	: N2;
+	sense_of_achievement	: CN;
 	social_connection	: N;
 	social_group	: CN;
 	something	: N;

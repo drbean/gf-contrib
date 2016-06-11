@@ -101,7 +101,7 @@ dic_test = [
 	, "Social ties with family , friends and other social networks are very important for happiness."
 	, "People with more money are happier, but people who are very rich aren't happier."
 	, "Physical exercise , meditation and an engagement with life also improve happiness."
-	, "One framework for thinking about well-being emphasizes positive emotion , engagement with work , school and community , relationships with people , meaning in life and achievement of goals."
+	, "One framework for thinking about well-being emphasizes positive emotion , an engagement with work , school and community , relationships with people , meaning in life and the achievement of goals."
 	, "Positive emotion can only be assessed subjectively."
 	, "Engagement can only be measured through subjective means."
 	, "Engagement is the presence of a flow state."

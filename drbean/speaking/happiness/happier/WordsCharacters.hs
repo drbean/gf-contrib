@@ -144,7 +144,7 @@ a
 about	: Prep;
 accomplishment	: N2;
 achieve	: V2;
-achievement	: N;
+achievement	: N2;
 active	: A2;
 also	: Adv;
 and	: Conj;
@@ -231,7 +231,7 @@ rich	: AP;
 school	: N;
 seek	: VV;
 self	: CN;
-sense	: N2;
+sense of achievement	: CN;
 serve	: V2;
 social	: AP;
 social connection	: N;
