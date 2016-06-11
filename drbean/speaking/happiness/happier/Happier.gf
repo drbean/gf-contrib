@@ -42,6 +42,7 @@ fun
 	lots_of	: Det;
 	many	: Det;
 	one	: Det;
+	more_mass_Det	: MassDet;
 
 -- N
 
@@ -70,6 +71,7 @@ fun
 	network	: CN;
 	nothing_N	: N;
 	one_np	: N;
+	person_with	: N2;
 	philosophy	: N;
 	physical_exercise	: N;
 	play	: N;

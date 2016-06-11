@@ -7,6 +7,7 @@ oper
 
 	lots_of_Quant = mkQuant "lots of" "lots of" "lots" "lots";
 	many_Quant = mkQuant nonExist "many";
+	more_mass_Quant	= mkQuant "more" nonExist;
 lin
 
 -- Adv
@@ -46,6 +47,7 @@ lin
 	lots_of	= mkDet lots_of_Quant;
 	many	= mkDet many_Quant plNum;
 	one	= mkDet( mkNumeral n1_Unit);
+	more_mass_Det = mkDet more_mass_Quant;
 
 -- N
 
@@ -73,6 +75,7 @@ lin
 	network	= mkCN( mkN "network") ;
 	nothing_N	= mkN "nothing" nonExist;
 	one_np	= mkN "one_NP" nonExist;
+	person_with	= mkN2( mkN "person" "people") with_prep;
 	philosophy	= mkN "philosophy" nonExist;
 	physical_exercise	= mkN "physical exercise" nonExist;
 	play	= mkN "play" nonExist;
