@@ -100,7 +100,7 @@ dic_test = [
 	, "Happiness is improved in many different ways."
 	, "Social ties with family , friends and other social networks are very important for happiness."
 	, "People with more money are happier, but people who are very rich aren't happier."
-	, "Physical exercise , meditation and engagement with life also improve happiness."
+	, "Physical exercise , meditation and an engagement with life also improve happiness."
 	, "One framework for thinking about well-being emphasizes positive emotion , engagement with work , school and community , relationships with people , meaning in life and achievement of goals."
 	, "Positive emotion can only be assessed subjectively."
 	, "Engagement can only be measured through subjective means."
