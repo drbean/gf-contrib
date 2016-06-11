@@ -233,6 +233,7 @@ seek	: VV;
 self	: CN;
 sense	: N2;
 serve	: V2;
+social	: AP;
 social connection	: N;
 social group	: CN;
 something	: N;

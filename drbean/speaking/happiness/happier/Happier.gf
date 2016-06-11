@@ -27,6 +27,7 @@ fun
 	positive	: AP;
 	rich	: AP;
 	subjective	: AP;
+	social	: AP;
 
 -- Conj
 

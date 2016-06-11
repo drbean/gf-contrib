@@ -31,6 +31,7 @@ lin
 	positive	= mkAP( mkA "positive") ;
 	rich	= mkAP( mkA "rich") ;
 	subjective	= mkAP( mkA "subjective") ;
+	social	= mkAP( mkA "social") ;
 
 -- Conj
 
