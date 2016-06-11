@@ -59,7 +59,7 @@ lin
 	family	= mkN "family" nonExist;
 	feeling	= mkCN( mkN "feeling") ;
 	flow	= mkN "flow" nonExist;
-	framework	= mkN2( mkN "framework") in_prep;
+	framework	= mkN2( mkN "framework") for;
 	friend	= mkCN( mkN "friend") ;
 	achievement	= mkN "achievement" nonExist;
 	goal	= mkCN( mkN "goal") ;
