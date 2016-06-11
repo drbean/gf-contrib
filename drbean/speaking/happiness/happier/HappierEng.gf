@@ -27,7 +27,7 @@ lin
 	different	= mkAP( mkA "different") ;
 	happier	= mkAP( mkA "happier") ;
 	happy	= mkAP( mkA "happy") ;
-	important	= mkA2( mkA "important") about;
+	important	= mkA2( mkA "important") for;
 	other	= mkAP( mkA "other") ;
 	positive	= mkAP( mkA "positive") ;
 	rich	= mkAP( mkA "rich") ;
