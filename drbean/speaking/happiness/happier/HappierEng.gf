@@ -46,7 +46,7 @@ lin
 -- Det
 
 	just	= ss "just";
-	lots_of	= mkDet lots_of_Quant;
+	lots_of	= mkDet lots_of_Quant plNum;
 	many	= mkDet many_Quant plNum;
 	one	= mkDet( mkNumeral n1_Unit);
 	more_mass_Det = mkDet more_mass_Quant;
