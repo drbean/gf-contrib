@@ -116,7 +116,7 @@ dic_test = [
 	, "You can ask questions about engagement"
 	, "You are involved with something."
 	, "You participate in something."
-	, "You are active in your daily life at school  or work or play)."
+	, "You are active in your daily life at school  or work or play."
 	, "You can ask questions about relationships"
 	, "Your feelings about your friends , family or people you know"
 	, "You have lots of friends."

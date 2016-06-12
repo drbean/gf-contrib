@@ -56,7 +56,7 @@ lin
 	word_relationships	= mkCN( mkN "word , relationships") ;
 	community	= mkN "community" nonExist;
 	country	= mkCN( mkN "country") ;
-	daily_life	= mkN "daily life" nonExist;
+	daily_life	= mkN2( mkN "daily life" nonExist) at;
 	emotion	= mkN "emotion" nonExist;
 	engagement	= mkN2( mkN "engagement" nonExist) with_prep;
 	engagement_N	= mkN "engagement" nonExist;

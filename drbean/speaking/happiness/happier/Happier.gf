@@ -51,7 +51,7 @@ fun
 	achievement	: N2;
 	community	: N;
 	country	: CN;
-	daily_life	: N;
+	daily_life	: N2;
 	emotion	: N;
 	engagement	: N2;
 	engagement_N	: N;
