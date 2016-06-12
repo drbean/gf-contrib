@@ -192,6 +192,7 @@ involve	: V2;
 just	: Det;
 know	: CN;
 life	: N;
+life_N2	: N2;
 lots of	: Det;
 many	: Det;
 meaning	: N;

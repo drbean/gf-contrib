@@ -23,6 +23,7 @@ fun
 	different	: AP;
 	happier	: AP;
 	happy	: AP;
+	happy_with	: A2;
 	important	: A2;
 	other	: AP;
 	positive	: AP;
@@ -64,7 +65,8 @@ fun
 	ideology	: N;
 	intimacy	: N;
 	know	: CN;
-	life	: N;
+	life_N	: N;
+	life	: N2;
 	meaning	: N;
 	means	: CN;
 	meditation	: N;

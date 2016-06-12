@@ -28,6 +28,7 @@ lin
 	different	= mkAP( mkA "different") ;
 	happier	= mkAP( mkA "happier") ;
 	happy	= mkAP( mkA "happy") ;
+	happy_with	= mkA2( mkA "happy") with_prep;
 	important	= mkA2( mkA "important") for;
 	other	= mkAP( mkA "other") ;
 	positive	= mkAP( mkA "positive") ;
@@ -69,7 +70,8 @@ lin
 	ideology	= mkN "ideology";
 	intimacy	= mkN "intimacy" nonExist;
 	know	= mkCN( mkN "know") ;
-	life	= mkN "life" nonExist;
+	life_N	= mkN "life" nonExist;
+	life	= mkN2( mkN "life") as;
 	meaning	= mkN "meaning" nonExist;
 	means	= mkCN( mkN nonExist "means") ;
 	meditation	= mkN "meditation" nonExist;
