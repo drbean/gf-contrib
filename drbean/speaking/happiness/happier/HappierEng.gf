@@ -65,7 +65,7 @@ lin
 	flow_state	= mkCN( mkN "flow state") ;
 	framework	= mkN2( mkN "framework") for;
 	friend	= mkCN( mkN "friend") ;
-	achievement	= mkN2( mkN "achievement" nonExist);
+	achievement	= mkN2( mkN "achievement");
 	goal	= mkCN( mkN "goal") ;
 	happiness	= mkN "happiness" nonExist;
 	ideology	= mkCN( mkN "ideology");
