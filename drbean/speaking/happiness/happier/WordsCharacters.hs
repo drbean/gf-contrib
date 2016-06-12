@@ -181,6 +181,8 @@ goal	: CN;
 happier	: AP;
 happiness	: N;
 happy	: AP;
+happy_with	: A2;
+v
 have	: V2;
 ideology	: N;
 important	: A2;
@@ -188,7 +190,7 @@ improve	: V2;
 in	: Prep;
 in the way of	: Prep;
 intimacy	: N;
-involve	: V2;
+involved	: A2;
 just	: Det;
 know	: CN;
 life	: N;

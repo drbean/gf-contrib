@@ -23,6 +23,7 @@ lin
 
 -- AP
 
+	involved	= mkA2( mkA "involved") with_prep;
 	active	= mkA2( mkA "active") in_prep;
 	big	= mkAP( mkA "big") ;
 	different	= mkAP( mkA "different") ;
@@ -144,7 +145,6 @@ lin
 	improve	= mkV2( mkV "improve") noPrep;
 
 	improve	= mkV2( mkV "improve") noPrep;
-	involve	= mkV2( mkV "involve") with_prep;
 	mean	= mkV2( mkV "mean") ;
 	measure	= mkV2( mkV "measure") through;
 	participate	= mkV2( mkV "participate") in_prep;

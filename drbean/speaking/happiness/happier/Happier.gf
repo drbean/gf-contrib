@@ -25,6 +25,7 @@ fun
 	happy	: AP;
 	happy_with	: A2;
 	important	: A2;
+	involved	: A2;
 	other	: AP;
 	positive	: AP;
 	rich	: AP;
@@ -139,8 +140,6 @@ fun
 	improve	: V2;
 
 	improve	: V2;
-	involve	: V2;
-	involve	: V2;
 	mean	: V2;
 	measure	: V2;
 	participate	: V2;
