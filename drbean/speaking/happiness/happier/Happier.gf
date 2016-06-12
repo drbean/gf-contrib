@@ -56,7 +56,7 @@ fun
 	engagement	: N2;
 	engagement_N	: N;
 	family	: N;
-	feeling	: CN;
+	feeling	: N2;
 	flow_state	: CN;
 	framework	: N2;
 	friend	: CN;
