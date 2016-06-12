@@ -79,6 +79,7 @@ fun
 	presence	: N2;
 	question	: N2;
 	relationship	: N2;
+	word_relationships	: CN;
 	religion	: N;
 	school	: N;
 	self	: CN;

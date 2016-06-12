@@ -51,6 +51,7 @@ lin
 
 -- N
 
+	word_relationships	= mkCN( mkN "word , relationships") ;
 	community	= mkN "community" nonExist;
 	country	= mkCN( mkN "country") ;
 	daily_life	= mkN "daily life" nonExist;

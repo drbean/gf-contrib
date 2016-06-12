@@ -106,7 +106,7 @@ dic_test = [
 	, "Engagement can only be measured through subjective means."
 	, "Engagement is the presence of a flow state."
 	, "A flow state is a state of mind where you forget about self and concentrate on just one thing."
-	, "Relationships means the presence of friends , family , intimacy or social connection."
+	, "The word , relationships means the presence of friends , family , intimacy or social connection."
 	, "Meaning is belonging to and serving something bigger than one's self."
 	, "Achievement is accomplishment of goals that are pursued even when they bring no positive emotion, have no meaning, and achieve nothing in the way of positive relationships."
 	, "You can ask questions about positive emotion."

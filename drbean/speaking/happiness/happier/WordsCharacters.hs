@@ -226,6 +226,7 @@ presence	: N2;
 pursue	: V2;
 question	: N2;
 relationship	: N2;
+word_relationships	: CN;
 religion	: N;
 rich	: AP;
 school	: N;
