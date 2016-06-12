@@ -134,8 +134,8 @@ lin
 	bring	= mkV2( mkV "bring") noPrep;
 	concentrate	= mkV2( mkV "concentrate") on;
 	emphasize	= mkV2( mkV "emphasize") noPrep;
-	feel_a	= mkVA( mkV "feel_A") ;
-	feel_n	= mkV2( mkV "feel_N") noPrep;
+	feel_a	= mkVA( mkV "feel") ;
+	feel_n	= mkV2( mkV "feel") noPrep;
 	forget	= mkV2( mkV "forget") about;
 	achieve	= mkV2( mkV "achieve") in_prep;
 	give	= mkV3( mkV "give") noPrep noPrep;
