@@ -68,7 +68,7 @@ lin
 	achievement	= mkN2( mkN "achievement" nonExist);
 	goal	= mkCN( mkN "goal") ;
 	happiness	= mkN "happiness" nonExist;
-	ideology	= mkN "ideology";
+	ideology	= mkCN( mkN "ideology");
 	intimacy	= mkN "intimacy" nonExist;
 	know	= mkCN( mkN "know") ;
 	life_N	= mkN "life" nonExist;
@@ -81,13 +81,13 @@ lin
 	nothing_N	= mkN "nothing" nonExist;
 	one_np	= mkN "one_NP" nonExist;
 	person_with	= mkN2( mkN "person" "people") with_prep;
-	philosophy	= mkN "philosophy" nonExist;
+	philosophy	= mkCN( mkN "philosophy");
 	physical_exercise	= mkN "physical exercise" nonExist;
 	play	= mkN "play" nonExist;
 	presence	= mkN2( mkN "presence") of_prep;
 	question	= mkN2( mkN "question") about;
 	relationship	= mkN2( mkN "relationship") with_prep;
-	religion	= mkN "religion" nonExist;
+	religion	= mkCN( mkN "religion");
 	school	= mkN "school" nonExist;
 	self	= mkCN( mkN "self") ;
 	sense_of_achievement	= mkCN( mkN "sense of achievement" nonExist) ;
@@ -132,7 +132,7 @@ lin
 
 	ask	= mkV2( mkV "ask") noPrep;
 	assess	= mkV2( mkV "assess") noPrep;
-	believe	= mkV2( mkV "believe") noPrep;
+	believe	= mkV2( mkV "believe") in_prep;
 	belong	= mkV2( mkV "belong") to;
 	bring	= mkV2( mkV "bring") noPrep;
 	concentrate	= mkV2( mkV "concentrate") on;

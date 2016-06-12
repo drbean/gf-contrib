@@ -121,7 +121,7 @@ dic_test = [
 	, "Your feelings about your friends , family or people you know"
 	, "You have lots of friends."
 	, "You can ask questions about the meaning of life."
-	, "You believe in a religion , philosophy or ideology."
+	, "You believe in a religion , a philosophy or an ideology."
 	, "You seek to serve your country , community or social group."
 	, "You can ask questions about achievements"
 	, "You feel a sense of achievement often , sometimes or never."

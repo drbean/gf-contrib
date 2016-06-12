@@ -63,7 +63,7 @@ fun
 
 	goal	: CN;
 	happiness	: N;
-	ideology	: N;
+	ideology	: CN;
 	intimacy	: N;
 	know	: CN;
 	life_N	: N;
@@ -76,14 +76,14 @@ fun
 	nothing_N	: N;
 	one_np	: N;
 	person_with	: N2;
-	philosophy	: N;
+	philosophy	: CN;
 	physical_exercise	: N;
 	play	: N;
 	presence	: N2;
 	question	: N2;
 	relationship	: N2;
 	word_relationships	: CN;
-	religion	: N;
+	religion	: CN;
 	school	: N;
 	self	: CN;
 	sense_of_achievement	: CN;
