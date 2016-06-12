@@ -9,7 +9,7 @@ fun
 
 	also	: AdV;
 	never	: Adv;
-	now	: Adv;
+	now	: Adv_time;
 	often	: Adv;
 	only	: AdV;
 	sometimes	: Adv;
