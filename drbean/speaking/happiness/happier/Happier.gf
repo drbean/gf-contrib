@@ -68,7 +68,7 @@ fun
 	know	: CN;
 	life_N	: N;
 	life	: N2;
-	meaning	: N;
+	meaning	: N2;
 	means	: CN;
 	meditation	: N;
 	money	: N;

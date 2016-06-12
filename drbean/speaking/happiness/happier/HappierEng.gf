@@ -73,7 +73,7 @@ lin
 	know	= mkCN( mkN "know") ;
 	life_N	= mkN "life" nonExist;
 	life	= mkN2( mkN "life") as;
-	meaning	= mkN "meaning" nonExist;
+	meaning	= mkN2( mkN "meaning" nonExist);
 	means	= mkCN( mkN nonExist "means") ;
 	meditation	= mkN "meditation" nonExist;
 	money	= mkN "money" nonExist;
