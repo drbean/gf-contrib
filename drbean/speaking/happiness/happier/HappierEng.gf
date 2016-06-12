@@ -59,7 +59,7 @@ lin
 	engagement_N	= mkN "engagement" nonExist;
 	family	= mkN "family" nonExist;
 	feeling	= mkCN( mkN "feeling") ;
-	flow	= mkN "flow" nonExist;
+	flow_state	= mkCN( mkN "flow state") ;
 	framework	= mkN2( mkN "framework") for;
 	friend	= mkCN( mkN "friend") ;
 	achievement	= mkN2( mkN "achievement" nonExist);

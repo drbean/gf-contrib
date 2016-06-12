@@ -171,7 +171,7 @@ family	: N;
 feel_A	: VA;
 feel_N	: V2;
 feeling	: CN;
-flow	: N;
+flow state	: CN;
 for	: Prep;
 forget	: V2;
 framework	: N2;
