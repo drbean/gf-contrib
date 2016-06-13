@@ -41,7 +41,8 @@ cat2funs cat = do
 	gr' <- gr
 	let fs = functionsByCat gr' (mkCId cat)
 	let ws = filter (isLower . head . showCId) fs
-	putStrLn (unwords (map showCId ws))
+	let is = map (reverse . dropWhile (\x ->  (==) x '_' || isUpper x) . reverse .showCId ) ws
+	putStrLn (unwords is)
 
 catByPOS :: String -> IO ()
 catByPOS  pos = do
