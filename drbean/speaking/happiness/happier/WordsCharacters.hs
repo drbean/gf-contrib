@@ -11,10 +11,12 @@ import System.Environment.FindBin
 gr = readPGF "/home/drbean/GF/gf-contrib/drbean/speaking/happiness/happier/Happier.pgf"
 
 cat2funs :: String -> IO [CId]
-cat2funs cat = 
-	gr >>= \gr' ->
-		return (functionsByCat gr' (mkCId cat)) >>= \l ->
-			return ( filter ( isLower . head . showCId ) l)
+cat2funs cat = do
+	gr' <- gr
+	let fs = functionsByCat gr' (mkCId cat)
+	let ws = filter (isLower . head . showCId) fs
+	let is = map (reverse . dropWhile (\x ->  (==) x '_' || isUpper x) . reverse .showCId ) ws
+	return (map mkCId is )
 
 gfWords :: [(String, IO [CId])]
 gfWords = [
@@ -29,7 +31,7 @@ gfWords = [
 	-- , ("Pron",pron)
 	, ("Prep",prep)
 	-- , ("Rel",rel)
-	-- , ("Tag",tag)
+	, ("Tag",tag)
 	, ("V",v)
 	, ("V2",v2)
 	, ("V3",v3)
@@ -74,6 +76,7 @@ v3	= cat2funs "V3"
 vv	= cat2funs "VV"
 vs	= cat2funs "VS"
 v2a	= cat2funs "V2A"
+tag = return ( map mkCId tags )
 
 
 
@@ -119,7 +122,7 @@ rel = [
 
 	]
 
-tag = [
+tags = [
 	"doesn't he"
 	, "doesn't she"
 	, "doesn't it"
