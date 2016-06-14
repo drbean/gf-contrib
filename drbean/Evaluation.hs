@@ -151,10 +151,10 @@ answer	(GQUt (GPosQ (GTagComp np comp))) =
 answer	(GQUt (GNegQ (GTagComp np comp))) = 
 	answer	(GQUt (GNegQ (GYN (GSentence np (GBe_vp comp)))))
 answer	utt@(GQUt _) = case (evalW . drsToLF) (((unmaybe . repS) utt) (DRSRef "r1")) of
-	(Just []) -> Just (GAnswer Gno_pl_NP)
+	(Just []) -> Just (GAnswer Gno_PL_NP)
 	(Just [x]) -> Just (GAnswer (GEntity (ent2gent x)))
-	(Just [x,y]) -> Just (GAnswer (GCloseList Gor_Conj (GList (GEntity (ent2gent x)) (GEntity (ent2gent y)))))
-	(Just [x,y,z]) -> Just (GAnswer (GCloseList Gor_Conj (GAddList (GEntity (ent2gent x)) (GList (GEntity (ent2gent y)) (GEntity (ent2gent z))))))
+	(Just [x,y]) -> Just (GAnswer (GCloseList Gor_CONJ (GList (GEntity (ent2gent x)) (GEntity (ent2gent y)))))
+	(Just [x,y,z]) -> Just (GAnswer (GCloseList Gor_CONJ (GAddList (GEntity (ent2gent x)) (GList (GEntity (ent2gent y)) (GEntity (ent2gent z))))))
 	(Just [x,y,z,w]) -> Nothing
 	otherwise	-> Nothing
 
