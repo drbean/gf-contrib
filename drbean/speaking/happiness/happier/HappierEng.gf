@@ -84,7 +84,7 @@ lin
 	philosophy	= mkCN( mkN "philosophy");
 	physical_exercise	= mkN "physical exercise" nonExist;
 	play	= mkN "play" nonExist;
-	presence	= mkN2( mkN "presence") of_prep;
+	presence	= mkN2( mkN "presence") of_PREP;
 	question	= mkN2( mkN "question") about;
 	relationship	= mkN2( mkN "relationship") with_prep;
 	religion	= mkCN( mkN "religion");
