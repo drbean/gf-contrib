@@ -3,6 +3,7 @@ concrete MyConcrete of MyAbstract = CatEng ** open ResEng, Prelude, SyntaxEng, (
 lincat
 	ListNP	= ListNP;
 	ListAP	= ListAP;
+	ListAdv	= ListAdv;
 	NounCl = {s : ResEng.Tense => Anteriority => CPolarity => Order => Str; c : NPCase };
 	Time	= Adv;
 	TimeName	= CN;
@@ -457,6 +458,9 @@ lin
 	APList np1 np2 = mkListAP np1 np2;
 	AddAP ap list = mkListAP ap list;
 	CloseAP conj list = mkAP conj list;
+	AdvList np1 np2 = mkListAdv np1 np2;
+	AddAdv ap list = mkListAdv ap list;
+	CloseAdv conj list = mkAdv conj list;
 	ConcatS	conj s1 s2 = mkS conj s1 s2;
 	PreConjUtt conj utt = mkPhr (mkPConj conj) utt;
 

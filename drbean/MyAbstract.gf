@@ -199,6 +199,9 @@ fun
 	APList : AP -> AP -> ListAP;
 	AddAP : AP -> ListAP -> ListAP;
 	CloseAP	: Conj -> ListAP -> AP;
+	AdvList : Adv -> Adv -> ListAdv;
+	AddAdv : Adv -> ListAdv -> ListAdv;
+	CloseAdv	: Conj -> ListAdv -> Adv;
 	ConcatS	: Conj -> S -> S -> S;
 	PreConjUtt	: Conj -> Utt -> Utt;
 
