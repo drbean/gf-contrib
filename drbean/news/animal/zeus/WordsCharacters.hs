@@ -182,7 +182,7 @@ often	: Adv;
 old	: AP;
 on	: Prep;
 only	: Det;
-pass_away	: V;
+pass away	: V;
 people	: CN;
 poodle	: CN;
 quicker	: Adv;
