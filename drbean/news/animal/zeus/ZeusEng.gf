@@ -15,6 +15,7 @@ lin
 	at_the_shoulder	= mkAdv "at the shoulder";
 	usually	= mkAdv "usually";
 	younger	= mkAdv "younger";
+	seven_feet_four_inches  = mkAdv "seven feet four inches";
 
 -- AP
 

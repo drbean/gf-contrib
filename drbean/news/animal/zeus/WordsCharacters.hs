@@ -191,6 +191,7 @@ recently	: Adv;
 record	: N2;
 sConjchool	: CN;
 seven	: Det;
+seven feet four inches	: Adv;
 at_the_shoulder	: Adv;
 sixth	: AP;
 smaller	: AP;

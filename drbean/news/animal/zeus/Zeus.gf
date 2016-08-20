@@ -13,6 +13,7 @@ fun
 	at_the_shoulder	: Adv;
 	usually	: Adv;
 	younger	: Adv;
+	seven_feet_four_inches  : AdA;
 
 -- AP
 
