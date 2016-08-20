@@ -45,7 +45,7 @@ lin
 -- N
 
 	twenty_twelve	= mkN "2012" nonExist;
-	age	= mkCN( mkN "age") ;
+	age	= mkN "age" nonExist;
 	birthday	= mkCN( mkN "birthday") ;
 	cause	= mkN2( mkN "cause") of_PREP;
 	death	= mkN "death" nonExist;

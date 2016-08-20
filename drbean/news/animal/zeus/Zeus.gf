@@ -43,7 +43,7 @@ fun
 -- N
 
 	twenty_twelve	: N;
-	age	: CN;
+	age	: N;
 	birthday	: CN;
 	cause	: N2;
 	death	: N;
