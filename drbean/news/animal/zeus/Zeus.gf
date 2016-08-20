@@ -9,7 +9,7 @@ fun
 
 	often	: Adv;
 	quicker	: Adv;
-	recently	: Adv;
+	recently	: AdV;
 	at_the_shoulder	: Adv;
 	usually	: Adv;
 	younger	: Adv;
