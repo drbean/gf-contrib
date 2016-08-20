@@ -163,7 +163,7 @@ fun
 	Membership : Det -> CN -> Adv_location -> Cl;
 	CompoundCN	: CN -> CN -> CN;
 	Item	: Det -> CN -> NP;
-	MassItem	: MassDet -> N	-> NP;
+	MassItem	: MassDet -> N -> NP;
 	Titular	: Title -> NP;
 	PredetItem	: Predet -> NP -> NP;
 	Ofpos	: N2 -> NP -> CN;
