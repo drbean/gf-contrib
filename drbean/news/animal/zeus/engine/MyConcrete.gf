@@ -426,7 +426,7 @@ lin
 	MassItem udet ucn	= mkNP udet ucn;
 	Titular cn = mkNP cn;
 	PredetItem predet np	= mkNP predet np;
-	ApposNP np1 np2 = myApposNP np1 "for example" np2;
+	ApposNP np1 np2 = myApposNP np1 "," np2;
 	NPPostPredet np predet = myNPPostPredet np predet;
 
 	a_DET	= a_Det;
