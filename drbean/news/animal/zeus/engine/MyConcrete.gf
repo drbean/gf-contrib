@@ -429,7 +429,7 @@ lin
 	ApposNP np1 np2 = myApposNP np1 "for example" np2;
 	NPPostPredet np predet = myNPPostPredet np predet;
 
-	a_Det	= a_Det;
+	a_DET	= a_Det;
 	zero_Det_pl	= aPl_Det;
 	zero_Det_sg	= mkDet zero_mass_Quant singularNum;
 	the_MASS_DET	= theSg_Det;
