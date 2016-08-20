@@ -1,9 +1,9 @@
-module Representation (module Representation, module Communication) where
+module Representation (module Representation, module Zeus) where
 
 import Data.DRS
 import Data.DRS.Show
 
-import Communication
+import Zeus
 import PGF
 
 import Model
