@@ -67,8 +67,8 @@ lin
 
 -- PN
 
-	the_guiness_book_of_world_records	= mkPN( mkN feminine (mkN "the_Guiness_Book_of_World_Records") );
-	the_smithsonian	= mkPN( mkN feminine (mkN "the_Smithsonian") );
+	the_guiness_book_of_world_records	= mkPN( mkN feminine (mkN "the Guiness Book of World Records") );
+	the_smithsonian	= mkPN( mkN feminine (mkN "the Smithsonian") );
 	zeus	= mkPN( mkN feminine (mkN "Zeus") );
 
 -- Prep
