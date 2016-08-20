@@ -50,7 +50,7 @@ lin
 	death	= mkN "death" nonExist;
 	dog	= mkCN( mkN "dog") ;
 	feet	= mkCN( mkN "foot" "feet") ;
-	great_dane	= mkCN( mkN "Great_Dane") ;
+	great_dane	= mkCN( mkN "Great Dane") ;
 	hospital	= mkCN( mkN "hospital") ;
 	inch	= mkCN( mkN "inch") ;
 	leg	= mkCN( mkN "leg") ;
@@ -72,7 +72,7 @@ lin
 
 -- Prep
 
-	according_to	= mkPrep "according_to";
+	according_to	= mkPrep "according to";
 	around	= mkPrep "around";
 	as	= mkPrep "as";
 	at	= mkPrep "at";

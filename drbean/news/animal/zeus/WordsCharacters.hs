@@ -141,7 +141,7 @@ v = [
 2012	: N;
 44	: Det;
 a
-according_to	: Prep;
+according to	: Prep;
 age	: CN;
 amazing	: AP;
 and	: Conj;
@@ -162,6 +162,7 @@ feet	: PN;
 for	: Prep;
 four	: Det;
 get_into	: V;
+Great Dane	: CN;
 Great_Dane	: CN;
 the_Guiness_Book_of_World_Records	: PN;
 he	: Pron;
