@@ -2,22 +2,23 @@ module Tests where
 
 import Control.Monad
 import Data.Maybe
+import Data.Char
+import Data.List
 
 import Data.DRS
 
 import PGF
-import Dog
+import Zeus
 import Representation
 import Evaluation
 import Model
-import WordsCharacters
 
 -- handler gr core tests = putStr $ unlines $ map (\(x,y) -> x++show y) $ zip (map (++"\t") tests ) ( map (\string -> map (\x -> core ( x) ) (parse gr (mkCId "DicksonEng") (startCat gr) string)) tests )
 
 -- import System.Environment.FindBin
 
 gr :: IO PGF
-gr = readPGF "./Dog.pgf"
+gr = readPGF "./Zeus.pgf"
 
 langs :: IO [Language]
 langs = liftM languages gr
@@ -35,26 +36,43 @@ miss :: [String] -> IO [String]
 miss ws =
 	liftOp morphoMissing morpho ws
 
-ans tests = do
-  gr	<- readPGF "./Dog.pgf"
+cat2funs :: String -> IO ()
+cat2funs cat = do
+	gr' <- gr
+	let fs = functionsByCat gr' (mkCId cat)
+	let ws = filter (isLower . head . showCId) fs
+	let is = map (reverse . dropWhile (\x ->  (==) x '_' || isUpper x) . reverse .showCId ) ws
+	putStrLn (unwords is)
+
+catByPOS :: String -> IO ()
+catByPOS  pos = do
+	gr' <- gr
+	let allCats = categories gr'
+	let cats = filter (isPrefixOf pos . showCId) allCats
+	putStrLn (unwords (map showCId cats))
+
+trans = id
+
+run f tests = do
+  gr	<- readPGF "./Zeus.pgf"
   let ss = map (chomp . lc_first) tests
   let ps = map ( parses gr ) ss
-  let ls = map (map ( (linear gr) <=< transform ) ) ps
-  let zs = zip (map (++"\t") tests) ls
+  let ts = map f ps
+  let zs = zip (map (++"\t") tests) (map (map (showExpr []) ) ts)
+  putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
+
+ans tests = do
+  gr	<- readPGF "./Zeus.pgf"
+  let ss = map (chomp . lc_first) tests
+  let ps = map ( parses gr ) ss
+  let ts = map (map ( (linear gr) <=< transform ) ) ps
+  let zs = zip (map (++"\t") tests) ts
   putStrLn (unlines (map (\(x,y) -> x ++ (show $ unwords (map displayResult y))) zs) )
 
 displayResult = fromMaybe "Nothing"
 
-trans tests = do
-  gr	<- readPGF "./Dog.pgf"
-  let ss = map (chomp . lc_first) tests
-  let ps = map ( parses gr ) ss
-  let ls = map id ps
-  let zs = zip (map (++"\t") tests) (map (map (showExpr []) ) ps)
-  putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
-
 reps tests = do
-  gr	<- readPGF "./Dog.pgf"
+  gr	<- readPGF "./Zeus.pgf"
   let ss = map (chomp . lc_first) tests
   let ps = map ( parses gr ) ss
   let ts = map (map (\x -> (((unmaybe . rep) x) (term2ref drsRefs var_e) ))) ps
@@ -62,7 +80,7 @@ reps tests = do
   putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
 
 lf tests = do
-	gr	<- readPGF "./Dog.pgf"
+	gr	<- readPGF "./Zeus.pgf"
 	let ss = map (chomp . lc_first) tests
 	let ps = map ( parses gr ) ss
 	let ts = map (map (\p -> drsToLF (((unmaybe . rep) p) (DRSRef "r1"))) ) ps
@@ -70,7 +88,7 @@ lf tests = do
 	putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
 
 fol tests = do
-	gr	<- readPGF "./Dog.pgf"
+	gr	<- readPGF "./Zeus.pgf"
 	let ss = map (chomp . lc_first) tests
 	let ps = map ( parses gr ) ss
 	let ts = map (map (\p -> drsToFOL ( (unmaybe . rep) p (term2ref drsRefs var_e) ) ) ) ps
