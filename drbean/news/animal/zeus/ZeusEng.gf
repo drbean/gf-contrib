@@ -98,7 +98,7 @@ lin
 	hold	= mkV2( mkV "hold") noPrep;
 	love	= mkV2( mkV "love") noPrep;
 	miss	= mkV2( mkV "miss") noPrep;
-	pass_away	= partV( mkV "pass_away") "";
+	pass_away	= partV( mkV "pass") "away";
 	visit	= mkV2( mkV "visit") noPrep;
 
 }
