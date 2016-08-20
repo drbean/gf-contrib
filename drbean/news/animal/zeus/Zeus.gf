@@ -71,7 +71,7 @@ fun
 
 -- Prep
 
-	according_to	: Prep;
+	according_to	: SourcePrep;
 	around	: Prep;
 	as	: Prep;
 	at	: Prep;
