@@ -8,7 +8,7 @@ fun
 -- Adv
 
 	often	: Adv;
-	quicker	: Adv;
+	quicker	: Adv_manner;
 	recently	: AdV;
 	at_the_shoulder	: Adv;
 	usually	: Adv;
@@ -91,6 +91,7 @@ fun
 
 -- V
 
+	age_V	: V;
 	average	: V2;
 	die	: VA;
 	get_into	: V;

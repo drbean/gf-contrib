@@ -93,6 +93,7 @@ lin
 
 -- V
 
+	age_V	= mkV "age";
 	average	= mkV2( mkV "average") around;
 	die	= mkVA( mkV "die") ;
 	get_into	= partV( mkV "get_into") "";

@@ -143,6 +143,7 @@ v = [
 a
 according to	: Prep;
 age	: CN;
+age_V	: V;
 amazing	: AP;
 and	: Conj;
 around	: Prep;
