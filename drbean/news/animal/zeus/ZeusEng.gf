@@ -89,8 +89,6 @@ lin
 
 -- Subj
 
-	because	= mkSubj "because";
-
 -- V
 
 	age_V	= mkV "age";

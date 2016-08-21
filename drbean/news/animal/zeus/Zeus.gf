@@ -87,8 +87,6 @@ fun
 
 -- Subj
 
-	because	: Subj;
-
 -- V
 
 	age_V	: V;

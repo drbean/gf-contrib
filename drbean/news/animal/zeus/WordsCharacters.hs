@@ -150,7 +150,6 @@ around	: Prep;
 as	: Prep;
 at	: Prep;
 average	: V2;
-because	: Subj;
 before	: Prep;
 big	: AP;
 birthday	: CN;
