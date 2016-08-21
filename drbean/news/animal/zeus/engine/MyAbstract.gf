@@ -4,10 +4,6 @@ abstract MyAbstract = Cat, Conjunction ** {
 	flags startcat = Utt ;
 
 cat
-	Time;
-	Times;
-	TimeName;
-	Period;
 	Title;
 	Place;
 	PlaceNoun;
@@ -47,8 +43,6 @@ fun
 	Locating  : LocPrep -> Place -> Adv_location;
 	Location	: Det -> PlaceNoun -> Place;
 	NamedPlace	: PN -> Place;
-	FreqAdv	: NP -> Period -> Time;
-	PeriodAdv	: Times -> Period;
 	Coagency	: CoagentPrep -> NP -> Adv_coagent;
 	Instrumenting	: InstrumentPrep -> NP -> Adv_instrument;
 	Themeing	: ThemePrep -> NP -> Adv_theme;
@@ -110,7 +104,6 @@ fun
 	AdV_VP	: AdV -> VP -> VP;
 	AdV_VPSlash	: AdV -> VPSlash -> VPSlash;
 	WithPlace	:  V -> Adv_location -> VP;
-	WithTime	: Time -> VP -> VP;
 	VP_Adv_coagent	: VP -> Adv_coagent -> VP;
 	VP_Adv_instrument	: VP -> Adv_instrument -> VP;
 	VP_Adv_theme	: VP -> Adv_theme -> VP;

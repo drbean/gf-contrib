@@ -5,10 +5,6 @@ lincat
 	ListAP	= ListAP;
 	ListAdv	= ListAdv;
 	NounCl = {s : ResEng.Tense => Anteriority => CPolarity => Order => Str; c : NPCase };
-	Time	= Adv;
-	TimeName	= CN;
-	Times	= NP;
-	Period	= Adv;
 	SubordCl	= Adv;
 	Title	= CN;
 	Place	= NP;
@@ -37,7 +33,7 @@ lincat
 
 param
   Auxiliary	= Do | Be | Should;
-	-- VPs = Look_bad | Be_bad | Be_vp | Happening | Changing | Causative | Intens | Positing | Informing | Triangulating | Pred2A | Pass | ToPlace | WithPlace | WithTime | WithStyle | WithCl ;
+	-- VPs = Look_bad | Be_bad | Be_vp | Happening | Changing | Causative | Intens | Positing | Informing | Triangulating | Pred2A | Pass | ToPlace | WithPlace | WithStyle | WithCl ;
 
 
 oper
@@ -371,7 +367,6 @@ lin
   WithPlace v located	= mkVP (mkVP v) located;
   AdvVP adv vp	= mkVP adv vp;
 	VPAdv vp adv = mkVP vp adv;
-  WithTime action time	= mkVP action time;
   VP_Adv_coagent v pp	= mkVP v pp;
 	VP_Adv_instrument vp pp = mkVP vp pp;
 	VP_Adv_theme vp pp = mkVP vp pp;
