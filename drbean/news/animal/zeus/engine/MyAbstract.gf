@@ -126,6 +126,7 @@ fun
 	ThemePre	: Adv_theme -> S -> S;
 	PatientPre	: Adv_patient -> S -> S;
 	SourcePre	: Adv_source -> S -> S;
+	TimePre	: Adv_time -> S -> S;
 
 	ICompS	: IComp -> NP -> QS;
 	YN	: Cl -> QCl;
