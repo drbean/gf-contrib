@@ -77,7 +77,7 @@ fun
 
 	into	: Prep;
 	according_to	: SourcePrep;
-	as	: Prep;
+	as	: MannerPrep;
 	at	: Prep;
 	before	: Prep;
 	for	: ThemePrep;
