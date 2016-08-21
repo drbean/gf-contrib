@@ -416,6 +416,7 @@ lin
 	Kind ap cn	= mkCN ap cn;
 	MassKind ap n = mymkAP_N ap n;
   KindOfKind cn adv	= mkCN cn adv;
+  KindInTime cn adv	= mkCN cn adv;
 	KindInPlace cn adv	= mkCN cn adv;
 	NPInPlace np adv = mkNP np adv;
 	PlaceKind ap n = mkCN ap n;

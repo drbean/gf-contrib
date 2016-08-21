@@ -159,6 +159,7 @@ fun
 	Kind	: AP -> CN -> CN;
 	MassKind	: AP -> N -> N;
 	KindOfKind  : CN -> Adv -> CN;
+	KindInTime  : CN -> Adv_time -> CN;
 	KindInPlace	: CN -> Adv_location -> CN;
 	NPInPlace	: NP -> Adv_location -> NP;
 	PlaceKind	: AP -> PlaceNoun -> PlaceNoun;
