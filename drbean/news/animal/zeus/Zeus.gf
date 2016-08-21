@@ -79,7 +79,7 @@ fun
 	before	: Prep;
 	for	: ThemePrep;
 	in_PREP	: Prep;
-	like	: Prep;
+	like	: MannerPrep;
 	on	: Prep;
 	than	: Prep;
 
