@@ -11,7 +11,7 @@ fun
 	quicker	: Adv_manner;
 	recently	: AdV;
 	at_the_shoulder	: Adv;
-	usually	: Adv;
+	usually	: AdV;
 	seven_feet_four_inches  : AdA;
 
 -- AP
