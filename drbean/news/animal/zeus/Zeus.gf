@@ -17,6 +17,7 @@ fun
 -- AP
 
 	younger		: AP;
+	quick		: A;
 	amazing	: AP;
 	big	: AP;
 	hind	: AP;
@@ -89,7 +90,7 @@ fun
 
 -- V
 
-	age_V	: V;
+	age_v	: VA;
 	average	: V2;
 	die	: VA;
 	get_into	: V;

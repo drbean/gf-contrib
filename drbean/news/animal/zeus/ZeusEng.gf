@@ -19,6 +19,7 @@ lin
 -- AP
 
 	younger		= mkAP( mkA "younger") ;
+	quick		= mkA "quick";
 	amazing	= mkAP( mkA "amazing") ;
 	big	= mkAP( mkA "big") ;
 	hind	= mkAP( mkA "hind") ;
@@ -91,7 +92,7 @@ lin
 
 -- V
 
-	age_V	= mkV "age";
+	age_v	= mkVA( mkV "age") ;
 	average	= mkV2( mkV "average") around;
 	die	= mkVA( mkV "die") ;
 	get_into	= partV( mkV "get_into") "";
