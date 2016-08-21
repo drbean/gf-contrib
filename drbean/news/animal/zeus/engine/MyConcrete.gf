@@ -302,8 +302,6 @@ lin
   Locating prep item	= mkAdv prep item;
 	Location det placename = mkNP det placename;
 	NamedPlace pn	= mkNP pn;
-	FreqAdv times period	= mkAdv P.noPrep (mkNP times period);
-	PeriodAdv times	= mkAdv P.noPrep times;
 	Coagency prep coagent	= mkAdv prep coagent;
 	Instrumenting prep instrument = mkAdv prep instrument;
 	Themeing prep instrument = mkAdv prep instrument;
