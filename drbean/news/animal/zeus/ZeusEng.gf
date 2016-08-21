@@ -56,13 +56,13 @@ lin
 	hospital	= mkCN( mkN "hospital") ;
 	inch	= mkCN( mkN "inch") ;
 	leg	= mkCN( mkN "leg") ;
-	life_span	= mkN2( mkN "life_span") for;
+	life_span	= mkN2( mkN "life span") for;
 	month	= mkCN( mkN "month") ;
 	people	= mkCN( mkN "people") ;
 	poodle	= mkCN( mkN "poodle") ;
 	record	= mkN2( mkN "record") for;
 	school	= mkCN( mkN "school") ;
-	therapy_dog	= mkCN( mkN "therapy_dog") ;
+	therapy_dog	= mkCN( mkN "therapy dog") ;
 	world	= mkCN( mkN "world") ;
 	year	= mkCN( mkN "year") ;
 
@@ -95,7 +95,7 @@ lin
 	age_v	= mkVA( mkV "age") ;
 	average	= mkV2( mkV "average") around;
 	die	= mkVA( mkV "die") ;
-	get_into	= partV( mkV "get_into") "";
+	get_into	= partV( mkV "get into") "";
 	hold	= mkV2( mkV "hold") noPrep;
 	love	= mkV2( mkV "love") noPrep;
 	miss	= mkV2( mkV "miss") noPrep;
