@@ -57,7 +57,7 @@ fun
 	inch	: CN;
 	leg	: CN;
 	life_span	: N2;
-	month	: CN;
+	month	: Time;
 	people	: CN;
 	poodle	: CN;
 	record	: N2;

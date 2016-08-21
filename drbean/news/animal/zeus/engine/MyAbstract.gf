@@ -4,6 +4,7 @@ abstract MyAbstract = Cat, Conjunction ** {
 	flags startcat = Utt ;
 
 cat
+	Time;
 	Title;
 	Place;
 	PlaceNoun;
@@ -153,6 +154,8 @@ fun
 	MassKind	: AP -> N -> N;
 	KindOfKind  : CN -> Adv -> CN;
 	KindInTime  : CN -> Adv_time -> CN;
+	TimeInTime  : Time -> Adv_time -> Time;
+	TimeAsAdv	: Det -> Time -> Adv_time;
 	KindInPlace	: CN -> Adv_location -> CN;
 	NPInPlace	: NP -> Adv_location -> NP;
 	PlaceKind	: AP -> PlaceNoun -> PlaceNoun;

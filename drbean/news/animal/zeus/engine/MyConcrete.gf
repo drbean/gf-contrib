@@ -6,6 +6,7 @@ lincat
 	ListAdv	= ListAdv;
 	NounCl = {s : ResEng.Tense => Anteriority => CPolarity => Order => Str; c : NPCase };
 	SubordCl	= Adv;
+	Time	= CN;
 	Title	= CN;
 	Place	= NP;
 	PlaceNoun	= CN;
@@ -410,6 +411,8 @@ lin
 	MassKind ap n = mymkAP_N ap n;
   KindOfKind cn adv	= mkCN cn adv;
   KindInTime cn adv	= mkCN cn adv;
+	TimeInTime cn adv = mkCN cn adv;
+	TimeAsAdv det cn = mkAdv P.noPrep (mkNP det cn);
 	KindInPlace cn adv	= mkCN cn adv;
 	NPInPlace np adv = mkNP np adv;
 	PlaceKind ap n = mkCN ap n;
