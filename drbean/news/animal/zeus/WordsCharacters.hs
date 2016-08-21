@@ -208,7 +208,7 @@ usually	: Adv;
 visit	: V2;
 world	: CN;
 year	: CN;
-younger	: Adv;
+younger	: AP;
 Zeus	: PN;
 
 -}

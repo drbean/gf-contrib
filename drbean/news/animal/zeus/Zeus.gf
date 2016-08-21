@@ -12,11 +12,11 @@ fun
 	recently	: AdV;
 	at_the_shoulder	: Adv;
 	usually	: Adv;
-	younger	: Adv;
 	seven_feet_four_inches  : AdA;
 
 -- AP
 
+	younger		: AP;
 	amazing	: AP;
 	big	: AP;
 	hind	: AP;

@@ -14,11 +14,11 @@ lin
 	recently	= mkAdv "recently";
 	at_the_shoulder	= mkAdv "at the shoulder";
 	usually	= mkAdv "usually";
-	younger	= mkAdv "younger";
 	seven_feet_four_inches  = mkAdv "seven feet four inches";
 
 -- AP
 
+	younger		= mkAP( mkA "younger") ;
 	amazing	= mkAP( mkA "amazing") ;
 	big	= mkAP( mkA "big") ;
 	hind	= mkAP( mkA "hind") ;
