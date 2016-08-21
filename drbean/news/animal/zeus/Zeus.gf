@@ -78,7 +78,7 @@ fun
 	at	: Prep;
 	before	: Prep;
 	for	: ThemePrep;
-	in_PREP	: Prep;
+	in_PREP	: TimePrep;
 	like	: MannerPrep;
 	on	: Prep;
 	than	: Prep;
