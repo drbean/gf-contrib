@@ -34,6 +34,7 @@ fun
 
 -- Det
 
+	around	: Predet;
 	fourteen	: Det;
 	fortyfour	: Det;
 	four	: Det;
@@ -73,7 +74,6 @@ fun
 -- Prep
 
 	according_to	: SourcePrep;
-	around	: Prep;
 	as	: Prep;
 	at	: Prep;
 	before	: Prep;

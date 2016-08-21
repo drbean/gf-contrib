@@ -146,7 +146,7 @@ age	: CN;
 age_V	: VA;
 amazing	: AP;
 and	: Conj;
-around	: Prep;
+around	: Predet;
 as	: Prep;
 at	: Prep;
 average	: V2;

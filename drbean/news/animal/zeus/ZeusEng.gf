@@ -36,6 +36,7 @@ lin
 
 -- Det
 
+	around	= ss "around";
 	fourteen	= mkDet( mkNumeral "14");
 	fortyfour	= mkDet( mkNumeral  "44" );
 	four = mkDet( mkCard (mkNumeral n4_Unit));
@@ -75,7 +76,6 @@ lin
 -- Prep
 
 	according_to	= mkPrep "according to";
-	around	= mkPrep "around";
 	as	= mkPrep "as";
 	at	= mkPrep "at";
 	before	= mkPrep "before";
@@ -93,7 +93,7 @@ lin
 -- V
 
 	age_v	= mkVA( mkV "age") ;
-	average	= mkV2( mkV "average") around;
+	average	= mkV2( mkV "average");
 	die	= mkVA( mkV "die") ;
 	get_into	= partV( mkV "get into") "";
 	hold	= mkV2( mkV "hold") noPrep;
