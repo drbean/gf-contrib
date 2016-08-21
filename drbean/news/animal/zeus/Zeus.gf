@@ -44,7 +44,6 @@ fun
 
 -- N
 
-	twenty_twelve	: N;
 	age	: N;
 	birthday	: CN;
 	cause	: N2;
@@ -67,6 +66,7 @@ fun
 
 -- PN
 
+	twenty_twelve	: PN;
 	the_guiness_book_of_world_records	: PN;
 	the_smithsonian	: PN;
 	zeus	: PN;

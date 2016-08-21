@@ -46,7 +46,6 @@ lin
 
 -- N
 
-	twenty_twelve	= mkN "2012" nonExist;
 	age	= mkN "age" nonExist;
 	birthday	= mkCN( mkN "birthday") ;
 	cause	= mkN2( mkN "cause") of_PREP;
@@ -69,6 +68,7 @@ lin
 
 -- PN
 
+	twenty_twelve	= mkPN( mkN nonhuman (mkN "2012") );
 	the_guiness_book_of_world_records	= mkPN( mkN nonhuman (mkN "the Guiness Book of World Records") );
 	the_smithsonian	= mkPN( mkN nonhuman (mkN "the Smithsonian") );
 	zeus	= mkPN( mkN masculine (mkN "Zeus") );

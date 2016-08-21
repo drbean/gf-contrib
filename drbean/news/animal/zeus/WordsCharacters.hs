@@ -138,7 +138,7 @@ v = [
 
 
 14	: Det;
-2012	: N;
+2012	: PN;
 44	: Det;
 a
 according to	: Prep;
