@@ -75,6 +75,7 @@ lin
 
 -- Prep
 
+	into	= mkPrep "into";
 	according_to	= mkPrep "according to";
 	as	= mkPrep "as";
 	at	= mkPrep "at";
@@ -93,9 +94,9 @@ lin
 -- V
 
 	age_v	= mkVA( mkV "age") ;
+	get_into	= mkV2( mkV "get") into;
 	average	= mkV2( mkV "average");
 	die	= mkVA( mkV "die") ;
-	get_into	= partV( mkV "get into") "";
 	hold	= mkV2( mkV "hold") noPrep;
 	love	= mkV2( mkV "love") noPrep;
 	miss	= mkV2( mkV "miss") noPrep;

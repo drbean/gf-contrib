@@ -73,6 +73,7 @@ fun
 
 -- Prep
 
+	into	: Prep;
 	according_to	: SourcePrep;
 	as	: Prep;
 	at	: Prep;
@@ -91,9 +92,9 @@ fun
 -- V
 
 	age_v	: VA;
+	get_into	: V2;
 	average	: V2;
 	die	: VA;
-	get_into	: V;
 	hold	: V2;
 	love	: V2;
 	miss	: V2;
