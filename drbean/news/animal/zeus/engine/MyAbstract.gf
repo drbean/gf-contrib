@@ -156,6 +156,7 @@ fun
 	KindInTime  : CN -> Adv_time -> CN;
 	TimeInTime  : Time -> Adv_time -> Time;
 	TimeAsAdv	: Det -> Time -> Adv_time;
+	TimeAsAdvWithPredet	: Predet -> Det -> Time -> Adv_time;
 	KindInPlace	: CN -> Adv_location -> CN;
 	NPInPlace	: NP -> Adv_location -> NP;
 	PlaceKind	: AP -> PlaceNoun -> PlaceNoun;

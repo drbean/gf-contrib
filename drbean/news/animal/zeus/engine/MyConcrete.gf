@@ -413,6 +413,7 @@ lin
   KindInTime cn adv	= mkCN cn adv;
 	TimeInTime cn adv = mkCN cn adv;
 	TimeAsAdv det cn = mkAdv P.noPrep (mkNP det cn);
+	TimeAsAdvWithPredet predet det cn = mkAdv P.noPrep (mkNP predet (mkNP det cn) );
 	KindInPlace cn adv	= mkCN cn adv;
 	NPInPlace np adv = mkNP np adv;
 	PlaceKind ap n = mkCN ap n;
