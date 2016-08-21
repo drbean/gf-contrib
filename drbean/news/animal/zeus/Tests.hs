@@ -104,7 +104,7 @@ dic_test = [
 		, "According to the Smithsonian, big dogs die younger because they age quicker than smaller dogs."
 		, "The life span for a Great Dane is usually around seven years."
 		, "For a smaller dog, like a toy poodle, the life span can average around fourteen years."
-    , "In 2012, Zeus gets into the Guiness Book of World Records and holds the record for tallest dog ever since."
+    , "In 2012, Zeus gets into the Guiness Book of World Records and he holds the record for tallest dog ever since."
     , "Zeus loves people, and he often visits hospitals and schools as a therapy dog."
 		, "People miss Zeus."
 
