@@ -37,7 +37,7 @@ lin
 -- Det
 
 	around	= ss "around";
-	fourteen	= mkDet( mkNumeral "14");
+	fourteen	= mkDet( mkCard( mkDigits n1_Dig (mkDigits n4_Dig) ));
 	fortyfour	= mkDet( mkNumeral  "44" );
 	four = mkDet( mkCard (mkNumeral n4_Unit));
 	only	= only_Predet;
