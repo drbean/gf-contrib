@@ -7,6 +7,7 @@ fun
 
 -- Adv
 
+	ever_since	: Adv_time;
 	often	: Adv;
 	quicker	: Adv_manner;
 	recently	: AdV;

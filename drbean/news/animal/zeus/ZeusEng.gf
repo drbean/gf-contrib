@@ -9,6 +9,7 @@ lin
 
 -- Adv
 
+	ever_since	= mkAdv "ever since";
 	often	= mkAdv "often";
 	quicker	= mkAdv "quicker";
 	recently	= mkAdv "recently";

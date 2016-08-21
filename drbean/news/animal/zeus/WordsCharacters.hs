@@ -158,6 +158,7 @@ cause	: N2;
 death	: N;
 die	: VA;
 dog	: CN;
+ever since	: Adv;
 feet	: PN;
 for	: Prep;
 four	: Det;
