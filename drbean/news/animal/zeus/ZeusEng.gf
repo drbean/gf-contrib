@@ -51,6 +51,7 @@ lin
 	cause	= mkN2( mkN "cause") of_PREP;
 	death	= mkN "death" nonExist;
 	dog	= mkCN( mkN "dog") ;
+	tallest_dog	= mkCN tallest dog;
 	feet	= mkCN( mkN "foot" "feet") ;
 	great_dane	= mkCN( mkN "Great Dane") ;
 	hospital	= mkCN( mkN "hospital") ;

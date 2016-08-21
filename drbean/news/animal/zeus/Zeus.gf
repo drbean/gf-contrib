@@ -49,6 +49,7 @@ fun
 	cause	: N2;
 	death	: N;
 	dog	: CN;
+	tallest_dog	: Title;
 	feet	: CN;
 	great_dane	: CN;
 	hospital	: CN;
