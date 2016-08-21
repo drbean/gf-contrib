@@ -77,7 +77,7 @@ fun
 	as	: Prep;
 	at	: Prep;
 	before	: Prep;
-	for	: Prep;
+	for	: ThemePrep;
 	in_PREP	: Prep;
 	like	: Prep;
 	on	: Prep;
