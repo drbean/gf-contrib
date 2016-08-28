@@ -34,6 +34,7 @@ cat
 	SubordCl;
 	Partitive;
 	NounCl;
+	TagQCl;
 
 fun
 	Look_bad	: VA -> AP -> VP;
@@ -131,6 +132,7 @@ fun
 	ICompS	: IComp -> NP -> QS;
 	YN	: Cl -> QCl;
 
+	TagS	: NP -> VP -> TagQCl;
 	TagQ	: NP -> VP -> QCl;
 	TagComp	: NP -> Comp -> QCl;
 	TagModal	: NP -> VV -> VP -> QCl;

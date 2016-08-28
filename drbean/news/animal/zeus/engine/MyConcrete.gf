@@ -5,6 +5,7 @@ lincat
 	ListAP	= ListAP;
 	ListAdv	= ListAdv;
 	NounCl = {s : ResEng.Tense => Anteriority => CPolarity => Order => Str; c : NPCase };
+	TagQCl = {s : ResEng.Tense => Anteriority => CPolarity => VAux => Str };
 	Time	= Adv;
 	TimeName	= CN;
 	Times	= NP;
