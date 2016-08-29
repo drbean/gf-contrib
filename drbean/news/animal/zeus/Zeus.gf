@@ -19,6 +19,8 @@ fun
 
 	younger		: AP;
 	quick		: A;
+	-- four_feet_tall : AP;
+	n_inches_tall	: AP;
 	amazing	: AP;
 	big	: AP;
 	hind	: AP;

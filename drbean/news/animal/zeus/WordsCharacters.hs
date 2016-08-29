@@ -198,6 +198,8 @@ at the shoulder	: Adv;
 sixth	: AP;
 smaller	: AP;
 the Smithsonian	: PN;
+n feet tall	: AP;
+n inches tall	: AP;
 tall	: AP;
 tallest	: AP;
 than	: Prep;

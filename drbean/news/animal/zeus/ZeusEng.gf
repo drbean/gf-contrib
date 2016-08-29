@@ -3,7 +3,16 @@
 concrete ZeusEng of Zeus = MyConcrete  **
 open ConstructorsEng, ParadigmsEng, StructuralEng, IrregEng, ExtraEng, ConstructX, Prelude, (R=ResEng) in {
 
--- oper
+oper
+
+	fourteen_CARD = mkCard( mkNumeral "14" );
+	fortyfour_CARD = mkCard( mkNumeral "14" );
+	four_CARD = mkCard (mkNumeral n4_Unit);
+	seven_CARD = mkCard (mkNumeral n7_Unit);
+	two_CARD	= mkCard (mkNumeral n2_Unit);
+
+	-- lin_card : (n : Card) -> Str;
+	-- lin_card n = n.s ! R.Nom ++ feet_tall.s;
 
 lin
 
@@ -21,6 +30,8 @@ lin
 
 	younger		= mkAP( mkA "younger") ;
 	quick		= mkA "quick";
+	-- four_feet_tall = n_feet_tall four_CARD;
+	n_inches_tall	= mkAP( mkA "n inches tall") ;
 	amazing	= mkAP( mkA "amazing") ;
 	big	= mkAP( mkA "big") ;
 	hind	= mkAP( mkA "hind") ;
@@ -40,10 +51,10 @@ lin
 	around	= ss "around";
 	fourteen	= mkDet( mkNumeral "14");
 	fortyfour	= mkDet( mkNumeral  "44" );
-	four = mkDet( mkCard (mkNumeral n4_Unit));
+	four = mkDet four_CARD;
 	only	= only_Predet;
-	seven = mkDet( mkCard (mkNumeral n7_Unit));
-	two = mkDet( mkCard (mkNumeral n2_Unit));
+	seven = mkDet seven_CARD;
+	two = mkDet two_CARD;
 
 -- N
 
