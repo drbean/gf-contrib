@@ -5,7 +5,7 @@ lincat
 	ListAP	= ListAP;
 	ListAdv	= ListAdv;
 	NounCl = {s : ResEng.Tense => Anteriority => CPolarity => Order => Str; c : NPCase };
-	TagQCl = {s : ResEng.Tense => Anteriority => CPolarity => VAux => Str };
+	TagQCl = {s : ResEng.Tense => Anteriority => CPolarity => Str };
 	SubordCl	= Adv;
 	Time	= CN;
 	Title	= CN;
@@ -63,56 +63,14 @@ oper
 		lock_VV = {}
 		};
 
-  tag : NP -> {s : Auxiliary => Polarity => Str} =
-    \subj -> { s = case <(fromAgr subj.a).n, (fromAgr subj.a).g> of {
-      <Sg,Fem> => table {
-		      Do => table {Pos => "doesn't she"; Neg => "does she" };
-		      Be => table {Pos => "isn't she"; Neg => "is she" };
-		      Should => table {Pos => "shouldn't she"; Neg => "should she" }
-		      };
-      <Sg,Masc>  => table {
-		      Do => table { Pos => "doesn't he"; Neg => "does he" };
-		      Be => table {Pos => "isn't he"; Neg => "is he" };
-		      Should => table {Pos => "shouldn't he"; Neg => "should he" }
-		      };
-      <Sg,Neutr> => table {
-		      Do => table { Pos => "doesn't it"; Neg => "does it" };
-		      Be => table {Pos => "isn't it"; Neg => "is it" };
-		      Should => table {Pos => "shouldn't it"; Neg => "should it" }
-		      };
-      <Pl,_>	=> table {
-		      Do => table { Pos => "don't they"; Neg => "do they" };
-		      Be => table {Pos => "aren't they"; Neg => "are they" };
-		      Should => table {Pos => "shouldn't they"; Neg => "should they" }
-		      }
-    }
-  };
+  mktag : ( np : NP ) -> ( vp : VP ) -> {s : ResEng.Tense => Anteriority => CPolarity => Str} =
+    \np,vp -> { s = \\t,a,p => (vp . s ! t ! a ! p ! ODir False ! AgP3Sg Fem ) . aux  ++ she.s ! npNom };
 
-  --TagModal : NP -> VV -> VP -> QCl =
-  --  \np, vv, vp2  -> let
-  --  vp = Intens vv vp2;
-  --  cl = Sentence np vp;
-  --  aux = case ((vv . s) ! VVF VInf) of {
-  --    "should" => Should
-  --  };
-  --in
-  --{s = table {
-  --  Pres => table {
-  --    Simul => table {
-  --      CPos => table {
-  --        QDir => (cl.s ! Pres ! Simul ! CPos ! ODir False) ++ ((tag np).s ! aux ! Pos );
-  --        QIndir => "nonExist" };
-  --      CNeg True => table {
-  --        QDir => (cl.s ! Pres ! Simul ! (CNeg True) ! ODir False) ++ ((tag np).s ! aux ! Neg );
-  --        QIndir => "nonExist" };
-  --      CNeg False => table {
-  --        QDir => (cl.s ! Pres ! Simul ! (CNeg False) ! ODir False) ++ ((tag np).s ! aux ! Neg );
-  --        QIndir => "nonExist" }
-  --        }
-  --      }
-  -- };
-  --lock_QCl = <>;
-  --};
+  myTagModal : ( np : NP ) -> ( vp : VP ) -> { s : ResEng.Tense => Anteriority => CPolarity => Str } =
+    \np, vp  -> let
+    cl = Sentence np vp;
+		tag = mktag np vp in
+			{s = \\t,a,p => ( cl . s ! t ! a ! p ! ODir False ) ++ tag . s ! t ! a ! p};
 
 	mymkIP : (i,me,my : Str) -> Number -> {s : NPCase => Str ; n : Number} =
 		\i,me,my,n -> 
@@ -543,6 +501,8 @@ lin
 
 	Subjunct subj s	= mkAdv subj s;
 
+	TagS np vp = myTagModal np vp;
+
  TagQ np vp = let
    cl = mkCl np vp;
    agreement = fromAgr np.a;
@@ -652,6 +612,35 @@ lin
  --  };
  --lock_QCl = <>;
  --};
+
+oper
+
+  tag : NP -> {s : Auxiliary => Polarity => Str} =
+    \subj -> { s = case <(fromAgr subj.a).n, (fromAgr subj.a).g> of {
+      <Sg,Fem> => table {
+                     Do => table {Pos => "doesn't she"; Neg => "does she" };
+                     Be => table {Pos => "isn't she"; Neg => "is she" };
+                     Should => table {Pos => "shouldn't she"; Neg => "should she" }
+                     };
+      <Sg,Masc>  => table {
+                     Do => table { Pos => "doesn't he"; Neg => "does he" };
+                     Be => table {Pos => "isn't he"; Neg => "is he" };
+                     Should => table {Pos => "shouldn't he"; Neg => "should he" }
+                     };
+      <Sg,Neutr> => table {
+                     Do => table { Pos => "doesn't it"; Neg => "does it" };
+                     Be => table {Pos => "isn't it"; Neg => "is it" };
+                     Should => table {Pos => "shouldn't it"; Neg => "should it" }
+                     };
+      <Pl,_>   => table {
+                     Do => table { Pos => "don't they"; Neg => "do they" };
+                     Be => table {Pos => "aren't they"; Neg => "are they" };
+                     Should => table {Pos => "shouldn't they"; Neg => "should they" }
+                     }
+    }
+  };
+
+lin
 
   TagComp np comp	= let cl = mkCl np (mkVP comp)
   in
