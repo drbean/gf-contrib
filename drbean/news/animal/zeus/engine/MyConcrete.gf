@@ -276,7 +276,9 @@ oper
 	myOrdSuperl : (a : A) -> { s : Case => Str } =
 		\a -> {s = \\c => a.s ! AAdj Superl c } ;
 
-	myPartN : (v : V) -> {s : Number => Case => Str ; g : Gender} =
+	myPartN : (v : V) -> {
+		s : Number => Case => Str ;
+		g : Gender} =
 	\v -> let part = v.s ! VPresPart; partGen = glue part "'s"
 		in
 		{
@@ -291,6 +293,15 @@ oper
 			lock_N = {}
 		} ;
 
+	my_feet_tall : (n : Card) -> {
+		s : Agr => Str ;
+		isPre : Bool
+			} =
+	\n -> {
+		s = \\_ => n.s ! Nom ++ "feet tall";
+		isPre = False;
+		lock_AP = {}
+		};
 
 lin
 	Be_bad ap	= mkComp ap;
@@ -491,6 +502,7 @@ lin
 	when_RP	= mymkRP "when" "when" "when";
 
 	more	= more_CAdv;
+	n_feet_tall	n = my_feet_tall n;
 	ComparaAP a np = mkAP a np;
 	ComparaAdv cadv a np = mkAdv cadv a np;
 	ComparaS a s = mkAP a s;

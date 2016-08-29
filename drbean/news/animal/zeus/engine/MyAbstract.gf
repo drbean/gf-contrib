@@ -234,6 +234,7 @@ fun
 	when_RP	: RP;
 
 	more : CAdv;
+	n_feet_tall	: Card -> AP;
 	ComparaAP : A -> NP -> AP;
 	ComparaAdv : CAdv -> A -> NP -> Adv;
 	ComparaS : AP -> S -> AP;
