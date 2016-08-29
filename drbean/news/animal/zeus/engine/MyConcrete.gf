@@ -5,7 +5,7 @@ lincat
 	ListAP	= ListAP;
 	ListAdv	= ListAdv;
 	NounCl = {s : ResEng.Tense => Anteriority => CPolarity => Order => Str; c : NPCase };
-	TagQCl = {s : ResEng.Tense => Anteriority => CPolarity => Agr => Str };
+	TagQCl = {s : ResEng.Tense => Anteriority => CPolarity => Str };
 	SubordCl	= Adv;
 	Time	= CN;
 	Title	= CN;
@@ -74,19 +74,19 @@ oper
 		AgP3Pl _ => they_NP
 	};
 
-	mymktag : ( np : NP ) -> ( vp : VP ) -> {s : ResEng.Tense => Anteriority => CPolarity => Agr => Str} =
-		\np,vp -> { s = \\t,a,p,ag => (vp . s ! t ! a ! p ! ODir False ! ag ) . aux  ++ (mkpronAgr ag).s ! npNom };
+	mymktag : ( np : NP ) -> ( vp : VP ) -> {s : ResEng.Tense => Anteriority => CPolarity => Str} =
+		\np,vp -> { s = \\t,a,p => (vp . s ! t ! a ! p ! ODir False ! np.a ) . aux  ++ (mkpronAgr np.a).s ! npNom };
 
 	negated : CPolarity -> CPolarity = \p -> case p of {
 		CPos => CNeg True;
 		_ => CPos
 		};
 
-	myTagModal : ( np : NP ) -> ( vp : VP ) -> { s : ResEng.Tense => Anteriority => CPolarity => Agr => Str } =
+	myTagModal : ( np : NP ) -> ( vp : VP ) -> { s : ResEng.Tense => Anteriority => CPolarity => Str } =
 		\np, vp  -> let
 		cl = mkCl np vp;
 		tag = mymktag np vp in
-			{s = \\t,a,p,ag => ( cl . s ! t ! a ! p ! ODir False ) ++ tag . s ! t ! a ! (negated p) ! ag};
+			{s = \\t,a,p => ( cl . s ! t ! a ! p ! ODir False ) ++ tag . s ! t ! a ! (negated p) };
 
 	mymkIP : (i,me,my : Str) -> Number -> {s : NPCase => Str ; n : Number} =
 		\i,me,my,n -> 
