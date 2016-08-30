@@ -5,7 +5,6 @@ lincat
 	ListAP	= ListAP;
 	ListAdv	= ListAdv;
 	NounCl = {s : ResEng.Tense => Anteriority => CPolarity => Order => Str; c : NPCase };
-	TagQCl = {s : ResEng.Tense => Anteriority => CPolarity => Str };
 	SubordCl	= Adv;
 	Time	= CN;
 	Title	= CN;
@@ -82,11 +81,11 @@ oper
 		_ => CPos
 		};
 
-	myTagModal : ( np : NP ) -> ( vp : VP ) -> { s : ResEng.Tense => Anteriority => CPolarity => Str } =
+	myTagModal : ( np : NP ) -> ( vp : VP ) -> { s : ResEng.Tense => Anteriority => CPolarity => QForm => Str } =
 		\np, vp  -> let
 		cl = mkCl np vp;
 		tag = mymktag np vp in
-			{s = \\t,a,p => ( cl . s ! t ! a ! p ! ODir False ) ++ tag . s ! t ! a ! (negated p) };
+			{s = \\t,a,p,_ => ( cl . s ! t ! a ! p ! ODir False ) ++ tag . s ! t ! a ! (negated p) };
 
 	mymkIP : (i,me,my : Str) -> Number -> {s : NPCase => Str ; n : Number} =
 		\i,me,my,n -> 

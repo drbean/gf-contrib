@@ -126,7 +126,7 @@ fun
 	ICompS	: IComp -> NP -> QS;
 	YN	: Cl -> QCl;
 
-	TagS	: NP -> VP -> TagQCl;
+	TagS	: NP -> VP -> QCl;
 	TagQ	: NP -> VP -> QCl;
 	TagComp	: NP -> Comp -> QCl;
 	TagModal	: NP -> VV -> VP -> QCl;
