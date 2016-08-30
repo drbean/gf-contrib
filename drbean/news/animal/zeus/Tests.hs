@@ -111,4 +111,19 @@ dic_test = [
 
   ]
 
+tag_test = [
+
+    "Zeus , the world's tallest dog recently passes away, doesn't he."
+		, "On his hind legs the amazing Great Dane is seven feet four inches tall and 44 inches tall at the shoulder, isn't he. "
+    , "Zeus passes away only two months before his sixth birthday, doesn't he."
+		, "The cause of death is old age, isn't it."
+		, "According to the Smithsonian, big dogs die younger because they age quicker than smaller dogs, don't they."
+		, "The life span for a Great Dane is usually around seven years, isn't it."
+		, "For a smaller dog, like a toy poodle, the life span can average around fourteen years, can't it."
+    , "In 2012, Zeus gets into the Guiness Book of World Records and he holds the record for tallest dog ever since, doesn't he."
+    , "Zeus loves people, and he often visits hospitals and schools as a therapy dog, doesn't he."
+		, "People miss Zeus, don't they."
+
+
+  ]
 -- vim: set ts=2 sts=2 sw=2 noet:
