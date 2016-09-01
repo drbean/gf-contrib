@@ -5,11 +5,8 @@ lincat
 	ListAP	= ListAP;
 	ListAdv	= ListAdv;
 	NounCl = {s : ResEng.Tense => Anteriority => CPolarity => Order => Str; c : NPCase };
-	Time	= Adv;
-	TimeName	= CN;
-	Times	= NP;
-	Period	= Adv;
 	SubordCl	= Adv;
+	Time	= CN;
 	Title	= CN;
 	Place	= NP;
 	PlaceNoun	= CN;
@@ -37,7 +34,7 @@ lincat
 
 param
   Auxiliary	= Do | Be | Should;
-	-- VPs = Look_bad | Be_bad | Be_vp | Happening | Changing | Causative | Intens | Positing | Informing | Triangulating | Pred2A | Pass | ToPlace | WithPlace | WithTime | WithStyle | WithCl ;
+	-- VPs = Look_bad | Be_bad | Be_vp | Happening | Changing | Causative | Intens | Positing | Informing | Triangulating | Pred2A | Pass | ToPlace | WithPlace | WithStyle | WithCl ;
 
 
 oper
@@ -65,56 +62,30 @@ oper
 		lock_VV = {}
 		};
 
-  tag : NP -> {s : Auxiliary => Polarity => Str} =
-    \subj -> { s = case <(fromAgr subj.a).n, (fromAgr subj.a).g> of {
-      <Sg,Fem> => table {
-		      Do => table {Pos => "doesn't she"; Neg => "does she" };
-		      Be => table {Pos => "isn't she"; Neg => "is she" };
-		      Should => table {Pos => "shouldn't she"; Neg => "should she" }
-		      };
-      <Sg,Masc>  => table {
-		      Do => table { Pos => "doesn't he"; Neg => "does he" };
-		      Be => table {Pos => "isn't he"; Neg => "is he" };
-		      Should => table {Pos => "shouldn't he"; Neg => "should he" }
-		      };
-      <Sg,Neutr> => table {
-		      Do => table { Pos => "doesn't it"; Neg => "does it" };
-		      Be => table {Pos => "isn't it"; Neg => "is it" };
-		      Should => table {Pos => "shouldn't it"; Neg => "should it" }
-		      };
-      <Pl,_>	=> table {
-		      Do => table { Pos => "don't they"; Neg => "do they" };
-		      Be => table {Pos => "aren't they"; Neg => "are they" };
-		      Should => table {Pos => "shouldn't they"; Neg => "should they" }
-		      }
-    }
-  };
+	mkpronAgr : Agr -> NP = \ag -> case ag of {
+		AgP1 Sg => i_NP;
+		AgP1 Pl => we_NP;
+		AgP2 Sg => you_NP;
+		AgP2 Pl => you_NP;
+		AgP3Sg Fem => she_NP;
+		AgP3Sg Masc => he_NP;
+		AgP3Sg _ => it_NP;
+		AgP3Pl _ => they_NP
+	};
 
-  --TagModal : NP -> VV -> VP -> QCl =
-  --  \np, vv, vp2  -> let
-  --  vp = Intens vv vp2;
-  --  cl = Sentence np vp;
-  --  aux = case ((vv . s) ! VVF VInf) of {
-  --    "should" => Should
-  --  };
-  --in
-  --{s = table {
-  --  Pres => table {
-  --    Simul => table {
-  --      CPos => table {
-  --        QDir => (cl.s ! Pres ! Simul ! CPos ! ODir False) ++ ((tag np).s ! aux ! Pos );
-  --        QIndir => "nonExist" };
-  --      CNeg True => table {
-  --        QDir => (cl.s ! Pres ! Simul ! (CNeg True) ! ODir False) ++ ((tag np).s ! aux ! Neg );
-  --        QIndir => "nonExist" };
-  --      CNeg False => table {
-  --        QDir => (cl.s ! Pres ! Simul ! (CNeg False) ! ODir False) ++ ((tag np).s ! aux ! Neg );
-  --        QIndir => "nonExist" }
-  --        }
-  --      }
-  -- };
-  --lock_QCl = <>;
-  --};
+	mymktag : ( np : NP ) -> ( vp : VP ) -> {s : ResEng.Tense => Anteriority => CPolarity => Str} =
+		\np,vp -> { s = \\t,a,p => (vp . s ! t ! a ! p ! ODir False ! np.a ) . aux  ++ (mkpronAgr np.a).s ! npNom };
+
+	negated : CPolarity -> CPolarity = \p -> case p of {
+		CPos => CNeg True;
+		_ => CPos
+		};
+
+	myTagModal : ( np : NP ) -> ( vp : VP ) -> { s : ResEng.Tense => Anteriority => CPolarity => QForm => Str } =
+		\np, vp  -> let
+		cl = mkCl np vp;
+		tag = mymktag np vp in
+			{s = \\t,a,p,_ => ( cl . s ! t ! a ! p ! ODir False ) ++ tag . s ! t ! a ! (negated p) };
 
 	mymkIP : (i,me,my : Str) -> Number -> {s : NPCase => Str ; n : Number} =
 		\i,me,my,n -> 
@@ -279,7 +250,9 @@ oper
 	myOrdSuperl : (a : A) -> { s : Case => Str } =
 		\a -> {s = \\c => a.s ! AAdj Superl c } ;
 
-	myPartN : (v : V) -> {s : Number => Case => Str ; g : Gender} =
+	myPartN : (v : V) -> {
+		s : Number => Case => Str ;
+		g : Gender} =
 	\v -> let part = v.s ! VPresPart; partGen = glue part "'s"
 		in
 		{
@@ -294,6 +267,15 @@ oper
 			lock_N = {}
 		} ;
 
+	my_feet_tall : (n : Card) -> {
+		s : Agr => Str ;
+		isPre : Bool
+			} =
+	\n -> {
+		s = \\_ => n.s ! Nom ++ "feet tall";
+		isPre = False;
+		lock_AP = {}
+		};
 
 lin
 	Be_bad ap	= mkComp ap;
@@ -306,8 +288,6 @@ lin
   Locating prep item	= mkAdv prep item;
 	Location det placename = mkNP det placename;
 	NamedPlace pn	= mkNP pn;
-	FreqAdv times period	= mkAdv P.noPrep (mkNP times period);
-	PeriodAdv times	= mkAdv P.noPrep times;
 	Coagency prep coagent	= mkAdv prep coagent;
 	Instrumenting prep instrument = mkAdv prep instrument;
 	Themeing prep instrument = mkAdv prep instrument;
@@ -371,7 +351,6 @@ lin
   WithPlace v located	= mkVP (mkVP v) located;
   AdvVP adv vp	= mkVP adv vp;
 	VPAdv vp adv = mkVP vp adv;
-  WithTime action time	= mkVP action time;
   VP_Adv_coagent v pp	= mkVP v pp;
 	VP_Adv_instrument vp pp = mkVP vp pp;
 	VP_Adv_theme vp pp = mkVP vp pp;
@@ -386,6 +365,8 @@ lin
 	WithAdvPre adv s = mkS adv s;
 	ThemePre adv s = mkS adv s;
 	PatientPre adv s = mkS adv s;
+	SourcePre adv s = mkS adv s;
+	TimePre adv s = mkS adv s;
   -- Be_made_sth vp np = PassV3 vp np;
 
 	ICompS i np = mkQS (mkQCl i np);
@@ -414,6 +395,10 @@ lin
 	Kind ap cn	= mkCN ap cn;
 	MassKind ap n = mymkAP_N ap n;
   KindOfKind cn adv	= mkCN cn adv;
+  KindInTime cn adv	= mkCN cn adv;
+	TimeInTime cn adv = mkCN cn adv;
+	TimeAsAdv det cn = mkAdv P.noPrep (mkNP det cn);
+	TimeAsAdvWithPredet predet det cn = mkAdv P.noPrep (mkNP predet (mkNP det cn) );
 	KindInPlace cn adv	= mkCN cn adv;
 	NPInPlace np adv = mkNP np adv;
 	PlaceKind ap n = mkCN ap n;
@@ -426,10 +411,10 @@ lin
 	MassItem udet ucn	= mkNP udet ucn;
 	Titular cn = mkNP cn;
 	PredetItem predet np	= mkNP predet np;
-	ApposNP np1 np2 = myApposNP np1 "for example" np2;
+	ApposNP np1 np2 = myApposNP np1 "," np2;
 	NPPostPredet np predet = myNPPostPredet np predet;
 
-	a_Det	= a_Det;
+	a_DET	= a_Det;
 	zero_Det_pl	= aPl_Det;
 	zero_Det_sg	= mkDet zero_mass_Quant singularNum;
 	the_MASS_DET	= theSg_Det;
@@ -491,6 +476,7 @@ lin
 	when_RP	= mymkRP "when" "when" "when";
 
 	more	= more_CAdv;
+	n_feet_tall	n = my_feet_tall n;
 	ComparaAP a np = mkAP a np;
 	ComparaAdv cadv a np = mkAdv cadv a np;
 	ComparaS a s = mkAP a s;
@@ -530,135 +516,7 @@ lin
 
 	Subjunct subj s	= mkAdv subj s;
 
- TagQ np vp = let
-   cl = mkCl np vp;
-   agreement = fromAgr np.a;
-   number = agreement.n;
-   gender = agreement.g;
-   pos_tag = case <number,gender> of {
-      <Sg,Fem> => table {
-          "do" => "does she";
-          "be" => "is she";
-          "should" => "should she"
-          };
-      <Sg,Masc>  => table {
-          "do" => "does he";
-          "be" => "is he";
-          "should" => "should he"
-          };
-      <Sg,Neutr> => table {
-          "do" => "does it";
-          "be" => "is it";
-          "should" => "should it"
-          };
-      <Pl,_>  => table {
-          "do" => "do they";
-          "be" => "are they";
-          "should" => "should they"
-          }
-   };
-   neg_tag = case <number,gender> of {
-      <Sg,Fem> => table {
-          "do" => "doesn't she";
-          "be" => "isn't she";
-          "should" => "shouldn't she"
-          };
-      <Sg,Masc>  => table {
-          "do" => "doesn't he";
-          "be" => "isn't he";
-          "should" => "shouldn't he"
-          };
-      <Sg,Neutr> => table {
-          "do" => "doesn't it";
-          "be" => "isn't it";
-          "should" => "shouldn't it"
-          };
-      <Pl,_>  => table {
-          "do" => "don't they";
-          "be" => "aren't they";
-          "should" => "shouldn't they"
-          }
-  };
- in
- {s = table {
-     Pres => table {
-       Simul => table {
-         CPos => table {
-           QDir => ((cl.s ! Pres ! Simul ! CPos ! ODir False) ++ (neg_tag ! "do" ));
-           QIndir => "nonExist" };
-         CNeg True => table {
-           QDir => ((cl.s ! Pres ! Simul ! (CNeg True) ! ODir False) ++ (pos_tag ! "do"));
-           QIndir => "nonExist" };
-         CNeg False => table {
-           QDir => ((cl.s ! Pres ! Simul ! (CNeg False) ! ODir False) ++ (pos_tag ! "do"));
-           QIndir => "nonExist" }
-           }
-         }
-   };
- lock_QCl = <>;
- };
-
- --TagNP np1 np2	= let
- --  cl = mkCl np1 np2;
- --in
- --{s = table {
- --    Pres => table {
- --      Simul => table {
- --        CPos => table {
- --          QDir => (cl.s ! Pres ! Simul ! CPos ! ODir False) ++ ((tag np1).s ! Be ! Pos );
- --          QIndir => "nonExist" };
- --        CNeg True => table {
- --          QDir => (cl.s ! Pres ! Simul ! (CNeg True) ! ODir False) ++ ((tag np1).s ! Be ! Neg );
- --          QIndir => "nonExist" };
- --        CNeg False => table {
- --          QDir => (cl.s ! Pres ! Simul ! (CNeg False) ! ODir False) ++ ((tag np1).s ! Be ! Neg );
- --          QIndir => "nonExist" }
- --          }
- --        }
- --  };
- --lock_QCl = <>;
- --};
-
- --TagAP np ap	= let
- --  cl = mkCl np ap;
- --in
- --{s = table {
- --    Pres => table {
- --      Simul => table {
- --        CPos => table {
- --          QDir => (cl.s ! Pres ! Simul ! CPos ! ODir False) ++ ((tag np).s ! Be ! Pos );
- --          QIndir => "nonExist" };
- --        CNeg True => table {
- --          QDir => (cl.s ! Pres ! Simul ! (CNeg True) ! ODir False) ++ ((tag np).s ! Be ! Neg );
- --          QIndir => "nonExist" };
- --        CNeg False => table {
- --          QDir => (cl.s ! Pres ! Simul ! (CNeg False) ! ODir False) ++ ((tag np).s ! Be ! Neg );
- --          QIndir => "nonExist" }
- --          }
- --        }
- --  };
- --lock_QCl = <>;
- --};
-
-  TagComp np comp	= let cl = mkCl np (mkVP comp)
-  in
-  {s = table {
-    Pres => table {
-      Simul => table {
-        CPos => table {
-          QDir => (cl.s ! Pres ! Simul ! CPos ! ODir False) ++ ((tag np).s ! Be ! Pos );
-          QIndir => "nonExist" };
-        CNeg True => table {
-          QDir => (cl.s ! Pres ! Simul ! CNeg True ! ODir False) ++ ((tag np).s ! Be ! Neg );
-          QIndir => "nonExist" };
-        CNeg False => table {
-          QDir => (cl.s ! Pres ! Simul ! CNeg False ! ODir False) ++ ((tag np).s ! Be ! Neg );
-          QIndir => "nonExist" }
-          }
-        }
-     };
-  lock_QCl = <>;
-  };
+	TagS np vp = myTagModal np vp;
 
 }
 
