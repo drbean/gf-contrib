@@ -5,9 +5,6 @@ abstract MyAbstract = Cat, Conjunction ** {
 
 cat
 	Time;
-	Times;
-	TimeName;
-	Period;
 	Title;
 	Place;
 	PlaceNoun;
@@ -47,8 +44,6 @@ fun
 	Locating  : LocPrep -> Place -> Adv_location;
 	Location	: Det -> PlaceNoun -> Place;
 	NamedPlace	: PN -> Place;
-	FreqAdv	: NP -> Period -> Time;
-	PeriodAdv	: Times -> Period;
 	Coagency	: CoagentPrep -> NP -> Adv_coagent;
 	Instrumenting	: InstrumentPrep -> NP -> Adv_instrument;
 	Themeing	: ThemePrep -> NP -> Adv_theme;
@@ -110,7 +105,6 @@ fun
 	AdV_VP	: AdV -> VP -> VP;
 	AdV_VPSlash	: AdV -> VPSlash -> VPSlash;
 	WithPlace	:  V -> Adv_location -> VP;
-	WithTime	: Time -> VP -> VP;
 	VP_Adv_coagent	: VP -> Adv_coagent -> VP;
 	VP_Adv_instrument	: VP -> Adv_instrument -> VP;
 	VP_Adv_theme	: VP -> Adv_theme -> VP;
@@ -125,10 +119,13 @@ fun
 	WithAdvPre	: Adv -> S -> S;
 	ThemePre	: Adv_theme -> S -> S;
 	PatientPre	: Adv_patient -> S -> S;
+	SourcePre	: Adv_source -> S -> S;
+	TimePre	: Adv_time -> S -> S;
 
 	ICompS	: IComp -> NP -> QS;
 	YN	: Cl -> QCl;
 
+	TagS	: NP -> VP -> QCl;
 	TagQ	: NP -> VP -> QCl;
 	TagComp	: NP -> Comp -> QCl;
 	TagModal	: NP -> VV -> VP -> QCl;
@@ -157,13 +154,17 @@ fun
 	Kind	: AP -> CN -> CN;
 	MassKind	: AP -> N -> N;
 	KindOfKind  : CN -> Adv -> CN;
+	KindInTime  : CN -> Adv_time -> CN;
+	TimeInTime  : Time -> Adv_time -> Time;
+	TimeAsAdv	: Det -> Time -> Adv_time;
+	TimeAsAdvWithPredet	: Predet -> Det -> Time -> Adv_time;
 	KindInPlace	: CN -> Adv_location -> CN;
 	NPInPlace	: NP -> Adv_location -> NP;
 	PlaceKind	: AP -> PlaceNoun -> PlaceNoun;
 	Membership : Det -> CN -> Adv_location -> Cl;
 	CompoundCN	: CN -> CN -> CN;
 	Item	: Det -> CN -> NP;
-	MassItem	: MassDet -> N	-> NP;
+	MassItem	: MassDet -> N -> NP;
 	Titular	: Title -> NP;
 	PredetItem	: Predet -> NP -> NP;
 	Ofpos	: N2 -> NP -> CN;
@@ -234,6 +235,7 @@ fun
 	when_RP	: RP;
 
 	more : CAdv;
+	n_feet_tall	: Card -> AP;
 	ComparaAP : A -> NP -> AP;
 	ComparaAdv : CAdv -> A -> NP -> Adv;
 	ComparaS : AP -> S -> AP;
