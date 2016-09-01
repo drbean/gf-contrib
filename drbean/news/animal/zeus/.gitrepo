@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = http://github.com/drbean/zeus
+	branch = master
+	commit = fe21f9fbe0e986f3a9c4974a663165a92c01514d
+	parent = 37aed19c2039f3e85d1bb878b4c67152449fe687
+	cmdver = 0.3.0
