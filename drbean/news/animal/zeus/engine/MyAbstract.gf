@@ -31,7 +31,6 @@ cat
 	SubordCl;
 	Partitive;
 	NounCl;
-	TagQCl;
 
 fun
 	Look_bad	: VA -> AP -> VP;
