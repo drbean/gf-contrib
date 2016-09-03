@@ -74,7 +74,7 @@ oper
 	};
 
 	mymktag : ( np : NP ) -> ( vp : VP ) -> {s : ResEng.Tense => Anteriority => CPolarity => Str} =
-		\np,vp -> { s = \\t,a,p => (vp . s ! t ! a ! p ! ODir False ! np.a ) . aux  ++ (mkpronAgr np.a).s ! npNom };
+		\np,vp -> { s = \\t,a,p => (vp . s ! t ! a ! p ! OQuest ! np.a ) . aux  ++ (mkpronAgr np.a).s ! npNom };
 
 	negated : CPolarity -> CPolarity = \p -> case p of {
 		CPos => CNeg True;
