@@ -1,6 +1,6 @@
 module Main where
 
-import Pie
+import Zeus
 import LogicalForm hiding ((==))
 import Evaluation
 
@@ -20,7 +20,7 @@ import System.Environment.FindBin
 main :: IO ()
 main = do
 	path <- getProgPath
-	gr <- readPGF ( path ++ "/Pie.pgf" )
+	gr <- readPGF ( path ++ "/Zeus.pgf" )
 	let lang = languages gr
 	let morpho = buildMorpho gr $ head lang
 	hClose stderr
@@ -75,7 +75,7 @@ takeAnswer _ "yes" = "yes"
 takeAnswer "yes" _ = "yes"
 takeAnswer _ "no" = "no"
 takeAnswer "no" _  = "no"
-takeAnswer a b@('M' : 'a' : _)  = collateAnswer a b -- Mandy
+takeAnswer a b@('Z' : 'e' : _)  = collateAnswer a b -- Mandy
 takeAnswer a b@('A' : 'l' : _)  = collateAnswer a b -- Alice
 takeAnswer a b@('A' : 'r' : _)  = collateAnswer a b -- Ariel
 takeAnswer a b@('S' : 'a' : _)  = collateAnswer a b -- Sabrina
@@ -86,10 +86,8 @@ takeAnswer _ "No answer" = "No answer"
 takeAnswer _  _   = error "undefined answer, not Yes, No, Mandy, Alice, Ariel or Sabrina, none or No answer"
 
 collateAnswer a b = formatUp $ nub $ filter
-	(\x -> x ==	"Mandy"
-	|| x ==	"Alice"
-	|| x ==	"Ariel"
-	|| x ==	"Sabrina"
+	(\x -> x ==	"Zeus"
+	|| x ==	"the Smithsonian Institution"
 	) (concatMap (splitOn " , " ) (splitOn " or " (a ++ " , " ++ b)))
 
 formatUp es = let parts = splitAt 1 (reverse es)
