@@ -1,47 +1,87 @@
 module WordsCharacters where
 
-import qualified Data.Map as Map
+import Data.Char
 
-gfWords = Map.fromList [
+import PGF
+import System.Environment.FindBin
+
+-- path = getProgPath
+-- file = path >>= \p -> return ( (++) p "/Happier.pgf")
+-- gr = file >>= \f -> return ( readPGF f )
+gr = readPGF "/home/drbean/GF/gf-contrib/drbean/business/conflict/communication/Communication.pgf"
+
+cat2funs :: String -> IO [CId]
+cat2funs cat = do
+	gr' <- gr
+	let fs = functionsByCat gr' (mkCId cat)
+	let ws = filter (isLower . head . showCId) fs
+	let is = map (reverse . dropWhile (\x ->  (==) x '_' || isUpper x || isNumber x) . reverse .showCId ) ws
+	return (map mkCId is )
+
+gfWords :: [(String, IO [CId])]
+gfWords = [
 	("A",a)
-	, ("ADV",adv)
-	, ("Aux",aux)
-	, ("CONJ",conj)
+	, ("Adv",adv)
+	-- , ("Aux",aux)
+	, ("Conj",conj)
 	, ("Det",det)
 	, ("N",n)
+	, ("CN",cn)
 	, ("PN",pn)
 	, ("Pron",pron)
 	, ("Prep",prep)
-	, ("Rel",rel)
+	-- , ("Rel",rel)
 	, ("Tag",tag)
-	, ("V",v) ]
-
-wordlist = concat ( map (gfWords Map.!) (Map.keys gfWords) )
-
-posMap = Map.fromList [
-	("A","Adjective")
-	, ("ADV","Adverb")
-	, ("Aux","Auxiliary")
-	, ("CONJ","Conjunction")
-	, ("Det","Determiner")
-	, ("N","Noun")
-	, ("PN","Proper Noun")
-	, ("Pron","Pronoun")
-	, ("Prep","Preposition")
-	, ("Rel","Relative Pronoun")
-	, ("Tag","Question Tag")
-	, ("V","Verb")
+	, ("V",v)
+	, ("V2",v2)
+	, ("V3",v3)
+	, ("VV",vv)
+	, ("VS",vs)
+	, ("V2A",v2a)
 	]
 
-a = [
+posName :: String -> String
+posName "A"	= "Adjective"
+posName "Adv"	= "Adverb"
+posName "Aux"	= "Auxiliary"
+posName "Conj"	= "Conjunction"
+posName "Det"	= "Determiner"
+posName "N"	= "Uncount Noun"
+posName "CN"	= "Count Noun"
+posName "PN"	= "Proper Noun"
+posName "Pron"	= "Pronoun"
+posName "Prep"	= "Preposition"
+posName "Rel"	= "Relative Pronoun"
+posName "Tag"	= "Question Tag"
+posName "V"	= "Verb"
+posName "V2"	= "Verb + object"
+posName "V3"	= "Verb + obj1 + obj2"
+posName "VV"	= "Verb + verb"
+posName "VS"	= "Verb + sentence"
+posName "V2S"	= "Verb + object + sentence"
+posName "V2A"	= "Verb + object + adjective"
 
 
-	]
+a	= cat2funs "AP"
+adv	= cat2funs "Adv"
+conj	= cat2funs "Conj"
+det	= cat2funs "Det"
+n	= cat2funs "N"
+cn	= cat2funs "CN"
+pn	= cat2funs "PN"
+prep	= cat2funs "Prep"
+pron	= cat2funs "NP"
+v	= cat2funs "V"
+v2	= cat2funs "V2"
+v3	= cat2funs "V3"
+vv	= cat2funs "VV"
+vs	= cat2funs "VS"
+v2a	= cat2funs "V2A"
+tag = return ( map mkCId tags )
 
-adv = [
 
 
-	]
+
 
 aux = [
 	"doesn't"
@@ -57,60 +97,12 @@ aux = [
 	]
 	
 
-conj = [
-
-
-	]
-
-
-det = [
-	"'s"
-	, "some"
-	, "no"
-	, "0, _ or zero"
-	, "a"
-	, "an"
-	, "no"
-	, "some"
-	, "the"
-	, "14"
-
-	]
-
-n = [
-
-
-	]
-
-pn = [
-
-
-	]
-
-pron = [
-	"who"
-	, "that"
-	, "what"
-	, "which"
-	, "you"
-	, "how"
-	, "she"
-	, "her"
-	, "he"
-	, "his"
-	]
-
-prep = [
-
-
-	]
-
 rel = [
 
 
 	]
 
-tag = [
+tags = [
 	"doesn't he"
 	, "doesn't she"
 	, "doesn't it"
@@ -127,11 +119,6 @@ tag = [
 	, "is she"
 	, "is it"
 	, "are they"
-	]
-
-v = [
-
-
 	]
 
 {-
