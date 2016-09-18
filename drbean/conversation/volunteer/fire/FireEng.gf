@@ -14,6 +14,11 @@ lin
 
 -- AP
 
+	individual	= mkAP( mkA "individual") ;
+	monumental	= mkAP( mkA "monumental") ;
+	other	= mkAP( mkA "other") ;
+	second	= mkAP( mkA "second") ;
+	volunteer_a	= mkAP( mkA "volunteer") ;
 	assistant	= mkAP( mkA "assistant") ;
 
 -- Conj
@@ -21,11 +26,28 @@ lin
 
 -- Det
 
+	more	= mkDet "more";
 	every	= mkDet "every";
 
 -- N
 
-	attention	= mkN "attention" nonExist;
+	grace	= mkN "grace" nonExist;
+	homeowner	= mkCN( mkN feminine c( mkN "homeowner" )) ;
+	house	= mkCN( mkN "house") ;
+	kindness	= mkN "kindness" nonExist;
+	life	= mkCN( mkN "life" "lives") ;
+	neighborhood_park	= mkCN( mkN "neighborhood park") ;
+	non_profit	= mkCN( mkN "non-profit") ;
+	opportunity	= mkCN( mkN "opportunity") ;
+	pair	= mkN2( mkN "pair") part_prep;
+	people	= mkCN( mkN "person" "people") ;
+	attention	= mkN2( mkN "attention") from;
+	scale	= mkCN( mkN "scale") ;
+	scene	= mkCN( mkN "scene") ;
+	shoe	= mkCN( mkN "shoe") ;
+	soup_kitchen	= mkCN( mkN "soup kitchen") ;
+	volunteer_n	= mkCN( mkN "volunteer") ;
+	witness	= mkN2( mkN "witness") to;
 	basis	= mkCN( mkN "basis") ;
 	captain	= mkCN( mkN "captain") ;
 	conversation	= mkCN( mkN "conversation") ;
@@ -42,10 +64,16 @@ lin
 
 -- PN
 
+	robin_hood	= mkPN( mkN feminine (mkN "Robin Hood") );
 	bezos	= mkPN( mkN feminine (mkN "Bezos") );
 
 -- Prep
 
+	in_PREP	= mkPrep "in";
+	on	= mkPrep "on";
+	than	= mkPrep "than";
+	to	= mkPrep "to";
+	with	= mkPrep "with";
 	at	= mkPrep "at";
 	for	= mkPrep "for";
 	from	= mkPrep "from";
@@ -58,6 +86,19 @@ lin
 
 -- V
 
+	go_upstairs	= partV( mkV "go") "upstairs";
+	go_inside	= partV( mkV "go") "inside";
+	make	= mkV2( mkV "make") noPrep;
+	need	= mkV2V( mkV "need") ;
+	offer	= mkV3( mkV "offer") noPrep noPrep;
+	receive	= mkV2( mkV "receive") noPrep;
+	say	= mkVS( mkV "say") ;
+	serve	= mkV2( mkV "serve") noPrep;
+	should	= mkVV( mkV "should") ;
+	tell	= mkV2V( mkV "tell") ;
+	thank	= mkV2( mkV "thank") noPrep;
+	thank_for	= mkV3( mkV "thank") noPrep for;
+	wait	= mkVV( mkV "wait") ;
 	ask	= mkV2V( mkV "ask") ;
 	call	= mkV3( mkV "call") noPrep noPrep;
 	clean_up	= partV( mkV "clean") "up";

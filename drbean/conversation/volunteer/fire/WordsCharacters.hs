@@ -131,7 +131,7 @@ also	: Adv;
 ask	: V2V;
 assistant	: AP;
 at	: Prep;
-attention	: N;
+attention	: N2;
 basis	: CN;
 Bezos	: PN;
 call	: V3;
@@ -152,55 +152,48 @@ for	: Prep;
 from	: Prep;
 generosity	: N;
 get	: V3;
-go
-grace
-has
-homeowner
-house
-in
-individual
-inside
-is
-kindness
-lives
-make
-monumental
-more
-needs
-neighborhood park
-non-profit
-of
-offers
-on
-opportunity
-other
-pair
-people
-people's
-receives
-Robin Hood
-save
-says
-scale
-scene
-second
-serve
-shoes
-shouldn't
-soup kitchen
-tells
-than
-thanks
-the
-The
-to
+go upstairs	: V;
+go inside	: V;
+grace	: N;
+homeowner	: CN;
+house	: CN;
+in	: Prep;
+individual	: AP;
+kindness	: N;
+life	: CN;
+make	: V2;
+monumental	: AP;
+more	: Det;
+need	: V2V;
+neighborhood park	: CN;
+non-profit	: CN;
+offer	: V3;
+on	: Prep;
+opportunity	: CN;
+other	: AP;
+pair	: N2;
+people	: CN;
+receive	: V2;
+Robin Hood	: PN;
+say	: VS;
+scale	: CN;
+scene	: PlaceNoun;
+second	: AP;
+serve	: V2;
+shoe	: CN;
+should	: VV;
+soup kitchen	: CN;
+tell	: V2V;
+than	: Prep;
+thank	: V2;
+thank_for	: V3;
+to	: Prep;
 up
-upstairs
-volunteer
-wait
-with
-witness
-you
+volunteer_A	: AP;
+volunteer_N	: CN;
+wait	: VV;
+with	: Prep;
+witness	: N2;
 
 
 -}
