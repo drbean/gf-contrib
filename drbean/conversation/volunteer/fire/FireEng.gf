@@ -14,6 +14,7 @@ lin
 
 -- AP
 
+	witness	= mkA2( mkA "witness") to;
 	individual	= mkAP( mkA "individual") ;
 	monumental	= mkAP( mkA "monumental") ;
 	other	= mkAP( mkA "other") ;
@@ -23,6 +24,7 @@ lin
 
 -- Conj
 
+	and = mymkConj "and";
 
 -- Det
 
@@ -45,14 +47,13 @@ lin
 	scene	= mkCN( mkN "scene") ;
 	shoe	= mkCN( mkN "shoe") ;
 	soup_kitchen	= mkCN( mkN "soup kitchen") ;
-	volunteer_n	= mkCN( mkN "volunteer") ;
-	witness	= mkN2( mkN "witness") to;
+	volunteer_n	= mkN2( mkN "volunteer") on;
 	basis	= mkCN( mkN "basis") ;
-	captain	= mkCN( mkN "captain") ;
-	conversation	= mkCN( mkN "conversation") ;
+	captain	= mkN2( mkN "captain") of_PREP;
+	conversation	= mkN2( mkN "conversation") with_PREP;
 	courage	= mkN "courage" nonExist;
 	day	= mkCN( mkN "day") ;
-	head_of_development	= mkCN( mkN "head of development") ;
+	head_of_development	= mkN2( mkN "head of development") for;
 	difference	= mkN2( mkN "difference") in_PREP;
 	dog	= mkCN( mkN "dog") ;
 	fire_company	= mkCN( mkN "fire company") ;

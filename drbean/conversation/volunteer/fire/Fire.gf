@@ -8,7 +8,7 @@ fun
 -- Adv
 
 	also	: Adv;
-	in_flames	: Adv;
+	in_flames	: Adv_theme;
 
 -- AP
 
@@ -17,10 +17,12 @@ fun
 	other	: AP;
 	second	: AP;
 	volunteer_a	: AP;
+	witness	: A2;
 	assistant	: AP;
 
 -- Conj
 
+	and	: Conj;
 
 -- Det
 
@@ -40,17 +42,16 @@ fun
 	people	: CN;
 	attention	: N2;
 	scale	: CN;
-	scene	: PlaceNoun;
+	scene	: CN;
 	shoe	: CN;
 	soup_kitchen	: CN;
-	volunteer_n	: CN;
-	witness	: N2;
+	volunteer_n	: N2;
 	basis	: CN;
-	captain	: CN;
-	conversation	: CN;
+	captain	: N2;
+	conversation	: N2;
 	courage	: N;
 	day	: CN;
-	head_of_development	: CN;
+	head_of_development	: N2;
 	difference	: N2;
 	dog	: CN;
 	fire_company	: CN;
