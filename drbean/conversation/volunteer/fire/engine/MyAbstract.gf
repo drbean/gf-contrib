@@ -40,6 +40,7 @@ fun
 	Be_AdV_NP	: AdV -> NP -> Comp;
 	Be_somewhere	: Adv_location -> Comp;
 	Be_coagent	: Adv_coagent -> Comp;
+	Be_theme	: Adv_theme -> Comp;
 	Be_vp	: Comp -> VP;
 	Locating  : LocPrep -> Place -> Adv_location;
 	Location	: Det -> PlaceNoun -> Place;
