@@ -163,7 +163,7 @@ kindness	: N;
 life	: CN;
 make	: V2;
 monumental	: AP;
-more	: Det;
+more
 need	: V2V;
 neighborhood park	: CN;
 non-profit	: CN;

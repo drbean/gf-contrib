@@ -1,6 +1,6 @@
 --# -path=.:./engine:/home/drbean/GF/lib/src/translator:present
 
-concrete EnjoyEng of Enjoy = MyConcrete  **
+concrete FireEng of Fire = MyConcrete  **
 open ConstructorsEng, ParadigmsEng, StructuralEng, IrregEng, ExtraEng, ConstructX, Prelude, (R=ResEng) in {
 
 -- oper
@@ -26,13 +26,12 @@ lin
 
 -- Det
 
-	more	= mkDet "more";
-	every	= mkDet "every";
+	every	= every_Det;
 
 -- N
 
 	grace	= mkN "grace" nonExist;
-	homeowner	= mkCN( mkN feminine c( mkN "homeowner" )) ;
+	homeowner	= mkCN( mkN feminine ( mkN "homeowner" )) ;
 	house	= mkCN( mkN "house") ;
 	kindness	= mkN "kindness" nonExist;
 	life	= mkCN( mkN "life" "lives") ;
@@ -64,8 +63,8 @@ lin
 
 -- PN
 
-	robin_hood	= mkPN( mkN feminine (mkN "Robin Hood") );
-	bezos	= mkPN( mkN feminine (mkN "Bezos") );
+	robin_hood	= mkPN( mkN nonhuman (mkN "Robin Hood") );
+	bezos	= mkPN( mkN masculine (mkN "Bezos") );
 
 -- Prep
 
@@ -73,7 +72,7 @@ lin
 	on	= mkPrep "on";
 	than	= mkPrep "than";
 	to	= mkPrep "to";
-	with	= mkPrep "with";
+	with_PREP	= mkPrep "with";
 	at	= mkPrep "at";
 	for	= mkPrep "for";
 	from	= mkPrep "from";
@@ -89,17 +88,17 @@ lin
 	go_upstairs	= partV( mkV "go") "upstairs";
 	go_inside	= partV( mkV "go") "inside";
 	make	= mkV2( mkV "make") noPrep;
-	need	= mkV2V( mkV "need") ;
+	need	= mkV2V( mkV "need") noPrep to;
 	offer	= mkV3( mkV "offer") noPrep noPrep;
 	receive	= mkV2( mkV "receive") noPrep;
 	say	= mkVS( mkV "say") ;
 	serve	= mkV2( mkV "serve") noPrep;
 	should	= mkVV( mkV "should") ;
-	tell	= mkV2V( mkV "tell") ;
+	tell	= mkV2V( mkV "tell") noPrep to;
 	thank	= mkV2( mkV "thank") noPrep;
 	thank_for	= mkV3( mkV "thank") noPrep for;
 	wait	= mkVV( mkV "wait") ;
-	ask	= mkV2V( mkV "ask") ;
+	ask	= mkV2V( mkV "ask") noPrep to;
 	call	= mkV3( mkV "call") noPrep noPrep;
 	clean_up	= partV( mkV "clean") "up";
 	get	= mkV3( mkV "get") noPrep noPrep;

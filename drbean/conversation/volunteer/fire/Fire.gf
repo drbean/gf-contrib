@@ -1,4 +1,4 @@
-abstract Enjoy = MyAbstract ** {
+abstract Fire = MyAbstract ** {
 
 
   flags startcat = Utt ;
@@ -24,7 +24,6 @@ fun
 
 -- Det
 
-	more	: Det;
 	every	: Det;
 
 -- N
@@ -71,7 +70,7 @@ fun
 	on	: Prep;
 	than	: Prep;
 	to	: Prep;
-	with	: Prep;
+	with_PREP	: Prep;
 	at	: Prep;
 	for	: Prep;
 	from	: Prep;
