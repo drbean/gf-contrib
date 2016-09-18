@@ -102,7 +102,7 @@ lin
 	wait	= mkVV( mkV "wait") ;
 	ask	= mkV2V( mkV "ask") noPrep to;
 	call	= mkV3( mkV "call") noPrep noPrep;
-	clean_up	= partV( mkV "clean") "up";
+	clean_up	= mkV2( partV( mkV "clean") "up" );
 	get	= mkV3( mkV "get") noPrep noPrep;
 	affect	= mkV2( mkV "affect") noPrep;
 

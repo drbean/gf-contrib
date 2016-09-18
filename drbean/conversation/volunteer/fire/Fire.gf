@@ -44,7 +44,7 @@ fun
 	scale	: CN;
 	scene	: CN;
 	shoe	: CN;
-	soup_kitchen	: CN;
+	soup_kitchen	: PlaceNoun;
 	volunteer_n	: N2;
 	basis	: CN;
 	captain	: N2;
@@ -73,7 +73,7 @@ fun
 	than	: Prep;
 	to	: Prep;
 	with_PREP	: Prep;
-	at	: Prep;
+	at	: LocPrep;
 	for	: Prep;
 	from	: Prep;
 
@@ -101,7 +101,7 @@ fun
 	affect	: V2;
 	ask	: V2V;
 	call	: V3;
-	clean_up	: V;
+	clean_up	: V2;
 	get	: V3;
 }
 
