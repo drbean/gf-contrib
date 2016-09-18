@@ -243,6 +243,7 @@ fun
 	n_feet_tall	: Card -> AP;
 	ComparaAP : A -> NP -> AP;
 	ComparaAdv : CAdv -> A -> NP -> Adv;
+	ComparaN	: CAdv -> CN -> NP -> NP;
 	ComparaS : AP -> S -> AP;
 	More	: A -> AP;
 	AdjModified	: AP -> VP -> AP;

@@ -219,6 +219,12 @@ oper
 		a = np.a
 		} ;
 
+	myCAdvCNNP : (cadv : CAdv) -> ( cn : CN ) -> ( np : NP ) -> { s : Number => Case => Str ; g : Gender } =
+	\cadv,cn,np ->
+		{
+		s = \\n,c => cadv.s ++ cn.s ! n ! c ++ cadv.p ++ np.s ! npNom;
+		g = cn.g};
+
 	myVPPlus : (vp : VP) -> (str : Str) -> {
 	  s   : VerbForms;
 		p   : Str ;
@@ -484,6 +490,11 @@ lin
 	n_feet_tall	n = my_feet_tall n;
 	ComparaAP a np = mkAP a np;
 	ComparaAdv cadv a np = mkAdv cadv a np;
+	--ComparaN cadv cn np
+	--	= {
+  --    s = cadv.s ++ cn.s ! Sg ! Nom ++ cadv.p ++ np.s ! npNom
+  --    };
+	ComparaN cadv cn np = mkNP ( myCAdvCNNP cadv cn np);
 	ComparaS a s = mkAP a s;
 	AdjModified	a s = mkAP a s;
 	As_as ap np	= mkAP as_CAdv ap np;
