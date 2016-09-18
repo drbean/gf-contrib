@@ -95,7 +95,7 @@ lin
 	receive	= mkV2( mkV "receive") noPrep;
 	say	= mkVS( mkV "say") ;
 	serve	= mkV2( mkV "serve") noPrep;
-	should	= mkVV( mkV "should") ;
+	should	= ModalVV "should" "should" "should" "should" "shouldn't" ;
 	tell	= mkV2V( mkV "tell") noPrep to;
 	thank	= mkV2( mkV "thank") noPrep;
 	thank_for	= mkV3( mkV "thank") noPrep for;
