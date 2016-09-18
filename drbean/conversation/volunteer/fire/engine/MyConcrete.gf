@@ -20,6 +20,7 @@ lincat
 	SourcePrep	= Prep;
 	ResultPrep	= Prep;
 	PatientPrep	= Prep;
+	ExtentPrep	= Prep;
 	Adv_coagent	= Adv;
 	Adv_instrument	= Adv;
 	Adv_theme	= Adv;
@@ -29,6 +30,7 @@ lincat
 	Adv_source	= Adv;
 	Adv_result	= Adv;
 	Adv_patient	= Adv;
+	Adv_extent	= Adv;
 	MassDet = Det;
 	Partitive = N2;
 
@@ -297,6 +299,7 @@ lin
 	Sourcing prep source = mkAdv prep source;
 	Resulting prep result = mkAdv prep result;
 	Patienting prep result = mkAdv prep result;
+	Extenting prep degree	=mkAdv prep degree;
 	Happening action	=	mkVP action;
 	Changing action patient	= mkVP action patient;
 	V_NP_VP causal patient predicate	= mkVP causal patient predicate;
@@ -403,6 +406,7 @@ lin
 	KindInPlace cn adv	= mkCN cn adv;
 	NPInPlace np adv = mkNP np adv;
 	PlaceKind ap n = mkCN ap n;
+	KindToExtent cn adv	= mkCN cn adv;
 	Membership det cn place = mkCl( Item det (KindInPlace cn place));
 	CompoundCN cn1 cn2 = CompoundCN cn1 cn2;
 	Ofpos n2 np	= mkCN n2 np;

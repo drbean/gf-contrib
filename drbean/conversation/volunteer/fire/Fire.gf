@@ -7,7 +7,7 @@ fun
 
 -- Adv
 
-	also	: Adv;
+	also	: AdV;
 	in_flames	: Adv_theme;
 
 -- AP
@@ -69,6 +69,7 @@ fun
 
 	in_PREP	: Prep;
 	on	: Prep;
+	on_EXTENT_PREP	: ExtentPrep;
 	than	: Prep;
 	to	: Prep;
 	with_PREP	: Prep;

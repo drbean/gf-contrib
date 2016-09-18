@@ -71,6 +71,7 @@ lin
 
 	in_PREP	= mkPrep "in";
 	on	= mkPrep "on";
+	on_EXTENT_PREP	= mkPrep "on";
 	than	= mkPrep "than";
 	to	= mkPrep "to";
 	with_PREP	= mkPrep "with";
