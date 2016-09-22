@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = http://github.com/drbean/fire
+	branch = master
+	commit = 63bf78a9014d0e0868e3782026d812489076072d
+	parent = 9ac693c69e38d660e8be07bd2f8ec597a0adc998
+	cmdver = 0.3.0
