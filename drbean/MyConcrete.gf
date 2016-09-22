@@ -20,6 +20,7 @@ lincat
 	SourcePrep	= Prep;
 	ResultPrep	= Prep;
 	PatientPrep	= Prep;
+	ExtentPrep	= Prep;
 	Adv_coagent	= Adv;
 	Adv_instrument	= Adv;
 	Adv_theme	= Adv;
@@ -29,6 +30,7 @@ lincat
 	Adv_source	= Adv;
 	Adv_result	= Adv;
 	Adv_patient	= Adv;
+	Adv_extent	= Adv;
 	MassDet = Det;
 	Partitive = N2;
 
@@ -283,6 +285,7 @@ lin
 	Be_someone np	= mkComp np;
 	Be_AdV_NP adv np = mkComp np;
 	Be_coagent adv = mkComp adv;
+	Be_theme adv = mkComp adv;
 	Be_vp comp	= mkVP comp;
 	Look_bad verb adj	= mkVP verb adj;
   Locating prep item	= mkAdv prep item;
@@ -296,6 +299,7 @@ lin
 	Sourcing prep source = mkAdv prep source;
 	Resulting prep result = mkAdv prep result;
 	Patienting prep result = mkAdv prep result;
+	Extenting prep degree	=mkAdv prep degree;
 	Happening action	=	mkVP action;
 	Changing action patient	= mkVP action patient;
 	V_NP_VP causal patient predicate	= mkVP causal patient predicate;
@@ -402,6 +406,7 @@ lin
 	KindInPlace cn adv	= mkCN cn adv;
 	NPInPlace np adv = mkNP np adv;
 	PlaceKind ap n = mkCN ap n;
+	KindToExtent cn adv	= mkCN cn adv;
 	Membership det cn place = mkCl( Item det (KindInPlace cn place));
 	CompoundCN cn1 cn2 = CompoundCN cn1 cn2;
 	Ofpos n2 np	= mkCN n2 np;
@@ -479,6 +484,7 @@ lin
 	n_feet_tall	n = my_feet_tall n;
 	ComparaAP a np = mkAP a np;
 	ComparaAdv cadv a np = mkAdv cadv a np;
+	ComparaN cadv cn np = mkNP ( myCAdvCNNP cadv cn np);
 	ComparaS a s = mkAP a s;
 	AdjModified	a s = mkAP a s;
 	As_as ap np	= mkAP as_CAdv ap np;

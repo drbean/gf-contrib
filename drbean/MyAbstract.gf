@@ -18,6 +18,7 @@ cat
 	SourcePrep;
 	ResultPrep;
 	PatientPrep;
+	ExtentPrep;
 	Adv_coagent;
 	Adv_instrument;
 	Adv_theme;
@@ -27,6 +28,7 @@ cat
 	Adv_source;
 	Adv_result;
 	Adv_patient;
+	Adv_extent;
 	MassDet;
 	SubordCl;
 	Partitive;
@@ -40,6 +42,7 @@ fun
 	Be_AdV_NP	: AdV -> NP -> Comp;
 	Be_somewhere	: Adv_location -> Comp;
 	Be_coagent	: Adv_coagent -> Comp;
+	Be_theme	: Adv_theme -> Comp;
 	Be_vp	: Comp -> VP;
 	Locating  : LocPrep -> Place -> Adv_location;
 	Location	: Det -> PlaceNoun -> Place;
@@ -52,6 +55,7 @@ fun
 	Sourcing		: SourcePrep -> NP -> Adv_source;
 	Resulting		: ResultPrep -> NP -> Adv_result;
 	Patienting		: PatientPrep -> NP -> Adv_patient;
+	Extenting	: ExtentPrep -> NP -> Adv_extent;
 	Happening	: V -> VP ;
 	Changing	: V2 -> NP -> VP;
 	V_NP_VP:	V2V -> NP -> VP -> VP;
@@ -161,6 +165,7 @@ fun
 	KindInPlace	: CN -> Adv_location -> CN;
 	NPInPlace	: NP -> Adv_location -> NP;
 	PlaceKind	: AP -> PlaceNoun -> PlaceNoun;
+	KindToExtent	: CN -> Adv_extent -> CN;
 	Membership : Det -> CN -> Adv_location -> Cl;
 	CompoundCN	: CN -> CN -> CN;
 	Item	: Det -> CN -> NP;
@@ -238,6 +243,7 @@ fun
 	n_feet_tall	: Card -> AP;
 	ComparaAP : A -> NP -> AP;
 	ComparaAdv : CAdv -> A -> NP -> Adv;
+	ComparaN	: CAdv -> CN -> NP -> NP;
 	ComparaS : AP -> S -> AP;
 	More	: A -> AP;
 	AdjModified	: AP -> VP -> AP;
