@@ -490,10 +490,6 @@ lin
 	n_feet_tall	n = my_feet_tall n;
 	ComparaAP a np = mkAP a np;
 	ComparaAdv cadv a np = mkAdv cadv a np;
-	--ComparaN cadv cn np
-	--	= {
-  --    s = cadv.s ++ cn.s ! Sg ! Nom ++ cadv.p ++ np.s ! npNom
-  --    };
 	ComparaN cadv cn np = mkNP ( myCAdvCNNP cadv cn np);
 	ComparaS a s = mkAP a s;
 	AdjModified	a s = mkAP a s;
