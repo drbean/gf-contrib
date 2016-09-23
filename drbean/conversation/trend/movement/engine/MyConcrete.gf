@@ -448,7 +448,7 @@ lin
 	some_PL_NP = mkNP( mkDet some_Quant pluralNum);
 	something	= something_NP;
 	every_DET	= every_Det;
-	all_Predet	= all_Predet;
+	all_PREDET	= all_Predet;
 	that_PRON = mkNP (mkDet that_Quant);
 	this_PRON = mkNP (mkDet this_Quant);
 	those_PRON = mkDet this_Quant;
