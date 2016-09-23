@@ -196,6 +196,7 @@ stand out	: V;
 stand up	: V;
 start	: V2;
 stick	: V2;
+talk	: V2;
 take	: V2V;
 those	: Pron;
 three	: Det;
