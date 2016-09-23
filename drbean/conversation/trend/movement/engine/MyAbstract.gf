@@ -201,6 +201,7 @@ fun
 	some_PREDET	: Predet;
 	something	: NP;
 	every_DET	: Det;
+	everyone_NP	: NP;
 	all_PREDET	: Predet;
 	List : NP -> NP -> ListNP;
 	AddList : NP -> ListNP -> ListNP;
