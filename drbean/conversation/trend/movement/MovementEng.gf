@@ -91,6 +91,7 @@ lin
 
 -- V
 
+	do	= mkV2( mkV "do") noPrep;
 	talk	= mkV2( mkV "talk") about;
 	find	= ingV2V( mkV "find") noPrep noPrep;
 	need	= mkV2V( mkV "need") noPrep to;

@@ -86,6 +86,7 @@ fun
 
 -- V
 
+	do	: V2;
 	talk	: V2;
 	find	: V2V;
 	need	: V2V;

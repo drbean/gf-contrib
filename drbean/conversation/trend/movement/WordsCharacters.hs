@@ -137,6 +137,7 @@ courage	: N;
 credit	: N;
 crowd	: CN;
 crucial	: AP;
+do	: V2;
 easy	: A2;
 embrace	: V2;
 emulate	: V2;
