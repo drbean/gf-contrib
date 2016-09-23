@@ -23,7 +23,7 @@ fun
 	important	: A2;
 	great	: AP;
 	first	: AP;
-	easy	: A2;
+	easy	: AP;
 	crucial	: AP;
 
 -- Conj

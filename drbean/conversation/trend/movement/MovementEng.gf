@@ -28,7 +28,7 @@ lin
 	important	= mkA2( mkA "important") about;
 	great	= mkAP( mkA "great") ;
 	first	= mkAP( mkA "first") ;
-	easy	= mkA2( mkA "easy") about;
+	easy	= mkAP( mkA "easy");
 	crucial	= mkAP( mkA "crucial") ;
 
 -- Conj
