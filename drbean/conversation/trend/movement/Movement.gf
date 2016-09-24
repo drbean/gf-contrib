@@ -9,7 +9,7 @@ fun
 
 	now	: Adv;
 	less	: AdA;
-	actually	: Adv;
+	actually	: AdV;
 
 -- AP
 
