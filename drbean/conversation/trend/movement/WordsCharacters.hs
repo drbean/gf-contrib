@@ -201,6 +201,7 @@ talk	: V2;
 take	: V2V;
 those	: Pron;
 three	: Det;
+three	: N;
 tipping point	: CN;
 to	: Prep;
 transform	: V3;
