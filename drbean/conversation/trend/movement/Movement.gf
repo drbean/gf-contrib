@@ -70,7 +70,7 @@ fun
 -- Prep
 
 	on	: Prep;
-	with_PREP	: Prep;
+	with_PREP	: ThemePrep;
 	to	: Prep;
 	not_to	: Prep;
 	into	: Prep;
