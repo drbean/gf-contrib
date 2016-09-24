@@ -47,6 +47,7 @@ lin
 
 -- N
 
+	three_N	= mkNP ( mkDet ( three_CARD ) );
 	tipping_point	= mkCN( mkN "tipping point") ;
 	role	= mkCN( mkN "role") ;
 	reason	= mkN2( mkN "reason") not_to;

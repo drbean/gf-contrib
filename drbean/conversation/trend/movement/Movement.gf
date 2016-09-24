@@ -42,6 +42,7 @@ fun
 
 -- N
 
+	three_N	: NP;
 	tipping_point	: CN;
 	role	: CN;
 	reason	: N2;
