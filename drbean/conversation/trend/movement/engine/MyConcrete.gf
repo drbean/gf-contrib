@@ -21,6 +21,7 @@ lincat
 	ResultPrep	= Prep;
 	PatientPrep	= Prep;
 	ExtentPrep	= Prep;
+	AttributePrep	= Prep;
 	Adv_coagent	= Adv;
 	Adv_instrument	= Adv;
 	Adv_theme	= Adv;
@@ -31,6 +32,7 @@ lincat
 	Adv_result	= Adv;
 	Adv_patient	= Adv;
 	Adv_extent	= Adv;
+	Adv_attribute	= Adv;
 	MassDet = Det;
 	Partitive = N2;
 
@@ -306,6 +308,7 @@ lin
 	Resulting prep result = mkAdv prep result;
 	Patienting prep result = mkAdv prep result;
 	Extenting prep degree	=mkAdv prep degree;
+	Attributing prep attribute	= mkAdv prep attribute;
 	Happening action	=	mkVP action;
 	Changing action patient	= mkVP action patient;
 	V_NP_VP causal patient predicate	= mkVP causal patient predicate;

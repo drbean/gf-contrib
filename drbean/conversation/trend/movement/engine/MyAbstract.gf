@@ -19,6 +19,7 @@ cat
 	ResultPrep;
 	PatientPrep;
 	ExtentPrep;
+	AttributePrep;
 	Adv_coagent;
 	Adv_instrument;
 	Adv_theme;
@@ -29,6 +30,7 @@ cat
 	Adv_result;
 	Adv_patient;
 	Adv_extent;
+	Adv_attribute;
 	MassDet;
 	SubordCl;
 	Partitive;
@@ -56,6 +58,7 @@ fun
 	Resulting		: ResultPrep -> NP -> Adv_result;
 	Patienting		: PatientPrep -> NP -> Adv_patient;
 	Extenting	: ExtentPrep -> NP -> Adv_extent;
+	Attributing	: AttributePrep -> NP -> Adv_attribute;
 	Happening	: V -> VP ;
 	Changing	: V2 -> NP -> VP;
 	V_NP_VP:	V2V -> NP -> VP -> VP;

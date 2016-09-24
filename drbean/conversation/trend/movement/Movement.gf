@@ -76,6 +76,7 @@ fun
 	into	: Prep;
 	for	: Prep;
 	as	: Prep;
+	as_attribute	: AttributePrep;
 	about	: Prep;
 
 -- Pron
@@ -108,7 +109,8 @@ fun
 	get	: V2;
 	follow	: V;
 	emulate	: V2;
-	embrace	: V2;
+	embrace	: V3;
+	embrace_attribute	: V2;
 	care	: V2;
 }
 

@@ -81,6 +81,7 @@ lin
 	into	= mkPrep "into";
 	for	= mkPrep "for";
 	as	= mkPrep "as";
+	as_attribute	= mkPrep "as";
 	about	= mkPrep "about";
 
 -- Pron
@@ -113,7 +114,8 @@ lin
 	get	= mkV2( mkV "get") noPrep;
 	follow	= mkV "follow";
 	emulate	= mkV2( mkV "emulate") noPrep;
-	embrace	= mkV2( mkV "embrace") noPrep;
+	embrace	= mkV3( mkV "embrace") noPrep as;
+	embrace_attribute	= mkV2( mkV "embrace") noPrep;
 	care	= mkV2( mkV "care") about;
 
 }
