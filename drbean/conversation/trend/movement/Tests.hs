@@ -106,7 +106,7 @@ dic_test = [
 	, "The first follower is actually a leader."
 	, "It takes guts to stand out as the first follower."
 	, "The first follower is what transforms a lone nut into a leader."
-	, "With a second follower, it's not two nuts."
+	, "With a second follower, it isn't two nuts."
 	, "Three is a crowd and a crowd is news."
 	, "A movement must be public."
 	, "It is important to show not just the leader, because new followers emulate the followers, not the leader."
