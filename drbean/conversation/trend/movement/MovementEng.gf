@@ -43,6 +43,7 @@ lin
 	two = mkDet two_CARD;
 	three	= mkDet three_CARD;
 	just	= ss "just";
+	not_just	= ss "not just";
 	five	= mkDet five_CARD;
 
 -- N
