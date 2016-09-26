@@ -109,7 +109,7 @@ lin
 	should	= mkVV( mkV "should") ;
 	ridicule	= mkV2( mkV "ridicule") noPrep;
 	prefer	= mkV2( mkV "prefer") to;
-	must	= mkVV( mkV "must") ;
+	must	= ModalVV "must" "must" "must" "must" "mustn't" ;
 	join_in	= partV( mkV "join") "in";
 	hurry	= mkV "hurry";
 	get	= mkV2( mkV "get") noPrep;
