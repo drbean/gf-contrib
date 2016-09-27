@@ -173,6 +173,7 @@ need	: V2V;
 new	: AP;
 news	: N;
 no	: Det;
+not	: Predet;
 not to	: Prep;
 now	: Adv;
 nut	: CN;

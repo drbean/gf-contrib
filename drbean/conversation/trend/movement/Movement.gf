@@ -35,6 +35,7 @@ fun
 
 -- Det
 
+	not	: Predet;
 	two	: Det;
 	three	: Det;
 	just	: Predet;

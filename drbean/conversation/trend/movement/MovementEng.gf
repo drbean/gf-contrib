@@ -40,6 +40,7 @@ lin
 
 -- Det
 
+	not	= ss "not";
 	two = mkDet two_CARD;
 	three	= mkDet three_CARD;
 	just	= ss "just";
