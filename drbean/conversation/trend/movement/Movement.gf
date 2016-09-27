@@ -20,7 +20,7 @@ fun
 	public	: AP;
 	new	: AP;
 	lone	: AP;
-	important	: A2;
+	important	: AP;
 	great	: AP;
 	first	: AP;
 	easy	: AP;

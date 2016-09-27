@@ -25,7 +25,7 @@ lin
 	public	= mkAP( mkA "public") ;
 	new	= mkAP( mkA "new") ;
 	lone	= mkAP( mkA "lone") ;
-	important	= mkA2( mkA "important") about;
+	important	= mkAP( mkA "important") ;
 	great	= mkAP( mkA "great") ;
 	first	= mkAP( mkA "first") ;
 	easy	= mkAP( mkA "easy");

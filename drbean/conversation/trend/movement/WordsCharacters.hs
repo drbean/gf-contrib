@@ -157,7 +157,7 @@ guy	: CN;
 how	: Pron;
 hurry	: V;
 if	: Conj;
-important	: A2;
+important	: AP;
 in-crowd	: CN;
 into	: Prep;
 join in	: V;
