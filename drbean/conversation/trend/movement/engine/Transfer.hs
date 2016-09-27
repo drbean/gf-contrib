@@ -48,10 +48,8 @@ label (GQUt (GPosQ (GWH_ClSlash _ _)))	= "WH"
 label (GQUt (GNegQ (GWH_ClSlash _ _)))	= "WH"
 label (GQUt (GPosQ (GYN _)))	= "YN"
 label (GQUt (GNegQ (GYN _)))	= "YN"
-label (GQUt (GPosQ (GTagQ _ _)))	= "Tag"
-label (GQUt (GNegQ (GTagQ _ _)))	= "Tag"
-label (GQUt (GPosQ (GTagComp _ _)))	= "Tag"
-label (GQUt (GNegQ (GTagComp _ _)))	= "Tag"
+label (GQUt (GPosQ (GTagS _ _)))	= "Tag"
+label (GQUt (GNegQ (GTagS _ _)))	= "Tag"
 label _				= "Unparseable"
 
 takeCourse :: String -> String -> String
