@@ -57,7 +57,7 @@ fun
 	leader	: CN;
 	in_crowd	: CN;
 	guy	: CN;
-	guts	: CN;
+	guts	: N;
 	follower	: CN;
 	fence	: CN;
 	equal	: CN;

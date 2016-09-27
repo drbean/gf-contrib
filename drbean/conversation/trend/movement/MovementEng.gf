@@ -62,7 +62,7 @@ lin
 	leader	= mkCN( mkN "leader") ;
 	in_crowd	= mkCN( mkN "in-crowd") ;
 	guy	= mkCN( mkN "guy") ;
-	guts	= mkCN( mkN "guts") ;
+	guts	= mkN nonExist "guts" ;
 	follower	= mkCN( mkN "follower") ;
 	fence	= mkCN( mkN "fence") ;
 	equal	= mkCN( mkN "equal") ;
