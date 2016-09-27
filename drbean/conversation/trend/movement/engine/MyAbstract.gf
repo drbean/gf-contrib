@@ -119,6 +119,7 @@ fun
 	VP_Adv_time	: VP -> Adv_time -> VP;
 	VP_Adv_location	:  Motion -> Adv_location -> VP;
 	VP_Adv_result	: VP -> Adv_result -> VP;
+	VP_Adv_attribute	: VP -> Adv_attribute -> VP;
 	WithCl	: VP -> SubordCl -> VP;
 	VPToo	: VP -> VP;
 	VPAlready	: VP -> VP;
