@@ -92,6 +92,7 @@ lin
 
 -- Subj
 
+	as_SUBJ	= ss "as";
 
 -- V
 

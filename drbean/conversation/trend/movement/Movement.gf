@@ -87,6 +87,7 @@ fun
 
 -- Subj
 
+	as_SUBJ	: Subj;
 
 -- V
 
