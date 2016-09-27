@@ -109,7 +109,7 @@ dic_test = [
 	, "With a second follower, it isn't two nuts."
 	, "Three is a crowd and a crowd is news."
 	, "A movement must be public."
-	, "It is important to show not just the leader, because new followers emulate the followers, not the leader."
+	, "It is important to show not just the leader, because new followers emulate the followers , not the leader."
 	, "With five more followers, we have momentum and a tipping point."
 	, "We have a movement."
 	, "As more people join in, it's less risky."
