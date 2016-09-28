@@ -98,7 +98,8 @@ fol tests = do
 dic_test = [
 
 	"Derek Sivers talks about how to start a movement."
-	, "A leader needs the guts to stand out and be ridiculed."
+	, "A leader needs the guts to stand out."
+	, "A leader needs the guts to be ridiculed."
 	, "What the leader does is easy to follow."
 	, "The first follower has a crucial role."
 	, "The first follower shows everyone how to follow."
@@ -114,7 +115,8 @@ dic_test = [
 	, "We have a movement."
 	, "As more people join in, it's less risky."
 	, "Those sitting on the fence now have no reason not to join in."
-	, "Now, followers don't stand out. Now, they aren't ridiculed."
+	, "Now, followers don't stand out."
+	, "Now, followers aren't ridiculed."
 	, "Now, they are part of the in-crowd, if they hurry."
 	, "Now those that prefer to stick with the crowd join in, because they are ridiculed for not joining in."
 	, "If you care about starting a movement, have the courage to follow."
