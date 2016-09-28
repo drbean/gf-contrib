@@ -13,6 +13,7 @@ fun
 
 -- AP
 
+	part	: A2;
 	more_ADJ	: AP;
 	shirtless	: AP;
 	second	: AP;
@@ -49,7 +50,6 @@ fun
 	role	: CN;
 	reason	: N2;
 	people	: CN;
-	part	: N2;
 	other	: CN;
 	nut	: CN;
 	news	: N;

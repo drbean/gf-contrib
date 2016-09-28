@@ -18,6 +18,7 @@ lin
 
 -- AP
 
+	part	= mkA2( mkA "part") part_prep;
 	more_ADJ	= mkAP( mkA "more") ;
 	shirtless	= mkAP( mkA "shirtless") ;
 	second	= mkAP( mkA "second") ;
@@ -54,7 +55,6 @@ lin
 	role	= mkCN( mkN "role") ;
 	reason	= mkN2( mkN "reason") not_to;
 	people	= mkCN( mkN "people") ;
-	part	= mkN2( mkN "part") part_prep;
 	other	= mkCN( mkN "other") ;
 	nut	= mkCN( mkN "nut") ;
 	news	= mkN "news" nonExist;
