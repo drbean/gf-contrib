@@ -91,6 +91,7 @@ fun
 
 -- V
 
+	prefer	: VV;
 	do	: V2;
 	talk	: V2;
 	find	: V2V;
@@ -106,7 +107,6 @@ fun
 	show	: V3;
 	should	: VV;
 	ridicule	: V2;
-	prefer	: V2;
 	must	: VV;
 	join_in	: V;
 	hurry	: V;

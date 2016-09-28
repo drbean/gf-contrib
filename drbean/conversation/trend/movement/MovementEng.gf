@@ -96,6 +96,7 @@ lin
 
 -- V
 
+	prefer	= mkVV( mkV "prefer") ;
 	do	= mkV2( mkV "do") noPrep;
 	talk	= mkV2( mkV "talk") about;
 	find	= ingV2V( mkV "find") noPrep noPrep;
@@ -111,7 +112,6 @@ lin
 	show	= mkV3( mkV "show") noPrep noPrep;
 	should	= ModalVV "should" "should" "should" "should" "shouldn't" ;
 	ridicule	= mkV2( mkV "ridicule") noPrep;
-	prefer	= mkV2( mkV "prefer") to;
 	must	= ModalVV "must" "must" "must" "must" "mustn't" ;
 	join_in	= partV( mkV "join") "in";
 	hurry	= mkV "hurry";

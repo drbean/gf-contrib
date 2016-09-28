@@ -182,7 +182,7 @@ on	: Prep;
 other	: CN;
 part	: N2;
 people	: CN;
-prefer	: V2;
+prefer	: VV;
 public	: AP;
 reason	: N2;
 ridicule	: V2;
