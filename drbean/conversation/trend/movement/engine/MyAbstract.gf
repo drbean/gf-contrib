@@ -92,6 +92,7 @@ fun
 	ObjRel	: RP -> ClSlash -> RCl;
 	EmptyRel : ClSlash -> RCl;
 	EmptyRelSlash	: ClSlash -> RCl;
+	DetAPtoNP	: Det -> AP -> NP;
 	WayNP	: Cl -> NP;
 	HowNP	: Cl -> NP;
 	ThatNP	: Cl -> NP;
@@ -226,7 +227,7 @@ fun
 	your	: Det;
 	their	: Det;
 	this	: Det;
-	those_PRON	: Det;
+	those	: Det;
 
 	he	: NP;
 	she	: NP;

@@ -175,6 +175,13 @@ oper
 			a = agreement;
 		};
 
+	myDetAPtoNP : (det : Det) -> (ap : AP) -> { s : NPCase => Str ; a : Agr} = 
+		\det,ap -> let np = det.s ++ ap.s ! AgP3Pl Masc ;
+								agreement = toAgr Pl P3 Masc in {
+			s = \\_ => np;
+			a = agreement;
+		};
+
 	myModPass3 : (cn : CN) -> (v3 : V3) -> (np : NP) ->
 		{s : Number => Case => Str ; g : Gender } =
 		\cn,v3,np -> {
@@ -342,6 +349,7 @@ lin
 	ObjRel rp clslash = mkRCl rp clslash;
 	EmptyRel slash = EmptyRelSlash slash;
 	EmptyRelSlash slash = EmptyRelSlash slash;
+	DetAPtoNP det ap = myDetAPtoNP det ap;
 	WayNP cl = myCltoNP "the way that" cl;
 	HowNP cl = myCltoNP "how" cl;
 	ThatNP cl	= myCltoNP "that" cl;
@@ -456,7 +464,6 @@ lin
 	all_PREDET	= all_Predet;
 	that_PRON = mkNP (mkDet that_Quant);
 	this_PRON = mkNP (mkDet this_Quant);
-	those_PRON = mkDet this_Quant;
 	List np1 np2 = mkListNP np1 np2;
 	AddList np list = mkListNP np list;
 	CloseList conj list = mkNP conj list;
@@ -476,6 +483,7 @@ lin
 	your	= mkDet youSg_Pron;
 	their	= mkDet they_Pron;
 	this	= mkDet this_Quant;
+	those = mkDet that_Quant pluralNum;
 
 	she = mkNP she_Pron;
 	he = mkNP he_Pron;
