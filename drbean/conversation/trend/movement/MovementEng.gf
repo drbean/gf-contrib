@@ -73,7 +73,7 @@ lin
 
 -- PN
 
-	derek_sivers	= mkPN( mkN feminine (mkN "Derek Sivers") );
+	derek_sivers	= mkPN( mkN masculine (mkN "Derek Sivers") );
 
 -- Prep
 
