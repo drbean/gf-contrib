@@ -92,7 +92,7 @@ fun
 	ObjRel	: RP -> ClSlash -> RCl;
 	EmptyRel : ClSlash -> RCl;
 	EmptyRelSlash	: ClSlash -> RCl;
-	DetAPtoNP	: Det -> AP -> NP;
+	DetVPtoNP	: Det -> VP -> NP;
 	WayNP	: Cl -> NP;
 	HowNP	: Cl -> NP;
 	ThatNP	: Cl -> NP;

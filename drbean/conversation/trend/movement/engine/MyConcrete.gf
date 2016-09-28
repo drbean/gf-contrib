@@ -175,10 +175,15 @@ oper
 			a = agreement;
 		};
 
-	myDetAPtoNP : (det : Det) -> (ap : AP) -> { s : NPCase => Str ; a : Agr} = 
-		\det,ap -> let np = det.s ++ ap.s ! AgP3Pl Masc ;
-								agreement = toAgr Pl P3 Masc in {
-			s = \\_ => np;
+	myDetVPtoNP : (det : Det) -> (vp : VP) -> { s : NPCase => Str ; a : Agr} = 
+		\det,vp -> let nom = det.s ++ (PartVP vp).s ! AgP3Pl Masc ;
+								gen = glue nom "'s";
+								agreement = toAgr det.n P3 Masc in {
+			s = table {
+				NCase Nom => nom;
+				NCase Gen => gen;
+				NPAcc => nom;
+				NPNomPoss => gen };
 			a = agreement;
 		};
 
@@ -349,7 +354,7 @@ lin
 	ObjRel rp clslash = mkRCl rp clslash;
 	EmptyRel slash = EmptyRelSlash slash;
 	EmptyRelSlash slash = EmptyRelSlash slash;
-	DetAPtoNP det ap = myDetAPtoNP det ap;
+	DetVPtoNP det vp = myDetVPtoNP det vp;
 	WayNP cl = myCltoNP "the way that" cl;
 	HowNP cl = myCltoNP "how" cl;
 	ThatNP cl	= myCltoNP "that" cl;
