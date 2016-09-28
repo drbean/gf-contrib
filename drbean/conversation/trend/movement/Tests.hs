@@ -119,8 +119,8 @@ dic_test = [
 	, "Now, followers aren't ridiculed."
 	, "Now, they are part of the in-crowd, if they hurry."
 	, "Now those that prefer to stick with the crowd join in, because they are ridiculed for not joining in."
-	, "If you care about starting a movement, have the courage to follow."
-	, "If you care about starting a movement, have the courage to show others how to follow."
+	, "If you care about starting a movement, you should have the courage to follow."
+	, "If you care about starting a movement, you should have the courage to show others how to follow."
 	, "The shirtless guy gets all the credit, but the first follower transforms the lone nut into a leader."
 	, "When you find a lone nut doing something great, you should have the courage to stand up and join in."
 
