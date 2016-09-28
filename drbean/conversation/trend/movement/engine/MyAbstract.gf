@@ -20,6 +20,7 @@ cat
 	PatientPrep;
 	ExtentPrep;
 	AttributePrep;
+	StimulusPrep;
 	Adv_coagent;
 	Adv_instrument;
 	Adv_theme;
@@ -31,6 +32,7 @@ cat
 	Adv_patient;
 	Adv_extent;
 	Adv_attribute;
+	Adv_stimulus;
 	MassDet;
 	SubordCl;
 	Partitive;
@@ -59,6 +61,7 @@ fun
 	Patienting		: PatientPrep -> NP -> Adv_patient;
 	Extenting	: ExtentPrep -> NP -> Adv_extent;
 	Attributing	: AttributePrep -> NP -> Adv_attribute;
+	Stimulating	: StimulusPrep -> NP -> Adv_stimulus;
 	Happening	: V -> VP ;
 	Changing	: V2 -> NP -> VP;
 	V_NP_VP:	V2V -> NP -> VP -> VP;
@@ -122,6 +125,7 @@ fun
 	VP_Adv_location	:  Motion -> Adv_location -> VP;
 	VP_Adv_result	: VP -> Adv_result -> VP;
 	VP_Adv_attribute	: VP -> Adv_attribute -> VP;
+	VP_Adv_stimulus	: VP -> Adv_stimulus -> VP;
 	WithCl	: VP -> SubordCl -> VP;
 	VPToo	: VP -> VP;
 	VPAlready	: VP -> VP;

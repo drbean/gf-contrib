@@ -77,7 +77,7 @@ fun
 	to	: Prep;
 	not_to	: Prep;
 	into	: Prep;
-	for	: Prep;
+	for	: StimulusPrep;
 	as	: Prep;
 	as_attribute	: AttributePrep;
 	about	: Prep;
