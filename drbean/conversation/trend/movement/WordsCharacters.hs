@@ -129,6 +129,7 @@ actually	: Adv;
 all	: Det;
 and	: Conj;
 as	: Prep;
+as	: Subj;
 because	: Conj;
 but	: Conj;
 care	: V2;
