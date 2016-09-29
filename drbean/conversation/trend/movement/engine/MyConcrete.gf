@@ -174,6 +174,18 @@ oper
 			a = agreement;
 		};
 
+	mySomething : (ap : AP) -> {s : NPCase => Str ; a : Agr} =
+	\ap -> let agreement = something.a;
+		adj = ap.s ! agreement;
+		nom = something.s ! NCase Nom ++ adj;
+		gen = glue nom "\'s" in
+			{s = table {
+				NCase Nom => nom;
+				NPAcc => nom;
+				_ => gen };
+			a = agreement
+			};
+
 	myDetRCltoNP : ( det : Det ) -> ( rcl : RCl ) -> { s : NPCase => Str ; a : Agr} = 
 	\det,rcl -> let agreement = (toAgr det.n P3 Masc);
 							nom = det.s ++ rcl.s ! Pres ! Simul ! CPos ! agreement;
@@ -436,7 +448,8 @@ lin
 	Entity pn	= mkNP pn;
 	Kind ap cn	= mkCN ap cn;
 	MassKind ap n = mymkAP_N ap n;
-  KindOfKind cn adv	= mkCN cn adv;
+	Something ap = mySomething ap;
+	KindOfKind cn adv	= mkCN cn adv;
   KindInTime cn adv	= mkCN cn adv;
 	TimeInTime cn adv = mkCN cn adv;
 	TimeAsAdv det cn = mkAdv P.noPrep (mkNP det cn);

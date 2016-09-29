@@ -167,6 +167,7 @@ fun
 	Entity	: PN -> NP;
 	Kind	: AP -> CN -> CN;
 	MassKind	: AP -> N -> N;
+	Something	: AP -> NP;
 	KindOfKind  : CN -> Adv -> CN;
 	KindInTime  : CN -> Adv_time -> CN;
 	TimeInTime  : Time -> Adv_time -> Time;
