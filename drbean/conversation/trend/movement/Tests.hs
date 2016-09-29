@@ -122,7 +122,7 @@ dic_test = [
 	, "If you care about starting a movement, you should have the courage to follow."
 	, "If you care about starting a movement, you should have the courage to show others how to follow."
 	, "The shirtless guy gets all the credit, but the first follower transforms the lone nut into a leader."
-	, "When you find a lone nut doing something great, you should have the courage to stand up and join in."
+	, "When you find a lone nut doing something great, you should have the courage to join in."
 
 
   ]
