@@ -19,6 +19,8 @@ cat
 	ResultPrep;
 	PatientPrep;
 	ExtentPrep;
+	AttributePrep;
+	StimulusPrep;
 	Adv_coagent;
 	Adv_instrument;
 	Adv_theme;
@@ -29,6 +31,8 @@ cat
 	Adv_result;
 	Adv_patient;
 	Adv_extent;
+	Adv_attribute;
+	Adv_stimulus;
 	MassDet;
 	SubordCl;
 	Partitive;
@@ -56,6 +60,8 @@ fun
 	Resulting		: ResultPrep -> NP -> Adv_result;
 	Patienting		: PatientPrep -> NP -> Adv_patient;
 	Extenting	: ExtentPrep -> NP -> Adv_extent;
+	Attributing	: AttributePrep -> NP -> Adv_attribute;
+	Stimulating	: StimulusPrep -> NP -> Adv_stimulus;
 	Happening	: V -> VP ;
 	Changing	: V2 -> NP -> VP;
 	V_NP_VP:	V2V -> NP -> VP -> VP;
@@ -89,6 +95,8 @@ fun
 	ObjRel	: RP -> ClSlash -> RCl;
 	EmptyRel : ClSlash -> RCl;
 	EmptyRelSlash	: ClSlash -> RCl;
+	DetRCltoNP	: Det -> RCl -> NP;
+	DetVPtoNP	: Det -> VP -> NP;
 	WayNP	: Cl -> NP;
 	HowNP	: Cl -> NP;
 	ThatNP	: Cl -> NP;
@@ -116,6 +124,8 @@ fun
 	VP_Adv_time	: VP -> Adv_time -> VP;
 	VP_Adv_location	:  Motion -> Adv_location -> VP;
 	VP_Adv_result	: VP -> Adv_result -> VP;
+	VP_Adv_attribute	: VP -> Adv_attribute -> VP;
+	VP_Adv_stimulus	: VP -> Adv_stimulus -> VP;
 	WithCl	: VP -> SubordCl -> VP;
 	VPToo	: VP -> VP;
 	VPAlready	: VP -> VP;
@@ -157,6 +167,7 @@ fun
 	Entity	: PN -> NP;
 	Kind	: AP -> CN -> CN;
 	MassKind	: AP -> N -> N;
+	Something	: AP -> NP;
 	KindOfKind  : CN -> Adv -> CN;
 	KindInTime  : CN -> Adv_time -> CN;
 	TimeInTime  : Time -> Adv_time -> Time;
@@ -199,6 +210,10 @@ fun
 	some_NP	: NP;
 	some_PL_NP	: NP;
 	some_PREDET	: Predet;
+	something	: NP;
+	every_DET	: Det;
+	everyone_NP	: NP;
+	all_PREDET	: Predet;
 	List : NP -> NP -> ListNP;
 	AddList : NP -> ListNP -> ListNP;
 	CloseList	: Conj -> ListNP -> NP;
@@ -218,6 +233,7 @@ fun
 	your	: Det;
 	their	: Det;
 	this	: Det;
+	those	: Det;
 
 	he	: NP;
 	she	: NP;
@@ -240,7 +256,6 @@ fun
 	when_RP	: RP;
 
 	more : CAdv;
-	n_feet_tall	: Card -> AP;
 	ComparaAP : A -> NP -> AP;
 	ComparaAdv : CAdv -> A -> NP -> Adv;
 	ComparaN	: CAdv -> CN -> NP -> NP;

@@ -1,9 +1,6 @@
-concrete MyConcrete of MyAbstract = CatEng ** open ResEng, Prelude, SyntaxEng, (P = ParadigmsEng), VerbEng, ExtraEng, IrregEng, ExtensionsEng in {
+concrete MyConcrete of MyAbstract = CatEng, ConjunctionEng ** open ResEng, Prelude, SyntaxEng, (P = ParadigmsEng), VerbEng, ExtraEng, IrregEng, ExtensionsEng in {
 
 lincat
-	ListNP	= ListNP;
-	ListAP	= ListAP;
-	ListAdv	= ListAdv;
 	NounCl = {s : ResEng.Tense => Anteriority => CPolarity => Order => Str; c : NPCase };
 	SubordCl	= Adv;
 	Time	= CN;
@@ -21,6 +18,8 @@ lincat
 	ResultPrep	= Prep;
 	PatientPrep	= Prep;
 	ExtentPrep	= Prep;
+	AttributePrep	= Prep;
+	StimulusPrep	= Prep;
 	Adv_coagent	= Adv;
 	Adv_instrument	= Adv;
 	Adv_theme	= Adv;
@@ -31,6 +30,8 @@ lincat
 	Adv_result	= Adv;
 	Adv_patient	= Adv;
 	Adv_extent	= Adv;
+	Adv_attribute	= Adv;
+	Adv_stimulus	= Adv;
 	MassDet = Det;
 	Partitive = N2;
 
@@ -173,6 +174,43 @@ oper
 			a = agreement;
 		};
 
+	mySomething : (ap : AP) -> {s : NPCase => Str ; a : Agr} =
+	\ap -> let agreement = something.a;
+		adj = ap.s ! agreement;
+		nom = something.s ! NCase Nom ++ adj;
+		gen = glue nom "\'s" in
+			{s = table {
+				NCase Nom => nom;
+				NPAcc => nom;
+				_ => gen };
+			a = agreement
+			};
+
+	myDetRCltoNP : ( det : Det ) -> ( rcl : RCl ) -> { s : NPCase => Str ; a : Agr} = 
+	\det,rcl -> let agreement = (toAgr det.n P3 Masc);
+							nom = det.s ++ rcl.s ! Pres ! Simul ! CPos ! agreement;
+								gen = glue nom "'s" in {
+			s = table {
+				NCase Nom => nom;
+				NCase Gen => gen;
+				NPAcc => nom;
+				NPNomPoss => gen };
+			a = agreement;
+		};
+
+
+	myDetVPtoNP : (det : Det) -> (vp : VP) -> { s : NPCase => Str ; a : Agr} = 
+		\det,vp -> let nom = det.s ++ (PartVP vp).s ! AgP3Pl Masc ;
+								gen = glue nom "'s";
+								agreement = toAgr det.n P3 Masc in {
+			s = table {
+				NCase Nom => nom;
+				NCase Gen => gen;
+				NPAcc => nom;
+				NPNomPoss => gen };
+			a = agreement;
+		};
+
 	myModPass3 : (cn : CN) -> (v3 : V3) -> (np : NP) ->
 		{s : Number => Case => Str ; g : Gender } =
 		\cn,v3,np -> {
@@ -275,16 +313,6 @@ oper
 			lock_N = {}
 		} ;
 
-	my_feet_tall : (n : Card) -> {
-		s : Agr => Str ;
-		isPre : Bool
-			} =
-	\n -> {
-		s = \\_ => n.s ! Nom ++ "feet tall";
-		isPre = False;
-		lock_AP = {}
-		};
-
 lin
 	Be_bad ap	= mkComp ap;
   Be_somewhere located	= mkComp located;
@@ -306,6 +334,8 @@ lin
 	Resulting prep result = mkAdv prep result;
 	Patienting prep result = mkAdv prep result;
 	Extenting prep degree	=mkAdv prep degree;
+	Attributing prep attribute	= mkAdv prep attribute;
+	Stimulating prep stimulus	= mkAdv prep stimulus;
 	Happening action	=	mkVP action;
 	Changing action patient	= mkVP action patient;
 	V_NP_VP causal patient predicate	= mkVP causal patient predicate;
@@ -339,6 +369,8 @@ lin
 	ObjRel rp clslash = mkRCl rp clslash;
 	EmptyRel slash = EmptyRelSlash slash;
 	EmptyRelSlash slash = EmptyRelSlash slash;
+	DetRCltoNP det rcl	= myDetRCltoNP det rcl;
+	DetVPtoNP det vp = myDetVPtoNP det vp;
 	WayNP cl = myCltoNP "the way that" cl;
 	HowNP cl = myCltoNP "how" cl;
 	ThatNP cl	= myCltoNP "that" cl;
@@ -368,6 +400,8 @@ lin
 	VP_Adv_time vp pp = mkVP vp pp;
 	VP_Adv_location vp located = mkVP vp located;
 	VP_Adv_result vp result = mkVP vp result;
+	VP_Adv_attribute vp attribute = mkVP vp attribute;
+	VP_Adv_stimulus vp stimulus	= mkVP vp stimulus;
 	WithCl vp cl = mkVP vp cl;
 	VPToo vp = myVPPlus vp "too";
 	VPAlready vp = myVPPlus vp "already";
@@ -404,7 +438,8 @@ lin
 	Entity pn	= mkNP pn;
 	Kind ap cn	= mkCN ap cn;
 	MassKind ap n = mymkAP_N ap n;
-  KindOfKind cn adv	= mkCN cn adv;
+	Something ap = mySomething ap;
+	KindOfKind cn adv	= mkCN cn adv;
   KindInTime cn adv	= mkCN cn adv;
 	TimeInTime cn adv = mkCN cn adv;
 	TimeAsAdv det cn = mkAdv P.noPrep (mkNP det cn);
@@ -446,6 +481,10 @@ lin
 	some_PL_DET = mkDet some_Quant pluralNum;
 	some_NP = mkNP( mkDet some_Quant);
 	some_PL_NP = mkNP( mkDet some_Quant pluralNum);
+	something	= something_NP;
+	every_DET	= every_Det;
+	everyone_NP = mkNP every_Det;
+	all_PREDET	= all_Predet;
 	that_PRON = mkNP (mkDet that_Quant);
 	this_PRON = mkNP (mkDet this_Quant);
 	List np1 np2 = mkListNP np1 np2;
@@ -467,6 +506,7 @@ lin
 	your	= mkDet youSg_Pron;
 	their	= mkDet they_Pron;
 	this	= mkDet this_Quant;
+	those = mkDet that_Quant pluralNum;
 
 	she = mkNP she_Pron;
 	he = mkNP he_Pron;
@@ -487,7 +527,6 @@ lin
 	when_RP	= mymkRP "when" "when" "when";
 
 	more	= more_CAdv;
-	n_feet_tall	n = my_feet_tall n;
 	ComparaAP a np = mkAP a np;
 	ComparaAdv cadv a np = mkAdv cadv a np;
 	ComparaN cadv cn np = mkNP ( myCAdvCNNP cadv cn np);
