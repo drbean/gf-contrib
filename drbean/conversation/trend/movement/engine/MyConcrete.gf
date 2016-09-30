@@ -313,16 +313,6 @@ oper
 			lock_N = {}
 		} ;
 
-	my_feet_tall : (n : Card) -> {
-		s : Agr => Str ;
-		isPre : Bool
-			} =
-	\n -> {
-		s = \\_ => n.s ! Nom ++ "feet tall";
-		isPre = False;
-		lock_AP = {}
-		};
-
 lin
 	Be_bad ap	= mkComp ap;
   Be_somewhere located	= mkComp located;
@@ -537,7 +527,6 @@ lin
 	when_RP	= mymkRP "when" "when" "when";
 
 	more	= more_CAdv;
-	n_feet_tall	n = my_feet_tall n;
 	ComparaAP a np = mkAP a np;
 	ComparaAdv cadv a np = mkAdv cadv a np;
 	ComparaN cadv cn np = mkNP ( myCAdvCNNP cadv cn np);
