@@ -114,7 +114,7 @@ fun
 	follow	: V;
 	emulate	: V2;
 	embrace	: V3;
-	embrace_attribute	: V2;
+	embrace_ATTRIBUTE	: V2;
 	care	: V2;
 }
 

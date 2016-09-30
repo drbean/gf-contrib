@@ -119,7 +119,7 @@ lin
 	follow	= mkV "follow";
 	emulate	= mkV2( mkV "emulate") noPrep;
 	embrace	= mkV3( mkV "embrace") noPrep as;
-	embrace_attribute	= mkV2( mkV "embrace") noPrep;
+	embrace_ATTRIBUTE	= mkV2( mkV "embrace") noPrep;
 	care	= mkV2( mkV "care") about;
 
 }
