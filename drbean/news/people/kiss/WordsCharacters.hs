@@ -144,7 +144,7 @@ escape	: V2;
 find	: V2;
 for	: Prep;
 go	: V;
-in	: Prep;
+in	: LocPrep;
 interrupt
 interview	: V2;
 kiss	: V2;

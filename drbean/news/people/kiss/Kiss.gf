@@ -30,7 +30,7 @@ fun
 
 	police	: CN;
 	arrest_N	: N2;
-	theater	: CN;
+	theater	: PlaceNoun;
 	report_N	: CN;
 	disturbance	: CN;
 	camera	: CN;
@@ -46,7 +46,7 @@ fun
 -- Prep
 
 	to	: Prep;
-	in_PREP	: Prep;
+	in_PREP	: LocPrep;
 	for	: Prep;
 	by	: Prep;
 
