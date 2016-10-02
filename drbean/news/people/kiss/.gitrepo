@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = http://github.com/drbean/kiss
+	branch = master
+	commit = 2275d56b0bf49adabeb65ea51c69f6db9e4291f8
+	parent = 6db0aa20508ffe3ac8358c357a19f706236e30a5
+	cmdver = 0.3.0
