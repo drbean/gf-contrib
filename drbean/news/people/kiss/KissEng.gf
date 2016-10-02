@@ -57,6 +57,7 @@ lin
 
 -- V
 
+	interrupt	= mkV2( mkV "interrupt") noPrep;
 	try	= mkVV( mkV "try") ;
 	report_V	= mkV2( mkV "report") noPrep;
 	let_V2V	= mkV2V( mkV "let") noPrep noPrep;

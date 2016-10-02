@@ -61,6 +61,7 @@ fun
 
 -- V
 
+	interrupt	: V2;
 	try	: VV;
 	report_V	: V2;
 	let_V2V	: V2V;

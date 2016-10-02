@@ -145,7 +145,7 @@ find	: V2;
 for	: Prep;
 go	: V;
 in	: LocPrep;
-interrupt
+interrupt	: V2;
 interview	: V2;
 kiss	: V2;
 let	: V2V;
