@@ -152,7 +152,7 @@ let	: V2V;
 Mario	: PN;
 not	: Adv;
 of	: Prep;
-police	: N;
+police	: CN;
 report	: V2;
 report	: CN;
 second	: AP;

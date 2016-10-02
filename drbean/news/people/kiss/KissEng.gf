@@ -28,10 +28,10 @@ lin
 
 -- N
 
+	police	= mkCN( mkN nonExist "police") ;
 	arrest_N	= mkN2( mkN "arrest") of_PREP;
 	theater	= mkCN( mkN "theater") ;
 	report_N	= mkCN( mkN "report") ;
-	police	= mkN "police" nonExist;
 	disturbance	= mkCN( mkN "disturbance") ;
 	camera	= mkCN( mkN "camera") ;
 
