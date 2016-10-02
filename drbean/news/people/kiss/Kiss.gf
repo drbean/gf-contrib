@@ -47,8 +47,8 @@ fun
 
 	to	: Prep;
 	in_PREP	: LocPrep;
-	for	: Prep;
-	by	: Prep;
+	for	: ThemePrep;
+	by	: MannerPrep;
 
 
 -- Pron
