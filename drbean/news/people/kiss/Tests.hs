@@ -105,7 +105,8 @@ dic_test = [
 		, "Erykah creates a second disturbance by trying to kiss Mario as he reports the arrest of Shia for the earlier, different disturbance."
 		, "Erykah isn't arrested."
 		, "Erykah interrupts Mario by trying to kiss him."
-		, "Mario is able to avoid Erykah and continue his report."
+		, "Mario is able to avoid Erykah."
+		, "Mario is able to continue his report."
 
   ]
 
