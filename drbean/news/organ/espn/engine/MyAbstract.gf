@@ -170,6 +170,7 @@ fun
 	Something	: AP -> NP;
 	KindOfKind  : CN -> Adv -> CN;
 	KindInTime  : CN -> Adv_time -> CN;
+	KindOfTime	: AP -> Time -> Time;
 	TimeInTime  : Time -> Adv_time -> Time;
 	TimeAsAdv	: Det -> Time -> Adv_time;
 	TimeAsAdvWithPredet	: Predet -> Det -> Time -> Adv_time;

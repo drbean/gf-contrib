@@ -441,6 +441,7 @@ lin
 	Something ap = mySomething ap;
 	KindOfKind cn adv	= mkCN cn adv;
   KindInTime cn adv	= mkCN cn adv;
+	KindOfTime adj cn	= mkCN adj cn;
 	TimeInTime cn adv = mkCN cn adv;
 	TimeAsAdv det cn = mkAdv P.noPrep (mkNP det cn);
 	TimeAsAdvWithPredet predet det cn = mkAdv P.noPrep (mkNP predet (mkNP det cn) );
