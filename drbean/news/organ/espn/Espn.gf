@@ -25,7 +25,7 @@ fun
 
 -- N
 
-	time	: CN;
+	time	: Time;
 	test	: CN;
 	tattoo	: CN;
 	sophomore	: CN;
