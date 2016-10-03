@@ -30,14 +30,13 @@ fun
 	tattoo	: CN;
 	sophomore	: CN;
 	name	: CN;
-	middle_school	: PlaceNoun;
+	middle_school	: Place;
 	majority	: CN;
-	jeremy_lin	: CN;
 	game	: CN;
 	fan	: CN;
 	face	: CN;
 	court	: PlaceNoun;
-	college	: PlaceNoun;
+	college	: Place;
 	coach	: CN;
 	arm	: CN;
 	eight_hundred	: N;
@@ -45,6 +44,7 @@ fun
 
 -- PN
 
+	jeremy_lin	: PN;
 	toree	: PN;
 	harden	: PN;
 
@@ -53,8 +53,7 @@ fun
 	to	: Prep;
 	out_of	: Prep;
 	on	: Prep;
-	in_PREP	: Prep;
-	at	: Prep;
+	in_PREP	: LocPrep;
 	as	: Prep;
 
 -- Pron

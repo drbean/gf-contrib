@@ -32,14 +32,13 @@ lin
 	tattoo	= mkCN( mkN "tattoo") ;
 	sophomore	= mkCN( mkN "sophomore") ;
 	name	= mkCN( mkN "name") ;
-	middle_school	= mkCN( mkN "middle school") ;
+	middle_school	= mkNP( mkN "middle school") ;
 	majority	= mkCN( mkN "majority") ;
-	jeremy_lin	= mkCN( mkN "Lin") ;
 	game	= mkCN( mkN "game") ;
 	fan	= mkCN( mkN "fan") ;
 	face	= mkCN( mkN "face") ;
 	court	= mkCN( mkN "court") ;
-	college	= mkCN( mkN "college") ;
+	college	= mkNP( mkN "college") ;
 	coach	= mkCN( mkN "coach") ;
 	arm	= mkCN( mkN "arm") ;
 	eight_hundred	= mkN "800" nonExist;
@@ -47,8 +46,9 @@ lin
 
 -- PN
 
-	toree	= mkPN( mkN feminine (mkN "Toree") );
-	harden	= mkPN( mkN feminine (mkN "Harden") );
+	jeremy_lin	= mkPN( mkN masculine (mkN "Lin" )) ;
+	toree	= mkPN( mkN masculine (mkN "Toree") );
+	harden	= mkPN( mkN masculine  (mkN "Harden") );
 
 -- Prep
 
@@ -56,7 +56,6 @@ lin
 	out_of	= mkPrep "out of";
 	on	= mkPrep "on";
 	in_PREP	= mkPrep "in";
-	at	= mkPrep "at";
 	as	= mkPrep "as";
 
 -- Pron
