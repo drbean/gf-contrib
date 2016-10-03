@@ -542,7 +542,6 @@ lin
   at_PREP	= P.mkPrep "at";
 	before_PREP	= P.mkPrep "before";
   from_PREP	= P.mkPrep "from";
-  like_PREP	= P.mkPrep "like";
 	of_PREP	= possess_Prep;
   part_prep	= part_Prep;
   up_PREP	= P.mkPrep "up";

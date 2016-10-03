@@ -272,7 +272,6 @@ fun
 	at_PREP	: LocPrep;
 	before_PREP	: Prep;
 	from_PREP	: Prep;
-  like_PREP	: Prep;
 	of_PREP	: Prep;
 	part_prep	: Prep;
 	up_PREP	: Prep;
