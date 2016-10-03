@@ -1,0 +1,2 @@
+:load Tests
+run trans dic_test
