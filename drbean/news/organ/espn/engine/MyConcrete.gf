@@ -7,7 +7,6 @@ lincat
 	Title	= CN;
 	Place	= NP;
 	PlaceNoun	= CN;
-	Motion	= VP;
 	CoagentPrep = Prep;
 	InstrumentPrep = Prep;
 	ThemePrep = Prep;
