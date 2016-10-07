@@ -232,6 +232,13 @@ oper
 			lock_Adv = {}
 			};
 
+  myGerundAdv : (prep : Str) -> (vp : VP) -> {s : Str} =
+	\prep, vp -> let
+	gerund = GerundAdv vp in
+		{ s = prep ++ gerund.s;
+			lock_Adv = {}
+			};
+
 	mymkAP_N : (adj : AP) -> (noun : N) -> { s : Number => Case => Str ; g : Gender } =
 		\adj,noun ->
 		{

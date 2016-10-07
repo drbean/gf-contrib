@@ -9,6 +9,7 @@ lin
 
 -- Adv
 
+	playing_video_games	= myGerundAdv "" (Changing play (Item zero_Det_pl (Kind video game)));
 
 -- AP
 

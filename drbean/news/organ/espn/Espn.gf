@@ -7,6 +7,8 @@ fun
 
 -- Adv
 
+	playing_video_games	: Adv_stimulus;
+
 
 -- AP
 
