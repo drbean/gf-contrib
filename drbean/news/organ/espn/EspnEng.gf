@@ -47,7 +47,7 @@ lin
 -- PN
 
 	jeremy_lin	= mkPN( mkN masculine (mkN "Lin" )) ;
-	toree	= mkPN( mkN masculine (mkN "Toree") );
+	torre	= mkPN( mkN masculine (mkN "Torre") );
 	harden	= mkPN( mkN masculine  (mkN "Harden") );
 
 -- Prep
@@ -69,7 +69,8 @@ lin
 
 -- V
 
-	ask	= mkV2S( mkV "ask") noPrep;
+	get_AP	= mkVA( mkV "get") ;
+	ask	= mkV2Q( mkV "ask") noPrep;
 	say	= mkVS( mkV "say") ;
 	play	= mkV2( mkV "play") noPrep;
 	inspire	= mkV2V( mkV "inspire") noPrep to;

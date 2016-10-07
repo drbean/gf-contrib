@@ -45,7 +45,7 @@ fun
 -- PN
 
 	jeremy_lin	: PN;
-	toree	: PN;
+	torre	: PN;
 	harden	: PN;
 
 -- Prep
@@ -54,7 +54,7 @@ fun
 	out_of	: Prep;
 	on	: Prep;
 	in_PREP	: LocPrep;
-	as	: Prep;
+	as	: AttributePrep;
 
 -- Pron
 
@@ -67,7 +67,8 @@ fun
 
 -- V
 
-	ask	: V2S;
+	get_AP	: VA;
+	ask	: V2Q;
 	say	: VS;
 	play	: V2;
 	inspire	: V2V;
