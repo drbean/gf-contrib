@@ -140,6 +140,7 @@ fan	: CN;
 first	: AP;
 game	: CN;
 get	: V3;
+get	: VA;
 Harden	: PN;
 if	: Subj;
 in	: Prep;
