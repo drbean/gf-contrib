@@ -55,7 +55,7 @@ lin
 
 	to	= mkPrep "to";
 	out_of	= mkPrep "out of";
-	on	= mkPrep "on";
+	on_LOCATION	= mkPrep "on";
 	in_PREP	= mkPrep "in";
 	as	= mkPrep "as";
 

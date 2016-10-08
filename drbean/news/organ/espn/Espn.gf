@@ -54,7 +54,7 @@ fun
 
 	to	: Prep;
 	out_of	: Prep;
-	on	: Prep;
+	on_LOCATION	: LocPrep;
 	in_PREP	: LocPrep;
 	as	: AttributePrep;
 
