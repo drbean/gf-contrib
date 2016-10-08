@@ -7,6 +7,7 @@ fun
 
 -- Adv
 
+	out_of_800	: Adv;
 	playing_video_games	: Adv_stimulus;
 
 
@@ -15,7 +16,6 @@ fun
 	wrong	: AP;
 	video	: AP;
 	upset	: AP;
-	math	: AP;
 	first	: AP;
 	assistant	: AP;
 
@@ -27,8 +27,8 @@ fun
 
 -- N
 
+	math_test	: PlaceNoun;
 	time	: Time;
-	test	: CN;
 	tattoo	: CN;
 	sophomore	: CN;
 	name	: CN;
@@ -53,7 +53,6 @@ fun
 -- Prep
 
 	to	: Prep;
-	out_of	: Prep;
 	on_LOCATION	: LocPrep;
 	in_PREP	: LocPrep;
 	as	: AttributePrep;
@@ -74,7 +73,7 @@ fun
 	say	: VS;
 	play	: V2;
 	inspire	: V2V;
-	get	: V3;
+	get	: V2;
 	slam_dunk	: V;
 	call	: V3;
 }

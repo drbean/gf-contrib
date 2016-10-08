@@ -9,6 +9,7 @@ lin
 
 -- Adv
 
+	out_of_800	= mkAdv "out of 800";
 	playing_video_games	= myGerundAdv "" (Changing play (Item zero_Det_pl (Kind video game)));
 
 -- AP
@@ -16,7 +17,6 @@ lin
 	wrong	= mkAP( mkA "wrong") ;
 	video	= mkAP( mkA "video") ;
 	upset	= mkAP( mkA "upset") ;
-	math	= mkAP( mkA "math") ;
 	first	= mkAP( mkA "first") ;
 	assistant	= mkAP( mkA "assistant") ;
 
@@ -28,8 +28,8 @@ lin
 
 -- N
 
+	math_test	= mkCN( mkN "math test") ;
 	time	= mkCN( mkN "time") ;
-	test	= mkCN( mkN "test") ;
 	tattoo	= mkCN( mkN "tattoo") ;
 	sophomore	= mkCN( mkN "sophomore") ;
 	name	= mkCN( mkN "name") ;
@@ -54,7 +54,6 @@ lin
 -- Prep
 
 	to	= mkPrep "to";
-	out_of	= mkPrep "out of";
 	on_LOCATION	= mkPrep "on";
 	in_PREP	= mkPrep "in";
 	as	= mkPrep "as";
@@ -75,7 +74,7 @@ lin
 	say	= mkVS( mkV "say") ;
 	play	= mkV2( mkV "play") noPrep;
 	inspire	= mkV2V( mkV "inspire") noPrep to;
-	get	= mkV3( mkV "get") noPrep on;
+	get	= mkV2( mkV "get") noPrep;
 	slam_dunk	= mkV "slam dunk";
 	call	= mkV3( mkV "call") noPrep noPrep;
 
