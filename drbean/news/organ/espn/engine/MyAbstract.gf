@@ -168,6 +168,7 @@ fun
 	MassKind	: AP -> N -> N;
 	Something	: AP -> NP;
 	KindOfKind  : CN -> Adv -> CN;
+	MassKindOfKind  : N -> Adv -> N;
 	KindInTime  : CN -> Adv_time -> CN;
 	KindOfTime	: AP -> Time -> Time;
 	TimeInTime  : Time -> Adv_time -> Time;

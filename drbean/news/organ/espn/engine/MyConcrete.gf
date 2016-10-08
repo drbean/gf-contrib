@@ -246,6 +246,13 @@ oper
 			g = noun.g
 		};
 
+	mymkN_Adv : (noun : N) -> (adv : Adv) -> { s : Number => Case => Str ; g : Gender } =
+		\noun,adv ->
+		{
+			s = \\n,c => noun.s ! n ! c ++ adv.s;
+			g = noun.g
+		};
+
 	myApposNP : (np1 : NP) -> (insert : Str) -> (np2 : NP) -> { s : NPCase => Str ; a : Agr } =
 		\np1,insert,np2 ->
 		{s = \\n => np1.s ! n ++ insert ++ np2.s ! n; a = np1.a};
@@ -446,6 +453,7 @@ lin
 	MassKind ap n = mymkAP_N ap n;
 	Something ap = mySomething ap;
 	KindOfKind cn adv	= mkCN cn adv;
+	MassKindOfKind n adv	= mymkN_Adv n adv;
   KindInTime cn adv	= mkCN cn adv;
 	KindOfTime adj cn	= mkCN adj cn;
 	TimeInTime cn adv = mkCN cn adv;
