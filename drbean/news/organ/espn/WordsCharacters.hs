@@ -146,7 +146,7 @@ if	: Subj;
 in	: Prep;
 inspire	: V2V;
 Lin	: CN;
-majority	: CN;
+majority	: N2;
 middle school	: PlaceNoun;
 name	: CN;
 on	: Prep;

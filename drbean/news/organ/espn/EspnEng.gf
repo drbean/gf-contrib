@@ -9,6 +9,7 @@ lin
 
 -- Adv
 
+	the_majority_of_the_time	= mkAdv "the majority of the time";
 	out_of_800	= mkAdv "out of 800";
 	playing_video_games	= myGerundAdv "" (Changing play (Item zero_Det_pl (Kind video game)));
 
@@ -28,13 +29,14 @@ lin
 
 -- N
 
+	majority	= mkN2( mkN "majority") part_prep;
 	math_test	= mkCN( mkN "math test") ;
 	time	= mkCN( mkN "time") ;
+	time_CN	= mkCN( mkN "time") ;
 	tattoo	= mkCN( mkN "tattoo") ;
 	sophomore	= mkCN( mkN "sophomore") ;
 	name	= mkCN( mkN "name") ;
 	middle_school	= mkNP( mkN "middle school") ;
-	majority	= mkCN( mkN "majority") ;
 	game	= mkCN( mkN "game") ;
 	fan	= mkCN( mkN "fan") ;
 	face	= mkCN( mkN "face") ;

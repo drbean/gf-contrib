@@ -7,6 +7,7 @@ fun
 
 -- Adv
 
+	the_majority_of_the_time	: Adv_time;
 	out_of_800	: Adv;
 	playing_video_games	: Adv_stimulus;
 
@@ -27,13 +28,14 @@ fun
 
 -- N
 
+	majority	: N2;
 	math_test	: PlaceNoun;
 	time	: Time;
+	time_CN	: CN;
 	tattoo	: CN;
 	sophomore	: CN;
 	name	: CN;
 	middle_school	: Place;
-	majority	: CN;
 	game	: CN;
 	fan	: CN;
 	face	: CN;
