@@ -65,7 +65,6 @@ fun
 -- Subj
 
 	whether	: Subj;
-	when	: Subj;
 
 -- V
 

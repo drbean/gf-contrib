@@ -66,7 +66,6 @@ lin
 -- Subj
 
 	whether	= mkSubj "whether";
-	when	= mkSubj "when";
 
 -- V
 
