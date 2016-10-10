@@ -142,7 +142,6 @@ game	: CN;
 get	: V2;
 get	: VA;
 Harden	: PN;
-if	: Subj;
 in	: Prep;
 inspire	: V2V;
 Lin	: CN;
