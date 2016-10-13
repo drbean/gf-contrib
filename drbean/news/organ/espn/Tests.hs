@@ -101,8 +101,8 @@ dic_test = [
 	, "Lin says he slam dunks the first time at middle school."
 	, "Torre asks Lin if Harden gets upset playing video games."
 	, "Harden says he plays video games the majority of the time when he isn't on the court. "
-	, "Torre asks James whether an assistant coach calls Lin the wrong name."
-	, "Torre asks Lin if James inspires a fan to get a tattoo of his face on his arm. "
+	, "Torre asks Harden if an assistant coach calls Lin the wrong name."
+	, "Torre asks Lin if Harden inspires a fan to get a tattoo of his face on his arm. "
 	, "Torre asks Harden if Lin gets 790 out of 800 on a math test."
 	, "Lin says he gets 800 out of 800 on a math test."
 
