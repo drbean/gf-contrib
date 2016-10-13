@@ -64,8 +64,6 @@ fun
 
 -- Subj
 
-	whether	: Subj;
-
 -- V
 
 	get_AP	: VA;

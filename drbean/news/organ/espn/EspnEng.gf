@@ -65,8 +65,6 @@ lin
 
 -- Subj
 
-	whether	= mkSubj "whether";
-
 -- V
 
 	get_AP	= mkVA( mkV "get") ;

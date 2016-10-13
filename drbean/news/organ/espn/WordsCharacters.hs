@@ -160,7 +160,6 @@ to	: Prep;
 Toree	: PN;
 upset	: AP;
 video	: AP;
-whether	: Subj;
 wrong	: AP;
 
 
