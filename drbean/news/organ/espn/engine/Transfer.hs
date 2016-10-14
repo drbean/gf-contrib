@@ -1,6 +1,6 @@
 module Main where
 
-import Communication
+import Espn
 import LogicalForm hiding ((==))
 import Evaluation
 
@@ -20,7 +20,7 @@ import System.Environment.FindBin
 main :: IO ()
 main = do
 	path <- getProgPath
-	gr <- readPGF ( path ++ "/Communication.pgf" )
+	gr <- readPGF ( path ++ "/Espn.pgf" )
 	let lang = languages gr
 	let morpho = buildMorpho gr $ head lang
 	hClose stderr
