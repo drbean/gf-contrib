@@ -7,7 +7,6 @@ lincat
 	Title	= CN;
 	Place	= NP;
 	PlaceNoun	= CN;
-	Motion	= VP;
 	CoagentPrep = Prep;
 	InstrumentPrep = Prep;
 	ThemePrep = Prep;
@@ -233,10 +232,24 @@ oper
 			lock_Adv = {}
 			};
 
+  myGerundAdv : (prep : Str) -> (vp : VP) -> {s : Str} =
+	\prep, vp -> let
+	gerund = GerundAdv vp in
+		{ s = prep ++ gerund.s;
+			lock_Adv = {}
+			};
+
 	mymkAP_N : (adj : AP) -> (noun : N) -> { s : Number => Case => Str ; g : Gender } =
 		\adj,noun ->
 		{
 			s = \\n,c => adj.s ! AgP3Sg Neutr ++ noun.s ! n ! c;
+			g = noun.g
+		};
+
+	mymkN_Adv : (noun : N) -> (adv : Adv) -> { s : Number => Case => Str ; g : Gender } =
+		\noun,adv ->
+		{
+			s = \\n,c => noun.s ! n ! c ++ adv.s;
 			g = noun.g
 		};
 
@@ -440,7 +453,9 @@ lin
 	MassKind ap n = mymkAP_N ap n;
 	Something ap = mySomething ap;
 	KindOfKind cn adv	= mkCN cn adv;
+	MassKindOfKind n adv	= mymkN_Adv n adv;
   KindInTime cn adv	= mkCN cn adv;
+	KindOfTime adj cn	= mkCN adj cn;
 	TimeInTime cn adv = mkCN cn adv;
 	TimeAsAdv det cn = mkAdv P.noPrep (mkNP det cn);
 	TimeAsAdvWithPredet predet det cn = mkAdv P.noPrep (mkNP predet (mkNP det cn) );
@@ -542,7 +557,6 @@ lin
   at_PREP	= P.mkPrep "at";
 	before_PREP	= P.mkPrep "before";
   from_PREP	= P.mkPrep "from";
-  like_PREP	= P.mkPrep "like";
 	of_PREP	= possess_Prep;
   part_prep	= part_Prep;
   up_PREP	= P.mkPrep "up";

@@ -9,7 +9,6 @@ cat
 	Place;
 	PlaceNoun;
 	LocPrep;
-	Motion;
 	CoagentPrep;
 	InstrumentPrep;
 	ThemePrep;
@@ -122,7 +121,7 @@ fun
 	VP_Adv_theme	: VP -> Adv_theme -> VP;
 	VP_Adv_manner : VP -> Adv_manner -> VP;
 	VP_Adv_time	: VP -> Adv_time -> VP;
-	VP_Adv_location	:  Motion -> Adv_location -> VP;
+	VP_Adv_location	:  VP -> Adv_location -> VP;
 	VP_Adv_result	: VP -> Adv_result -> VP;
 	VP_Adv_attribute	: VP -> Adv_attribute -> VP;
 	VP_Adv_stimulus	: VP -> Adv_stimulus -> VP;
@@ -169,7 +168,9 @@ fun
 	MassKind	: AP -> N -> N;
 	Something	: AP -> NP;
 	KindOfKind  : CN -> Adv -> CN;
+	MassKindOfKind  : N -> Adv -> N;
 	KindInTime  : CN -> Adv_time -> CN;
+	KindOfTime	: AP -> Time -> Time;
 	TimeInTime  : Time -> Adv_time -> Time;
 	TimeAsAdv	: Det -> Time -> Adv_time;
 	TimeAsAdvWithPredet	: Predet -> Det -> Time -> Adv_time;
@@ -272,7 +273,6 @@ fun
 	at_PREP	: LocPrep;
 	before_PREP	: Prep;
 	from_PREP	: Prep;
-  like_PREP	: Prep;
 	of_PREP	: Prep;
 	part_prep	: Prep;
 	up_PREP	: Prep;
