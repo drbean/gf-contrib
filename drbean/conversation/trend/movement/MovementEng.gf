@@ -12,9 +12,9 @@ lin
 
 -- Adv
 
-	now	= mkAdv "now";
-	less	= mkAdv "less";
-	actually	= mkAdv "actually";
+	now	= ParadigmsEng.mkAdv "now";
+	less	= ParadigmsEng.mkAdv "less";
+	actually	= ParadigmsEng.mkAdv "actually";
 
 -- AP
 
