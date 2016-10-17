@@ -6,9 +6,7 @@ open ConstructorsEng, ParadigmsEng, StructuralEng, IrregEng, ExtraEng, Construct
 oper
 
 	two_CARD	= mkCard (mkNumeral n2_Unit);
-	ten_CARD	= mkCard (mkNumeral "ten");
-	fifty_CARD	= mkCard ( mkNumeral  "50" );
-	fourhundred_CARD	= mkCard (mkNumeral  "400" );
+	ten_CARD	= mkCard (mkNumeral  "10");
 
 lin
 
@@ -47,8 +45,8 @@ lin
 	two	= mkDet two_CARD;
 	ten	= mkDet ten_CARD;
 	many	= mkDet (mkQuant nonExist "many") pluralNum;
-	fifty	= mkDet fifty_CARD;
-	fourhundred	= mkDet fourhundred_CARD;
+	fifty	= mkDet( mkNumeral "50");
+	fourhundred	= mkDet( mkNumeral  "400" );
 
 -- N
 
