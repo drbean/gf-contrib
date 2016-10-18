@@ -128,6 +128,7 @@ tags = [
 able	: A2;
 about	: Prep;
 AIDS	: N;
+and	: Conj;
 before	: Subj;
 blessed	: A2;
 borrow	: V2;

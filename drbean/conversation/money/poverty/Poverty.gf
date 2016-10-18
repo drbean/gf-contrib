@@ -33,6 +33,7 @@ fun
 
 	or	: Conj;
 	but	: Conj;
+	and	: Conj;
 
 -- Det
 

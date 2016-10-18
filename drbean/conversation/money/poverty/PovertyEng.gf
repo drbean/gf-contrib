@@ -37,6 +37,7 @@ lin
 
 -- Conj
 
+	and	= mkConj "and";
 	or	= mkConj "or";
 	but	= mkConj "but";
 
