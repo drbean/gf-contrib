@@ -1,9 +1,9 @@
-module Representation (module Representation, module Communication) where
+module Representation (module Representation, module Poverty) where
 
 import Data.DRS
 import Data.DRS.Show
 
-import Communication
+import Poverty
 import PGF
 
 import Model
@@ -32,7 +32,9 @@ int2ref n = DRSRef ("r" ++ show n )
 
 lc_first :: String -> String
 lc_first str@(s:ss) = if any (flip isPrefixOf str) [
-	"Mnookin"
+	"Jane"
+	, "Jamii Bora"
+	, "Kenya"
 	 ]
 	then s:ss
 	else toLower s:ss
