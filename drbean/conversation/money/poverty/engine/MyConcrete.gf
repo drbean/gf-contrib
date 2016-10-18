@@ -210,6 +210,18 @@ oper
 			a = agreement;
 		};
 
+	myInfinitiveNP : (vp : VP) -> { s : NPCase => Str ; a : Agr} =
+	\vp -> let nom = infVP VVInf vp  Simul CPos (AgP3Sg Neutr) ;
+					gen = glue nom "'s";
+					agreement = AgP3Sg Neutr in {
+				s = table {
+					NCase Nom => nom;
+					NCase Gen => gen;
+					NPAcc => nom;
+					NPNomPoss => gen };
+				a = agreement;
+				};
+
 	myModPass3 : (cn : CN) -> (v3 : V3) -> (np : NP) ->
 		{s : Number => Case => Str ; g : Gender } =
 		\cn,v3,np -> {
@@ -384,6 +396,7 @@ lin
 	EmptyRelSlash slash = EmptyRelSlash slash;
 	DetRCltoNP det rcl	= myDetRCltoNP det rcl;
 	DetVPtoNP det vp = myDetVPtoNP det vp;
+	InfinitiveNP vp = myInfinitiveNP vp;
 	WayNP cl = myCltoNP "the way that" cl;
 	HowNP cl = myCltoNP "how" cl;
 	ThatNP cl	= myCltoNP "that" cl;

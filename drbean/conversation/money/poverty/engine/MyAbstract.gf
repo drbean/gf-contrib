@@ -96,6 +96,7 @@ fun
 	EmptyRelSlash	: ClSlash -> RCl;
 	DetRCltoNP	: Det -> RCl -> NP;
 	DetVPtoNP	: Det -> VP -> NP;
+	InfinitiveNP	: VP -> NP;
 	WayNP	: Cl -> NP;
 	HowNP	: Cl -> NP;
 	ThatNP	: Cl -> NP;
