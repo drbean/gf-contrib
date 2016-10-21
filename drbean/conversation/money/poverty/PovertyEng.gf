@@ -24,7 +24,8 @@ lin
 
 	total	= mkAP( mkA "total") ;
 	second	= mkAP( mkA "second") ;
-	poor	= mkAP( mkA "poor") ;
+	poor_A	= mkA "poor";
+	poor	= mkAP poor_A ;
 	old	= mkAP( mkA "old") ;
 	married	= mkAP( mkA "married") ;
 	low_cost	= mkAP( mkA "low-cost") ;
@@ -48,6 +49,10 @@ lin
 	many	= mkDet (mkQuant nonExist "many") pluralNum;
 	fifty	= mkDet( mkNumeral "50");
 	fourhundred	= mkDet( mkNumeral  "400" );
+
+-- IAdv
+
+	no_matter_how	= ss "no matter how";
 
 -- N
 
@@ -103,7 +108,6 @@ lin
 
 -- Subj
 
-	no_matter_how	= mkSubj "no matter how";
 	before	= mkSubj "before";
 
 -- V

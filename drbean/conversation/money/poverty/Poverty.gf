@@ -18,6 +18,7 @@ fun
 
 	total	: AP;
 	second	: AP;
+	poor_A	: A;
 	poor	: AP;
 	old	: AP;
 	married	: AP;
@@ -42,6 +43,10 @@ fun
 	many	: Det;
 	fifty	: Det;
 	fourhundred	: Det;
+
+-- IAdv
+
+	no_matter_how	: IAdv;
 
 -- N
 
@@ -97,7 +102,6 @@ fun
 
 -- Subj
 
-	no_matter_how	: Subj;
 	before	: Subj;
 
 -- V

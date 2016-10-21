@@ -180,7 +180,7 @@ mortgage	: CN;
 move	: V2;
 Nairobi	: PlaceNoun;
 no longer	: Adv;
-no matter how	: Subj;
+no matter how	: IAdv;
 not	: Adv;
 old	: AP;
 or	: Conj;
