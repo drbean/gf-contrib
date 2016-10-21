@@ -121,7 +121,8 @@ lin
 	match	= mkV3( mkV "match") noPrep to;
 	marry	= mkV2( mkV "marry") noPrep;
 	live	= mkV2( mkV "live") in_PREP;
-	lend	= mkV3( mkV "lend") noPrep to;
+	lend	= mkV3( mkV "lend") noPrep noPrep;
+	lend_to	= mkV3( mkV "lend") noPrep to;
 	leave	= mkV2( mkV "leave") noPrep;
 	hear	= mkV2( mkV "hear") about;
 	give	= mkV2( mkV "give") noPrep;

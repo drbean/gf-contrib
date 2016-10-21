@@ -116,6 +116,7 @@ fun
 	marry	: V2;
 	live	: V2;
 	lend	: V3;
+	lend_to	: V3;
 	leave	: V2;
 	hear	: V2;
 	give	: V2;

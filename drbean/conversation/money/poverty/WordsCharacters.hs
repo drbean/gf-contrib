@@ -165,6 +165,7 @@ Jamii Bora	: PN;
 Jane	: PN;
 leave	: V2;
 lend	: V3;
+lend_to	: V3;
 live	: V2;
 low-cost	: AP;
 man	: CN;
