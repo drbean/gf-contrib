@@ -34,7 +34,6 @@ lin
 	eighteen	= mkAP( mkA "eighteen") ;
 	dead	= mkAP( mkA "dead") ;
 	blessed	= mkA2( mkA "blessed") with_PREP;
-	able	= mkA2( mkA "able") to;
 
 -- Conj
 

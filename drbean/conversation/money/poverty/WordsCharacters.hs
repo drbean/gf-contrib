@@ -125,7 +125,6 @@ tags = [
 
 400	: Det;
 50	: Det;
-able	: A2;
 about	: Prep;
 AIDS	: N;
 and	: Conj;

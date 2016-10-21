@@ -28,7 +28,6 @@ fun
 	eighteen	: AP;
 	dead	: AP;
 	blessed	: A2;
-	able	: A2;
 
 -- Conj
 
