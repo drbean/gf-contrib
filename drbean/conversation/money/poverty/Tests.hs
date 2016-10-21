@@ -104,7 +104,7 @@ dic_test = [
 	, "Her mom dies and her husband leaves her."
 	, "She hears about Jamii Bora , an organization that lends money to people no matter how poor they are."
 	, "She spends a year to save fifty dollars and she starts borrowing money."
-	, "Over time, she is able to buy a sewing machine."
+	, "Over time, she can buy a sewing machine."
 	, "She buys old ball gowns and she repurposes them with frills and ribbons."
 	, "She sells them to women for their daughters."
 	, "She does really good business."
