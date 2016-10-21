@@ -89,7 +89,7 @@ fun
 -- Prep
 
 	to	: Prep;
-	over	: Prep;
+	over	: TimePrep;
 	outside	: Prep;
 	into	: Prep;
 	for	: Prep;
