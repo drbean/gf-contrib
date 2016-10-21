@@ -106,6 +106,7 @@ fun
 
 -- V
 
+	do	: V2;
 	tell	: V2S;
 	start	: V2;
 	spend	: V2V;

@@ -112,6 +112,7 @@ lin
 
 -- V
 
+	do	= mkV2( mkV "do") noPrep;
 	tell	= mkV2S( mkV "tell") noPrep;
 	start	= mkV2( mkV "start") noPrep;
 	spend	= mkV2V( mkV "spend") noPrep to;

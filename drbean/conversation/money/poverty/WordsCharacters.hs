@@ -143,6 +143,7 @@ dead	: AP;
 definition	: CN;
 housing development	: CN;
 die	: V;
+do	: V2;
 doctor	: CN;
 dollar	: CN;
 dream	: CN;
