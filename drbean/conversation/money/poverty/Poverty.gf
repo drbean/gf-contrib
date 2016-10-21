@@ -88,7 +88,7 @@ fun
 
 -- Prep
 
-	with_PREP	: Prep;
+	with_PREP	: InstrumentPrep;
 	to	: Prep;
 	over	: TimePrep;
 	outside	: Prep;
