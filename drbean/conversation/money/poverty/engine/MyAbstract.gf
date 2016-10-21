@@ -108,6 +108,7 @@ fun
 	-- VPClSlash	: VPSlash -> ClSlash;
 	FreeICl : IP -> VP -> NounCl;
 	FreeIClSlash : IP -> ClSlash -> NounCl;
+	IAdvA	: IAdv -> A -> IAdv;
 	FreeInfICl	: IAdv -> VP -> NounCl;
 	-- FreeInfCl	: VP -> NounCl;
 	NomCl : NounCl -> NP;

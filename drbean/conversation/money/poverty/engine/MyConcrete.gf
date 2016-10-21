@@ -144,6 +144,9 @@ oper
 		  c = npNom
 			  };
 
+	myIAdvA	: (iadv : IAdv ) -> (a : A) -> {s : Str} =
+	\iadv,a -> ss ( iadv.s ++ a.s ! AAdj Posit Nom);
+
 	myFreeInfICl : (iadv : IAdv) -> (vp : VP) -> {s : ResEng.Tense => Anteriority => CPolarity => Order => Str; c : NPCase } =
 		\iadv,vp -> let qcl = mkSC vp in
 	{
@@ -408,6 +411,7 @@ lin
 	-- VPClSlash	vpslash = mkClSlash vpslash;
 	FreeICl ip vp = myFreeICl ip vp;
 	FreeIClSlash ip cl = myFreeIClSlash ip cl;
+	IAdvA iadv a = myIAdvA iadv a;
 	FreeInfICl iadv vp = myFreeInfICl iadv vp;
 	FreeInfCl vp	= myFreeInfCl vp;
 	NomCl ncl = mymkNP ncl;
