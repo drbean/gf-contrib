@@ -93,7 +93,7 @@ fun
 	over	: TimePrep;
 	outside	: Prep;
 	into	: Prep;
-	for	: Prep;
+	for	: ThemePrep;
 	by	: Prep;
 	about	: Prep;
 
