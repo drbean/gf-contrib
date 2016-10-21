@@ -102,7 +102,7 @@ dic_test = [
 	, "Jane gets married when she is eighteen."
 	, "She has two children before she is twenty-one."
 	, "Her mom dies and her husband leaves her."
-	, "She hears about an organization, Jamii Bora, that lends money to people no matter how poor they are."
+	, "She hears about Jamii Bora , an organization that lends money to people no matter how poor they are."
 	, "She spends a year to save 50 dollars and she starts borrowing."
 	, "Over time, she is able to buy a sewing machine."
 	, "She buys old ball gowns and she repurposes them with frills and ribbons."
