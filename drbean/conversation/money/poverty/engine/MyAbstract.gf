@@ -271,7 +271,6 @@ fun
 	VP_AP	: VP -> AP;
 	VP_NP_AP	: VPSlash -> NP -> AP;
 
-	with_PREP	: Prep;
 	in_PREP	: Prep;
 	about_PREP	: Prep;
 	at_PREP	: LocPrep;

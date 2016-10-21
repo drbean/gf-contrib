@@ -94,6 +94,7 @@ lin
 
 -- Prep
 
+	with_PREP	= mkPrep "with";
 	to	= mkPrep "to";
 	over	= mkPrep "over";
 	outside	= mkPrep "outside";
