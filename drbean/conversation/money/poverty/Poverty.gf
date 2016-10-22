@@ -8,7 +8,7 @@ fun
 -- Adv
 
 	then	: Adv;
-	still	: Adv;
+	still	: AdV;
 	so	: Adv;
 	really	: AdA;
 	not	: Adv;
