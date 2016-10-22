@@ -67,11 +67,9 @@ lin
 	percent	= mkN2( mkN "percent") part_prep;
 	patient	= mkCN( mkN "patient") ;
 	organization	= mkCN( mkN "organization") ;
-	nairobi	= mkCN( mkN "Nairobi") ;
 	mortgage	= mkCN( mkN "mortgage") ;
 	money	= mkN "money" nonExist;
 	mom	= mkCN( mkN "mom") ;
-	mathare_valley	= mkCN( mkN "Mathare Valley") ;
 	man	= mkCN( mkN "man") ;
 	husband	= mkCN( mkN "husband") ;
 	ball_gown	= mkCN( mkN "ball gown") ;
@@ -89,11 +87,14 @@ lin
 
 -- PN
 
+	nairobi	= mkNP( mkN nonhuman (mkN "Nairobi") );
+	mathare_valley	= mkNP( mkN nonhuman (mkN "Mathare Valley") );
 	jane	= mkPN( mkN feminine (mkN "Jane") );
-	jamii_bora	= mkPN( mkN feminine (mkN "Jamii Bora") );
+	jamii_bora	= mkPN( mkN nonhuman (mkN "Jamii Bora") );
 
 -- Prep
 
+	in_LOCPREP	= mkPrep "in";
 	with_PREP	= mkPrep "with";
 	to	= mkPrep "to";
 	over	= mkPrep "over";

@@ -61,11 +61,9 @@ fun
 	percent	: Partitive;
 	patient	: CN;
 	organization	: CN;
-	nairobi	: PlaceNoun;
 	mortgage	: CN;
 	money	: N;
 	mom	: CN;
-	mathare_valley	: PlaceNoun;
 	man	: CN;
 	husband	: CN;
 	ball_gown	: CN;
@@ -83,11 +81,14 @@ fun
 
 -- PN
 
+	mathare_valley	: Place;
+	nairobi	: Place;
 	jane	: PN;
 	jamii_bora	: PN;
 
 -- Prep
 
+	in_LOCPREP	: LocPrep;
 	with_PREP	: InstrumentPrep;
 	to	: Prep;
 	over	: TimePrep;
