@@ -12,7 +12,7 @@ fun
 	so	: Adv;
 	really	: AdA;
 	not	: Adv;
-	no_longer	: Adv;
+	no_longer	: AdA;
 
 -- AP
 
