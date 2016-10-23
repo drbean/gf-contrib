@@ -96,7 +96,7 @@ fun
 	outside	: LocPrep;
 	into	: Prep;
 	for	: ThemePrep;
-	by	: Prep;
+	by	: ExtentPrep;
 	about	: Prep;
 
 -- Pron
