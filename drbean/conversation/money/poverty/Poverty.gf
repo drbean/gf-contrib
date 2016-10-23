@@ -90,6 +90,7 @@ fun
 -- Prep
 
 	in_LOCPREP	: LocPrep;
+	in_ATTRIBPREP	: AttributePrep;
 	with_PREP	: InstrumentPrep;
 	to	: Prep;
 	over	: TimePrep;
@@ -117,7 +118,7 @@ fun
 	say	: VS;
 	save	: V2;
 	repurpose	: V2;
-	pay	: V3;
+	pay	: V2;
 	move	: V2;
 	match	: V3;
 	marry	: V2;

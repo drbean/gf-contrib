@@ -96,6 +96,7 @@ lin
 -- Prep
 
 	in_LOCPREP	= mkPrep "in";
+	in_ATTRIBPREP	= mkPrep "in";
 	with_PREP	= mkPrep "with";
 	to	= mkPrep "to";
 	over	= mkPrep "over";
@@ -123,7 +124,7 @@ lin
 	say	= mkVS( mkV "say") ;
 	save	= mkV2( mkV "save") noPrep;
 	repurpose	= mkV2( mkV "repurpose") noPrep;
-	pay	= mkV3( mkV "pay") noPrep in_PREP;
+	pay	= mkV2( mkV "pay") noPrep;
 	move	= mkV2( mkV "move") into;
 	match	= mkV3( mkV "match") noPrep to;
 	marry	= mkV2( mkV "marry") noPrep;

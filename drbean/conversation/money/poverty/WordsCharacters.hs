@@ -188,7 +188,7 @@ or	: Conj;
 organization	: CN;
 outside	: Prep;
 over	: Prep;
-pay	: V3;
+pay	: V2;
 patient	: CN;
 person	: CN;
 percent	: N2;
