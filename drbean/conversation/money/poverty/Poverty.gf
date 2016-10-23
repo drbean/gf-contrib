@@ -56,9 +56,9 @@ fun
 	time	: N;
 	shanty	: CN;
 	sewing_machine	: CN;
-	savings	: CN;
+	savings	: N;
 	rent	: N;
-	percent	: Partitive;
+	percent	: N2;
 	patient	: CN;
 	organization	: CN;
 	mortgage	: CN;
@@ -70,7 +70,7 @@ fun
 	frills_and_ribbons	: N;
 	everything	: N;
 	dream	: CN;
-	dollar	: CN;
+	dollar	: N2;
 	doctor	: CN;
 	housing_development	: CN;
 	definition	: CN;

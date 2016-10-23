@@ -62,9 +62,9 @@ lin
 	time	= mkN "time" nonExist;
 	shanty	= mkCN( mkN "shanty") ;
 	sewing_machine	= mkCN( mkN "sewing machine") ;
-	savings	= mkCN( mkN nonExist "savings") ;
+	savings	= mkN "savings" nonExist;
 	rent	= mkN "rent" nonExist;
-	percent	= mkN2( mkN "percent") part_prep;
+	percent	= mkN2( mkN  "percent" "percent") part_prep;
 	patient	= mkCN( mkN "patient") ;
 	organization	= mkCN( mkN "organization") ;
 	mortgage	= mkCN( mkN "mortgage") ;
@@ -76,7 +76,7 @@ lin
 	frills_and_ribbons	= mkN "frills and ribbons" nonExist;
 	everything	= mkN "everything" nonExist;
 	dream	= mkCN( mkN "dream") ;
-	dollar	= mkCN( mkN "dollar") ;
+	dollar	= mkN2( mkN "dollar") in_PREP;
 	doctor	= mkCN( mkN "doctor") ;
 	housing_development	= mkCN( mkN "housing development") ;
 	definition	= mkCN( mkN "definition") ;
