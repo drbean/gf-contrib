@@ -483,6 +483,8 @@ lin
 	KindToExtent cn adv	= mkCN cn adv;
 	Membership det cn place = mkCl( Item det (KindInPlace cn place));
 	CompoundCN cn1 cn2 = CompoundCN cn1 cn2;
+	CompoundN_CN n cn = { s = \\nu,g => n.s ! Sg ! Nom ++ cn.s ! nu ! g;
+	g = cn.g};
 	Ofpos n2 np	= mkCN n2 np;
 	Ofpart part n = mkCN part (mkNP n);
 	N2toCN n2 = mkCN n2;
