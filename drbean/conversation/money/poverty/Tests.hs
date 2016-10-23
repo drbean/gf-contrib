@@ -111,7 +111,7 @@ dic_test = [
 	, "By many definitions, she is no longer poor, but she still lives in Mathare Valley."
 	, "Jamii Bora builds a low-cost housing development outside Nairobi."
 	, "She moves into this housing development."
-	, "She has to give ten percent of the mortgage, of the total value, or 400 dollars in savings."
+	, "She has to give ten percent of the mortgage, or four hundred dollars in savings."
 	, "Then Jamii Bora matches her mortgage to what she paid in rent for her shanty."
 	, "She feels so blessed with everything that she counsels AIDS patients."
 	, "She says, You are not dead."
