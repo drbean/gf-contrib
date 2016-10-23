@@ -81,7 +81,8 @@ fun
 
 -- PN
 
-	mathare_valley	: Place;
+	mathare_valley	: PN;
+	mathare_valley_PLACE	: Place;
 	nairobi	: Place;
 	jane	: PN;
 	jamii_bora	: PN;
@@ -92,7 +93,7 @@ fun
 	with_PREP	: InstrumentPrep;
 	to	: Prep;
 	over	: TimePrep;
-	outside	: Prep;
+	outside	: LocPrep;
 	into	: Prep;
 	for	: ThemePrep;
 	by	: Prep;
@@ -120,7 +121,7 @@ fun
 	move	: V2;
 	match	: V3;
 	marry	: V2;
-	live	: V2;
+	live_in	: V2;
 	lend	: V3;
 	lend_to	: V3;
 	leave	: V2;

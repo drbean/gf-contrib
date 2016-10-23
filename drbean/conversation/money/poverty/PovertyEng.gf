@@ -88,7 +88,8 @@ lin
 -- PN
 
 	nairobi	= mkNP( mkN nonhuman (mkN "Nairobi") );
-	mathare_valley	= mkNP( mkN nonhuman (mkN "Mathare Valley") );
+	mathare_valley	= mkPN( mkN nonhuman (mkN "Mathare Valley") );
+	mathare_valley_PLACE	= mkNP( mkN nonhuman (mkN "Mathare Valley") );
 	jane	= mkPN( mkN feminine (mkN "Jane") );
 	jamii_bora	= mkPN( mkN nonhuman (mkN "Jamii Bora") );
 
@@ -126,7 +127,7 @@ lin
 	move	= mkV2( mkV "move") into;
 	match	= mkV3( mkV "match") noPrep to;
 	marry	= mkV2( mkV "marry") noPrep;
-	live	= mkV2( mkV "live") in_PREP;
+	live_in	= mkV2( mkV "live") in_PREP;
 	lend	= mkV3( mkV "lend") noPrep noPrep;
 	lend_to	= mkV3( mkV "lend") noPrep to;
 	leave	= mkV2( mkV "leave") noPrep;
