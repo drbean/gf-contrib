@@ -9,7 +9,7 @@ fun
 
 	then	: Adv;
 	still	: AdV;
-	so	: Adv;
+	so	: AdA;
 	really	: AdA;
 	not	: Adv;
 	no_longer	: AdA;
