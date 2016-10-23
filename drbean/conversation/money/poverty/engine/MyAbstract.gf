@@ -136,6 +136,7 @@ fun
 	PatientPre	: Adv_patient -> S -> S;
 	SourcePre	: Adv_source -> S -> S;
 	TimePre	: Adv_time -> S -> S;
+	ExtentPre	: Adv_extent -> S -> S;
 
 	ICompS	: IComp -> NP -> QS;
 	YN	: Cl -> QCl;

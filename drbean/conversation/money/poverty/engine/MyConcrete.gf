@@ -441,6 +441,7 @@ lin
 	PatientPre adv s = mkS adv s;
 	SourcePre adv s = mkS adv s;
 	TimePre adv s = mkS adv s;
+	ExtentPre adv s = mkS adv s;
   -- Be_made_sth vp np = PassV3 vp np;
 
 	ICompS i np = mkQS (mkQCl i np);
