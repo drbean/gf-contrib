@@ -131,6 +131,8 @@ oper
 			g = cn.g
 			};
 
+	myThatlessSlashV2S : V2S -> S -> VPSlash = \v,s -> insertExtrac s.s (predVc v);
+
 	myFreeIClSlash : (ip : IP) -> (cl : ClSlash) -> {s : ResEng.Tense => Anteriority => CPolarity => Order => Str; c : NPCase } =
 	\ip,cl -> {
 	  s = \\t,a,p,_ => ip.s ! npNom ++ cl.s ! t ! a ! p ! oDir ++ cl.c2;
@@ -372,7 +374,7 @@ lin
 	V_S posit event	= ComplBareVS posit event;
 	V_SC posit event	= ComplBareVS posit event;
 	V_NP_that_S posit patient event	= mkVP posit patient event;
-	V_NP_S = V_NP_that_S;
+	V_NP_S posit patient event = (ComplSlash (myThatlessSlashV2S posit event) patient);
 	V_NP_whether_S ask recipient topic = mkVP ask recipient topic;
   V_NP_NP v theme recipient = mkVP v theme recipient; 
   V_NP_AP v patient state = mkVP v patient state;
