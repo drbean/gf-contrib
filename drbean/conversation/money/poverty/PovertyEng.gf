@@ -115,6 +115,7 @@ lin
 
 -- V
 
+	have_to	= mkVV( mkV "have");
 	do	= mkV2( mkV "do") noPrep;
 	tell	= mkV2S( mkV "tell") noPrep;
 	start	= mkV2( mkV "start") noPrep;

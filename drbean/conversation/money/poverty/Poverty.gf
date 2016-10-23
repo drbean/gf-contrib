@@ -109,6 +109,7 @@ fun
 
 -- V
 
+	have_to	: VV;
 	do	: V2;
 	tell	: V2S;
 	start	: V2;

@@ -157,6 +157,7 @@ get	: VA;
 give	: V2;
 good	: AP;
 ball gown	: CN;
+have to	: VV;
 hear	: V2;
 husband	: CN;
 in	: Prep;
