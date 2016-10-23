@@ -112,7 +112,7 @@ dic_test = [
 	, "Jamii Bora builds a low-cost housing development outside Nairobi."
 	, "She moves into this housing development."
 	, "She has to give ten percent of the mortgage, or four hundred dollars in savings."
-	, "Then Jamii Bora matches her mortgage to what she paid in rent for her shanty."
+	, "Then Jamii Bora matches her mortgage to what she pays in rent for her shanty."
 	, "She feels so blessed with everything that she counsels AIDS patients."
 	, "She says, You are not dead."
 	, "She tells AIDS patients, You have to serve."
