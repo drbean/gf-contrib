@@ -11,7 +11,7 @@ fun
 	still	: AdV;
 	so	: AdA;
 	really	: AdA;
-	not	: Adv;
+	not	: AdA;
 	no_longer	: AdA;
 
 -- AP
