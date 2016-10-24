@@ -1,6 +1,6 @@
 --# -path=.:./engine:/home/drbean/GF/lib/src/translator:present
 
-concrete EnjoyEng of Enjoy = MyConcrete  **
+concrete CommunicationEng of Communication = MyConcrete  **
 open ConstructorsEng, ParadigmsEng, StructuralEng, IrregEng, ExtraEng, ConstructX, Prelude, (R=ResEng) in {
 
 -- oper

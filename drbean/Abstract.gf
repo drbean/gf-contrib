@@ -1,4 +1,4 @@
-abstract Enjoy = MyAbstract ** {
+abstract Communication = MyAbstract ** {
 
 
   flags startcat = Utt ;
