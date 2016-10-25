@@ -7,8 +7,8 @@ fun
 
 -- Adv
 
+	too	: AdA;
 	totally	: AdA;
-	too	: Adv;
 	so	: Adv;
 	rarely	: Adv;
 	ago	: Adv;
@@ -44,7 +44,7 @@ fun
 
 -- N
 
-	year	: CN;
+	year	: Time;
 	wealth	: N;
 	torch	: CN;
 	time	: CN;
