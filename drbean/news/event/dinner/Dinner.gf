@@ -82,7 +82,7 @@ fun
 	to	: Prep;
 	not_to	: Prep;
 	in_PREP	: Prep;
-	for	: Prep;
+	for	: ThemePrep;
 	before	: Prep;
 	at	: Prep;
 
