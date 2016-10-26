@@ -9,8 +9,8 @@ lin
 
 -- Adv
 
+	too	= ParadigmsEng.mkAdA "too" ;
 	totally	= ParadigmsEng.mkAdA "totally" ;
-	too	= ParadigmsEng.mkAdv "too" ;
 	so	= ParadigmsEng.mkAdv "so" ;
 	rarely	= ParadigmsEng.mkAdv "rarely" ;
 	ago	= ParadigmsEng.mkAdv "ago" ;
@@ -96,11 +96,11 @@ lin
 
 -- V
 
+	suppose	= mkV2V( mkV "suppose") noPrep to;
 	wonder	= mkVV( mkV "wonder") ;
 	understand	= mkV2( mkV "understand") noPrep;
 	put	= mkV2A( mkV "put") noPrep;
 	think	= mkVS( mkV "think") ;
-	suppose	= mkV2S( mkV "suppose") noPrep;
 	see	= mkV2( mkV "see") noPrep;
 	say	= mkVS( mkV "say") ;
 	redistribute	= mkV2( mkV "redistribute") noPrep;

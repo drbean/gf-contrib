@@ -98,7 +98,7 @@ fun
 	wonder	: VV;
 	put	: V2A;
 	think	: VS;
-	suppose	: V2S;
+	suppose	: V2V;
 	see	: V2;
 	say	: VS;
 	redistribute	: V2;
