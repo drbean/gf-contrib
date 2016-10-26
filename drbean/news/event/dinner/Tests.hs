@@ -102,7 +102,7 @@ dic_test = [
 	, "The keynote speakers , Clinton and Trump are too harsh."
 	, "They embarrass Cardinal Dolan."
 	, "Al Smith's family puts this charitable event together every four years."
-	, "It's supposed to be a light-hearted night."
+	, "It is supposed to be a light-hearted night."
 	, "Four years ago, Obama and Romney understand that."
 	, "Romney says that Obama wonders how to redistribute all the wealth in so little time."
 	, "Obama says that Romney goes shopping for some stores."
