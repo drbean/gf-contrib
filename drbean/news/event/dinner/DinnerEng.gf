@@ -101,7 +101,7 @@ lin
 	understand	= mkV2( mkV "understand") noPrep;
 	put	= mkV2A( mkV "put") noPrep;
 	think	= mkVS( mkV "think") ;
-	see	= mkV2( mkV "see") noPrep;
+	see	= mkV2( mkV "see" "saw" "seen") noPrep;
 	say	= mkVS( mkV "say") ;
 	redistribute	= mkV2( mkV "redistribute") noPrep;
 	raise	= mkV2( mkV "raise") noPrep;

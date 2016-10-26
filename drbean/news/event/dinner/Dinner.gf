@@ -10,7 +10,7 @@ fun
 	too	: AdA;
 	totally	: AdA;
 	so	: Adv;
-	rarely	: Adv;
+	rarely	: AdV;
 	ago	: Adv;
 
 -- AP
