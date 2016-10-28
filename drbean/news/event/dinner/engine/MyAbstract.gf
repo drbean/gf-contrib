@@ -268,6 +268,7 @@ fun
 	AdvAdj	: AdA -> AP -> AP;
 	A_PP	: A2 -> NP ->AP;
 	VP_AP	: VP -> AP;
+	VPSlash_AP	: VPSlash -> AP;
 	VP_NP_AP	: VPSlash -> NP -> AP;
 
 	about_PREP	: Prep;
