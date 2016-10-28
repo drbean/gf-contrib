@@ -165,6 +165,7 @@ meet	: V;
 more than	: Predet;
 nasty	: AP;
 national	: AP;
+national politics	: NP;
 need	: VV;
 night	: CN;
 not to	: Prep;

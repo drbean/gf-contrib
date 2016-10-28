@@ -67,6 +67,7 @@ lin
 	dinner	= mkCN( mkN "dinner") ;
 	catholic	= mkCN( mkN "Catholic") ;
 	candidate	= mkCN( mkN "candidate") ;
+	national_politics	= mkNP( mkN nonhuman (mkN "national politics") );
 
 -- PN
 
@@ -84,6 +85,7 @@ lin
 	to	= mkPrep "to";
 	not_to	= mkPrep "not to";
 	in_PREP	= mkPrep "in";
+	in_LOCPREP	= mkPrep "in";
 	for	= mkPrep "for";
 	before	= mkPrep "before";
 	at	= mkPrep "at";

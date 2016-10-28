@@ -65,6 +65,7 @@ fun
 	dinner	: CN;
 	catholic	: CN;
 	candidate	: CN;
+	national_politics	: Place;
 
 -- PN
 
@@ -82,6 +83,7 @@ fun
 	to	: Prep;
 	not_to	: Prep;
 	in_PREP	: Prep;
+	in_LOCPREP	: LocPrep;
 	for	: ThemePrep;
 	before	: Prep;
 	at	: ExtentPrep;
