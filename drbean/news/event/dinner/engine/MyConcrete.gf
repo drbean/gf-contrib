@@ -413,6 +413,7 @@ lin
 	VP_Adv_time vp pp = mkVP vp pp;
 	VP_Adv_location vp located = mkVP vp located;
 	VP_Adv_result vp result = mkVP vp result;
+	VP_Adv_extent vp extent = mkVP vp extent;
 	VP_Adv_attribute vp attribute = mkVP vp attribute;
 	VP_Adv_stimulus vp stimulus	= mkVP vp stimulus;
 	WithCl vp cl = mkVP vp cl;
