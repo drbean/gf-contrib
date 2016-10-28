@@ -84,7 +84,7 @@ fun
 	in_PREP	: Prep;
 	for	: ThemePrep;
 	before	: Prep;
-	at	: Prep;
+	at	: ExtentPrep;
 
 -- Pron
 
