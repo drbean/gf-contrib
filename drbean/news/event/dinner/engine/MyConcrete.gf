@@ -144,16 +144,16 @@ oper
 		  c = npNom
 			  };
 
-	myInfICl : (iadv : IAdv) -> (vp : VP) -> {s : ResEng.Tense => Anteriority => CPolarity => Order => Str } =
+	myInfICl : (iadv : IAdv) -> (vp : VP) -> {s : ResEng.Tense => Anteriority => CPolarity => QForm => Str } =
 		\iadv,vp -> let qcl = mkSC vp in
 	{
 		s = \\t,a,p,_ => iadv.s ++ qcl.s
 		};
 
 	myFreeInfICl : (iadv : IAdv) -> (vp : VP) -> {s : ResEng.Tense => Anteriority => CPolarity => Order => Str; c : NPCase } =
-		\iadv,vp -> let qcl = myInfICl iadv vp in
+		\iadv,vp -> let qcl = mkSC vp in
 	{
-		s = qcl.s;
+		s = \\t,a,p,_ => iadv.s ++ qcl.s;
 		c = npNom
 		};
 
@@ -441,6 +441,7 @@ lin
 	IPhrase idet cn = mymkIPhrase idet cn;
 	WH_ClSlash ip cslash	= mkQCl ip cslash;
 	IAdvQCl iadv cl	= mkQCl iadv cl;
+	IAdvInfICl iadv vp	= myInfICl iadv vp;
 	PosQ qcl	= mkQS qcl;
 	NegQ qcl	= mkQS negativePol qcl;
 	PosS cl	= mkS cl;

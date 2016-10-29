@@ -152,6 +152,7 @@ fun
 	IPhrase	: IDet -> CN -> IP;
 	WH_ClSlash	: IP -> ClSlash -> QCl;
 	IAdvQCl	: IAdv -> Cl -> QCl;
+	IAdvInfICl	: IAdv -> VP -> QCl;
 	PosQ	: QCl -> QS;
 	NegQ	: QCl -> QS;
 	PosS	: Cl -> S;
