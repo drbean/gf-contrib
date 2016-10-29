@@ -192,7 +192,7 @@ Statue of Liberty	: PN;
 store	: CN;
 suppose	: V2V;
 think	: VS;
-time	: CN;
+time	: N;
 to	: Prep;
 together	: AP;
 too	: AdA;

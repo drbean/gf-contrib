@@ -1,5 +1,4 @@
 abstract Dinner = MyAbstract ** {
-	time		: N;
 
 
   flags startcat = Utt ;
@@ -45,10 +44,10 @@ fun
 
 -- N
 
+	time		: N;
 	year	: Time;
 	wealth	: N;
 	torch	: CN;
-	time	: CN;
 	store	: CN;
 	shopping	: N;
 	ribbing	: N;
@@ -85,6 +84,7 @@ fun
 	not_to	: Prep;
 	in_PREP	: Prep;
 	in_LOCPREP	: LocPrep;
+	in_TIMEPREP	: TimePrep;
 	for	: ThemePrep;
 	before	: Prep;
 	at	: ExtentPrep;

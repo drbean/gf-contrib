@@ -48,8 +48,8 @@ lin
 
 	year	= mkCN( mkN "year") ;
 	wealth	= mkN "wealth" nonExist;
+	time		= mkN "time" nonExist;
 	torch	= mkCN( mkN "torch") ;
-	time	= mkCN( mkN "time") ;
 	store	= mkCN( mkN "store") ;
 	shopping	= mkN "shopping" nonExist;
 	ribbing	= mkN "ribbing" nonExist;
@@ -86,6 +86,7 @@ lin
 	not_to	= mkPrep "not to";
 	in_PREP	= mkPrep "in";
 	in_LOCPREP	= mkPrep "in";
+	in_TIMEPREP	= mkPrep "in";
 	for	= mkPrep "for";
 	before	= mkPrep "before";
 	at	= mkPrep "at";
