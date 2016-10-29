@@ -358,6 +358,7 @@ lin
 	V_SC posit event	= ComplBareVS posit event;
 	V_NP_that_S posit patient event	= mkVP posit patient event;
 	V_NP_S = V_NP_that_S;
+	V_Q	v topic= mkVP v topic;
 	V_NP_whether_S ask recipient topic = mkVP ask recipient topic;
   V_NP_NP v theme recipient = mkVP v theme recipient; 
   V_NP_AP v patient state = mkVP v patient state;
@@ -433,6 +434,7 @@ lin
 	WHose cn = mkIP (GenIP who_WH) cn;
 	IPhrase idet cn = mymkIPhrase idet cn;
 	WH_ClSlash ip cslash	= mkQCl ip cslash;
+	IAdvQCl iadv cl	= mkQCl iadv cl;
 	PosQ qcl	= mkQS qcl;
 	NegQ qcl	= mkQS negativePol qcl;
 	PosS cl	= mkS cl;

@@ -70,6 +70,7 @@ fun
 	V_SC:	VS -> SC -> VP;
 	V_NP_that_S:	V2S -> NP -> S -> VP;
 	V_NP_S:	V2S -> NP -> S -> VP;
+	V_Q	: VQ -> QS -> VP;
 	V_NP_whether_S:	V2Q -> NP -> QS -> VP;
 	V_NP_NP:	V3 -> NP -> NP -> VP;
   V_NP_AP: V2A -> NP -> AP -> VP;
@@ -150,6 +151,7 @@ fun
 	WHose	: CN -> IP;
 	IPhrase	: IDet -> CN -> IP;
 	WH_ClSlash	: IP -> ClSlash -> QCl;
+	IAdvQCl	: IAdv -> Cl -> QCl;
 	PosQ	: QCl -> QS;
 	NegQ	: QCl -> QS;
 	PosS	: Cl -> S;
