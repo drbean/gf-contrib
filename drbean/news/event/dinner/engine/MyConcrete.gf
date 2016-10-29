@@ -144,10 +144,16 @@ oper
 		  c = npNom
 			  };
 
-	myFreeInfICl : (iadv : IAdv) -> (vp : VP) -> {s : ResEng.Tense => Anteriority => CPolarity => Order => Str; c : NPCase } =
+	myInfICl : (iadv : IAdv) -> (vp : VP) -> {s : ResEng.Tense => Anteriority => CPolarity => Order => Str } =
 		\iadv,vp -> let qcl = mkSC vp in
 	{
-		s = \\t,a,p,_ => iadv.s ++ qcl.s ;
+		s = \\t,a,p,_ => iadv.s ++ qcl.s
+		};
+
+	myFreeInfICl : (iadv : IAdv) -> (vp : VP) -> {s : ResEng.Tense => Anteriority => CPolarity => Order => Str; c : NPCase } =
+		\iadv,vp -> let qcl = myInfICl iadv vp in
+	{
+		s = qcl.s;
 		c = npNom
 		};
 
