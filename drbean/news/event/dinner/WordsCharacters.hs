@@ -186,7 +186,7 @@ say	: VS;
 see	: V2;
 shopping	: N;
 six million	: Det;
-so	: Adv;
+so	: AdA;
 some	: Det;
 Statue of Liberty	: PN;
 store	: CN;

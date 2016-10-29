@@ -1,4 +1,5 @@
 abstract Dinner = MyAbstract ** {
+	time		: N;
 
 
   flags startcat = Utt ;
@@ -7,9 +8,9 @@ fun
 
 -- Adv
 
+	so	: AdA;
 	too	: AdA;
 	totally	: AdA;
-	so	: Adv;
 	rarely	: AdV;
 	ago	: Adv;
 

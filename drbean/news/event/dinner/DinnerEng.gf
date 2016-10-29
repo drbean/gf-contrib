@@ -9,9 +9,9 @@ lin
 
 -- Adv
 
+	so	= ParadigmsEng.mkAdA "so" ;
 	too	= ParadigmsEng.mkAdA "too" ;
 	totally	= ParadigmsEng.mkAdA "totally" ;
-	so	= ParadigmsEng.mkAdv "so" ;
 	rarely	= ParadigmsEng.mkAdv "rarely" ;
 	ago	= ParadigmsEng.mkAdv "ago" ;
 
