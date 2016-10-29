@@ -96,8 +96,8 @@ fun
 
 -- V
 
+	wonder	: VQ;
 	understand	: V2;
-	wonder	: VV;
 	put	: V2A;
 	think	: VS;
 	suppose	: V2V;

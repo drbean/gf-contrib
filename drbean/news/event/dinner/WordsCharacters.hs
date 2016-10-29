@@ -203,7 +203,7 @@ understand	: V2;
 vital	: AP;
 wealth	: N;
 which
-wonder	: VV;
+wonder	: VQ;
 year	: CN;
 
 

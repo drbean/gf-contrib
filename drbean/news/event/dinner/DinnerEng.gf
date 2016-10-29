@@ -98,8 +98,8 @@ lin
 
 -- V
 
+	wonder	= mkVQ( mkV "wonder") ;
 	suppose	= mkV2V( mkV "suppose") noPrep to;
-	wonder	= mkVV( mkV "wonder") ;
 	understand	= mkV2( mkV "understand") noPrep;
 	put	= mkV2A( mkV "put") noPrep;
 	think	= mkVS( mkV "think") ;
