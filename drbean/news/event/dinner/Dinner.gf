@@ -86,7 +86,7 @@ fun
 	in_LOCPREP	: LocPrep;
 	in_TIMEPREP	: TimePrep;
 	for	: ThemePrep;
-	before	: Prep;
+	before	: TimePrep;
 	at	: ExtentPrep;
 
 -- Pron
