@@ -110,6 +110,7 @@ lin
 	raise	= mkV2( mkV "raise") noPrep;
 	pretend	= mkVV( mkV "pretend") ;
 	need	= mkVV( mkV "need") ;
+	meet_V2	= mkV2( mkV "meet") noPrep;
 	meet	= mkV "meet";
 	lose	= mkV2( mkV "lose") noPrep;
 	hate	= mkV2( mkV "hate") noPrep;

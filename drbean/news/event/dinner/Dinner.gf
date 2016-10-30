@@ -108,6 +108,7 @@ fun
 	raise	: V2;
 	pretend	: VV;
 	need	: VV;
+	meet_V2	: V2;
 	meet	: V;
 	lose	: V2;
 	hate	: V2;
