@@ -65,6 +65,7 @@ fun
 	Changing	: V2 -> NP -> VP;
 	V_NP_VP:	V2V -> NP -> VP -> VP;
 	Intens:	VV -> VP -> VP;
+	NegComplVV:	VV -> VP -> VP;
 	V_that_S:	VS -> S -> VP;
 	V_S:	VS -> S -> VP;
 	V_SC:	VS -> SC -> VP;
