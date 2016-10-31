@@ -359,7 +359,7 @@ lin
 	Changing action patient	= mkVP action patient;
 	V_NP_VP causal patient predicate	= mkVP causal patient predicate;
 	Intens attitude predicate	= mkVP attitude predicate;
-	NegComplVV v vp = insertObj (\\a => infVP v.typ vp Simul (CNeg False) a) (predVV v) ;
+	NegComplVV v vp = ComplVV v {s=[]; a=Simul} {s =[]; p= CNeg False } vp;
 	V_that_S posit event	= mkVP posit event;
 	V_S posit event	= ComplBareVS posit event;
 	V_SC posit event	= ComplBareVS posit event;
