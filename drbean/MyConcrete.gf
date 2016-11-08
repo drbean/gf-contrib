@@ -144,10 +144,16 @@ oper
 		  c = npNom
 			  };
 
+	myInfICl : (iadv : IAdv) -> (vp : VP) -> {s : ResEng.Tense => Anteriority => CPolarity => QForm => Str } =
+		\iadv,vp -> let qcl = mkSC vp in
+	{
+		s = \\t,a,p,_ => iadv.s ++ qcl.s
+		};
+
 	myFreeInfICl : (iadv : IAdv) -> (vp : VP) -> {s : ResEng.Tense => Anteriority => CPolarity => Order => Str; c : NPCase } =
 		\iadv,vp -> let qcl = mkSC vp in
 	{
-		s = \\t,a,p,_ => iadv.s ++ qcl.s ;
+		s = \\t,a,p,_ => iadv.s ++ qcl.s;
 		c = npNom
 		};
 
@@ -353,11 +359,13 @@ lin
 	Changing action patient	= mkVP action patient;
 	V_NP_VP causal patient predicate	= mkVP causal patient predicate;
 	Intens attitude predicate	= mkVP attitude predicate;
+	NegComplVV v vp = ComplVV v {s=[]; a=Simul} {s =[]; p= CNeg False } vp;
 	V_that_S posit event	= mkVP posit event;
 	V_S posit event	= ComplBareVS posit event;
 	V_SC posit event	= ComplBareVS posit event;
 	V_NP_that_S posit patient event	= mkVP posit patient event;
 	V_NP_S = V_NP_that_S;
+	V_Q	v topic= mkVP v topic;
 	V_NP_whether_S ask recipient topic = mkVP ask recipient topic;
   V_NP_NP v theme recipient = mkVP v theme recipient; 
   V_NP_AP v patient state = mkVP v patient state;
@@ -413,6 +421,7 @@ lin
 	VP_Adv_time vp pp = mkVP vp pp;
 	VP_Adv_location vp located = mkVP vp located;
 	VP_Adv_result vp result = mkVP vp result;
+	VP_Adv_extent vp extent = mkVP vp extent;
 	VP_Adv_attribute vp attribute = mkVP vp attribute;
 	VP_Adv_stimulus vp stimulus	= mkVP vp stimulus;
 	WithCl vp cl = mkVP vp cl;
@@ -432,6 +441,8 @@ lin
 	WHose cn = mkIP (GenIP who_WH) cn;
 	IPhrase idet cn = mymkIPhrase idet cn;
 	WH_ClSlash ip cslash	= mkQCl ip cslash;
+	IAdvQCl iadv cl	= mkQCl iadv cl;
+	IAdvInfICl iadv vp	= myInfICl iadv vp;
 	PosQ qcl	= mkQS qcl;
 	NegQ qcl	= mkQS negativePol qcl;
 	PosS cl	= mkS cl;
@@ -465,6 +476,8 @@ lin
 	KindToExtent cn adv	= mkCN cn adv;
 	Membership det cn place = mkCl( Item det (KindInPlace cn place));
 	CompoundCN cn1 cn2 = CompoundCN cn1 cn2;
+	PN_CN pn cn	= { s = \\n,c => pn.s ! Nom ++ cn.s ! n ! c;
+		g = cn.g };
 	Ofpos n2 np	= mkCN n2 np;
 	Ofpart part n = mkCN part (mkNP n);
 	N2toCN n2 = mkCN n2;
@@ -551,6 +564,7 @@ lin
 	AdvAdj adv adj = mkAP adv adj;
 	A_PP a np = mkAP a np;
 	VP_AP vp = PresPartAP vp;
+	VPSlash_AP vp = PastPartAP vp;
 	VP_NP_AP vp np = PastPartAgentAP vp np;
 
   about_PREP	= P.mkPrep "about";

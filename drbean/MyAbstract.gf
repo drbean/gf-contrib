@@ -65,11 +65,13 @@ fun
 	Changing	: V2 -> NP -> VP;
 	V_NP_VP:	V2V -> NP -> VP -> VP;
 	Intens:	VV -> VP -> VP;
+	NegComplVV:	VV -> VP -> VP;
 	V_that_S:	VS -> S -> VP;
 	V_S:	VS -> S -> VP;
 	V_SC:	VS -> SC -> VP;
 	V_NP_that_S:	V2S -> NP -> S -> VP;
 	V_NP_S:	V2S -> NP -> S -> VP;
+	V_Q	: VQ -> QS -> VP;
 	V_NP_whether_S:	V2Q -> NP -> QS -> VP;
 	V_NP_NP:	V3 -> NP -> NP -> VP;
   V_NP_AP: V2A -> NP -> AP -> VP;
@@ -123,6 +125,7 @@ fun
 	VP_Adv_time	: VP -> Adv_time -> VP;
 	VP_Adv_location	:  VP -> Adv_location -> VP;
 	VP_Adv_result	: VP -> Adv_result -> VP;
+	VP_Adv_extent	: VP -> Adv_extent -> VP;
 	VP_Adv_attribute	: VP -> Adv_attribute -> VP;
 	VP_Adv_stimulus	: VP -> Adv_stimulus -> VP;
 	WithCl	: VP -> SubordCl -> VP;
@@ -149,6 +152,8 @@ fun
 	WHose	: CN -> IP;
 	IPhrase	: IDet -> CN -> IP;
 	WH_ClSlash	: IP -> ClSlash -> QCl;
+	IAdvQCl	: IAdv -> Cl -> QCl;
+	IAdvInfICl	: IAdv -> VP -> QCl;
 	PosQ	: QCl -> QS;
 	NegQ	: QCl -> QS;
 	PosS	: Cl -> S;
@@ -180,6 +185,7 @@ fun
 	KindToExtent	: CN -> Adv_extent -> CN;
 	Membership : Det -> CN -> Adv_location -> Cl;
 	CompoundCN	: CN -> CN -> CN;
+	PN_CN	: PN -> CN -> CN;
 	Item	: Det -> CN -> NP;
 	MassItem	: MassDet -> N -> NP;
 	Titular	: Title -> NP;
@@ -267,6 +273,7 @@ fun
 	AdvAdj	: AdA -> AP -> AP;
 	A_PP	: A2 -> NP ->AP;
 	VP_AP	: VP -> AP;
+	VPSlash_AP	: VPSlash -> AP;
 	VP_NP_AP	: VPSlash -> NP -> AP;
 
 	about_PREP	: Prep;
