@@ -98,6 +98,7 @@ fun
 	EmptyRelSlash	: ClSlash -> RCl;
 	DetRCltoNP	: Det -> RCl -> NP;
 	DetVPtoNP	: Det -> VP -> NP;
+	InfinitiveNP	: VP -> NP;
 	WayNP	: Cl -> NP;
 	HowNP	: Cl -> NP;
 	ThatNP	: Cl -> NP;
@@ -109,6 +110,7 @@ fun
 	-- VPClSlash	: VPSlash -> ClSlash;
 	FreeICl : IP -> VP -> NounCl;
 	FreeIClSlash : IP -> ClSlash -> NounCl;
+	IAdvA	: IAdv -> A -> IAdv;
 	FreeInfICl	: IAdv -> VP -> NounCl;
 	-- FreeInfCl	: VP -> NounCl;
 	NomCl : NounCl -> NP;
@@ -137,6 +139,7 @@ fun
 	PatientPre	: Adv_patient -> S -> S;
 	SourcePre	: Adv_source -> S -> S;
 	TimePre	: Adv_time -> S -> S;
+	ExtentPre	: Adv_extent -> S -> S;
 
 	ICompS	: IComp -> NP -> QS;
 	YN	: Cl -> QCl;

@@ -131,6 +131,8 @@ oper
 			g = cn.g
 			};
 
+	myThatlessSlashV2S : V2S -> S -> VPSlash = \v,s -> insertExtrac s.s (predVc v);
+
 	myFreeIClSlash : (ip : IP) -> (cl : ClSlash) -> {s : ResEng.Tense => Anteriority => CPolarity => Order => Str; c : NPCase } =
 	\ip,cl -> {
 	  s = \\t,a,p,_ => ip.s ! npNom ++ cl.s ! t ! a ! p ! oDir ++ cl.c2;
@@ -143,6 +145,9 @@ oper
 	  s = \\t,a,p,_ => qcl.s ! t ! a ! p ! QDir ;
 		  c = npNom
 			  };
+
+	myIAdvA	: (iadv : IAdv ) -> (a : A) -> {s : Str} =
+	\iadv,a -> ss ( iadv.s ++ a.s ! AAdj Posit Nom);
 
 	myInfICl : (iadv : IAdv) -> (vp : VP) -> {s : ResEng.Tense => Anteriority => CPolarity => QForm => Str } =
 		\iadv,vp -> let qcl = mkSC vp in
@@ -215,6 +220,18 @@ oper
 				NPNomPoss => gen };
 			a = agreement;
 		};
+
+	myInfinitiveNP : (vp : VP) -> { s : NPCase => Str ; a : Agr} =
+	\vp -> let nom = infVP VVInf vp  Simul CPos (AgP3Sg Neutr) ;
+					gen = glue nom "'s";
+					agreement = AgP3Sg Neutr in {
+				s = table {
+					NCase Nom => nom;
+					NCase Gen => gen;
+					NPAcc => nom;
+					NPNomPoss => gen };
+				a = agreement;
+				};
 
 	myModPass3 : (cn : CN) -> (v3 : V3) -> (np : NP) ->
 		{s : Number => Case => Str ; g : Gender } =
@@ -364,7 +381,7 @@ lin
 	V_S posit event	= ComplBareVS posit event;
 	V_SC posit event	= ComplBareVS posit event;
 	V_NP_that_S posit patient event	= mkVP posit patient event;
-	V_NP_S = V_NP_that_S;
+	V_NP_S posit patient event = (ComplSlash (myThatlessSlashV2S posit event) patient);
 	V_Q	v topic= mkVP v topic;
 	V_NP_whether_S ask recipient topic = mkVP ask recipient topic;
   V_NP_NP v theme recipient = mkVP v theme recipient; 
@@ -392,6 +409,7 @@ lin
 	EmptyRelSlash slash = EmptyRelSlash slash;
 	DetRCltoNP det rcl	= myDetRCltoNP det rcl;
 	DetVPtoNP det vp = myDetVPtoNP det vp;
+	InfinitiveNP vp = myInfinitiveNP vp;
 	WayNP cl = myCltoNP "the way that" cl;
 	HowNP cl = myCltoNP "how" cl;
 	ThatNP cl	= myCltoNP "that" cl;
@@ -403,6 +421,7 @@ lin
 	-- VPClSlash	vpslash = mkClSlash vpslash;
 	FreeICl ip vp = myFreeICl ip vp;
 	FreeIClSlash ip cl = myFreeIClSlash ip cl;
+	IAdvA iadv a = myIAdvA iadv a;
 	FreeInfICl iadv vp = myFreeInfICl iadv vp;
 	FreeInfCl vp	= myFreeInfCl vp;
 	NomCl ncl = mymkNP ncl;
@@ -433,6 +452,7 @@ lin
 	PatientPre adv s = mkS adv s;
 	SourcePre adv s = mkS adv s;
 	TimePre adv s = mkS adv s;
+	ExtentPre adv s = mkS adv s;
   -- Be_made_sth vp np = PassV3 vp np;
 
 	ICompS i np = mkQS (mkQCl i np);
