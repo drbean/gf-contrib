@@ -81,6 +81,7 @@ lin
 	out_of	= mkPrep "out of";
 	later	= mkPost "later";
 	in_PREP	= mkPrep "in";
+	in_LOCPREP	= mkPrep "in";
 	for	= mkPrep "for";
 	at	= mkPrep "at";
 

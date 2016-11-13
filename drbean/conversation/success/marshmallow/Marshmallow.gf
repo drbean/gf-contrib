@@ -12,7 +12,7 @@ fun
 	still	: Adv;
 	most	: AdA;
 	already	: AdV;
-	alone	: Adv;
+	alone	: Adv_manner;
 
 -- AP
 
@@ -49,7 +49,7 @@ fun
 	skirt	: CN;
 	self_discipline	: N;
 	school	: PlaceNoun;
-	room	: CN;
+	room	: PlaceNoun;
 	relationship	: N2;
 	professor	: CN;
 	principle	: N2;
@@ -79,6 +79,7 @@ fun
 	out_of	: Prep;
 	later	: Prep;
 	in_PREP	: Prep;
+	in_LOCPREP	: LocPrep;
 	for	: Prep;
 	at	: Prep;
 
