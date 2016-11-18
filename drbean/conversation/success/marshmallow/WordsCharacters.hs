@@ -147,7 +147,7 @@ fifteen	: Det;
 find	: VS;
 follow-up	: AP;
 for	: Prep;
-four	: AP;
+four	: Det;
 fourteen	: Det;
 fourteen-and-a-half	: Det;
 get	: V2;
