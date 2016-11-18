@@ -25,7 +25,6 @@ lin
 	happy	= mkAP( mkA "happy") ;
 	great	= mkAP( mkA "great") ;
 	good	= mkAP( mkA "good") ;
-	four	= mkAP( mkA "four") ;
 	follow_up	= mkAP( mkA "follow-up") ;
 	bad	= mkAP( mkA "bad") ;
 
@@ -36,6 +35,7 @@ lin
 
 -- Det
 
+	four	= mkDet( mkCard (mkNumeral n4_Unit));
 	fifteen	= mkDet( ParadigmsEng.mkQuant nonExist "fifteen") pluralNum;
 	fourteen_and_a_half	= mkDet( ParadigmsEng.mkQuant nonExist "fourteen-and-a-half") pluralNum;
 	fourteen	= mkDet( ParadigmsEng.mkQuant nonExist "fourteen") pluralNum;
@@ -86,6 +86,7 @@ lin
 	in_LOCPREP	= mkPrep "in";
 	for	= mkPrep "for";
 	at	= mkPrep "at";
+	at_THEMEPREP	= mkPrep "at";
 
 -- Pron
 

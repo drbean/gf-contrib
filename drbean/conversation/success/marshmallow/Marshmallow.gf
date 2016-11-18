@@ -23,7 +23,6 @@ fun
 	happy	: AP;
 	great	: AP;
 	good	: AP;
-	four	: AP;
 	follow_up	: AP;
 	bad	: AP;
 
@@ -34,6 +33,7 @@ fun
 
 -- Det
 
+	four	: Det;
 	fifteen	: Det;
 	fourteen_and_a_half	: Det;
 	fourteen	: Det;
@@ -83,7 +83,8 @@ fun
 	in_PREP	: Prep;
 	in_LOCPREP	: LocPrep;
 	for	: Prep;
-	at	: Prep;
+	at	: TimePrep;
+	at_THEMEPREP	: ThemePrep;
 
 -- Pron
 
