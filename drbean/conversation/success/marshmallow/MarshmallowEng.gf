@@ -45,7 +45,7 @@ lin
 
 -- N
 
-	four_NP	= mkNP( mkCN( mkN "four" nonExist) ) ;
+	four_NP	= mkNP zero_Det_sg ( mkN "four" nonExist ) ;
 	two_NP	= mkNP( mkCN( mkN nonExist "two") ) ;
 	year	= mkCN( mkN "year") ;
 	teacher	= mkCN( mkN "teacher") ;
