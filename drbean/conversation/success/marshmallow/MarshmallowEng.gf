@@ -45,6 +45,8 @@ lin
 
 -- N
 
+	four_NP	= mkNP( mkCN( mkN nonExist "four") ) ;
+	two_NP	= mkNP( mkCN( mkN nonExist "two") ) ;
 	year	= mkCN( mkN "year") ;
 	teacher	= mkCN( mkN "teacher") ;
 	success	= mkN "success" nonExist;

@@ -43,6 +43,8 @@ fun
 
 -- N
 
+	four_NP	: NP;
+	two_NP	: NP;
 	year	: CN;
 	teacher	: CN;
 	success	: N;
