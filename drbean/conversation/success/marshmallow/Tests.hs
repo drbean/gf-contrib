@@ -102,7 +102,7 @@ dic_test = [
 	, "As soon as the door closes, two out of three eat the marshmallow."
 	, "Some last fourteen-and-a-half minutes."
 	, "One out of three look at the marshmallow and play with their skirt and pants."
-	, "That child already at four understands the most important principle of success, which is the ability to delay gratification."
+	, "That child at four already understands the most important principle of success, which is the ability to delay gratification."
 	, "Self-discipline is the most important factor for success."
 	, "Fourteen or fifteen years later, a follow-up study finds that 100 percent of the children who do not eat the marshmallow are successful."
 	, "They have good grades."
