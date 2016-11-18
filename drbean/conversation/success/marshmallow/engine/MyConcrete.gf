@@ -554,6 +554,7 @@ lin
 	your	= mkDet youSg_Pron;
 	their	= mkDet they_Pron;
 	this	= mkDet this_Quant;
+	that	= mkDet that_Quant;
 	those = mkDet that_Quant pluralNum;
 
 	she = mkNP she_Pron;
