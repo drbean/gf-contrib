@@ -20,6 +20,8 @@ lin
 
 -- AP
 
+	fifteen	= mkAP( mkA "fifteen") ;
+	fourteen	= mkAP( mkA "fourteen") ;
 	successful	= mkAP( mkA "successful") ;
 	important	= mkAP( mkA "important") ;
 	happy	= mkAP( mkA "happy") ;
@@ -36,9 +38,7 @@ lin
 -- Det
 
 	four	= mkDet( mkCard (mkNumeral n4_Unit));
-	fifteen	= mkDet( ParadigmsEng.mkQuant nonExist "fifteen") pluralNum;
 	fourteen_and_a_half	= mkDet( ParadigmsEng.mkQuant nonExist "fourteen-and-a-half") pluralNum;
-	fourteen	= mkDet( ParadigmsEng.mkQuant nonExist "fourteen") pluralNum;
 	two	= mkDet( mkCard (mkNumeral n2_Unit));
 	three	= mkDet( mkCard (mkNumeral n3_Unit));
 	one	= mkDet( mkCard (mkNumeral n1_Unit));

@@ -18,6 +18,8 @@ fun
 
 -- AP
 
+	fifteen	: AP;
+	fourteen	: AP;
 	successful	: AP;
 	important	: AP;
 	happy	: AP;
@@ -34,9 +36,7 @@ fun
 -- Det
 
 	four	: Det;
-	fifteen	: Det;
 	fourteen_and_a_half	: Det;
-	fourteen	: Det;
 	two	: Det;
 	three	: Det;
 	one	: Det;
@@ -81,7 +81,7 @@ fun
 	with_PREP	: Prep;
 	to	: Prep;
 	out_of	: Prep;
-	later	: Prep;
+	later	: TimePrep;
 	in_PREP	: Prep;
 	in_LOCPREP	: LocPrep;
 	for	: Prep;
