@@ -8,8 +8,10 @@ fun
 -- Adv
 
 	in_trouble	: Adv;
-	there	: Adv;
-	still	: Adv;
+	there	: Adv_location;
+	there_ADV	: Adv;
+	still	: AdA;
+	still_there	: Adv_location;
 	most	: AdA;
 	already	: AdV;
 	alone	: Adv_manner;

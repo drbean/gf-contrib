@@ -11,7 +11,9 @@ lin
 
 	in_trouble	= ParadigmsEng.mkAdv "in trouble" ;
 	there	= ParadigmsEng.mkAdv "there" ;
-	still	= ParadigmsEng.mkAdv "still" ;
+	there_ADV	= ParadigmsEng.mkAdv "there" ;
+	still	= ParadigmsEng.mkAdA "still" ;
+	still_there	= ConstructorsEng.mkAdv still there_ADV;
 	most	= ParadigmsEng.mkAdA "most" ;
 	already	= ParadigmsEng.mkAdV "already" ;
 	alone	= ParadigmsEng.mkAdv "alone" ;
