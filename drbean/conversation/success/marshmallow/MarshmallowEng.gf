@@ -45,6 +45,7 @@ lin
 
 -- N
 
+	child	= mkCN( mkN human (mkN "child" "children") );
 	four_NP	= mkNP zero_Det_sg ( mkN "four" nonExist ) ;
 	two_NP	= mkNP( mkCN( mkN nonExist "two") ) ;
 	year	= mkCN( mkN "year") ;
@@ -72,7 +73,6 @@ lin
 	factor_for	= mkN2( mkN "factor") for;
 	door	= mkCN( mkN "door") ;
 	college	= mkN "college" nonExist;
-	child	= mkCN( mkN "child" "children") ;
 	ability	= mkCN( mkN "ability") ;
 
 -- PN

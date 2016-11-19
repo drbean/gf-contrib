@@ -43,6 +43,7 @@ fun
 
 -- N
 
+	child	: CN;
 	four_NP	: NP;
 	two_NP	: NP;
 	year	: CN;
@@ -70,7 +71,6 @@ fun
 	factor_for	: N2;
 	door	: CN;
 	college	: N;
-	child	: CN;
 	ability	: CN;
 
 -- PN
