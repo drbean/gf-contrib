@@ -7,6 +7,8 @@ fun
 
 -- Adv
 
+	still_in_school	: Adv_location;
+	in_school	: Adv_location;
 	in_trouble	: Adv_location;
 	there	: Adv_location;
 	there_ADV	: Adv;
@@ -78,7 +80,7 @@ fun
 
 -- Prep
 
-	with_PREP	: Prep;
+	with_PREP	: ThemePrep;
 	to	: Prep;
 	out_of	: Prep;
 	later	: TimePrep;

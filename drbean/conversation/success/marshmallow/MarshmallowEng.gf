@@ -3,12 +3,16 @@
 concrete MarshmallowEng of Marshmallow = MyConcrete  **
 open ConstructorsEng, ParadigmsEng, StructuralEng, IrregEng, ExtraEng, ConstructX, Prelude, (R=ResEng) in {
 
--- oper
+oper
+
+ a_few_Quant	= ParadigmsEng.mkQuant nonExist "a few" nonExist "a few";
 
 lin
 
 -- Adv
 
+	still_in_school	= ParadigmsEng.mkAdv "still in school" ;
+	in_school	= ParadigmsEng.mkAdv "in school" ;
 	in_trouble	= ParadigmsEng.mkAdv "in trouble" ;
 	there	= ParadigmsEng.mkAdv "there" ;
 	there_ADV	= ParadigmsEng.mkAdv "there" ;
@@ -68,7 +72,7 @@ lin
 	kid	= mkCN( mkN "kid") ;
 	gratification	= mkN "gratification" nonExist;
 	grade	= mkCN( mkN "grade") ;
-	a_few	= mkNP( mkCN( mkN nonExist "a few") ) ;
+	a_few	= mkNP( mkDet a_few_Quant pluralNum ) ;
 	factor	= mkN2( mkN "factor") in_PREP;
 	factor_for	= mkN2( mkN "factor") for;
 	door	= mkCN( mkN "door") ;
