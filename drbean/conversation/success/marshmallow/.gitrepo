@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = http://github.com/drbean/marshmallow
+	branch = master
+	commit = 2f83e2db396ae6fdba86f3317ef4da7eac805be0
+	parent = 6a862db46ebb2924c9527919f94d399181d4d8e6
+	cmdver = 0.3.0
