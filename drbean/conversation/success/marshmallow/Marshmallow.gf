@@ -7,7 +7,7 @@ fun
 
 -- Adv
 
-	in_trouble	: Adv;
+	in_trouble	: Adv_location;
 	there	: Adv_location;
 	there_ADV	: Adv;
 	still	: AdA;
