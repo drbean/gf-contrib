@@ -41,7 +41,7 @@ lin
 
 	blair	= mkPN( mkN masculine (mkN "Blair") );
 	raines	= mkPN( mkN masculine (mkN "Raines") );
-	hernandez	= mkPN( mkN human (mkN "Hernandez") );
+	hernandez	= mkPN( mkN feminine (mkN "Hernandez") );
 
 -- Prep
 
