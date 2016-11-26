@@ -59,9 +59,9 @@ fun
 
 -- V
 
+	leave	: Place -> VP;
 	work	: Adv_location -> VP;
 	tell	: V2;
-	leave	: V2V;
 	interview	: V2;
 	fire	: V2;
 	copy	: V3;

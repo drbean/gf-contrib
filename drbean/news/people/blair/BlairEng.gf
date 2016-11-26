@@ -61,9 +61,9 @@ lin
 
 -- V
 
+	leave	loc = myVPPlus( mkVP( mkV "leave")) (loc.s ! R.NCase R.Nom);
 	work loc	= myVPPlus( mkVP(  mkV "work" )) loc.s;
 	tell	= mkV2( mkV "tell") noPrep;
-	leave	= mkV2V( mkV "leave") noPrep to;
 	interview	= mkV2( mkV "interview") noPrep;
 	fire	= mkV2( mkV "fire") noPrep;
 	copy	= mkV3( mkV "copy") noPrep for;
