@@ -127,7 +127,7 @@ tags = [
 another	: Det;
 as	: Prep;
 at	: Prep;
-Blair
+Blair	: PN;
 copy	: V3;
 editor	: CN;
 fire	: V2;
