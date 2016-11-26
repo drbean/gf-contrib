@@ -31,6 +31,7 @@ lincat
 	Adv_extent	= Adv;
 	Adv_attribute	= Adv;
 	Adv_stimulus	= Adv;
+	Adv_goal	= Adv;
 	MassDet = Det;
 	Partitive = N2;
 

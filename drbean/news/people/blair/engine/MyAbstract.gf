@@ -32,6 +32,7 @@ cat
 	Adv_extent;
 	Adv_attribute;
 	Adv_stimulus;
+	Adv_goal;
 	MassDet;
 	SubordCl;
 	Partitive;
@@ -299,8 +300,8 @@ fun
 
 	Not_Adv	: Adv -> Adv;
 	Very_Adv	: Adv -> Adv;
-	In_order_to : VP -> Adv;
-	To_purpose	: VP -> Adv;
+	In_order_to : VP -> Adv_goal;
+	To_purpose	: VP -> Adv_goal;
 	because_SUBJ	: Subj;
 	if_SUBJ	: Subj;
 	when_SUBJ	: Subj;
