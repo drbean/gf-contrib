@@ -97,7 +97,7 @@ fol tests = do
 
 dic_test = [
 
-	"Blair works at the New York Times as an intern with another intern, Marcia Hernandez."
+	"Blair works at the New York Times as an intern with another intern, Hernandez."
 	, "Hernandez leaves the Times to work at a newspaper in Texas, her home state."
 	, "In Texas, Hernandez interviews the mother of a soldier missing in Iraq."
 	, "Blair copies information from Hernandez' story for his own story in the Times."
