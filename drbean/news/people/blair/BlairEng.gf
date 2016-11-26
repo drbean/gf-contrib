@@ -61,7 +61,7 @@ lin
 
 -- V
 
-	work	= mkV2( mkV "work") at;
+	work loc	= myVPPlus( mkVP(  mkV "work" )) loc.s;
 	tell	= mkV2( mkV "tell") noPrep;
 	leave	= mkV2V( mkV "leave") noPrep to;
 	interview	= mkV2( mkV "interview") noPrep;

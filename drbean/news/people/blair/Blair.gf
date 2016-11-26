@@ -59,7 +59,7 @@ fun
 
 -- V
 
-	work	: V2;
+	work	: Adv_location -> VP;
 	tell	: V2;
 	leave	: V2V;
 	interview	: V2;
