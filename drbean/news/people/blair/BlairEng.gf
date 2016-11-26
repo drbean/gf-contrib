@@ -29,7 +29,7 @@ lin
 	soldier	= mkCN( mkN human (mkN "soldier") );
 	newspaper	= mkCN( mkN "newspaper") ;
 	the_times	= mkCN( mkN "the Times") ;
-	the_new_york_times	= mkCN( mkN "the New York Times") ;
+	the_new_york_times	= mkNP( mkCN( mkN "the New York Times") );
 	mother	= mkCN( mkN human (mkN "mother") );
 	iraq	= mkCN( mkN "Iraq") ;
 	intern	= mkCN( mkN human (mkN "intern") );
@@ -39,6 +39,7 @@ lin
 
 -- PN
 
+	blair	= mkPN( mkN masculine (mkN "Blair") );
 	raines	= mkPN( mkN masculine (mkN "Raines") );
 	hernandez	= mkPN( mkN human (mkN "Hernandez") );
 
