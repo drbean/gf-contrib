@@ -131,6 +131,7 @@ fun
 	VP_Adv_extent	: VP -> Adv_extent -> VP;
 	VP_Adv_attribute	: VP -> Adv_attribute -> VP;
 	VP_Adv_stimulus	: VP -> Adv_stimulus -> VP;
+	VP_Adv_goal	: VP -> Adv_goal -> VP;
 	WithCl	: VP -> SubordCl -> VP;
 	VPToo	: VP -> VP;
 	VPAlready	: VP -> VP;

@@ -444,6 +444,7 @@ lin
 	VP_Adv_extent vp extent = mkVP vp extent;
 	VP_Adv_attribute vp attribute = mkVP vp attribute;
 	VP_Adv_stimulus vp stimulus	= mkVP vp stimulus;
+	VP_Adv_goal vp goal	= mkVP vp goal;
 	WithCl vp cl = mkVP vp cl;
 	VPToo vp = myVPPlus vp "too";
 	VPAlready vp = myVPPlus vp "already";
