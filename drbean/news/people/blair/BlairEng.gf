@@ -24,11 +24,11 @@ lin
 
 -- N
 
-	texas	= mkCN( mkN "Texas") ;
+	texas	= mkNP( mkCN( mkN "Texas") ) ;
 	story	= mkCN( mkN nonhuman (mkN "story") );
 	soldier	= mkCN( mkN human (mkN "soldier") );
 	newspaper	= mkCN( mkN "newspaper") ;
-	the_times	= mkCN( mkN "the Times") ;
+	the_times	= mkNP( mkCN( mkN "the Times") );
 	the_new_york_times	= mkNP( mkCN( mkN "the New York Times") );
 	mother	= mkCN( mkN human (mkN "mother") );
 	iraq	= mkCN( mkN "Iraq") ;

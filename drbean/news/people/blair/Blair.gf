@@ -22,11 +22,11 @@ fun
 
 -- N
 
-	texas	: PlaceNoun;
+	texas	: Place;
 	story	: CN;
 	soldier	: CN;
 	newspaper	: PlaceNoun;
-	the_times	: PlaceNoun;
+	the_times	: Place;
 	the_new_york_times	: Place;
 	mother	: CN;
 	iraq	: PlaceNoun;
