@@ -142,7 +142,7 @@ interview	: V2;
 Iraq	: PlaceNoun;
 leave	: V2V;
 missing	: A2;
-mother	: CN;
+mother	: N2;
 the New York Times	: PlaceNoun;
 the Times	: Place;
 newspaper	: PlaceNoun;

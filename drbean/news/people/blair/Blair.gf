@@ -22,12 +22,12 @@ fun
 
 -- N
 
+	mother	: N2;
 	texas	: Place;
 	story	: CN;
 	soldier	: CN;
 	newspaper	: PlaceNoun;
 	the_new_york_times	: Place;
-	mother	: CN;
 	iraq	: PlaceNoun;
 	intern	: CN;
 	information	: N;

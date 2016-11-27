@@ -24,12 +24,12 @@ lin
 
 -- N
 
+	mother	= mkN2( mkN human (mkN "mother") ) of_PREP;
 	texas	= mkNP( mkCN( mkN "Texas") ) ;
 	story	= mkCN( mkN nonhuman (mkN "story") );
 	soldier	= mkCN( mkN human (mkN "soldier") );
 	newspaper	= mkCN( mkN "newspaper") ;
 	the_new_york_times	= mkNP( mkCN( mkN "the New York Times") );
-	mother	= mkCN( mkN human (mkN "mother") );
 	iraq	= mkCN( mkN "Iraq") ;
 	intern	= mkCN( mkN human (mkN "intern") );
 	information	= mkN "information" nonExist;
