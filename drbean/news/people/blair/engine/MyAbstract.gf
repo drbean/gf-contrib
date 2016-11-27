@@ -142,6 +142,7 @@ fun
 	SourcePre	: Adv_source -> S -> S;
 	TimePre	: Adv_time -> S -> S;
 	ExtentPre	: Adv_extent -> S -> S;
+	LocationPre	: Adv_location -> S -> S;
 
 	ICompS	: IComp -> NP -> QS;
 	YN	: Cl -> QCl;
