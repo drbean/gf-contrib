@@ -199,6 +199,7 @@ fun
 	Ofpart	: Partitive -> N -> CN;
 	N2toCN	: N2 -> CN;
 	ApposNP	: NP -> NP -> NP;
+	ApposPlace	: Place -> Place -> Place;
 	NPPostPredet	: NP -> Predet -> NP;
 
 	a_DET : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));

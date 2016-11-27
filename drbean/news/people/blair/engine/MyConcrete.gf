@@ -281,6 +281,10 @@ oper
 		\np1,insert,np2 ->
 		{s = \\n => np1.s ! n ++ insert ++ np2.s ! n; a = np1.a};
 
+	myApposPlace : (p1 : Place) -> (insert : Str) -> (p2 : Place) -> { s : NPCase => Str ; a : Agr } =
+		\p1,insert,p2 ->
+		{s = \\n => p1.s ! n ++ insert ++ p2.s ! n; a = p1.a};
+
   myAdjAsCN : (ap : AP) -> { s : Number => Case => Str ; g : Gender } =
 		\ap ->
 		{ s = \\n,c => ap.s ! agrgP3 n Neutr;
@@ -508,6 +512,7 @@ lin
 	Titular cn = mkNP cn;
 	PredetItem predet np	= mkNP predet np;
 	ApposNP np1 np2 = myApposNP np1 "," np2;
+	ApposPlace p1 p2 = myApposPlace p1 "," p2;
 	NPPostPredet np predet = myNPPostPredet np predet;
 
 	a_DET	= a_Det;
