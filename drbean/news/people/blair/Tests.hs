@@ -101,7 +101,7 @@ dic_test = [
 	, "Hernandez leaves the Times to work at a newspaper in Texas , her home state."
 	, "In Texas, Hernandez interviews the mother of a soldier missing in Iraq."
 	, "Blair copies information from Hernandez' story for his own story in the Times."
-	, "Hernandez' tells Raines, Blair's editor, who fires Blair." 
+	, "Hernandez' editor tells Raines, Blair's editor, who fires Blair." 
 
   ]
 
