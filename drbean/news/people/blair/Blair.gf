@@ -26,7 +26,6 @@ fun
 	story	: CN;
 	soldier	: CN;
 	newspaper	: PlaceNoun;
-	the_times	: Place;
 	the_new_york_times	: Place;
 	mother	: CN;
 	iraq	: PlaceNoun;
@@ -37,6 +36,7 @@ fun
 
 -- PN
 
+	the_times	: Place;
 	blair	: PN;
 	raines	: PN;
 	hernandez	: PN;
