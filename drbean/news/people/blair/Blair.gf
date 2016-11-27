@@ -28,7 +28,6 @@ fun
 	soldier	: CN;
 	newspaper	: PlaceNoun;
 	the_new_york_times	: Place;
-	iraq	: PlaceNoun;
 	intern	: CN;
 	information	: N;
 	home_state	: PlaceNoun;
@@ -36,6 +35,7 @@ fun
 
 -- PN
 
+	iraq	: Place;
 	the_times	: Place;
 	blair	: PN;
 	raines	: PN;

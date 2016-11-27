@@ -139,7 +139,7 @@ in	: Prep;
 information	: N;
 intern	: CN;
 interview	: V2;
-Iraq	: PlaceNoun;
+Iraq	: Place;
 leave	: V2V;
 missing	: A2;
 mother	: N2;
