@@ -144,7 +144,7 @@ leave	: V2V;
 missing	: A2;
 mother	: CN;
 the New York Times	: PlaceNoun;
-the Times	: PlaceNoun;
+the Times	: Place;
 newspaper	: PlaceNoun;
 own	: AP;
 Raines	: PN;
