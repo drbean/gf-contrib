@@ -270,6 +270,12 @@ oper
 			g = noun.g
 		};
 
+	myAPinPlace : ( a : A2 ) -> ( pl : Place ) ->  { s : Agr => Str ; isPre : Bool } =
+    \a,pl -> {
+      s = \\_ => a.s ! AAdj Posit Nom ++ a.c2 ++ pl.s ! NPAcc ; 
+      isPre = False
+      } ;
+
 	mymkN_Adv : (noun : N) -> (adv : Adv) -> { s : Number => Case => Str ; g : Gender } =
 		\noun,adv ->
 		{
@@ -592,6 +598,7 @@ lin
 	As_as ap np	= mkAP as_CAdv ap np;
 	AdvAdj adv adj = mkAP adv adj;
 	A_PP a np = mkAP a np;
+	A_Adv_location a pl	= myAPinPlace a pl;
 	VP_AP vp = PresPartAP vp;
 	VPSlash_AP vp = PastPartAP vp;
 	VP_NP_AP vp np = PastPartAgentAP vp np;

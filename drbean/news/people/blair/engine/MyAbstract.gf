@@ -280,6 +280,7 @@ fun
 	As_as	: AP -> NP -> AP;
 	AdvAdj	: AdA -> AP -> AP;
 	A_PP	: A2 -> NP ->AP;
+	A_Adv_location	: A2 -> Place ->AP;
 	VP_AP	: VP -> AP;
 	VPSlash_AP	: VPSlash -> AP;
 	VP_NP_AP	: VPSlash -> NP -> AP;
