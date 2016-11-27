@@ -41,7 +41,7 @@ lin
 	the_times	= mkNP( mkPN( mkN nonhuman (mkN "the Times") ) );
 	blair	= mkPN( mkN masculine (mkN "Blair") );
 	raines	= mkPN( mkN masculine (mkN "Raines") );
-	hernandez	= mkPN( mkN feminine (mkN "Hernandez") );
+	hernandez	= mkPN( mkN feminine (mkN "Hernandez" nonExist "Hernandez'" nonExist ) );
 
 -- Prep
 
