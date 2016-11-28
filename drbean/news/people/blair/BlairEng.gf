@@ -9,6 +9,7 @@ lin
 
 -- Adv
 
+	from_hernandez_story	= ParadigmsEng.mkAdv "from Hernandez' story" ;
 
 -- AP
 
@@ -66,7 +67,7 @@ lin
 	tell	= mkV2( mkV "tell") noPrep;
 	interview	= mkV2( mkV "interview") noPrep;
 	fire	= mkV2( mkV "fire") noPrep;
-	copy	= mkV3( mkV "copy") noPrep for;
+	copy	= mkV2( mkV "copy") noPrep;
 
 }
 

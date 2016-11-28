@@ -7,6 +7,7 @@ fun
 
 -- Adv
 
+	from_hernandez_story	: Adv;
 
 -- AP
 
@@ -47,7 +48,7 @@ fun
 	to	: Prep;
 	in_LOCPREP	: LocPrep;
 	from	: Prep;
-	for	: Prep;
+	for	: ThemePrep;
 	at	: LocPrep;
 	as	: AttributePrep;
 
@@ -64,7 +65,7 @@ fun
 	tell	: V2;
 	interview	: V2;
 	fire	: V2;
-	copy	: V3;
+	copy	: V2;
 }
 
 -- vim: set ts=2 sts=2 sw=2 noet:
