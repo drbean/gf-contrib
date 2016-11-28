@@ -133,7 +133,7 @@ editor	: CN;
 fire	: V2;
 for	: Prep;
 from	: Prep;
-Hernandez	: PN;
+from Hernandez' story	: Adv;
 home state	: PlaceNoun;
 in	: Prep;
 information	: N;
