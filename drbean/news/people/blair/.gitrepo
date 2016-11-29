@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = http://github.com/drbean/blair
+	branch = master
+	commit = dfc9bbccf8d78408b4305664eb606f26a1bbdf00
+	parent = 7f87561a957fdc16d8f10c03c711857eaddec48b
+	cmdver = 0.3.0
