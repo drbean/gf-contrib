@@ -34,6 +34,7 @@ lc_first :: String -> String
 lc_first str@(s:ss) = if any (flip isPrefixOf str) [
 	"Blair"
 	, "Hernandez"
+	, "Raines"
 	 ]
 	then s:ss
 	else toLower s:ss
