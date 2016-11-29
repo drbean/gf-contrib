@@ -8,7 +8,7 @@ import System.Environment.FindBin
 -- path = getProgPath
 -- file = path >>= \p -> return ( (++) p "/Happier.pgf")
 -- gr = file >>= \f -> return ( readPGF f )
-gr = readPGF "/home/drbean/GF/gf-contrib/drbean/business/conflict/communication/Blair.pgf"
+gr = readPGF "/home/drbean/GF/gf-contrib/drbean/news/people/blair/Blair.pgf"
 
 cat2funs :: String -> IO [CId]
 cat2funs cat = do
