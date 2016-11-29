@@ -31,6 +31,7 @@ lincat
 	Adv_extent	= Adv;
 	Adv_attribute	= Adv;
 	Adv_stimulus	= Adv;
+	Adv_goal	= Adv;
 	MassDet = Det;
 	Partitive = N2;
 
@@ -269,6 +270,12 @@ oper
 			g = noun.g
 		};
 
+	myAPinPlace : ( a : A2 ) -> ( pl : Place ) ->  { s : Agr => Str ; isPre : Bool } =
+    \a,pl -> {
+      s = \\_ => a.s ! AAdj Posit Nom ++ a.c2 ++ pl.s ! NPAcc ; 
+      isPre = False
+      } ;
+
 	mymkN_Adv : (noun : N) -> (adv : Adv) -> { s : Number => Case => Str ; g : Gender } =
 		\noun,adv ->
 		{
@@ -279,6 +286,10 @@ oper
 	myApposNP : (np1 : NP) -> (insert : Str) -> (np2 : NP) -> { s : NPCase => Str ; a : Agr } =
 		\np1,insert,np2 ->
 		{s = \\n => np1.s ! n ++ insert ++ np2.s ! n; a = np1.a};
+
+	myApposPlace : (p1 : Place) -> (insert : Str) -> (p2 : Place) -> { s : NPCase => Str ; a : Agr } =
+		\p1,insert,p2 ->
+		{s = \\n => p1.s ! n ++ insert ++ p2.s ! n; a = p1.a};
 
   myAdjAsCN : (ap : AP) -> { s : Number => Case => Str ; g : Gender } =
 		\ap ->
@@ -443,6 +454,7 @@ lin
 	VP_Adv_extent vp extent = mkVP vp extent;
 	VP_Adv_attribute vp attribute = mkVP vp attribute;
 	VP_Adv_stimulus vp stimulus	= mkVP vp stimulus;
+	VP_Adv_goal vp goal	= mkVP vp goal;
 	WithCl vp cl = mkVP vp cl;
 	VPToo vp = myVPPlus vp "too";
 	VPAlready vp = myVPPlus vp "already";
@@ -453,6 +465,7 @@ lin
 	SourcePre adv s = mkS adv s;
 	TimePre adv s = mkS adv s;
 	ExtentPre adv s = mkS adv s;
+	LocationPre adv s = mkS adv s;
   -- Be_made_sth vp np = PassV3 vp np;
 
 	ICompS i np = mkQS (mkQCl i np);
@@ -506,6 +519,7 @@ lin
 	Titular cn = mkNP cn;
 	PredetItem predet np	= mkNP predet np;
 	ApposNP np1 np2 = myApposNP np1 "," np2;
+	ApposPlace p1 p2 = myApposPlace p1 "," p2;
 	NPPostPredet np predet = myNPPostPredet np predet;
 
 	a_DET	= a_Det;
@@ -584,6 +598,7 @@ lin
 	As_as ap np	= mkAP as_CAdv ap np;
 	AdvAdj adv adj = mkAP adv adj;
 	A_PP a np = mkAP a np;
+	A_Adv_location a pl	= myAPinPlace a pl;
 	VP_AP vp = PresPartAP vp;
 	VPSlash_AP vp = PastPartAP vp;
 	VP_NP_AP vp np = PastPartAgentAP vp np;

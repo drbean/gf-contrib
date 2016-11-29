@@ -32,6 +32,7 @@ cat
 	Adv_extent;
 	Adv_attribute;
 	Adv_stimulus;
+	Adv_goal;
 	MassDet;
 	SubordCl;
 	Partitive;
@@ -130,6 +131,7 @@ fun
 	VP_Adv_extent	: VP -> Adv_extent -> VP;
 	VP_Adv_attribute	: VP -> Adv_attribute -> VP;
 	VP_Adv_stimulus	: VP -> Adv_stimulus -> VP;
+	VP_Adv_goal	: VP -> Adv_goal -> VP;
 	WithCl	: VP -> SubordCl -> VP;
 	VPToo	: VP -> VP;
 	VPAlready	: VP -> VP;
@@ -140,6 +142,7 @@ fun
 	SourcePre	: Adv_source -> S -> S;
 	TimePre	: Adv_time -> S -> S;
 	ExtentPre	: Adv_extent -> S -> S;
+	LocationPre	: Adv_location -> S -> S;
 
 	ICompS	: IComp -> NP -> QS;
 	YN	: Cl -> QCl;
@@ -197,6 +200,7 @@ fun
 	Ofpart	: Partitive -> N -> CN;
 	N2toCN	: N2 -> CN;
 	ApposNP	: NP -> NP -> NP;
+	ApposPlace	: Place -> Place -> Place;
 	NPPostPredet	: NP -> Predet -> NP;
 
 	a_DET : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
@@ -276,6 +280,7 @@ fun
 	As_as	: AP -> NP -> AP;
 	AdvAdj	: AdA -> AP -> AP;
 	A_PP	: A2 -> NP ->AP;
+	A_Adv_location	: A2 -> Place ->AP;
 	VP_AP	: VP -> AP;
 	VPSlash_AP	: VPSlash -> AP;
 	VP_NP_AP	: VPSlash -> NP -> AP;
@@ -299,8 +304,8 @@ fun
 
 	Not_Adv	: Adv -> Adv;
 	Very_Adv	: Adv -> Adv;
-	In_order_to : VP -> Adv;
-	To_purpose	: VP -> Adv;
+	In_order_to : VP -> Adv_goal;
+	To_purpose	: VP -> Adv_goal;
 	because_SUBJ	: Subj;
 	if_SUBJ	: Subj;
 	when_SUBJ	: Subj;
