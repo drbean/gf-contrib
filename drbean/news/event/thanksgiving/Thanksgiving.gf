@@ -45,10 +45,10 @@ fun
 	market	: CN;
 	dinner	: CN;
 	cost	: N2;
-	the_farm_board	: CN;
 
 -- PN
 
+	the_farm_board	: PN;
 	thanksgiving	: PN;
 
 -- Prep

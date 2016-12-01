@@ -47,10 +47,10 @@ lin
 	market	= mkCN( mkN nonhuman (mkN "market") );
 	dinner	= mkCN( mkN nonhuman (mkN "dinner") );
 	cost	= mkN2( mkN nonhuman (mkN "cost") ) of_PREP;
-	the_farm_board	= mkCN( mkN nonhuman (mkN "the Farm Board") );
 
 -- PN
 
+	the_farm_board	= mkPN( mkN nonhuman (mkN "the Farm Board") );
 	thanksgiving	= mkPN( mkN nonhuman (mkN "Thanksgiving") );
 
 -- Prep
