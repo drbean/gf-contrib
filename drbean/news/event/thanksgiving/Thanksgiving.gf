@@ -29,7 +29,7 @@ fun
 
 -- N
 
-	year	: CN;
+	year	: Time;
 	turkey	: CN;
 	tension	: N;
 	story	: CN;
