@@ -26,7 +26,7 @@ lin
 
 -- Det
 
-	other	= mkDet( ParadigmsEng.mkQuant "other" nonExist) singularNum;
+	other	= mkDet( ParadigmsEng.mkQuant nonExist "other") pluralNum;
 	each	= mkDet( ParadigmsEng.mkQuant "each" nonExist) singularNum;
 
 -- N
