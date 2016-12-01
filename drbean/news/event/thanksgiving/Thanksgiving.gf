@@ -55,7 +55,7 @@ fun
 
 	to	: Prep;
 	on	: Prep;
-	in_PREP	: Prep;
+	in_PREP	: ProductPrep;
 	about	: Prep;
 
 -- Pron
