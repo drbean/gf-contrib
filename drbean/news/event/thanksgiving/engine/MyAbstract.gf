@@ -20,6 +20,7 @@ cat
 	ExtentPrep;
 	AttributePrep;
 	StimulusPrep;
+	ProductPrep;
 	Adv_coagent;
 	Adv_instrument;
 	Adv_theme;
@@ -32,6 +33,7 @@ cat
 	Adv_extent;
 	Adv_attribute;
 	Adv_stimulus;
+	Adv_product;
 	Adv_goal;
 	MassDet;
 	SubordCl;
@@ -62,6 +64,7 @@ fun
 	Extenting	: ExtentPrep -> NP -> Adv_extent;
 	Attributing	: AttributePrep -> NP -> Adv_attribute;
 	Stimulating	: StimulusPrep -> NP -> Adv_stimulus;
+	Producing	: ProductPrep -> NP -> Adv_product;
 	Happening	: V -> VP ;
 	Changing	: V2 -> NP -> VP;
 	V_NP_VP:	V2V -> NP -> VP -> VP;
@@ -131,6 +134,7 @@ fun
 	VP_Adv_extent	: VP -> Adv_extent -> VP;
 	VP_Adv_attribute	: VP -> Adv_attribute -> VP;
 	VP_Adv_stimulus	: VP -> Adv_stimulus -> VP;
+	VP_Adv_product	: VP -> Adv_product -> VP;
 	VP_Adv_goal	: VP -> Adv_goal -> VP;
 	WithCl	: VP -> SubordCl -> VP;
 	VPToo	: VP -> VP;
