@@ -98,7 +98,7 @@ fol tests = do
 dic_test = [
 
       "Each year the Farm Board goes to markets and it finds the cost of turkeys and other things in a Thanksgiving dinner."
-			, "The Farm Board then send a report on the prices to newspapers."
+			, "The Farm Board then sends a report on the prices to newspapers."
 			, "Reporters take the same Farm Board press release each year and they write the same Thanksgiving story."
 			, "But reporters add tension to the story because it interests readers and it sells papers."
       , "Critics say reporters don't think about the story and they don't write it well."
