@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = http://github.com/drbean/thanksgiving
+	branch = master
+	commit = c7078253700d50663530c6d578b47d013e1a87b1
+	parent = ced7f0d4292bff61f61f1a41060053408fcba4c4
+	cmdver = 0.3.0
