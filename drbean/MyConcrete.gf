@@ -19,6 +19,7 @@ lincat
 	ExtentPrep	= Prep;
 	AttributePrep	= Prep;
 	StimulusPrep	= Prep;
+	ProductPrep	= Prep;
 	Adv_coagent	= Adv;
 	Adv_instrument	= Adv;
 	Adv_theme	= Adv;
@@ -31,6 +32,7 @@ lincat
 	Adv_extent	= Adv;
 	Adv_attribute	= Adv;
 	Adv_stimulus	= Adv;
+	Adv_product	= Adv;
 	Adv_goal	= Adv;
 	MassDet = Det;
 	Partitive = N2;
@@ -383,6 +385,7 @@ lin
 	Extenting prep degree	=mkAdv prep degree;
 	Attributing prep attribute	= mkAdv prep attribute;
 	Stimulating prep stimulus	= mkAdv prep stimulus;
+	Producing prep product	= mkAdv prep product;
 	Happening action	=	mkVP action;
 	Changing action patient	= mkVP action patient;
 	V_NP_VP causal patient predicate	= mkVP causal patient predicate;
@@ -454,6 +457,7 @@ lin
 	VP_Adv_extent vp extent = mkVP vp extent;
 	VP_Adv_attribute vp attribute = mkVP vp attribute;
 	VP_Adv_stimulus vp stimulus	= mkVP vp stimulus;
+	VP_Adv_product vp product	= mkVP vp product;
 	VP_Adv_goal vp goal	= mkVP vp goal;
 	WithCl vp cl = mkVP vp cl;
 	VPToo vp = myVPPlus vp "too";
