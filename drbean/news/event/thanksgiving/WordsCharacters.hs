@@ -152,7 +152,7 @@ paper	: CN;
 press release	: CN;
 price	: N2;
 reader	: CN;
-report	: CN;
+report	: N2;
 reporter	: CN;
 same	: AP;
 say	: VS;
