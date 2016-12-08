@@ -100,7 +100,7 @@ dic_test = [
 	"Companies can give employees and customers more control, or less control."
 	, "Companies can collaborate with employees and customers on the creation of ideas, designs and products."
 	, "Radiohead gives customers control over pricing of an album."
-	, "The chocolate company Anthon Berg opens a generous store and it asks customers to purchase chocolate with the promise of good deeds towards loved ones."
+	, "The chocolate company Anthon Berg asks customers to purchase chocolate with the promise of good deeds towards loved ones."
 	, "Outdoor clothing company Patagonia asks consumers not to buy a jacket during the peak of the shopping season."
 	, "Patagonia builds long-term loyalty based on shared values."
 	, "The Brazilian company Semco Group lets employees set their own work schedules and even their salaries."
