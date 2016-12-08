@@ -97,9 +97,7 @@ fol tests = do
 
 dic_test = [
 
-	"Marketers are not in control of their brands."
-	, "Your brand is what other people say about you when you are not in the room."
-	, "Companies can give employees and customers more control, or less control."
+	"Companies can give employees and customers more control, or less control."
 	, "Companies can worry about how much openness is good for them, and what needs to stay closed."
 	, "Companies can collaborate with employees and customers on the creation of ideas, designs and products."
 	, "Radiohead gives customers control over pricing with its pay-as-you-like online release of an album."
