@@ -97,17 +97,12 @@ fol tests = do
 
 dic_test = [
 
-	"A recent survey says that 27 percent of bosses believe that their employees are inspired by their firms, but in the same survey, only 4 percent of employees agree."
-	, "Marketers are not in control of their brands."
+	"Marketers are not in control of their brands."
 	, "Your brand is what other people say about you when you are not in the room."
-	, "Hyperconnectivity and transparency allow companies to be in the room 24/7."
-	, "Companies can listen to the conversation and companies can join in the conversation."
-	, "Companies have more control over their loss of control than ever before."
 	, "Companies can give employees and customers more control, or less control."
 	, "Companies can worry about how much openness is good for them, and what needs to stay closed."
 	, "Companies can collaborate with employees and customers on the creation of ideas, designs and products."
 	, "Radiohead gives customers control over pricing with its pay-as-you-like online release of an album."
-	, "The album sells more copies than previous releases of the band."
 	, "The chocolate company Anthon Berg opens a generous store and it asks customers to purchase chocolate with the promise of good deeds towards loved ones."
 	, "Outdoor clothing company Patagonia asks consumers not to buy a jacket during the peak of the shopping season."
 	, "Patagonia builds long-term loyalty based on shared values."
