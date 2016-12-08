@@ -98,7 +98,6 @@ fol tests = do
 dic_test = [
 
 	"Companies can give employees and customers more control, or less control."
-	, "Companies can worry about how much openness is good for them, and what needs to stay closed."
 	, "Companies can collaborate with employees and customers on the creation of ideas, designs and products."
 	, "Radiohead gives customers control over pricing with its pay-as-you-like online release of an album."
 	, "The chocolate company Anthon Berg opens a generous store and it asks customers to purchase chocolate with the promise of good deeds towards loved ones."
