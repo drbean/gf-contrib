@@ -73,7 +73,7 @@ lin
 	day	= mkCN( mkN nonhuman (mkN "day") );
 	customer	= mkCN( mkN human (mkN "customer") );
 	creation	= mkN "creation" nonExist;
-	control	= mkN2( mkN nonhuman (mkN "control") ) over;
+	control	= mkN2( mkN nonhuman (mkN "control" nonExist) ) over;
 	consumer	= mkCN( mkN human (mkN "consumer") );
 	company	= mkCN( mkN nonhuman (mkN "company") );
 	album	= mkCN( mkN nonhuman (mkN "album") );
