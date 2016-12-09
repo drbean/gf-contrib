@@ -129,7 +129,7 @@ lin
 	buy	= mkV2( mkV "buy") noPrep;
 	build	= mkV2( mkV "build") noPrep;
 	base	= mkV3( mkV "base") noPrep on;
-	ask	= mkV2S( mkV "ask") to;
+	ask	= mkV2V( mkV "ask") noPrep to;
 
 }
 

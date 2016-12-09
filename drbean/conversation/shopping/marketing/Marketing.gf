@@ -126,7 +126,7 @@ fun
 	buy	: V2;
 	build	: V2;
 	base	: V3;
-	ask	: V2S;
+	ask	: V2V;
 }
 
 -- vim: set ts=2 sts=2 sw=2 noet:

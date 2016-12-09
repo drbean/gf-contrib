@@ -129,7 +129,7 @@ album	: CN;
 altruistic	: AP;
 and	: Conj;
 Anthon Berg	: PN;
-ask	: V2S;
+ask	: V2V;
 base	: V3;
 Brazilian	: AP;
 build	: V2;
