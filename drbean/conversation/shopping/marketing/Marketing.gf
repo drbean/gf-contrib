@@ -92,7 +92,7 @@ fun
 
 	with_PREP	: InstrumentPrep;
 	until	: Prep;
-	towards	: Prep;
+	towards	: BeneficiaryPrep;
 	to	: Prep;
 	throughout	: Prep;
 	over	: Prep;
