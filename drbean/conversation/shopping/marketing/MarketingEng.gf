@@ -59,7 +59,7 @@ lin
 	promise	= mkCN( mkN nonhuman (mkN "promise") );
 	product	= mkCN( mkN nonhuman (mkN "product") );
 	productivity	= mkN "productivity" nonExist;
-	pricing	= mkN "pricing" nonExist;
+	pricing	= mkN2( mkN nonhuman (mkN "pricing") ) of_PREP;
 	patagonia	= mkCN( mkN nonhuman (mkN "Patagonia") );
 	moment	= mkCN( mkN nonhuman (mkN "moment") );
 	loyalty	= mkN "loyalty" nonExist;

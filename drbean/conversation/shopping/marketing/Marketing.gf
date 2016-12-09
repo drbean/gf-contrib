@@ -57,7 +57,7 @@ fun
 	promise	: CN;
 	product	: CN;
 	productivity	: N;
-	pricing	: N;
+	pricing	: N2;
 	patagonia	: CN;
 	moment	: CN;
 	loyalty	: N;

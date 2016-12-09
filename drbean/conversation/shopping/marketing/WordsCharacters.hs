@@ -188,7 +188,7 @@ over	: Prep;
 overall	: AP;
 own	: AP;
 Patagonia	: CN;
-pricing	: N;
+pricing	: N2;
 productivity	: N;
 product	: CN;
 promise	: CN;
