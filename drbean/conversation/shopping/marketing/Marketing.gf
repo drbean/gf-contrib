@@ -90,7 +90,7 @@ fun
 
 -- Prep
 
-	with_PREP	: Prep;
+	with_PREP	: InstrumentPrep;
 	until	: Prep;
 	towards	: Prep;
 	to	: Prep;
