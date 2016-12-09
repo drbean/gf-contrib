@@ -39,6 +39,7 @@ fun
 
 -- Det
 
+	more_DET	: MassDet;
 	less	: Det;
 	even	: Det;
 
