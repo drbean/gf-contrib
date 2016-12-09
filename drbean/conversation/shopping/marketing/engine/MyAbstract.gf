@@ -21,6 +21,7 @@ cat
 	AttributePrep;
 	StimulusPrep;
 	ProductPrep;
+	BeneficiaryPrep;
 	Adv_coagent;
 	Adv_instrument;
 	Adv_theme;
@@ -35,6 +36,7 @@ cat
 	Adv_stimulus;
 	Adv_product;
 	Adv_goal;
+	Adv_beneficiary;
 	MassDet;
 	SubordCl;
 	Partitive;
@@ -65,6 +67,7 @@ fun
 	Attributing	: AttributePrep -> NP -> Adv_attribute;
 	Stimulating	: StimulusPrep -> NP -> Adv_stimulus;
 	Producing	: ProductPrep -> NP -> Adv_product;
+	Benefiting	: BeneficiaryPrep -> NP -> Adv_beneficiary;
 	Happening	: V -> VP ;
 	Changing	: V2 -> NP -> VP;
 	V_NP_VP:	V2V -> NP -> VP -> VP;
@@ -136,6 +139,7 @@ fun
 	VP_Adv_stimulus	: VP -> Adv_stimulus -> VP;
 	VP_Adv_product	: VP -> Adv_product -> VP;
 	VP_Adv_goal	: VP -> Adv_goal -> VP;
+	VP_Adv_beneficiary	: VP -> Adv_beneficiary -> VP;
 	WithCl	: VP -> SubordCl -> VP;
 	VPToo	: VP -> VP;
 	VPAlready	: VP -> VP;

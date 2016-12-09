@@ -20,6 +20,7 @@ lincat
 	AttributePrep	= Prep;
 	StimulusPrep	= Prep;
 	ProductPrep	= Prep;
+	BeneficiaryPrep	= Prep;
 	Adv_coagent	= Adv;
 	Adv_instrument	= Adv;
 	Adv_theme	= Adv;
@@ -34,6 +35,7 @@ lincat
 	Adv_stimulus	= Adv;
 	Adv_product	= Adv;
 	Adv_goal	= Adv;
+	Adv_beneficiary	= Adv;
 	MassDet = Det;
 	Partitive = N2;
 
@@ -400,6 +402,7 @@ lin
 	Attributing prep attribute	= mkAdv prep attribute;
 	Stimulating prep stimulus	= mkAdv prep stimulus;
 	Producing prep product	= mkAdv prep product;
+	Benefiting prep beneficiary	= mkAdv prep beneficiary;
 	Happening action	=	mkVP action;
 	Changing action patient	= mkVP action patient;
 	V_NP_VP causal patient predicate	= mkVP causal patient predicate;
@@ -473,6 +476,7 @@ lin
 	VP_Adv_stimulus vp stimulus	= mkVP vp stimulus;
 	VP_Adv_product vp product	= mkVP vp product;
 	VP_Adv_goal vp goal	= mkVP vp goal;
+	VP_Adv_beneficiary vp beneficiary	= mkVP vp beneficiary;
 	WithCl vp cl = mkVP vp cl;
 	VPToo vp = myVPPlus vp "too";
 	VPAlready vp = myVPPlus vp "already";
