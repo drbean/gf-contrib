@@ -45,6 +45,7 @@ fun
 
 -- N
 
+	chocolate_N	: N;
 	value	: CN;
 	traveler	: CN;
 	task	: CN;

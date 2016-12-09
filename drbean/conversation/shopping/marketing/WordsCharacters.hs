@@ -136,6 +136,7 @@ build	: V2;
 buy	: V2;
 can	: VV;
 chocolate	: AP;
+chocolate_N	: N;
 clothing	: AP;
 collaborate	: V2;
 company	: CN;

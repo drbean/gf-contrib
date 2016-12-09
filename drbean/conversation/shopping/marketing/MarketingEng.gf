@@ -47,6 +47,7 @@ lin
 
 -- N
 
+	chocolate_N	= mkN "chocolate" nonExist;
 	value	= mkCN( mkN nonhuman (mkN "value") );
 	traveler	= mkCN( mkN human (mkN "traveler") );
 	task	= mkCN( mkN nonhuman (mkN "task") );
