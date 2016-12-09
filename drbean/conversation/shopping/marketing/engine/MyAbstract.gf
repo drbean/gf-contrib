@@ -204,6 +204,7 @@ fun
 	Ofpart	: Partitive -> N -> CN;
 	N2toCN	: N2 -> CN;
 	N2toMassN	: N2 -> N;
+	MassOfpos	: N2 -> NP -> N;
 	ApposNP	: NP -> NP -> NP;
 	ApposPlace	: Place -> Place -> Place;
 	NPPostPredet	: NP -> Predet -> NP;
