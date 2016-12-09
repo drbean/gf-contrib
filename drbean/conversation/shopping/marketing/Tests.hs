@@ -107,7 +107,7 @@ dic_test = [
 	, "Travel service Nextpedition does not tell the traveler the destination until the last moment."
 	, "Dutch airline KLM randomly hands out small gifts to travelers en route to their destination."
 	, "A recent study suggests that having employees complete occasional altruistic tasks throughout the day increases their sense of overall productivity."
-	, "Design company frog holds internal speed-meet sessions that connect old and new employees, helping them get to know each other fast."
+	, "The design company , frog holds internal speed-meet sessions that connect old and new employees, helping them get to know each other fast."
 
   ]
 
