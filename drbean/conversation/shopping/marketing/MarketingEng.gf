@@ -28,7 +28,7 @@ lin
 	last	= mkAP( mkA "last") ;
 	internal	= mkAP( mkA "internal") ;
 	dutch	= mkAP( mkA "Dutch") ;
-	design	= mkAP( mkA "design") ;
+	design_AP	= mkAP( mkA "design") ;
 	clothing	= mkAP( mkA "clothing") ;
 	chocolate	= mkAP( mkA "chocolate") ;
 	brazilian	= mkAP( mkA "Brazilian") ;
@@ -41,7 +41,6 @@ lin
 
 -- Det
 
-	more	= mkDet( ParadigmsEng.mkQuant nonExist "more") pluralNum;
 	less	= mkDet( ParadigmsEng.mkQuant "less" nonExist) singularNum;
 	even	= mkDet( ParadigmsEng.mkQuant "even" nonExist) singularNum;
 
@@ -91,7 +90,8 @@ lin
 
 -- Prep
 
-	with	= mkPrep "with";
+	on	= mkPrep "on";
+	with_PREP	= mkPrep "with";
 	until	= mkPrep "until";
 	towards	= mkPrep "towards";
 	to	= mkPrep "to";
@@ -102,7 +102,7 @@ lin
 
 -- Pron
 
-	each_other	= mkPron "each other";
+	each_other	= mkNP( mkDet( ParadigmsEng.mkQuant "each other" nonExist) singularNum );
 
 -- Subj
 
@@ -113,22 +113,21 @@ lin
 	suggest	= mkVS( mkV "suggest") ;
 	set	= mkV2( mkV "set") noPrep;
 	purchase	= mkV2( mkV "purchase") noPrep;
-	let	= mkV2V( mkV "let") noPrep noPrep;
+	let_V2V	= mkV2V( mkV "let") noPrep noPrep;
 	know	= mkV2( mkV "know") noPrep;
 	increase	= mkV2( mkV "increase") noPrep;
 	hold	= mkV2( mkV "hold") noPrep;
 	help	= mkV2V( mkV "help") noPrep noPrep;
-	have	= mkV2V( mkV "have") noPrep noPrep;
+	have_V2V	= mkV2V( mkV "have") noPrep noPrep;
 	hand_out	= partV( mkV "hand") "out";
 	give	= mkV3( mkV "give") noPrep noPrep;
 	get	= mkVV( mkV "get") ;
 	connect	= mkV2( mkV "connect") noPrep;
 	complete	= mkV2( mkV "complete") noPrep;
 	collaborate	= mkV2( mkV "collaborate") with_PREP;
-	can	= mkVV( mkV "can") ;
 	buy	= mkV2( mkV "buy") noPrep;
 	build	= mkV2( mkV "build") noPrep;
-	base	= mkV3( mkV "base") noPrep on_PREP;
+	base	= mkV3( mkV "base") noPrep on;
 	ask	= mkV2S( mkV "ask") to;
 
 }

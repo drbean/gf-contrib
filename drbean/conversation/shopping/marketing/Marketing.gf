@@ -26,7 +26,7 @@ fun
 	last	: AP;
 	internal	: AP;
 	dutch	: AP;
-	design	: AP;
+	design_AP	: AP;
 	clothing	: AP;
 	chocolate	: AP;
 	brazilian	: AP;
@@ -39,7 +39,6 @@ fun
 
 -- Det
 
-	more	: Det;
 	less	: Det;
 	even	: Det;
 
@@ -89,7 +88,8 @@ fun
 
 -- Prep
 
-	with	: Prep;
+	on	: Prep;
+	with_PREP	: Prep;
 	until	: Prep;
 	towards	: Prep;
 	to	: Prep;
@@ -100,7 +100,7 @@ fun
 
 -- Pron
 
-	each_other	: Pron;
+	each_other	: NP;
 
 -- Subj
 
@@ -111,19 +111,18 @@ fun
 	suggest	: VS;
 	set	: V2;
 	purchase	: V2;
-	let	: V2V;
+	let_V2V	: V2V;
 	know	: V2;
 	increase	: V2;
 	hold	: V2;
 	help	: V2V;
-	have	: V2V;
+	have_V2V	: V2V;
 	hand_out	: V;
 	give	: V3;
 	get	: VV;
 	connect	: V2;
 	complete	: V2;
 	collaborate	: V2;
-	can	: VV;
 	buy	: V2;
 	build	: V2;
 	base	: V3;
