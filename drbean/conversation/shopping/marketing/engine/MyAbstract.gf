@@ -203,6 +203,7 @@ fun
 	Ofpos	: N2 -> NP -> CN;
 	Ofpart	: Partitive -> N -> CN;
 	N2toCN	: N2 -> CN;
+	N2toMassN	: N2 -> N;
 	ApposNP	: NP -> NP -> NP;
 	ApposPlace	: Place -> Place -> Place;
 	NPPostPredet	: NP -> Predet -> NP;

@@ -265,6 +265,13 @@ oper
 			lock_Adv = {}
 			};
 
+	mymkN22N	: (n2 : N2) -> { s : Number => Case => Str ; g : Gender } =
+		\n2 -> {
+			s = n2.s;
+			g = n2.g;
+			lock_N = <>
+		};
+
 	mymkAP_N : (adj : AP) -> (noun : N) -> { s : Number => Case => Str ; g : Gender } =
 		\adj,noun ->
 		{
@@ -518,6 +525,7 @@ lin
 	Ofpos n2 np	= mkCN n2 np;
 	Ofpart part n = mkCN part (mkNP n);
 	N2toCN n2 = mkCN n2;
+	N2toMassN n2 = mymkN22N n2;
 	Item det noun	= mkNP det noun;
 	MassItem udet ucn	= mkNP udet ucn;
 	Titular cn = mkNP cn;
