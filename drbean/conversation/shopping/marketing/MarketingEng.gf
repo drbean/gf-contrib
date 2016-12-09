@@ -73,7 +73,7 @@ lin
 	good_deed	= mkCN( mkN nonhuman (mkN "good deed") );
 	day	= mkCN( mkN nonhuman (mkN "day") );
 	customer	= mkCN( mkN human (mkN "customer") );
-	creation	= mkN "creation" nonExist;
+	creation	= mkN2( mkN nonhuman (mkN "creation" nonExist) ) of_PREP;
 	control	= mkN2( mkN nonhuman (mkN "control" nonExist) ) over;
 	consumer	= mkCN( mkN human (mkN "consumer") );
 	company	= mkCN( mkN nonhuman (mkN "company") );

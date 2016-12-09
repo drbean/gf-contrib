@@ -71,7 +71,7 @@ fun
 	good_deed	: CN;
 	day	: CN;
 	customer	: CN;
-	creation	: N;
+	creation	: N2;
 	control	: N2;
 	consumer	: CN;
 	company	: CN;
@@ -89,14 +89,13 @@ fun
 
 -- Prep
 
-	on	: Prep;
 	with_PREP	: Prep;
 	until	: Prep;
 	towards	: Prep;
 	to	: Prep;
 	throughout	: Prep;
 	over	: Prep;
-	on	: Prep;
+	on	: ThemePrep;
 	en_route_to	: Prep;
 
 -- Pron

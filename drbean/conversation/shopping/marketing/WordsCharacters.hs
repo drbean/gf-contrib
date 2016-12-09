@@ -143,7 +143,7 @@ complete	: V2;
 connect	: V2;
 consumer	: CN;
 control	: N2;
-creation	: N;
+creation	: N2;
 customer	: CN;
 day	: CN;
 good deed	: CN;
