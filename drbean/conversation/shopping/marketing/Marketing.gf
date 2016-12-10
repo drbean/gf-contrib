@@ -59,7 +59,6 @@ fun
 	product	: CN;
 	productivity	: N;
 	pricing	: N2;
-	patagonia	: CN;
 	moment	: CN;
 	loyalty	: N;
 	loved_one	: CN;
@@ -81,6 +80,7 @@ fun
 
 -- PN
 
+	patagonia	: PN;
 	semco_group	: PN;
 	radiohead	: PN;
 	nextpedition	: PN;

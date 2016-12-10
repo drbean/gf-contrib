@@ -188,7 +188,7 @@ or	: Conj;
 over	: Prep;
 overall	: AP;
 own	: AP;
-Patagonia	: CN;
+Patagonia	: PN;
 pricing	: N2;
 productivity	: N;
 product	: CN;

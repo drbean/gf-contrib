@@ -61,7 +61,6 @@ lin
 	product	= mkCN( mkN nonhuman (mkN "product") );
 	productivity	= mkN "productivity" nonExist;
 	pricing	= mkN2( mkN nonhuman (mkN "pricing") ) of_PREP;
-	patagonia	= mkCN( mkN nonhuman (mkN "Patagonia") );
 	moment	= mkCN( mkN nonhuman (mkN "moment") );
 	loyalty	= mkN "loyalty" nonExist;
 	loved_one	= mkCN( mkN human (mkN "loved one") );
@@ -83,6 +82,7 @@ lin
 
 -- PN
 
+	patagonia	= mkPN( mkN nonhuman (mkN "Patagonia") );
 	semco_group	= mkPN( mkN nonhuman (mkN "Semco Group") );
 	radiohead	= mkPN( mkN nonhuman (mkN "Radiohead") );
 	nextpedition	= mkPN( mkN nonhuman (mkN "Nextpedition") );
