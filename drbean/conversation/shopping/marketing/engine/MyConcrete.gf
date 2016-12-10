@@ -404,7 +404,7 @@ lin
 	Producing prep product	= mkAdv prep product;
 	Benefiting prep beneficiary	= mkAdv prep beneficiary;
 	Happening action	=	mkVP action;
-	Changing action patient	= mkVP action patient;
+	V_NP v2 patient	= mkVP v2 patient;
 	V_NP_VP causal patient predicate	= mkVP causal patient predicate;
 	Intens attitude predicate	= mkVP attitude predicate;
 	NegComplVV v vp = ComplVV v {s=[]; a=Simul} {s =[]; p= CNeg False } vp;

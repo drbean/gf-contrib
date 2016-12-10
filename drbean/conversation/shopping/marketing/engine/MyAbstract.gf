@@ -69,7 +69,7 @@ fun
 	Producing	: ProductPrep -> NP -> Adv_product;
 	Benefiting	: BeneficiaryPrep -> NP -> Adv_beneficiary;
 	Happening	: V -> VP ;
-	Changing	: V2 -> NP -> VP;
+	V_NP	: V2 -> NP -> VP;
 	V_NP_VP:	V2V -> NP -> VP -> VP;
 	Intens:	VV -> VP -> VP;
 	NegComplVV:	VV -> VP -> VP;

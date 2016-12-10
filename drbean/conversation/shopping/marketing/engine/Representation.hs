@@ -93,7 +93,7 @@ repS (GQUt (GPosQ (GYN (GSentence np vp)))) = Just (repNP np (repVP vp))
 repS (GQUt (GNegQ (GYN (GSentence np vp)))) =
 	repS (GQUt (GPosQ (GYN (GSentence np vp))))
 repS (GQUt (GPosQ (GYN (GMembership det cn (GLocating _ np))))) =
-	Just (repPlace np (repVP (GChanging Ghave (GItem det cn))))
+	Just (repPlace np (repVP (GV_NP Ghave (GItem det cn))))
 repS (GQUt (GPosQ (GTagComp np comp))) =
 	repS (GQUt (GPosQ (GYN (GSentence np (GBe_vp comp)))))
 repS (GQUt (GPosQ (GTagQ np vp))) = repS (GQUt (GPosQ (GYN (GSentence np vp))))
@@ -407,7 +407,7 @@ repVP (GLook_bad v ap) = \r -> let
 		, Prop p (DRS [] [Rel (DRSRel lin_ap) rs])]
 	in DRS [patient] look_conds
 repVP (GHappening v) = \r -> DRS [r] [Rel (DRSRel (lin v)) [r]]
-repVP (GChanging v obj) = \r -> repNP obj
+repVP (GV_NP v obj) = \r -> repNP obj
 	(\patient -> DRS [r,patient] [Rel (DRSRel (lin v)) [r, patient]] ) (new obj [r])
 repVP (GV_NP_NP v obj1 obj2) = \r -> repNP obj1 (\theme ->
 		repNP obj2 (\recipient ->
@@ -437,7 +437,7 @@ repVP (GV_that_S v0 (GPosS (GSentence np vp))) = case vp of
 				(DRSRel (lin place)) [referent] ])]
 			in DRS [r,referent] conds )
 			(new np [r])
-	(GChanging v obj) -> \r ->
+	(GV_NP v obj) -> \r ->
 			repNP np (\referent -> repNP obj (\theme -> let
 			lin_v = lin v
 			p = DRSRef "p"
@@ -448,7 +448,7 @@ repVP (GV_that_S v0 (GPosS (GSentence np vp))) = case vp of
 			) (new obj [r,referent]) ) (new np [r])
 	(GVP_Adv_manner vp2 _) -> repVP (GV_that_S v0 (GPosS (GSentence np vp2)))
 	(GIntens vv vp2) -> case vp2 of
-		(GChanging v obj) -> \r ->
+		(GV_NP v obj) -> \r ->
 			repNP np (\referent -> repNP obj (\theme -> let
 			lin_v = lin v
 			p = DRSRef "p"
@@ -476,7 +476,7 @@ repVP (GV_S v0 (GPosS (GSentence np vp))) =
 repVP (GV_that_S v0 (GNegS (GSentence np vp))) = case vp of
 	(GVP_Adv_manner vp2 _) -> repVP (GV_that_S v0 (GNegS (GSentence np vp2)))
 	(GIntens vv vp2) -> case vp2 of
-		(GChanging v obj) -> \r -> repNP np (\referent ->
+		(GV_NP v obj) -> \r -> repNP np (\referent ->
 			repNP obj (\theme -> let
 			lin_v = lin v
 			p = DRSRef "p"
@@ -597,7 +597,7 @@ repVP (GV_NP_VP v0 obj vp) = case vp of
 			in DRS [r, patient] conds ) (new obj [r])
 	(GV_NP_VP v1 obj1 vp1) -> \r ->
 		repNP obj (\recipient -> case vp1 of
-			(GChanging v2 obj2) -> repNP obj1 (\theme ->
+			(GV_NP v2 obj2) -> repNP obj1 (\theme ->
 				repNP obj2 (\goal -> let
 				lin_v0 = lin v0
 				lin_v1 = lin v1
@@ -632,7 +632,7 @@ repVP (GIntens v0 vp) = case vp of
 				, Prop p (DRS [] [Rel (DRSRel "be")
 				[r, hypernym]])]
 			in DRS [hypernym] conds) (new np [r])
-	(GChanging v obj) -> \r ->
+	(GV_NP v obj) -> \r ->
 		repNP obj (\theme -> let
 		lin_v = lin v
 		p = DRSRef "p"
