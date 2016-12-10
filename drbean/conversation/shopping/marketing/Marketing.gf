@@ -69,7 +69,7 @@ fun
 	employee	: CN;
 	destination	: CN;
 	design	: CN;
-	good_deed	: CN;
+	good_deed	: N2;
 	day	: CN;
 	customer	: CN;
 	creation	: N2;

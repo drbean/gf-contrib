@@ -71,7 +71,7 @@ lin
 	employee	= mkCN( mkN human (mkN "employee") );
 	destination	= mkCN( mkN nonhuman (mkN "destination") );
 	design	= mkCN( mkN nonhuman (mkN "design") );
-	good_deed	= mkCN( mkN nonhuman (mkN "good deed") );
+	good_deed	= mkN2( mkN nonhuman (mkN "good deed") ) towards;
 	day	= mkCN( mkN nonhuman (mkN "day") );
 	customer	= mkCN( mkN human (mkN "customer") );
 	creation	= mkN2( mkN nonhuman (mkN "creation" nonExist) ) of_PREP;

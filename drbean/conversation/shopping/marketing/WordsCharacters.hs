@@ -147,7 +147,7 @@ control	: N2;
 creation	: N2;
 customer	: CN;
 day	: CN;
-good deed	: CN;
+good deed	: N2;
 design	: CN;
 design	: AP;
 destination	: CN;
