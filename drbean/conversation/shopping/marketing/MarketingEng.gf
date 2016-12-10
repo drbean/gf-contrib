@@ -57,7 +57,7 @@ lin
 	sense	= mkN2( mkN nonhuman (mkN "sense") ) of_PREP;
 	work_schedule	= mkCN( mkN nonhuman (mkN "work schedule") );
 	salary	= mkCN( mkN nonhuman (mkN "salary") );
-	promise	= mkCN( mkN nonhuman (mkN "promise") );
+	promise	= mkN2( mkN nonhuman (mkN "promise") ) of_PREP;
 	product	= mkCN( mkN nonhuman (mkN "product") );
 	productivity	= mkN "productivity" nonExist;
 	pricing	= mkN2( mkN nonhuman (mkN "pricing") ) of_PREP;

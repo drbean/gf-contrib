@@ -192,7 +192,7 @@ Patagonia	: CN;
 pricing	: N2;
 productivity	: N;
 product	: CN;
-promise	: CN;
+promise	: N2;
 purchase	: V2;
 Radiohead	: PN;
 randomly	: AdV;

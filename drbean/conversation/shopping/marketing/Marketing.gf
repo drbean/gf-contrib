@@ -55,7 +55,7 @@ fun
 	sense	: N2;
 	work_schedule	: CN;
 	salary	: CN;
-	promise	: CN;
+	promise	: N2;
 	product	: CN;
 	productivity	: N;
 	pricing	: N2;
