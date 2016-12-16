@@ -406,6 +406,7 @@ lin
 	Happening action	=	mkVP action;
 	V_NP v2 patient	= mkVP v2 patient;
 	V_NP_VP causal patient predicate	= mkVP causal patient predicate;
+	V_NP_NegVP v np vp	= ComplSlash( SlashV2V v {s=[]; a=Simul} {s =[]; p= CNeg True } vp ) np;
 	Intens attitude predicate	= mkVP attitude predicate;
 	NegComplVV v vp = ComplVV v {s=[]; a=Simul} {s =[]; p= CNeg False } vp;
 	V_that_S posit event	= mkVP posit event;

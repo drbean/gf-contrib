@@ -71,6 +71,7 @@ fun
 	Happening	: V -> VP ;
 	V_NP	: V2 -> NP -> VP;
 	V_NP_VP:	V2V -> NP -> VP -> VP;
+	V_NP_NegVP	: V2V -> NP -> VP -> VP;
 	Intens:	VV -> VP -> VP;
 	NegComplVV:	VV -> VP -> VP;
 	V_that_S:	VS -> S -> VP;
