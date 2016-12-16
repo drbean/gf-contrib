@@ -284,7 +284,9 @@ oper
 	mymkAP_N : (adj : AP) -> (noun : N) -> { s : Number => Case => Str ; g : Gender } =
 		\adj,noun ->
 		{
-			s = \\n,c => adj.s ! AgP3Sg Neutr ++ noun.s ! n ! c;
+			s = \\n,c => case adj.isPre of {
+			True => adj.s ! AgP3Sg Neutr ++ noun.s ! n ! c;
+			_ => noun.s ! n ! c ++ adj.s ! AgP3Sg Neutr };
 			g = noun.g
 		};
 
