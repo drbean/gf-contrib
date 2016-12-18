@@ -41,7 +41,7 @@ fun
 
 	more_DET	: MassDet;
 	less	: Det;
-	even	: Det;
+	even	: Predet;
 
 -- N
 

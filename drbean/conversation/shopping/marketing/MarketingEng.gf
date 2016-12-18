@@ -43,7 +43,7 @@ lin
 
 	more_DET	= mkDet( ParadigmsEng.mkQuant "more" nonExist) singularNum;
 	less	= mkDet( ParadigmsEng.mkQuant "less" nonExist) singularNum;
-	even	= mkDet( ParadigmsEng.mkQuant "even" nonExist) singularNum;
+	even	= ss "even";
 
 -- N
 
