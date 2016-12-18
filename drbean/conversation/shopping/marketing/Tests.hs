@@ -103,7 +103,7 @@ dic_test = [
 	, "The chocolate company , Anthon Berg asks customers to purchase chocolate with the promise of good deeds towards loved ones."
 	, "The clothing company , Patagonia asks consumers not to buy a jacket."
 	, "Patagonia builds long-term loyalty based on shared values."
-	, "The Brazilian company Semco Group lets employees set their own work schedules and even their salaries."
+	, "The Brazilian company , Semco Group lets employees set their own work schedules and even their salaries."
 	, "Travel service Nextpedition does not tell the traveler the destination until the last moment."
 	, "Dutch airline KLM randomly hands out small gifts to travelers en route to their destination."
 	, "A recent study suggests that having employees complete occasional altruistic tasks throughout the day increases their sense of overall productivity."
