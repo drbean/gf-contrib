@@ -20,6 +20,8 @@ lincat
 	AttributePrep	= Prep;
 	StimulusPrep	= Prep;
 	ProductPrep	= Prep;
+	BeneficiaryPrep	= Prep;
+	TrajectoryPrep	= Prep;
 	Adv_coagent	= Adv;
 	Adv_instrument	= Adv;
 	Adv_theme	= Adv;
@@ -34,6 +36,8 @@ lincat
 	Adv_stimulus	= Adv;
 	Adv_product	= Adv;
 	Adv_goal	= Adv;
+	Adv_beneficiary	= Adv;
+	Adv_trajectory	= Adv;
 	MassDet = Det;
 	Partitive = N2;
 
@@ -265,10 +269,26 @@ oper
 			lock_Adv = {}
 			};
 
+	mymkN22N	: (n2 : N2) -> { s : Number => Case => Str ; g : Gender } =
+		\n2 -> {
+			s = n2.s;
+			g = n2.g;
+			lock_N = <>
+		};
+
+	mymkMassOfpos	: (n2 : N2) -> (np : NP) -> { s : Number => Case => Str ; g : Gender } = 
+		\n2,np -> {
+			s = \\n,c => n2.s ! n ! Nom ++ n2.c2 ++ np.s ! NPAcc ;
+			g = n2.g;
+			lock_N = <>
+		};
+
 	mymkAP_N : (adj : AP) -> (noun : N) -> { s : Number => Case => Str ; g : Gender } =
 		\adj,noun ->
 		{
-			s = \\n,c => adj.s ! AgP3Sg Neutr ++ noun.s ! n ! c;
+			s = \\n,c => case adj.isPre of {
+			True => adj.s ! AgP3Sg Neutr ++ noun.s ! n ! c;
+			_ => noun.s ! n ! c ++ adj.s ! AgP3Sg Neutr };
 			g = noun.g
 		};
 
@@ -386,9 +406,12 @@ lin
 	Attributing prep attribute	= mkAdv prep attribute;
 	Stimulating prep stimulus	= mkAdv prep stimulus;
 	Producing prep product	= mkAdv prep product;
+	Benefiting prep beneficiary	= mkAdv prep beneficiary;
+	Trajectoring prep path	= mkAdv prep path;
 	Happening action	=	mkVP action;
-	Changing action patient	= mkVP action patient;
+	V_NP v2 patient	= mkVP v2 patient;
 	V_NP_VP causal patient predicate	= mkVP causal patient predicate;
+	V_NP_NegVP v np vp	= ComplSlash( SlashV2V v {s=[]; a=Simul} {s =[]; p= CNeg True } vp ) np;
 	Intens attitude predicate	= mkVP attitude predicate;
 	NegComplVV v vp = ComplVV v {s=[]; a=Simul} {s =[]; p= CNeg False } vp;
 	V_that_S posit event	= mkVP posit event;
@@ -459,6 +482,8 @@ lin
 	VP_Adv_stimulus vp stimulus	= mkVP vp stimulus;
 	VP_Adv_product vp product	= mkVP vp product;
 	VP_Adv_goal vp goal	= mkVP vp goal;
+	VP_Adv_beneficiary vp beneficiary	= mkVP vp beneficiary;
+	VP_Adv_trajectory vp trajectory	= mkVP vp trajectory;
 	WithCl vp cl = mkVP vp cl;
 	VPToo vp = myVPPlus vp "too";
 	VPAlready vp = myVPPlus vp "already";
@@ -518,6 +543,8 @@ lin
 	Ofpos n2 np	= mkCN n2 np;
 	Ofpart part n = mkCN part (mkNP n);
 	N2toCN n2 = mkCN n2;
+	N2toMassN n2 = mymkN22N n2;
+	MassOfpos n2 np = mymkMassOfpos n2 np;
 	Item det noun	= mkNP det noun;
 	MassItem udet ucn	= mkNP udet ucn;
 	Titular cn = mkNP cn;

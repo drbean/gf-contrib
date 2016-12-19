@@ -21,6 +21,8 @@ cat
 	AttributePrep;
 	StimulusPrep;
 	ProductPrep;
+	BeneficiaryPrep;
+	TrajectoryPrep;
 	Adv_coagent;
 	Adv_instrument;
 	Adv_theme;
@@ -35,6 +37,8 @@ cat
 	Adv_stimulus;
 	Adv_product;
 	Adv_goal;
+	Adv_beneficiary;
+	Adv_trajectory;
 	MassDet;
 	SubordCl;
 	Partitive;
@@ -65,9 +69,12 @@ fun
 	Attributing	: AttributePrep -> NP -> Adv_attribute;
 	Stimulating	: StimulusPrep -> NP -> Adv_stimulus;
 	Producing	: ProductPrep -> NP -> Adv_product;
+	Benefiting	: BeneficiaryPrep -> NP -> Adv_beneficiary;
+	Trajectoring	: TrajectoryPrep -> NP -> Adv_trajectory;
 	Happening	: V -> VP ;
-	Changing	: V2 -> NP -> VP;
+	V_NP	: V2 -> NP -> VP;
 	V_NP_VP:	V2V -> NP -> VP -> VP;
+	V_NP_NegVP	: V2V -> NP -> VP -> VP;
 	Intens:	VV -> VP -> VP;
 	NegComplVV:	VV -> VP -> VP;
 	V_that_S:	VS -> S -> VP;
@@ -136,6 +143,8 @@ fun
 	VP_Adv_stimulus	: VP -> Adv_stimulus -> VP;
 	VP_Adv_product	: VP -> Adv_product -> VP;
 	VP_Adv_goal	: VP -> Adv_goal -> VP;
+	VP_Adv_beneficiary	: VP -> Adv_beneficiary -> VP;
+	VP_Adv_trajectory	: VP -> Adv_trajectory -> VP;
 	WithCl	: VP -> SubordCl -> VP;
 	VPToo	: VP -> VP;
 	VPAlready	: VP -> VP;
@@ -203,6 +212,8 @@ fun
 	Ofpos	: N2 -> NP -> CN;
 	Ofpart	: Partitive -> N -> CN;
 	N2toCN	: N2 -> CN;
+	N2toMassN	: N2 -> N;
+	MassOfpos	: N2 -> NP -> N;
 	ApposNP	: NP -> NP -> NP;
 	ApposPlace	: Place -> Place -> Place;
 	NPPostPredet	: NP -> Predet -> NP;
