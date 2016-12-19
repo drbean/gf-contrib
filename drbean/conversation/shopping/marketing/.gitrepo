@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = http://github.com/drbean/marketing
+	branch = master
+	commit = dc35a34eff40be357bd468bb3ab11d40dc9c2d02
+	parent = 634d9c00125ef2d993f8ea907a521504963c0770
+	cmdver = 0.3.0
