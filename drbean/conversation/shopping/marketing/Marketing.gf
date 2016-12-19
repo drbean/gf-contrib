@@ -97,7 +97,7 @@ fun
 	throughout	: Prep;
 	over	: Prep;
 	on	: ThemePrep;
-	en_route_to	: Prep;
+	en_route_to	: TrajectoryPrep;
 
 -- Pron
 
