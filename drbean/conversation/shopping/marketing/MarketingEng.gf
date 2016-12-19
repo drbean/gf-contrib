@@ -121,7 +121,7 @@ lin
 	hold	= mkV2( mkV "hold") noPrep;
 	help	= mkV2V( mkV "help") noPrep noPrep;
 	have_V2V	= mkV2V( mkV "have") noPrep noPrep;
-	hand_out	= partV( mkV "hand") "out";
+	hand_out	= mkV3( partV( mkV "hand") "out" ) noPrep to;
 	give	= mkV3( mkV "give") noPrep noPrep;
 	get	= mkVV( mkV "get") ;
 	connect	= mkV2( mkV "connect") noPrep;

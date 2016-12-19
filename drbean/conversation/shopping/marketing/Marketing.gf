@@ -108,6 +108,7 @@ fun
 
 -- V
 
+	hand_out	: V3;
 	tell	: V3;
 	suggest	: VS;
 	set	: V2;
@@ -118,7 +119,6 @@ fun
 	hold	: V2;
 	help	: V2V;
 	have_V2V	: V2V;
-	hand_out	: V;
 	give	: V3;
 	get	: VV;
 	connect	: V2;
