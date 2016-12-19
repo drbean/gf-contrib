@@ -161,7 +161,7 @@ frog	: PN;
 get	: VV;
 gift	: CN;
 give	: V3;
-hand out	: V;
+hand out	: V3;
 have	: V2V;
 help	: V2V;
 hold	: V2;
