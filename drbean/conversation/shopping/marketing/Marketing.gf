@@ -91,7 +91,7 @@ fun
 -- Prep
 
 	with_PREP	: InstrumentPrep;
-	until	: Prep;
+	until	: TimePrep;
 	towards	: BeneficiaryPrep;
 	to	: Prep;
 	throughout	: Prep;
