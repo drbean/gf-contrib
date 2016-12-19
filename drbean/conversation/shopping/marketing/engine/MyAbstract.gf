@@ -22,6 +22,7 @@ cat
 	StimulusPrep;
 	ProductPrep;
 	BeneficiaryPrep;
+	TrajectoryPrep;
 	Adv_coagent;
 	Adv_instrument;
 	Adv_theme;
@@ -37,6 +38,7 @@ cat
 	Adv_product;
 	Adv_goal;
 	Adv_beneficiary;
+	Adv_trajectory;
 	MassDet;
 	SubordCl;
 	Partitive;
@@ -68,6 +70,7 @@ fun
 	Stimulating	: StimulusPrep -> NP -> Adv_stimulus;
 	Producing	: ProductPrep -> NP -> Adv_product;
 	Benefiting	: BeneficiaryPrep -> NP -> Adv_beneficiary;
+	Trajectoring	: TrajectoryPrep -> NP -> Adv_trajectory;
 	Happening	: V -> VP ;
 	V_NP	: V2 -> NP -> VP;
 	V_NP_VP:	V2V -> NP -> VP -> VP;
@@ -141,6 +144,7 @@ fun
 	VP_Adv_product	: VP -> Adv_product -> VP;
 	VP_Adv_goal	: VP -> Adv_goal -> VP;
 	VP_Adv_beneficiary	: VP -> Adv_beneficiary -> VP;
+	VP_Adv_trajectory	: VP -> Adv_trajectory -> VP;
 	WithCl	: VP -> SubordCl -> VP;
 	VPToo	: VP -> VP;
 	VPAlready	: VP -> VP;
