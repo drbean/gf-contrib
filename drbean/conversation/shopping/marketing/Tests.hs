@@ -105,7 +105,7 @@ dic_test = [
 	, "Patagonia builds long-term loyalty based on shared values."
 	, "The Brazilian company , Semco Group lets employees set their own work schedules and even their salaries."
 	, "The travel service , Nextpedition doesn't tell the traveler the destination until the last moment."
-	, "Dutch airline KLM randomly hands out small gifts to travelers en route to their destination."
+	, "The Dutch airline , KLM randomly hands out small gifts to travelers en route to their destination."
 	, "A recent study suggests that having employees complete occasional altruistic tasks throughout the day increases their sense of overall productivity."
 	, "The design company , frog holds internal speed-meet sessions that connect old and new employees, helping them get to know each other fast."
 
