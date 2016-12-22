@@ -99,7 +99,7 @@ dic_test = [
 
 	"Scientists must tell us why science is relevant to us."
 	, "Scientists must try not to use jargon when they talk."
-	, "Scientists must follow Einstein's principle, Make everything as simple as possible, but not simpler."
+	, "Scientists must follow Einstein's principle , Make everything as simple as possible but not simpler."
 	, "Scientists must not use lots of bullet points in their presentations."
 	, "Instead, scientists should use single sentences on their slides, and visuals to help us understand."
 
