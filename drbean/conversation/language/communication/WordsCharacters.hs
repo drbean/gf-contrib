@@ -128,12 +128,12 @@ as	: Prep;
 bullet point	: CN;
 but	: Conj;
 Einstein	: PN;
-follow
-help
-in
-instead
-jargon
-lots of
+follow	: V2;
+help	: V2V;
+in	: Prep;
+instead	: Adv;
+jargon	: N;
+lots of	: Det;
 make everything as simple as possible but not simpler	: N;
 must	: VV;
 not	: AdV;

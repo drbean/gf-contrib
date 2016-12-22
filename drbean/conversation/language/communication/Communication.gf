@@ -7,6 +7,7 @@ fun
 
 -- Adv
 
+	instead	: Adv;
 	not	: AdV;
 
 -- AP
@@ -21,9 +22,11 @@ fun
 
 -- Det
 
+	lots_of	: Det;
 
 -- N
 
+	jargon	: N;
 	visual	: CN;
 	slide	: CN;
 	sentence	: CN;
@@ -40,6 +43,7 @@ fun
 
 -- Prep
 
+	in_PREP	: Prep;
 	to	: Prep;
 	on	: Prep;
 	as	: Prep;
@@ -53,6 +57,8 @@ fun
 
 -- V
 
+	help	: V2V;
+	follow	: V2;
 	use	: V2;
 	understand	: V;
 	try	: VV;

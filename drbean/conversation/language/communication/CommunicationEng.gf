@@ -9,6 +9,7 @@ lin
 
 -- Adv
 
+	instead	= ParadigmsEng.mkAdv "instead" ;
 	not	= ParadigmsEng.mkAdV "not" ;
 
 -- AP
@@ -23,9 +24,11 @@ lin
 
 -- Det
 
+	lots_of	= mkDet( ParadigmsEng.mkQuant "lots of" nonExist) singularNum;
 
 -- N
 
+	jargon	= mkN "jargon" nonExist;
 	visual	= mkCN( mkN nonhuman (mkN "visual") );
 	slide	= mkCN( mkN nonhuman (mkN "slide") );
 	sentence	= mkCN( mkN nonhuman (mkN "sentence") );
@@ -42,6 +45,7 @@ lin
 
 -- Prep
 
+	in_PREP	= mkPrep "in";
 	to	= mkPrep "to";
 	on	= mkPrep "on";
 	as	= mkPrep "as";
@@ -55,6 +59,8 @@ lin
 
 -- V
 
+	help	= mkV2V( mkV "help") noPrep to;
+	follow	= mkV2( mkV "follow") noPrep;
 	use	= mkV2( mkV "use") noPrep;
 	understand	= mkV "understand";
 	try	= mkVV( mkV "try") ;
