@@ -3,7 +3,9 @@
 concrete CommunicationEng of Communication = MyConcrete  **
 open ConstructorsEng, ParadigmsEng, StructuralEng, IrregEng, ExtraEng, ConstructX, Prelude, (R=ResEng) in {
 
--- oper
+oper
+
+	lots_of_Quant = ParadigmsEng.mkQuant "lots of" "lots of" "lots" "lots";
 
 lin
 
@@ -24,7 +26,7 @@ lin
 
 -- Det
 
-	lots_of	= mkDet( ParadigmsEng.mkQuant "lots of" nonExist) singularNum;
+	lots_of = mkDet lots_of_Quant plNum;
 
 -- N
 
