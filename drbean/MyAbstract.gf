@@ -112,6 +112,7 @@ fun
 	InfinitiveNP	: VP -> NP;
 	WayNP	: Cl -> NP;
 	HowNP	: Cl -> NP;
+	WhyNP	: Cl -> NP;
 	ThatNP	: Cl -> NP;
 	PartN	: V -> N;
 	Gerund	: VP -> NP;
@@ -279,6 +280,7 @@ fun
 	what_PL_IDET	: IDet;
 	which_SG_IDET	: IDet;
 	how_WH	: IAdv;
+	why_WH	: IAdv;
 	who_RP	: RP;
 	that_RP	: RP;
 	in_which	: RP;

@@ -449,6 +449,7 @@ lin
 	InfinitiveNP vp = myInfinitiveNP vp;
 	WayNP cl = myCltoNP "the way that" cl;
 	HowNP cl = myCltoNP "how" cl;
+	WhyNP cl = myCltoNP "why" cl;
 	ThatNP cl	= myCltoNP "that" cl;
 	PartN v	= myPartN v;
 	Gerund vp = GerundNP vp;
@@ -614,6 +615,7 @@ lin
 	what_PL_IDET = { s = "what"; n = Pl };
 	which_SG_IDET = { s = "which"; n = Sg };
 	how_WH	= how_IAdv;
+  why_WH	= why_IAdv;
 	that_RP	= ExtraEng.that_RP;
 	who_RP	= mymkRP "who" "which" "whose";
 	-- in_which	=mkRP in_prep which_RP;
