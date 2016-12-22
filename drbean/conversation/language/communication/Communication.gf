@@ -45,7 +45,7 @@ fun
 
 	in_SOURCEPREP	: SourcePrep;
 	to	: Prep;
-	on	: Prep;
+	on_SOURCEPREP	: SourcePrep;
 	as	: Prep;
 
 -- Pron

@@ -49,7 +49,7 @@ lin
 
 	in_SOURCEPREP	= mkPrep "in";
 	to	= mkPrep "to";
-	on	= mkPrep "on";
+	on_SOURCEPREP	= mkPrep "on";
 	as	= mkPrep "as";
 
 -- Pron
