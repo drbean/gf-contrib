@@ -45,7 +45,7 @@ lin
 
 -- Prep
 
-	in_PREP	= mkPrep "in";
+	in_LOCPREP	= mkPrep "in";
 	to	= mkPrep "to";
 	on	= mkPrep "on";
 	as	= mkPrep "as";
