@@ -57,6 +57,7 @@ fun
 
 -- V
 
+	help_to	: V2V;
 	help	: V2V;
 	follow	: V2;
 	use	: V2;

@@ -61,7 +61,8 @@ lin
 
 -- V
 
-	help	= mkV2V( mkV "help") noPrep to;
+	help_to	= mkV2V( mkV "help") noPrep to;
+	help	= mkV2V( mkV "help") noPrep noPrep;
 	follow	= mkV2( mkV "follow") noPrep;
 	use	= mkV2( mkV "use") noPrep;
 	understand	= mkV "understand";
