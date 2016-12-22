@@ -33,7 +33,7 @@ fun
 	scientist	: CN;
 	science	: N;
 	principle	: CN;
-	presentation	: PlaceNoun;
+	presentation	: CN;
 	make_everything_as_simple_as_possible	: N;
 	bullet_point	: CN;
 
@@ -43,7 +43,7 @@ fun
 
 -- Prep
 
-	in_LOCPREP	: LocPrep;
+	in_SOURCEPREP	: SourcePrep;
 	to	: Prep;
 	on	: Prep;
 	as	: Prep;
