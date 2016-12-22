@@ -88,7 +88,7 @@ repS (GQUt (GPosQ (GYN (GSentence np vp)))) = Just (repNP np (repVP vp))
 repS (GQUt (GNegQ (GYN (GSentence np vp)))) =
 	repS (GQUt (GPosQ (GYN (GSentence np vp))))
 repS (GQUt (GPosQ (GYN (GMembership det cn (GLocating _ np))))) =
-	Just (repPlace np (repVP (GChanging Ghave (GItem det cn))))
+	Just (repPlace np (repVP (GV_NP Ghave (GItem det cn))))
 repS (GQUt (GPosQ (GTagComp np comp))) =
 	repS (GQUt (GPosQ (GYN (GSentence np (GBe_vp comp)))))
 repS (GQUt (GPosQ (GTagQ np vp))) = repS (GQUt (GPosQ (GYN (GSentence np vp))))
