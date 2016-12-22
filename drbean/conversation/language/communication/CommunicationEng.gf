@@ -36,7 +36,7 @@ lin
 	science	= mkN "science" nonExist;
 	principle	= mkCN( mkN nonhuman (mkN "principle") );
 	presentation	= mkCN( mkN nonhuman (mkN "presentation") );
-	make_everything_as_simple_as_possible	= mkN "make everything as simple as possible but not simpler" nonExist;
+	make_everything_as_simple_as_possible	= mkN "Make everything as simple as possible but not simpler" nonExist;
 	bullet_point	= mkCN( mkN nonhuman (mkN "bullet point") );
 
 -- PN
