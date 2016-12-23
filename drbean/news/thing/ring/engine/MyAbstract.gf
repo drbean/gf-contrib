@@ -105,6 +105,7 @@ fun
 	MassModInf : N -> VP -> CN;
 	Modified	: CN -> RCl -> CN;
 	MassMod	: N -> RCl -> N;
+	PNMod	: PN -> RCl -> PN;
 	SubjRel	: RP -> VP -> RCl;
 	ObjRel	: RP -> ClSlash -> RCl;
 	EmptyRel : ClSlash -> RCl;

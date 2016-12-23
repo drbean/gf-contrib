@@ -363,6 +363,14 @@ oper
 		s = \\n,c => un.s ! n ! c ++ rs.s ! AgP3Sg Neutr ;
 		g = un.g
 		};
+
+	myPNMod : (pn : PN) -> (rs : RS) -> { s : Case => Str ; g: Gender } =
+	\pn,rs ->
+		{
+		s = \\c => pn.s ! c ++ rs.s ! AgP3Sg Neutr ;
+		g = pn.g
+		};
+
 	myOrdSuperl : (a : A) -> { s : Case => Str } =
 		\a -> {s = \\c => a.s ! AAdj Superl c } ;
 
@@ -442,6 +450,7 @@ lin
 	MassModInf n vp = mkCN( mkCN n) vp;
 	Modified cn rcl = mkCN cn ( mkRS rcl);
 	MassMod n rcl = myMassMod n (mkRS rcl);
+	PNMod pn rcl	= myPNMod pn (mkRS rcl);
 	SubjRel	rp vp = mkRCl rp vp;
 	ObjRel rp clslash = mkRCl rp clslash;
 	EmptyRel slash = EmptyRelSlash slash;
