@@ -367,7 +367,7 @@ oper
 	myPNMod : (pn : PN) -> (rs : RS) -> { s : Case => Str ; g: Gender } =
 	\pn,rs ->
 		{
-		s = \\c => pn.s ! c ++ rs.s ! AgP3Sg Neutr ;
+		s = \\c => pn.s ! c ++ rs.s ! (toAgr Sg P3 pn.g) ;
 		g = pn.g
 		};
 
