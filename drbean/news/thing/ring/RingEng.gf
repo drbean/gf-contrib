@@ -30,7 +30,7 @@ lin
 	wedding_ring	= mkCN( mkN nonhuman (mkN "wedding" (mkN "ring") ) );
 		ring	= mkCN( mkN nonhuman (mkN "ring") );
 		husband	= mkCN( mkN human (mkN "husband") );
-		child	= mkCN( mkN human (mkN "child") );
+		child	= mkCN( mkN human (mkN "child" "children") );
 		USD21_000	= mkN "$21,000" nonExist;
 		USD1_850	= mkN "$1,850" nonExist;
 
