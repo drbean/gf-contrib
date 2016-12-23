@@ -40,9 +40,8 @@ fun
 
 -- Prep
 
-	to_GOALPREP	: GoalPrep;
+	for_GOALPREP	: GoalPrep;
 	to	: Prep;
-	for	: Prep;
 
 -- Pron
 

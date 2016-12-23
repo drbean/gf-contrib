@@ -42,9 +42,8 @@ lin
 
 -- Prep
 
-	to_GOALPREP	= mkPrep "to";
+	for_GOALPREP	= mkPrep "for";
 	to	= mkPrep "to";
-	for	= mkPrep "for";
 
 -- Pron
 
