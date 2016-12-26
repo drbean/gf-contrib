@@ -621,6 +621,8 @@ lin
 	-- in_which	=mkRP in_prep which_RP;
 	where_RP	= mymkRP "where" "where" "where";
 	when_RP	= mymkRP "when" "when" "when";
+	whose_SG_RP cn = GenRP singularNum cn;
+	whose_PL_RP cn = GenRP pluralNum cn;
 
 	more	= more_CAdv;
 	ComparaAP a np = mkAP a np;

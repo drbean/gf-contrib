@@ -286,6 +286,8 @@ fun
 	in_which	: RP;
 	where_RP	: RP;
 	when_RP	: RP;
+	whose_SG_RP	: CN -> RP;
+	whose_PL_RP	: CN -> RP;
 
 	more : CAdv;
 	ComparaAP : A -> NP -> AP;
