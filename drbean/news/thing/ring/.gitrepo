@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = http://github.com/drbean/ring
+	branch = master
+	commit = a9595d335a9729078db853cde9f264009e719337
+	parent = 413a74771308ff9dd93dc5339c9fe468145aecf7
+	cmdver = 0.3.0
