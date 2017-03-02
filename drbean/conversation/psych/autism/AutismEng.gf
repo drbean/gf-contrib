@@ -5,7 +5,6 @@ open ConstructorsEng, ParadigmsEng, StructuralEng, IrregEng, ExtraEng, Construct
 
 -- oper
 
-
 lin
 
 -- Adv
@@ -68,7 +67,7 @@ lin
 
 -- V
 
-	would	= mkVV( mkV "would") ;
+	would	= ModalVV "be possible to" "would" "been possible to" "being possible to" "wouldn't" "would not";
 	want	= mkVV( mkV "want") ;
 	try	= mkVV( mkV "try") ;
 	tell	= mkV2S( mkV "tell") noPrep;
