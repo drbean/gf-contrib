@@ -5,6 +5,7 @@ open ConstructorsEng, ParadigmsEng, StructuralEng, IrregEng, ExtraEng, Construct
 
 -- oper
 
+
 lin
 
 -- Adv
@@ -28,6 +29,7 @@ lin
 
 -- N
 
+	one_N2 = mkN2 "one";
 	someone	= mkN "someone" nonExist;
 	sacrifice	= mkN2( mkN nonhuman (mkN "sacrifice") ) of_PREP;
 	pursuit	= mkN "pursuit" nonExist;
