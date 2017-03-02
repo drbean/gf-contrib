@@ -110,6 +110,7 @@ fun
 	DetRCltoNP	: Det -> RCl -> NP;
 	DetVPtoNP	: Det -> VP -> NP;
 	InfinitiveNP	: VP -> NP;
+	FactNP	: Cl -> NP;
 	WayNP	: Cl -> NP;
 	HowNP	: Cl -> NP;
 	WhyNP	: Cl -> NP;
