@@ -54,9 +54,9 @@ oper
 
 	know_V = IrregEng.know_V;
 
-	ModalVV	: Str -> Str -> Str -> Str -> Str ->
+	ModalVV	: Str -> Str -> Str -> Str -> Str -> Str ->
 		{s : VVForm => Str; p : Str; typ : VVType } =
-		\inf, pres, pp, prespp, presN -> {
+		\inf, pres, pp, prespp, presN, presNuncontr -> {
 		s = table {
 			VVF VInf	=> inf ;
 			VVF VPres => pres;
@@ -65,6 +65,20 @@ oper
 			-- VVF VPast	=> nonExist ;
 			-- VVPastNeg	=> nonExist ;
 			VVPresNeg	=> presN
+			} ;
+		p = [];
+		typ	= VVAux;
+		lock_VV = {}
+		} |
+	{
+		s = table {
+			VVF VInf	=> inf ;
+			VVF VPres => pres;
+			VVF VPPart	=> pp ;
+			VVF VPresPart	=> prespp ;
+			-- VVF VPast	=> nonExist ;
+			-- VVPastNeg	=> nonExist ;
+			VVPresNeg	=> presNuncontr
 			} ;
 		p = [];
 		typ	= VVAux;
