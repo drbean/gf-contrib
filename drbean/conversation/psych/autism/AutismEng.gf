@@ -34,6 +34,7 @@ lin
 -- N
 
 	one_N2 = mkN2 "one";
+	someone_else	= mkN "someone else" nonExist;
 	someone	= mkN "someone" nonExist;
 	sacrifice	= mkN2( mkN nonhuman (mkN "sacrifice") ) of_PREP;
 	pursuit	= mkN2( mkN nonhuman (mkN "pursuit") ) of_PREP;

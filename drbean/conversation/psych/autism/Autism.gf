@@ -28,6 +28,7 @@ fun
 -- N
 
 	one_N2	: N2;
+	someone_else	: N;
 	someone	: N;
 	sacrifice	: N2;
 	pursuit	: N2;
