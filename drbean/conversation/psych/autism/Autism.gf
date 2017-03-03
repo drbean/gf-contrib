@@ -53,7 +53,7 @@ fun
 -- Prep
 
 	to	: Prep;
-	like	: Prep;
+	like	: ThemePrep;
 	for	: Prep;
 	about	: Prep;
 
