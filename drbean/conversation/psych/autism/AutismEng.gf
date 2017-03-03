@@ -36,6 +36,7 @@ lin
 	potential	= mkN "potential" nonExist;
 	normality	= mkN "normality" nonExist;
 	moment	= mkCN( mkN nonhuman (mkN "moment") );
+	MomentNP cl = myCltoNP "the moment" cl;
 	love	= mkN "love" nonExist;
 	individuality	= mkN "individuality" nonExist;
 	greatness	= mkN "greatness" nonExist;

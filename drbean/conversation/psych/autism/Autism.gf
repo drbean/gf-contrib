@@ -34,6 +34,7 @@ fun
 	potential	: N;
 	normality	: N;
 	moment	: CN;
+	MomentNP	: Cl -> NP;
 	love	: N;
 	individuality	: N;
 	greatness	: N;
