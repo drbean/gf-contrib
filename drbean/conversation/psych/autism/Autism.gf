@@ -7,6 +7,7 @@ fun
 
 -- Adv
 
+	MomentAdv	: Cl -> Adv_time;
 
 -- AP
 
@@ -34,7 +35,6 @@ fun
 	potential	: N;
 	normality	: N;
 	moment	: CN;
-	MomentNP	: Cl -> NP;
 	love	: N;
 	individuality	: N;
 	greatness	: N;

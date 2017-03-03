@@ -3,12 +3,17 @@
 concrete AutismEng of Autism = MyConcrete  **
 open ConstructorsEng, ParadigmsEng, StructuralEng, IrregEng, ExtraEng, ConstructX, Prelude, (R=ResEng) in {
 
--- oper
+oper
+
+	nullPrep = mkPrep "";
+	myMoment : Cl -> NP =
+		\cl -> myCltoNP "the moment" cl;
 
 lin
 
 -- Adv
 
+	MomentAdv cl = ConstructorsEng.mkAdv nullPrep (myMoment cl);
 
 -- AP
 
@@ -36,7 +41,6 @@ lin
 	potential	= mkN "potential" nonExist;
 	normality	= mkN "normality" nonExist;
 	moment	= mkCN( mkN nonhuman (mkN "moment") );
-	MomentNP cl = myCltoNP "the moment" cl;
 	love	= mkN "love" nonExist;
 	individuality	= mkN "individuality" nonExist;
 	greatness	= mkN "greatness" nonExist;
