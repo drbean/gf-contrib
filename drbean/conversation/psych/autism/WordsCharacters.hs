@@ -160,7 +160,7 @@ one	: Det;
 overlook	: V2;
 potential	: N;
 progress	: N;
-pursuit	: N;
+pursuit	: N2;
 realize	: VS;
 sacrifice	: N2;
 someone	: N;

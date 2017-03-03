@@ -31,7 +31,7 @@ lin
 	one_N2 = mkN2 "one";
 	someone	= mkN "someone" nonExist;
 	sacrifice	= mkN2( mkN nonhuman (mkN "sacrifice") ) of_PREP;
-	pursuit	= mkN "pursuit" nonExist;
+	pursuit	= mkN2( mkN nonhuman (mkN "pursuit") ) of_PREP;
 	progress	= mkN "progress" nonExist;
 	potential	= mkN "potential" nonExist;
 	normality	= mkN "normality" nonExist;
