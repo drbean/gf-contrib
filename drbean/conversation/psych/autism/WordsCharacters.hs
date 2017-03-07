@@ -164,6 +164,7 @@ pursuit	: N2;
 realize	: VS;
 sacrifice	: N2;
 someone	: N;
+someone else	: N;
 teach	: V3;
 tell	: V2S;
 to	: Prep;
