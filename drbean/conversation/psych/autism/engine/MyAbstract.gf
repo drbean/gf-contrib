@@ -104,6 +104,7 @@ fun
 	-- ModSlInf : CN -> VPSlash -> CN;
 	MassModInf : N -> VP -> CN;
 	Modified	: CN -> RCl -> CN;
+	NegModified	: CN -> RCl -> CN;
 	MassMod	: N -> RCl -> N;
 	SubjRel	: RP -> VP -> RCl;
 	ObjRel	: RP -> ClSlash -> RCl;
