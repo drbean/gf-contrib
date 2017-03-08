@@ -94,6 +94,7 @@ fun
 	V2Slash	: V2 -> VPSlash;
 	-- VSSlash	: VS -> VPSlash;
 	VVSlash	: VV -> VPSlash -> VPSlash;
+	NegVVSlash	: VV -> VPSlash -> VPSlash;
 	V2VSlash	: V2V -> VP -> VPSlash;
 	V2ASlash	: V2A -> AP -> VPSlash;
 	V3Slash	: V3 -> NP -> VPSlash;

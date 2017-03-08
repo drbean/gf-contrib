@@ -85,6 +85,11 @@ oper
 		lock_VV = {}
 		};
 
+    mySlashNegVV : VV -> VPSlash -> VPSlash =
+			\vv,vp -> 
+      insertObj (\\a => infVP vv.typ vp Simul (CNeg False) a) (predVV vv) **
+        {c2 = vp.c2 ; gapInMiddle = vp.gapInMiddle} ;
+
 	mkpronAgr : Agr -> NP = \ag -> case ag of {
 		AgP1 Sg => i_NP;
 		AgP1 Pl => we_NP;
@@ -445,6 +450,7 @@ lin
 	V2Slash v2	= mkVPSlash v2;
 	-- VSSlash vs	= mkVPSlash vs;
 	VVSlash vv vps	= mkVPSlash vv vps;
+	NegVVSlash vv vps = mySlashNegVV vv vps;
 	V2VSlash v2v vp	= mkVPSlash v2v vp;
 	V2ASlash v2a ap	= mkVPSlash v2a ap;
 	V3Slash v3 np	= mkVPSlash v3 np;
