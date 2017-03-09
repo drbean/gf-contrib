@@ -210,6 +210,13 @@ oper
 			a = agreement;
 		};
 
+	myNegCltoNP : (str : Str) -> (cl : Cl) -> {s : NPCase => Str ; a : Agr} =
+		\str,cl -> let np = str ++ cl.s ! Pres ! Simul ! (CNeg True) ! oDir ;
+								agreement = toAgr Sg P3 Neutr in {
+			s = \\_ => np;
+			a = agreement;
+		};
+
 	mySomething : (ap : AP) -> {s : NPCase => Str ; a : Agr} =
 	\ap -> let agreement = something.a;
 		adj = ap.s ! agreement;
@@ -474,6 +481,7 @@ lin
 	HowNP cl = myCltoNP "how" cl;
 	WhyNP cl = myCltoNP "why" cl;
 	ThatNP cl	= myCltoNP "that" cl;
+	ThatNegNP cl = myNegCltoNP "that" cl;
 	PartN v	= myPartN v;
 	Gerund vp = GerundNP vp;
 	GerundSlash vp = GerundCN vp;

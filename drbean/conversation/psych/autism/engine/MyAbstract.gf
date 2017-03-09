@@ -118,6 +118,7 @@ fun
 	HowNP	: Cl -> NP;
 	WhyNP	: Cl -> NP;
 	ThatNP	: Cl -> NP;
+	ThatNegNP	: Cl -> NP;
 	PartN	: V -> N;
 	Gerund	: VP -> NP;
 	GerundSlash	: VPSlash -> CN;
