@@ -27,6 +27,7 @@ fun
 
 -- N
 
+	these_NP	: NP;
 	one_N2	: N2;
 	someone_else	: N;
 	someone	: N;

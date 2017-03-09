@@ -167,6 +167,7 @@ someone	: N;
 someone else	: N;
 teach	: V3;
 tell	: V2S;
+these	: NP
 to	: Prep;
 try	: VV;
 ultimate	: AP;

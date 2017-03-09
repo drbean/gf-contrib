@@ -33,6 +33,7 @@ lin
 
 -- N
 
+	these_NP	= ConstructorsEng.these_NP;
 	one_N2 = mkN2 "one";
 	someone_else	= mkN "someone else" nonExist;
 	someone	= mkN "someone" nonExist;
