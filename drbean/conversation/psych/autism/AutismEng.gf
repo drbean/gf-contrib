@@ -85,7 +85,7 @@ lin
 	have_to	= mkVV( mkV "have") ;
 	give	= mkV3( mkV "give") noPrep noPrep;
 	die	= mkV "die";
-	could	= mkVV( mkV "could") ;
+	could	= ModalVV "be able to" "could" "been able to" "being able to" "couldn't" "could not";
 	communicate	= mkV3( mkV "communicate") noPrep to;
 	change	= mkV2( mkV "change") noPrep;
 	ask	= mkV2V( mkV "ask") noPrep to;
