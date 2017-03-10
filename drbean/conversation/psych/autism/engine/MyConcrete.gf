@@ -85,6 +85,11 @@ oper
 		lock_VV = {}
 		};
 
+		myV_NP_NegVP	: V2V -> NP -> VP -> VP =
+			\v,np,vp -> UseV v **
+				{s2 = \\agr => np.s ! NPAcc ++ infVP VVInf vp Simul (CNeg True) agr}
+			 ;
+
     mySlashNegVV : VV -> VPSlash -> VPSlash =
 			\vv,vp -> 
       insertObj (\\a => infVP vv.typ vp Simul (CNeg False) a) (predVV vv) **
@@ -437,7 +442,7 @@ lin
 	Happening action	=	mkVP action;
 	V_NP v2 patient	= mkVP v2 patient;
 	V_NP_VP causal patient predicate	= mkVP causal patient predicate;
-	V_NP_NegVP v np vp	= ComplSlash( SlashV2V v {s=[]; a=Simul} {s =[]; p= CNeg True } vp ) np;
+	V_NP_NegVP v np vp	= myV_NP_NegVP v np vp;
 	Intens attitude predicate	= mkVP attitude predicate;
 	NegComplVV v vp = ComplVV v {s=[]; a=Simul} {s =[]; p= CNeg False } vp;
 	V_that_S posit event	= mkVP posit event;
