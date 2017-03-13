@@ -37,6 +37,7 @@ gfWords = [
 	, ("V3",v3)
 	, ("VV",vv)
 	, ("VS",vs)
+	, ("V2S",v2s)
 	, ("V2A",v2a)
 	]
 
@@ -76,6 +77,7 @@ v2	= cat2funs "V2"
 v3	= cat2funs "V3"
 vv	= cat2funs "VV"
 vs	= cat2funs "VS"
+v2s	= cat2funs "V2S"
 v2a	= cat2funs "V2A"
 tag = return ( map mkCId tags )
 
