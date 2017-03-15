@@ -98,11 +98,11 @@ fol tests = do
 dic_test = [
 
 	"Sanjay demonstrates an electric vehicle that weighs less than a bicycle."
-	"You can carry a skateboard with you anywhere."
-	"You can charge the electric skateboard off a normal wall outlet in fifteen minutes."
-	"You can run the skateboard for 1,000 kilometers on about a dollar of electricity."
-	"When people hear the word, electric vehicle, they think about vehicles, like cars, motorcycles and bicycles, and the vehicles that you use every day."
-	"But if you approach it from a different perspective, you can create some more interesting, more novel concepts."
+	, "You can carry a skateboard with you anywhere."
+	, "You can charge the electric skateboard off a normal wall outlet in fifteen minutes."
+	, "You can run the skateboard for 1,000 kilometers on about a dollar of electricity."
+	, "When people hear the word, electric vehicle, they think about vehicles, like cars, motorcycles and bicycles, and the vehicles that you use every day."
+	, "But if you approach it from a different perspective, you can create some more interesting, more novel concepts."
 
   ]
 
