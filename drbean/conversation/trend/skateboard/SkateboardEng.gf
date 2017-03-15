@@ -29,7 +29,7 @@ lin
 	some	= mkDet( ParadigmsEng.mkQuant nonExist "some") pluralNum;
 	fifteen	= mkDet( mkCard (mkNumeral nfifteen_Unit));
 	every	= mkDet( ParadigmsEng.mkQuant "every" nonExist) singularNum;
-	one_thousand	= mkDet( mkCard (mkNumeral n1,000_Unit));
+	one_thousand	= mkDet( ParadigmsEng.mkQuant nonExist "1,000") pluralNum;
 
 -- N
 
