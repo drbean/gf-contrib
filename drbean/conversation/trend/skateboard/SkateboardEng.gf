@@ -60,7 +60,7 @@ lin
 	off	= mkPrep "off";
 	like	= mkPrep "like";
 	less_than	= mkPrep "less than";
-	in	= mkPrep "in";
+	in_PREP	= mkPrep "in";
 	from	= mkPrep "from";
 	for	= mkPrep "for";
 	about	= mkPrep "about";
