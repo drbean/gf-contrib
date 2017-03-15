@@ -55,10 +55,10 @@ fun
 
 	with_PREP	: Prep;
 	on	: Prep;
-	off	: Prep;
+	off	: SourcePrep;
 	like	: Prep;
 	less_than	: Prep;
-	in_PREP	: Prep;
+	in_PREP	: TimePrep;
 	from	: Prep;
 	for	: Prep;
 	about	: Prep;
