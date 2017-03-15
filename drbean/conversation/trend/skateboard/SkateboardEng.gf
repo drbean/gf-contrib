@@ -83,7 +83,7 @@ lin
 	demonstrate	= mkV2( mkV "demonstrate") noPrep;
 	create	= mkV2( mkV "create") noPrep;
 	charge	= mkV2( mkV "charge") noPrep;
-	carry	= mkV2( mkV "carry") noPrep;
+	carry	= mkV3( mkV "carry") noPrep with_PREP;
 	approach	= mkV3( mkV "approach") noPrep from;
 
 }

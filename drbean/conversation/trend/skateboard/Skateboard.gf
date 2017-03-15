@@ -7,7 +7,7 @@ fun
 
 -- Adv
 
-	anywhere	: Adv;
+	anywhere	: Adv_location;
 
 -- AP
 
@@ -81,7 +81,7 @@ fun
 	demonstrate	: V2;
 	create	: V2;
 	charge	: V2;
-	carry	: V2;
+	carry	: V3;
 	approach	: V3;
 }
 
