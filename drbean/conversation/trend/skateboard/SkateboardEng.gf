@@ -26,6 +26,7 @@ lin
 
 -- Det
 
+	about = ss "about";
 	some	= mkDet( ParadigmsEng.mkQuant nonExist "some") pluralNum;
 	fifteen	= mkDet( ParadigmsEng.mkQuant nonExist "fifteen") pluralNum;
 	every	= mkDet( ParadigmsEng.mkQuant "every" nonExist) singularNum;
@@ -63,7 +64,6 @@ lin
 	in_PREP	= mkPrep "in";
 	from	= mkPrep "from";
 	for	= mkPrep "for";
-	about	= mkPrep "about";
 
 -- Pron
 
@@ -77,7 +77,7 @@ lin
 
 	weigh	= mkV2( mkV "weigh") less_than;
 	use	= mkV2( mkV "use") noPrep;
-	think	= mkV2( mkV "think") about;
+	think	= mkV2( mkV "think") about_PREP;
 	run	= mkV3( mkV "run") noPrep for;
 	hear	= mkV2( mkV "hear") noPrep;
 	demonstrate	= mkV2( mkV "demonstrate") noPrep;

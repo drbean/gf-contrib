@@ -125,7 +125,7 @@ tags = [
 
 
 1,000	: Det;
-about	: Prep;
+about	: Predet;
 and	: Conj;
 anywhere	: Adv;
 approach	: V3;

@@ -24,6 +24,7 @@ fun
 
 -- Det
 
+	about	: Predet;
 	some	: Det;
 	fifteen	: Det;
 	every	: Det;
@@ -61,7 +62,6 @@ fun
 	in_PREP	: TimePrep;
 	from	: Prep;
 	for	: TrajectoryPrep;
-	about	: Prep;
 
 -- Pron
 
