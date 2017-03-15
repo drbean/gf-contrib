@@ -124,67 +124,55 @@ tags = [
 {-
 
 
-1,000
-a
-about
-an
-and
-anywhere
-approach
-bicycle
-but
-can
-carry
-car
-charge
-concept
-create
-day
-demonstrate
-different
-dollar
-electric
-electricity
-every
-fifteen
-for
-from
-hear
-if
-in
-interesting
-it
-kilometer
-less
-like
-minute
-more
-motorcycle
-normal
-novel
-of
-off
-on
-outlet
-people
-perspective
-run
-Sanjay
-skateboard
-some
-than
-that
-the
-they
-think
-use
-vehicle
-wall
-weigh
-when
-with
-word
-you
+1,000	: Det;
+about	: Prep;
+and	: Conj;
+anywhere	: Adv;
+approach	: V3;
+bicycle	: CN;
+but	: Conj;
+carry	: V2;
+car	: CN;
+charge	: V2;
+concept	: CN;
+create	: V2;
+day	: CN;
+demonstrate	: V2;
+different	: AP;
+dollar	: CN;
+electric	: AP;
+electricity	: N;
+every	: Det;
+fifteen	: Det;
+for	: Prep;
+from	: Prep;
+hear	: V2;
+if	: Subj;
+in	: Prep;
+interesting	: AP;
+kilometer	: CN;
+less than	: Prep;
+like	: Prep;
+minute	: CN;
+motorcycle	: CN;
+normal	: AP;
+novel	: AP;
+off	: Prep;
+on	: Prep;
+wall outlet	: CN;
+people	: CN;
+perspective	: CN;
+run	: V3;
+Sanjay	: PN;
+skateboard	: CN;
+some	: Det;
+think	: V2;
+use	: V2;
+vehicle	: CN;
+weigh	: V2;
+when	: Subj;
+with	: Prep;
+word	: CN;
 
 -}
 

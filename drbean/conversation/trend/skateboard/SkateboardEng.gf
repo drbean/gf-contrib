@@ -9,33 +9,82 @@ lin
 
 -- Adv
 
+	anywhere	= ParadigmsEng.mkAdv "anywhere" ;
 
 -- AP
 
+	novel	= mkAP( mkA "novel") ;
+	normal	= mkAP( mkA "normal") ;
+	interesting	= mkAP( mkA "interesting") ;
+	electric	= mkAP( mkA "electric") ;
+	different	= mkAP( mkA "different") ;
 
 -- Conj
 
+	but	= mkConj "but";
+	and	= mkConj "and";
 
 -- Det
 
+	some	= mkDet( ParadigmsEng.mkQuant nonExist "some") pluralNum;
+	fifteen	= mkDet( mkCard (mkNumeral nfifteen_Unit));
+	every	= mkDet( ParadigmsEng.mkQuant "every" nonExist) singularNum;
+	one_thousand	= mkDet( mkCard (mkNumeral n1,000_Unit));
 
 -- N
 
+	word	= mkCN( mkN nonhuman (mkN "word") );
+	vehicle	= mkCN( mkN nonhuman (mkN "vehicle") );
+	skateboard	= mkCN( mkN nonhuman (mkN "skateboard") );
+	perspective	= mkCN( mkN nonhuman (mkN "perspective") );
+	people	= mkCN( mkN human (mkN "people") );
+	wall_outlet	= mkCN( mkN nonhuman (mkN "wall outlet") );
+	motorcycle	= mkCN( mkN nonhuman (mkN "motorcycle") );
+	minute	= mkCN( mkN nonhuman (mkN "minute") );
+	kilometer	= mkCN( mkN nonhuman (mkN "kilometer") );
+	electricity	= mkN "electricity" nonExist;
+	dollar	= mkCN( mkN nonhuman (mkN "dollar") );
+	day	= mkCN( mkN nonhuman (mkN "day") );
+	concept	= mkCN( mkN nonhuman (mkN "concept") );
+	car	= mkCN( mkN nonhuman (mkN "car") );
+	bicycle	= mkCN( mkN nonhuman (mkN "bicycle") );
 
 -- PN
 
+	sanjay	= mkPN( mkN masculine (mkN "Sanjay") );
 
 -- Prep
 
+	with_PREP	= mkPrep "with";
+	on	= mkPrep "on";
+	off	= mkPrep "off";
+	like	= mkPrep "like";
+	less_than	= mkPrep "less than";
+	in	= mkPrep "in";
+	from	= mkPrep "from";
+	for	= mkPrep "for";
+	about	= mkPrep "about";
 
 -- Pron
 
 
 -- Subj
 
+	when	= mkSubj "when";
+	if	= mkSubj "if";
 
 -- V
 
+	weigh	= mkV2( mkV "weigh") less_than;
+	use	= mkV2( mkV "use") noPrep;
+	think	= mkV2( mkV "think") about;
+	run	= mkV3( mkV "run") for on;
+	hear	= mkV2( mkV "hear") noPrep;
+	demonstrate	= mkV2( mkV "demonstrate") noPrep;
+	create	= mkV2( mkV "create") noPrep;
+	charge	= mkV2( mkV "charge") noPrep;
+	carry	= mkV2( mkV "carry") noPrep;
+	approach	= mkV3( mkV "approach") noPrep from;
 
 }
 
