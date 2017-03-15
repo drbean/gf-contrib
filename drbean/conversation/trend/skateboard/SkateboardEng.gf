@@ -43,7 +43,7 @@ lin
 	minute	= mkCN( mkN nonhuman (mkN "minute") );
 	kilometer	= mkCN( mkN nonhuman (mkN "kilometer") );
 	electricity	= mkN "electricity" nonExist;
-	dollar	= mkCN( mkN nonhuman (mkN "dollar") );
+	dollar	= mkN2( mkN nonhuman (mkN "dollar") ) part_prep;
 	day	= mkCN( mkN nonhuman (mkN "day") );
 	concept	= mkCN( mkN nonhuman (mkN "concept") );
 	car	= mkCN( mkN nonhuman (mkN "car") );
@@ -78,7 +78,7 @@ lin
 	weigh	= mkV2( mkV "weigh") less_than;
 	use	= mkV2( mkV "use") noPrep;
 	think	= mkV2( mkV "think") about;
-	run	= mkV3( mkV "run") for on;
+	run	= mkV3( mkV "run") noPrep for;
 	hear	= mkV2( mkV "hear") noPrep;
 	demonstrate	= mkV2( mkV "demonstrate") noPrep;
 	create	= mkV2( mkV "create") noPrep;

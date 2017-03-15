@@ -41,7 +41,7 @@ fun
 	minute	: CN;
 	kilometer	: CN;
 	electricity	: N;
-	dollar	: CN;
+	dollar	: Partitive;
 	day	: CN;
 	concept	: CN;
 	car	: CN;
@@ -54,13 +54,13 @@ fun
 -- Prep
 
 	with_PREP	: Prep;
-	on	: Prep;
+	on	: ExtentPrep;
 	off	: SourcePrep;
 	like	: Prep;
 	less_than	: Prep;
 	in_PREP	: TimePrep;
 	from	: Prep;
-	for	: Prep;
+	for	: TrajectoryPrep;
 	about	: Prep;
 
 -- Pron

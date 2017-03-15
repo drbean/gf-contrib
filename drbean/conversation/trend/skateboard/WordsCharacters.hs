@@ -139,7 +139,7 @@ create	: V2;
 day	: CN;
 demonstrate	: V2;
 different	: AP;
-dollar	: CN;
+dollar	: N2;
 electric	: AP;
 electricity	: N;
 every	: Det;
