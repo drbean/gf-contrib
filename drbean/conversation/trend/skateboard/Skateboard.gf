@@ -7,6 +7,7 @@ fun
 
 -- Adv
 
+	more_ADA	: AdA;
 	anywhere	: Adv_location;
 
 -- AP

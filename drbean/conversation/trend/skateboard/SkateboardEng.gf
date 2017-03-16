@@ -9,6 +9,7 @@ lin
 
 -- Adv
 
+	more_ADA	= ParadigmsEng.mkAdA "more" ;
 	anywhere	= ParadigmsEng.mkAdv "anywhere" ;
 
 -- AP

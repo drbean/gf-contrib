@@ -154,6 +154,7 @@ kilometer	: CN;
 less than	: Prep;
 like	: Prep;
 minute	: CN;
+more	: AdA;
 motorcycle	: CN;
 normal	: AP;
 novel	: AP;
