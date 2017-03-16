@@ -44,7 +44,7 @@ fun
 	kilometer	: CN;
 	electricity	: N;
 	dollar	: Partitive;
-	day	: CN;
+	day	: Time;
 	concept	: CN;
 	car	: CN;
 	bicycle	: CN;
