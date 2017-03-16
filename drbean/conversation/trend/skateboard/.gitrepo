@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = http://github.com/drbean/skateboard
+	branch = master
+	commit = c26f4d0617a2e0b7bd62e0f40a23b080a3be05dc
+	parent = 4133a91a8def44dcbb2e81ff88d61c43124733e6
+	cmdver = 0.3.0
