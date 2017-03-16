@@ -32,7 +32,8 @@ fun
 
 -- N
 
-	word	: CN;
+	word_CN	: CN -> CN;
+	word_N	: N -> CN;
 	vehicle	: CN;
 	skateboard	: CN;
 	perspective	: CN;

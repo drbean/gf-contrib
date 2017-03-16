@@ -34,7 +34,8 @@ lin
 
 -- N
 
-	word	= mkCN( mkN nonhuman (mkN "word") );
+	word_CN cn = mymkN_CN (mkN "word") cn;
+	word_N n	= mkCN( mkN nonhuman ( mkN "word" n) );
 	vehicle	= mkCN( mkN nonhuman (mkN "vehicle") );
 	skateboard	= mkCN( mkN nonhuman (mkN "skateboard") );
 	perspective	= mkCN( mkN nonhuman (mkN "perspective") );
