@@ -58,7 +58,7 @@ fun
 	with_PREP	: Prep;
 	on	: ExtentPrep;
 	off	: SourcePrep;
-	like	: Prep;
+	like	: ThemePrep;
 	less_than	: Prep;
 	in_PREP	: TimePrep;
 	from	: Prep;
