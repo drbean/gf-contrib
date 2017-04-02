@@ -479,6 +479,7 @@ lin
 	HowNP cl = myCltoNP "how" cl;
 	WhyNP cl = myCltoNP "why" cl;
 	ThatNP cl	= myCltoNP "that" cl;
+	ThatNegNP cl = myNegCltoNP "that" cl;
 	PartN v	= myPartN v;
 	Gerund vp = GerundNP vp;
 	GerundSlash vp = GerundCN vp;
