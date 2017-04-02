@@ -447,13 +447,15 @@ lin
 	V_NP_whether_S ask recipient topic = mkVP ask recipient topic;
   V_NP_NP v theme recipient = mkVP v theme recipient; 
   V_NP_AP v patient state = mkVP v patient state;
-  GetPassV3 v np = insertObj (\\_ => v.s ! VPPart ++ v.p ++ v.c2 ++ v.c3 ++ np.s ! NPAcc) (predAux auxGet) ;
+  -- GetPassV3 v np = insertObj (\\_ => v.s ! VPPart ++ v.p ++ v.c2 ++ v.c3 ++ np.s ! NPAcc) (predAux auxGet) ;
   -- GetNPPPart v np = insertObj (\\_ => np.s ! NPAcc ++ v.s ! VPPart ++ v.p ++ v.c2 ) (predAux auxGet) ;
 	passive v = passiveVP v;
 	Pass vp = PassVPSlash vp;
 	PassAgent vp np = PassAgentVPSlash vp np;
 	V2Slash v2	= mkVPSlash v2;
 	-- VSSlash vs	= mkVPSlash vs;
+	VVSlash vv vps	= mkVPSlash vv vps;
+	NegVVSlash vv vps = mySlashNegVV vv vps;
 	V2VSlash v2v vp	= mkVPSlash v2v vp;
 	V2ASlash v2a ap	= mkVPSlash v2a ap;
 	V3Slash v3 np	= mkVPSlash v3 np;
