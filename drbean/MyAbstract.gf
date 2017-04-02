@@ -268,6 +268,7 @@ fun
 	your	: Det;
 	their	: Det;
 	this	: Det;
+	these	: Det;
 	that	: Det;
 	those	: Det;
 
