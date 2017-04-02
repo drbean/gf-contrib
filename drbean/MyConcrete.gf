@@ -465,6 +465,7 @@ lin
 	-- ModSlInf cn vpslash = mkCN cn vpslash;
 	MassModInf n vp = mkCN( mkCN n) vp;
 	Modified cn rcl = mkCN cn ( mkRS rcl);
+	NegModified cn rcl = mkCN cn( mkRS negativePol rcl);
 	MassMod n rcl = myMassMod n (mkRS rcl);
 	SubjRel	rp vp = mkRCl rp vp;
 	ObjRel rp clslash = mkRCl rp clslash;
