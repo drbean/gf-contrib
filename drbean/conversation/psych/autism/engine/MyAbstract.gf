@@ -86,7 +86,7 @@ fun
 	V_NP_whether_S:	V2Q -> NP -> QS -> VP;
 	V_NP_NP:	V3 -> NP -> NP -> VP;
   V_NP_AP: V2A -> NP -> AP -> VP;
-	-- GetPassV3	: V3 -> NP -> VP ;	-- get called John
+	GetPassV3	: V3 -> NP -> VP ;	-- get called John
 	-- GetNPPPart	: V2 -> NP -> VP; -- get the job done right
 	passive : V2 -> VP;
 	Pass : VPSlash -> VP;
