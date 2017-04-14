@@ -44,7 +44,7 @@ lin
 	shoe	= mkCN( mkN nonhuman (mkN "shoe") );
 	result	= mkCN( mkN nonhuman (mkN "result") );
 	knot	= mkCN( mkN nonhuman (mkN "knot") );
-	form	= mkCN( mkN nonhuman (mkN "form") );
+	form	= mkN2( mkN nonhuman (mkN "form") ) of_PREP;
 	direction	= mkCN( mkN nonhuman (mkN "direction") );
 	cord	= mkCN( mkN nonhuman (mkN "cord") );
 	bow	= mkCN( mkN nonhuman (mkN "bow") );

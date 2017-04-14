@@ -138,7 +138,7 @@ cord	: CN;
 direction	: CN;
 down	: Prep;
 down	: Adv;
-form	: CN;
+form	: N2;
 get	: V2;
 go	: V;
 knot	: CN;

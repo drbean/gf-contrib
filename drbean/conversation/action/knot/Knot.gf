@@ -42,7 +42,7 @@ fun
 	shoe	: CN;
 	result	: CN;
 	knot	: CN;
-	form	: CN;
+	form	: N2;
 	direction	: CN;
 	cord	: CN;
 	bow	: CN;
