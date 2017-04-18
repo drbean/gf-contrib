@@ -98,7 +98,7 @@ fol tests = do
 dic_test = [
 
 	"This is the way that most of us are taught to tie our shoes."
-	, "There is a strong form and a weak form of this knot."
+	, "There are a strong form and a weak form of this knot."
 	, "We are taught to tie the weak form."
 	, "If you pull the strands at the base of the knot, you can see that the bow orients itself down the long axis of the shoe."
 	, "That is the weak form of the knot."
