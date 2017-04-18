@@ -216,7 +216,7 @@ fun
 	Titular	: Title -> NP;
 	PredetItem	: Predet -> NP -> NP;
 	Ofpos	: N2 -> NP -> CN;
-	Ofpart	: Partitive -> N -> CN;
+	Ofpart	: Partitive -> NP -> NP;
 	N2toCN	: N2 -> CN;
 	N2toMassN	: N2 -> N;
 	MassOfpos	: N2 -> NP -> N;
