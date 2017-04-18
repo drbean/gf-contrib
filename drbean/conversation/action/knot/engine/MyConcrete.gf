@@ -311,7 +311,9 @@ oper
 		\det,np -> let npa
 					= fromAgr np.a;
 			agr = toAgr det.n npa.p npa.g in {
-			s = \\c => det.s ++ part_prep.s ++ np.s ! c;
+			s = table {
+				NCase Nom => det.s ++ part_prep.s ++ np.s ! NPAcc;
+				c => det.s ++ part_prep.s ++ np.s ! c };
 			a = agr;
 			lock_NP = <>
 		};
