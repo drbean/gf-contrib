@@ -58,7 +58,7 @@ fun
 -- Prep
 
 	to_PREP	: Prep;
-	down_PREP	: Prep;
+	down_PREP	: LocPrep;
 	around	: Prep;
 	along	: Prep;
 
