@@ -72,7 +72,7 @@ lin
 -- V
 
 	yield	= mkV2( mkV "yield") noPrep;
-	teach	= mkV2V( mkV "teach") noPrep to_PREP;
+	teach	= mkV2V( mkV "teach" "taught" "taught") noPrep to_PREP;
 	start_over	= partV( mkV "start") "over";
 	see	= mkVS( mkV "see") ;
 	pull	= mkV2( mkV "pull") noPrep;
