@@ -47,6 +47,7 @@ fun
 	cord	: CN;
 	bow	: CN;
 	base	: N2;
+	base_of_knot	: PlaceNoun;
 	axis	: CN;
 	advantage	: CN;
 
