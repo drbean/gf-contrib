@@ -146,7 +146,7 @@ less	: CAdv;
 let	: V2A;
 long	: AP;
 look	: VA;
-most_of	: Predet;
+most	: Det;
 not only	: Predet;
 often	: Adv;
 orient	: V;

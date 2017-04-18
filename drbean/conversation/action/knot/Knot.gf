@@ -33,7 +33,7 @@ fun
 
 	our_DET	: Det;
 	not_only	: Predet;
-	most_of	: Predet;
+	most	: Partitive;
 
 -- N
 

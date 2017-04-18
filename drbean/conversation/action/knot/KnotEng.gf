@@ -33,9 +33,10 @@ lin
 
 -- Det
 
+	most	= mkDet( ParadigmsEng.mkQuant nonExist "most") pluralNum;
 	our_DET	= mkDet we_Pron;
 	not_only	= ss "not only";
-	most_of	= ss "most of";
+
 
 -- N
 
