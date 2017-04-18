@@ -60,7 +60,6 @@ lin
 
 	to_PREP	= mkPrep "to";
 	down_PREP	= mkPrep "down";
-	at	= mkPrep "at";
 	around	= mkPrep "around";
 	along	= mkPrep "along";
 
