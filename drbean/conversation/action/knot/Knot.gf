@@ -69,6 +69,7 @@ fun
 
 -- V
 
+	tie	: V2;
 	yield	: V2;
 	teach	: V2V;
 	start_over	: V;

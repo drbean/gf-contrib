@@ -166,6 +166,7 @@ strand	: CN;
 strong	: AP;
 stronger	: AP;
 teach	: V2V;
+tie	: V2;
 to_PREP	: Prep;
 way	: CN;
 weak	: AP;

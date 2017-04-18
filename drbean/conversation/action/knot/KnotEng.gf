@@ -71,6 +71,7 @@ lin
 
 -- V
 
+	tie	= mkV2( mkV "tie") noPrep;
 	yield	= mkV2( mkV "yield") noPrep;
 	teach	= mkV2V( mkV "teach" "taught" "taught") noPrep to_PREP;
 	start_over	= partV( mkV "start") "over";
