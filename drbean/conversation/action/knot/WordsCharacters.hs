@@ -130,7 +130,7 @@ and	: Conj;
 around	: Prep;
 at	: Prep;
 axis	: CN;
-base	: CN;
+base	: N2;
 better	: AP;
 bow	: CN;
 come untied	: V;

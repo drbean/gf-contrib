@@ -49,7 +49,7 @@ lin
 	direction	= mkCN( mkN nonhuman (mkN "direction") );
 	cord	= mkCN( mkN nonhuman (mkN "cord") );
 	bow	= mkCN( mkN nonhuman (mkN "bow") );
-	base	= mkCN( mkN nonhuman (mkN "base") );
+	base	= mkN2( mkN nonhuman (mkN "base") ) of_PREP;
 	axis	= mkCN( mkN nonhuman (mkN "axis") );
 	advantage	= mkCN( mkN nonhuman (mkN "advantage") );
 

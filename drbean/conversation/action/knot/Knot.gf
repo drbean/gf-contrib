@@ -46,7 +46,7 @@ fun
 	direction	: CN;
 	cord	: CN;
 	bow	: CN;
-	base	: CN;
+	base	: N2;
 	axis	: CN;
 	advantage	: CN;
 
