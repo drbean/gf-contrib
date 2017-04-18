@@ -51,7 +51,8 @@ lin
 	bow	= mkCN( mkN nonhuman (mkN "bow") );
 	base	= mkN2( mkN nonhuman (mkN "base") ) of_PREP;
 	base_of_knot = Ofpos base (Item the_SG_DET knot);
-	axis	= mkCN( mkN nonhuman (mkN "axis") );
+	axis	= mkN2( mkN nonhuman (mkN "axis") ) of_PREP;
+	axis_of_shoe	=Ofpos axis (Item the_SG_DET shoe);
 	advantage	= mkCN( mkN nonhuman (mkN "advantage") );
 
 -- PN

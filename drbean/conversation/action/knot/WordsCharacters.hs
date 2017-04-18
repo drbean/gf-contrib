@@ -129,7 +129,7 @@ along	: Prep;
 and	: Conj;
 around	: Prep;
 at	: Prep;
-axis	: CN;
+axis	: N2;
 base	: N2;
 better	: AP;
 bow	: CN;

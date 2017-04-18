@@ -48,7 +48,8 @@ fun
 	bow	: CN;
 	base	: N2;
 	base_of_knot	: PlaceNoun;
-	axis	: CN;
+	axis	: N2;
+	axis_of_shoe	: PlaceNoun;
 	advantage	: CN;
 
 -- PN
