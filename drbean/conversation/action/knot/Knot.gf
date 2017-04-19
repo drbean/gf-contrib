@@ -46,6 +46,7 @@ fun
 	direction	: CN;
 	cord	: CN;
 	bow	: CN;
+	bow_PLACENOUN	: PlaceNoun;
 	base	: N2;
 	base_of_knot	: PlaceNoun;
 	axis	: N2;
@@ -59,7 +60,7 @@ fun
 
 	to_PREP	: Prep;
 	down_PREP	: LocPrep;
-	around	: Prep;
+	around_PREP	: LocPrep;
 	along	: Prep;
 
 -- Pron

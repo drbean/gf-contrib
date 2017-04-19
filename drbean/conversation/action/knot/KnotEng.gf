@@ -49,6 +49,7 @@ lin
 	direction	= mkCN( mkN nonhuman (mkN "direction") );
 	cord	= mkCN( mkN nonhuman (mkN "cord") );
 	bow	= mkCN( mkN nonhuman (mkN "bow") );
+	bow_PLACENOUN	= mkCN( mkN nonhuman (mkN "bow") );
 	base	= mkN2( mkN nonhuman (mkN "base") ) of_PREP;
 	base_of_knot = Ofpos base (Item the_SG_DET knot);
 	axis	= mkN2( mkN nonhuman (mkN "axis") ) of_PREP;
@@ -62,7 +63,7 @@ lin
 
 	to_PREP	= mkPrep "to";
 	down_PREP	= mkPrep "down";
-	around	= mkPrep "around";
+	around_PREP	= mkPrep "around";
 	along	= mkPrep "along";
 
 -- Pron
