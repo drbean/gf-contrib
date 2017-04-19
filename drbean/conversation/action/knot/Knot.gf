@@ -79,7 +79,7 @@ fun
 	look	: VA;
 	let_V2A	: V2A;
 	orient	: V;
-	go	: V;
+	go	: V2;
 	get	: V2;
 	come_untied	: V;
 }

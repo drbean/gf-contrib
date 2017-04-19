@@ -140,7 +140,7 @@ down	: Prep;
 down	: Adv;
 form	: N2;
 get	: V2;
-go	: V;
+go	: V2;
 knot	: CN;
 less	: CAdv;
 let	: V2A;

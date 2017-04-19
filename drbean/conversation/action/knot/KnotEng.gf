@@ -82,7 +82,7 @@ lin
 	look	= mkVA( mkV "look") ;
 	let_V2A	= mkV2A( mkV "let") noPrep;
 	orient	= reflV( mkV "orient");
-	go	= mkV "go";
+	go	= mkV2( mkV "go") noPrep;
 	get	= mkV2( mkV "get") noPrep;
 	come_untied	= partV( mkV "come") "untied";
 
