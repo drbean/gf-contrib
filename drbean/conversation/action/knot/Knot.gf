@@ -42,6 +42,7 @@ fun
 	shoe	: CN;
 	result	: CN;
 	knot	: CN;
+	knot_PLACENOUN	: PlaceNoun;
 	form	: N2;
 	direction	: CN;
 	cord	: CN;
