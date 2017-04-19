@@ -102,7 +102,7 @@ dic_test = [
 	, "We are taught to tie the weak form."
 	, "If you pull the strands at the base of the knot, you can see that the bow orients itself down the long axis of the shoe."
 	, "That is the weak form of the knot."
-	, "If we start over and simply go the other direction around the bow, we get the strong form of the knot."
+	, "If we simply go the other direction around the bow, we get the strong form of the knot."
 	, "If you pull the cords under the knot, you can see that the bow orients itself along the transverse axis of the shoe."
 	, "This is a stronger knot."
 	, "It comes untied less often."
