@@ -30,6 +30,7 @@ gfWords = [
 	, ("PN",pn)
 	, ("Pron",pron)
 	, ("Prep",prep)
+	, ("LocPrep",locprep)
 	-- , ("Rel",rel)
 	, ("Tag",tag)
 	, ("V",v)
@@ -51,6 +52,7 @@ posName "CN"	= "Count Noun"
 posName "PN"	= "Proper Noun"
 posName "Pron"	= "Pronoun"
 posName "Prep"	= "Preposition"
+posName "LocPrep"	= "Preposition"
 posName "Rel"	= "Relative Pronoun"
 posName "Tag"	= "Question Tag"
 posName "V"	= "Verb"
@@ -70,6 +72,7 @@ n	= cat2funs "N"
 cn	= cat2funs "CN"
 pn	= cat2funs "PN"
 prep	= cat2funs "Prep"
+locprep	= cat2funs "LocPrep"
 pron	= cat2funs "NP"
 v	= cat2funs "V"
 v2	= cat2funs "V2"
