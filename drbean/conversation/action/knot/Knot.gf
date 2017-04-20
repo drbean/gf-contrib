@@ -17,6 +17,7 @@ fun
 
 -- AP
 
+	transverse	: AP;
 	weak	: AP;
 	stronger	: AP;
 	strong	: AP;

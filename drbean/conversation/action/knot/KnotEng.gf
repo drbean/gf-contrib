@@ -19,6 +19,7 @@ lin
 
 -- AP
 
+	transverse	= mkAP( mkA "transverse") ;
 	weak	= mkAP( mkA "weak") ;
 	stronger	= mkAP( mkA "stronger") ;
 	strong	= mkAP( mkA "strong") ;

@@ -171,6 +171,7 @@ stronger	: AP;
 teach	: V2V;
 tie	: V2;
 to_PREP	: Prep;
+transverse	: AP;
 under	: Prep;
 way	: CN;
 weak	: AP;
