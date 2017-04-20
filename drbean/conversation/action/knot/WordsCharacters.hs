@@ -145,7 +145,7 @@ form	: N2;
 get	: V2;
 go	: V2;
 knot	: CN;
-less	: CAdv;
+less	: Adv;
 let	: V2A;
 long	: AP;
 look	: VA;

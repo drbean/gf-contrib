@@ -14,8 +14,8 @@ lin
 	sometimes	= ParadigmsEng.mkAdv "sometimes" ;
 	simply	= ParadigmsEng.mkAdV "simply" ;
 	often	= ParadigmsEng.mkAdv "often" ;
-	less	= less_CAdv ;
-	down_ADV	= ParadigmsEng.mkAdv "down" ;
+	less_often	= ParadigmsEng.mkAdv "less often" ;
+	less	= ParadigmsEng.mkAdv "less" ;
 
 -- AP
 
@@ -25,6 +25,7 @@ lin
 	small	= mkAP( mkA "small") ;
 	other	= mkAP( mkA "other") ;
 	long	= mkAP( mkA "long") ;
+	down_ADJ	= mkAP( mkA "down") ;
 	better	= mkAP( mkA "better") ;
 
 -- Conj

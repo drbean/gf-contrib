@@ -11,9 +11,9 @@ fun
 	somewhere_else	: Adv;
 	sometimes	: Adv;
 	simply	: AdV;
-	often	: Adv;
-	less	: CAdv;
-	down_ADV	: Adv;
+	often	: Adv_time;
+	less_often	: Adv_time;
+	less	: Adv_extent;
 
 -- AP
 
@@ -23,6 +23,7 @@ fun
 	small	: AP;
 	other	: AP;
 	long	: AP;
+	down_ADJ	: AP;
 	better	: AP;
 
 -- Conj
