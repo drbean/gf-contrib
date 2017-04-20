@@ -63,7 +63,7 @@ fun
 	to_PREP	: Prep;
 	down_PREP	: LocPrep;
 	around_PREP	: LocPrep;
-	along	: Prep;
+	along	: LocPrep;
 
 -- Pron
 
