@@ -150,7 +150,7 @@ let	: V2A;
 long	: AP;
 look	: VA;
 most	: Det;
-not only	: Predet;
+not only that	: Adv;
 often	: Adv;
 orient	: V;
 other	: AP;

@@ -9,6 +9,7 @@ lin
 
 -- Adv
 
+	not_only_that	= ParadigmsEng.mkAdv "not only that" ;
 	somewhere_in_life	= ParadigmsEng.mkAdv "somewhere in life" ;
 	somewhere_else	= ParadigmsEng.mkAdv "somewhere else" ;
 	sometimes	= ParadigmsEng.mkAdv "sometimes" ;
@@ -37,7 +38,6 @@ lin
 
 	most	= mkDet( ParadigmsEng.mkQuant nonExist "most") pluralNum;
 	our_DET	= mkDet we_Pron;
-	not_only	= ss "not only";
 
 
 -- N

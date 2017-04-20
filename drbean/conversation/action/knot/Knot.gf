@@ -7,6 +7,7 @@ fun
 
 -- Adv
 
+	not_only_that	: Adv;
 	somewhere_in_life	: Adv;
 	somewhere_else	: Adv;
 	sometimes	: Adv;
@@ -34,7 +35,6 @@ fun
 -- Det
 
 	our_DET	: Det;
-	not_only	: Predet;
 	most	: Partitive;
 
 -- N
