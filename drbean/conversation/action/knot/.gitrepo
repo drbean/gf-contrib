@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = http://github.com/drbean/knot
+	branch = master
+	commit = 90902ec8df0e9d16f57faf15e1dc8aa3b027176d
+	parent = b91743e2400080882df41062aeba89f3c6d49faa
+	cmdver = 0.3.0
