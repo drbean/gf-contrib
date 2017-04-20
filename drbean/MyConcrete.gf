@@ -39,7 +39,7 @@ lincat
 	Adv_beneficiary	= Adv;
 	Adv_trajectory	= Adv;
 	MassDet = Det;
-	Partitive = N2;
+	Partitive = Det;
 
 param
   Auxiliary	= Do | Be | Should;
@@ -305,6 +305,17 @@ oper
 			s = n2.s;
 			g = n2.g;
 			lock_N = <>
+		};
+
+	mymkPartitive	: (det : Det) -> (np : NP) -> { s : NPCase => Str ; a : Agr } =
+		\det,np -> let npa
+					= fromAgr np.a;
+			agr = toAgr det.n npa.p npa.g in {
+			s = table {
+				NCase Nom => det.s ++ part_prep.s ++ np.s ! NPAcc;
+				c => det.s ++ part_prep.s ++ np.s ! c };
+			a = agr;
+			lock_NP = <>
 		};
 
 	mymkMassOfpos	: (n2 : N2) -> (np : NP) -> { s : Number => Case => Str ; g : Gender } = 
@@ -578,7 +589,7 @@ lin
 	PN_CN pn cn	= { s = \\n,c => pn.s ! Nom ++ cn.s ! n ! c;
 		g = cn.g };
 	Ofpos n2 np	= mkCN n2 np;
-	Ofpart part n = mkCN part (mkNP n);
+	Ofpart part np = mymkPartitive part np;
 	N2toCN n2 = mkCN n2;
 	N2toMassN n2 = mymkN22N n2;
 	MassOfpos n2 np = mymkMassOfpos n2 np;
