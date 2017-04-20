@@ -18,6 +18,7 @@ fun
 
 -- AP
 
+	tremendous	: AP;
 	transverse	: AP;
 	weak	: AP;
 	stronger	: AP;
