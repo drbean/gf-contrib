@@ -48,7 +48,7 @@ lin
 	ourselves	= mkNP( mkN "ourselves" nonExist );
 	money	= mkN "money" nonExist;
 	meeting	= mkCN( mkN nonhuman (mkN "meeting") );
-	life	= mkCN( mkN nonhuman (mkN "life") );
+	life	= mkCN( mkN nonhuman (mkN "life" "lives") );
 	kindness	= mkN "kindness" nonExist;
 	kid	= mkCN( mkN human (mkN "kid") );
 	food	= mkN "food" nonExist;
