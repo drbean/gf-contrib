@@ -11,7 +11,6 @@ fun
 
 -- AP
 
-	-- same	: CN;
 	ready	: A2;
 	positive	: AP;
 	personal	: AP;
@@ -32,6 +31,7 @@ fun
 
 -- N
 
+	the_same	: NP;
 	way	: CN;
 	town	: CN;
 	time	: N2;

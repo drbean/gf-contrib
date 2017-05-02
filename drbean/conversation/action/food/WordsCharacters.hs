@@ -164,7 +164,7 @@ ready	: A2;
 respond	: V2;
 responsibility	: N;
 room	: CN;
--- same	: AP;
+the same	: NP;
 say	: VS;
 school	: N;
 share	: V3;

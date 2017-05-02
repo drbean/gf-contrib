@@ -13,7 +13,6 @@ lin
 
 -- AP
 
-	-- same	= mkCN( mkAP( mkA "same") ) ;
 	ready	= mkA2( mkA "ready") to;
 	positive	= mkAP( mkA "positive") ;
 	personal	= mkAP( mkA "personal") ;
@@ -34,6 +33,7 @@ lin
 
 -- N
 
+	the_same	= mkNP( mkN "the same" nonExist );
 	way	= mkCN( mkN nonhuman (mkN "way") );
 	town	= mkCN( mkN nonhuman (mkN "town") );
 	time	= mkN2( mkN nonhuman (mkN "time") ) to;
