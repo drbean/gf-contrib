@@ -169,7 +169,7 @@ say	: VS;
 school	: N;
 share	: V3;
 skill	: CN;
-story	: CN;
+story	: N2;
 support	: V2;
 take	: V2;
 teach	: V3;

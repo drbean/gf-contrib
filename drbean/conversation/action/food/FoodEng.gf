@@ -37,7 +37,7 @@ lin
 	way	= mkCN( mkN nonhuman (mkN "way") );
 	town	= mkCN( mkN nonhuman (mkN "town") );
 	time	= mkN2( mkN nonhuman (mkN "time") ) to;
-	story	= mkCN( mkN nonhuman (mkN "story") );
+	story	= mkN2( mkN nonhuman (mkN "story") ) of_PREP;
 	skill	= mkCN( mkN nonhuman (mkN "skill") );
 	school	= mkN "school" nonExist;
 	room	= mkCN( mkN nonhuman (mkN "room") );

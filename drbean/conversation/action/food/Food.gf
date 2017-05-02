@@ -35,7 +35,7 @@ fun
 	way	: CN;
 	town	: PlaceNoun;
 	time	: N2;
-	story	: CN;
+	story	: N2;
 	skill	: CN;
 	school	: N;
 	room	: CN;
