@@ -11,7 +11,7 @@ fun
 
 -- AP
 
-	ready	: A2;
+	ready	: AP;
 	positive	: AP;
 	personal	: AP;
 	new	: AP;

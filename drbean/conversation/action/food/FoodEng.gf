@@ -13,7 +13,7 @@ lin
 
 -- AP
 
-	ready	= mkA2( mkA "ready") to;
+	ready	= mkAP( mkA "ready");
 	positive	= mkAP( mkA "positive") ;
 	personal	= mkAP( mkA "personal") ;
 	new	= mkAP( mkA "new") ;
