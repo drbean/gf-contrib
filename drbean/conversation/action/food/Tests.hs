@@ -98,11 +98,11 @@ fol tests = do
 dic_test = [
 
 	"Pam Warhurst says her town is focused around three plates , a community plate , the way we live our lives ; a learning plate , what we teach our kids in school and what new skills we share amongst ourselves and a business plate , what we do with the money in our pocket and which businesses we choose to support."
-	, "When she puts that proposition to a meeting, it's the same in every town she ever tells her story."
+	, "When she puts that proposition to a meeting, it is the same in every town she ever tells her story."
 	, "The room explodes."
 	, "People are ready to respond to the story of food."
 	, "People want positive actions they can engage in."
-	, "People know it's time to take personal responsibility and invest in more kindness to each other and to the environment."
+	, "People know it is time to take personal responsibility and invest in more kindness to each other and to the environment."
 
 
   ]
