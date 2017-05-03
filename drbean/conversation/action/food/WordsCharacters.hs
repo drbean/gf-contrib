@@ -137,6 +137,7 @@ engage	: V2;
 environment	: CN;
 ever	: AdV;
 every	: Det;
+every town
 explode	: V;
 focus	: V3;
 food	: N;

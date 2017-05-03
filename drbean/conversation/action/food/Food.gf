@@ -33,6 +33,7 @@ fun
 
 	the_same	: NP;
 	way	: CN;
+	Every_town	: Cl -> Place;
 	town	: PlaceNoun;
 	time	: N2;
 	story	: N2;
@@ -63,7 +64,8 @@ fun
 
 	with_PREP	: Prep;
 	to	: Prep;
-	in_PREP	: LocPrep;
+	in_LOCPREP	: LocPrep;
+	in_PREP	: Prep;
 	around	: Prep;
 	amongst	: Prep;
 

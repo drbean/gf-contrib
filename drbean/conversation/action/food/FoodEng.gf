@@ -35,6 +35,7 @@ lin
 
 	the_same	= mkNP( mkN "the same" nonExist );
 	way	= mkCN( mkN nonhuman (mkN "way") );
+	Every_town cl	= myCltoNP "every town" cl;
 	town	= mkCN( mkN nonhuman (mkN "town") );
 	time	= mkN2( mkN nonhuman (mkN "time") ) to;
 	story	= mkN2( mkN nonhuman (mkN "story") ) of_PREP;
@@ -65,6 +66,7 @@ lin
 
 	with_PREP	= mkPrep "with";
 	to	= mkPrep "to";
+	in_LOCPREP	= mkPrep "in";
 	in_PREP	= mkPrep "in";
 	around	= mkPrep "around";
 	amongst	= mkPrep "amongst";
