@@ -51,6 +51,7 @@ oper
 	no_Quant	= no_Quant;
 	some_Quant	= P.mkQuant "some" "some" "some" "some";
 	zero_mass_Quant = P.mkQuant "" nonExist;
+	more_Quant	= P.mkQuant "more" "more" "more" "more";
 
 	know_V = IrregEng.know_V;
 
@@ -608,6 +609,7 @@ lin
 	the_MASS_DET	= theSg_Det;
 	some_MASS_DET = mkDet some_Quant singularNum;
 	any_MASS_DET = mkDet any_Quant singularNum;
+	more_MASS_DET	= mkDet more_Quant singularNum;
 	the_SG_DET	= theSg_Det;
 	the_PLURAL_DET = thePl_Det;
 	Apos np	= mkDet (GenNP np);
