@@ -42,7 +42,7 @@ lin
 	skill	= mkCN( mkN nonhuman (mkN "skill") );
 	school	= mkN "school" nonExist;
 	room	= mkCN( mkN nonhuman (mkN "room") );
-	responsibility	= mkN "responsibility" nonExist;
+	responsibility	= mkN2 (mkN "responsibility" nonExist) for;
 	proposition	= mkCN( mkN nonhuman (mkN "proposition") );
 	pocket	= mkCN( mkN nonhuman (mkN "pocket") );
 	plate	= mkCN( mkN nonhuman (mkN "plate") );
@@ -50,7 +50,7 @@ lin
 	money	= mkN "money" nonExist;
 	meeting	= mkCN( mkN nonhuman (mkN "meeting") );
 	life	= mkCN( mkN nonhuman (mkN "life" "lives") );
-	kindness	= mkN "kindness" nonExist;
+	kindness	= mkN2( mkN "kindness" nonExist ) to;
 	kid	= mkCN( mkN human (mkN "kid") );
 	food	= mkN "food" nonExist;
 	environment	= mkCN( mkN nonhuman (mkN "environment") );
@@ -64,6 +64,7 @@ lin
 
 -- Prep
 
+	for	= mkPrep "for";
 	with_PREP	= mkPrep "with";
 	to	= mkPrep "to";
 	in_LOCPREP	= mkPrep "in";

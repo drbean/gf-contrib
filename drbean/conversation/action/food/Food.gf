@@ -40,7 +40,7 @@ fun
 	skill	: CN;
 	school	: N;
 	room	: CN;
-	responsibility	: N;
+	responsibility	: N2;
 	proposition	: CN;
 	pocket	: CN;
 	plate	: CN;
@@ -48,7 +48,7 @@ fun
 	money	: N;
 	meeting	: CN;
 	life	: CN;
-	kindness	: N;
+	kindness	: N2;
 	kid	: CN;
 	food	: N;
 	environment	: CN;
@@ -62,6 +62,7 @@ fun
 
 -- Prep
 
+	for	: Prep;
 	with_PREP	: Prep;
 	to	: Prep;
 	in_LOCPREP	: LocPrep;
