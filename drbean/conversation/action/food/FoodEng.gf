@@ -36,6 +36,7 @@ lin
 	the_same	= mkNP( mkN "the same" nonExist );
 	way	= mkCN( mkN nonhuman (mkN "way") );
 	Every_town cl	= myCltoNP "every town" cl;
+	town_PLACENOUN	= mkCN( mkN nonhuman (mkN "town") );
 	town	= mkCN( mkN nonhuman (mkN "town") );
 	time	= mkN2( mkN nonhuman (mkN "time") ) to;
 	story	= mkN2( mkN nonhuman (mkN "story") ) of_PREP;

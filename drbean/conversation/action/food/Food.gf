@@ -34,7 +34,8 @@ fun
 	the_same	: NP;
 	way	: CN;
 	Every_town	: Cl -> Place;
-	town	: PlaceNoun;
+	town_PLACENOUN	: PlaceNoun;
+	town	: CN;
 	time	: N2;
 	story	: N2;
 	skill	: CN;
