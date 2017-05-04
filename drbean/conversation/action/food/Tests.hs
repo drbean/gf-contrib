@@ -102,7 +102,8 @@ dic_test = [
 	, "The room explodes."
 	, "People are ready to respond to the story of food."
 	, "People want positive actions they can engage in."
-	, "People know it is time to take personal responsibility and invest in more kindness to each other and to the environment."
+	, "People know it is time to take personal responsibility for the environment."
+	, "People know it is time to invest in more kindness to each other."
 
 
   ]
