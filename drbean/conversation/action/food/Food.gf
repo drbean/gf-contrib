@@ -7,6 +7,7 @@ fun
 
 -- Adv
 
+	in_school	: Adv_location;
 	ever	: AdV;
 
 -- AP
@@ -39,7 +40,6 @@ fun
 	time	: N2;
 	story	: N2;
 	skill	: CN;
-	school	: N;
 	room	: CN;
 	responsibility	: N2;
 	proposition	: CN;
@@ -69,7 +69,7 @@ fun
 	in_LOCPREP	: LocPrep;
 	in_PREP	: Prep;
 	around	: Prep;
-	amongst	: Prep;
+	amongst	: CoagentPrep;
 
 -- Pron
 
@@ -85,7 +85,7 @@ fun
 	teach	: V3;
 	take	: V2;
 	support	: V2;
-	share	: V3;
+	share	: V2;
 	say	: VS;
 	respond	: V2;
 	put	: V3;

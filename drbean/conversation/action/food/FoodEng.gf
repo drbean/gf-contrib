@@ -9,6 +9,7 @@ lin
 
 -- Adv
 
+	in_school	= ParadigmsEng.mkAdv "in school" ;
 	ever	= ParadigmsEng.mkAdV "ever" ;
 
 -- AP
@@ -41,7 +42,6 @@ lin
 	time	= mkN2( mkN nonhuman (mkN "time") ) to;
 	story	= mkN2( mkN nonhuman (mkN "story") ) of_PREP;
 	skill	= mkCN( mkN nonhuman (mkN "skill") );
-	school	= mkN "school" nonExist;
 	room	= mkCN( mkN nonhuman (mkN "room") );
 	responsibility	= mkN2 (mkN "responsibility" nonExist) for;
 	proposition	= mkCN( mkN nonhuman (mkN "proposition") );
@@ -87,7 +87,7 @@ lin
 	teach	= mkV3( mkV "teach") noPrep noPrep;
 	take	= mkV2( mkV "take") noPrep;
 	support	= mkV2( mkV "support") noPrep;
-	share	= mkV3( mkV "share") noPrep amongst;
+	share	= mkV2( mkV "share") noPrep;
 	say	= mkVS( mkV "say") ;
 	respond	= mkV2( mkV "respond") to;
 	put	= mkV3( mkV "put") noPrep to;
