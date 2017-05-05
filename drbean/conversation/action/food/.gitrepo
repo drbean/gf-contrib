@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = http://github.com/drbean/food
+	branch = master
+	commit = ce1a5074598451db1d55b1396d8af501b94bf075
+	parent = 14a8b2de8f052b5da686823d40ad787b291035a2
+	cmdver = 0.3.0
