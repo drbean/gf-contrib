@@ -51,6 +51,7 @@ oper
 	no_Quant	= no_Quant;
 	some_Quant	= P.mkQuant "some" "some" "some" "some";
 	zero_mass_Quant = P.mkQuant "" nonExist;
+	more_Quant	= P.mkQuant "more" "more" "more" "more";
 
 	know_V = IrregEng.know_V;
 
@@ -495,6 +496,7 @@ lin
 	FactNP cl = myCltoNP "the fact that" cl;
 	WayNP cl = myCltoNP "the way that" cl;
 	HowNP cl = myCltoNP "how" cl;
+	-- WhatNP cl = myCltoNP "what" cl;
 	WhyNP cl = myCltoNP "why" cl;
 	ThatNP cl	= myCltoNP "that" cl;
 	ThatNegNP cl = myNegCltoNP "that" cl;
@@ -607,6 +609,7 @@ lin
 	the_MASS_DET	= theSg_Det;
 	some_MASS_DET = mkDet some_Quant singularNum;
 	any_MASS_DET = mkDet any_Quant singularNum;
+	more_MASS_DET	= mkDet more_Quant singularNum;
 	the_SG_DET	= theSg_Det;
 	the_PLURAL_DET = thePl_Det;
 	Apos np	= mkDet (GenNP np);
@@ -662,6 +665,7 @@ lin
 	what_WH	= whatSg_IP;
 	what_PL_IDET = { s = "what"; n = Pl };
 	which_SG_IDET = { s = "which"; n = Sg };
+	which_PL_IDET = { s = "which"; n = Pl };
 	how_WH	= how_IAdv;
   why_WH	= why_IAdv;
 	that_RP	= ExtraEng.that_RP;

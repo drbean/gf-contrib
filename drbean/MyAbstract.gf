@@ -230,6 +230,7 @@ fun
 	the_MASS_DET	: MassDet;
 	some_MASS_DET	: MassDet;
 	any_MASS_DET	: MassDet;
+	more_MASS_DET	: MassDet;
 	the_SG_DET : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
 	the_PLURAL_DET : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
 	Apos  : NP -> Det;
@@ -285,6 +286,7 @@ fun
 	what_WH	: IP;
 	what_PL_IDET	: IDet;
 	which_SG_IDET	: IDet;
+	which_PL_IDET	: IDet;
 	how_WH	: IAdv;
 	why_WH	: IAdv;
 	who_RP	: RP;
