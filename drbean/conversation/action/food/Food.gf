@@ -43,7 +43,7 @@ fun
 	room	: CN;
 	responsibility	: N2;
 	proposition	: CN;
-	pocket	: CN;
+	pocket	: PlaceNoun;
 	plate	: CN;
 	ourselves	: NP;
 	money	: N;
@@ -64,7 +64,7 @@ fun
 -- Prep
 
 	for	: Prep;
-	with_PREP	: Prep;
+	with_PREP	: InstrumentPrep;
 	to	: Prep;
 	in_LOCPREP	: LocPrep;
 	in_PREP	: Prep;
@@ -95,7 +95,7 @@ fun
 	focus	: V3;
 	explode	: V;
 	engage	: V2;
-	do	: V3;
+	do	: V2;
 	choose	: VV;
 }
 

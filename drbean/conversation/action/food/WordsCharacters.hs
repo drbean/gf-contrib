@@ -131,7 +131,7 @@ business	: AP;
 business	: CN;
 choose	: VV;
 community	: AP;
-do	: V3;
+do	: V2;
 each other	: NP;
 engage	: V2;
 environment	: CN;

@@ -97,7 +97,7 @@ lin
 	focus	= mkV3( mkV "focus") noPrep around;
 	explode	= mkV "explode";
 	engage	= mkV2( mkV "engage") in_PREP;
-	do	= mkV3( mkV "do") noPrep with_PREP;
+	do	= mkV2( mkV "do") noPrep;
 	choose	= mkVV( mkV "choose") ;
 
 }
