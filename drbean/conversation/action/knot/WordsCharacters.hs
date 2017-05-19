@@ -37,6 +37,7 @@ gfWords = [
 	, ("V2",v2)
 	, ("V3",v3)
 	, ("VV",vv)
+	, ("V2V",v2v)
 	, ("VS",vs)
 	, ("V2A",v2a)
 	]
@@ -59,6 +60,7 @@ posName "V"	= "Verb"
 posName "V2"	= "Verb + object"
 posName "V3"	= "Verb + obj1 + obj2"
 posName "VV"	= "Verb + verb"
+posName "V2V"	= "Verb + object + verb"
 posName "VS"	= "Verb + sentence"
 posName "V2S"	= "Verb + object + sentence"
 posName "V2A"	= "Verb + object + adjective"
@@ -78,6 +80,7 @@ v	= cat2funs "V"
 v2	= cat2funs "V2"
 v3	= cat2funs "V3"
 vv	= cat2funs "VV"
+v2v	= cat2funs "V2V"
 vs	= cat2funs "VS"
 v2a	= cat2funs "V2A"
 tag = return ( map mkCId tags )
