@@ -40,6 +40,7 @@ lincat
 	Adv_trajectory	= Adv;
 	MassDet = Det;
 	Partitive = Det;
+	ListAdv_manner	= ListAdv;
 
 param
   Auxiliary	= Do | Be | Should;
@@ -640,6 +641,9 @@ lin
 	AdvList np1 np2 = mkListAdv np1 np2;
 	AddAdv ap list = mkListAdv ap list;
 	CloseAdv conj list = mkAdv conj list;
+	Adv_mannerList np1 np2 = mkListAdv np1 np2;
+	AddAdv_manner ap list = mkListAdv ap list;
+	CloseAdv_manner conj list = mkAdv conj list;
 	ConcatS	conj s1 s2 = mkS conj s1 s2;
 	PreConjUtt conj utt = mkPhr (mkPConj conj) utt;
 

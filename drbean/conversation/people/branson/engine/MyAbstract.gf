@@ -43,6 +43,7 @@ cat
 	SubordCl;
 	Partitive;
 	NounCl;
+	ListAdv_manner;
 
 fun
 	Look_bad	: VA -> AP -> VP;
@@ -259,6 +260,9 @@ fun
 	AdvList : Adv -> Adv -> ListAdv;
 	AddAdv : Adv -> ListAdv -> ListAdv;
 	CloseAdv	: Conj -> ListAdv -> Adv;
+	Adv_mannerList : Adv_manner -> Adv_manner -> ListAdv_manner;
+	AddAdv_manner : Adv_manner -> ListAdv_manner -> ListAdv_manner;
+	CloseAdv_manner	: Conj -> ListAdv_manner -> Adv_manner;
 	ConcatS	: Conj -> S -> S -> S;
 	PreConjUtt	: Conj -> Utt -> Utt;
 
