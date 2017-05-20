@@ -27,7 +27,7 @@ fun
 
 -- Det
 
-	a_lot_of	: Det;
+	a_lot_of	: MassDet;
 
 -- N
 
