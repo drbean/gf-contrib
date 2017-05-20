@@ -48,7 +48,6 @@ fun
 
 	virgin	: PN;
 	branson	: PN;
-	branson	: PN;
 
 -- Prep
 
