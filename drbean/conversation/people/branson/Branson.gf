@@ -9,8 +9,8 @@ fun
 
 	well	: Adv_manner;
 	very	: AdA;
-	fairly	: Adv;
-	differently	: Adv;
+	fairly	: Adv_manner;
+	differently	: Adv_manner;
 	actually	: AdV;
 
 -- AP
