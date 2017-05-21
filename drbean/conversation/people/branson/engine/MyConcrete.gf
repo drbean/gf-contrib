@@ -453,8 +453,7 @@ lin
 	Stimulating prep stimulus	= mkAdv prep stimulus;
 	Producing prep product	= mkAdv prep product;
 	Benefiting prep beneficiary	= mkAdv prep beneficiary;
-	Trajectoring prep path	= mkAdv prep path;
-	Causing prep cause	= mkAdv prep cause;
+	Trajectoring, Causing = \prep, np -> mkAdv prep np;
 	Happening action	=	mkVP action;
 	V_NP v2 patient	= mkVP v2 patient;
 	V_NP_VP causal patient predicate	= mkVP causal patient predicate;
