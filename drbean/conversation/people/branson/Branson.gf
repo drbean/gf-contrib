@@ -56,7 +56,7 @@ fun
 	on	: Prep;
 	in_PREP	: Prep;
 	for	: Prep;
-	as_a_result_of	: Prep;
+	as_a_result_of	: CausePrep;
 	all_over	: Prep;
 
 -- Pron
