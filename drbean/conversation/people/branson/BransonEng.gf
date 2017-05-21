@@ -75,7 +75,7 @@ lin
 
 	work	= mkV "work";
 	work_for	= mkV2( mkV "work") for;
-	Treat_well np well = VP_Adv_manner ( mkVP treat np ) well;
+	Treat np well = VP_Adv_manner ( mkVP treat np ) well;
 	tread	= mkV2( mkV "tread") all_over;
 	think	= mkVS( mkV "think") ;
 	take_on	= mkV2( partV( mkV "take") "on" ) noPrep;
