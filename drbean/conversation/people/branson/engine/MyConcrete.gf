@@ -531,7 +531,7 @@ lin
 	EmptyRelSlash slash = EmptyRelSlash slash;
 	DetRCltoNP det rcl	= myDetRCltoNP det rcl;
 	DetVPtoNP det vp = myDetVPtoNP det vp;
-	NPVPtoNP np vp	= myNPVPtoNP np vp;
+	SubjGerund np vp	= myNPVPtoNP np vp;
 	InfinitiveNP vp = myInfinitiveNP vp;
 	FactNP cl = myCltoNP "the fact that" cl;
 	WayNP cl = myCltoNP "the way that" cl;
