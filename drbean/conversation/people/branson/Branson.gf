@@ -74,6 +74,7 @@ fun
 	tread	: V2;
 	think	: VS;
 	take_on	: V2;
+	Take_on	: NP -> VP;
 	shake_up	: V2;
 	say	: VS;
 	run	: V2;

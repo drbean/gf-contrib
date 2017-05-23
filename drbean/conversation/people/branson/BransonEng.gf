@@ -79,6 +79,7 @@ lin
 	tread	= mkV2( mkV "tread") all_over;
 	think	= mkVS( mkV "think") ;
 	take_on	= mkV2( partV( mkV "take") "on" ) noPrep;
+	Take_on pron	= myPartLast (mkVP take_on pron);
 	shake_up	= mkV2( partV( mkV "shake") "up" ) noPrep;
 	say	= mkVS( mkV "say") ;
 	run	= mkV2( mkV "run") noPrep;
