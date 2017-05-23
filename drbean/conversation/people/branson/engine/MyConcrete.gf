@@ -402,6 +402,30 @@ oper
 		isSimple = vp.isSimple
 		};
 
+	myPartLast : (vp : VP) -> {
+	  s   : VerbForms;
+		p   : Str ;
+		prp : Str ;
+		ptp : Str ;
+		inf : Str ;
+		ad  : Agr => Str ;
+		s2  : Agr => Str ;
+		ext : Str ;
+		isSimple : Bool
+					}  =
+	\vp ->
+		{
+		s = vp.s;
+		p = [];
+		prp = vp.prp;
+		ptp = vp.ptp;
+		inf = vp.inf;
+		ad = vp.ad;
+		s2 = \\a => vp.s2 ! a ++ vp.p;
+		ext = vp.ext;
+		isSimple = vp.isSimple
+		};
+
 	myMassMod : (un : N) -> (rs : RS) -> { s : Number => Case => Str ; g: Gender } =
 	\un,rs ->
 		{
