@@ -263,6 +263,18 @@ oper
 			a = agreement;
 		};
 
+	myNPVPtoNP : (np : NP) -> (vp : VP) -> { s : NPCase => Str ; a : Agr} = 
+		\np,vp -> let nom = np.s ! NCase Nom ++ (PartVP vp).s ! AgP3Pl Masc ;
+								gen = glue nom "'s";
+								agreement = toAgr Sg P3 Neutr in {
+			s = table {
+				NCase Nom => nom;
+				NCase Gen => gen;
+				NPAcc => nom;
+				NPNomPoss => gen };
+			a = agreement;
+		};
+
 	myInfinitiveNP : (vp : VP) -> { s : NPCase => Str ; a : Agr} =
 	\vp -> let nom = infVP VVInf vp  Simul CPos (AgP3Sg Neutr) ;
 					gen = glue nom "'s";
@@ -519,6 +531,7 @@ lin
 	EmptyRelSlash slash = EmptyRelSlash slash;
 	DetRCltoNP det rcl	= myDetRCltoNP det rcl;
 	DetVPtoNP det vp = myDetVPtoNP det vp;
+	NPVPtoNP np vp	= myNPVPtoNP np vp;
 	InfinitiveNP vp = myInfinitiveNP vp;
 	FactNP cl = myCltoNP "the fact that" cl;
 	WayNP cl = myCltoNP "the way that" cl;
