@@ -20,6 +20,7 @@ lincat
 	AttributePrep	= Prep;
 	StimulusPrep	= Prep;
 	ProductPrep	= Prep;
+	GoalPrep	= Prep;
 	BeneficiaryPrep	= Prep;
 	TrajectoryPrep	= Prep;
 	CausePrep	= Prep;
@@ -488,6 +489,7 @@ lin
 	Attributing prep attribute	= mkAdv prep attribute;
 	Stimulating prep stimulus	= mkAdv prep stimulus;
 	Producing prep product	= mkAdv prep product;
+	Goaling prep np	= mkAdv prep np;
 	Benefiting prep beneficiary	= mkAdv prep beneficiary;
 	Trajectoring, Causing = \prep, np -> mkAdv prep np;
 	Happening action	=	mkVP action;

@@ -21,6 +21,7 @@ cat
 	AttributePrep;
 	StimulusPrep;
 	ProductPrep;
+	GoalPrep;
 	BeneficiaryPrep;
 	TrajectoryPrep;
 	CausePrep;
@@ -72,6 +73,7 @@ fun
 	Attributing	: AttributePrep -> NP -> Adv_attribute;
 	Stimulating	: StimulusPrep -> NP -> Adv_stimulus;
 	Producing	: ProductPrep -> NP -> Adv_product;
+	Goaling	: GoalPrep -> NP -> Adv_goal;
 	Benefiting	: BeneficiaryPrep -> NP -> Adv_beneficiary;
 	Trajectoring	: TrajectoryPrep -> NP -> Adv_trajectory;
 	Causing	: CausePrep -> NP -> Adv_cause;
