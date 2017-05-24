@@ -52,7 +52,7 @@ fun
 -- Prep
 
 	with_PREP	: MannerPrep;
-	to	: Prep;
+	to	: LocPrep;
 	on	: Prep;
 	in_PREP	: Prep;
 	for	: Prep;
@@ -80,7 +80,7 @@ fun
 	run	: V2;
 	like	: VV;
 	go_in	: V;
-	get	: V2;
+	Get	: Place -> VP;
 	enjoy	: V2;
 	do	: V2;
 	Deal_with	: NP -> Adv_manner -> VP;

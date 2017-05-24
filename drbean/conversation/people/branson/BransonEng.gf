@@ -85,7 +85,7 @@ lin
 	run	= mkV2( mkV "run") noPrep;
 	like	= mkVV( mkV "like") ;
 	go_in	= partV( mkV "go") "in";
-	get	= mkV2( mkV "get") to;
+	Get	place = VP_Adv_location (mkVP (mkV "get")) (Locating to place);
 	enjoy	= mkV2( mkV "enjoy") noPrep;
 	do	= mkV2( mkV "do") noPrep;
 	Deal_with np well	= VP_Adv_manner ( mkVP deal np ) well;
