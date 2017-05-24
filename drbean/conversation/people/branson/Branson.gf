@@ -56,6 +56,7 @@ fun
 	on	: Prep;
 	in_PREP	: Prep;
 	for	: Prep;
+	for_GOALPREP	: GoalPrep;
 	as_a_result_of	: CausePrep;
 	all_over	: Prep;
 

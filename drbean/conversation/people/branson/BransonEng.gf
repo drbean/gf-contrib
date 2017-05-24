@@ -61,6 +61,7 @@ lin
 	on	= mkPrep "on";
 	in_PREP	= mkPrep "in";
 	for	= mkPrep "for";
+	for_GOALPREP	= mkPrep "for";
 	as_a_result_of	= mkPrep "as a result of";
 	all_over	= mkPrep "all over";
 
