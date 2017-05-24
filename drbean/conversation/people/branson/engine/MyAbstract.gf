@@ -239,6 +239,7 @@ fun
 	some_MASS_DET	: MassDet;
 	any_MASS_DET	: MassDet;
 	more_MASS_DET	: MassDet;
+	more_NP	: NP;
 	the_SG_DET : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
 	the_PLURAL_DET : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
 	Apos  : NP -> Det;

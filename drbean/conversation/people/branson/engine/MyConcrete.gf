@@ -653,6 +653,7 @@ lin
 	some_MASS_DET = mkDet some_Quant singularNum;
 	any_MASS_DET = mkDet any_Quant singularNum;
 	more_MASS_DET	= mkDet more_Quant singularNum;
+	more_NP = mkNP( mkDet more_Quant);
 	the_SG_DET	= theSg_Det;
 	the_PLURAL_DET = thePl_Det;
 	Apos np	= mkDet (GenNP np);
