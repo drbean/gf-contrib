@@ -47,7 +47,7 @@ lin
 	company	= mkCN( mkN nonhuman (mkN "company") );
 	businessperson	= mkCN( mkN human (mkN "businessperson") );
 	business_leader	= mkCN( mkN human (mkN "business leader") );
-	all	= mkNP(mkN "all" nonExist);
+	all	= mkN "all" nonExist;
 
 -- PN
 
@@ -74,6 +74,7 @@ lin
 
 -- V
 
+	have_in	= mkV2( mkV "have") in_PREP;
 	work	= mkV "work";
 	work_for	= mkV2( mkV "work") for;
 	Treat np well = VP_Adv_manner ( mkVP treat np ) well;

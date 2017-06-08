@@ -42,7 +42,7 @@ fun
 	company	: CN;
 	businessperson	: CN;
 	business_leader	: CN;
-	all	: NP;
+	all	: N;
 
 -- PN
 
@@ -69,6 +69,7 @@ fun
 
 -- V
 
+	have_in	: V2;
 	work	: V;
 	work_for	: V2;
 	Treat	: NP -> Adv_manner	-> VP;

@@ -145,7 +145,7 @@ for	: Prep;
 fun	: N;
 get	: V2;
 go in	: V;
-have	: V2;
+have_in	: V2;
 if	: Subj;
 in	: Prep;
 industry	: CN;
