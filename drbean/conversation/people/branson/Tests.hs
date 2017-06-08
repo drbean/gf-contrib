@@ -104,9 +104,9 @@ dic_test = [
 	, "Branson thinks that industries are not quite the same as a result of Virgin taking them on."
 	, "Branson doesn't think the stereotype of a businessperson treading all over people to get to the top works."
 	, "Branson thinks if you treat people well, people come back for more."
-	, "Branson thinks all you have in life is your reputation and it’s a very small world."
+	, "Branson thinks all you have in life is your reputation and it's a very small world."
 	, "Branson actually thinks that the best way of becoming a successful business leader is dealing with people fairly and well"
-	, "Branson likes to think that’s how he runs Virgin."
+	, "Branson likes to think that's how he runs Virgin."
 
 
   ]
