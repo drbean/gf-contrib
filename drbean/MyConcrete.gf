@@ -20,8 +20,10 @@ lincat
 	AttributePrep	= Prep;
 	StimulusPrep	= Prep;
 	ProductPrep	= Prep;
+	GoalPrep	= Prep;
 	BeneficiaryPrep	= Prep;
 	TrajectoryPrep	= Prep;
+	CausePrep	= Prep;
 	Adv_coagent	= Adv;
 	Adv_instrument	= Adv;
 	Adv_theme	= Adv;
@@ -38,8 +40,10 @@ lincat
 	Adv_goal	= Adv;
 	Adv_beneficiary	= Adv;
 	Adv_trajectory	= Adv;
+	Adv_cause	= Adv;
 	MassDet = Det;
 	Partitive = Det;
+	ListAdv_manner	= ListAdv;
 
 param
   Auxiliary	= Do | Be | Should;
@@ -260,6 +264,18 @@ oper
 			a = agreement;
 		};
 
+	myNPVPtoNP : (np : NP) -> (vp : VP) -> { s : NPCase => Str ; a : Agr} = 
+		\np,vp -> let nom = np.s ! NCase Nom ++ (PartVP vp).s ! AgP3Pl Masc ;
+								gen = glue nom "'s";
+								agreement = toAgr Sg P3 Neutr in {
+			s = table {
+				NCase Nom => nom;
+				NCase Gen => gen;
+				NPAcc => nom;
+				NPNomPoss => gen };
+			a = agreement;
+		};
+
 	myInfinitiveNP : (vp : VP) -> { s : NPCase => Str ; a : Agr} =
 	\vp -> let nom = infVP VVInf vp  Simul CPos (AgP3Sg Neutr) ;
 					gen = glue nom "'s";
@@ -399,6 +415,30 @@ oper
 		isSimple = vp.isSimple
 		};
 
+	myPartLast : (vp : VP) -> {
+	  s   : VerbForms;
+		p   : Str ;
+		prp : Str ;
+		ptp : Str ;
+		inf : Str ;
+		ad  : Agr => Str ;
+		s2  : Agr => Str ;
+		ext : Str ;
+		isSimple : Bool
+					}  =
+	\vp ->
+		{
+		s = vp.s;
+		p = [];
+		prp = vp.prp;
+		ptp = vp.ptp;
+		inf = vp.inf;
+		ad = vp.ad;
+		s2 = \\a => vp.s2 ! a ++ vp.p;
+		ext = vp.ext;
+		isSimple = vp.isSimple
+		};
+
 	myMassMod : (un : N) -> (rs : RS) -> { s : Number => Case => Str ; g: Gender } =
 	\un,rs ->
 		{
@@ -449,8 +489,8 @@ lin
 	Attributing prep attribute	= mkAdv prep attribute;
 	Stimulating prep stimulus	= mkAdv prep stimulus;
 	Producing prep product	= mkAdv prep product;
-	Benefiting prep beneficiary	= mkAdv prep beneficiary;
-	Trajectoring prep path	= mkAdv prep path;
+	Goaling, Benefiting
+	, Trajectoring, Causing = \prep, np -> mkAdv prep np;
 	Happening action	=	mkVP action;
 	V_NP v2 patient	= mkVP v2 patient;
 	V_NP_VP causal patient predicate	= mkVP causal patient predicate;
@@ -492,6 +532,7 @@ lin
 	EmptyRelSlash slash = EmptyRelSlash slash;
 	DetRCltoNP det rcl	= myDetRCltoNP det rcl;
 	DetVPtoNP det vp = myDetVPtoNP det vp;
+	SubjGerund np vp	= myNPVPtoNP np vp;
 	InfinitiveNP vp = myInfinitiveNP vp;
 	FactNP cl = myCltoNP "the fact that" cl;
 	WayNP cl = myCltoNP "the way that" cl;
@@ -534,6 +575,7 @@ lin
 	VP_Adv_goal vp goal	= mkVP vp goal;
 	VP_Adv_beneficiary vp beneficiary	= mkVP vp beneficiary;
 	VP_Adv_trajectory vp trajectory	= mkVP vp trajectory;
+	VP_Adv_cause vp cause = mkVP vp cause;
 	WithCl vp cl = mkVP vp cl;
 	VPToo vp = myVPPlus vp "too";
 	VPAlready vp = myVPPlus vp "already";
@@ -610,6 +652,7 @@ lin
 	some_MASS_DET = mkDet some_Quant singularNum;
 	any_MASS_DET = mkDet any_Quant singularNum;
 	more_MASS_DET	= mkDet more_Quant singularNum;
+	more_NP = mkNP( mkDet more_Quant);
 	the_SG_DET	= theSg_Det;
 	the_PLURAL_DET = thePl_Det;
 	Apos np	= mkDet (GenNP np);
@@ -640,6 +683,9 @@ lin
 	AdvList np1 np2 = mkListAdv np1 np2;
 	AddAdv ap list = mkListAdv ap list;
 	CloseAdv conj list = mkAdv conj list;
+	Adv_mannerList np1 np2 = mkListAdv np1 np2;
+	AddAdv_manner ap list = mkListAdv ap list;
+	CloseAdv_manner conj list = mkAdv conj list;
 	ConcatS	conj s1 s2 = mkS conj s1 s2;
 	PreConjUtt conj utt = mkPhr (mkPConj conj) utt;
 

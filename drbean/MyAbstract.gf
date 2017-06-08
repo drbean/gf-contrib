@@ -21,8 +21,10 @@ cat
 	AttributePrep;
 	StimulusPrep;
 	ProductPrep;
+	GoalPrep;
 	BeneficiaryPrep;
 	TrajectoryPrep;
+	CausePrep;
 	Adv_coagent;
 	Adv_instrument;
 	Adv_theme;
@@ -39,10 +41,12 @@ cat
 	Adv_goal;
 	Adv_beneficiary;
 	Adv_trajectory;
+	Adv_cause;
 	MassDet;
 	SubordCl;
 	Partitive;
 	NounCl;
+	ListAdv_manner;
 
 fun
 	Look_bad	: VA -> AP -> VP;
@@ -69,8 +73,10 @@ fun
 	Attributing	: AttributePrep -> NP -> Adv_attribute;
 	Stimulating	: StimulusPrep -> NP -> Adv_stimulus;
 	Producing	: ProductPrep -> NP -> Adv_product;
+	Goaling	: GoalPrep -> NP -> Adv_goal;
 	Benefiting	: BeneficiaryPrep -> NP -> Adv_beneficiary;
 	Trajectoring	: TrajectoryPrep -> NP -> Adv_trajectory;
+	Causing	: CausePrep -> NP -> Adv_cause;
 	Happening	: V -> VP ;
 	V_NP	: V2 -> NP -> VP;
 	V_NP_VP:	V2V -> NP -> VP -> VP;
@@ -112,6 +118,7 @@ fun
 	EmptyRelSlash	: ClSlash -> RCl;
 	DetRCltoNP	: Det -> RCl -> NP;
 	DetVPtoNP	: Det -> VP -> NP;
+	SubjGerund	: NP -> VP -> NP;
 	InfinitiveNP	: VP -> NP;
 	FactNP	: Cl -> NP;
 	WayNP	: Cl -> NP;
@@ -151,6 +158,7 @@ fun
 	VP_Adv_goal	: VP -> Adv_goal -> VP;
 	VP_Adv_beneficiary	: VP -> Adv_beneficiary -> VP;
 	VP_Adv_trajectory	: VP -> Adv_trajectory -> VP;
+	VP_Adv_cause	: VP -> Adv_cause -> VP;
 	WithCl	: VP -> SubordCl -> VP;
 	VPToo	: VP -> VP;
 	VPAlready	: VP -> VP;
@@ -231,6 +239,7 @@ fun
 	some_MASS_DET	: MassDet;
 	any_MASS_DET	: MassDet;
 	more_MASS_DET	: MassDet;
+	more_NP	: NP;
 	the_SG_DET : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
 	the_PLURAL_DET : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
 	Apos  : NP -> Det;
@@ -259,6 +268,9 @@ fun
 	AdvList : Adv -> Adv -> ListAdv;
 	AddAdv : Adv -> ListAdv -> ListAdv;
 	CloseAdv	: Conj -> ListAdv -> Adv;
+	Adv_mannerList : Adv_manner -> Adv_manner -> ListAdv_manner;
+	AddAdv_manner : Adv_manner -> ListAdv_manner -> ListAdv_manner;
+	CloseAdv_manner	: Conj -> ListAdv_manner -> Adv_manner;
 	ConcatS	: Conj -> S -> S -> S;
 	PreConjUtt	: Conj -> Utt -> Utt;
 
