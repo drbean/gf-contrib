@@ -111,7 +111,18 @@ newOnPos _ rs = new (GItem Ga_DET Gperson) rs
 newOnPlace :: GPlace -> [DRSRef] -> DRSRef
 newOnPlace _ rs = new (GItem Ga_DET Gperson) rs
 
+repPartitive :: GPartitive -> DRSRef -> DRS
+repPartitive name     = \r ->
+	DRS [r] [Rel (DRSRel (lin name)) [r]]
+
 repNP :: GNP -> (DRSRef -> DRS) -> DRSRef -> DRS
+repNP (GOfpart part np) p r = let
+	form = r
+	thing = newOnPart part [r]
+	DRS _ partconds = repPartitive part form
+	DRS _ thingconds = repNP np p r
+	formcond = [ Rel (DRSRel "in_form_of") [thing,form] ]
+	in DRS [form, thing] (partconds ++ thingconds ++ formcond)
 repNP (GItem det cn) p r = repDet det (repCN cn) p r
 repNP (GMassItem det n) p r = (repMassDet det) (repN n) p r
 repNP (GEntity name) p r
@@ -313,22 +324,11 @@ repN name = \r ->
 repN2 :: GN2 -> DRSRef -> DRS
 repN2 name     = \r ->
 	DRS [r] [Rel (DRSRel (lin name)) [r]]
-repPartitive :: GPartitive -> DRSRef -> DRS
-repPartitive name     = \r ->
-	DRS [r] [Rel (DRSRel (lin name)) [r]]
-
 repCN :: GCN -> DRSRef -> DRS
 repCN (GKind ap cn) = \r -> let
        DRS thing_refs thing_conds = (repCN cn r)
        DRS attri_refs attri_conds = (repAP ap r)
        in DRS (thing_refs ++ attri_refs) (thing_conds ++ attri_conds)
-repCN (GOfpart part n) = \r -> let
-	form = r
-	thing = newOnPart part [r]
-	DRS _ partconds = repPartitive part form
-	DRS _ thingconds = repN n thing
-	formcond = [ Rel (DRSRel "in_form_of") [thing,form] ]
-	in DRS [form, thing] (partconds ++ thingconds ++ formcond)
 repCN (GOfpos n2 np) = \r -> let
 	owner = r
 	thing = new np [r]
