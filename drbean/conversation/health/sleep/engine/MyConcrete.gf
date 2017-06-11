@@ -728,6 +728,7 @@ lin
 	ComparaN cadv cn np = mkNP ( myCAdvCNNP cadv cn np);
 	ComparaS a s = mkAP a s;
 	More a	= comparAP a;
+	AtoAP a = mkAP a;
 	AdjModified	a s = mkAP a s;
 	As_as ap np	= mkAP as_CAdv ap np;
 	AdvAdj adv adj = mkAP adv adj;

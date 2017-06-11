@@ -315,6 +315,7 @@ fun
 	ComparaN	: CAdv -> CN -> NP -> NP;
 	ComparaS : AP -> S -> AP;
 	More	: A -> AP;
+	AtoAP	: A -> AP;
 	AdjModified	: AP -> VP -> AP;
 	As_as	: AP -> NP -> AP;
 	AdvAdj	: AdA -> AP -> AP;
