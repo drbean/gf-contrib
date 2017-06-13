@@ -17,7 +17,7 @@ fun
 	own	: AP;
 	multiple	: AP;
 	joyful	: AP;
-	inspired	: AP;
+	inspired	: A;
 	great	: AP;
 	good	: A2;
 	best	: A2;

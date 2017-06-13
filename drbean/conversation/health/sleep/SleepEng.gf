@@ -19,7 +19,7 @@ lin
 	own	= mkAP( mkA "own") ;
 	multiple	= mkAP( mkA "multiple") ;
 	joyful	= mkAP( mkA "joyful") ;
-	inspired	= mkAP( mkA "inspired") ;
+	inspired	= compoundA (mkA "inspired");
 	great	= mkAP( mkA "great") ;
 	good	= mkA2( mkA "good") for;
 	best	= mkA2( mkA "best") for;
