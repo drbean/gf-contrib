@@ -12,13 +12,13 @@ fun
 
 -- AP
 
-	productive	: AP;
-	personal	: AP;
-	own	: AP;
-	multiple	: AP;
-	joyful	: AP;
+	productive	: A;
+	personal	: A;
+	own	: A;
+	multiple	: A;
+	joyful	: A;
 	inspired	: A;
-	great	: AP;
+	great	: A;
 	good	: A2;
 	best	: A2;
 

@@ -14,13 +14,13 @@ lin
 
 -- AP
 
-	productive	= mkAP( mkA "productive") ;
-	personal	= mkAP( mkA "personal") ;
-	own	= mkAP( mkA "own") ;
-	multiple	= mkAP( mkA "multiple") ;
-	joyful	= mkAP( mkA "joyful") ;
+	productive	= compoundA( mkA "productive") ;
+	personal	= compoundA( mkA "personal") ;
+	own	= compoundA( mkA "own") ;
+	multiple	= compoundA( mkA "multiple") ;
+	joyful	= compoundA( mkA "joyful") ;
 	inspired	= compoundA (mkA "inspired");
-	great	= mkAP( mkA "great") ;
+	great	= compoundA( mkA "great") ;
 	good	= mkA2( mkA "good") for;
 	best	= mkA2( mkA "best") for;
 
