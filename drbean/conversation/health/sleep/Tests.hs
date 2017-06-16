@@ -99,7 +99,10 @@ dic_test = [
 
 	"Arianna Huffington is here to tell us that the way to a more productive , more inspired, and more joyful life is getting enough sleep."
 	, "As we face all the multiple crises in our world at the moment, what is good for us on a personal level , what brings more joy , gratitude, and effectiveness in our lives and what is best for our own careers is also what is best for the world."
-	, "So she urges us to shut our eyes and discover the great ideas that lie inside us, to shut our engines and discover the power of sleep."
+	, "She urges us to shut our eyes"
+	, "She urges us to discover the great ideas that lie inside us."
+	, "She urges us to shut our engines"
+	, "She urges us to discover the power of sleep."
 
 
   ]
