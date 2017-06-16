@@ -20,7 +20,7 @@ lin
 	multiple	= compoundA( mkA "multiple") ;
 	joyful	= compoundA( mkA "joyful") ;
 	inspired	= compoundA (mkA "inspired");
-	great	= compoundA( mkA "great") ;
+	great	= mkA "great" "greater";
 	good	= mkA2( mkA "good") for;
 	best	= mkA2( mkA "best") for;
 
