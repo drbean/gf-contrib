@@ -43,6 +43,7 @@ lin
 	life	= mkCN( mkN nonhuman (mkN "life" "lives") );
 	life_PLACE	= mkCN( mkN nonhuman (mkN "life" "lives") );
 	level	= mkCN( mkN nonhuman (mkN "level") );
+	joy	= mkN "joy" nonExist;
 	idea	= mkCN( mkN nonhuman (mkN "idea") );
 	gratitude	= mkN "gratitude" nonExist;
 	eye	= mkCN( mkN nonhuman (mkN "eye") );

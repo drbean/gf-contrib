@@ -41,6 +41,7 @@ fun
 	life	: CN;
 	life_PLACE	: PlaceNoun;
 	level	: PlaceNoun;
+	joy	: N;
 	idea	: CN;
 	gratitude	: N;
 	eye	: CN;
