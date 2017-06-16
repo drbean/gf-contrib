@@ -41,6 +41,7 @@ lin
 	power	= mkN2( mkN nonhuman (mkN "power") ) of_PREP;
 	moment	= mkCN( mkN nonhuman (mkN "moment") );
 	life	= mkCN( mkN nonhuman (mkN "life" "lives") );
+	life_PLACE	= mkCN( mkN nonhuman (mkN "life" "lives") );
 	level	= mkCN( mkN nonhuman (mkN "level") );
 	idea	= mkCN( mkN nonhuman (mkN "idea") );
 	gratitude	= mkN "gratitude" nonExist;

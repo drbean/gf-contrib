@@ -33,13 +33,14 @@ fun
 
 -- N
 
-	world	: CN;
+	world	: PlaceNoun;
 	way	: N2;
 	sleep	: N;
 	power	: N2;
 	moment	: CN;
 	life	: CN;
-	level	: CN;
+	life_PLACE	: PlaceNoun;
+	level	: PlaceNoun;
 	idea	: CN;
 	gratitude	: N;
 	eye	: CN;
