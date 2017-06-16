@@ -151,7 +151,7 @@ idea	: CN;
 in	: Prep;
 inside	: Prep;
 inspired	: AP;
-joy
+joy	: N;
 joyful	: AP;
 level	: CN;
 lie	: V2;
