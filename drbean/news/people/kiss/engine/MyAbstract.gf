@@ -155,7 +155,7 @@ fun
 	PosS	: Cl -> S;
 	NegS	: Cl -> S;
 	QUt	: QS -> Utt;
-	Ut	: S -> Utt;
+	-- Ut	: S -> Utt;
 	Sentence	: NP -> VP -> Cl;
 	Exist	: NP -> Cl;
 
