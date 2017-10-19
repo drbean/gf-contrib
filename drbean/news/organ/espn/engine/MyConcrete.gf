@@ -64,6 +64,26 @@ oper
 		lock_VV = {}
 		};
 
+auxGet : Aux = {
+	pres = \\b,a => case <b,a> of {
+		<Pos,AgP1 Sg> => "get" ;
+		<Neg,AgP1 Sg> => ["do not get"] ; --- am not I
+		_ => agrVerb (posneg b "gets")  (posneg b "get") a
+	} ;
+	contr = \\b,a => case <b,a> of {
+		<Pos,AgP1 Sg> => cBind "m" ;
+		<Neg,AgP1 Sg> => cBind "m not" ; --- am not I
+		_ => agrVerb (posneg b (cBind "s"))  (posneg b (cBind "re")) a
+	} ;
+past = \\b,a => case a of {          --# notpresent
+		AgP1 Sg | AgP3Sg _ => posneg b "got" ; --# notpresent
+		_                  => (posneg b "got")  --# notpresent
+	} ; --# notpresent
+	inf  = "get" ;
+	ppart = "gotten" ;
+	prpart = "getting"
+};
+
 	mkpronAgr : Agr -> NP = \ag -> case ag of {
 		AgP1 Sg => i_NP;
 		AgP1 Pl => we_NP;
@@ -437,7 +457,7 @@ lin
 	PosS cl	= mkS cl;
 	NegS cl	= mkS negativePol cl;
 	QUt q	= mkUtt q;
-	Ut s	= mkUtt s;
+	-- Ut s	= mkUtt s;
 	Sentence subject predicate	= mkCl subject predicate;
 	Exist np = mkCl np;
 
