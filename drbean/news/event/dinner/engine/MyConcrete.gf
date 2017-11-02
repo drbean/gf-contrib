@@ -281,7 +281,7 @@ past = \\b,a => case a of {          --# notpresent
 
 	myApposNP : (np1 : NP) -> (insert : Str) -> (np2 : NP) -> { s : NPCase => Str ; a : Agr } =
 		\np1,insert,np2 ->
-		{s = \\n => np1.s ! n ++ insert ++ np2.s ! n; a = np1.a};
+		{s = \\n => np1.s ! n ++ BIND ++ insert ++ np2.s ! n; a = np1.a};
 
   myAdjAsCN : (ap : AP) -> { s : Number => Case => Str ; g : Gender } =
 		\ap ->
