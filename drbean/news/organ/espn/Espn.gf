@@ -18,7 +18,6 @@ fun
 	video	: AP;
 	upset	: AP;
 	first	: AP;
-	assistant	: AP;
 
 -- Conj
 
@@ -41,6 +40,7 @@ fun
 	face	: CN;
 	court	: PlaceNoun;
 	college	: Place;
+	assistant	: CN;
 	coach	: CN;
 	arm	: CN;
 	eight_hundred	: N;

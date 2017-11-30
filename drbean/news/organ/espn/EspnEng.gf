@@ -3,7 +3,9 @@
 concrete EspnEng of Espn = MyConcrete  **
 open ConstructorsEng, ParadigmsEng, StructuralEng, IrregEng, ExtraEng, ConstructX, Prelude, (R=ResEng) in {
 
--- oper
+oper
+
+	coach_N = mkN "coach";
 
 lin
 
@@ -19,7 +21,6 @@ lin
 	video	= mkAP( mkA "video") ;
 	upset	= mkAP( mkA "upset") ;
 	first	= mkAP( mkA "first") ;
-	assistant	= mkAP( mkA "assistant") ;
 
 -- Conj
 
@@ -29,6 +30,7 @@ lin
 
 -- N
 
+	assistant	= mkCN( mkN  "assistant" coach_N );
 	majority	= mkN2( mkN "majority") part_prep;
 	math_test	= mkCN( mkN "math test") ;
 	time	= mkCN( mkN "time") ;
@@ -42,7 +44,7 @@ lin
 	face	= mkCN( mkN "face") ;
 	court	= mkCN( mkN "court") ;
 	college	= mkNP( mkN "college") ;
-	coach	= mkCN( mkN "coach") ;
+	coach	= mkCN coach_N;
 	arm	= mkCN( mkN "arm") ;
 	eight_hundred	= mkN "800" nonExist;
 	seven_hundred_ninety	= mkN "790" nonExist;
