@@ -7,7 +7,7 @@ fun
 
 -- Adv
 
-	right_away	: Adv;
+	right_away	: Adv_time;
 	out	: Adv;
 	on	: Adv;
 	off	: Adv;
