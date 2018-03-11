@@ -95,7 +95,7 @@ lin
 	burn	= mkV2( mkV "burn") noPrep;
 	bark	= mkV "bark";
 	ask	= mkV2V( mkV "ask") noPrep to;
-	adjusted	= mkV2( mkV "adjusted") noPrep;
+	adjust	= mkV2( mkV "adjust") noPrep;
 
 }
 

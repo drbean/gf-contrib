@@ -93,7 +93,7 @@ fun
 	burn	: V2;
 	bark	: V;
 	ask	: V2V;
-	adjusted	: V2;
+	adjust	: V2;
 }
 
 -- vim: set ts=2 sts=2 sw=2 noet:
