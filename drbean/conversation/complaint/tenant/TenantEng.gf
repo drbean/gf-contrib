@@ -30,6 +30,7 @@ lin
 
 -- N
 
+	fixing	= mkN "fixing" nonExist;
 	temperature_control	= mkCN( mkN nonhuman (mkN "temperature control") );
 	refrigerator	= mkCN( mkN nonhuman (mkN "refrigerator") );
 	oven	= mkCN( mkN nonhuman (mkN "oven") );
@@ -71,6 +72,7 @@ lin
 
 -- V
 
+	need_V2	= mkV2( mkV "need") noPrep;
 	want	= mkVV( mkV "want") ;
 	try	= mkVV( mkV "try") ;
 	shut	= mkV2A( mkV "shut") noPrep;

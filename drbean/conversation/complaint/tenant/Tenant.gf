@@ -28,6 +28,7 @@ fun
 
 -- N
 
+	fixing	: N;
 	temperature_control	: CN;
 	refrigerator	: CN;
 	oven	: CN;
@@ -69,6 +70,7 @@ fun
 
 -- V
 
+	need_V2	: V2;
 	want	: VV;
 	try	: VV;
 	shut	: V2A;
