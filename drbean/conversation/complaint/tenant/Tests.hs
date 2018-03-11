@@ -103,7 +103,7 @@ dic_test = [
 	, "The building manager promises to get someone to look at it."
 	, "The electricity in Mrs Harris's apartment keeps going on and off."
 	, "The building manager guesses Mrs Harris's fuse box needs to be checked."
-	, "The building manager goes to Mrs Harris's apartment and looks at it right away."
+	, "The building manager goes to Mrs Harris's apartment and he looks at it right away."
 	, "The light out front of the building is out."
 	, "The building manager wants to help, but he is busy and he doesn't have his ladder."
 	, "Mr Won says he can fix the light."
