@@ -58,6 +58,7 @@ lin
 -- Prep
 
 	to	= mkPrep "to";
+	to_LOCPREP	= mkPrep "to";
 	out_front	= mkPrep "out front";
 	near	= mkPrep "near";
 	at	= mkPrep "at";
@@ -87,7 +88,7 @@ lin
 	help_V	= mkV "help";
 	guess	= mkVS( mkV "guess") ;
 	Go adv_result	= VP_Adv_result (mkVP ( mkV "go")) adv_result;
-	go_LOC	= mkV2( mkV "go") to;
+	Go_LOC adv_location	= VP_Adv_location (mkVP ( mkV "go")) adv_location;
 	give	= mkV3( mkV "give") noPrep noPrep;
 	get	= mkV2V( mkV "get") noPrep to;
 	fix	= mkV2( mkV "fix") noPrep;

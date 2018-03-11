@@ -43,7 +43,7 @@ fun
 	cousin	: CN;
 	building_manager	: CN;
 	building	: CN;
-	apartment	: CN;
+	apartment	: PlaceNoun;
 
 -- PN
 
@@ -56,10 +56,11 @@ fun
 -- Prep
 
 	to	: Prep;
+	to_LOCPREP	: LocPrep;
 	out_front	: Prep;
 	near	: Prep;
 	at	: Prep;
-	in_LOCPREP	: Prep;
+	in_LOCPREP	: LocPrep;
 	about	: Prep;
 
 -- Pron
@@ -85,7 +86,7 @@ fun
 	help_V	: V;
 	guess	: VS;
 	Go : Adv_result	-> VP;
-	go_LOC	: V2;
+	Go_LOC	: Adv_location -> VP;
 	give	: V3;
 	get	: V2V;
 	fix	: V2;
