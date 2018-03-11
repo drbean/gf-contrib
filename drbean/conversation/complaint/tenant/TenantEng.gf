@@ -81,7 +81,7 @@ lin
 	open_V2	= mkV2( mkV "open") noPrep;
 	need	= mkVV( mkV "need") ;
 	look_at	= mkV2( mkV "look") at;
-	keep	= mkVV( mkV "keep") ;
+	keep	= ingVV( mkV "keep") ;
 	jam	= mkV2A( mkV "jam") noPrep;
 	help_V2	= mkV2( mkV "help") noPrep;
 	help_V	= mkV "help";
