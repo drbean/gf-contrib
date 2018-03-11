@@ -86,7 +86,7 @@ lin
 	help_V2	= mkV2( mkV "help") noPrep;
 	help_V	= mkV "help";
 	guess	= mkVS( mkV "guess") ;
-	go_ADV	= partV( mkV "go") "";
+	Go adv_result	= VP_Adv_result (mkVP ( mkV "go")) adv_result;
 	go_LOC	= mkV2( mkV "go") to;
 	give	= mkV3( mkV "give") noPrep noPrep;
 	get	= mkV2V( mkV "get") noPrep to;

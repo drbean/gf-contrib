@@ -9,8 +9,8 @@ fun
 
 	right_away	: Adv_time;
 	out	: Adv;
-	on	: Adv;
-	off	: Adv;
+	on	: Adv_result;
+	off	: Adv_result;
 	all_night	: Adv;
 
 -- AP
@@ -84,7 +84,7 @@ fun
 	help_V2	: V2;
 	help_V	: V;
 	guess	: VS;
-	go_ADV	: V;
+	Go : Adv_result	-> VP;
 	go_LOC	: V2;
 	give	: V3;
 	get	: V2V;
