@@ -55,6 +55,7 @@ oper
 
 	no_Quant	= no_Quant;
 	some_Quant	= P.mkQuant "some" "some" "some" "some";
+	every_Quant	= P.mkQuant "every" nonExist;
 	zero_mass_Quant = P.mkQuant "" nonExist;
 	more_Quant	= P.mkQuant "more" "more" "more" "more";
 
@@ -226,6 +227,16 @@ oper
 								agreement = toAgr Sg P3 Neutr in {
 			s = \\_ => np;
 			a = agreement;
+		};
+
+	myNPbodything : (quant : Quant) -> ( body : Str )-> {s : NPCase => Str ; a : Agr} =
+	\quant,body -> let nom = glue ( quant.s ! False ! Sg ) body;
+		gen = glue nom "\'s" in {
+			s = table {
+			NCase Nom => nom;
+			NPAcc => nom;
+			_ => gen };
+			a = toAgr Sg P3 Neutr;
 		};
 
 	mySomething : (ap : AP) -> {s : NPCase => Str ; a : Agr} =
@@ -669,10 +680,12 @@ lin
 	some_PL_DET = mkDet some_Quant pluralNum;
 	some_NP = mkNP( mkDet some_Quant);
 	some_PL_NP = mkNP( mkDet some_Quant pluralNum);
+	someone_NP = myNPbodything some_Quant "one";
 	something	= something_NP;
 	every_DET	= every_Det;
 	everyone_NP = mkNP every_Det;
-	everything_NP = {s = \\_ => "everything"; lock_NP = {}; a = toAgr Sg P3 Neutr};
+	everything_NP = myNPbodything every_Quant "thing";
+	-- everything_NP = {s = \\_ => "everything"; lock_NP = {}; a = toAgr Sg P3 Neutr};
 	all_PREDET	= all_Predet;
 	that_PRON = mkNP (mkDet that_Quant);
 	this_PRON = mkNP (mkDet this_Quant);
