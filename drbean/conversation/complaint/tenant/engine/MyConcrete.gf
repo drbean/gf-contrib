@@ -684,8 +684,8 @@ lin
 	something	= something_NP;
 	every_DET	= every_Det;
 	everyone_NP = mkNP every_Det;
-	everything_NP = myNPbodything every_Quant "thing";
-	-- everything_NP = {s = \\_ => "everything"; lock_NP = {}; a = toAgr Sg P3 Neutr};
+	-- everything_NP = myNPbodything every_Quant "thing";
+	everything_NP = {s = \\_ => "everything"; lock_NP = {}; a = toAgr Sg P3 Neutr};
 	all_PREDET	= all_Predet;
 	that_PRON = mkNP (mkDet that_Quant);
 	this_PRON = mkNP (mkDet this_Quant);
