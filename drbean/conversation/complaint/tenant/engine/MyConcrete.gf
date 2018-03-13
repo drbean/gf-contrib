@@ -670,7 +670,7 @@ lin
 	some_NP = mkNP( mkDet some_Quant);
 	some_PL_NP = mkNP( mkDet some_Quant pluralNum);
 	something	= something_NP;
-	someone_NP = mkNP (mkDet some_Quant singularNum);
+	someone_NP = mkNP "someone" "someone" "someone's" Sg P3 human;
 	every_DET	= every_Det;
 	everyone_NP = mkNP every_Det;
 	everything_NP = {s = \\_ => "everything"; lock_NP = {}; a = toAgr Sg P3 Neutr};
