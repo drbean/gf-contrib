@@ -30,6 +30,7 @@ lin
 
 -- N
 
+	someone_NP	= mkNP( mkCN( mkN human (mkN "someone" nonExist) ) );
 	fixing	= mkN "fixing" nonExist;
 	temperature_control	= mkCN( mkN nonhuman (mkN "temperature control") );
 	refrigerator	= mkCN( mkN nonhuman (mkN "refrigerator") );
