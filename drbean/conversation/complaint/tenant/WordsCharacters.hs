@@ -157,6 +157,7 @@ help_V	: V;
 help_V2	: V2;
 in_LOCPREP	: Prep;
 Jack Burr	: PN;
+Mr Burr	: PN;
 jam	: V2A;
 keep	: VV;
 kitchen window	: CN;

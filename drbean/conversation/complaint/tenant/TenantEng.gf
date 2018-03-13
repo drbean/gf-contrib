@@ -54,6 +54,7 @@ lin
 	mr_won	= mkPN( mkN masculine (mkN "Mr Won") );
 	mr_two	= mkPN( mkN masculine (mkN "Mr Two") );
 	jack_burr	= mkPN( mkN masculine (mkN "Jack Burr") );
+	mr_burr	= mkPN( mkN masculine (mkN "Mr Burr") );
 
 -- Prep
 

@@ -52,6 +52,7 @@ fun
 	mr_won	: PN;
 	mr_two	: PN;
 	jack_burr	: PN;
+	mr_burr	: PN;
 
 -- Prep
 
