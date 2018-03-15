@@ -115,6 +115,7 @@ dic_test = [
 	, "The kitchen window is jammed shut"
 	, "The building manager says he can't help her."
 	, "Mrs Taylor says her cousin can help her open the window."
+	, "Some tenants have complaints and the building manager promises to fix some of their problems."
 
 
   ]
