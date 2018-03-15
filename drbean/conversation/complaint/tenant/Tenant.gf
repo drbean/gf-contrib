@@ -8,7 +8,7 @@ fun
 -- Adv
 
 	right_away	: Adv_time;
-	out	: Adv;
+	out	: Adv_theme;
 	on	: Adv_result;
 	off	: Adv_result;
 	all_night	: Adv;
@@ -42,7 +42,7 @@ fun
 	dog	: CN;
 	cousin	: CN;
 	building_manager	: CN;
-	building	: CN;
+	building	: PlaceNoun;
 	apartment	: PlaceNoun;
 
 -- PN
@@ -58,7 +58,7 @@ fun
 
 	to	: Prep;
 	to_LOCPREP	: LocPrep;
-	out_front	: Prep;
+	out_front_of_LOCPREP	: LocPrep;
 	near	: Prep;
 	at	: Prep;
 	in_LOCPREP	: LocPrep;

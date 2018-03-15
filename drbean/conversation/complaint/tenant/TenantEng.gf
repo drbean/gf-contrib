@@ -60,7 +60,7 @@ lin
 
 	to	= mkPrep "to";
 	to_LOCPREP	= mkPrep "to";
-	out_front	= mkPrep "out front";
+	out_front_of_LOCPREP	= mkPrep "out front of";
 	near	= mkPrep "near";
 	at	= mkPrep "at";
 	in_LOCPREP	= mkPrep "in";
