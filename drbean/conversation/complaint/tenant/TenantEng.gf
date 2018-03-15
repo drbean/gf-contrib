@@ -30,6 +30,10 @@ lin
 
 -- N
 
+	problem	= mkCN( mkN nonhuman (mkN "problem") );
+	complaint	= mkCN( mkN nonhuman (mkN "complaint") );
+	tenant	= mkCN( mkN human (mkN "tenant") );
+
 	fixing	= mkN "fixing" nonExist;
 	temperature_control	= mkCN( mkN nonhuman (mkN "temperature control") );
 	refrigerator	= mkCN( mkN nonhuman (mkN "refrigerator") );

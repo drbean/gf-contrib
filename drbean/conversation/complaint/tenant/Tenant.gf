@@ -28,6 +28,10 @@ fun
 
 -- N
 
+	problem	: CN;
+	complaint	: CN;
+	tenant	: CN;
+
 	fixing	: N;
 	temperature_control	: CN;
 	refrigerator	: CN;

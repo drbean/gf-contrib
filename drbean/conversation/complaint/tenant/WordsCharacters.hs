@@ -190,6 +190,9 @@ to	: Prep;
 try	: VV;
 want	: VV;
 
+tenant	: CN;
+complaint	: CN;
+problem	: CN;
 
 
 -}
