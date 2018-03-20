@@ -30,6 +30,7 @@ lin
 
 -- N
 
+	dog_PLACE	= mkCN( mkN "dog") ;
 	problem	= mkCN( mkN nonhuman (mkN "problem") );
 	complaint	= mkCN( mkN nonhuman (mkN "complaint") );
 	tenant	= mkCN( mkN human (mkN "tenant") );

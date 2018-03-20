@@ -28,6 +28,7 @@ fun
 
 -- N
 
+	dog_PLACE	: PlaceNoun;
 	problem	: CN;
 	complaint	: CN;
 	tenant	: CN;
@@ -63,7 +64,7 @@ fun
 	to	: Prep;
 	to_LOCPREP	: LocPrep;
 	out_front_of_LOCPREP	: LocPrep;
-	near	: Prep;
+	near	: LocPrep;
 	at	: Prep;
 	in_LOCPREP	: LocPrep;
 	about	: Prep;
