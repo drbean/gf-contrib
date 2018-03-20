@@ -89,6 +89,7 @@ fun
 	need	: VV;
 	look_at	: V2;
 	keep	: VV;
+	keep_V2A	: V2A;
 	jam	: V2A;
 	help_V2	: V2;
 	help_V	: V;
