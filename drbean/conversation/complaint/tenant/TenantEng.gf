@@ -45,6 +45,7 @@ lin
 	light	= mkCN( mkN nonhuman (mkN "light") );
 	ladder	= mkCN( mkN nonhuman (mkN "ladder") );
 	kitchen_window	= mkCN( mkN nonhuman (mkN "kitchen window") );
+	window	= mkCN( mkN nonhuman (mkN "window") );
 	fuse_box	= mkCN( mkN nonhuman (mkN "fuse box") );
 	electricity	= mkN "electricity" nonExist;
 	dog	= mkCN( mkN nonhuman (mkN "dog") );

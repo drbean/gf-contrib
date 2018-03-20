@@ -166,6 +166,7 @@ jam	: V2A;
 keep	: VV;
 keep_V2A	: V2A;
 kitchen window	: CN;
+window	: CN;
 ladder	: CN;
 light	: CN;
 lightbulb	: CN;

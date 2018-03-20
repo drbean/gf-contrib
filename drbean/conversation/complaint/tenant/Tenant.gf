@@ -43,6 +43,7 @@ fun
 	light	: CN;
 	ladder	: CN;
 	kitchen_window	: CN;
+	window	: CN;
 	fuse_box	: CN;
 	electricity	: N;
 	dog	: CN;
