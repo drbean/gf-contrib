@@ -93,6 +93,7 @@ fun
 	jam	: V2A;
 	help_V2	: V2;
 	help_V	: V;
+	help_V2V	: V2V;
 	guess	: VS;
 	Go : Adv_result	-> VP;
 	Go_LOC	: Adv_location -> VP;

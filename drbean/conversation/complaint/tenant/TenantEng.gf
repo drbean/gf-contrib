@@ -95,6 +95,7 @@ lin
 	jam	= mkV2A( mkV "jam") noPrep;
 	help_V2	= mkV2( mkV "help") noPrep;
 	help_V	= mkV "help";
+	help_V2V	= mkV2V( mkV "help") noPrep noPrep;
 	guess	= mkVS( mkV "guess") ;
 	Go adv_result	= VP_Adv_result (mkVP ( mkV "go")) adv_result;
 	Go_LOC adv_location	= VP_Adv_location (mkVP ( mkV "go")) adv_location;

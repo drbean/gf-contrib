@@ -158,6 +158,7 @@ go	: V;
 guess	: VS;
 help_V	: V;
 help_V2	: V2;
+help_V2V	: V2V;
 in_LOCPREP	: Prep;
 Jack Burr	: PN;
 Mr Burr	: PN;
