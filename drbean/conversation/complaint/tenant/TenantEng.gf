@@ -78,6 +78,7 @@ lin
 
 -- V
 
+	want_V2V	= mkV2V( mkV "want") noPrep to;
 	need_V2	= mkV2( mkV "need") noPrep;
 	want	= mkVV( mkV "want") ;
 	try	= mkVV( mkV "try") ;
