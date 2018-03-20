@@ -17,6 +17,7 @@ lin
 
 -- AP
 
+	shut	= mkAP( mkA "shut") ;
 	quiet	= mkAP( mkA "quiet") ;
 	busy = mkAP (mkA "busy" );
 
@@ -84,7 +85,6 @@ lin
 	need_V2	= mkV2( mkV "need") noPrep;
 	want	= mkVV( mkV "want") ;
 	try	= mkVV( mkV "try") ;
-	shut	= mkV2A( mkV "shut") noPrep;
 	say	= mkVS( mkV "say") ;
 	promise	= mkVV( mkV "promise") ;
 	open_V2	= mkV2( mkV "open") noPrep;

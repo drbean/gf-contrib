@@ -15,6 +15,7 @@ fun
 
 -- AP
 
+	shut	: AP;
 	quiet	: AP;
 	busy	: AP;
 
@@ -82,7 +83,6 @@ fun
 	need_V2	: V2;
 	want	: VV;
 	try	: VV;
-	shut	: V2A;
 	say	: VS;
 	promise	: VV;
 	open_V2	: V2;

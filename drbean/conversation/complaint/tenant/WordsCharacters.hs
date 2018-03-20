@@ -188,7 +188,7 @@ quiet	: AP;
 refrigerator	: CN;
 right away	: Adv;
 say	: VS;
-shut	: V2A;
+shut	: AP;
 temperature control	: CN;
 to	: Prep;
 try	: VV;
