@@ -143,6 +143,7 @@ can't
 check	: V2;
 cook	: V2;
 cousin	: CN;
+do	: V3;
 dog	: CN;
 electricity	: N;
 fix	: V2;
