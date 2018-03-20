@@ -137,7 +137,8 @@ building manager	: CN;
 burn	: V2;
 busy	: V;
 but	: Conj;
-call	: V2V;
+call_V2V	: V2V;
+call	: V2;
 cannot
 can't
 check	: V2;

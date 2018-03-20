@@ -100,7 +100,8 @@ fun
 	fix	: V2;
 	cook	: V2;
 	check	: V2;
-	call	: V2V;
+	call	: V2;
+	call_V2V	: V2V;
 	burn	: V2;
 	bark	: V;
 	ask	: V2V;

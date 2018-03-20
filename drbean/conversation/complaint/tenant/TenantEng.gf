@@ -102,7 +102,8 @@ lin
 	fix	= mkV2( mkV "fix") noPrep;
 	cook	= mkV2( mkV "cook") noPrep;
 	check	= mkV2( mkV "check") noPrep;
-	call	= mkV2V( mkV "call") noPrep to;
+	call	= mkV2( mkV "call") noPrep;
+	call_V2V	= mkV2V( mkV "call") noPrep to;
 	burn	= mkV2( mkV "burn") noPrep;
 	bark	= mkV "bark";
 	ask	= mkV2V( mkV "ask") noPrep to;
