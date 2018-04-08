@@ -32,6 +32,8 @@ lin
 
 -- N
 
+	farm	= mkCN( mkN nonhuman (mkN "farm") );
+	livestock_farm	= mkCN( mkN nonhuman (mkN "livestock farm") );
 	wildlife	= mkN "wildlife" nonExist;
 	way	= mkN2( mkN nonhuman (mkN "way") ) to;
 	water_pollution	= mkN "water pollution" nonExist;

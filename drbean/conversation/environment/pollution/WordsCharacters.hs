@@ -130,6 +130,7 @@ against
 air	: N;
 air pollution	: N;
 amount	: CN;
+and	: Conj;
 Andy	: PN;
 areas	: CN;
 ask	: VS;
@@ -152,6 +153,7 @@ environment	: CN;
 erode	: V2;
 extinction	: N;
 factory	: CN;
+farm	: CN;
 farmland	: N;
 fish	: CN;
 rain forest	: CN;
@@ -168,7 +170,7 @@ in	: Prep;
 into	: Prep;
 kill	: V2;
 law	: CN;
-livestock farm
+livestock farm	: CN;
 a lot of	: Det;
 management	: N;
 marine life	: N;

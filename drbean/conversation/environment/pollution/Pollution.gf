@@ -30,6 +30,8 @@ fun
 
 -- N
 
+	farm	: CN;
+	livestock_farm	: CN;
 	wildlife	: N;
 	way	: N2;
 	water_pollution	: N;
