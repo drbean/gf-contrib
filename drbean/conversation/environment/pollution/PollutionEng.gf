@@ -100,7 +100,7 @@ lin
 	threaten	= mkV2( mkV "threaten") noPrep;
 	think	= mkVS( mkV "think") ;
 	talk	= mkV2( mkV "talk") to_Prep;
-	see	= mkV2( mkV "see") noPrep;
+	see	= mkV2( IrregEng.see_V ) noPrep;
 	say	= mkVS( mkV "say") ;
 	run	= mkV2( mkV "run") noPrep;
 	pump	= mkV3( mkV "pump") ;
