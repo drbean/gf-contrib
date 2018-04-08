@@ -32,7 +32,9 @@ int2ref n = DRSRef ("r" ++ show n )
 
 lc_first :: String -> String
 lc_first str@(s:ss) = if any (flip isPrefixOf str) [
-	"Mnookin"
+	"Andy"
+	, "Carla"
+	, "Avox"
 	 ]
 	then s:ss
 	else toLower s:ss
