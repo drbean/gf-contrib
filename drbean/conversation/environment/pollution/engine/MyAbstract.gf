@@ -78,7 +78,7 @@ fun
 	Benefiting	: BeneficiaryPrep -> NP -> Adv_beneficiary;
 	Trajectoring	: TrajectoryPrep -> NP -> Adv_trajectory;
 	Causing	: CausePrep -> NP -> Adv_cause;
-	Happening	: V -> VP ;
+	V_	: V -> VP ;
 	V_NP	: V2 -> NP -> VP;
 	V_NP_VP:	V2V -> NP -> VP -> VP;
 	V_NP_NegVP	: V2V -> NP -> VP -> VP;

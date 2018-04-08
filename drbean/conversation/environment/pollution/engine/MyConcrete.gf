@@ -503,7 +503,7 @@ lin
 	Producing prep product	= mkAdv prep product;
 	Goaling, Benefiting
 	, Trajectoring, Causing = \prep, np -> mkAdv prep np;
-	Happening action	=	mkVP action;
+	V_ action	=	mkVP action;
 	V_NP v2 patient	= mkVP v2 patient;
 	V_NP_VP causal patient predicate	= mkVP causal patient predicate;
 	V_NP_NegVP v np vp	= myV_NP_NegVP v np vp;
