@@ -781,7 +781,7 @@ lin
 	when_SUBJ = when_Subj;
 	so_SUBJ	= P.mkSubj "so";
 	or_CONJ	= or_Conj;
-	and_CONJ	= mkConj "and";
+	and_CONJ	= mymkConj "and";
 
 
 	Subjunct subj s	= mkAdv subj s;
