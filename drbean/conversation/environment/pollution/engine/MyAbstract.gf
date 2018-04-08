@@ -358,6 +358,8 @@ fun
 	when_SUBJ	: Subj;
 	so_SUBJ	: Subj;
 	or_CONJ	: Conj;
+	and_CONJ	: Conj;
+
 
 	Subjunct	: Subj -> S -> SubordCl;
 
