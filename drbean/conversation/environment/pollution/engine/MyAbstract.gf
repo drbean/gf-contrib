@@ -192,6 +192,8 @@ fun
 	NegQ	: QCl -> QS;
 	PosS	: Cl -> S;
 	NegS	: Cl -> S;
+	AntPosS	: Cl -> S;
+	AntNegS	: Cl -> S;
 	QUt	: QS -> Utt;
 	Ut	: S -> Utt;
 	Sentence	: NP -> VP -> Cl;

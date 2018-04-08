@@ -613,6 +613,8 @@ lin
 	NegQ qcl	= mkQS negativePol qcl;
 	PosS cl	= mkS cl;
 	NegS cl	= mkS negativePol cl;
+	AntPosS cl	= mkS anteriorAnt cl;
+	AntNegS cl	= mkS anteriorAnt negativePol cl;
 	QUt q	= mkUtt q;
 	Ut s	= mkUtt s;
 	Sentence subject predicate	= mkCl subject predicate;
