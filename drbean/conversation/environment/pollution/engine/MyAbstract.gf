@@ -194,6 +194,12 @@ fun
 	NegS	: Cl -> S;
 	AntPosS	: Cl -> S;
 	AntNegS	: Cl -> S;
+	FutPosS	: Cl -> S;
+	FutNegS	: Cl -> S;
+	CondPosS	: Cl -> S;
+	CondNegS	: Cl -> S;
+	PastPosS	: Cl -> S;
+	PastNegS	: Cl -> S;
 	QUt	: QS -> Utt;
 	Ut	: S -> Utt;
 	Sentence	: NP -> VP -> Cl;
