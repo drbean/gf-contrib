@@ -624,11 +624,11 @@ lin
 	NegS cl	= mkS negativePol cl;
 	AntPosS cl	= mkS anteriorAnt cl;
 	AntNegS cl	= mkS anteriorAnt negativePol cl;
-	FutPosS cl	= mkS  futureTense cl;
-	FutNegS cl	= mkS   futureTense negativePol cl;
-	CondPosS cl	= mkS   conditionalTense cl;
-	CondNegS cl	= mkS    conditionalTense negativePol cl;
-	PastPosS cl	= mkS    pastTense cl;
+	FutPosS cl	= mkS futureTense cl;
+	FutNegS cl	= mkS futureTense negativePol cl;
+	CondPosS cl	= mkS conditionalTense cl;
+	CondNegS cl	= mkS conditionalTense negativePol cl;
+	PastPosS cl	= mkS pastTense cl;
 	PastNegS cl	= mkS pastTense negativePol cl;
 	QUt q	= mkUtt q;
 	Ut s	= mkUtt s;
