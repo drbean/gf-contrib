@@ -113,7 +113,7 @@ fun
 	happen	: V;
 	get	: V2V;
 	erode	: V2;
-	eat_up	: V;
+	eat_up	: V2;
 	contaminate	: V2;
 	change	: V2;
 	accelerate	: V2;

@@ -115,7 +115,7 @@ lin
 	happen	= mkV "happen" "happened";
 	get	= mkV2V( mkV "get") noPrep to;
 	erode	= mkV2( mkV "erode") noPrep;
-	eat_up	= partV( IrregEng.eat_V ) "up";
+	eat_up	= mkV2( partV( IrregEng.eat_V ) "up");
 	contaminate	= mkV2( mkV "contaminate") noPrep;
 	change	= mkV2( mkV "change") noPrep;
 	accelerate	= mkV2( mkV "accelerate") noPrep;
