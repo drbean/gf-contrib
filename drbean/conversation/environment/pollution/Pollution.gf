@@ -85,7 +85,7 @@ fun
 	into	: LocPrep;
 	in_LOCPREP	: Prep;
 	at	: Prep;
-	against	: Prep;
+	against	: ThemePrep;
 	about	: Prep;
 
 -- Pron
