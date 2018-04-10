@@ -42,7 +42,7 @@ lin
 	water	= mkN "water" nonExist;
 	uncle	= mkCN( mkN human (mkN "uncle") );
 	tv_station	= mkCN( mkN nonhuman (mkN "TV station") );
-	town	= mkN "town" nonExist;
+	town	= mkNP zero_Det_sg (mkN "town" nonExist );
 	top_executive	= mkCN( mkN human (mkN "top executive") );
 	suburb	= mkCN( mkN nonhuman (mkN "suburb") );
 	story	= mkCN( mkN nonhuman (mkN "story") );

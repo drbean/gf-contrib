@@ -38,7 +38,7 @@ fun
 	water	: N;
 	uncle	: CN;
 	tv_station	: CN;
-	town	: N;
+	town	: Place;
 	top_executive	: CN;
 	suburb	: CN;
 	story	: CN;
@@ -79,7 +79,7 @@ fun
 -- Prep
 
 	to	: Prep;
-	outside	: Prep;
+	outside	: LocPrep;
 	on	: Prep;
 	into	: LocPrep;
 	in_LOCPREP	: Prep;
