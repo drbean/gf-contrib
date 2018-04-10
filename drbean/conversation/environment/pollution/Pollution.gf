@@ -114,6 +114,7 @@ fun
 	get	: V2V;
 	erode	: V2;
 	eat_up	: V2;
+	Do	: NP -> NP -> VP;
 	contaminate	: V2;
 	change	: V2;
 	accelerate	: V2;

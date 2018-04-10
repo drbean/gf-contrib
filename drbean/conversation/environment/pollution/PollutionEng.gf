@@ -5,6 +5,7 @@ open ConstructorsEng, ParadigmsEng, StructuralEng, IrregEng, ExtraEng, Construct
 
 oper
 	pump	= mkV2( mkV "pump") noPrep;
+	do = mkV3 IrregEng.do_V noPrep about;
 
 
 lin
@@ -118,6 +119,7 @@ lin
 	get	= mkV2V( mkV "get") noPrep to;
 	erode	= mkV2( mkV "erode") noPrep;
 	eat_up	= mkV2( partV( IrregEng.eat_V ) "up");
+	Do np1 np2 = V_NP_NP do np1 np2;
 	contaminate	= mkV2( mkV "contaminate") noPrep;
 	change	= mkV2( mkV "change") noPrep;
 	accelerate	= mkV2( mkV "accelerate") noPrep;

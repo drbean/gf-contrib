@@ -147,6 +147,7 @@ company	: CN;
 contaminate	: V2;
 dead	: AP;
 destruction	: N;
+do	: V2;
 eat up	: V;
 environmental	: AP;
 environment	: CN;

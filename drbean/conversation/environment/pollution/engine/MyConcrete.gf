@@ -46,8 +46,8 @@ lincat
 	ListAdv_manner	= ListAdv;
 	ListAdv_result	= ListAdv;
 
-param
-  Auxiliary	= Do | Be | Should;
+-- param
+  -- Auxiliary	= Do | Be | Should;
 	-- VPs = Look_bad | Be_bad | Be_vp | Happening | Changing | Causative | Intens | Positing | Informing | Triangulating | Pred2A | Pass | ToPlace | WithPlace | WithStyle | WithCl ;
 
 
