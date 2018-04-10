@@ -191,6 +191,14 @@ fun
 	IAdvInfICl	: IAdv -> VP -> QCl;
 	PosQ	: QCl -> QS;
 	NegQ	: QCl -> QS;
+	AntPosQ	: QCl -> QS;
+	AntNegQ	: QCl -> QS;
+	FutPosQ	: QCl -> QS;
+	FutNegQ	: QCl -> QS;
+	CondPosQ	: QCl -> QS;
+	CondNegQ	: QCl -> QS;
+	PastPosQ	: QCl -> QS;
+	PastNegQ	: QCl -> QS;
 	PosS	: Cl -> S;
 	NegS	: Cl -> S;
 	AntPosS	: Cl -> S;
