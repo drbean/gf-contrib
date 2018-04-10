@@ -65,7 +65,7 @@ fun
 	building	: CN;
 	bird	: CN;
 	areas	: CN;
-	amount	: CN;
+	amount	: N2;
 	air_pollution	: N;
 	air	: N;
 	acid_rain	: N;

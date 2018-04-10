@@ -129,7 +129,7 @@ acid rain	: N;
 against : Prep;
 air	: N;
 air pollution	: N;
-amount	: CN;
+amount	: N2;
 and	: Conj;
 Andy	: PN;
 areas	: CN;

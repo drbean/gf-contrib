@@ -67,7 +67,7 @@ lin
 	building	= mkCN( mkN nonhuman (mkN "building") );
 	bird	= mkCN( mkN nonhuman (mkN "bird") );
 	areas	= mkCN( mkN nonhuman (mkN "areas") );
-	amount	= mkCN( mkN nonhuman (mkN "amount") );
+	amount	= mkN2( mkN nonhuman (mkN "amount") ) part_prep;
 	air_pollution	= mkN "air pollution" nonExist;
 	air	= mkN "air" nonExist;
 	acid_rain	= mkN "acid rain" nonExist;
