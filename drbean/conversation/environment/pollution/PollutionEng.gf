@@ -3,7 +3,9 @@
 concrete PollutionEng of Pollution = MyConcrete  **
 open ConstructorsEng, ParadigmsEng, StructuralEng, IrregEng, ExtraEng, ConstructX, Prelude, (R=ResEng) in {
 
--- oper
+oper
+	pump	= mkV2( mkV "pump") noPrep;
+
 
 lin
 
@@ -105,7 +107,7 @@ lin
 	see	= mkV2( IrregEng.see_V ) noPrep;
 	say	= mkVS( mkV "say") ;
 	run	= mkV2( mkV "run") noPrep;
-	pump	= mkV3( mkV "pump") ;
+	Pump np place	= VP_Adv_location (mkVP pump np) place;
 	publicity	= mkV "publicity";
 	pollute	= mkV2( mkV "pollute") noPrep;
 	kill	= mkV2( mkV "kill") noPrep;

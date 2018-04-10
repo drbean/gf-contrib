@@ -44,7 +44,7 @@ fun
 	story	: CN;
 	statue	: CN;
 	soil	: N;
-	river	: CN;
+	river	: PlaceNoun;
 	pollution	: N;
 	plant	: CN;
 	oil_spill	: CN;
@@ -81,7 +81,7 @@ fun
 	to	: Prep;
 	outside	: Prep;
 	on	: Prep;
-	into	: Prep;
+	into	: LocPrep;
 	in_LOCPREP	: Prep;
 	at	: Prep;
 	against	: Prep;
@@ -103,7 +103,7 @@ fun
 	see	: V2;
 	say	: VS;
 	run	: V2;
-	pump	: V3;
+	Pump	: NP -> Adv_location -> VP;
 	publicity	: V;
 	pollute	: V2;
 	kill	: V2;
