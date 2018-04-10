@@ -81,7 +81,7 @@ fun
 
 	to	: Prep;
 	outside	: LocPrep;
-	on	: Prep;
+	on	: ThemePrep;
 	into	: LocPrep;
 	in_LOCPREP	: Prep;
 	at	: Prep;
