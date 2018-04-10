@@ -126,7 +126,7 @@ tags = [
 about	: Prep;
 accelerate	: V2;
 acid rain	: N;
-against
+against : Prep;
 air	: N;
 air pollution	: N;
 amount	: CN;
