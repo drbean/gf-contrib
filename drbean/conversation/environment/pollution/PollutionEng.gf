@@ -61,7 +61,7 @@ lin
 	factory	= mkCN( mkN nonhuman (mkN "factory") );
 	extinction	= mkN "extinction" nonExist;
 	environment	= mkCN( mkN nonhuman (mkN "environment") );
-	destruction	= mkN "destruction" nonExist;
+	Destruction np	= MassOfpos( mkN2( mkN "destruction" ) of_PREP ) np;
 	company	= mkCN( mkN nonhuman (mkN "company") );
 	chemical	= mkCN( mkN nonhuman (mkN "chemical") );
 	building	= mkCN( mkN nonhuman (mkN "building") );

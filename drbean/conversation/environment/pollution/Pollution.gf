@@ -59,7 +59,7 @@ fun
 	factory	: CN;
 	extinction	: N;
 	environment	: CN;
-	destruction	: N;
+	Destruction	: NP -> N;
 	company	: CN;
 	chemical	: CN;
 	building	: CN;
