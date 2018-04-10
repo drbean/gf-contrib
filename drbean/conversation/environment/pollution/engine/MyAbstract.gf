@@ -228,6 +228,8 @@ fun
 	KindToExtent	: CN -> Adv_extent -> CN;
 	Membership : Det -> CN -> Adv_location -> Cl;
 	CompoundCN	: CN -> CN -> CN;
+	ApposCN	: CN -> NP -> CN;
+	CompoundNP	: NP -> NP -> NP;
 	PN_CN	: PN -> CN -> CN;
 	Item	: Det -> CN -> NP;
 	MassItem	: MassDet -> N -> NP;
