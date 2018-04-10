@@ -57,7 +57,7 @@ fun
 	fish	: CN;
 	farmland	: N;
 	factory	: CN;
-	extinction	: N;
+	Extinction	: NP -> N;
 	environment	: CN;
 	Destruction	: NP -> N;
 	company	: CN;

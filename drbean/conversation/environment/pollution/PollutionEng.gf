@@ -59,7 +59,7 @@ lin
 	fish	= mkCN( mkN nonhuman (mkN "fish" "fish") );
 	farmland	= mkN "farmland" nonExist;
 	factory	= mkCN( mkN nonhuman (mkN "factory") );
-	extinction	= mkN "extinction" nonExist;
+	Extinction np	= MassOfpos( mkN2( mkN "extinction" ) of_PREP ) np;
 	environment	= mkCN( mkN nonhuman (mkN "environment") );
 	Destruction np	= MassOfpos( mkN2( mkN "destruction" ) of_PREP ) np;
 	company	= mkCN( mkN nonhuman (mkN "company") );
