@@ -45,6 +45,7 @@ fun
 	statue	: CN;
 	soil	: N;
 	river	: PlaceNoun;
+	publicity	: N;
 	pollution	: N;
 	plant	: CN;
 	oil_spill	: CN;
@@ -104,7 +105,6 @@ fun
 	say	: VS;
 	run	: V2;
 	Pump	: NP -> Adv_location -> VP;
-	publicity	: V;
 	pollute	: V2;
 	kill	: V2;
 	ignore	: V2;

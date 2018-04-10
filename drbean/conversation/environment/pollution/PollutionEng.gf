@@ -49,6 +49,7 @@ lin
 	statue	= mkCN( mkN nonhuman (mkN "statue") );
 	soil	= mkN "soil" nonExist;
 	river	= mkCN( mkN nonhuman (mkN "river") );
+	publicity	= mkN "publicity" nonExist;
 	pollution	= mkN "pollution" nonExist;
 	plant	= mkCN( mkN nonhuman (mkN "plant") );
 	oil_spill	= mkCN( mkN nonhuman (mkN "oil spill") );
@@ -108,7 +109,6 @@ lin
 	say	= mkVS( mkV "say") ;
 	run	= mkV2( mkV "run") noPrep;
 	Pump np place	= VP_Adv_location (mkVP pump np) place;
-	publicity	= mkV "publicity";
 	pollute	= mkV2( mkV "pollute") noPrep;
 	kill	= mkV2( mkV "kill") noPrep;
 	ignore	= mkV2( mkV "ignore") noPrep;

@@ -182,7 +182,7 @@ outside	: Prep;
 plant	: CN;
 pollute	: V2;
 pollution	: N;
-publicity	: V;
+publicity	: N;
 pump	: V3;
 river	: CN;
 run	: V2;
