@@ -117,7 +117,7 @@ fun
 	contaminate	: V2;
 	change	: V2;
 	accelerate	: V2;
-	ask	: VS;
+	ask	: VQ;
 }
 
 -- vim: set ts=2 sts=2 sw=2 noet:

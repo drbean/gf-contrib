@@ -121,7 +121,7 @@ lin
 	contaminate	= mkV2( mkV "contaminate") noPrep;
 	change	= mkV2( mkV "change") noPrep;
 	accelerate	= mkV2( mkV "accelerate") noPrep;
-	ask	= mkVS( mkV "ask") ;
+	ask	= mkVQ( mkV "ask") ;
 
 }
 

@@ -133,7 +133,7 @@ amount	: N2;
 and	: Conj;
 Andy	: PN;
 areas	: CN;
-ask	: VS;
+ask	: VQ;
 at	: Prep;
 Avox	: AP;
 Avox Industries	: PN;
