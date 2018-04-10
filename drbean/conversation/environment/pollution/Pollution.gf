@@ -52,7 +52,7 @@ fun
 	management	: N;
 	law	: CN;
 	health	: N2;
-	growth	: N2;
+	Growth	: NP -> N;
 	rain_forest	: CN;
 	fish	: CN;
 	farmland	: N;

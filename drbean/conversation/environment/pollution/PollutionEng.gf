@@ -54,7 +54,7 @@ lin
 	management	= mkN "management" nonExist;
 	law	= mkCN( mkN nonhuman (mkN "law") );
 	health	= mkN2( mkN nonhuman (mkN "health") ) of_PREP;
-	growth	= mkN2( mkN nonhuman (mkN "growth") ) of_PREP;
+	Growth np	= MassOfpos( mkN2( mkN "growth" ) of_PREP ) np;
 	rain_forest	= mkCN( mkN nonhuman (mkN "rain forest") );
 	fish	= mkCN( mkN nonhuman (mkN "fish" "fish") );
 	farmland	= mkN "farmland" nonExist;
