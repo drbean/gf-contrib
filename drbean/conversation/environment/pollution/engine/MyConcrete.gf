@@ -531,6 +531,7 @@ lin
 	V2VSlash v2v vp	= mkVPSlash v2v vp;
 	V2ASlash v2a ap	= mkVPSlash v2a ap;
 	V3Slash v3 np	= mkVPSlash v3 np;
+	V3Slash1 v3 np1	= Slash3V3 v3 np1;
 	reflexive slash = reflexiveVP slash;
 	ModInf cn vp = mkCN cn vp;
 	ModPass3 cn v3 np = myModPass3 cn v3 np;

@@ -120,6 +120,7 @@ lin
 	erode	= mkV2( mkV "erode") noPrep;
 	eat_up	= mkV2( partV( IrregEng.eat_V ) "up");
 	Do np1 np2 = V_NP_NP do np1 np2;
+	Do_about np = V3Slash1 do np;
 	contaminate	= mkV2( mkV "contaminate") noPrep;
 	change	= mkV2( mkV "change") noPrep;
 	accelerate	= mkV2( mkV "accelerate") noPrep;

@@ -106,6 +106,7 @@ fun
 	V2VSlash	: V2V -> VP -> VPSlash;
 	V2ASlash	: V2A -> AP -> VPSlash;
 	V3Slash	: V3 -> NP -> VPSlash;
+	V3Slash1	: V3 -> NP -> VPSlash;
 	reflexive	: VPSlash -> VP;
 	ModInf : CN -> VP -> CN;
 	ModPass3 : CN -> V3 -> NP -> CN;
