@@ -116,6 +116,7 @@ fun
 	eat_up	: V2;
 	Do	: NP -> NP -> VP;
 	Do_about	: NP -> VPSlash;
+	Do_	: NP -> VPSlash;
 	contaminate	: V2;
 	change	: V2;
 	accelerate	: V2;
