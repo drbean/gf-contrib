@@ -70,7 +70,7 @@ lin
 	chemical	= mkCN( mkN nonhuman (mkN "chemical") );
 	building	= mkCN( mkN nonhuman (mkN "building") );
 	bird	= mkCN( mkN nonhuman (mkN "bird") );
-	areas	= mkCN( mkN nonhuman (mkN "areas") );
+	area	= mkCN( mkN nonhuman (mkN "area") );
 	amount	= mkN2( mkN nonhuman (mkN "amount") ) part_prep;
 	air_pollution	= mkN "air pollution" nonExist;
 	air	= mkN "air" nonExist;
@@ -103,7 +103,7 @@ lin
 -- V
 
 	work	= mkV "work";
-	threaten	= mkV2( mkV "threaten") noPrep;
+	threaten	= mkV2( mkV "threaten" "threatened") noPrep;
 	think	= mkVS( mkV "think") ;
 	talk	= mkV2( mkV "talk") to_Prep;
 	see	= mkV2( IrregEng.see_V ) noPrep;

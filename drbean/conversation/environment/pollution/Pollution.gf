@@ -65,7 +65,7 @@ fun
 	chemical	: CN;
 	building	: CN;
 	bird	: CN;
-	areas	: CN;
+	area	: PlaceNoun;
 	amount	: N2;
 	air_pollution	: N;
 	air	: N;
@@ -83,7 +83,7 @@ fun
 	outside	: LocPrep;
 	on	: ThemePrep;
 	into	: LocPrep;
-	in_LOCPREP	: Prep;
+	in_LOCPREP	: LocPrep;
 	at	: Prep;
 	against	: ThemePrep;
 	about	: Prep;
