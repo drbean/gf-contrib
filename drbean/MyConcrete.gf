@@ -503,7 +503,7 @@ lin
 	Producing prep product	= mkAdv prep product;
 	Goaling, Benefiting
 	, Trajectoring, Causing = \prep, np -> mkAdv prep np;
-	Happening action	=	mkVP action;
+	V_ action	=	mkVP action;
 	V_NP v2 patient	= mkVP v2 patient;
 	V_NP_VP causal patient predicate	= mkVP causal patient predicate;
 	V_NP_NegVP v np vp	= myV_NP_NegVP v np vp;
@@ -518,6 +518,7 @@ lin
 	V_NP_whether_S ask recipient topic = mkVP ask recipient topic;
   V_NP_NP v theme recipient = mkVP v theme recipient; 
   V_NP_AP v patient state = mkVP v patient state;
+	progressiveVP vp	= insertObj (\\a => vp.ad ! a ++ vp.prp ++ vp.p ++ vp.s2 ! a) (predAux auxBe) ;
   -- GetPassV3 v np = insertObj (\\_ => v.s ! VPPart ++ v.p ++ v.c2 ++ v.c3 ++ np.s ! NPAcc) (predAux auxGet) ;
   -- GetNPPPart v np = insertObj (\\_ => np.s ! NPAcc ++ v.s ! VPPart ++ v.p ++ v.c2 ) (predAux auxGet) ;
 	passive v = passiveVP v;
@@ -530,6 +531,7 @@ lin
 	V2VSlash v2v vp	= mkVPSlash v2v vp;
 	V2ASlash v2a ap	= mkVPSlash v2a ap;
 	V3Slash v3 np	= mkVPSlash v3 np;
+	V3Slash1 v3 np2	= Slash3V3 v3 np2;
 	reflexive slash = reflexiveVP slash;
 	ModInf cn vp = mkCN cn vp;
 	ModPass3 cn v3 np = myModPass3 cn v3 np;
@@ -611,8 +613,24 @@ lin
 	IAdvInfICl iadv vp	= myInfICl iadv vp;
 	PosQ qcl	= mkQS qcl;
 	NegQ qcl	= mkQS negativePol qcl;
+	AntPosQ qcl	= mkQS anteriorAnt qcl;
+	AntNegQ qcl	= mkQS anteriorAnt negativePol qcl;
+	FutPosQ qcl	= mkQS futureTense qcl;
+	FutNegQ qcl	= mkQS futureTense negativePol qcl;
+	CondPosQ qcl	= mkQS conditionalTense qcl;
+	CondNegQ qcl	= mkQS conditionalTense negativePol qcl;
+	PastPosQ qcl	= mkQS pastTense qcl;
+	PastNegQ qcl	= mkQS pastTense negativePol qcl;
 	PosS cl	= mkS cl;
 	NegS cl	= mkS negativePol cl;
+	AntPosS cl	= mkS anteriorAnt cl;
+	AntNegS cl	= mkS anteriorAnt negativePol cl;
+	FutPosS cl	= mkS futureTense cl;
+	FutNegS cl	= mkS futureTense negativePol cl;
+	CondPosS cl	= mkS conditionalTense cl;
+	CondNegS cl	= mkS conditionalTense negativePol cl;
+	PastPosS cl	= mkS pastTense cl;
+	PastNegS cl	= mkS pastTense negativePol cl;
 	QUt q	= mkUtt q;
 	-- Ut s	= mkUtt s;
 	Sentence subject predicate	= mkCl subject predicate;
@@ -642,6 +660,8 @@ lin
 	KindToExtent cn adv	= mkCN cn adv;
 	Membership det cn place = mkCl( Item det (KindInPlace cn place));
 	CompoundCN cn1 cn2 = CompoundCN cn1 cn2;
+	ApposCN cn np = {s = \\n,c => cn.s ! n ! Nom ++ np.s ! NCase c ; g = cn.g};
+	CompoundNP np1 np2 = myApposNP np1 "" np2;
 	PN_CN pn cn	= { s = \\n,c => pn.s ! Nom ++ cn.s ! n ! c;
 		g = cn.g };
 	Ofpos n2 np	= mkCN n2 np;
@@ -779,6 +799,8 @@ lin
 	when_SUBJ = when_Subj;
 	so_SUBJ	= P.mkSubj "so";
 	or_CONJ	= or_Conj;
+	and_CONJ	= mymkConj "and";
+
 
 	Subjunct subj s	= mkAdv subj s;
 

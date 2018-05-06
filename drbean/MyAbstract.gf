@@ -78,7 +78,7 @@ fun
 	Benefiting	: BeneficiaryPrep -> NP -> Adv_beneficiary;
 	Trajectoring	: TrajectoryPrep -> NP -> Adv_trajectory;
 	Causing	: CausePrep -> NP -> Adv_cause;
-	Happening	: V -> VP ;
+	V_	: V -> VP ;
 	V_NP	: V2 -> NP -> VP;
 	V_NP_VP:	V2V -> NP -> VP -> VP;
 	V_NP_NegVP	: V2V -> NP -> VP -> VP;
@@ -93,6 +93,7 @@ fun
 	V_NP_whether_S:	V2Q -> NP -> QS -> VP;
 	V_NP_NP:	V3 -> NP -> NP -> VP;
   V_NP_AP: V2A -> NP -> AP -> VP;
+	progressiveVP:	VP -> VP;
 	-- GetPassV3	: V3 -> NP -> VP ;	-- get called John
 	-- GetNPPPart	: V2 -> NP -> VP; -- get the job done right
 	passive : V2 -> VP;
@@ -105,6 +106,7 @@ fun
 	V2VSlash	: V2V -> VP -> VPSlash;
 	V2ASlash	: V2A -> AP -> VPSlash;
 	V3Slash	: V3 -> NP -> VPSlash;
+	V3Slash1	: V3 -> NP -> VPSlash;
 	reflexive	: VPSlash -> VP;
 	ModInf : CN -> VP -> CN;
 	ModPass3 : CN -> V3 -> NP -> CN;
@@ -190,8 +192,24 @@ fun
 	IAdvInfICl	: IAdv -> VP -> QCl;
 	PosQ	: QCl -> QS;
 	NegQ	: QCl -> QS;
+	AntPosQ	: QCl -> QS;
+	AntNegQ	: QCl -> QS;
+	FutPosQ	: QCl -> QS;
+	FutNegQ	: QCl -> QS;
+	CondPosQ	: QCl -> QS;
+	CondNegQ	: QCl -> QS;
+	PastPosQ	: QCl -> QS;
+	PastNegQ	: QCl -> QS;
 	PosS	: Cl -> S;
 	NegS	: Cl -> S;
+	AntPosS	: Cl -> S;
+	AntNegS	: Cl -> S;
+	FutPosS	: Cl -> S;
+	FutNegS	: Cl -> S;
+	CondPosS	: Cl -> S;
+	CondNegS	: Cl -> S;
+	PastPosS	: Cl -> S;
+	PastNegS	: Cl -> S;
 	QUt	: QS -> Utt;
 	-- Ut	: S -> Utt;
 	Sentence	: NP -> VP -> Cl;
@@ -219,6 +237,8 @@ fun
 	KindToExtent	: CN -> Adv_extent -> CN;
 	Membership : Det -> CN -> Adv_location -> Cl;
 	CompoundCN	: CN -> CN -> CN;
+	ApposCN	: CN -> NP -> CN;
+	CompoundNP	: NP -> NP -> NP;
 	PN_CN	: PN -> CN -> CN;
 	Item	: Det -> CN -> NP;
 	MassItem	: MassDet -> N -> NP;
@@ -356,6 +376,8 @@ fun
 	when_SUBJ	: Subj;
 	so_SUBJ	: Subj;
 	or_CONJ	: Conj;
+	and_CONJ	: Conj;
+
 
 	Subjunct	: Subj -> S -> SubordCl;
 
