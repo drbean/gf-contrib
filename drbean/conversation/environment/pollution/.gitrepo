@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = http://github.com/drbean/pollution
+	branch = master
+	commit = 8c9f83b140ff653795b1d77ebddb9787ed84e5a8
+	parent = 9924df60db2d7dfc956925b2ff636350ac4e410b
+	cmdver = 0.3.1
