@@ -67,11 +67,11 @@ fun
 
 -- Prep
 
-	with	: Prep;
-	to	: Prep;
+	with_PREP	: Prep;
+	to_PREP	: Prep;
 	on	: Prep;
 	into	: Prep;
-	by	: Prep;
+	by	: InstrumentPrep;
 	at	: Prep;
 	about	: Prep;
 
@@ -94,7 +94,7 @@ fun
 	study	: V2;
 	stick	: V3;
 	say	: VS;
-	put_down	: V;
+	put_down	: V2;
 	organize_V3	: V3;
 	organize	: V2;
 	memorize	: V2;

@@ -1,9 +1,11 @@
---# -path=.:./engine:/home/drbean/GF/lib/src/translator:present
+--# -path=.:./engine:/home/drbean/GF/lib/src/translator:alltenses
 
 concrete MethodEng of Method = MyConcrete  **
 open ConstructorsEng, ParadigmsEng, StructuralEng, IrregEng, ExtraEng, ConstructX, Prelude, (R=ResEng) in {
 
--- oper
+oper
+
+	through = mkPrep "through";
 
 lin
 
@@ -27,7 +29,7 @@ lin
 
 -- Det
 
-	one	= mkDet( mkCard (mkNumeral none_Unit));
+	one	= mkDet( mkCard (mkNumeral n1_Unit));
 	every	= mkDet( ParadigmsEng.mkQuant "every" nonExist) singularNum;
 	at_least	= ss "at least";
 
@@ -35,7 +37,7 @@ lin
 
 	word	= mkCN( mkN nonhuman (mkN "word") );
 	week	= mkCN( mkN nonhuman (mkN "week") );
-	way	= mkN2( mkN nonhuman (mkN "way") ) to;
+	way	= mkN2( mkN nonhuman (mkN "way") ) to_PREP;
 	vocabulary	= mkN "vocabulary" nonExist;
 	verb	= mkCN( mkN nonhuman (mkN "verb") );
 	study_card	= mkCN( mkN nonhuman (mkN "study card") );
@@ -69,8 +71,8 @@ lin
 
 -- Prep
 
-	with	= mkPrep "with";
-	to	= mkPrep "to";
+	with_PREP	= mkPrep "with";
+	to_PREP	= mkPrep "to";
 	on	= mkPrep "on";
 	into	= mkPrep "into";
 	by	= mkPrep "by";
@@ -101,7 +103,7 @@ lin
 	organize	= mkV2( mkV "organize") noPrep;
 	memorize	= mkV2( mkV "memorize") noPrep;
 	look	= mkV2( mkV "look") at;
-	listen	= mkV2( mkV "listen") to_PREP;
+	listen	= mkV2( mkV "listen" "listened") to_PREP;
 	learn	= mkV2( mkV "learn") noPrep;
 	keep	= mkV2( mkV "keep") noPrep;
 	include	= mkV2( mkV "include") noPrep;
