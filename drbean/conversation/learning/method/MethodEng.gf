@@ -41,7 +41,6 @@ lin
 	study_card	= mkCN( mkN nonhuman (mkN "study card") );
 	spare_time	= mkN "spare time" nonExist;
 	side	= mkCN( mkN nonhuman (mkN "side") );
-	say	:_vs;	= mkCN( mkN nonhuman (mkN "say	: VS;") );
 	sentence	= mkCN( mkN nonhuman (mkN "sentence") );
 	room	= mkCN( mkN nonhuman (mkN "room") );
 	record	= mkN2( mkN nonhuman (mkN "record") ) of_PREP;

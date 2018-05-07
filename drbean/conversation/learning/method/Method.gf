@@ -39,7 +39,6 @@ fun
 	study_card	: CN;
 	spare_time	: N;
 	side	: CN;
-	say	:_vs;	: CN;
 	sentence	: CN;
 	room	: CN;
 	record	: N2;
