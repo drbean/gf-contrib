@@ -1,4 +1,4 @@
-module Evaluation (readPGF, languages, buildMorpho, morphoMissing, chomp, lc_first, term2ref, drsRefs, xyzwp, var_e, unmaybe, rep, parses, drsToLF, linear, showExpr, transform) where
+module Evaluation (readPGF, languages, buildMorpho, morphoMissing, leading_space, chomp, lc_first, term2ref, drsRefs, xyzwp, var_e, unmaybe, rep, parses, drsToLF, linear, showExpr, transform) where
 
 import PGF
 import Data.DRS hiding (Or,Neg,Imp,Rel)
@@ -162,6 +162,11 @@ linear :: PGF -> Tree -> Maybe String
 linear gr p = Just (linearize gr (myLanguage gr) p)
 
 myLanguage gr = (head . languages) gr
+
+leading_space :: String -> String
+leading_space (' ': xs) = leading_space xs
+leading_space ('\t': xs) = leading_space xs
+leading_space xs = xs
 
 chomp :: String -> String
 chomp []                      = []

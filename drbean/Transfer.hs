@@ -26,7 +26,8 @@ main = do
 	hClose stderr
 	hDuplicateTo stdout stderr
 	s <- getLine
-	let l = (chomp . lc_first) s
+	let s' = leading_space s
+	let l = (chomp . lc_first) s'
 	let unknown = unwords (morphoMissing morpho (words l))
 	putStrLn ("Unknown_words: " ++ unknown )
 	let ps = parses gr l
