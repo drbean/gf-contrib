@@ -401,7 +401,7 @@ repVP (GLook_bad v ap) = \r -> let
 	look_conds = [Rel (DRSRel (lin v)) [patient, p]
 		, Prop p (DRS [] [Rel (DRSRel lin_ap) rs])]
 	in DRS [patient] look_conds
-repVP (GHappening v) = \r -> DRS [r] [Rel (DRSRel (lin v)) [r]]
+repVP (GV_ v) = \r -> DRS [r] [Rel (DRSRel (lin v)) [r]]
 repVP (GV_NP v obj) = \r -> repNP obj
 	(\patient -> DRS [r,patient] [Rel (DRSRel (lin v)) [r, patient]] ) (new obj [r])
 repVP (GV_NP_NP v obj1 obj2) = \r -> repNP obj1 (\theme ->
@@ -483,7 +483,7 @@ repVP (GV_that_S v0 (GNegS (GSentence np vp))) = case vp of
 			(new obj [r,referent]) ) (new np [r])
 		(GVP_Adv_manner vp3 _) ->
 			repVP (GV_that_S v0 (GNegS (GSentence np (GIntens vv vp3))))
-		(GHappening v) -> \r -> repNP np (\referent -> let
+		(GV_ v) -> \r -> repNP np (\referent -> let
 			lin_v = lin v
 			p = DRSRef "p"
 			conds = [Rel (DRSRel (lin v0)) [r,p]
@@ -494,7 +494,7 @@ repVP (GV_that_S v0 (GNegS (GSentence np vp))) = case vp of
 			(GVP_Adv_manner vp4 _) ->
 				repVP (GV_that_S v0 (GNegS (GSentence np (GIntens vv
 				(GV_NP_VP v obj vp4)))))
-			(GHappening v1) -> \r -> repNP np (\referent ->
+			(GV_ v1) -> \r -> repNP np (\referent ->
 				repNP obj (\theme -> let
 					statement = DRSRel (lin v0)
 					intensive = DRSRel (lin v)
