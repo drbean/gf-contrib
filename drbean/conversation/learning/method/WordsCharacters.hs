@@ -189,6 +189,7 @@ stick	: V3;
 study	: V2;
 study card	: CN;
 to	: Prep;
+time	: N;
 until	: Subj;
 use	: V2;
 verb	: CN;

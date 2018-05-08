@@ -44,6 +44,7 @@ lin
 	way	= mkN2( mkN nonhuman (mkN "way") ) to_PREP;
 	vocabulary	= mkN "vocabulary" nonExist;
 	verb	= mkCN( mkN nonhuman (mkN "verb") );
+	time	= mkN "time" nonExist;
 	study_card	= mkCN( mkN nonhuman (mkN "study card") );
 	spare_time	= mkN "spare time" nonExist;
 	side_LOC	= mkCN side;

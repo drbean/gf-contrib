@@ -37,6 +37,7 @@ fun
 	way	: N2;
 	vocabulary	: N;
 	verb	: CN;
+	time	: N;
 	study_card	: CN;
 	spare_time	: N;
 	side_LOC	: PlaceNoun;
