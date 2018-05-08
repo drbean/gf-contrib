@@ -11,7 +11,7 @@ fun
 	in_common	: Adv;
 	by_heart	: Adv;
 	best	: Adv_manner;
-	always	: Adv;
+	always	: AdV;
 
 -- AP
 
