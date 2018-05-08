@@ -61,7 +61,7 @@ lin
 	list	= mkCN( mkN nonhuman (mkN "list") );
 	language	= mkCN( mkN nonhuman (mkN "language") );
 	information	= mkN2( mkN nonhuman (mkN "information") ) about;
-	example	= mkCN( mkN nonhuman (mkN "example") );
+	example	= mkN2( mkN nonhuman (mkN "example") );
 	computer	= computer_CN;
 	computer_LOC	= computer_CN;
 	cd	= mkCN( mkN nonhuman (mkN "CD") );

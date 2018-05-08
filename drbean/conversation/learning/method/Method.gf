@@ -54,7 +54,7 @@ fun
 	list	: CN;
 	language	: CN;
 	information	: N2;
-	example	: CN;
+	example	: N2;
 	computer	: CN;
 	computer_LOC	: PlaceNoun;
 	cd	: CN;
