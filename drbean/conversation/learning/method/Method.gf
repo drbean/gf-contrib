@@ -70,7 +70,7 @@ fun
 -- Prep
 
 	in_LOCPREP	: LocPrep;
-	with_PREP	: Prep;
+	with_PREP	: CopatientPrep;
 	to_PREP	: Prep;
 	on	: LocPrep;
 	into	: Prep;
