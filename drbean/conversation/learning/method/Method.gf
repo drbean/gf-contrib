@@ -10,7 +10,7 @@ fun
 	often	: Adv;
 	in_common	: Adv;
 	by_heart	: Adv;
-	best	: Adv;
+	best	: Adv_manner;
 	always	: Adv;
 
 -- AP
@@ -40,10 +40,11 @@ fun
 	spare_time	: N;
 	side	: CN;
 	sentence	: CN;
-	room	: CN;
+	room	: PlaceNoun;
 	record	: N2;
 	piece	: N2;
 	paper	: N;
+	pieces_of_paper	: Place;
 	noun	: CN;
 	night	: CN;
 	meaning	: CN;
@@ -67,9 +68,10 @@ fun
 
 -- Prep
 
+	in_LOCPREP	: LocPrep;
 	with_PREP	: Prep;
 	to_PREP	: Prep;
-	on	: Prep;
+	on	: LocPrep;
 	into	: Prep;
 	by	: InstrumentPrep;
 	at	: Prep;
@@ -100,6 +102,7 @@ fun
 	memorize	: V2;
 	look	: V2;
 	listen	: V2;
+	learn_V	: V;
 	learn	: V2;
 	keep	: V2;
 	include	: V2;
@@ -107,7 +110,7 @@ fun
 	go_to_sleep	: V;
 	come_across	: V;
 	believe	: VS;
-	ask	: V2S;
+	ask	: V2Q;
 	add	: V3;
 }
 

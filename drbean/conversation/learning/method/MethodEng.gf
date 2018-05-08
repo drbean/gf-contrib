@@ -48,6 +48,7 @@ lin
 	record	= mkN2( mkN nonhuman (mkN "record") ) of_PREP;
 	piece	= mkN2( mkN nonhuman (mkN "piece") ) part_prep;
 	paper	= mkN "paper" nonExist;
+	pieces_of_paper	= Item zero_Det_pl (Ofpos piece (MassItem zero_Det_sg paper));
 	noun	= mkCN( mkN nonhuman (mkN "noun") );
 	night	= mkCN( mkN nonhuman (mkN "night") );
 	meaning	= mkCN( mkN nonhuman (mkN "meaning") );
@@ -71,6 +72,7 @@ lin
 
 -- Prep
 
+	in_LOCPREP	= mkPrep "in";
 	with_PREP	= mkPrep "with";
 	to_PREP	= mkPrep "to";
 	on	= mkPrep "on";
@@ -97,13 +99,14 @@ lin
 	Go_through np	= mkVP( mkV2( mkV "go") through ) np;
 	study	= mkV2( mkV "study") noPrep;
 	stick	= mkV3( mkV "stick") noPrep on;
-	say	= mkVS( mkV "say") ;
+	say	= mkVS( IrregEng.say_V ) ;
 	put_down	= mkV2( partV( mkV "put") "down" ) noPrep;
 	organize_V3	= mkV3( mkV "organize") noPrep into;
 	organize	= mkV2( mkV "organize") noPrep;
 	memorize	= mkV2( mkV "memorize") noPrep;
 	look	= mkV2( mkV "look") at;
 	listen	= mkV2( mkV "listen" "listened") to_PREP;
+	learn_V	= mkV "learn";
 	learn	= mkV2( mkV "learn") noPrep;
 	keep	= mkV2( mkV "keep") noPrep;
 	include	= mkV2( mkV "include") noPrep;
@@ -111,7 +114,7 @@ lin
 	go_to_sleep	= partV( mkV "go") "to sleep";
 	come_across	= partV( mkV "come") "across";
 	believe	= mkVS( mkV "believe") ;
-	ask	= mkV2S( mkV "ask") noPrep;
+	ask	= mkV2Q( mkV "ask") noPrep;
 	add	= mkV3( mkV "add") noPrep to_PREP;
 
 }
