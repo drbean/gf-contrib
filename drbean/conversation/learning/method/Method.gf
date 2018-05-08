@@ -7,7 +7,7 @@ fun
 
 -- Adv
 
-	often	: Adv;
+	often	: A;
 	in_common	: Adv;
 	by_heart	: Adv_manner;
 	best	: Adv_manner;

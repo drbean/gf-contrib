@@ -14,7 +14,6 @@ lin
 
 -- Adv
 
-	often	= ParadigmsEng.mkAdv "often" ;
 	in_common	= ParadigmsEng.mkAdv "in common" ;
 	by_heart	= ParadigmsEng.mkAdv "by heart" ;
 	best	= ParadigmsEng.mkAdv "best" ;
@@ -26,6 +25,7 @@ lin
 	only	= mkAP( mkA "only") ;
 	new	= mkAP( mkA "new") ;
 	key	= mkAP( mkA "key") ;
+	often = irregAdv ( compoundA ( mkA "frequent" ) ) "often" ;
 
 -- Conj
 
