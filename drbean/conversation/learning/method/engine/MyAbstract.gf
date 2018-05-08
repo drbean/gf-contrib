@@ -234,6 +234,7 @@ fun
 	KindInPlace	: CN -> Adv_location -> CN;
 	NPInPlace	: NP -> Adv_location -> NP;
 	PlaceKind	: AP -> PlaceNoun -> PlaceNoun;
+	PlaceOfNP	: N2 -> NP -> PlaceNoun;
 	KindToExtent	: CN -> Adv_extent -> CN;
 	Membership : Det -> CN -> Adv_location -> Cl;
 	CompoundCN	: CN -> CN -> CN;

@@ -6,6 +6,7 @@ open ConstructorsEng, ParadigmsEng, StructuralEng, IrregEng, ExtraEng, Construct
 oper
 
 	through = mkPrep "through";
+	side	= mkN nonhuman (mkN "side");
 
 lin
 
@@ -42,7 +43,8 @@ lin
 	verb	= mkCN( mkN nonhuman (mkN "verb") );
 	study_card	= mkCN( mkN nonhuman (mkN "study card") );
 	spare_time	= mkN "spare time" nonExist;
-	side	= mkCN( mkN nonhuman (mkN "side") );
+	side_LOC	= mkCN side;
+	side_N2	= mkN2 side;
 	sentence	= mkCN( mkN nonhuman (mkN "sentence") );
 	room	= mkCN( mkN nonhuman (mkN "room") );
 	record	= mkN2( mkN nonhuman (mkN "record") ) of_PREP;

@@ -38,7 +38,8 @@ fun
 	verb	: CN;
 	study_card	: CN;
 	spare_time	: N;
-	side	: CN;
+	side_LOC	: PlaceNoun;
+	side_N2	: N2;
 	sentence	: CN;
 	room	: PlaceNoun;
 	record	: N2;

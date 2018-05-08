@@ -657,6 +657,7 @@ lin
 	KindInPlace cn adv	= mkCN cn adv;
 	NPInPlace np adv = mkNP np adv;
 	PlaceKind ap n = mkCN ap n;
+	PlaceOfNP n2 np = mkCN n2 np;
 	KindToExtent cn adv	= mkCN cn adv;
 	Membership det cn place = mkCl( Item det (KindInPlace cn place));
 	CompoundCN cn1 cn2 = CompoundCN cn1 cn2;
