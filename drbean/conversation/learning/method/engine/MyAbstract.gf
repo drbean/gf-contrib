@@ -17,6 +17,7 @@ cat
 	SourcePrep;
 	ResultPrep;
 	PatientPrep;
+	CopatientPrep;
 	ExtentPrep;
 	AttributePrep;
 	StimulusPrep;
@@ -34,6 +35,7 @@ cat
 	Adv_source;
 	Adv_result;
 	Adv_patient;
+	Adv_copatient;
 	Adv_extent;
 	Adv_attribute;
 	Adv_stimulus;
@@ -70,6 +72,7 @@ fun
 	Sourcing		: SourcePrep -> NP -> Adv_source;
 	Resulting		: ResultPrep -> NP -> Adv_result;
 	Patienting		: PatientPrep -> NP -> Adv_patient;
+	Copatienting		: CopatientPrep -> NP -> Adv_copatient;
 	Extenting	: ExtentPrep -> NP -> Adv_extent;
 	Attributing	: AttributePrep -> NP -> Adv_attribute;
 	Stimulating	: StimulusPrep -> NP -> Adv_stimulus;
@@ -154,6 +157,7 @@ fun
 	VP_Adv_time	: VP -> Adv_time -> VP;
 	VP_Adv_location	:  VP -> Adv_location -> VP;
 	VP_Adv_result	: VP -> Adv_result -> VP;
+	VP_Adv_copatient	: VP -> Adv_copatient -> VP;
 	VP_Adv_extent	: VP -> Adv_extent -> VP;
 	VP_Adv_attribute	: VP -> Adv_attribute -> VP;
 	VP_Adv_stimulus	: VP -> Adv_stimulus -> VP;

@@ -16,6 +16,7 @@ lincat
 	SourcePrep	= Prep;
 	ResultPrep	= Prep;
 	PatientPrep	= Prep;
+	CopatientPrep	= Prep;
 	ExtentPrep	= Prep;
 	AttributePrep	= Prep;
 	StimulusPrep	= Prep;
@@ -497,6 +498,7 @@ lin
 	Sourcing prep source = mkAdv prep source;
 	Resulting prep result = mkAdv prep result;
 	Patienting prep result = mkAdv prep result;
+	Copatienting prep result = mkAdv prep result;
 	Extenting prep degree	=mkAdv prep degree;
 	Attributing prep attribute	= mkAdv prep attribute;
 	Stimulating prep stimulus	= mkAdv prep stimulus;
@@ -582,6 +584,7 @@ lin
 	VP_Adv_time vp pp = mkVP vp pp;
 	VP_Adv_location vp located = mkVP vp located;
 	VP_Adv_result vp result = mkVP vp result;
+	VP_Adv_copatient vp copatient = mkVP vp copatient;
 	VP_Adv_extent vp extent = mkVP vp extent;
 	VP_Adv_attribute vp attribute = mkVP vp attribute;
 	VP_Adv_stimulus vp stimulus	= mkVP vp stimulus;
