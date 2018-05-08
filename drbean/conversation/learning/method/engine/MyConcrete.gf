@@ -554,6 +554,7 @@ lin
 	FactNP cl = myCltoNP "the fact that" cl;
 	WayNP cl = myCltoNP "the way that" cl;
 	HowNP cl = myCltoNP "how" cl;
+	WhetherNP cl = myCltoNP "whether" cl;
 	-- WhatNP cl = myCltoNP "what" cl;
 	WhyNP cl = myCltoNP "why" cl;
 	ThatNP cl	= myCltoNP "that" cl;
