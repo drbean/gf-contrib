@@ -55,6 +55,7 @@ fun
 	information	: N2;
 	example	: CN;
 	computer	: CN;
+	computer_LOC	: PlaceNoun;
 	cd	: CN;
 	category	: CN;
 	card_LOC	: PlaceNoun;

@@ -8,6 +8,7 @@ oper
 	through = mkPrep "through";
 	side	= mkN nonhuman (mkN "side");
 	card_CN	= mkCN( mkN nonhuman (mkN "card") );
+	computer_CN	= mkCN( mkN nonhuman (mkN "computer") );
 
 lin
 
@@ -60,7 +61,8 @@ lin
 	language	= mkCN( mkN nonhuman (mkN "language") );
 	information	= mkN2( mkN nonhuman (mkN "information") ) about;
 	example	= mkCN( mkN nonhuman (mkN "example") );
-	computer	= mkCN( mkN nonhuman (mkN "computer") );
+	computer	= computer_CN;
+	computer_LOC	= computer_CN;
 	cd	= mkCN( mkN nonhuman (mkN "CD") );
 	category	= mkCN( mkN nonhuman (mkN "category") );
 	card_LOC	= card_CN;
