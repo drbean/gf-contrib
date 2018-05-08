@@ -172,7 +172,7 @@ often	: Adv;
 on	: Prep;
 one	: Det;
 only	: AP;
-or so
+or so	: Postdet;
 organize	: V2;
 organize	: V3;
 other	: AP;
