@@ -31,6 +31,7 @@ lin
 
 -- Det
 
+	or_so	= ss "or so";
 	one	= mkDet( mkCard (mkNumeral n1_Unit));
 	every	= mkDet( ParadigmsEng.mkQuant "every" nonExist) singularNum;
 	at_least	= ss "at least";

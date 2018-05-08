@@ -43,6 +43,7 @@ lincat
 	Adv_trajectory	= Adv;
 	Adv_cause	= Adv;
 	MassDet = Det;
+	Postdet = {s : Str} ;
 	Partitive = Det;
 	ListAdv_manner	= ListAdv;
 	ListAdv_result	= ListAdv;
@@ -391,10 +392,10 @@ oper
 			g = Neutr
 		} ;
 
-	myNPPostPredet : (np : NP) -> (pred : Predet) -> {s : NPCase => Str ; a : Agr} =
-	\np,pred ->
+	myNPPostdet : (np : NP) -> (post : Postdet) -> {s : NPCase => Str ; a : Agr} =
+	\np,post ->
 		{
-		s = \\c => np.s ! c ++ pred.s ;
+		s = \\c => np.s ! c ++ post.s ;
 		a = np.a
 		} ;
 
@@ -679,7 +680,7 @@ lin
 	PredetItem predet np	= mkNP predet np;
 	ApposNP np1 np2 = myApposNP np1 "," np2;
 	ApposPlace p1 p2 = myApposPlace p1 "," p2;
-	NPPostPredet np predet = myNPPostPredet np predet;
+	NPPostdet np postdet = myNPPostdet np postdet;
 
 	a_DET	= a_Det;
 	zero_Det_pl	= aPl_Det;

@@ -25,6 +25,7 @@ fun
 
 -- Det
 
+	or_so	: Postdet;
 	one	: Det;
 	every	: Det;
 	at_least	: Predet;

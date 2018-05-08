@@ -45,6 +45,7 @@ cat
 	Adv_trajectory;
 	Adv_cause;
 	MassDet;
+	Postdet;
 	SubordCl;
 	Partitive;
 	NounCl;
@@ -256,7 +257,7 @@ fun
 	MassOfpos	: N2 -> NP -> N;
 	ApposNP	: NP -> NP -> NP;
 	ApposPlace	: Place -> Place -> Place;
-	NPPostPredet	: NP -> Predet -> NP;
+	NPPostdet	: NP -> Postdet -> NP;
 
 	a_DET : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
 	zero_Det_pl : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
