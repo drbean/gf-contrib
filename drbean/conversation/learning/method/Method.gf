@@ -56,6 +56,7 @@ fun
 	computer	: CN;
 	cd	: CN;
 	category	: CN;
+	card_LOC	: PlaceNoun;
 	card	: CN;
 	accent	: CN;
 
