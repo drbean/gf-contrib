@@ -351,6 +351,7 @@ fun
 	More	: A -> AP;
 	AdjModified	: AP -> VP -> AP;
 	As_as	: AP -> NP -> AP;
+	As_asS	: A -> S -> Adv;
 	AdvAdj	: AdA -> AP -> AP;
 	A_PP	: A2 -> NP ->AP;
 	A_Adv_location	: A2 -> Place ->AP;

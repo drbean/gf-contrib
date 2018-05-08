@@ -1,4 +1,4 @@
-concrete MyConcrete of MyAbstract = CatEng, ConjunctionEng ** open ResEng, Prelude, SyntaxEng, (P = ParadigmsEng), VerbEng, ExtraEng, IrregEng, ExtensionsEng in {
+concrete MyConcrete of MyAbstract = CatEng, ConjunctionEng ** open ResEng, Prelude, SyntaxEng, (P = ParadigmsEng), VerbEng, AdverbEng, ExtraEng, IrregEng, ExtensionsEng in {
 
 lincat
 	NounCl = {s : ResEng.Tense => Anteriority => CPolarity => Order => Str; c : NPCase };
@@ -774,6 +774,7 @@ lin
 	ComparaS a s = mkAP a s;
 	AdjModified	a s = mkAP a s;
 	As_as ap np	= mkAP as_CAdv ap np;
+	As_asS adj s	= ComparAdvAdjS as_CAdv adj s;
 	AdvAdj adv adj = mkAP adv adj;
 	A_PP a np = mkAP a np;
 	A_Adv_location a pl	= myAPinPlace a pl;
