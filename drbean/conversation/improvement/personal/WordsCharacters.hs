@@ -127,6 +127,7 @@ tags = [
 about	: Prep;
 activity	: CN;
 anxiety	: N;
+best	: AP;
 bad	: AP;
 before	: Prep;
 birthday	: CN;

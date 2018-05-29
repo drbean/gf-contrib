@@ -24,6 +24,7 @@ fun
 	different	: AP;
 	busy	: AP;
 	good	: AP;
+	best	: AP;
 	bad	: AP;
 
 -- Conj

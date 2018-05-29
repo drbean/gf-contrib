@@ -3,7 +3,9 @@
 concrete PersonalEng of Personal = MyConcrete  **
 open ConstructorsEng, ParadigmsEng, StructuralEng, IrregEng, ExtraEng, ConstructX, Prelude, (R=ResEng) in {
 
--- oper
+oper
+
+	good_A =  mkA "good" "better" "best" "well";
 
 lin
 
@@ -25,7 +27,8 @@ lin
 	electronic	= mkAP( mkA "electronic") ;
 	different	= mkAP( mkA "different") ;
 	busy	= mkAP( mkA "busy") ;
-	good	= mkAP( mkA "good" "better" "best" "well") ;
+	good	= mkAP good_A ;
+	best = mkAP( myOrdSuperl good_A);
 	bad	= mkAP( mkA "bad" "worse" "worst" "badly") ;
 
 -- Conj
