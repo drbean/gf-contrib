@@ -108,8 +108,8 @@ dic_test = [
 	, "Every week or so, he organizes the cards into categories that the new words have in common."
 	, "Wanda keeps a vocabulary list on her computer."
 	, "Whenever she comes across a new word, she adds it to the list."
-	, "When she has time, she puts down some key information about the word, whether it's a noun or a verb, and some examples of how it's used."
-	, "Wanda goes through the list and studies the words as often as she can."
+	 ,"When she has time, she puts down some key information about the word, whether it's a noun or a verb, and some examples of how it's used."
+	, "Wanda goes through the list and she studies the words as often as she can."
 	, "Wanda believes the only way to learn new words is by memorizing them."
 
   ]
