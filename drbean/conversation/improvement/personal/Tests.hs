@@ -1,0 +1,120 @@
+module Tests where
+
+import Control.Monad
+import Data.Maybe
+import Data.Char
+import Data.List
+
+import Data.DRS
+
+import PGF
+import Personal
+import Representation
+import Evaluation
+import Model
+
+-- handler gr core tests = putStr $ unlines $ map (\(x,y) -> x++show y) $ zip (map (++"\t") tests ) ( map (\string -> map (\x -> core ( x) ) (parse gr (mkCId "DicksonEng") (startCat gr) string)) tests )
+
+-- import System.Environment.FindBin
+
+gr :: IO PGF
+gr = readPGF "./Personal.pgf"
+
+langs :: IO [Language]
+langs = liftM languages gr
+
+lang :: IO Language
+lang = liftM head langs
+
+morpho :: IO Morpho
+morpho = liftM2 buildMorpho gr lang
+
+liftOp :: Monad m => (a -> b -> c) -> m a -> b -> m c
+liftOp f a b = a >>= \a' -> return (f a' b)
+
+miss :: [String] -> IO [String]
+miss ws =
+	liftOp morphoMissing morpho ws
+
+cat2funs :: String -> IO ()
+cat2funs cat = do
+	gr' <- gr
+	let fs = functionsByCat gr' (mkCId cat)
+	let ws = filter (isLower . head . showCId) fs
+	let is = map (reverse . dropWhile (\x ->  (==) x '_' || isUpper x) . reverse .showCId ) ws
+	putStrLn (unwords is)
+
+catByPOS :: String -> IO ()
+catByPOS  pos = do
+	gr' <- gr
+	let allCats = categories gr'
+	let cats = filter (isPrefixOf pos . showCId) allCats
+	putStrLn (unwords (map showCId cats))
+
+trans = id
+
+run f tests = do
+  gr	<- readPGF "./Personal.pgf"
+  let ss = map (chomp . lc_first) tests
+  let ps = map ( parses gr ) ss
+  let ts = map f ps
+  let zs = zip (map (++"\t") tests) (map (map (showExpr []) ) ts)
+  putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
+
+ans tests = do
+  gr	<- readPGF "./Personal.pgf"
+  let ss = map (chomp . lc_first) tests
+  let ps = map ( parses gr ) ss
+  let ts = map (map ( (linear gr) <=< transform ) ) ps
+  let zs = zip (map (++"\t") tests) ts
+  putStrLn (unlines (map (\(x,y) -> x ++ (show $ unwords (map displayResult y))) zs) )
+
+displayResult = fromMaybe "Nothing"
+
+reps tests = do
+  gr	<- readPGF "./Personal.pgf"
+  let ss = map (chomp . lc_first) tests
+  let ps = map ( parses gr ) ss
+  let ts = map (map (\x -> (((unmaybe . rep) x) (term2ref drsRefs var_e) ))) ps
+  let zs = zip (map (++"\t") tests) ts
+  putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
+
+lf tests = do
+	gr	<- readPGF "./Personal.pgf"
+	let ss = map (chomp . lc_first) tests
+	let ps = map ( parses gr ) ss
+	let ts = map (map (\p -> drsToLF (((unmaybe . rep) p) (DRSRef "r1"))) ) ps
+	let zs = zip (map (++"\t") tests) ts
+	putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
+
+fol tests = do
+	gr	<- readPGF "./Personal.pgf"
+	let ss = map (chomp . lc_first) tests
+	let ps = map ( parses gr ) ss
+	let ts = map (map (\p -> drsToFOL ( (unmaybe . rep) p (term2ref drsRefs var_e) ) ) ) ps
+	let zs = zip (map (++"\t") tests) ts
+	putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
+
+dic_test = [
+
+	"The first man thinks if you are shy it might be a good idea to get some professional help."
+	, "The woman thinks self-help books have good suggestions you can try if you are shy."
+	, "The second man thinks the best thing is to join a club if you are shy."
+	, "The second man thinks activities where you have to meet different people and where you have to talk to them are good if you are shy."
+	, "The first man thinks biting your fingernails is a sign of anxiety, so the first thing to do is find out what's making you nervous."
+	, "The woman said her sister started wearing expensive red nail polish so she felt she had made an investment in quitting her bad habit."
+	, "The woman thinks the polish made her sister think about what she was doing too."
+	, "The second man thinks nailbiters should find something else to do when stressed out, like tapping your fingers."
+	, "The second man thinks nailbiters need to transfer their habit into a different one that doesn't cause a problem."
+	, "The first man thinks you can make a list to organize a busy schedule."
+	, "The first man thinks you can prioritize things on the list and which days you're going to get things done."
+	, "The woman thinks you can use electronic reminders for time management."
+	, "The woman says you can program your devices to send reminders to you a few hours or days before."
+	, "The woman says her devices help her remember people's birthdays."
+	, "The second man says if your schedule is busy, you can get help from professional consultants who help people organize their lives."
+	, "The second man says it's expensive to get people to organize your time, but it's the only way to get everything done."
+
+
+  ]
+
+-- vim: set ts=2 sts=2 sw=2 noet:
