@@ -17,6 +17,7 @@ cat
 	SourcePrep;
 	ResultPrep;
 	PatientPrep;
+	CopatientPrep;
 	ExtentPrep;
 	AttributePrep;
 	StimulusPrep;
@@ -34,6 +35,7 @@ cat
 	Adv_source;
 	Adv_result;
 	Adv_patient;
+	Adv_copatient;
 	Adv_extent;
 	Adv_attribute;
 	Adv_stimulus;
@@ -43,6 +45,7 @@ cat
 	Adv_trajectory;
 	Adv_cause;
 	MassDet;
+	Postdet;
 	SubordCl;
 	Partitive;
 	NounCl;
@@ -70,6 +73,7 @@ fun
 	Sourcing		: SourcePrep -> NP -> Adv_source;
 	Resulting		: ResultPrep -> NP -> Adv_result;
 	Patienting		: PatientPrep -> NP -> Adv_patient;
+	Copatienting		: CopatientPrep -> NP -> Adv_copatient;
 	Extenting	: ExtentPrep -> NP -> Adv_extent;
 	Attributing	: AttributePrep -> NP -> Adv_attribute;
 	Stimulating	: StimulusPrep -> NP -> Adv_stimulus;
@@ -126,6 +130,7 @@ fun
 	FactNP	: Cl -> NP;
 	WayNP	: Cl -> NP;
 	HowNP	: Cl -> NP;
+	WhetherNP	: Cl -> NP;
 	WhyNP	: Cl -> NP;
 	ThatNP	: Cl -> NP;
 	ThatNegNP	: Cl -> NP;
@@ -154,6 +159,7 @@ fun
 	VP_Adv_time	: VP -> Adv_time -> VP;
 	VP_Adv_location	:  VP -> Adv_location -> VP;
 	VP_Adv_result	: VP -> Adv_result -> VP;
+	VP_Adv_copatient	: VP -> Adv_copatient -> VP;
 	VP_Adv_extent	: VP -> Adv_extent -> VP;
 	VP_Adv_attribute	: VP -> Adv_attribute -> VP;
 	VP_Adv_stimulus	: VP -> Adv_stimulus -> VP;
@@ -234,9 +240,11 @@ fun
 	KindInPlace	: CN -> Adv_location -> CN;
 	NPInPlace	: NP -> Adv_location -> NP;
 	PlaceKind	: AP -> PlaceNoun -> PlaceNoun;
+	PlaceOfNP	: N2 -> NP -> PlaceNoun;
 	KindToExtent	: CN -> Adv_extent -> CN;
 	Membership : Det -> CN -> Adv_location -> Cl;
 	CompoundCN	: CN -> CN -> CN;
+	CompoundNCN	: N -> CN -> CN;
 	ApposCN	: CN -> NP -> CN;
 	CompoundNP	: NP -> NP -> NP;
 	PN_CN	: PN -> CN -> CN;
@@ -251,7 +259,7 @@ fun
 	MassOfpos	: N2 -> NP -> N;
 	ApposNP	: NP -> NP -> NP;
 	ApposPlace	: Place -> Place -> Place;
-	NPPostPredet	: NP -> Predet -> NP;
+	NPPostdet	: NP -> Postdet -> NP;
 
 	a_DET : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
 	zero_Det_pl : Det; -- (\d,f -> exists (\x -> and (d x) (f x)));
@@ -343,6 +351,7 @@ fun
 	More	: A -> AP;
 	AdjModified	: AP -> VP -> AP;
 	As_as	: AP -> NP -> AP;
+	As_asS	: A -> S -> Adv;
 	AdvAdj	: AdA -> AP -> AP;
 	A_PP	: A2 -> NP ->AP;
 	A_Adv_location	: A2 -> Place ->AP;

@@ -1,4 +1,4 @@
-concrete MyConcrete of MyAbstract = CatEng, ConjunctionEng ** open ResEng, Prelude, SyntaxEng, (P = ParadigmsEng), VerbEng, ExtraEng, IrregEng, ExtensionsEng in {
+concrete MyConcrete of MyAbstract = CatEng, ConjunctionEng ** open ResEng, Prelude, SyntaxEng, (P = ParadigmsEng), VerbEng, AdverbEng, ExtraEng, IrregEng, ExtensionsEng in {
 
 lincat
 	NounCl = {s : ResEng.Tense => Anteriority => CPolarity => Order => Str; c : NPCase };
@@ -16,6 +16,7 @@ lincat
 	SourcePrep	= Prep;
 	ResultPrep	= Prep;
 	PatientPrep	= Prep;
+	CopatientPrep	= Prep;
 	ExtentPrep	= Prep;
 	AttributePrep	= Prep;
 	StimulusPrep	= Prep;
@@ -42,6 +43,7 @@ lincat
 	Adv_trajectory	= Adv;
 	Adv_cause	= Adv;
 	MassDet = Det;
+	Postdet = {s : Str} ;
 	Partitive = Det;
 	ListAdv_manner	= ListAdv;
 	ListAdv_result	= ListAdv;
@@ -390,10 +392,10 @@ oper
 			g = Neutr
 		} ;
 
-	myNPPostPredet : (np : NP) -> (pred : Predet) -> {s : NPCase => Str ; a : Agr} =
-	\np,pred ->
+	myNPPostdet : (np : NP) -> (post : Postdet) -> {s : NPCase => Str ; a : Agr} =
+	\np,post ->
 		{
-		s = \\c => np.s ! c ++ pred.s ;
+		s = \\c => np.s ! c ++ post.s ;
 		a = np.a
 		} ;
 
@@ -497,6 +499,7 @@ lin
 	Sourcing prep source = mkAdv prep source;
 	Resulting prep result = mkAdv prep result;
 	Patienting prep result = mkAdv prep result;
+	Copatienting prep result = mkAdv prep result;
 	Extenting prep degree	=mkAdv prep degree;
 	Attributing prep attribute	= mkAdv prep attribute;
 	Stimulating prep stimulus	= mkAdv prep stimulus;
@@ -551,6 +554,7 @@ lin
 	FactNP cl = myCltoNP "the fact that" cl;
 	WayNP cl = myCltoNP "the way that" cl;
 	HowNP cl = myCltoNP "how" cl;
+	WhetherNP cl = myCltoNP "whether" cl;
 	-- WhatNP cl = myCltoNP "what" cl;
 	WhyNP cl = myCltoNP "why" cl;
 	ThatNP cl	= myCltoNP "that" cl;
@@ -582,6 +586,7 @@ lin
 	VP_Adv_time vp pp = mkVP vp pp;
 	VP_Adv_location vp located = mkVP vp located;
 	VP_Adv_result vp result = mkVP vp result;
+	VP_Adv_copatient vp copatient = mkVP vp copatient;
 	VP_Adv_extent vp extent = mkVP vp extent;
 	VP_Adv_attribute vp attribute = mkVP vp attribute;
 	VP_Adv_stimulus vp stimulus	= mkVP vp stimulus;
@@ -657,9 +662,11 @@ lin
 	KindInPlace cn adv	= mkCN cn adv;
 	NPInPlace np adv = mkNP np adv;
 	PlaceKind ap n = mkCN ap n;
+	PlaceOfNP n2 np = mkCN n2 np;
 	KindToExtent cn adv	= mkCN cn adv;
 	Membership det cn place = mkCl( Item det (KindInPlace cn place));
 	CompoundCN cn1 cn2 = CompoundCN cn1 cn2;
+	CompoundNCN n cn = CompoundCN n cn;
 	ApposCN cn np = {s = \\n,c => cn.s ! n ! Nom ++ np.s ! NCase c ; g = cn.g};
 	CompoundNP np1 np2 = myApposNP np1 "" np2;
 	PN_CN pn cn	= { s = \\n,c => pn.s ! Nom ++ cn.s ! n ! c;
@@ -675,7 +682,7 @@ lin
 	PredetItem predet np	= mkNP predet np;
 	ApposNP np1 np2 = myApposNP np1 "," np2;
 	ApposPlace p1 p2 = myApposPlace p1 "," p2;
-	NPPostPredet np predet = myNPPostPredet np predet;
+	NPPostdet np postdet = myNPPostdet np postdet;
 
 	a_DET	= a_Det;
 	zero_Det_pl	= aPl_Det;
@@ -767,6 +774,7 @@ lin
 	ComparaS a s = mkAP a s;
 	AdjModified	a s = mkAP a s;
 	As_as ap np	= mkAP as_CAdv ap np;
+	As_asS adj s	= ComparAdvAdjS as_CAdv adj s;
 	AdvAdj adv adj = mkAP adv adj;
 	A_PP a np = mkAP a np;
 	A_Adv_location a pl	= myAPinPlace a pl;
