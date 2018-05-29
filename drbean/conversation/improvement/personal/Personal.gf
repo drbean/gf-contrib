@@ -127,6 +127,7 @@ fun
 	find_out	: V;
 	find	: V2;
 	feel	: VS;
+	do	: V2;
 	cause	: V2;
 	bite	: V2;
 }

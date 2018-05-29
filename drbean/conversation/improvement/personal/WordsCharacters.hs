@@ -140,6 +140,7 @@ consultant	: CN;
 day	: CN;
 device	: CN;
 different	: AP;
+do	: V2;
 electronic	: AP;
 everything	: N;
 expensive	: AP;

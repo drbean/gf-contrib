@@ -129,6 +129,7 @@ lin
 	find_out	= partV( mkV "find") "out";
 	find	= mkV2( mkV "find") noPrep;
 	feel	= mkVS IrregEng.feel_V ;
+	do	= mkV2 IrregEng.do_V noPrep;
 	cause	= mkV2( mkV "cause") noPrep;
 	bite	= mkV2( mkV "bite") noPrep;
 
