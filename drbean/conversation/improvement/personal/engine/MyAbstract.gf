@@ -123,6 +123,7 @@ fun
 	ObjRel	: RP -> ClSlash -> RCl;
 	EmptyRel : ClSlash -> RCl;
 	EmptyRelSlash	: ClSlash -> RCl;
+	EmptyRelVPSlash	: VPSlash -> RCl;
 	DetRCltoNP	: Det -> RCl -> NP;
 	DetVPtoNP	: Det -> VP -> NP;
 	SubjGerund	: NP -> VP -> NP;

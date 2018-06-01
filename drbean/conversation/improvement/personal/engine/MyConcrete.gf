@@ -547,6 +547,10 @@ lin
 	SubjRel	rp vp = mkRCl rp vp;
 	ObjRel rp clslash = mkRCl rp clslash;
 	EmptyRel slash = EmptyRelSlash slash;
+	EmptyRelVPSlash vpslash = {
+		s = \\_,_,_,_ => "to" ++ vpslash.inf ++ vpslash.c2;
+		c = NPAcc
+	};
 	EmptyRelSlash slash = EmptyRelSlash slash;
 	DetRCltoNP det rcl	= myDetRCltoNP det rcl;
 	DetVPtoNP det vp = myDetVPtoNP det vp;
