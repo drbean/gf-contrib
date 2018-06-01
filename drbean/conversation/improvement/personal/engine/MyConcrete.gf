@@ -631,6 +631,8 @@ lin
 	CondNegQ qcl	= mkQS conditionalTense negativePol qcl;
 	PastPosQ qcl	= mkQS pastTense qcl;
 	PastNegQ qcl	= mkQS pastTense negativePol qcl;
+	PastPastPosQ qcl	= mkQS pastTense anteriorAnt qcl;
+	PastPastNegQ qcl	= mkQS pastTense anteriorAnt negativePol qcl;
 	PosS cl	= mkS cl;
 	NegS cl	= mkS negativePol cl;
 	AntPosS cl	= mkS anteriorAnt cl;
@@ -639,8 +641,8 @@ lin
 	FutNegS cl	= mkS futureTense negativePol cl;
 	CondPosS cl	= mkS conditionalTense cl;
 	CondNegS cl	= mkS conditionalTense negativePol cl;
-	PastPosS cl	= mkS pastTense cl;
-	PastNegS cl	= mkS pastTense negativePol cl;
+	PastPastPosS cl	= mkS pastTense anteriorAnt cl;
+	PastPastNegS cl	= mkS pastTense anteriorAnt negativePol cl;
 	QUt q	= mkUtt q;
 	Ut s	= mkUtt s;
 	Sentence subject predicate	= mkCl subject predicate;

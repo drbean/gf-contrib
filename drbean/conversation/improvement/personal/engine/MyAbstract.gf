@@ -207,6 +207,8 @@ fun
 	CondNegQ	: QCl -> QS;
 	PastPosQ	: QCl -> QS;
 	PastNegQ	: QCl -> QS;
+	PastPastPosQ	: QCl -> QS;
+	PastPastNegQ	: QCl -> QS;
 	PosS	: Cl -> S;
 	NegS	: Cl -> S;
 	AntPosS	: Cl -> S;
@@ -217,6 +219,8 @@ fun
 	CondNegS	: Cl -> S;
 	PastPosS	: Cl -> S;
 	PastNegS	: Cl -> S;
+	PastPastPosS	: Cl -> S;
+	PastPastNegS	: Cl -> S;
 	QUt	: QS -> Utt;
 	Ut	: S -> Utt;
 	Sentence	: NP -> VP -> Cl;
