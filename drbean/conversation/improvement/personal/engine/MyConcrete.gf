@@ -551,7 +551,6 @@ lin
 		s = \\_,_,_,_ => "to" ++ vpslash.inf ++ vpslash.c2;
 		c = NPAcc
 	};
-	EmptyRelSlash slash = EmptyRelSlash slash;
 	DetRCltoNP det rcl	= myDetRCltoNP det rcl;
 	DetVPtoNP det vp = myDetVPtoNP det vp;
 	SubjGerund np vp	= myNPVPtoNP np vp;
