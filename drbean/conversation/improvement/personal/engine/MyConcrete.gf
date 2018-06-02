@@ -548,7 +548,7 @@ lin
 	ObjRel rp clslash = mkRCl rp clslash;
 	EmptyRel slash = EmptyRelSlash slash;
 	EmptyRelVPSlash vpslash = {
-		s = \\_,_,_,_ => "to" ++ vpslash.inf ++ vpslash.c2;
+		s = \\ag => infVP VVInf vpslash Simul CPos ag ;
 		c = NPAcc
 	};
 	DetRCltoNP det rcl	= myDetRCltoNP det rcl;
