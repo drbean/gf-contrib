@@ -63,6 +63,18 @@ oper
 
 	know_V = IrregEng.know_V;
 
+	myMkS : Tense -> Ant -> Pol -> Order -> Cl -> {s : Str} =
+		\t,a,p,o,cl -> {
+		s = cl.s ! t.t ! a.a ! p.p ! o;
+		lock_S = {}};
+
+	myMkQS : Tense -> Ant -> Pol -> QCl -> {s : QForm => Str} =
+		\t,a,p,qcl -> {
+		s = qcl.s ! t.t ! a.a ! p.p;
+		lock_QS = {}};
+
+
+
 	ModalVV	: Str -> Str -> Str ->
 		{s : VVForm => Str; p : Str; typ : VVType } =
 		\pres, presN, presNuncontr -> {
@@ -620,28 +632,16 @@ lin
 	WH_ClSlash ip cslash	= mkQCl ip cslash;
 	IAdvQCl iadv cl	= mkQCl iadv cl;
 	IAdvInfICl iadv vp	= myInfICl iadv vp;
-	PosQ qcl	= mkQS qcl;
-	NegQ qcl	= mkQS negativePol qcl;
-	AntPosQ qcl	= mkQS anteriorAnt qcl;
-	AntNegQ qcl	= mkQS anteriorAnt negativePol qcl;
-	FutPosQ qcl	= mkQS futureTense qcl;
-	FutNegQ qcl	= mkQS futureTense negativePol qcl;
-	CondPosQ qcl	= mkQS conditionalTense qcl;
-	CondNegQ qcl	= mkQS conditionalTense negativePol qcl;
-	PastPosQ qcl	= mkQS pastTense qcl;
-	PastNegQ qcl	= mkQS pastTense negativePol qcl;
-	PastPastPosQ qcl	= mkQS pastTense anteriorAnt qcl;
-	PastPastNegQ qcl	= mkQS pastTense anteriorAnt negativePol qcl;
-	PosS cl	= mkS cl;
-	NegS cl	= mkS negativePol cl;
-	AntPosS cl	= mkS anteriorAnt cl;
-	AntNegS cl	= mkS anteriorAnt negativePol cl;
-	FutPosS cl	= mkS futureTense cl;
-	FutNegS cl	= mkS futureTense negativePol cl;
-	CondPosS cl	= mkS conditionalTense cl;
-	CondNegS cl	= mkS conditionalTense negativePol cl;
-	PastPastPosS cl	= mkS pastTense anteriorAnt cl;
-	PastPastNegS cl	= mkS pastTense anteriorAnt negativePol cl;
+	MkQS t a p qcl = myMkQS t a p qcl;
+	MkS t a p cl = myMkS t a p (ODir False) cl;
+	presentTense	= presentTense;
+	pastTense	= pastTense;
+	futureTense	= futureTense;
+	conditionalTense	= conditionalTense;
+	simultaneousAnt	= simultaneousAnt;
+	anteriorAnt	= anteriorAnt;
+	positivePol	= positivePol;
+	negativePol	= negativePol;
 	QUt q	= mkUtt q;
 	Ut s	= mkUtt s;
 	Sentence subject predicate	= mkCl subject predicate;
