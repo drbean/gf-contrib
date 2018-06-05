@@ -553,12 +553,12 @@ lin
 	ModPass3 cn v3 np = myModPass3 cn v3 np;
 	-- ModSlInf cn vpslash = mkCN cn vpslash;
 	MassModInf n vp = mkCN( mkCN n) vp;
-	Modified cn rcl = mkCN cn ( mkRS rcl);
-	NegModified cn rcl = mkCN cn( mkRS negativePol rcl);
+	Modified cn rs = mkCN cn rs;
 	MassMod n rcl = myMassMod n (mkRS rcl);
 	SubjRel	rp vp = mkRCl rp vp;
 	ObjRel rp clslash = mkRCl rp clslash;
 	EmptyRel slash = EmptyRelSlash slash;
+	MkRS t a p rcl	= mkRS t a p rcl;
 	EmptyRelVPSlash a p vpslash = {
 		s = \\ag => infVP VVInf vpslash a.a p.p ag ;
 		c = NPAcc

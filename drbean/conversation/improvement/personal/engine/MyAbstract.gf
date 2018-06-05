@@ -116,12 +116,12 @@ fun
 	ModPass3 : CN -> V3 -> NP -> CN;
 	-- ModSlInf : CN -> VPSlash -> CN;
 	MassModInf : N -> VP -> CN;
-	Modified	: CN -> RCl -> CN;
-	NegModified	: CN -> RCl -> CN;
+	Modified	: CN -> RS -> CN;
 	MassMod	: N -> RCl -> N;
 	SubjRel	: RP -> VP -> RCl;
 	ObjRel	: RP -> ClSlash -> RCl;
 	EmptyRel : ClSlash -> RCl;
+	MkRS	: Tense -> Ant -> Pol -> RCl -> RS;
 	EmptyRelVPSlash	: Ant -> Pol -> VPSlash -> RS;
 	DetRCltoNP	: Det -> RCl -> NP;
 	DetVPtoNP	: Det -> VP -> NP;
