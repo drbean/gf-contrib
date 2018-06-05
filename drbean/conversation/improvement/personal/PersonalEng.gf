@@ -55,6 +55,7 @@ lin
 	problem	= mkCN( mkN nonhuman (mkN "problem") );
 	polish	= mkN "polish" nonExist;
 	nail_polish	= mkN "nail polish" nonExist;
+	nailbiting	= mkN "nailbiting" nonExist;
 	nailbiter	= mkCN( mkN human (mkN "nailbiter") );
 	nail	= mkCN( mkN nonhuman (mkN "nail") );
 	man	= mkCN( mkN human (mkN "man") );

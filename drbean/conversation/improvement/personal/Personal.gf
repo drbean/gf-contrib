@@ -51,6 +51,7 @@ fun
 	problem	: CN;
 	polish	: N;
 	nail_polish	: N;
+	nailbiting	: N;
 	nailbiter	: CN;
 	nail	: CN;
 	man	: CN;
