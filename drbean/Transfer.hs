@@ -43,16 +43,16 @@ main = do
 	putStrLn ("Course: " ++ foldl takeCourse "Unparseable" courses )
 
 label :: GUtt -> String
-label (GQUt (GPosQ (GWH_Pred _ _)))	= "WH"
-label (GQUt (GNegQ (GWH_Pred _ _)))	= "WH"
-label (GQUt (GPosQ (GWH_ClSlash _ _)))	= "WH"
-label (GQUt (GNegQ (GWH_ClSlash _ _)))	= "WH"
-label (GQUt (GPosQ (GYN _)))	= "YN"
-label (GQUt (GNegQ (GYN _)))	= "YN"
-label (GQUt (GPosQ (GTagQ _ _)))	= "Tag"
-label (GQUt (GNegQ (GTagQ _ _)))	= "Tag"
-label (GQUt (GPosQ (GTagComp _ _)))	= "Tag"
-label (GQUt (GNegQ (GTagComp _ _)))	= "Tag"
+label (GQUt (GMkQS GpresentTense GsimultaneousAnt GpositivePol (GWH_Pred _ _)))	= "WH"
+label (GQUt (GMkQS GpresentTense GsimultaneousAnt GnegativePol (GWH_Pred _ _)))	= "WH"
+label (GQUt (GMkQS GpresentTense GsimultaneousAnt GpositivePol (GWH_ClSlash _ _)))	= "WH"
+label (GQUt (GMkQS GpresentTense GsimultaneousAnt GnegativePol (GWH_ClSlash _ _)))	= "WH"
+label (GQUt (GMkQS GpresentTense GsimultaneousAnt GpositivePol (GYN _)))	= "YN"
+label (GQUt (GMkQS GpresentTense GsimultaneousAnt GnegativePol (GYN _)))	= "YN"
+label (GQUt (GMkQS GpresentTense GsimultaneousAnt GpositivePol (GTagQ _ _)))	= "Tag"
+label (GQUt (GMkQS GpresentTense GsimultaneousAnt GnegativePol (GTagQ _ _)))	= "Tag"
+label (GQUt (GMkQS GpresentTense GsimultaneousAnt GpositivePol (GTagComp _ _)))	= "Tag"
+label (GQUt (GMkQS GpresentTense GsimultaneousAnt GnegativePol (GTagComp _ _)))	= "Tag"
 label _				= "Unparseable"
 
 takeCourse :: String -> String -> String

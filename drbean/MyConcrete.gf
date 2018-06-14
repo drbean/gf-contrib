@@ -63,16 +63,28 @@ oper
 
 	know_V = IrregEng.know_V;
 
-	ModalVV	: Str -> Str -> Str -> Str -> Str -> Str ->
+	myMkS : Tense -> Ant -> Pol -> Order -> Cl -> {s : Str} =
+		\t,a,p,o,cl -> {
+		s = cl.s ! t.t ! a.a ! p.p ! o;
+		lock_S = {}};
+
+	myMkQS : Tense -> Ant -> Pol -> QCl -> {s : QForm => Str} =
+		\t,a,p,qcl -> {
+		s = qcl.s ! t.t ! a.a ! p.p;
+		lock_QS = {}};
+
+
+
+	ModalVV	: Str -> Str -> Str ->
 		{s : VVForm => Str; p : Str; typ : VVType } =
-		\inf, pres, pp, prespp, presN, presNuncontr -> {
+		\pres, presN, presNuncontr -> {
 		s = table {
-			VVF VInf	=> inf ;
+			VVF VInf	=> nonExist ;
 			VVF VPres => pres;
-			VVF VPPart	=> pp ;
-			VVF VPresPart	=> prespp ;
-			-- VVF VPast	=> nonExist ;
-			-- VVPastNeg	=> nonExist ;
+			VVF VPPart	=> nonExist ;
+			VVF VPresPart	=> nonExist ;
+			VVF VPast	=> nonExist ;
+			VVPastNeg	=> nonExist ;
 			VVPresNeg	=> presN
 			} ;
 		p = [];
@@ -81,12 +93,13 @@ oper
 		} |
 	{
 		s = table {
-			VVF VInf	=> inf ;
+			VVF VInf	=> nonExist ;
 			VVF VPres => pres;
-			VVF VPPart	=> pp ;
-			VVF VPresPart	=> prespp ;
-			-- VVF VPast	=> nonExist ;
-			-- VVPastNeg	=> nonExist ;
+			VVF VPPart	=> nonExist ;
+			VVF VPresPart	=> nonExist ;
+			VVF VPast	=> nonExist ;
+			VVPastNeg	=> nonExist ;
+			VVF VPres => pres;
 			VVPresNeg	=> presNuncontr
 			} ;
 		p = [];
@@ -540,13 +553,16 @@ lin
 	ModPass3 cn v3 np = myModPass3 cn v3 np;
 	-- ModSlInf cn vpslash = mkCN cn vpslash;
 	MassModInf n vp = mkCN( mkCN n) vp;
-	Modified cn rcl = mkCN cn ( mkRS rcl);
-	NegModified cn rcl = mkCN cn( mkRS negativePol rcl);
+	Modified cn rs = mkCN cn rs;
 	MassMod n rcl = myMassMod n (mkRS rcl);
 	SubjRel	rp vp = mkRCl rp vp;
 	ObjRel rp clslash = mkRCl rp clslash;
 	EmptyRel slash = EmptyRelSlash slash;
-	EmptyRelSlash slash = EmptyRelSlash slash;
+	MkRS t a p rcl	= mkRS t a p rcl;
+	EmptyRelVPSlash a p vpslash = {
+		s = \\ag => infVP VVInf vpslash a.a p.p ag ;
+		c = NPAcc
+	};
 	DetRCltoNP det rcl	= myDetRCltoNP det rcl;
 	DetVPtoNP det vp = myDetVPtoNP det vp;
 	SubjGerund np vp	= myNPVPtoNP np vp;
@@ -616,26 +632,16 @@ lin
 	WH_ClSlash ip cslash	= mkQCl ip cslash;
 	IAdvQCl iadv cl	= mkQCl iadv cl;
 	IAdvInfICl iadv vp	= myInfICl iadv vp;
-	PosQ qcl	= mkQS qcl;
-	NegQ qcl	= mkQS negativePol qcl;
-	AntPosQ qcl	= mkQS anteriorAnt qcl;
-	AntNegQ qcl	= mkQS anteriorAnt negativePol qcl;
-	FutPosQ qcl	= mkQS futureTense qcl;
-	FutNegQ qcl	= mkQS futureTense negativePol qcl;
-	CondPosQ qcl	= mkQS conditionalTense qcl;
-	CondNegQ qcl	= mkQS conditionalTense negativePol qcl;
-	PastPosQ qcl	= mkQS pastTense qcl;
-	PastNegQ qcl	= mkQS pastTense negativePol qcl;
-	PosS cl	= mkS cl;
-	NegS cl	= mkS negativePol cl;
-	AntPosS cl	= mkS anteriorAnt cl;
-	AntNegS cl	= mkS anteriorAnt negativePol cl;
-	FutPosS cl	= mkS futureTense cl;
-	FutNegS cl	= mkS futureTense negativePol cl;
-	CondPosS cl	= mkS conditionalTense cl;
-	CondNegS cl	= mkS conditionalTense negativePol cl;
-	PastPosS cl	= mkS pastTense cl;
-	PastNegS cl	= mkS pastTense negativePol cl;
+	MkQS t a p qcl = myMkQS t a p qcl;
+	MkS t a p cl = myMkS t a p (ODir False) cl;
+	presentTense	= presentTense;
+	pastTense	= pastTense;
+	futureTense	= futureTense;
+	conditionalTense	= conditionalTense;
+	simultaneousAnt	= simultaneousAnt;
+	anteriorAnt	= anteriorAnt;
+	positivePol	= positivePol;
+	negativePol	= negativePol;
 	QUt q	= mkUtt q;
 	-- Ut s	= mkUtt s;
 	Sentence subject predicate	= mkCl subject predicate;

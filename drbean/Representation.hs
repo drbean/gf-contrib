@@ -76,23 +76,23 @@ unmaybe (Just x) = x
 
 repS :: GUtt -> Maybe (DRSRef -> DRS)
 
-repS (GQUt (GPosQ (GYN (GSentence np (GVP_Adv_instrument (GPass (GV2ASlash v ap))
+repS (GQUt (GMkQS GpresentTense GsimultaneousAnt GpositivePol (GYN (GSentence np (GVP_Adv_instrument (GPass (GV2ASlash v ap))
 	(GInstrumenting _ arg)))))) =
-	repS (GQUt (GPosQ (GYN (GSentence arg (GV_NP_AP v np ap)))))
-repS (GQUt (GPosQ (GYN (GSentence np (GVP_Adv_instrument (GPass vp) pp))))) =
-	repS (GQUt (GPosQ (GYN (GSentence np (GPass vp)))))
-repS (GQUt (GPosQ (GYN (GSentence np (GPass (GV2ASlash v ap)))))) =
-	repS (GQUt (GPosQ (GYN (GSentence (GItem Ga_DET Gentity) (GV_NP_AP v np ap)))))
+	repS (GQUt (GMkQS GpresentTense GsimultaneousAnt GpositivePol (GYN (GSentence arg (GV_NP_AP v np ap)))))
+repS (GQUt (GMkQS GpresentTense GsimultaneousAnt GpositivePol (GYN (GSentence np (GVP_Adv_instrument (GPass vp) pp))))) =
+	repS (GQUt (GMkQS GpresentTense GsimultaneousAnt GpositivePol (GYN (GSentence np (GPass vp)))))
+repS (GQUt (GMkQS GpresentTense GsimultaneousAnt GpositivePol (GYN (GSentence np (GPass (GV2ASlash v ap)))))) =
+	repS (GQUt (GMkQS GpresentTense GsimultaneousAnt GpositivePol (GYN (GSentence (GItem Ga_DET Gentity) (GV_NP_AP v np ap)))))
 
-repS (GQUt (GPosQ (GYN (GSentence np vp)))) = Just (repNP np (repVP vp))
-repS (GQUt (GNegQ (GYN (GSentence np vp)))) =
-	repS (GQUt (GPosQ (GYN (GSentence np vp))))
-repS (GQUt (GPosQ (GYN (GMembership det cn (GLocating _ np))))) =
+repS (GQUt (GMkQS GpresentTense GsimultaneousAnt GpositivePol (GYN (GSentence np vp)))) = Just (repNP np (repVP vp))
+repS (GQUt (GMkQS GpresentTense GsimultaneousAnt GnegativePol (GYN (GSentence np vp)))) =
+	repS (GQUt (GMkQS GpresentTense GsimultaneousAnt GpositivePol (GYN (GSentence np vp))))
+repS (GQUt (GMkQS GpresentTense GsimultaneousAnt GpositivePol (GYN (GMembership det cn (GLocating _ np))))) =
 	Just (repPlace np (repVP (GV_NP Ghave (GItem det cn))))
-repS (GQUt (GPosQ (GTagComp np comp))) =
-	repS (GQUt (GPosQ (GYN (GSentence np (GBe_vp comp)))))
-repS (GQUt (GPosQ (GTagQ np vp))) = repS (GQUt (GPosQ (GYN (GSentence np vp))))
-repS (GQUt (GPosQ (GWH_Pred wh vp))) = Just (repW wh (repVP vp))
+repS (GQUt (GMkQS GpresentTense GsimultaneousAnt GpositivePol (GTagComp np comp))) =
+	repS (GQUt (GMkQS GpresentTense GsimultaneousAnt GpositivePol (GYN (GSentence np (GBe_vp comp)))))
+repS (GQUt (GMkQS GpresentTense GsimultaneousAnt GpositivePol (GTagQ np vp))) = repS (GQUt (GMkQS GpresentTense GsimultaneousAnt GpositivePol (GYN (GSentence np vp))))
+repS (GQUt (GMkQS GpresentTense GsimultaneousAnt GpositivePol (GWH_Pred wh vp))) = Just (repW wh (repVP vp))
 
 new :: GNP -> [DRSRef] -> DRSRef
 new Gshe (r:_) = r
@@ -411,7 +411,7 @@ repVP (GV_NP_NP v obj1 obj2) = \r -> repNP obj1 (\theme ->
 repVP (GV_NP_AP v obj ap) = \r -> repNP obj (\patient -> 
 		DRS [r,patient] [Rel (DRSRel (lin v)) [r, patient]
 			, Rel (DRSRel (linAP ap)) [patient]]) (new obj [r])
-repVP (GV_that_S v0 (GPosS (GSentence np vp))) = case vp of
+repVP (GV_that_S v0 (GMkS GpresentTense GsimultaneousAnt GpositivePol (GSentence np vp))) = case vp of
 	(GBe_vp comp) -> case comp of
 		(GBe_bad ap ) -> \r -> repNP np (\referent -> let
 			d = repAP ap referent
@@ -441,7 +441,7 @@ repVP (GV_that_S v0 (GPosS (GSentence np vp))) = case vp of
 				(DRSRel lin_v) [referent,theme]])]
 			in DRS [r,referent,theme] conds
 			) (new obj [r,referent]) ) (new np [r])
-	(GVP_Adv_manner vp2 _) -> repVP (GV_that_S v0 (GPosS (GSentence np vp2)))
+	(GVP_Adv_manner vp2 _) -> repVP (GV_that_S v0 (GMkS GpresentTense GsimultaneousAnt GpositivePol (GSentence np vp2)))
 	(GIntens vv vp2) -> case vp2 of
 		(GV_NP v obj) -> \r ->
 			repNP np (\referent -> repNP obj (\theme -> let
@@ -466,10 +466,10 @@ repVP (GV_that_S v0 (GPosS (GSentence np vp))) = case vp of
 		DRS [r,patient,agent] [Rel (DRSRel (lin v0)) [r, DRSRef "p"]
 		, Prop (DRSRef "p") (DRS [] [Rel (DRSRel (lin v)) [agent, patient]] ) ])
 		(new (GItem Ga_DET Gperson) [r,patient]) ) (new np [r])
-repVP (GV_S v0 (GPosS (GSentence np vp))) = 
-	repVP (GV_that_S v0 (GPosS (GSentence np vp)))
-repVP (GV_that_S v0 (GNegS (GSentence np vp))) = case vp of
-	(GVP_Adv_manner vp2 _) -> repVP (GV_that_S v0 (GNegS (GSentence np vp2)))
+repVP (GV_S v0 (GMkS GpresentTense GsimultaneousAnt GpositivePol (GSentence np vp))) = 
+	repVP (GV_that_S v0 (GMkS GpresentTense GsimultaneousAnt GpositivePol (GSentence np vp)))
+repVP (GV_that_S v0 (GMkS GpresentTense GsimultaneousAnt GnegativePol (GSentence np vp))) = case vp of
+	(GVP_Adv_manner vp2 _) -> repVP (GV_that_S v0 (GMkS GpresentTense GsimultaneousAnt GnegativePol (GSentence np vp2)))
 	(GIntens vv vp2) -> case vp2 of
 		(GV_NP v obj) -> \r -> repNP np (\referent ->
 			repNP obj (\theme -> let
@@ -482,7 +482,7 @@ repVP (GV_that_S v0 (GNegS (GSentence np vp))) = case vp of
 			in DRS [r, theme, referent] conds )
 			(new obj [r,referent]) ) (new np [r])
 		(GVP_Adv_manner vp3 _) ->
-			repVP (GV_that_S v0 (GNegS (GSentence np (GIntens vv vp3))))
+			repVP (GV_that_S v0 (GMkS GpresentTense GsimultaneousAnt GnegativePol (GSentence np (GIntens vv vp3))))
 		(GV_ v) -> \r -> repNP np (\referent -> let
 			lin_v = lin v
 			p = DRSRef "p"
@@ -492,7 +492,7 @@ repVP (GV_that_S v0 (GNegS (GSentence np vp))) = case vp of
 			in DRS [r,referent] conds ) (new np [r])
 		(GV_NP_VP v obj vp3) -> case vp3 of
 			(GVP_Adv_manner vp4 _) ->
-				repVP (GV_that_S v0 (GNegS (GSentence np (GIntens vv
+				repVP (GV_that_S v0 (GMkS GpresentTense GsimultaneousAnt GnegativePol (GSentence np (GIntens vv
 				(GV_NP_VP v obj vp4)))))
 			(GV_ v1) -> \r -> repNP np (\referent ->
 				repNP obj (\theme -> let
@@ -508,9 +508,9 @@ repVP (GV_that_S v0 (GNegS (GSentence np vp))) = case vp of
 						[Rel intransitive [referent]]))])])])]
 					in DRS [r,theme,referent] conds )
 					(new obj [r,referent]) ) (new np [r])
-repVP (GV_S v0 (GNegS (GSentence np vp))) = 
-	repVP (GV_that_S v0 (GNegS (GSentence np vp)))
-repVP (GV_NP_whether_S v0 np0 (GPosQ (GYN (GSentence np vp)))) = case vp of
+repVP (GV_S v0 (GMkS GpresentTense GsimultaneousAnt GnegativePol (GSentence np vp))) = 
+	repVP (GV_that_S v0 (GMkS GpresentTense GsimultaneousAnt GnegativePol (GSentence np vp)))
+repVP (GV_NP_whether_S v0 np0 (GMkQS GpresentTense GsimultaneousAnt GpositivePol (GYN (GSentence np vp)))) = case vp of
 	(GBe_vp comp) -> case comp of
 		(GBe_bad ap) -> \r -> repNP np0 (\recipient -> 
 			repNP np (\referent -> let 
@@ -548,7 +548,7 @@ repVP (GV_NP_whether_S v0 np0 (GICompS how_old np)) =
 			(DRSRel "how_old") [referent] ])]
 		in DRS [r,recipient,referent] conds )
 	(new np [r,recipient]) ) (new np0 [r])
-repVP (GV_NP_that_S v0 np0 (GPosS (GSentence np vp))) = case vp of
+repVP (GV_NP_that_S v0 np0 (GMkS GpresentTense GsimultaneousAnt GpositivePol (GSentence np vp))) = case vp of
 	(GBe_vp comp) -> case comp of
 		(GBe_bad ap ) -> \r -> repNP np0 (\recipient -> 
 			repNP np (\referent -> let
@@ -574,8 +574,8 @@ repVP (GV_NP_that_S v0 np0 (GPosS (GSentence np vp))) = case vp of
 				(DRSRel (lin place)) [referent] ])]
 			in DRS [r,recipient,referent] conds )
 			(new np [r,recipient]) ) (new np0 [r])
-repVP (GV_NP_S v0 np0 (GPosS (GSentence np vp))) =
-	repVP (GV_NP_that_S v0 np0 (GPosS (GSentence np vp)))
+repVP (GV_NP_S v0 np0 (GMkS GpresentTense GsimultaneousAnt GpositivePol (GSentence np vp))) =
+	repVP (GV_NP_that_S v0 np0 (GMkS GpresentTense GsimultaneousAnt GpositivePol (GSentence np vp)))
 repVP (GV_NP_VP v0 obj vp) = case vp of
 	(GLook_bad v ap) -> \r ->
 		repNP obj (\patient -> let
