@@ -178,6 +178,7 @@ meet	: V2;
 might	: VV;
 nail	: CN;
 nailbiter	: CN;
+nailbiting	: N;
 nail polish	: N;
 need	: VV;
 nervous	: AP;
