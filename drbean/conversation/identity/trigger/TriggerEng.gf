@@ -9,6 +9,7 @@ lin
 
 -- Adv
 
+	just	= ParadigmsEng.mkAdV "just" ;
 	forever	= ParadigmsEng.mkAdv "forever" ;
 	ever	= ParadigmsEng.mkAdV "ever" ;
 	differently	= ParadigmsEng.mkAdv "differently" ;
@@ -17,6 +18,8 @@ lin
 
 -- AP
 
+	healthy	= mkAP( mkA "healthy") ;
+	good	= mkAP( mkA "good") ;
 	first	= mkAP( mkA "first") ;
 	few	= mkAP( mkA "few") ;
 	envious	= mkAP( mkA "envious") ;
@@ -42,6 +45,13 @@ lin
 
 -- N
 
+	language	= mkCN( mkN nonhuman (mkN "language") );
+	kid	= mkCN( mkN human (mkN "kid") );
+	junk_food	= mkN "junk food" nonExist;
+	job	= mkCN( mkN nonhuman (mkN "job") );
+	gym	= mkCN( mkN nonhuman (mkN "gym") );
+	guitar	= mkCN( mkN nonhuman (mkN "guitar") );
+	friends	= mkCN( mkN human (mkN "friends") );
 	experience	= mkN "experience" nonExist;
 	college_CN	= mkCN( mkN nonhuman (mkN "college") );
 	college_N	= mkN "college" nonExist;
@@ -51,12 +61,16 @@ lin
 
 -- PN
 
+	jacob	= mkPN( mkN masculine (mkN "Jacob") );
+	henry	= mkPN( mkN masculine (mkN "Henry") );
 	europe	= mkPN( mkN nonhuman (mkN "Europe") );
 	debbie	= mkPN( mkN feminine (mkN "Debbie") );
 	alex	= mkPN( mkN masculine (mkN "Alex") );
 
 -- Prep
 
+	in_TIMEPREP	= mkPrep "in";
+	in_LOCPREP	= mkPrep "in";
 	for	= mkPrep "for";
 	for	= mkPrep "for";
 	by	= mkPrep "by";
@@ -72,6 +86,12 @@ lin
 
 -- V
 
+	join	= mkV2( mkV "join") noPrep;
+	guess	= mkVS( mkV "guess") ;
+	graduate	= mkV "graduate";
+	go	= mkV "go";
+	get_NP	= mkV2( mkV "get") noPrep;
+	get_A	= mkVA( mkV "get") ;
 	find	= mkVS( mkV "find") ;
 	exercise	= mkV "exercise";
 	eat	= mkV2( mkV "eat") noPrep;

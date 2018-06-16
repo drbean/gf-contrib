@@ -7,6 +7,7 @@ fun
 
 -- Adv
 
+	just	: AdV;
 	forever	: Adv;
 	ever	: AdV;
 	differently	: Adv;
@@ -15,6 +16,8 @@ fun
 
 -- AP
 
+	healthy	: AP;
+	good	: AP;
 	first	: AP;
 	few	: AP;
 	envious	: AP;
@@ -40,6 +43,13 @@ fun
 
 -- N
 
+	language	: CN;
+	kid	: CN;
+	junk_food	: N;
+	job	: CN;
+	gym	: CN;
+	guitar	: CN;
+	friends	: CN;
 	experience	: N;
 	college_CN	: CN;
 	college_N	: N;
@@ -49,12 +59,16 @@ fun
 
 -- PN
 
+	jacob	: PN;
+	henry	: PN;
 	europe	: PN;
 	debbie	: PN;
 	alex	: PN;
 
 -- Prep
 
+	in_TIMEPREP	: TimePrep;
+	in_LOCPREP	: LocPrep;
 	for	: Prep;
 	for	: Prep;
 	by	: Prep;
@@ -70,6 +84,12 @@ fun
 
 -- V
 
+	join	: V2;
+	guess	: VS;
+	graduate	: V;
+	go	: V;
+	get_NP	: V2;
+	get_A	: VA;
 	find	: VS;
 	exercise	: V;
 	eat	: V2;

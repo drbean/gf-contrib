@@ -170,46 +170,28 @@ for	: Prep;
 for	: Prep;
 forever	: Adv;
 find	: VS;
-friends
-get
-going
-gone
-good
-got
-graduated
-guesses
-guitar
-gym
-had
-half
-has
-have
-he
-He
-healthy
-Henry
-her
+friends	: CN;
+get_A	: VA;
+get_NP	: V2;
+go	: V;
+good	: AP;
+graduate	: V;
+guess	: VS;
+guitar	: CN;
+gym	: CN;
+healthy	: AP;
+Henry	: PN;
 herself
-him
-his
-If
-in
-In
+in_LOCPREP	: LocPrep;
+in_TIMEPREP	: TimePrep;
 independent
-is
-it
-it's
-Jacob
-job
-join
-junk food
-just
-kid
-kids
-knows
-language
-languages
-language--she
+Jacob	: PN;
+job	: CN;
+join	: V2;
+junk food	: N;
+just	: AdV;
+kid	: CN;
+language	: CN;
 last
 learned
 looking
@@ -301,7 +283,7 @@ with
 without
 working
 would
-year
+year and a half
 YiYun
 
 
