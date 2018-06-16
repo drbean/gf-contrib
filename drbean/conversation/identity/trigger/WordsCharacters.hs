@@ -203,11 +203,10 @@ love	: V2;
 make	: V2V;
 more	: AdA;
 not even with_RECIPIENTPREP	: RecipientPrep;
-now
-on
+now	: Adv_time;
+on own
 out
 outgoing
-own
 parents
 party
 people

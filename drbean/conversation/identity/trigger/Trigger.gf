@@ -7,6 +7,8 @@ fun
 
 -- Adv
 
+	on_own	: NP -> Adv_manner;
+	now	: Adv_time;
 	more	: AdA;
 	a_lot_	: AdV;
 	just	: AdV;

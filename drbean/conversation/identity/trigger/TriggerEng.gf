@@ -9,6 +9,8 @@ lin
 
 -- Adv
 
+	on_own np	= ParadigmsEng.mkAdv "on " . np ! gen . " own";
+	now	= ParadigmsEng.mkAdv "now";
 	more	= ParadigmsEng.mkAdA "more" ;
 	a_lot_	= ParadigmsEng.mkAdV "a lot " ;
 	just	= ParadigmsEng.mkAdV "just" ;
