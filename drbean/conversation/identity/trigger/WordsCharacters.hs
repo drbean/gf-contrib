@@ -166,8 +166,9 @@ exercise	: V;
 experience	: N;
 few	: AP;
 first	: AP;
-for	: Prep;
-for	: Prep;
+for_THEMEPREP	: ThemePrep;
+for_TIMEPREP	: TimePrep;
+for_STIMULUSPREP	: StimulusPrep;
 forever	: Adv;
 find	: VS;
 friends	: CN;
@@ -192,19 +193,17 @@ junk food	: N;
 just	: AdV;
 kid	: CN;
 language	: CN;
-last
-learned
-looking
-lose
-lot
-loves
-made
-more
-much
-not
-not even with
-Now
-of
+last	: AP;
+learn	: VV;
+look	: V2;
+look	: V2;
+lose	: V2;
+a lot 	: AdV;
+love	: V2;
+make	: V2V;
+more	: AdA;
+not even with_RECIPIENTPREP	: RecipientPrep;
+now
 on
 out
 outgoing
@@ -260,14 +259,14 @@ three
 time
 to
 together
-too
+too much
 top
 treating
 trying
 turning
 twin
 unforgettable
-up
+up to_STIMULUSPREP	: StimulusPrep;
 very
 was
 way

@@ -9,6 +9,8 @@ lin
 
 -- Adv
 
+	more	= ParadigmsEng.mkAdA "more" ;
+	a_lot_	= ParadigmsEng.mkAdV "a lot " ;
 	just	= ParadigmsEng.mkAdV "just" ;
 	forever	= ParadigmsEng.mkAdv "forever" ;
 	ever	= ParadigmsEng.mkAdV "ever" ;
@@ -18,6 +20,7 @@ lin
 
 -- AP
 
+	last	= mkAP( mkA "last") ;
 	healthy	= mkAP( mkA "healthy") ;
 	good	= mkAP( mkA "good") ;
 	first	= mkAP( mkA "first") ;
@@ -69,10 +72,13 @@ lin
 
 -- Prep
 
+	not_even_with_RECIPIENTPREP	= mkPrep "not even with";
+	up_to_STIMULUSPREP	= mkPrep "up to";
 	in_TIMEPREP	= mkPrep "in";
 	in_LOCPREP	= mkPrep "in";
-	for	= mkPrep "for";
-	for	= mkPrep "for";
+	for_STIMULUSPREP	= mkPrep "for";
+	for_TIMEPREP	= mkPrep "for";
+	for_THEMEPREP	= mkPrep "for";
 	by	= mkPrep "by";
 	at	= mkPrep "at";
 	after	= mkPrep "after";
@@ -86,6 +92,12 @@ lin
 
 -- V
 
+	make	= mkV2V( mkV "make") noPrep noPrep;
+	love	= mkV2( mkV "love") noPrep;
+	lose	= mkV2( mkV "lose") noPrep;
+	look	= mkV2( mkV "look") for_THEMEPREP;
+	look	= mkV2( mkV "look") up_to_STIMULUSPREP;
+	learn	= mkVV( mkV "learn") ;
 	join	= mkV2( mkV "join") noPrep;
 	guess	= mkVS( mkV "guess") ;
 	graduate	= mkV "graduate";

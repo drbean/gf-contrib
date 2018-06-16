@@ -7,6 +7,8 @@ fun
 
 -- Adv
 
+	more	: AdA;
+	a_lot_	: AdV;
 	just	: AdV;
 	forever	: Adv;
 	ever	: AdV;
@@ -16,6 +18,7 @@ fun
 
 -- AP
 
+	last	: AP;
 	healthy	: AP;
 	good	: AP;
 	first	: AP;
@@ -67,10 +70,13 @@ fun
 
 -- Prep
 
+	not_even_with_RECIPIENTPREP	: RecipientPrep;
+	up_to_STIMULUSPREP	: StimulusPrep;
 	in_TIMEPREP	: TimePrep;
 	in_LOCPREP	: LocPrep;
-	for	: Prep;
-	for	: Prep;
+	for_STIMULUSPREP	: StimulusPrep;
+	for_TIMEPREP	: TimePrep;
+	for_THEMEPREP	: ThemePrep;
 	by	: Prep;
 	at	: Prep;
 	after	: Prep;
@@ -84,6 +90,12 @@ fun
 
 -- V
 
+	make	: V2V;
+	love	: V2;
+	lose	: V2;
+	look	: V2;
+	look	: V2;
+	learn	: VV;
 	join	: V2;
 	guess	: VS;
 	graduate	: V;
