@@ -89,9 +89,9 @@ repS (GQUt (GMkQS GpresentTense GsimultaneousAnt GnegativePol (GYN (GSentence np
 	repS (GQUt (GMkQS GpresentTense GsimultaneousAnt GpositivePol (GYN (GSentence np vp))))
 repS (GQUt (GMkQS GpresentTense GsimultaneousAnt GpositivePol (GYN (GMembership det cn (GLocating _ np))))) =
 	Just (repPlace np (repVP (GV_NP Ghave (GItem det cn))))
-repS (GQUt (GMkQS GpresentTense GsimultaneousAnt GpositivePol (GTagComp np comp))) =
-	repS (GQUt (GMkQS GpresentTense GsimultaneousAnt GpositivePol (GYN (GSentence np (GBe_vp comp)))))
-repS (GQUt (GMkQS GpresentTense GsimultaneousAnt GpositivePol (GTagQ np vp))) = repS (GQUt (GMkQS GpresentTense GsimultaneousAnt GpositivePol (GYN (GSentence np vp))))
+-- repS (GQUt (GMkQS GpresentTense GsimultaneousAnt GpositivePol (GTagComp np comp))) =
+-- 	repS (GQUt (GMkQS GpresentTense GsimultaneousAnt GpositivePol (GYN (GSentence np (GBe_vp comp)))))
+repS (GQUt (GMkQS GpresentTense GsimultaneousAnt GpositivePol (GTagS np vp))) = repS (GQUt (GMkQS GpresentTense GsimultaneousAnt GpositivePol (GYN (GSentence np vp))))
 repS (GQUt (GMkQS GpresentTense GsimultaneousAnt GpositivePol (GWH_Pred wh vp))) = Just (repW wh (repVP vp))
 
 new :: GNP -> [DRSRef] -> DRSRef
@@ -338,7 +338,7 @@ repCN (GOfpos n2 np) = \r -> let
 	in DRS [owner, thing, newOnPos n2 [thing]] newconds ) owner
 repCN (GModified cn rs) = \r -> let
 	DRS attri_refs attri_conds = case rs of
-		(GSubjRel wh vp) -> repVP vp r
+		(GMkRS GpresentTense GsimultaneousAnt GpositivePol (GSubjRel wh vp)) -> repVP vp r
 	DRS thing_refs thing_conds = repCN cn r
 	reflist = nub (attri_refs ++ thing_refs) in
 	DRS reflist (attri_conds ++ thing_conds)
