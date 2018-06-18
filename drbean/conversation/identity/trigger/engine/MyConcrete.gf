@@ -233,15 +233,8 @@ oper
 			a = agreement;
 		};
 
-	myCltoNP : (str : Str) -> (cl : Cl) -> {s : NPCase => Str ; a : Agr} =
-		\str,cl -> let np = str ++ cl.s ! Pres ! Simul ! CPos ! oDir ;
-								agreement = toAgr Sg P3 Neutr in {
-			s = \\_ => np;
-			a = agreement;
-		};
-
-	myNegCltoNP : (str : Str) -> (cl : Cl) -> {s : NPCase => Str ; a : Agr} =
-		\str,cl -> let np = str ++ cl.s ! Pres ! Simul ! (CNeg True) ! oDir ;
+	myStoNP : (str : Str) -> (s : S) -> {s : NPCase => Str ; a : Agr} =
+		\str,s -> let np = str ++ s.s;
 								agreement = toAgr Sg P3 Neutr in {
 			s = \\_ => np;
 			a = agreement;
@@ -570,15 +563,14 @@ lin
 	DetVPtoNP det vp = myDetVPtoNP det vp;
 	SubjGerund np vp	= myNPVPtoNP np vp;
 	InfinitiveNP vp = myInfinitiveNP vp;
-	FactNP cl = myCltoNP "the fact that" cl;
-	WayNP cl = myCltoNP "the way that" cl;
-	HowNP cl = myCltoNP "how" cl;
-	WhenNP cl = myCltoNP "when" cl;
-	WhetherNP cl = myCltoNP "whether" cl;
-	-- WhatNP cl = myCltoNP "what" cl;
-	WhyNP cl = myCltoNP "why" cl;
-	ThatNP cl	= myCltoNP "that" cl;
-	ThatNegNP cl = myNegCltoNP "that" cl;
+	FactNP s	= myStoNP "the fact that" s;
+	WayNP s	= myStoNP "the way that" s;
+	HowNP s	= myStoNP "how" s;
+	WhenNP s	= myStoNP "when" s;
+	WhetherNP s	= myStoNP "whether" s;
+	-- WhatNP s	= myStoNP "what" s;
+	WhyNP s	= myStoNP "why" s;
+	ThatNP s	= myStoNP "that" s;
 	PartN v	= myPartN v;
 	Gerund vp = GerundNP vp;
 	GerundSlash vp = GerundCN vp;
