@@ -100,7 +100,7 @@ dic_test = [
 	"A turning point for Sally was when she learned Spanish."
 	, "She was envious of kids who could speak another language."
 	, "When she learned Spanish, she found she was actually pretty good at it."
-	, "Whe she reached the breakthrough stage--when she discovered she could actually communicate with people in the language--she was really proud of herself."
+	, "When she reached the breakthrough stage--when she discovered she could actually communicate with people in the language--she was really proud of herself."
 	, "Now she can speak three languages."
 	, "Henry has a twin brother and they have always been very close."
 	, "When he was 18, they went to different colleges."
