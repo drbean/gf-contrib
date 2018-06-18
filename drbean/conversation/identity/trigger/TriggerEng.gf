@@ -27,7 +27,7 @@ lin
 	forever	= ParadigmsEng.mkAdv "forever" ;
 	ever	= ParadigmsEng.mkAdV "ever" ;
 	differently	= ParadigmsEng.mkAdv "differently" ;
-	always	= ParadigmsEng.mkAdv "always" ;
+	always	= ParadigmsEng.mkAdV "always" ;
 	actually	= ParadigmsEng.mkAdA "actually" ;
 
 -- AP
@@ -113,6 +113,7 @@ lin
 	with_COAGENTPREP	= mkPrep "with";
 	with_RECIPIENTPREP	= mkPrep "with";
 	to_PREP	= mkPrep "to";
+	to_LOCPREP	= mkPrep "to";
 	not_even_with_RECIPIENTPREP	= mkPrep "not even with";
 	up_to_STIMULUSPREP	= mkPrep "up to";
 	in_TIMEPREP	= mkPrep "in";

@@ -20,7 +20,7 @@ fun
 	forever	: Adv;
 	ever	: AdV;
 	differently	: Adv;
-	always	: Adv;
+	always	: AdV;
 	actually	: AdA;
 
 -- AP
@@ -83,7 +83,7 @@ fun
 	guitar	: CN;
 	friends	: CN;
 	experience	: N;
-	college_CN	: CN;
+	college_CN	: PlaceNoun;
 	college_N	: N;
 	choice	: CN;
 	brother	: CN;
@@ -106,6 +106,7 @@ fun
 	with_COAGENTPREP	: CoagentPrep;
 	with_RECIPIENTPREP	: RecipientPrep;
 	to_PREP	: Prep;
+	to_LOCPREP	: LocPrep;
 	not_even_with_RECIPIENTPREP	: RecipientPrep;
 	up_to_STIMULUSPREP	: StimulusPrep;
 	in_TIMEPREP	: TimePrep;

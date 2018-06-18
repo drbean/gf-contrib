@@ -241,6 +241,7 @@ think_S	: VS;
 think_NP	: V2;
 three	: Det;
 time	: CN;
+to_LOCPREP	: LocPrep;
 to_PREP	: Prep;
 together	: Adv_copatient;
 too much	: Pron;
