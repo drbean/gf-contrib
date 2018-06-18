@@ -197,92 +197,73 @@ last	: AP;
 learn	: VV;
 look	: V2;
 look	: V2;
-lose	: V2;
-a lot 	: AdV;
+a lot	: Pron;
 love	: V2;
 make	: V2V;
 more	: AdA;
 not even with_RECIPIENTPREP	: RecipientPrep;
 now	: Adv_time;
-on own
-out
-outgoing
-parents
-party
-people
-piano
-play
-playing
-point
-pretty
-prize
-proud
-quit
-reached
-realized
-really
-regrets
-right away
-Sally
-school
-share
-she
-She
-should
-shy
-sing
-some
-songs
-Spanish
-speak
-sports
-stage--when
-started
-stopped
-student
-study
-suddenly
-summer
-that
-That
-the
-their
-they
-thin
-thing
-things
-think
-thinks
-thought
-three
-time
-to
-together
-too much
-top
-treating
-trying
-turning
-twin
-unforgettable
+own	: CN;
+on own	: Adv_manner;
+outgoing	: AP;
+parent	: CN;
+party	: CN;
+piano	: CN;
+play	: V2;
+pretty	: AdA;
+prize	: CN;
+proud	: A2;
+quit	: VV;
+reach	: V2;
+realize	: VS;
+really	: AdA;
+regret	: VV;
+right away	: Adv_time;
+Sally	: PN;
+in school	: Adv_place;
+share	: V2;
+should	: VV;
+shy	: AP;
+sing	: V2;
+song	: CN;
+Spanish	: PN;
+speak	: V2;
+sports	: N;
+stage	: CN;
+start	: VV;
+stop	: VV;
+student	: CN;
+study	: V2;
+suddenly	: AdV;
+summer	: CN;
+thin	: AP;
+think_S	: VS;
+think_NP	: V2;
+three	: Det;
+time	: CN;
+to_PREP	: Prep;
+together	: Adv_copatient;
+too much	: Pron;
+top	: AP;
+treat	: V2A;
+try	: VV;
+turning point	: CN;
+twin	: AP;
+twin	: CN;
+unforgettable	: AP;
 up to_STIMULUSPREP	: StimulusPrep;
-very
-was
-way
-weeks
-weight
-went
-Whe
-when
-When
-who
-wishes
-with
-without
-working
-would
+very	: AdA;
+way	: CN;
+week	: CN;
+lose weight	: V;
+wishes	: VS;
+with_RECIPIENTPREP	: RecipientPrep;
+with_COAGENTPREP	: CoagentPrep;
+without_COAGENTPREP	: CoagentPrep;
+work out	: V;
+would	: VV;
 year and a half
-YiYun
+YiYun	: PN;
 
 
 -}

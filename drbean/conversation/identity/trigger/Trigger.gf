@@ -7,10 +7,15 @@ fun
 
 -- Adv
 
-	on_own	: NP -> Adv_manner;
+	very	: AdA;
+	together	: Adv_copatient;
+	suddenly	: AdV;
+	in_school	: Adv_location;
+	right_away	: Adv_time;
+	really	: AdA;
+	pretty	: AdA;
+	On_own	: NP -> Adv_manner;
 	now	: Adv_time;
-	more	: AdA;
-	a_lot_	: AdV;
 	just	: AdV;
 	forever	: Adv;
 	ever	: AdV;
@@ -20,6 +25,13 @@ fun
 
 -- AP
 
+	unforgettable	: AP;
+	twin_A	: AP;
+	top	: AP;
+	thin	: AP;
+	shy	: AP;
+	proud	: A2;
+	outgoing	: AP;
 	last	: AP;
 	healthy	: AP;
 	good	: AP;
@@ -35,19 +47,34 @@ fun
 	capable	: A2;
 	breakthrough	: AP;
 	amazing	: AP;
-	18	: AP;
+	eighteen	: AP;
 
 -- Conj
 
 
 -- Det
 
+	three	: Det;
 	both	: Postdet;
 	another	: Det;
 	all	: Predet;
 
 -- N
 
+	week	: CN;
+	way	: CN;
+	twin_N	: CN;
+	turning_point	: CN;
+	time	: CN;
+	summer	: CN;
+	student	: CN;
+	stage	: CN;
+	sports	: N;
+	song	: CN;
+	prize	: CN;
+	piano	: CN;
+	party	: CN;
+	parent	: CN;
 	language	: CN;
 	kid	: CN;
 	junk_food	: N;
@@ -64,6 +91,9 @@ fun
 
 -- PN
 
+	yiyun	: PN;
+	spanish	: PN;
+	sally	: PN;
 	jacob	: PN;
 	henry	: PN;
 	europe	: PN;
@@ -72,6 +102,10 @@ fun
 
 -- Prep
 
+	without_COAGENTPREP	: CoagentPrep;
+	with_COAGENTPREP	: CoagentPrep;
+	with_RECIPIENTPREP	: RecipientPrep;
+	to_PREP	: Prep;
 	not_even_with_RECIPIENTPREP	: RecipientPrep;
 	up_to_STIMULUSPREP	: StimulusPrep;
 	in_TIMEPREP	: TimePrep;
@@ -86,17 +120,37 @@ fun
 
 -- Pron
 
+	a_lot	: Pron;
+	too_much	: Pron;
 
 -- Subj
 
 
 -- V
 
+	work_it_out	: NP -> VP;
+	work_out_it	: V2;
+	wishes	: VS;
+	lose_weight	: V;
+	try	: VV;
+	treat	: V2A;
+	think_S	: VS;
+	think_NP	: V2;
+	study	: V2;
+	stop	: VV;
+	start	: VV;
+	speak	: V2;
+	sing	: V2;
+	share	: V2;
+	regret	: VV;
+	realize	: VS;
+	reach	: V2;
+	quit	: VV;
+	play	: V2;
 	make	: V2V;
 	love	: V2;
-	lose	: V2;
-	look	: V2;
-	look	: V2;
+	look_upto	: V2;
+	look_for	: V2;
 	learn	: VV;
 	join	: V2;
 	guess	: VS;
