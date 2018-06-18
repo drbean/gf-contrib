@@ -121,12 +121,13 @@ fun
 	by	: Prep;
 	at	: Prep;
 	after	: Prep;
-	about	: Prep;
+	about_THEMEPREP	: ThemePrep;
 
 -- Pron
 
 	a_lot	: Pron;
 	too_much	: Pron;
+	Pron2NP : Pron -> NP;
 
 -- Subj
 

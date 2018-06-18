@@ -1,6 +1,6 @@
 --# -path=.:./engine:/home/drbean/GF/lib/src/translator:alltenses
 
-concrete TriggerEng of Trigger = MyConcrete  **
+concrete TriggerEng of Trigger = MyConcrete, MorphoEng [ mkPron ]  **
 open ConstructorsEng, ParadigmsEng, StructuralEng, IrregEng, ExtendEng, ConstructX, Prelude, (R=ResEng) in {
 
 oper
@@ -129,12 +129,13 @@ lin
 	by	= mkPrep "by";
 	at	= mkPrep "at";
 	after	= mkPrep "after";
-	about	= mkPrep "about";
+	about_THEMEPREP	= mkPrep "about";
 
 -- Pron
 
-	-- a_lot	= mkPron "a lot";
-	-- too_much	= mkPron "too much";
+	a_lot	= mkPron "a lot" "a lot" "a lot of" "a lot's" R.Sg R.P3 R.Neutr;
+	too_much	= mkPron "too much" "too much" "too much" "too much" R.Sg R.P3 R.Neutr;
+	Pron2NP pron = mkNP pron;
 
 -- Subj
 
