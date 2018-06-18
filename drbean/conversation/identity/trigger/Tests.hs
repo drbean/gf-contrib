@@ -120,7 +120,7 @@ dic_test = [
 	, "But after college, he quit playing sports."
 	, "Now he is determined to join a gym, because he knows he can't get healthy by just dieting."
 	, "If YiYun had had a choice, she would have learned to play the guitar."
-	, "Whe she was a kid, her parents made her study piano."
+	, "When she was a kid, her parents made her study piano."
 	, "She loves the piano, but wishes she could bring a guitar to a party and have everyone sing songs."
 	, "Jacob regrets not going to Europe with his friends when he had the choice."
 	, "In the summer after he graduated, he started looking for a job, but his friends went backpacking in Europe for a few weeks."
