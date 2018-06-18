@@ -23,6 +23,7 @@ lincat
 	ProductPrep	= Prep;
 	GoalPrep	= Prep;
 	BeneficiaryPrep	= Prep;
+	RecipientPrep	= Prep;
 	TrajectoryPrep	= Prep;
 	CausePrep	= Prep;
 	Adv_coagent	= Adv;
@@ -33,6 +34,7 @@ lincat
 	Adv_location	= Adv;
 	Adv_source	= Adv;
 	Adv_result	= Adv;
+	Adv_copatient	= Adv;
 	Adv_patient	= Adv;
 	Adv_extent	= Adv;
 	Adv_attribute	= Adv;
@@ -40,6 +42,7 @@ lincat
 	Adv_product	= Adv;
 	Adv_goal	= Adv;
 	Adv_beneficiary	= Adv;
+	Adv_recipient	= Adv;
 	Adv_trajectory	= Adv;
 	Adv_cause	= Adv;
 	MassDet = Det;
@@ -518,7 +521,7 @@ lin
 	Stimulating prep stimulus	= mkAdv prep stimulus;
 	Producing prep product	= mkAdv prep product;
 	Goaling, Benefiting
-	, Trajectoring, Causing = \prep, np -> mkAdv prep np;
+	, Receiving, Trajectoring, Causing = \prep, np -> mkAdv prep np;
 	V_ action	=	mkVP action;
 	V_NP v2 patient	= mkVP v2 patient;
 	V_NP_VP causal patient predicate	= mkVP causal patient predicate;
@@ -608,7 +611,7 @@ lin
 	VP_Adv_stimulus vp stimulus	= mkVP vp stimulus;
 	VP_Adv_product vp product	= mkVP vp product;
 	VP_Adv_goal vp goal	= mkVP vp goal;
-	VP_Adv_beneficiary vp beneficiary	= mkVP vp beneficiary;
+	VP_Adv_beneficiary, VP_Adv_recipient = \vp,adv -> mkVP vp adv;
 	VP_Adv_trajectory vp trajectory	= mkVP vp trajectory;
 	VP_Adv_cause vp cause = mkVP vp cause;
 	WithCl vp cl = mkVP vp cl;
@@ -800,6 +803,8 @@ lin
 	thing	= mkCN( P.mkN Neutr ( P.mkN "thing"));
 
 	can	= can_VV;
+	would	= ModalVV "would" "wouldn't" "would not";
+	should	= ModalVV "should" "shouldn't" "should not";
 	have	= P.mkV2 IrregEng.have_V;
 	know_V2	= P.mkV2 know_V;
 	know_VS	= P.mkVS know_V;

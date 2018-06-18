@@ -24,6 +24,7 @@ cat
 	ProductPrep;
 	GoalPrep;
 	BeneficiaryPrep;
+	RecipientPrep;
 	TrajectoryPrep;
 	CausePrep;
 	Adv_coagent;
@@ -42,6 +43,7 @@ cat
 	Adv_product;
 	Adv_goal;
 	Adv_beneficiary;
+	Adv_recipient;
 	Adv_trajectory;
 	Adv_cause;
 	MassDet;
@@ -80,6 +82,7 @@ fun
 	Producing	: ProductPrep -> NP -> Adv_product;
 	Goaling	: GoalPrep -> NP -> Adv_goal;
 	Benefiting	: BeneficiaryPrep -> NP -> Adv_beneficiary;
+	Receiving	: RecipientPrep -> NP -> Adv_recipient;
 	Trajectoring	: TrajectoryPrep -> NP -> Adv_trajectory;
 	Causing	: CausePrep -> NP -> Adv_cause;
 	V_	: V -> VP ;
@@ -150,6 +153,8 @@ fun
 	Sourced	: NP -> Adv_source -> NP;
 	Themed	: NP -> Adv_theme -> NP;
 	AdV_VP	: AdV -> VP -> VP;
+	-- AdvVP	: Adv -> VP -> VP;
+	-- VPAdv	: VP -> Adv -> VP;
 	AdV_VPSlash	: AdV -> VPSlash -> VPSlash;
 	WithPlace	:  V -> Adv_location -> VP;
 	VP_Adv_coagent	: VP -> Adv_coagent -> VP;
@@ -166,6 +171,7 @@ fun
 	VP_Adv_product	: VP -> Adv_product -> VP;
 	VP_Adv_goal	: VP -> Adv_goal -> VP;
 	VP_Adv_beneficiary	: VP -> Adv_beneficiary -> VP;
+	VP_Adv_recipient	: VP -> Adv_recipient -> VP;
 	VP_Adv_trajectory	: VP -> Adv_trajectory -> VP;
 	VP_Adv_cause	: VP -> Adv_cause -> VP;
 	WithCl	: VP -> SubordCl -> VP;
@@ -184,9 +190,9 @@ fun
 	YN	: Cl -> QCl;
 
 	TagS	: NP -> VP -> QCl;
-	TagQ	: NP -> VP -> QCl;
-	TagComp	: NP -> Comp -> QCl;
-	TagModal	: NP -> VV -> VP -> QCl;
+	-- TagQ	: NP -> VP -> QCl;
+	-- TagComp	: NP -> Comp -> QCl;
+	-- TagModal	: NP -> VV -> VP -> QCl;
 	-- TagNP	: NP -> NP -> QCl;
 	-- TagAP	: NP -> AP -> QCl;
 
@@ -362,6 +368,8 @@ fun
 	entity	: CN;
 
 	can	: VV;
+	would	: VV;
+	should	: VV;
 	have	: V2;
 	know_V2	: V2;
 	know_VS	: VS;
