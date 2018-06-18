@@ -16,6 +16,7 @@ fun
 	pretty	: AdA;
 	On_own	: NP -> Adv_manner;
 	now	: Adv_time;
+	more_AdA	: AdA;
 	just	: AdV;
 	forever	: Adv;
 	ever	: AdV;
@@ -33,11 +34,13 @@ fun
 	proud	: A2;
 	outgoing	: AP;
 	last	: AP;
+	independent	: AP;
 	healthy	: AP;
-	good	: AP;
+	good_AP	: AP;
+	good_A2	: A2;
 	first	: AP;
 	few	: AP;
-	envious	: AP;
+	envious	: A2;
 	dumbest	: AP;
 	difficult	: AP;
 	different	: AP;
@@ -109,6 +112,7 @@ fun
 	to_LOCPREP	: LocPrep;
 	not_even_with_RECIPIENTPREP	: RecipientPrep;
 	up_to_STIMULUSPREP	: StimulusPrep;
+	in_MANNERPREP	: MannerPrep;
 	in_TIMEPREP	: TimePrep;
 	in_LOCPREP	: LocPrep;
 	for_STIMULUSPREP	: StimulusPrep;
@@ -153,6 +157,7 @@ fun
 	look_upto	: V2;
 	look_for	: V2;
 	learn	: VV;
+	learn_V2	: V2;
 	join	: V2;
 	guess	: VS;
 	graduate	: V;

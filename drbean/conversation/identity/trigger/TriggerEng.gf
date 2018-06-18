@@ -9,6 +9,7 @@ oper
 	own	= mkCN( mkN nonhuman (mkN "own") );
 	np_own : NP -> {s : R.NPCase => Str ; a : R.Agr} = \np -> mkNP (mkDet (GenNP np)) own;
 	on = mkPrep "on";
+	good	= mkA "good" "better" "best" "well";
 
 lin
 
@@ -23,6 +24,7 @@ lin
 	pretty	= ParadigmsEng.mkAdA "pretty";
 	On_own np	= Mannering on (np_own np);
 	now	= ParadigmsEng.mkAdv "now";
+	more_AdA	= ParadigmsEng.mkAdA "more";
 	just	= ParadigmsEng.mkAdV "just" ;
 	forever	= ParadigmsEng.mkAdv "forever" ;
 	ever	= ParadigmsEng.mkAdV "ever" ;
@@ -40,11 +42,13 @@ lin
 	proud	= mkA2( mkA "proud") of_PREP;
 	outgoing	= mkAP( mkA "outgoing") ;
 	last	= mkAP( mkA "last") ;
+	independent	= mkAP( mkA "independent") ;
 	healthy	= mkAP( mkA "healthy") ;
-	good	= mkAP( mkA "good") ;
+	good_AP	= mkAP good;
+	good_A2	= mkA2 good at;
 	first	= mkAP( mkA "first") ;
 	few	= mkAP( mkA "few") ;
-	envious	= mkAP( mkA "envious") ;
+	envious	= mkA2( mkA "envious") of_PREP;
 	dumbest	= mkAP( mkA "dumbest") ;
 	difficult	= mkAP( mkA "difficult") ;
 	different	= mkAP( mkA "different") ;
@@ -116,6 +120,7 @@ lin
 	to_LOCPREP	= mkPrep "to";
 	not_even_with_RECIPIENTPREP	= mkPrep "not even with";
 	up_to_STIMULUSPREP	= mkPrep "up to";
+	in_MANNERPREP	= mkPrep "in";
 	in_TIMEPREP	= mkPrep "in";
 	in_LOCPREP	= mkPrep "in";
 	for_STIMULUSPREP	= mkPrep "for";
@@ -160,13 +165,14 @@ lin
 	look_for	= mkV2( mkV "look") for_THEMEPREP;
 	look_upto	= mkV2( mkV "look") up_to_STIMULUSPREP;
 	learn	= mkVV( mkV "learn") ;
+	learn_V2	= mkV2( mkV "learn") noPrep;
 	join	= mkV2( mkV "join") noPrep;
 	guess	= mkVS( mkV "guess") ;
 	graduate	= mkV "graduate";
 	go	= IrregEng.go_V;
 	get_NP	= mkV2( mkV "get") noPrep;
 	get_A	= mkVA( mkV "get") ;
-	find	= mkVS( mkV "find") ;
+	find	= mkVS( IrregEng.find_V ) ;
 	exercise	= mkV "exercise";
 	eat	= mkV2( mkV "eat") noPrep;
 	discover	= mkVS( mkV "discover") ;
