@@ -118,38 +118,38 @@ rep :: Tree -> Maybe (DRSRef -> DRS)
 rep x =  (repS . fg) x
 
 answer :: GUtt -> Maybe GUtt
-answer	utt@(GQUt (GPosQ (GYN _)))
+answer	utt@(GQUt (GMkQS GpresentTense GsimultaneousAnt GpositivePol (GYN _)))
 	| eval (\v -> Unspec) lf == Just (Boolean True) = Just GYes
 	| eval (\v -> Unspec) lf == Just (Boolean False) = Just GNo
 	| otherwise = Just GNoAnswer
 	where
 		drs = ((unmaybe . repS) utt) (DRSRef "r1")
 		lf = drsToLF drs
-answer	utt@(GQUt (GNegQ (GYN _)))
+answer	utt@(GQUt (GMkQS GpresentTense GsimultaneousAnt GnegativePol (GYN _)))
 	| eval (\v -> Unspec) lf == Just (Boolean True) = Just GYes
 	| eval (\v -> Unspec) lf == Just (Boolean False) = Just GNo
 	| otherwise = Just GNoAnswer
 	where
 		drs = ((unmaybe . repS) utt) (DRSRef "r1")
 		lf = drsToLF drs
-answer	utt@(GQUt (GPosQ (GTagQ _ _)))
+answer	utt@(GQUt (GMkQS GpresentTense GsimultaneousAnt GpositivePol (GTagS _ _)))
 	| eval (\v -> Unspec) lf == Just (Boolean True) = Just GYes
 	| eval (\v -> Unspec) lf == Just (Boolean False) = Just GNo
 	| otherwise = Just GNoAnswer
 	where
 		drs = ((unmaybe . repS) utt) (DRSRef "r1")
 		lf = drsToLF drs
-answer	utt@(GQUt (GNegQ (GTagQ _ _)))
+answer	utt@(GQUt (GMkQS GpresentTense GsimultaneousAnt GnegativePol (GTagS _ _)))
 	| eval (\v -> Unspec) lf == Just (Boolean True) = Just GYes
 	| eval (\v -> Unspec) lf == Just (Boolean False) = Just GNo
 	| otherwise = Just GNoAnswer
 	where
 		drs = ((unmaybe . repS) utt) (DRSRef "r1")
 		lf = drsToLF drs
-answer	(GQUt (GPosQ (GTagComp np comp))) = 
-	answer	(GQUt (GPosQ (GYN (GSentence np (GBe_vp comp)))))
-answer	(GQUt (GNegQ (GTagComp np comp))) = 
-	answer	(GQUt (GNegQ (GYN (GSentence np (GBe_vp comp)))))
+--answer	(GQUt (GPosQ (GTagComp np comp))) = 
+--	answer	(GQUt (GPosQ (GYN (GSentence np (GBe_vp comp)))))
+--answer	(GQUt (GNegQ (GTagComp np comp))) = 
+--	answer	(GQUt (GNegQ (GYN (GSentence np (GBe_vp comp)))))
 answer	utt@(GQUt _) = case (evalW . drsToLF) (((unmaybe . repS) utt) (DRSRef "r1")) of
 	(Just []) -> Just (GAnswer Gno_PL_NP)
 	(Just [x]) -> Just (GAnswer (GEntity (ent2gent x)))
