@@ -133,6 +133,7 @@ fun
 	FactNP	: Cl -> NP;
 	WayNP	: Cl -> NP;
 	HowNP	: Cl -> NP;
+	WhenNP	: Cl -> NP;
 	WhetherNP	: Cl -> NP;
 	WhyNP	: Cl -> NP;
 	ThatNP	: Cl -> NP;
