@@ -49,10 +49,10 @@ label (GQUt (GMkQS GpresentTense GsimultaneousAnt GpositivePol (GWH_ClSlash _ _)
 label (GQUt (GMkQS GpresentTense GsimultaneousAnt GnegativePol (GWH_ClSlash _ _)))	= "WH"
 label (GQUt (GMkQS GpresentTense GsimultaneousAnt GpositivePol (GYN _)))	= "YN"
 label (GQUt (GMkQS GpresentTense GsimultaneousAnt GnegativePol (GYN _)))	= "YN"
-label (GQUt (GMkQS GpresentTense GsimultaneousAnt GpositivePol (GTagQ _ _)))	= "Tag"
-label (GQUt (GMkQS GpresentTense GsimultaneousAnt GnegativePol (GTagQ _ _)))	= "Tag"
-label (GQUt (GMkQS GpresentTense GsimultaneousAnt GpositivePol (GTagComp _ _)))	= "Tag"
-label (GQUt (GMkQS GpresentTense GsimultaneousAnt GnegativePol (GTagComp _ _)))	= "Tag"
+label (GQUt (GMkQS GpresentTense GsimultaneousAnt GpositivePol (GTagS _ _)))	= "Tag"
+label (GQUt (GMkQS GpresentTense GsimultaneousAnt GnegativePol (GTagS _ _)))	= "Tag"
+-- label (GQUt (GMkQS GpresentTense GsimultaneousAnt GpositivePol (GTagComp _ _)))	= "Tag"
+-- label (GQUt (GMkQS GpresentTense GsimultaneousAnt GnegativePol (GTagComp _ _)))	= "Tag"
 label _				= "Unparseable"
 
 takeCourse :: String -> String -> String
