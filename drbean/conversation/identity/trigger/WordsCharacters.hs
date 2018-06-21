@@ -183,7 +183,7 @@ guitar	: CN;
 gym	: CN;
 healthy	: AP;
 Henry	: PN;
-herself
+herself	: Pron;
 in_MANNERPREP	: MannerPrep;
 in_LOCPREP	: LocPrep;
 in_TIMEPREP	: TimePrep;
