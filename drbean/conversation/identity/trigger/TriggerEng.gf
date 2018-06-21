@@ -133,7 +133,6 @@ lin
 
 -- Pron
 
-	herself	= mkPron "herself" "herself" "herself" "herself" R.Sg R.P3 R.Fem;
 	a_lot	= mkPron "a lot" "a lot" "a lot of" "a lot's" R.Sg R.P3 R.Neutr;
 	too_much	= mkPron "too much" "too much" "too much" "too much" R.Sg R.P3 R.Neutr;
 	Pron2NP pron = mkNP pron;

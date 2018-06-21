@@ -125,7 +125,6 @@ fun
 
 -- Pron
 
-	herself	: Pron;
 	a_lot	: Pron;
 	too_much	: Pron;
 	Pron2NP : Pron -> NP;
