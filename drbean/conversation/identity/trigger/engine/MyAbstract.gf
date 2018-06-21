@@ -350,6 +350,7 @@ fun
 	As_asS	: A -> S -> Adv;
 	AdvAdj	: AdA -> AP -> AP;
 	A_PP	: A2 -> NP ->AP;
+	reflAP	: A2 ->AP;
 	A_Adv_location	: A2 -> Place ->AP;
 	VP_AP	: VP -> AP;
 	VPSlash_AP	: VPSlash -> AP;

@@ -779,6 +779,7 @@ lin
 	As_asS adj s	= ComparAdvAdjS as_CAdv adj s;
 	AdvAdj adv adj = mkAP adv adj;
 	A_PP a np = mkAP a np;
+	reflAP a	= reflAP a;
 	A_Adv_location a pl	= myAPinPlace a pl;
 	VP_AP vp = PresPartAP vp;
 	VPSlash_AP vp = PastPartAP vp;
