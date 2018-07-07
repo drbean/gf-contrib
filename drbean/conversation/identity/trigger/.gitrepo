@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = http://github.com/drbean/trigger
+	branch = master
+	commit = 42f4345308152f12314122fdf735beff1deedca5
+	parent = 5e739ae07d94dd6366d2f2dec1d1dc87e5220e57
+	cmdver = 0.3.1
