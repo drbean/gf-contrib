@@ -136,7 +136,7 @@ fun
 
 	work_it_out	: NP -> VP;
 	work_out_it	: V2;
-	wishes	: VS;
+	wish	: VS;
 	lose_weight	: V;
 	try	: VV;
 	treat	: V2A;

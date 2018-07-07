@@ -144,7 +144,7 @@ lin
 
 	work_it_out np	= ComplSlashPartLast (V2Slash work_out) np;
 	work_out_it	= work_out;
-	wishes	= mkVS( mkV "wishes") ;
+	wish	= mkVS( mkV "wish") ;
 	lose_weight	= partV IrregEng.lose_V "weight";
 	try	= mkVV( mkV "try") ;
 	treat	= mkV2A( mkV "treat") noPrep;
