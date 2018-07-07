@@ -23,6 +23,7 @@ lincat
 	ProductPrep	= Prep;
 	GoalPrep	= Prep;
 	BeneficiaryPrep	= Prep;
+	RecipientPrep	= Prep;
 	TrajectoryPrep	= Prep;
 	CausePrep	= Prep;
 	Adv_coagent	= Adv;
@@ -33,6 +34,7 @@ lincat
 	Adv_location	= Adv;
 	Adv_source	= Adv;
 	Adv_result	= Adv;
+	Adv_copatient	= Adv;
 	Adv_patient	= Adv;
 	Adv_extent	= Adv;
 	Adv_attribute	= Adv;
@@ -40,6 +42,7 @@ lincat
 	Adv_product	= Adv;
 	Adv_goal	= Adv;
 	Adv_beneficiary	= Adv;
+	Adv_recipient	= Adv;
 	Adv_trajectory	= Adv;
 	Adv_cause	= Adv;
 	MassDet = Det;
@@ -230,15 +233,8 @@ oper
 			a = agreement;
 		};
 
-	myCltoNP : (str : Str) -> (cl : Cl) -> {s : NPCase => Str ; a : Agr} =
-		\str,cl -> let np = str ++ cl.s ! Pres ! Simul ! CPos ! oDir ;
-								agreement = toAgr Sg P3 Neutr in {
-			s = \\_ => np;
-			a = agreement;
-		};
-
-	myNegCltoNP : (str : Str) -> (cl : Cl) -> {s : NPCase => Str ; a : Agr} =
-		\str,cl -> let np = str ++ cl.s ! Pres ! Simul ! (CNeg True) ! oDir ;
+	myStoNP : (str : Str) -> (s : S) -> {s : NPCase => Str ; a : Agr} =
+		\str,s -> let np = str ++ s.s;
 								agreement = toAgr Sg P3 Neutr in {
 			s = \\_ => np;
 			a = agreement;
@@ -518,7 +514,7 @@ lin
 	Stimulating prep stimulus	= mkAdv prep stimulus;
 	Producing prep product	= mkAdv prep product;
 	Goaling, Benefiting
-	, Trajectoring, Causing = \prep, np -> mkAdv prep np;
+	, Receiving, Trajectoring, Causing = \prep, np -> mkAdv prep np;
 	V_ action	=	mkVP action;
 	V_NP v2 patient	= mkVP v2 patient;
 	V_NP_VP causal patient predicate	= mkVP causal patient predicate;
@@ -567,14 +563,14 @@ lin
 	DetVPtoNP det vp = myDetVPtoNP det vp;
 	SubjGerund np vp	= myNPVPtoNP np vp;
 	InfinitiveNP vp = myInfinitiveNP vp;
-	FactNP cl = myCltoNP "the fact that" cl;
-	WayNP cl = myCltoNP "the way that" cl;
-	HowNP cl = myCltoNP "how" cl;
-	WhetherNP cl = myCltoNP "whether" cl;
-	-- WhatNP cl = myCltoNP "what" cl;
-	WhyNP cl = myCltoNP "why" cl;
-	ThatNP cl	= myCltoNP "that" cl;
-	ThatNegNP cl = myNegCltoNP "that" cl;
+	FactNP s	= myStoNP "the fact that" s;
+	WayNP s	= myStoNP "the way that" s;
+	HowNP s	= myStoNP "how" s;
+	WhenNP s	= myStoNP "when" s;
+	WhetherNP s	= myStoNP "whether" s;
+	-- WhatNP s	= myStoNP "what" s;
+	WhyNP s	= myStoNP "why" s;
+	ThatNP s	= myStoNP "that" s;
 	PartN v	= myPartN v;
 	Gerund vp = GerundNP vp;
 	GerundSlash vp = GerundCN vp;
@@ -608,7 +604,7 @@ lin
 	VP_Adv_stimulus vp stimulus	= mkVP vp stimulus;
 	VP_Adv_product vp product	= mkVP vp product;
 	VP_Adv_goal vp goal	= mkVP vp goal;
-	VP_Adv_beneficiary vp beneficiary	= mkVP vp beneficiary;
+	VP_Adv_beneficiary, VP_Adv_recipient = \vp,adv -> mkVP vp adv;
 	VP_Adv_trajectory vp trajectory	= mkVP vp trajectory;
 	VP_Adv_cause vp cause = mkVP vp cause;
 	WithCl vp cl = mkVP vp cl;
@@ -783,6 +779,7 @@ lin
 	As_asS adj s	= ComparAdvAdjS as_CAdv adj s;
 	AdvAdj adv adj = mkAP adv adj;
 	A_PP a np = mkAP a np;
+	reflAP a	= reflAP a;
 	A_Adv_location a pl	= myAPinPlace a pl;
 	VP_AP vp = PresPartAP vp;
 	VPSlash_AP vp = PastPartAP vp;
@@ -800,6 +797,8 @@ lin
 	thing	= mkCN( P.mkN Neutr ( P.mkN "thing"));
 
 	can	= can_VV;
+	would	= ModalVV "would" "wouldn't" "would not";
+	should	= ModalVV "should" "shouldn't" "should not";
 	have	= P.mkV2 IrregEng.have_V;
 	know_V2	= P.mkV2 know_V;
 	know_VS	= P.mkVS know_V;

@@ -24,6 +24,7 @@ cat
 	ProductPrep;
 	GoalPrep;
 	BeneficiaryPrep;
+	RecipientPrep;
 	TrajectoryPrep;
 	CausePrep;
 	Adv_coagent;
@@ -42,6 +43,7 @@ cat
 	Adv_product;
 	Adv_goal;
 	Adv_beneficiary;
+	Adv_recipient;
 	Adv_trajectory;
 	Adv_cause;
 	MassDet;
@@ -80,6 +82,7 @@ fun
 	Producing	: ProductPrep -> NP -> Adv_product;
 	Goaling	: GoalPrep -> NP -> Adv_goal;
 	Benefiting	: BeneficiaryPrep -> NP -> Adv_beneficiary;
+	Receiving	: RecipientPrep -> NP -> Adv_recipient;
 	Trajectoring	: TrajectoryPrep -> NP -> Adv_trajectory;
 	Causing	: CausePrep -> NP -> Adv_cause;
 	V_	: V -> VP ;
@@ -127,13 +130,13 @@ fun
 	DetVPtoNP	: Det -> VP -> NP;
 	SubjGerund	: NP -> VP -> NP;
 	InfinitiveNP	: VP -> NP;
-	FactNP	: Cl -> NP;
-	WayNP	: Cl -> NP;
-	HowNP	: Cl -> NP;
-	WhetherNP	: Cl -> NP;
-	WhyNP	: Cl -> NP;
-	ThatNP	: Cl -> NP;
-	ThatNegNP	: Cl -> NP;
+	FactNP	: S -> NP;
+	WayNP	: S -> NP;
+	HowNP	: S -> NP;
+	WhenNP	: S -> NP;
+	WhetherNP	: S -> NP;
+	WhyNP	: S -> NP;
+	ThatNP	: S -> NP;
 	PartN	: V -> N;
 	Gerund	: VP -> NP;
 	GerundSlash	: VPSlash -> CN;
@@ -150,6 +153,8 @@ fun
 	Sourced	: NP -> Adv_source -> NP;
 	Themed	: NP -> Adv_theme -> NP;
 	AdV_VP	: AdV -> VP -> VP;
+	-- AdvVP	: Adv -> VP -> VP;
+	-- VPAdv	: VP -> Adv -> VP;
 	AdV_VPSlash	: AdV -> VPSlash -> VPSlash;
 	WithPlace	:  V -> Adv_location -> VP;
 	VP_Adv_coagent	: VP -> Adv_coagent -> VP;
@@ -166,6 +171,7 @@ fun
 	VP_Adv_product	: VP -> Adv_product -> VP;
 	VP_Adv_goal	: VP -> Adv_goal -> VP;
 	VP_Adv_beneficiary	: VP -> Adv_beneficiary -> VP;
+	VP_Adv_recipient	: VP -> Adv_recipient -> VP;
 	VP_Adv_trajectory	: VP -> Adv_trajectory -> VP;
 	VP_Adv_cause	: VP -> Adv_cause -> VP;
 	WithCl	: VP -> SubordCl -> VP;
@@ -184,9 +190,9 @@ fun
 	YN	: Cl -> QCl;
 
 	TagS	: NP -> VP -> QCl;
-	TagQ	: NP -> VP -> QCl;
-	TagComp	: NP -> Comp -> QCl;
-	TagModal	: NP -> VV -> VP -> QCl;
+	-- TagQ	: NP -> VP -> QCl;
+	-- TagComp	: NP -> Comp -> QCl;
+	-- TagModal	: NP -> VV -> VP -> QCl;
 	-- TagNP	: NP -> NP -> QCl;
 	-- TagAP	: NP -> AP -> QCl;
 
@@ -344,6 +350,7 @@ fun
 	As_asS	: A -> S -> Adv;
 	AdvAdj	: AdA -> AP -> AP;
 	A_PP	: A2 -> NP ->AP;
+	reflAP	: A2 ->AP;
 	A_Adv_location	: A2 -> Place ->AP;
 	VP_AP	: VP -> AP;
 	VPSlash_AP	: VPSlash -> AP;
@@ -362,6 +369,8 @@ fun
 	entity	: CN;
 
 	can	: VV;
+	would	: VV;
+	should	: VV;
 	have	: V2;
 	know_V2	: V2;
 	know_VS	: VS;
