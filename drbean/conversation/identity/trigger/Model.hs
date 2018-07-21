@@ -44,14 +44,14 @@ entity_check =  [
 
 ent_ided :: String -> Entity
 ent_ided name = head [entity | (entity,string) <- entity_check ,
-				name == string
-				]
+  name == string
+  ]
 
 characters :: [(String,Entity)]
 characters = findEnt entity_check
-	where findEnt e_maps = 
-		[(name,e) | (e,name) <- e_maps
-			, name /= ""]
+  where findEnt e_maps = 
+    [(name,e) | (e,name) <- e_maps
+      , name /= ""]
 
 stringEntity :: [(String,Entity)]
 stringEntity = map swap entity_check
@@ -115,7 +115,7 @@ onePlaceStarters = [
   ]
 
 onePlacers = 
-	entityonePlacers ++ onePlaceStarters
+  entityonePlacers ++ onePlaceStarters
 
 predid1 "people"	= predid1 "person"
 predid1 "person"	= Just person
@@ -127,22 +127,22 @@ predid1 "women"  = predid1 "female"
 predid1 "men"  = predid1 "male"
 
 predid1 name = if name `elem` (map fst onePlacers) then
-	Just (pred1 (concat [ oneple | (id, oneple) <- onePlacers
-		, id == name] ) ) else
-		-- Nothing
-		error $ "no '" ++ name ++ "' one-place predicate."
+  Just (pred1 (concat [ oneple | (id, oneple) <- onePlacers
+    , id == name] ) ) else
+    -- Nothing
+    error $ "no '" ++ name ++ "' one-place predicate."
 
 entityonePlacers =
-	map (\x -> (snd x, [fst x])) entity_check
+  map (\x -> (snd x, [fst x])) entity_check
 
 genonePlacer :: [ (Content, [(Case,Entity)]) ] ->
-	String -> String -> Case -> 
-	(String, [Entity])
+  String -> String -> Case -> 
+  (String, [Entity])
 genonePlacer area id content role =
-	( id, [ r | (co,cs) <- area
-		, co == content
-		, Just r <-[lookup role cs]
-		] )
+  ( id, [ r | (co,cs) <- area
+    , co == content
+    , Just r <-[lookup role cs]
+    ] )
 
 type OnePlacePred	= Entity -> Bool
 type TwoPlacePred	= Entity -> Entity -> Bool
@@ -171,30 +171,30 @@ pred4 xs	= curry4 ( `elem` xs )
 
 goal, event, condition, idea, attitude, affiliation :: [ (Content, [(Case, Entity)]) ]
 goal = [
-	]
+  ]
 event = [
-	]
+  ]
 condition = [
-	]
+  ]
 idea = [
-	]
+  ]
 attitude = [
-	]
+  ]
 affiliation = [
-	]
+  ]
 
 gentwoPlacer :: [ (Content, [(Case,Entity)]) ] ->
-	String -> String -> Case -> Case ->
-	(String, [(Entity,Entity)] )
+  String -> String -> Case -> Case ->
+  (String, [(Entity,Entity)] )
 gentwoPlacer area id content role1 role2 =
-	( id, [ (r1,r2) | (co,cs) <- area
-		, co == content
-		, Just r1 <-[lookup role1 cs]
-		, Just r2 <- [lookup role2 cs]
-		] )
+  ( id, [ (r1,r2) | (co,cs) <- area
+    , co == content
+    , Just r1 <-[lookup role1 cs]
+    , Just r2 <- [lookup role2 cs]
+    ] )
 
 twoPlacers =
-	twoPlaceStarters
+  twoPlaceStarters
 
 possessions	= [(B,J),(T,J),(E,J),(B,X),(T,X),(E,X),(T,G)]
 appreciation	= [ (E,Unspec,J) ]
@@ -225,8 +225,8 @@ twoPlaceStarters = [
   , ("face_to_face",  [(E,M),(E,W),(F,M),(F,W)])
   , ("know_V2",    knowledge ++ acquaintances ++ map swap acquaintances)
   , ("have",  possessions ++ qualities ++ 
-		    strategies ++
-		    map (\(_,t,r) -> (r,t)) giving )
+        strategies ++
+        map (\(_,t,r) -> (r,t)) giving )
   , ("stand", [(C,D),(P,Q),(S,T),(U,V)])
   , ("lack", [(N,D),(O,T)])
   , ("level", [(Y,X)])
@@ -239,33 +239,33 @@ twoPlaceStarters = [
   ]
 
 predid2 name = if name `elem` (map fst twoPlacers) then
-	Just (pred2 (concat [ twople | (id, twople) <- twoPlacers
-		, id == name] ) ) else
-		-- Nothing
-		error $ "no '" ++ name ++ "' two-place predicate."
+  Just (pred2 (concat [ twople | (id, twople) <- twoPlacers
+    , id == name] ) ) else
+    -- Nothing
+    error $ "no '" ++ name ++ "' two-place predicate."
 
 curry3 :: ((a,b,c) -> d) -> a -> b -> c -> d
 curry3 f x y z	= f (x,y,z)
 curry4 f x y z w	= f (x,y,z,w)
 
 genthreePlacer :: [ (Content, [(Case,Entity)]) ] ->
-	String -> String -> Case -> Case -> Case ->
-	(String, ThreePlacePred)
+  String -> String -> Case -> Case -> Case ->
+  (String, ThreePlacePred)
 genthreePlacer area id content role1 role2 role3 =
-	( id, pred3 [ (r1,r2,r3) | (co,cs) <- area
-		, co == content
-		, Just r1 <-[lookup role1 cs]
-		, Just r2 <- [lookup role2 cs]
-		, Just r3 <- [lookup role3 cs]
-		] )
+  ( id, pred3 [ (r1,r2,r3) | (co,cs) <- area
+    , co == content
+    , Just r1 <-[lookup role1 cs]
+    , Just r2 <- [lookup role2 cs]
+    , Just r3 <- [lookup role3 cs]
+    ] )
 
 threePlacers, threePlaceStarters :: [(String, ThreePlacePred)]
 threePlaceStarters = [
     ]
 threePlacers =
-	(genthreePlacer event "ask_V2Q" "ask" Agent Recipient Predicate) :
-	genthreePlacer event "tell" "state" Agent Recipient Predicate :
-	threePlaceStarters
+  (genthreePlacer event "ask_V2Q" "ask" Agent Recipient Predicate) :
+  genthreePlacer event "tell" "state" Agent Recipient Predicate :
+  threePlaceStarters
 
 threePlaceStartrs = [
   ("liked", pred3 appreciation )
@@ -280,27 +280,27 @@ threePlaceStartrs = [
 
 type Content = String
 data Case = Agent | Asset | Attribute | Beneficiary | Cause | CoAgent |
-	CoPatient | CoTheme | Destination | Experiencer | Extent | Goal |
-	InitialLocation | Instrument | Location | Material | Patient | Pivot |
-	Predicate | Product | Recipient | Reflexive | Result | Source |
-	Stimulus | Theme | Time | Topic | Trajectory | Value
+  CoPatient | CoTheme | Destination | Experiencer | Extent | Goal |
+  InitialLocation | Instrument | Location | Material | Patient | Pivot |
+  Predicate | Product | Recipient | Reflexive | Result | Source |
+  Stimulus | Theme | Time | Topic | Trajectory | Value
   deriving Eq
 
 genfourPlacer :: [ (Content, [(Case,Entity)]) ] ->
-	String -> String -> Case -> Case -> Case ->
-	Case -> (String, FourPlacePred)
+  String -> String -> Case -> Case -> Case ->
+  Case -> (String, FourPlacePred)
 genfourPlacer area id content role1 role2 role3 role4 =
-	( id, pred4 [ (r1,r2,r3,r4) | (co,cs) <- area
-		, co == content
-		, Just r1 <-[lookup role1 cs]
-		, Just r2 <- [lookup role2 cs]
-		, Just r3 <- [lookup role3 cs]
-		, Just r4 <- [lookup role4 cs]
-		] )
+  ( id, pred4 [ (r1,r2,r3,r4) | (co,cs) <- area
+    , co == content
+    , Just r1 <-[lookup role1 cs]
+    , Just r2 <- [lookup role2 cs]
+    , Just r3 <- [lookup role3 cs]
+    , Just r4 <- [lookup role4 cs]
+    ] )
 
 
 agent, theme, recipient, location, instrument ::
-	(Entity,Entity,Entity) -> Entity
+  (Entity,Entity,Entity) -> Entity
 agent (a,_,_) = a
 theme (_,t,_) = t
 recipient (_,_,r) = r
@@ -344,7 +344,7 @@ fourPlaceStarters = [
         ]
 
 fourPlacers =
-	fourPlaceStarters
+  fourPlaceStarters
 
 agent4, theme4, recipient4, location4 :: (Entity,Entity,Entity,Entity) -> Entity
 agent4 (a,_,_,_) = a
