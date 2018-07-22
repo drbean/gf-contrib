@@ -1,6 +1,6 @@
 module Evaluation (readPGF, languages, buildMorpho, morphoMissing, leading_space, chomp, lc_first, term2ref, drsRefs, xyzwp, var_e, unmaybe, rep, parses, drsToLF, linear, showExpr, transform) where
 
-import PGF
+import PGF2
 import Data.DRS hiding (Or,Neg,Imp,Rel)
 import Representation hiding ((==))
 import Translate

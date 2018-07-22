@@ -2,7 +2,7 @@ module WordsCharacters where
 
 import Data.Char
 
-import PGF
+import PGF2
 import System.Environment.FindBin
 
 -- path = getProgPath
