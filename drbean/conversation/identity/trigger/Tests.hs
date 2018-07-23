@@ -10,8 +10,7 @@ import Data.DRS
 
 import PGF2
 import Trigger
-import Representation
-import Evaluation
+import Utility
 import Model
 
 -- handler gr core tests = putStr $ unlines $ map (\(x,y) -> x++show y) $ zip (map (++"\t") tests ) ( map (\string -> map (\x -> core ( x) ) (parse gr (mkCId "DicksonEng") (startCat gr) string)) tests )
