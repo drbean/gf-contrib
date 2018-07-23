@@ -161,7 +161,7 @@ lin
 	reach	= mkV2( mkV "reach") noPrep;
 	quit	= mkVV( mkV "quit") ;
 	play	= mkV2( mkV "play") noPrep;
-	make	= mkV2V( mkV "make") noPrep noPrep;
+	make	= mkV2V( IrregEng.make_V) noPrep noPrep;
 	love	= mkV2( mkV "love") noPrep;
 	look_for	= mkV2( mkV "look") for_THEMEPREP;
 	look_upto	= mkV2( mkV "look") up_to_STIMULUSPREP;
