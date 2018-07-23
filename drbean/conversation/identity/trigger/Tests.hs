@@ -45,10 +45,10 @@ run f tests = do
   -- let ps = map p ss
   let Just incompleteparse = readExpr "ParseIncomplete"
   let failingparse n string = readExpr ("ParseFailed at " ++ string ++ ": " ++ (show n))
-  let t (ParseOk ((e,prob):rest)) = e
-  let t (ParseFailed offset token) = fromMaybe incompleteparse (failingparse offset token)
-  let t ParseIncomplete = fromMaybe incompleteparse (failingparse 0 "incomplete")
-  let t _ = incompleteparse
+  let t p = case p of
+		ParseOk ((e,prob):rest) -> e
+		(ParseFailed offset token) -> error token
+		ParseIncomplete -> error "Incomplete parse"
   let ts = map (t . p) ss
   let zs = zip (map (++"\t") tests) ts
   putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
