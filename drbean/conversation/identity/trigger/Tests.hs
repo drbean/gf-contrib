@@ -42,13 +42,13 @@ run f tests = do
   let Just eng = Map.lookup "TriggerEng" (languages gr')
   let ss = map (chomp . lc_first) tests
   let p =  parse eng (startCat gr')
-  -- let ps = map p ss
   let Just incompleteparse = readExpr "ParseIncomplete"
-  let failingparse n string = readExpr ("ParseFailed at " ++ string ++ ": " ++ (show n))
+  let Just noaccountfail = readExpr "ParseFailed somewhere"
+  let failingparse n string = fromMaybe noaccountfail (readExpr ("ParseFailed at " ++ (show n) ++ " " ++ string))
   let t p = case p of
-		ParseOk ((e,prob):rest) -> e
-		(ParseFailed offset token) -> error token
-		ParseIncomplete -> error "Incomplete parse"
+        ParseOk ((e,prob):rest) -> e
+        (ParseFailed offset token) -> failingparse offset token
+        ParseIncomplete -> incompleteparse
   let ts = map (t . p) ss
   let zs = zip (map (++"\t") tests) ts
   putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
@@ -56,7 +56,7 @@ run f tests = do
 {-
 
 ans tests = do
-  gr	<- readPGF "./Trigger.pgf"
+  gr  <- readPGF "./Trigger.pgf"
   let ss = map (chomp . lc_first) tests
   let ps = map ( parses gr ) ss
   let ts = map (map ( (linear gr) <=< transform ) ) ps
@@ -66,7 +66,7 @@ ans tests = do
 displayResult = fromMaybe "Nothing"
 
 reps tests = do
-  gr	<- readPGF "./Trigger.pgf"
+  gr  <- readPGF "./Trigger.pgf"
   let ss = map (chomp . lc_first) tests
   let ps = map ( parses gr ) ss
   let ts = map (map (\x -> (((unmaybe . rep) x) (term2ref drsRefs var_e) ))) ps
@@ -74,20 +74,20 @@ reps tests = do
   putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
 
 lf tests = do
-	gr	<- readPGF "./Trigger.pgf"
-	let ss = map (chomp . lc_first) tests
-	let ps = map ( parses gr ) ss
-	let ts = map (map (\p -> drsToLF (((unmaybe . rep) p) (DRSRef "r1"))) ) ps
-	let zs = zip (map (++"\t") tests) ts
-	putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
+  gr  <- readPGF "./Trigger.pgf"
+  let ss = map (chomp . lc_first) tests
+  let ps = map ( parses gr ) ss
+  let ts = map (map (\p -> drsToLF (((unmaybe . rep) p) (DRSRef "r1"))) ) ps
+  let zs = zip (map (++"\t") tests) ts
+  putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
 
 fol tests = do
-	gr	<- readPGF "./Trigger.pgf"
-	let ss = map (chomp . lc_first) tests
-	let ps = map ( parses gr ) ss
-	let ts = map (map (\p -> drsToFOL ( (unmaybe . rep) p (term2ref drsRefs var_e) ) ) ) ps
-	let zs = zip (map (++"\t") tests) ts
-	putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
+  gr  <- readPGF "./Trigger.pgf"
+  let ss = map (chomp . lc_first) tests
+  let ps = map ( parses gr ) ss
+  let ts = map (map (\p -> drsToFOL ( (unmaybe . rep) p (term2ref drsRefs var_e) ) ) ) ps
+  let zs = zip (map (++"\t") tests) ts
+  putStrLn (unlines (map (\(x,y) -> x ++ (show y ) ) zs) )
 
 -}
 
