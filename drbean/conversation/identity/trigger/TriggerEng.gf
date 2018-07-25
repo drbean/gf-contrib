@@ -5,11 +5,16 @@ open ConstructorsEng, ParadigmsEng, StructuralEng, IrregEng, ExtendEng, Construc
 
 oper
 
-	work_out = mkV2( partV( mkV "work") "out") noPrep;
-	own	= mkCN( mkN nonhuman (mkN "own") );
-	np_own : NP -> {s : R.NPCase => Str ; a : R.Agr} = \np -> mkNP (mkDet (GenNP np)) own;
-	on = mkPrep "on";
-	good	= mkA "good" "better" "best" "well";
+  work_out = mkV2( partV( mkV "work") "out") noPrep;
+  own = mkCN( mkN nonhuman (mkN "own") );
+  np_own : NP -> {s : R.NPCase => Str ; a : R.Agr} = \np -> mkNP (mkDet (GenNP np)) own;
+  cn_on_own : (cn : CN) -> {s : R.Number => R.Case => Str ; g : R.Gender} =
+    \cn -> {  s = \\n,c => cn.s ! n ! c ++ R.possPron ! (R.P1 R.Sg);
+              g = cn.g;
+                  };
+
+  on = mkPrep "on";
+  good  = mkA "good" "better" "best" "well";
 
 lin
 
@@ -23,6 +28,7 @@ lin
 	really	= ParadigmsEng.mkAdA "really";
 	pretty	= ParadigmsEng.mkAdA "pretty";
 	On_own np	= Mannering on (np_own np);
+	CN_on_own cn = cn_on_own cn;
 	now	= ParadigmsEng.mkAdv "now";
 	more_AdA	= ParadigmsEng.mkAdA "more";
 	just	= ParadigmsEng.mkAdV "just" ;

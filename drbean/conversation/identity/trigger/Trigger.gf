@@ -15,6 +15,7 @@ fun
 	really	: AdA;
 	pretty	: AdA;
 	On_own	: NP -> Adv_manner;
+	CN_on_own	: CN -> CN;
 	now	: Adv_time;
 	more_AdA	: AdA;
 	just	: AdV;
