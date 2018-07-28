@@ -98,7 +98,7 @@ lin
 	job	= mkCN( mkN nonhuman (mkN "job") );
 	gym	= mkCN( mkN nonhuman (mkN "gym") );
 	guitar	= mkCN( mkN nonhuman (mkN "guitar") );
-	friends	= mkCN( mkN human (mkN "friends") );
+	friend	= mkCN( mkN human (mkN "friend") );
 	experience	= mkN "experience" nonExist;
 	college_CN	= mkCN( mkN nonhuman (mkN "college") );
 	college_N	= mkN "college" nonExist;
