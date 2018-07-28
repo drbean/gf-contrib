@@ -9,7 +9,7 @@ oper
   own = mkCN( mkN nonhuman (mkN "own") );
   np_own : NP -> {s : R.NPCase => Str ; a : R.Agr} = \np -> mkNP (mkDet (GenNP np)) own;
   cn_on_own : (cn : CN) -> {s : R.Number => R.Case => Str ; g : R.Gender} =
-    \cn -> {  s = \\n,c => cn.s ! n ! c ++ R.possPron ! (R.P1 R.Sg);
+    \cn -> { s = \\n,c => cn.s ! n ! c ++ R.possPron ! (R.toAgr n R.P3 cn.g );
               g = cn.g;
                   };
 
