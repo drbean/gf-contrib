@@ -85,7 +85,7 @@ fun
 	job	: CN;
 	gym	: CN;
 	guitar	: CN;
-	friends	: CN;
+	friend	: CN;
 	experience	: N;
 	college_CN	: PlaceNoun;
 	college_N	: N;
