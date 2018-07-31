@@ -382,15 +382,10 @@ oper
 
   myAdvCN : (cn : N) -> (adv : Adv) -> { s : Number => Case => Str ; g : Gender } =
     \cn,adv -> 
-		{
-			s = table {
-				Sg => table {
-					Nom => (cn.s ! Sg ! Nom) ++ adv.s;
-					Gen => (cn.s ! Sg ! Nom) ++ (glue adv.s "'s")};
-				Pl => table {
-					Nom => (cn.s ! Pl ! Nom) ++ adv.s;
-					Gen => (cn.s ! Pl ! Nom) ++ glue adv.s "'s"}
-      };
+    {
+      s = \\n,c => case c of {
+        Nom => cn.s ! n ! Nom ++ adv.s;
+        Gen => cn.s ! n ! Nom ++ (glue adv.s "'s") };
       g = cn.g;
     };
 
