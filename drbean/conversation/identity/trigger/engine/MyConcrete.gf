@@ -380,6 +380,13 @@ oper
       isPre = False
       } ;
 
+  myAdvCN : (cn : N) -> (adv : Adv) -> { s : Number => Case => Str ; g : Gender } =
+    \cn,adv ->
+    {
+      s = \\n,c => (ResEng.regGenitiveS (cn.s ! n ! ResEng.Nom ++ adv.s)) ! c ;
+      g = cn.g
+    };
+
 	mymkN_Adv : (noun : N) -> (adv : Adv) -> { s : Number => Case => Str ; g : Gender } =
 		\noun,adv ->
 		{
@@ -654,7 +661,7 @@ lin
 	Kind ap cn	= mkCN ap cn;
 	MassKind ap n = mymkAP_N ap n;
 	Something ap = mySomething ap;
-	KindOfKind cn adv	= mkCN cn adv;
+	KindOfKind cn adv	= myAdvCN cn adv;
 	MassKindOfKind n adv	= mymkN_Adv n adv;
   KindInTime cn adv	= mkCN cn adv;
 	KindOfTime adj cn	= mkCN adj cn;
