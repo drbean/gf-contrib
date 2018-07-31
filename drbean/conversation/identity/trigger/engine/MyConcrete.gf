@@ -381,10 +381,17 @@ oper
       } ;
 
   myAdvCN : (cn : N) -> (adv : Adv) -> { s : Number => Case => Str ; g : Gender } =
-    \cn,adv -> let cntable n = ResEng.regGenitiveS (cn.s ! n ! ResEng.Nom ++ adv.s) in
-    {
-      s = \\n,c => cntable n ! c ;
-      g = cn.g
+    \cn,adv -> 
+		{
+			s = table {
+				Sg => table {
+					Nom => (cn.s ! Sg ! Nom) ++ adv.s;
+					Gen => (cn.s ! Sg ! Nom) ++ (glue adv.s "'s")};
+				Pl => table {
+					Nom => (cn.s ! Pl ! Nom) ++ adv.s;
+					Gen => (cn.s ! Pl ! Nom) ++ glue adv.s "'s"}
+      };
+      g = cn.g;
     };
 
 	mymkN_Adv : (noun : N) -> (adv : Adv) -> { s : Number => Case => Str ; g : Gender } =
