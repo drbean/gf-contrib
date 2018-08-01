@@ -1,4 +1,4 @@
---# -path=.:./engine:/home/drbean/GF/lib/src/translator:alltenses
+--# -path=.:./engine::alltenses
 
 concrete TriggerEng of Trigger = MyConcrete, MorphoEng [ mkPron ]  **
 open ConstructorsEng, ParadigmsEng, StructuralEng, IrregEng, ExtendEng, ConstructX, Prelude, (R=ResEng) in {
