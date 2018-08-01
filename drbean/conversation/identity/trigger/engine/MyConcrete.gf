@@ -532,7 +532,6 @@ lin
 	NegComplVV v vp = ComplVV v {s=[]; a=Simul} {s =[]; p= CNeg False } vp;
 	V_that_S posit event	= mkVP posit event;
 	V_S posit event	= ComplBareVS posit event;
-	V_SC posit event	= ComplBareVS posit event;
 	V_NP_that_S posit patient event	= mkVP posit patient event;
 	V_NP_S posit patient event = (ComplSlash (myThatlessSlashV2S posit event) patient);
 	V_Q	v topic= mkVP v topic;

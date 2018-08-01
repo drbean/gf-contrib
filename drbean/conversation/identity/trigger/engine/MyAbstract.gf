@@ -93,7 +93,6 @@ fun
 	NegComplVV:	VV -> VP -> VP;
 	V_that_S:	VS -> S -> VP;
 	V_S:	VS -> S -> VP;
-	V_SC:	VS -> SC -> VP;
 	V_NP_that_S:	V2S -> NP -> S -> VP;
 	V_NP_S:	V2S -> NP -> S -> VP;
 	V_Q	: VQ -> QS -> VP;
