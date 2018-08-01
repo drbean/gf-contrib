@@ -1,4 +1,4 @@
---# -path=.:./engine:/home/drbean/GF/lib/src/translator:present
+--# -path=.:./engine:present
 
 concrete CommunicationEng of Communication = MyConcrete  **
 open ConstructorsEng, ParadigmsEng, StructuralEng, IrregEng, ExtraEng, ConstructX, Prelude, (R=ResEng) in {
