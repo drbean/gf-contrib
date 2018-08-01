@@ -60,6 +60,7 @@ oper
 
 	no_Quant	= no_Quant;
 	some_Quant	= P.mkQuant "some" "some" "some" "some";
+	myAny_Quant	= P.mkQuant "any" "any" "any" "any";
 	every_Quant	= P.mkQuant "every" nonExist;
 	zero_mass_Quant = P.mkQuant "" nonExist;
 	more_Quant	= P.mkQuant "more" "more" "more" "more";
@@ -699,7 +700,7 @@ lin
 	zero_Det_sg	= mkDet zero_mass_Quant singularNum;
 	the_MASS_DET	= theSg_Det;
 	some_MASS_DET = mkDet some_Quant singularNum;
-	any_MASS_DET = mkDet any_Quant singularNum;
+	any_MASS_DET = mkDet myAny_Quant singularNum;
 	more_MASS_DET	= mkDet more_Quant singularNum;
 	more_NP = mkNP( mkDet more_Quant);
 	the_SG_DET	= theSg_Det;
