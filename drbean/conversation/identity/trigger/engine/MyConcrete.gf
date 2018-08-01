@@ -112,12 +112,12 @@ oper
 
 		myV_NP_NegVP	: V2V -> NP -> VP -> VP =
 			\v,np,vp -> UseV v **
-				{s2 = \\agr => np.s ! NPAcc ++ infVP VVInf vp Simul (CNeg True) agr}
+				{s2 = \\agr => np.s ! NPAcc ++ infVP VVInf vp False Simul (CNeg True) agr}
 			 ;
 
     mySlashNegVV : VV -> VPSlash -> VPSlash =
 			\vv,vp -> 
-      insertObj (\\a => infVP vv.typ vp Simul (CNeg False) a) (predVV vv) **
+      insertObj (\\a => infVP vv.typ vp False Simul (CNeg False) a) (predVV vv) **
         {c2 = vp.c2 ; gapInMiddle = vp.gapInMiddle} ;
 
 	mkpronAgr : Agr -> NP = \ag -> case ag of {
@@ -220,7 +220,7 @@ oper
 
 	myFreeInfCl :  (vp : VP) -> {s : ResEng.Tense => Anteriority => CPolarity => Order => Str; c : NPCase } =
 		\vp -> let cl = 
-    infVP VVAux vp Simul CPos (agrP3 Sg) ; --- agr
+    infVP VVAux vp False Simul CPos (agrP3 Sg) ; --- agr
 	in {
 		s = \\t,a,p,_ => cl ;
 		c = npNom
@@ -300,7 +300,7 @@ oper
 		};
 
 	myInfinitiveNP : (vp : VP) -> { s : NPCase => Str ; a : Agr} =
-	\vp -> let nom = infVP VVInf vp  Simul CPos (AgP3Sg Neutr) ;
+	\vp -> let nom = infVP VVInf vp False Simul CPos (AgP3Sg Neutr) ;
 					gen = glue nom "'s";
 					agreement = AgP3Sg Neutr in {
 				s = table {
@@ -565,7 +565,7 @@ lin
 	EmptyRel slash = EmptyRelSlash slash;
 	MkRS t a p rcl	= mkRS t a p rcl;
 	EmptyRelVPSlash a p vpslash = {
-		s = \\ag => infVP VVInf vpslash a.a p.p ag ;
+		s = \\ag => infVP VVInf vpslash False a.a p.p ag ;
 		c = NPAcc
 	};
 	DetRCltoNP det rcl	= myDetRCltoNP det rcl;
