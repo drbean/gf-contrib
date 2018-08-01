@@ -118,7 +118,7 @@ oper
     mySlashNegVV : VV -> VPSlash -> VPSlash =
 			\vv,vp -> 
       insertObj (\\a => infVP vv.typ vp False Simul (CNeg False) a) (predVV vv) **
-        {c2 = vp.c2 ; gapInMiddle = vp.gapInMiddle} ;
+        {c2 = vp.c2 ; gapInMiddle = vp.gapInMiddle ; missingAdv = False} ;
 
 	mkpronAgr : Agr -> NP = \ag -> case ag of {
 		AgP1 Sg => i_NP;
