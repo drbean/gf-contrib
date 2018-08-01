@@ -208,13 +208,13 @@ oper
 	myInfICl : (iadv : IAdv) -> (vp : VP) -> {s : ResEng.Tense => Anteriority => CPolarity => QForm => Str } =
 		\iadv,vp -> let qcl = mkSC vp in
 	{
-		s = \\t,a,p,_ => iadv.s ++ qcl.s
+		s = \\t,a,p,_ => iadv.s ++ qcl.s ! (AgP3Sg Neutr)
 		};
 
 	myFreeInfICl : (iadv : IAdv) -> (vp : VP) -> {s : ResEng.Tense => Anteriority => CPolarity => Order => Str; c : NPCase } =
 		\iadv,vp -> let qcl = mkSC vp in
 	{
-		s = \\t,a,p,_ => iadv.s ++ qcl.s;
+		s = \\t,a,p,_ => iadv.s ++ qcl.s ! (AgP3Sg Neutr);
 		c = npNom
 		};
 
