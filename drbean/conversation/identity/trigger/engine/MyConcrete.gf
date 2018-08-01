@@ -420,7 +420,7 @@ oper
 	myCAdvCNNP : (cadv : CAdv) -> ( cn : CN ) -> ( np : NP ) -> { s : Number => Case => Str ; g : Gender } =
 	\cadv,cn,np ->
 		{
-		s = \\n,c => cadv.s ++ cn.s ! n ! c ++ cadv.p ++ np.s ! npNom;
+		s = \\n,c => cadv.s ! Pos ++ cn.s ! n ! c ++ cadv.p ++ np.s ! npNom;
 		g = cn.g};
 
 	myVPPlus : (vp : VP) -> (str : Str) -> {
