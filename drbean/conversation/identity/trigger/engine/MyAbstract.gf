@@ -90,7 +90,7 @@ fun
 	V_NP_VP:	V2V -> NP -> VP -> VP;
 	V_NP_NegVP	: V2V -> NP -> VP -> VP;
 	Intens:	VV -> VP -> VP;
-	NegComplVV:	VV -> VP -> VP;
+	V_NegVP:	VV -> VP -> VP;
 	V_that_S:	VS -> S -> VP;
 	V_S:	VS -> S -> VP;
 	V_NP_that_S:	V2S -> NP -> S -> VP;

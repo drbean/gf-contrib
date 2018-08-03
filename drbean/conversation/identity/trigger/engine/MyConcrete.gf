@@ -111,6 +111,9 @@ oper
 		lock_VV = {}
 		};
 
+		myComplVV : VV -> { s : Str; a : Anteriority } -> { s : Str; p : CPolarity } -> VP -> VP = \v,a,p,vp ->
+			insertObj (\\agr => a.s ++ p.s ++ infVP v.typ vp False a.a p.p agr) (predVV v);
+
 		myV_NP_NegVP	: V2V -> NP -> VP -> VP =
 			\v,np,vp -> UseV v **
 				{s2 = \\agr => np.s ! NPAcc ++ infVP VVInf vp False Simul (CNeg True) agr}
@@ -530,7 +533,7 @@ lin
 	V_NP_VP causal patient predicate	= mkVP causal patient predicate;
 	V_NP_NegVP v np vp	= myV_NP_NegVP v np vp;
 	Intens attitude predicate	= mkVP attitude predicate;
-	NegComplVV v vp = ComplVV v {s=[]; a=Simul} {s =[]; p= CNeg False } vp;
+	V_NegVP v vp = myComplVV v {s=[]; a=Simul} {s =[]; p= CNeg False } vp;
 	V_that_S posit event	= mkVP posit event;
 	V_S posit event	= ComplBareVS posit event;
 	V_NP_that_S posit patient event	= mkVP posit patient event;
