@@ -102,7 +102,7 @@ bigN xs = not . smallN $ xs
 
 -- used by both Transfer, Tests
 
-parses :: PGF -> String -> [Tree]
+parses :: PGF -> String -> [ParseOutput]
 parses gr s = concat ( parseAll gr (startCat gr) s )
 
 transform :: Tree -> Maybe Tree
