@@ -10,13 +10,13 @@ import System.Environment.FindBin
 -- gr = file >>= \f -> return ( readPGF f )
 gr = readPGF "/home/drbean/GF/gf-contrib/drbean/conversation/identity/trigger/Trigger.pgf"
 
-cat2funs :: String -> IO [CId]
+cat2funs :: String -> IO [String]
 cat2funs cat = do
 	gr' <- gr
-	let fs = functionsByCat gr' (mkCId cat)
-	let ws = filter (isLower . head . showCId) fs
-	let is = map (reverse . dropWhile (\x ->  (==) x '_' || isUpper x || isNumber x) . reverse .showCId ) ws
-	return (map mkCId is )
+	let fs = functionsByCat gr' (show cat)
+	let ws = filter (isLower . head . show) fs
+	let is = map (reverse . dropWhile (\x ->  (==) x '_' || isUpper x || isNumber x) . reverse .show ) ws
+	return is 
 
 gfWords :: [(String, IO [CId])]
 gfWords = [
