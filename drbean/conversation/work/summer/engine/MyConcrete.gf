@@ -1,4 +1,4 @@
-concrete MyConcrete of MyAbstract = CatEng, ConjunctionEng ** open ResEng, Prelude, SyntaxEng, (P = ParadigmsEng), VerbEng, AdverbEng, ExtraEng, IrregEng, ExtendEng in {
+concrete MyConcrete of MyAbstract = CatEng, ConjunctionEng ** open ResEng, Prelude, SyntaxEng, (P = ParadigmsEng), VerbEng, AdverbEng, IrregEng, ExtendEng in {
 
 lincat
 	NounCl = {s : ResEng.Tense => Anteriority => CPolarity => Order => Str; c : NPCase };
@@ -773,7 +773,17 @@ lin
 	which_PL_IDET = { s = "which"; n = Pl };
 	how_WH	= how_IAdv;
   why_WH	= why_IAdv;
-	that_RP	= ExtraEng.that_RP;
+  that_RP =
+     { s = table {
+        RC _ (NCase Gen) | RC _ NPNomPoss => "whose" ;
+        RC Neutr _  => "that" ;
+        RC _ NPAcc    => "that" ;
+        RC _ (NCase Nom)    => "that" ;
+        RPrep Neutr => "which" ;
+        RPrep _     => "who"
+        } ;
+      a = RNoAg
+      } ;
 	who_RP	= mymkRP "who" "which" "whose";
 	-- in_which	=mkRP in_prep which_RP;
 	where_RP	= mymkRP "where" "where" "where";
