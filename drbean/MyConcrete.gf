@@ -60,6 +60,7 @@ oper
 
 	no_Quant	= no_Quant;
 	some_Quant	= P.mkQuant "some" "some" "some" "some";
+	myAny_Quant	= P.mkQuant "any" "any" "any" "any";
 	every_Quant	= P.mkQuant "every" nonExist;
 	zero_mass_Quant = P.mkQuant "" nonExist;
 	more_Quant	= P.mkQuant "more" "more" "more" "more";
@@ -110,15 +111,18 @@ oper
 		lock_VV = {}
 		};
 
+		myComplVV : VV -> { s : Str; a : Anteriority } -> { s : Str; p : CPolarity } -> VP -> VP = \v,a,p,vp ->
+			insertObj (\\agr => a.s ++ p.s ++ infVP v.typ vp False a.a p.p agr) (predVV v);
+
 		myV_NP_NegVP	: V2V -> NP -> VP -> VP =
 			\v,np,vp -> UseV v **
-				{s2 = \\agr => np.s ! NPAcc ++ infVP VVInf vp Simul (CNeg True) agr}
+				{s2 = \\agr => np.s ! NPAcc ++ infVP VVInf vp False Simul (CNeg True) agr}
 			 ;
 
     mySlashNegVV : VV -> VPSlash -> VPSlash =
 			\vv,vp -> 
-      insertObj (\\a => infVP vv.typ vp Simul (CNeg False) a) (predVV vv) **
-        {c2 = vp.c2 ; gapInMiddle = vp.gapInMiddle} ;
+      insertObj (\\a => infVP vv.typ vp False Simul (CNeg False) a) (predVV vv) **
+        {c2 = vp.c2 ; gapInMiddle = vp.gapInMiddle ; missingAdv = False} ;
 
 	mkpronAgr : Agr -> NP = \ag -> case ag of {
 		AgP1 Sg => i_NP;
@@ -208,19 +212,19 @@ oper
 	myInfICl : (iadv : IAdv) -> (vp : VP) -> {s : ResEng.Tense => Anteriority => CPolarity => QForm => Str } =
 		\iadv,vp -> let qcl = mkSC vp in
 	{
-		s = \\t,a,p,_ => iadv.s ++ qcl.s
+		s = \\t,a,p,_ => iadv.s ++ qcl.s ! (AgP3Sg Neutr)
 		};
 
 	myFreeInfICl : (iadv : IAdv) -> (vp : VP) -> {s : ResEng.Tense => Anteriority => CPolarity => Order => Str; c : NPCase } =
 		\iadv,vp -> let qcl = mkSC vp in
 	{
-		s = \\t,a,p,_ => iadv.s ++ qcl.s;
+		s = \\t,a,p,_ => iadv.s ++ qcl.s ! (AgP3Sg Neutr);
 		c = npNom
 		};
 
 	myFreeInfCl :  (vp : VP) -> {s : ResEng.Tense => Anteriority => CPolarity => Order => Str; c : NPCase } =
 		\vp -> let cl = 
-    infVP VVAux vp Simul CPos (agrP3 Sg) ; --- agr
+    infVP VVAux vp False Simul CPos (agrP3 Sg) ; --- agr
 	in {
 		s = \\t,a,p,_ => cl ;
 		c = npNom
@@ -300,7 +304,7 @@ oper
 		};
 
 	myInfinitiveNP : (vp : VP) -> { s : NPCase => Str ; a : Agr} =
-	\vp -> let nom = infVP VVInf vp  Simul CPos (AgP3Sg Neutr) ;
+	\vp -> let nom = infVP VVInf vp False Simul CPos (AgP3Sg Neutr) ;
 					gen = glue nom "'s";
 					agreement = AgP3Sg Neutr in {
 				s = table {
@@ -380,6 +384,15 @@ oper
       isPre = False
       } ;
 
+  myAdvCN : (cn : N) -> (adv : Adv) -> { s : Number => Case => Str ; g : Gender } =
+    \cn,adv -> 
+    {
+      s = \\n,c => case c of {
+        Nom => cn.s ! n ! Nom ++ adv.s;
+        Gen => cn.s ! n ! Nom ++ (glue adv.s "'s") };
+      g = cn.g;
+    };
+
 	mymkN_Adv : (noun : N) -> (adv : Adv) -> { s : Number => Case => Str ; g : Gender } =
 		\noun,adv ->
 		{
@@ -411,7 +424,7 @@ oper
 	myCAdvCNNP : (cadv : CAdv) -> ( cn : CN ) -> ( np : NP ) -> { s : Number => Case => Str ; g : Gender } =
 	\cadv,cn,np ->
 		{
-		s = \\n,c => cadv.s ++ cn.s ! n ! c ++ cadv.p ++ np.s ! npNom;
+		s = \\n,c => cadv.s ! Pos ++ cn.s ! n ! c ++ cadv.p ++ np.s ! npNom;
 		g = cn.g};
 
 	myVPPlus : (vp : VP) -> (str : Str) -> {
@@ -520,10 +533,9 @@ lin
 	V_NP_VP causal patient predicate	= mkVP causal patient predicate;
 	V_NP_NegVP v np vp	= myV_NP_NegVP v np vp;
 	Intens attitude predicate	= mkVP attitude predicate;
-	NegComplVV v vp = ComplVV v {s=[]; a=Simul} {s =[]; p= CNeg False } vp;
+	V_NegVP v vp = myComplVV v {s=[]; a=Simul} {s =[]; p= CNeg False } vp;
 	V_that_S posit event	= mkVP posit event;
 	V_S posit event	= ComplBareVS posit event;
-	V_SC posit event	= ComplBareVS posit event;
 	V_NP_that_S posit patient event	= mkVP posit patient event;
 	V_NP_S posit patient event = (ComplSlash (myThatlessSlashV2S posit event) patient);
 	V_Q	v topic= mkVP v topic;
@@ -556,7 +568,7 @@ lin
 	EmptyRel slash = EmptyRelSlash slash;
 	MkRS t a p rcl	= mkRS t a p rcl;
 	EmptyRelVPSlash a p vpslash = {
-		s = \\ag => infVP VVInf vpslash a.a p.p ag ;
+		s = \\ag => infVP VVInf vpslash False a.a p.p ag ;
 		c = NPAcc
 	};
 	DetRCltoNP det rcl	= myDetRCltoNP det rcl;
@@ -654,18 +666,18 @@ lin
 	Kind ap cn	= mkCN ap cn;
 	MassKind ap n = mymkAP_N ap n;
 	Something ap = mySomething ap;
-	KindOfKind cn adv	= mkCN cn adv;
+	KindOfKind cn adv	= myAdvCN cn adv;
 	MassKindOfKind n adv	= mymkN_Adv n adv;
-  KindInTime cn adv	= mkCN cn adv;
+	KindInTime cn adv	= myAdvCN cn adv;
 	KindOfTime adj cn	= mkCN adj cn;
-	TimeInTime cn adv = mkCN cn adv;
+	TimeInTime cn adv = myAdvCN cn adv;
 	TimeAsAdv det cn = mkAdv P.noPrep (mkNP det cn);
 	TimeAsAdvWithPredet predet det cn = mkAdv P.noPrep (mkNP predet (mkNP det cn) );
-	KindInPlace cn adv	= mkCN cn adv;
+	KindInPlace cn adv	= myAdvCN cn adv;
 	NPInPlace np adv = mkNP np adv;
 	PlaceKind ap n = mkCN ap n;
 	PlaceOfNP n2 np = mkCN n2 np;
-	KindToExtent cn adv	= mkCN cn adv;
+	KindToExtent cn adv	= myAdvCN cn adv;
 	Membership det cn place = mkCl( Item det (KindInPlace cn place));
 	CompoundCN cn1 cn2 = CompoundCN cn1 cn2;
 	CompoundNCN n cn = CompoundCN n cn;
@@ -691,7 +703,7 @@ lin
 	zero_Det_sg	= mkDet zero_mass_Quant singularNum;
 	the_MASS_DET	= theSg_Det;
 	some_MASS_DET = mkDet some_Quant singularNum;
-	any_MASS_DET = mkDet any_Quant singularNum;
+	any_MASS_DET = mkDet myAny_Quant singularNum;
 	more_MASS_DET	= mkDet more_Quant singularNum;
 	more_NP = mkNP( mkDet more_Quant);
 	the_SG_DET	= theSg_Det;
