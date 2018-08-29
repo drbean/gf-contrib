@@ -280,7 +280,7 @@ oper
 
 
 	myDetVPtoNP : (det : Det) -> (vp : VP) -> { s : NPCase => Str ; a : Agr} = 
-		\det,vp -> let nom = det.s ++ (PartVP vp).s ! AgP3Pl Masc ;
+		\det,vp -> let nom = det.s ++ (EmbedPresPart vp).s ! AgP3Pl Masc ;
 								gen = glue nom "'s";
 								agreement = toAgr det.n P3 Masc in {
 			s = table {
@@ -292,7 +292,7 @@ oper
 		};
 
 	myNPVPtoNP : (np : NP) -> (vp : VP) -> { s : NPCase => Str ; a : Agr} = 
-		\np,vp -> let nom = np.s ! NCase Nom ++ (PartVP vp).s ! AgP3Pl Masc ;
+		\np,vp -> let nom = np.s ! NCase Nom ++ (EmbedPresPart vp).s ! AgP3Pl Masc ;
 								gen = glue nom "'s";
 								agreement = toAgr Sg P3 Neutr in {
 			s = table {
