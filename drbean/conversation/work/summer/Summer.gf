@@ -32,6 +32,7 @@ fun
 
 -- Det
 
+	eleven	: Det;
 	two	: Det;
 	one	: Det;
 	a_lot_of	: Predet;
