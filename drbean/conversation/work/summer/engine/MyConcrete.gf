@@ -679,8 +679,8 @@ lin
 	PlaceOfNP n2 np = mkCN n2 np;
 	KindToExtent cn adv	= myAdvCN cn adv;
 	Membership det cn place = mkCl( Item det (KindInPlace cn place));
-	CompoundCN cn1 cn2 = CompoundCN cn1 cn2;
-	CompoundNCN n cn = CompoundCN n cn;
+	CompoundCN cn1 cn2 = CompoundN cn1 cn2;
+	CompoundNCN n cn = CompoundN n cn;
 	ApposCN cn np = {s = \\n,c => cn.s ! n ! Nom ++ np.s ! NCase c ; g = cn.g};
 	CompoundNP np1 np2 = myApposNP np1 "" np2;
 	PN_CN pn cn	= { s = \\n,c => pn.s ! Nom ++ cn.s ! n ! c;
