@@ -221,7 +221,7 @@ thing
 think	: VS;
 this
 those
-to
+to_RECIPIENTPREP	: RecipientPrep;
 take	: V2;
 Tracy	: PN;
 try	: VV;

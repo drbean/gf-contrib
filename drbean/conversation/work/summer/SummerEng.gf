@@ -84,6 +84,7 @@ lin
 
 -- Prep
 
+	to_RECIPIENTPREP	= mkPrep "to";
 	with_COAGENTPREP	= mkPrep "with";
 	around_LOCPREP	= mkPrep "around";
 	until_TIMEPREP	= mkPrep "until";
@@ -117,7 +118,7 @@ lin
 	try	= mkVV( mkV "try") ;
 	take	= mkV2 IrregEng.take_V noPrep;
 	think	= mkVS( mkV "think") ;
-	show_to	= mkV3( mkV "show") noPrep toPrep;
+	show_to	= mkV3( mkV "show") noPrep to_RECIPIENTPREP;
 	show	= mkV3( mkV "show") noPrep noPrep;
 	sell	= mkV3( mkV "sell") noPrep noPrep;
 	run	= mkV2( mkV "run") into_STIMULUSPREP;
