@@ -34,11 +34,11 @@ lin
 
 -- Det
 
-	two	= mkDet( mkCard (mkNumeral ntwo_Unit));
-	one	= mkDet( mkCard (mkNumeral none_Unit));
+	two	= mkDet( mkCard (mkNumeral n2_Unit));
+	one	= mkDet( mkCard (mkNumeral n1_Unit));
 	a_lot_of	= ss "a lot of";
 	eleven	= mkDet( mkCard (mkNumeral neleven_Unit));
-	eight	= mkDet( mkCard (mkNumeral neight_Unit));
+	eight	= mkDet( mkCard (mkNumeral n8_Unit));
 
 -- N
 
