@@ -67,7 +67,7 @@ fun
 	chef	: CN;
 	cartoon_character	: CN;
 	call_CN	: CN;
-	amusement_park	: CN;
+	amusement_park	: PlaceNoun;
 	afternoon	: CN;
 	adult	: CN;
 	activity	: CN;
