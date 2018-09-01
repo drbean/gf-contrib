@@ -130,7 +130,7 @@ afternoon	: CN;
 again	: Adv_time;
 also	: AdV;
 a lot of	: Predet;
-amusement park	: CN;
+amusement park	: PlaceNoun;
 answer	: V2;
 around_LOCPREP	: LocPrep;
 as_ATTRIBUTEPREP	: AttributePrep;
